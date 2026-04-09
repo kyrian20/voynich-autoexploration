@@ -1668,3 +1668,43 @@
 **Expected outcome:** If universal: the same three-position line grammar should appear in all sections regardless of dialect assignment. This would be the strongest possible evidence for Voynichese as a rule-governed linguistic system.
 **Cost estimate:** medium
 **Prerequisites:** F095-F098 (exp_088-091)
+
+---
+
+## H161: The A Line-Initial y+ch System and the A Line-Initial d+ch System Have Different Preceding/Following Contexts
+**Priority:** medium
+**Status:** TESTED (exp_092) — CONFIRMED WITH EXTENSION: Both have 0% para-start rate (WITHIN-PARA line openers only, not para starters). y+ch→o-onset following (24.3%, 8.15× over d+ch); d+ch→qo-onset following (16.4%, 6.07× over y+ch). d+ch follows d-ending lines (35.7%); y+ch follows o-ending lines (23.0%). 10 shared ch-stems → prefix marks position, not lexicon. 17/87 paras have both forms (not complementary). d-chain identified: d-closer→d+ch opener.
+
+---
+
+## H162: sh-Stem Positional Paradigm in A
+**Priority:** high
+**Status:** TESTED (exp_092) — STRONGLY SUPPORTED: sh-stems show same 3-tier paradigm: bare sh(13.2%) << d+sh(68.8%, 5.21×) ≤ y+sh(85.7%, 6.49×). Nearly identical to ch-stem ratios (6.17×/8.86×). Universal in A: applies to both ch- and sh-stems. d+sh n=48, y+sh n=21.
+
+---
+
+## H163: A Para-Starts Are Dominated by p/t/k-Onset Words (NEW FINDING)
+**Priority:** high
+**Status:** TESTED (exp_092) — NEW FINDING CONFIRMED: A para-starts dominated by p-onset (12.41× enrichment, 28.8% of PS lines), k-onset (4.32×), t-onset (2.72×). y+ch and d+ch = 0.0% at para-starts (suppressed). Revised A grammar: Para-starter (p/k/t) > Line-opener (y+ch/d+ch/y+sh/d+sh) > Mid-line (bare ch/sh) > Line-closer (d+suffix).
+
+---
+
+## H164: A Para-Start p-Onset Words Are a Specific Closed Class — Identify Them and Their PSFirst Enrichment
+**Priority:** high
+**Status:** open
+**Source:** F099 (exp_092): p-onset words dominate A para-starts at 12.41× enrichment (28.8% of PS openers). This is the STRONGEST para-start signal found in A (stronger than she-prefix at 4.74×). Need to identify which specific p-onset words are the para-starters.
+**Description:** (1) List all p-onset words in A by frequency. (2) Compute PSFirst%, LFirst%, LLast% for each p-onset word with n≥3. (3) Are para-start p-onset words a specific closed class (like she-prefix, olfchedy)? (4) Are they concentrated in specific sections (astro, herbal, pharma)? (5) What FOLLOWS the p-onset para-starters at pos1?
+**Expected outcome:** A small number of specific p-onset words (like "pchedy", "pchor", "pcho") will have very high PSFirst% (>50%) — they are the A paragraph markers analogous to B's olfchedy/olkey/opchedy (61.5% precision). This would complete the A para-start grammar.
+**Cost estimate:** small
+**Prerequisites:** F099 (exp_092)
+
+---
+
+## H165: d-Chain Pattern in A — d-Closer → d+ch Opener Sequence Is Systematically Above Chance
+**Priority:** medium
+**Status:** open
+**Source:** F099 (exp_092): When a line ends with a d-onset word (d-closer), the NEXT line opens with d+ch at 35.7% vs y+ch at 16.2% (ratio 2.20×). This suggests a d-chain continuity pattern: d-onset LINE-CLOSER triggers a d-onset LINE-OPENER on the following line. Test if this is statistically significant and if it creates multi-line d-chain runs.
+**Description:** (1) Measure: P(d+ch opener | prev d-closer) vs P(d+ch opener | prev non-d-closer). (2) Is the 35.7% rate significantly above expected? (3) Do d-chains (d-closer → d+ch → d-closer → d+ch → ...) extend for 3+ lines? (4) Is there a complementary o-chain (o-ending → y+ch opener → o-ending)?
+**Expected outcome:** d-chains appear at significantly above chance. This would establish a INTER-LINE CONTINUITY GRAMMAR: d-onset words create runs across consecutive lines.
+**Cost estimate:** small
+**Prerequisites:** F099 (exp_092)
