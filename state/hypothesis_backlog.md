@@ -1199,3 +1199,36 @@
 **Expected outcome:** If registers differ in sh-vocabulary: aiin-dom uses more she- forms and has stronger sh→qo; y-dom uses more short sh- forms. If vocabulary is consistent: the register split is driven by something other than sh-word morphology.
 **Cost estimate:** small
 **Prerequisites:** exp_077 (done)
+
+---
+
+## H117: The she-/sh- Distinction Corresponds to a Broader e-Vowel Infix Pattern in Voynichese (she-, che-, qoe-, oe-, de-)
+**Priority:** high
+**Status:** tested — STRONGLY SUPPORTED (exp_079: e-infix predicts higher qo-following in ALL onset classes in BOTH dialects. A: she-=2.41×, che-=0.93×, ke-=1.03×, oe-=1.02×, qoe-=1.62× (all > non-e forms). B: she-=2.19×, che-=1.36×, ke-=1.40×, oe-=1.54×, qoe-=1.60×. F086 added.)
+**Source:** F085 (exp_078): she- prefix (she+stem) predicts higher qo-following rate vs sh+stem. This could be an instance of a general e-vowel infix in Voynichese: the difference between sh-forms and she-forms may reflect a broader morphological pattern where an internal 'e' vowel changes the sequential grammar of a word. Does the same pattern apply to other onsets? ch- vs che-? d- vs de-?
+**Description:** For each major onset class (sh/sh-, ch/che-, d/de-, o/oe-, qo/qoe-), compare: (1) rate of qo-following for e-infixed vs non-e-infixed forms; (2) rate of ch-following; (3) frequency distribution by section. Does an e-vowel after the onset consistently shift the sequential behavior?
+**Expected outcome:** If generalizes: she-, che-, de-, oe- forms all show different sequential behavior from sh-, ch-, d-, o- forms. If onset-specific: only she- shows the effect.
+**Cost estimate:** small
+**Prerequisites:** exp_078 (done)
+
+---
+
+## H118: The B o-Onset Line-Closers (oly, otam, okam) Have Currier A Equivalents (dal, daiin, or similar)
+**Priority:** medium
+**Status:** tested — SUPPORTED (exp_079: A has only 2 line-closers (sy: 90%, dam: 62.5%); B has 14. dam cross-dialect. B -am suffix forms a line-boundary class (6/14 words). F086 added.)
+**Source:** F085 (exp_078): B has a class of o-onset line-closing words (oly, otam, okam, oldy: 65-85% line-final, preceded by o/ch). Does Currier A have equivalent line-closing words — specific words that are highly enriched at line-final positions and preceded by specific onset classes?
+**Description:** For Currier A: identify words with ≥60% line-final rate and at least 10 occurrences. Compare their properties to B's oly/otam/okam. What onset class do A line-closers belong to? Are they d-onset (daiin is 1.41× line-final) or ch-onset, or another class?
+**Expected outcome:** If A equivalents: A has a set of words analogous to B's o-onset line-closers, probably d-onset or ch-onset based on the general A line-final patterns. If no equivalents: A's line-final grammar is more diverse and doesn't concentrate in specific words.
+**Cost estimate:** small
+**Prerequisites:** exp_078 (done)
+
+---
+
+## H119: The Pharma A Section-Level qo Enrichment Is Driven by Specific Pharma Content (Measurement or Dosage Vocabulary)
+**Priority:** medium
+**Status:** tested — SUPPORTED (exp_079: Pharma A sh→qo elevation is sh-specific (2.44×); qo→qo suppressed (0.78×). Pharma A qo-vocabulary (qokeol, qokeey) resembles B's (qokeedy, qokedy) more than Herbal A's (qotchy). F086 added.)
+**Source:** F085 (exp_078): In Pharma A, ALL sh-forms (including sh-other) precede qo at elevated rates (sh-other→qo=1.54× vs Herbal A 1.19×). This suggests a section-level grammar effect on top of morphological effect — the Pharma A grammatical context globally elevates qo-following. Does this reflect Pharma A having more qo-onset words generally, or a genuine sequential grammar change?
+**Description:** (1) Compute qo-rate in Pharma A vs Herbal A vs other sections. (2) What follows qo in Pharma A (vs Herbal A)? (3) Are specific qo-words enriched in Pharma A? (4) Does the Pharma A sequential grammar differ in other ways besides sh→qo and she-→qo (e.g., o→qo, ch→qo)?
+**Expected outcome:** If qo-enriched section: Pharma A has higher qo-rate which mechanically elevates all X→qo rates. If genuine grammar: qo-following rates are elevated even controlling for qo base-rate.
+**Cost estimate:** small
+**Prerequisites:** exp_078 (done)
