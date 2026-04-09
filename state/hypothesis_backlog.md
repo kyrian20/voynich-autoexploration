@@ -1545,7 +1545,7 @@
 
 ## H148: daiin in Currier B Is a LINE-OPENER (34.0% LFirst, 9.5% LLast) — Completely Different Grammatical Role Than A (Where daiin Is a Line-Closer)
 **Priority:** high
-**Status:** open
+**Status:** TESTED (exp_087) — STRONGLY SUPPORTED: daiin-B pos0=33.2%, avg_position=0.387. daiin[0] in B followed by ch=37.9%/sh=35.6% (73.5% combined). Concentrated in Stars/Cosmo sections (70%). daiin-A: pos-last=25.2%, avg_position=0.558. Cross-dialect reversal confirmed.
 **Source:** F093 (exp_086): In Currier B, daiin has LFirst%=34.0%, LLast%=9.5% — it functions as a LINE-OPENER, not a line-closer. In Currier A, daiin has LFirst%=19.4%, LLast%=25.9% — a line-closer/para-boundary marker. This is a fundamental cross-dialect reversal in daiin's grammatical role.
 **Description:** (1) Verify the daiin-B line-opener finding: what words FOLLOW daiin on the same line in B? (2) What words PRECEDE daiin on the same line in B? (3) Is daiin predominantly the FIRST WORD of B lines (34% LFirst), or does it appear both first and mid-line? (4) Is the daiin-B line-opener consistent across all B sections, or concentrated in one section? (5) Can daiin's B role be described as a "line-initial discourse particle" (like how daiin marks line-endings in A)?
 **Expected outcome:** If daiin is a B line-opener: most B daiin tokens should appear at line position 0 or 1 (first or second word), with specific following words. This would be a major grammatical discovery — the same word encoding opposite boundaries in two dialects.
@@ -1556,7 +1556,7 @@
 
 ## H149: The -am Function Words (otam, qokam, dam, okam) and the ol-Line-Closers (oly, oldy) Are Grammatical Synonyms — They Occupy the Same Syntactic Slot
 **Priority:** medium
-**Status:** open
+**Status:** TESTED (exp_087) — STRONGLY SUPPORTED: PERFECT complementary distribution — zero co-occurrence on same line (0/94, 0/42). Both uniformly distributed across para-positions. Section-level preference: -am dominates herbal B (7.2%)/stars B (4.5%); oly/oldy dominates cosmo B (3.8%).
 **Source:** F093 (exp_086): Both -am core words and oly/oldy have LLast%=50-100%, WithinPara%=90-100%, PSFirst%=0%, PFLast%≈0%. They appear to be functionally synonymous. Do they occupy the same syntactic slot — i.e., are they in complementary distribution with each other ON THE SAME LINE?
 **Description:** (1) On B lines that end with -am words: what other line-closing words appear? Do -am endings and oly/oldy endings alternate on different lines? (2) Are -am word endings and oly/oldy endings enriched in the same folio regions or different regions? (3) Do -am words and oly/oldy words share preceding contexts (same onset classes precede them)? (4) What is the overlap in preceding-word distributions?
 **Expected outcome:** If synonymous slots: -am words and oly/oldy should be in near-perfect complementary distribution — any given line ends with EITHER an -am word OR oly/oldy, not both. If parallel: they might appear in different folio regions (section preference) while serving the same syntactic role.
@@ -1567,9 +1567,42 @@
 
 ## H150: The s-Onset and y-Onset (True Line-Openers by LFirst%) Have Complementary Grammatical Functions — s Marks One Line-Type, y Another
 **Priority:** medium
-**Status:** open
+**Status:** TESTED (exp_087) — PARTIALLY SUPPORTED: s-words → sh/ch following; y-words → qo/aiin following (distinct patterns). y-words are compound prefix forms (y+ch/k/sh/t+suffix). Top B s-opener: saiin(47). Top B y-opener: ycheey(9). Distinction confirmed but not fully characterized.
 **Source:** F093 (exp_086): s-onset has LFirst%=45.9% (A) / 61.3% (B); y-onset has LFirst%=40.7% (A) / 44.4% (B). Both are strongly line-initial. But they have different LLast% and onset distributions. Are they grammatically distinct (s=topic opener, y=continuation/list) or synonymous?
 **Description:** (1) Compare s-onset and y-onset positional profiles more finely: what words FOLLOW s-onset line-openers vs y-onset line-openers? (2) Do s-onset line-openers appear in different folio sections or paragraph positions than y-onset? (3) Are s-words and y-words in complementary distribution as LINE-OPENERS (one preferred over the other by section/position)? (4) What are the most common s-onset and y-onset line-first words?
 **Expected outcome:** If complementary: s-onset and y-onset mark different line-types (e.g., s=standalone statement, y=continuation). If synonymous: they are interchangeable line-openers with no structural difference.
 **Cost estimate:** small
 **Prerequisites:** F093 (exp_086)
+
+---
+
+## H151: daiin-B as Line-Initial Connector Functions as a "Topic Continuation" Marker — The Preceding Line Always Ends With ch/sh-Onset Words
+**Priority:** high
+**Status:** open
+**Source:** F094 (exp_087): daiin-B at position 0 is followed by sh/ch-onset 73.5% of the time. Preceding daiin (within same line, mid-position): also ch-onset (chedy=10). Does the PRECEDING LINE (before daiin-opening line) end with ch/sh-onset words? If so, daiin is a CROSS-LINE CONNECTOR bridging two sh/ch-onset content sequences.
+**Description:** (1) For each B line opening with daiin: what is the last word of the PRECEDING line? (2) Is the preceding line's last word predominantly ch- or sh-onset? (3) Does daiin-B line-opening predict that the NEXT line also opens with a ch/sh word? (4) What is the paragraph-position distribution of daiin-B openings? Do they appear at specific paragraph positions?
+**Expected outcome:** If daiin-B is a cross-line connector: preceding lines should also end with ch/sh words at elevated rates. The pattern would be [ch/sh-ending line] → [daiin-B opener] → [ch/sh content], encoding a 3-line structural unit.
+**Cost estimate:** small
+**Prerequisites:** F094 (exp_087)
+
+---
+
+## H152: oly/oldy (Cosmo B) vs -am Words (Herbal B/Stars B) — Different Preceding-Word Distributions Reflect Content-Level vs Grammar-Level Line-Closing
+**Priority:** medium
+**Status:** open
+**Source:** F094 (exp_087): oly/oldy preferred in cosmo B (3.8% endings vs 2.0% for -am); -am preferred in herbal B (7.2% vs 0.7%). If these are functionally synonymous, why does section preference differ? Hypothesis: -am words are more "content-flexible" (can follow any onset class) while oly/oldy have specific preceding-word requirements that are more common in Cosmo.
+**Description:** (1) For -am-ending lines: what is the SECOND-TO-LAST word (word preceding -am)? (2) For oly/oldy-ending lines: same analysis. (3) Is there an onset-class or morphological difference between words preceding -am vs oly/oldy? (4) Do oly/oldy endings always follow specific word classes (e.g., only after ch-onset words in cosmo B)?
+**Expected outcome:** If content-driven: the words preceding oly/oldy should come from a restricted class specific to Cosmo vocabulary (e.g., only after specific plant/astrological terms). If grammar-driven: the difference is a section-level grammatical preference with no content explanation.
+**Cost estimate:** small
+**Prerequisites:** F094 (exp_087)
+
+---
+
+## H153: The y-Prefix System in B Is Parallel to the qo-Prefix System — y+[k/ch/sh/t] Are Line-Initial Compound Stems
+**Priority:** medium
+**Status:** open
+**Source:** F094 (exp_087): y-onset B line-first words are dominated by compound forms: ycheey, ykaiin, yshey, ychedy, yteey — all y+[onset]+suffix. y-prefix attaches to the same onset classes (k, ch, sh, t) as qo-prefix. Is y- a LINE-INITIAL morphological prefix parallel to qo-? The qo-prefix appears in body text positions; does y- appear specifically at line-initial positions?
+**Description:** (1) Compare onset-class distribution of y-prefix stems vs qo-prefix stems. (2) Are y-compound words EXCLUSIVELY line-initial (LFirst%>>50%)? (3) Do y-compound words appear in the same folio sections as qo-compound words (B dialect throughout)? (4) Are there y-prefix stems that appear WITHOUT being line-initial (mid-line y-words)? (5) Does y- encode a different grammatical meaning than qo- (which is a body-text form in F037)?
+**Expected outcome:** If y-prefix is a line-initial morpheme: y-compound words (ykaiin, ycheey, ychedy) should have LFirst% >>50% and appear only at line-starts. They would form a line-initial paradigm distinct from qo-prefix (which can appear mid-line).
+**Cost estimate:** small
+**Prerequisites:** F093/F094 (exp_086/087)
