@@ -68,3 +68,19 @@
 2026-04-09 | exp_054_y_prefix_paragraph | H061 NOT SUPPORTED (original form): y-initial words are ABSENT from para-starts (0/134), appearing only at continuation line starts (16.3%). y-initial IS a line-continuation particle. -dy words are 4.39× enriched at para-starts. -aiin marks para-ends (19.5% A, 10.5% B). Three-tier grammar: para-start→-dy/-y; continuation line→y-initial/-or; para-end→-aiin. F061 added.
 2026-04-09 | exp_055_bathing_pool_phrases | H059 NOT SUPPORTED: lag=13 signal is statistical (high-freq bio words repeating); cross-folio bigram sharing 2-8 (comparable to other bio pairs). H063 PARTIALLY SUPPORTED: y-initial by section: astro=23.2%, pharma=17.9%, bio=7.5% (lowest). Section variation reflects paragraph structure. f6v outlier (38.1%), f49r zero (0%). Bio: lowest y-initial + highest formulaicity = short formulaic paragraphs. F062 added.
 2026-04-09 | exp_056_word_template | H067 PARTIALLY SUPPORTED: onset × suffix KL from independence = 0.01-0.32 bits (modest, not rigid). d+aiin is most templated (2.69×/2.16× in A/B). qo+eedy 2.05×. No categorical exclusions. Top 6 onsets × 6 suffixes covers 48-54%. Word template is probabilistic, not categorical. F063 added.
+
+## Session continuation (exp_057–059), 2026-04-09
+
+### exp_057: Currier B Paragraph-Start Markers (H064)
+- **Result:** -dy enriched at B para-starts (1.53×) but weaker than A (3.36×). B has stronger markers: -chy (2.94×), -ar (2.11×). y-initial suppressed in both dialects (A: complete 0×, B: 0.28×). B-specific: -aiin and -ain suppressed at B para-starts (0.37×, 0.31×). B para-start words cluster around p/t-onset forms (pchedar ×3, tchedy ×3). H064 PARTIALLY SUPPORTED.
+- **Finding:** F064 added
+
+### exp_058: f6v Paragraph Structure Analysis (H065)
+- **Result:** Every Currier A herbal folio is a single paragraph (75/75). f6v is NOT anomalous — it's rank #2 among herbal A folios by y-initial rate (f53v=38.5% is higher). y-initial rate variation across herbal A folios (0-38.5%) is NOT explained by paragraph length. Bimodal distribution: ~12 zero-y-initial folios vs ~30 high-y folios. H065 NOT SUPPORTED.
+- **Finding:** F065 added
+
+### exp_059: Currier A Line Grammar Violations (H066)
+- **Result:** 6 herbal A folios violate y-initial continuation grammar (f49r, f32r, f8v, f42v, f35r: 0%; f42r: 4.5%). All violations in Herbal section only. Two-register system: y-dominant (f6v=40%) vs aiin-dominant (f35r: 53.3% aiin-last, 0% y@cont). Violations are folio-level and coherent. H066 SUPPORTED.
+- **Finding:** F066 added
+
+### Status: H064, H065, H066, H067 all resolved. Generating next hypotheses.

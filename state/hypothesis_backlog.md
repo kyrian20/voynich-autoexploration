@@ -624,7 +624,7 @@
 
 ## H064: The -dy Paragraph-Start Marker in A Is Also Present in Currier B as a Paragraph Opener
 **Priority:** medium
-**Status:** open
+**Status:** tested — PARTIALLY SUPPORTED (exp_057: -dy is 3.36× in A, 1.53× in B; B has stronger markers -chy 2.94×, -ar 2.11×; y-initial completely suppressed in A, 0.28× in B; B suppresses -aiin 0.37× at para-starts unlike A. F064 added.)
 **Source:** exp_054 (F061): -dy is 4.39× enriched at para-starts in A; is this also a B-dialect paragraph marker?
 **Description:** In Currier A, -dy words appear 4.39× more at paragraph-start first positions than at continuation first positions. H064: Is the -dy paragraph-start function also present in Currier B? If yes: -dy is a cross-dialect paragraph marker. If no: it is A-dialect-specific.
 **Cost estimate:** tiny (direct check in exp_054 data using B lines)
@@ -634,7 +634,7 @@
 
 ## H065: The f6v 38% y-Initial Folio Is Structurally Anomalous (Long Paragraphs or Unusual Text Format)
 **Priority:** low
-**Status:** open
+**Status:** tested — NOT SUPPORTED (exp_058: all 75 herbal A folios are single-paragraph; f6v is within normal range rank#2; zero-y-initial cluster of ~12 folios is the real anomaly. F065 added.)
 **Source:** exp_055 (F062): f6v has 38.1% y-initial rate (far above A mean ~15%)
 **Description:** f6v (herbal, Currier A) has 38.1% of lines starting with y-initial words — the highest rate found. This suggests either (a) f6v has very long paragraphs relative to other herbal folios, (b) the folio has an unusual text layout (e.g., list format where each item continues the previous), or (c) this is a scribal preference specific to the scribe who wrote f6v. Test: how many paragraphs does f6v have? What is its average paragraph length compared to other herbal folios?
 **Cost estimate:** tiny
@@ -644,7 +644,7 @@
 
 ## H066: The Currier A Line Grammar (3-Tier) Is Disrupted in Specific Folios — Exceptions Reveal Content Boundaries
 **Priority:** medium
-**Status:** open
+**Status:** tested — SUPPORTED (exp_059: 6 herbal A folios violate y-initial grammar; violations exclusively in H section; two-register system: y-dominant vs aiin-dominant folios; f35r most extreme. F066 added.)
 **Source:** F060-F061: Currier A has rigid 3-tier positional grammar. Folios that violate this grammar (e.g., -ol at line-final, no y-initial lines) may mark structurally different content.
 **Description:** If the 3-tier Currier A line grammar (-dy para-open, y-initial continuation, -aiin para-close) is consistent, then folios that violate it strongly may have different scribal hands, damaged text, or content that doesn't follow the standard template. Test: identify Currier A folios where the y-initial, -dy, and -aiin positional biases are REVERSED or absent, and characterize what's different about those folios.
 **Cost estimate:** small
@@ -660,3 +660,70 @@
 **Expected outcome:** If there is a true template: specific onset-suffix combinations will be dramatically over- or under-represented. If onsets and suffixes are independent: the observed = expected (multiplicative baseline).
 **Cost estimate:** medium (requires full cross-tabulation of onset × suffix classes)
 **Prerequisites:** exp_040 (qo-), exp_048 (o-), exp_052 (cth-), exp_053 (y-)
+
+---
+
+## H068: The Two-Register Herbal A Folios Differ in Vocabulary, Not Just Positional Grammar
+**Priority:** high
+**Status:** open
+**Source:** F066 (exp_059): six herbal A folios have 0% y-initial and elevated aiin-last, forming an "aiin-dominant" register. Are these folios lexically distinct from the y-dominant herbal folios?
+**Description:** If the aiin-dominant herbal A folios (f49r, f32r, f8v, f42v, f35r) represent a different scribal hand or content sub-type, they should differ from y-dominant folios not just in positional grammar but in word choice. Specifically: (a) Do aiin-dominant folios use more daiin? More 'a'-initial words? Different suffix distributions overall? (b) What is the vocabulary overlap (Jaccard) between aiin-dominant and y-dominant herbal A folios? (c) Do aiin-dominant folios cluster around any shared high-frequency words not found in y-dominant folios?
+**Expected outcome:** If same scribal hand but different grammar: vocabulary should overlap strongly. If different hand: vocabulary will differ, especially in the most common words.
+**Cost estimate:** small
+**Prerequisites:** exp_059 (done)
+
+---
+
+## H069: y-Initial Rate and daiin Frequency Are Negatively Correlated Across Herbal A Folios
+**Priority:** medium
+**Status:** tested — PARTIALLY SUPPORTED (exp_060: r=-0.297; aiin-dominant folios have 2× daiin=6.88% vs y-dominant=3.50%; daiin and y-initial appear to be competing continuation strategies. F067 added.)
+**Source:** F066 (exp_059): some herbal A folios have 0% y-initial and elevated aiin; F012: daiin concentrates in Herbal A. Are high-daiin folios the same as low-y-initial folios?
+**Description:** daiin is the most common Currier A/Herbal word. The y-initial continuation marker and the -aiin suffix may be in competition. Test: across herbal A folios, is the per-folio daiin frequency negatively correlated with the y-initial rate? If daiin concentrates in the aiin-dominant folios (those with 0% y@cont and high aiin-last), this would suggest that daiin is specifically the -aiin continuation marker rather than a general high-frequency word.
+**Expected outcome:** Negative correlation if daiin and y-initial are competing strategies; no correlation if they're independent.
+**Cost estimate:** tiny (compute per-folio daiin rate vs y-initial rate from existing data)
+**Prerequisites:** exp_058, exp_059 (done)
+
+---
+
+## H070: The 'k' and 't' Onset Classes Have Different Suffix Preferences Within the Currier B 'Other' Category
+**Priority:** high
+**Status:** open
+**Source:** F063 (exp_056): the 'other' onset class (25.6% of B tokens) is heterogeneous; KL=0.033 bits (very low). Disaggregating k-initial vs t-initial words (the two main stem classes identified in qo-stripping, exp_040) may reveal onset-specific suffix preferences invisible in the lumped 'other' category.
+**Description:** exp_040 showed that qo-stems are dominated by 'k' (60.5%) and 't' (21.2%) initial stems. The free-word corpus contains many k-initial (keedy, kaiin, kal) and t-initial (taiin, tol, tcheey) words. If k-initial and t-initial words have the same suffix preferences, they're the same morphological class. If they differ (e.g., k-initial prefers -edy while t-initial prefers -aiin), they're distinct classes. This would extend the 3-slot template (exp_056) to include root-class specificity.
+**Expected outcome:** If k and t are the same class: overlapping suffix distributions. If different: different suffix preferences that were averaged out in the 'other' category.
+**Cost estimate:** small (extend exp_056 by disaggregating the 'other' onset category)
+**Prerequisites:** exp_056 (done)
+
+---
+
+## H071: Multi-Paragraph Structure Is NOT Herbal-Specific — Bio and Pharma Folios Have Multiple Paragraphs
+**Priority:** medium
+**Status:** open
+**Source:** F065 (exp_058): all 75 herbal A folios are single-paragraph. Is this herbal-specific? Or does the single-paragraph structure extend to all sections?
+**Description:** If herbal A folios are universally single-paragraph (1 para-start per folio) but bio/pharma/special have multi-paragraph folios, this reveals a structural difference between sections: herbal text is continuous narrative (one plant = one paragraph = one folio), while bio/pharma use a different organizational scheme. Test: how many para-starts per folio across each section? Are some sections uniformly single-paragraph and others multi-paragraph?
+**Expected outcome:** Expected herbal = single para (confirmed for A); bio = likely multi-paragraph (shorter formulaic units per exp_055/F062); pharma/special = uncertain.
+**Cost estimate:** tiny (direct parse of para-start counts by section)
+**Prerequisites:** exp_058 (done)
+
+---
+
+## H072: The Aiin-Dominant Herbal A Folios Cluster in Specific Quires
+**Priority:** medium
+**Status:** tested — PARTIALLY SUPPORTED (exp_060: Quire F=62% aiin-dominant, D=50%; Quires B/O/Q=0%. Scribal-hand explanation supported but imperfect. F067 added.)
+**Source:** F066 (exp_059): f49r, f32r, f8v, f42v, f35r form the aiin-dominant cluster. These folio numbers span f8v, f32r, f35r, f42r, f42v, f49r — are they in the same quires?
+**Description:** If the aiin-dominant herbal A folios cluster in specific quires (e.g., quires 3-4 or 6-7), this strongly suggests a scribal hand change: different quires were written by different scribes. Conversely, if they're scattered across many quires, the effect is more likely content-driven (a specific category of plants or botanical descriptions). The quire assignment can be determined from the $Q= field in the transcription header. Mapping the 6 violator folios to quires will test whether the two-register system has a structural (scribal) or semantic (content) origin.
+**Expected outcome:** If clustered: scribal hand change hypothesis. If scattered: content sub-type hypothesis.
+**Cost estimate:** tiny (look up $Q= field for the 6 violator folios)
+**Prerequisites:** exp_059 (done)
+
+---
+
+## H073: B Para-Start p/t-Onset Words Are a Distinct Vocabulary Class with Their Own Morphology
+**Priority:** medium
+**Status:** open
+**Source:** F064 (exp_057): B para-start words cluster around p/t-onset forms (pchedar, tchedy, pchedal) that are rare in the general B corpus (0.4-0.9%). These look morphologically distinctive with 'pc-' and 'tc-' onset clusters.
+**Description:** In Currier B, the most common para-start opener words are pchedar (×3), tchedy (×3), pchedal (×2). These start with the consonant clusters 'pch' and 'tch' — which are unusual onset combinations not found in the main onset classes (qo-, o-, ch-, sh-, d-, y-). Test: (a) What is the full frequency of 'pch' and 'tch' onset words in the B corpus? (b) Do these words concentrate at para-starts and line-starts, or are they evenly distributed? (c) Are 'pch' and 'tch' words absent from labels? (d) Do they take a distinct suffix distribution (e.g., prefer -ar/-al over -edy/-aiin)?
+**Expected outcome:** If they are a dedicated structural vocabulary: concentration at para-starts, distinctive suffix distribution, label absence. If random coincidence: evenly distributed, no suffix specialization.
+**Cost estimate:** small
+**Prerequisites:** exp_057 (done)
+

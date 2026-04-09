@@ -1,5 +1,5 @@
 # Working Model — Voynich Manuscript Cryptanalysis
-**Last updated:** 2026-04-09 (after exp_056)
+**Last updated:** 2026-04-09 (after exp_060)
 **Purpose:** Continuously-updated structured summary of current beliefs about Voynichese.
 **Discipline:** Characterization, not interpretation. Claims require experimental warrant.
 
@@ -129,14 +129,16 @@ These findings have been replicated across independent analyses or confirmed by 
 - Most frequent single word in Herbal A; appears only once in labels
 - Not a universal function word; Currier A / Herbal A specific
 
-**Currier A has a three-tier positional grammar (F057, F060, F061, exp_050, exp_053, exp_054)**
-- **Paragraph-start slot**: -dy words (4.39× enriched), -y words (1.76×); y-initial words are ABSENT from para-starts (0/134)
-- **Within-paragraph line-start slot**: y-initial words (16.3% of continuation first-words; 5-6× vs para-starts); -or suffix (1.66×); 30% of lines open with [or-word][ol-word] pair
+**Currier A has a three-tier positional grammar (F057, F060, F061, F064, F066, exp_050, exp_053, exp_054, exp_057, exp_059)**
+- **Paragraph-start slot**: -dy words (3.36× enriched), y-initial words ABSENT from A para-starts (0/134 = 0.0×)
+- **Within-paragraph line-start slot**: y-initial words (16.4% of continuation first-words); -or suffix (1.66×); 30% of lines open with [or-word][ol-word] pair
 - **Paragraph-end slot**: -aiin words (19.5% of A para-end last words = 1.35×; B: 10.5% = 1.30×)
 - **Line-final slot**: -dy (1.59×), -al (1.35×), -ain (1.45×), '-am' words (dam=3.92×, dan/dom=6.27×)
 - **Medial slot**: -ol (80.7% medial), -ey (80.8%), -eey (80.0%) — strictly avoid both edges
-- 'y-' prefix = LINE-CONTINUATION PARTICLE (marks lines within a paragraph that continue previous line, not sentence-openers)
-- Currier B contrast: both -or (1.84) and -ol (1.46) line-initial in B; -aiin line-initial in B (1.50) but line-FINAL in A (1.27)
+- 'y-' prefix = LINE-CONTINUATION PARTICLE (marks lines within a paragraph, not sentence-openers)
+- **Two-register system in Herbal A**: y-dominant (f6v=40% y@cont) vs aiin-dominant (f49r, f32r, f8v, f42v, f35r: 0% y@cont; f35r=53.3% aiin-last). All 6 grammar violators are Herbal A folios — not found in Special, Pharma, or Text sections. Aiin-dominant folios have 2× higher daiin rate (6.88% vs 3.50%) — daiin and y-initial appear to be competing continuation strategies. Aiin-dominant folios cluster in Quires D (50%) and F (62%); Quires B, O, Q are exclusively y-dominant.
+- **Currier B paragraph grammar**: -dy (1.53×), -chy (2.94×), -ar (2.11×) at para-starts; y-initial suppressed (0.28×, not complete); -aiin and -ain strongly suppressed at B para-starts (0.37×, 0.31×); B para-starts cluster around p/t-onset formulaic words (pchedar ×3, tchedy ×3)
+- A vs B para-start grammar: same TYPE (position-sensitive morphological marking) but different MORPHEMES
 
 **Bio section vocabulary is dominated by qo-words; Herbal A by short words (F015)**
 - Bio top words: shedy, chedy, qokain, qokedy, ol, qokeedy, qokal, qokaiin
