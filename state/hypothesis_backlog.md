@@ -1155,3 +1155,47 @@
 **Expected outcome:** If specific closers: cthy or chol may dominate (as these are high-frequency A ch-words). If distributed: any ch-word can close a paragraph. The specific words would constrain interpretations of A grammar.
 **Cost estimate:** trivial
 **Prerequisites:** exp_076 (done)
+
+---
+
+## H113: daiin Encodes Paragraph Position — Its Rate Varies Systematically From Para-Start to Para-End
+**Priority:** high
+**Status:** tested — STRONGLY SUPPORTED (exp_078: daiin rate rises 2.8× from para-first 2.44% to para-last 6.87%; last-token enrichment 6.11%. daiin is hierarchical boundary marker. F085 added.)
+**Source:** F084 (exp_077): daiin accumulates multiple positional roles: line-final marker (1.41×), para-final marker (2.08×). It may encode paragraph POSITION — if daiin marks paragraph-ending positions specifically, its rate should rise toward the end of paragraphs.
+**Description:** For Currier A paragraphs with 3+ lines: compute daiin rate by line position within paragraph (line 1=para-start, line 2, ..., last line=para-end). Does daiin become more frequent toward the end of paragraphs? Also: compute daiin rate by token position within a line (first word, middle words, last word). Are daiin's positional biases purely line-final, or does it accumulate toward paragraph end?
+**Expected outcome:** If positional encoder: daiin rate rises toward para-end. If line-final marker only: daiin is enriched only at the last position of each line, uniformly across para-positions.
+**Cost estimate:** small
+**Prerequisites:** exp_077 (done)
+
+---
+
+## H114: The she- vs sh- Morphological Distinction in Currier A Generalizes Across Sections and Predicts qo-Following Rate
+**Priority:** high
+**Status:** tested — STRONGLY SUPPORTED (exp_078: she-→qo: A=2.41×, Pharma A=2.91×, B=2.19×; sh-other→qo: 1.18-1.45×. Cross-dialect and cross-section. F085 added.)
+**Source:** F084 (exp_077): Pharma A she- forms (sheol, sheey, sheor) precede qo at 32.3% vs Herbal A short sh- forms (shol, sho, shor) at 12.9%. Is this a general rule: any she- prefix sh-word tends to precede qo, regardless of section?
+**Description:** In all Currier A: split sh-words into she- prefix forms (words starting "she") vs short sh- forms (words starting "sho", "shy", "sha", etc.). For each group: (1) compute P(qo next); (2) compute P(ch next); (3) compare suffix distribution. Does the she- vs sh- distinction consistently predict qo-following rate across both Herbal A and Pharma A?
+**Expected outcome:** If generalizes: she- forms precede qo more than sh- forms in all A sections. If Pharma-A-specific: she- forms only show elevated qo-following in Pharma A section.
+**Cost estimate:** small
+**Prerequisites:** exp_077 (done)
+
+---
+
+## H115: B Within-Para Line-Final Words (oly, otam, okam) Are Structurally Different From o-Onset Para-Final Words
+**Priority:** medium
+**Status:** tested — SUPPORTED (exp_078: oly=84.6%, okam=75.0%, oldy=80.0% line-final; never line-initial; preceded by o/ch. Form o→o→oly closing pattern. F085 added.)
+**Source:** F084 (exp_077): Within-para B line-finals favor specific o-words: oly (7.27×), otam (5.57×), okam (6.21×), oldy (6.50×). Para-final B last words are diverse o-words with no dominant term. Are oly/otam/okam morphologically distinct from para-final o-words?
+**Description:** (1) Compare suffix and stem distribution of oly/otam/okam/oldy vs the diverse para-final o-words. (2) Are oly/otam/okam also enriched in other positional slots (line-first, para-first)? (3) What precedes oly, otam, okam (onset class of the preceding word)?
+**Expected outcome:** If structurally distinct: oly/otam/okam form a specific sub-class of o-words with a line-closing function (like function words). If coincidental: they appear frequently at line-ends because they're common words generally.
+**Cost estimate:** small
+**Prerequisites:** exp_077 (done)
+
+---
+
+## H116: The A Two-Register System (y-dom vs aiin-dom) Corresponds to Distinct "sh vs she-" Usage Patterns
+**Priority:** medium
+**Status:** tested — SUPPORTED (OPPOSITE DIRECTION) (exp_078: y-dom she-→qo=1.59× > aiin-dom she-→qo=1.18×. Aiin-dom uses qo→ch/s→ch pathways, not sh→qo. Two distinct grammar strategies. F085 added.)
+**Source:** F084 (exp_077): Herbal A sh-words are dominated by short sh- forms (shol, sho, shor, shy). Pharma A uses she- prefix forms. F066/F069: A has two registers (y-dominant and aiin-dominant). Does the she-/sh- distinction extend to the register split within Herbal A? Does aiin-dominant Herbal A use more she- prefix sh-words than y-dominant Herbal A?
+**Description:** Split Herbal A sh-words by register (aiin-dom vs y-dom folios). Compute: (1) fraction of sh-words that are she- prefix forms in each register; (2) sh→qo rate in each register; (3) whether the she-/sh- split predicts sequential coupling strength within Herbal A.
+**Expected outcome:** If registers differ in sh-vocabulary: aiin-dom uses more she- forms and has stronger sh→qo; y-dom uses more short sh- forms. If vocabulary is consistent: the register split is driven by something other than sh-word morphology.
+**Cost estimate:** small
+**Prerequisites:** exp_077 (done)
