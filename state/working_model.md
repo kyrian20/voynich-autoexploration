@@ -1,5 +1,5 @@
 # Working Model — Voynich Manuscript Cryptanalysis
-**Last updated:** 2026-04-09 (after exp_102)
+**Last updated:** 2026-04-09 (after exp_103)
 **Purpose:** Continuously-updated structured summary of current beliefs about Voynichese.
 **Discipline:** Characterization, not interpretation. Claims require experimental warrant.
 
@@ -200,6 +200,15 @@ These findings have been replicated across independent analyses or confirmed by 
 - **B o-onset line-closers (oly, otam, okam, oldy, olkam) form a functional sub-class** (F085, exp_078): 65-85% line-final, never line-initial, preceded by o/ch onset. They terminate o-onset word chains: o→o→oly/otam/okam. These are B grammatical line-closing words (analogous to grammatical particles).
 - **A two-register grammar strategies are qualitatively different** (F085, exp_078): y-dominant Herbal A uses sh→qo coupling (she-→qo: 1.59×); aiin-dominant Herbal A uses qo→ch (1.72×) and s→ch (1.76×) and daiin→qo (2.38×) pathways instead (she-→qo: only 1.18×). Two distinct sequential grammar strategies co-exist in Herbal A.
 - **Pharma A she- prefix forms drive B-strength sh→qo coupling** (F084, exp_077): Pharma A sh-words are she- prefix forms (sheol, sheey, sheor — 10-10% each) vs Herbal A short sh- forms (shol, sho, shor). Pharma A sh→qo=32.3% vs Herbal A sh→qo=12.9%. The she- forms specifically tend to precede qo-onset words — morphological distinction partially explains the sequential grammar difference.
+
+**ch-Stem vocabulary classifies sections at 73% of full-vocabulary performance; A/B ch-vocabularies are MORE DISTINCT than random (F110, exp_103)**
+- Naive Bayes on ch-words: 2.11× baseline (A), 1.60× (B); ch-words capture 73% of full-vocabulary section-discriminating power
+- Most informative section markers: herbal A = chaiin, char; pharma A = cheom, cheodal; stars B = cheeo, chokaiin; cosmo B = checthy, cheeky
+- A/B ch-vocabulary Jaccard = 0.181 (BELOW independence expectation of 0.62×!) — dialects are anti-correlated in ch-vocabulary
+- B-exclusive ch-words: chedar(25), chdaiin(17), chdal(16), chdar(15) — "ch+d" cluster pattern unique to B
+- A-exclusive: chom, choiin, chory, chotchy — "cho+" onset + A-suffix forms
+- chedy (B=22.74‰, A=0.52‰, 43.9× more common in B) is the single most diagnostic A/B differentiator in ch-vocabulary
+- The shared 18% ch-vocabulary is dominated by extreme rate contrasts (same word form, very different frequency), suggesting accidental homography rather than shared semantic content
 
 **Section is the primary organizer of morphological variance; quire structure is secondary (F054, exp_047)**
 - Section F-ratios > Quire F-ratios for all 4 features (qo-rate, -edy, -ol, -aiin)

@@ -2123,3 +2123,35 @@
 **Status:** open
 **Source:** F109: Stars B has exclusive ch-words (cheo, cheeo, chedam) not found in herbal B. Do these appear in herbal A? Are the "exclusive" words truly absent or just below detection threshold?
 **Expected outcome:** Some ch-stems appear in herbal A but not in B dialect, and vice versa, reflecting genuine vocabulary differences between dialects.
+
+---
+
+## H195: Section Classifier from ch-Stems
+**Priority:** high
+**Status:** TESTED (exp_103) — CONFIRMED: ch-words achieve 73% of full-vocabulary classification power. Most informative: herbal A = chaiin, char; pharma A = cheom, cheodal; stars B = cheeo, chokaiin; cosmo B = checthy.
+
+---
+
+## H196: Cross-Dialect ch-Stem Comparison
+**Priority:** medium
+**Status:** TESTED (exp_103) — CONFIRMED: Jaccard=0.181 (below independence expectation 0.62×). A and B ch-vocabularies are ANTI-CORRELATED — more distinct than random. B-exclusive: chedar, chdaiin, chdal (ch+d cluster). chedy is 43.9× more common in B than A.
+
+---
+
+## H197: B ch+d Cluster Pattern — Is "chd" a Morphological Unit in B?
+**Priority:** medium
+**Status:** open
+**Source:** F110: B-exclusive ch-words include chedar(25), chdaiin(17), chdal(16), chdar(15), chdam(10), chdor(9). These share a ch+d structure. Is "chd" a distinct B-morphological unit (ch-onset followed by d-element), or are these coincidental forms?
+**Description:** Extract all B words starting with "chd". Compute their positional distribution (PS/LFirst/LLast). Are they mid-line content words (MID tier) or have different positional behavior? Compare suffix patterns of chd-words vs bare ch-words.
+**Expected outcome:** chd-words are mid-line content words with B-type -aiin/-al/-or suffixes, confirming they are ch-stems followed by d-element (possibly a B-specific infix).
+**Cost estimate:** small
+
+---
+
+## H198: Vocabulary Growth (Heaps' Law) by Section — Does Voynichese Vocabulary Grow at Natural Language Rates?
+**Priority:** medium
+**Status:** open
+**Source:** (new direction): In natural languages, vocabulary grows as V=K*N^β where β≈0.5-0.7. Does Voynichese follow Heaps' law? And do different sections follow the same law?
+**Description:** Plot cumulative unique words vs cumulative word tokens for each section. Fit V=K*N^β. If β≈0.5-0.7: natural language-like growth. If β<0.3: repetitive/formulaic. If β>0.8: artificial/random.
+**Expected outcome:** Heaps' β≈0.5-0.6 consistent with natural language, varying by section. Stars (B) may have lower β (more repetitive) than herbal (A).
+**Cost estimate:** small
