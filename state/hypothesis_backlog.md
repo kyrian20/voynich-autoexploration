@@ -1320,3 +1320,47 @@
 **Expected outcome:** If cross-dialect bridge: d-onset words (especially dam and chdam) have similar line-final rates in both dialects, suggesting d-onset grammatical words are dialect-stable (unlike the sh→qo vs d→qo opposition). If dialect-specific: dam in A and dam in B have different distributional profiles despite the same form.
 **Cost estimate:** small
 **Prerequisites:** exp_080 (done)
+
+---
+
+## H128: The Aiin-Dom Register's -ol/-or Suffix Dominance Reflects a Different Morphological Paradigm (Not Just More Liquid-Final Stems)
+**Priority:** high
+**Status:** tested — PARTIALLY SUPPORTED (exp_082: same top words (chol, shol, cthol, chor, shor) in both registers at higher rates in aiin-dom. Complementary substitution: -ol/-or replaces -ey/-eey for ch/sh stems (ch: aiin 37.2% vs y-dom 25.4% liquid; y-dom -ey=8.5%/-eey=4.0% vs aiin 5.0%/0%). Two sub-paradigms: liquid-final (aiin-dom) vs glide-final (y-dom). F089 added.)
+**Source:** F088 (exp_081): Aiin-dom Herbal A has -ol=13.59% and -or=12.17% (25.76% combined), far above y-dom's -ol=6.45% and -or=5.88% (12.33% combined). This is a 2× difference in liquid-final suffix usage. Is aiin-dom using a different morphological paradigm where -ol/-or serve the role that -ey/-eey serve in y-dom? Or does aiin-dom have a different onset-class distribution that mechanically produces more -ol/-or?
+**Description:** (1) Compute -ol/-or rate by onset class in aiin-dom vs y-dom. Are -ol/-or concentrated in specific onset classes in aiin-dom? (2) What words dominate aiin-dom's -ol/-or? Are they the same words as y-dom's top -ol/-or words? (3) Is the aiin-dom -ol/-or pattern driven by specific words (like daiin, daiin-followed words) or is it general? (4) Is there a complementary distribution: where y-dom uses -ey, aiin-dom uses -ol (same stems, different suffixes)?
+**Expected outcome:** If different paradigm: -ol/-or in aiin-dom fills the grammatical role of -ey/-eey in y-dom; same stems appear with different suffixes in the two registers. If mechanical: aiin-dom just has more o-onset words (ol=short for o+l?), which take -ol suffix at higher rates.
+**Cost estimate:** small
+**Prerequisites:** exp_081 (done)
+
+---
+
+## H129: The she-→qo Suppression in Aiin-Dom (0.41×) Means e-Infix Words Mark NON-qo Transitions in Aiin-Dom (They Are ch-Predictors Instead)
+**Priority:** high
+**Status:** tested — SUPPORTED (exp_082: aiin-dom she-words are NEUTRAL for all classes (ch=1.02×, o=1.22×, sh=0.68×) — NOT ch-predictors, just qo-suppressors. Top aiin-dom she-words: shey(12), sheey(5), sheol(3) — minimal suffix forms. The e-infix carries zero qo-coupling information in aiin-dom. F089 added.)
+**Source:** F088 (exp_081): In aiin-dom, she-prefix words suppress qo-following (0.41×, below base rate). If she-words don't predict qo, what DO they predict? The aiin-dom grammar uses qo→ch (1.23×) and d→qo (1.90×) — perhaps she-words in aiin-dom predict ch instead? Or d? This would mean the same morphological marker (she-) encodes OPPOSITE sequential information in the two registers — a fundamental inversion of the morphological grammar mapping.
+**Description:** For aiin-dom: compute what follows she-prefix words. What onset class follows she- most often? Compare to: (1) what follows sh-other in aiin-dom; (2) what follows she- in y-dom; (3) what follows she- in B. Also: does the e-infix suppress qo in ALL onset classes in aiin-dom, or is it specific to sh-onset?
+**Expected outcome:** If ch-predictor: she- in aiin-dom predicts ch-following (encoding the qo→ch grammatical pattern differently). If she- is neutral: she- in aiin-dom has no strong predictive bias for any onset class. Either way, the universal qo-coupling found in F086/H117 breaks down for aiin-dom.
+**Cost estimate:** small
+**Prerequisites:** exp_081 (done)
+
+---
+
+## H130: The B Paragraph Tripartite Grammar Is Detectable from Word Features Alone (Morphological Structure Parsing)
+**Priority:** medium
+**Status:** tested — FAILED (exp_082: para-boundary prediction F1<10% for all features. CRITICAL: p-onset is NOT B para-start marker — 0.0% rate at 101 B para-starts. B para-starts use o(36.6%)/qo(18.8%)/sh(14.9%). Revised model: -am suppressed 6.3× at para-final (2.0% vs 12.6%). F089 added.)
+**Source:** F087/F088 (exp_080/exp_081): B has: p-onset para-starts, -am line-final markers (within-para), o-onset para-ends. The para-final suffix fingerprint is {-edy, -aiin, -eedy}. Can these markers be used to algorithmically parse paragraph structure from WORD FEATURES ALONE (without locus codes)?
+**Description:** For each B line, code: first_word_p=(first word is p-onset?), last_word_am=(last word ends -am?), last_word_o=(last word is o-onset?). Train a simple rule: para_start predicted if previous line's last word was o-onset or -edy-suffix. Evaluate precision/recall using actual locus-code para-start markers. Also evaluate: how often does the tripartite structure BREAK (p-onset mid-para, -am at para-end, no marker at para-end)?
+**Expected outcome:** If parseable: precision/recall >60% for para-boundary prediction from word features. If too noisy: the markers are probabilistic guides, not deterministic signals.
+**Cost estimate:** small
+**Prerequisites:** exp_081 (done)
+
+---
+
+## H131: The Two Herbal A Registers (Aiin-Dom vs Y-Dom) Are Written by Different Scribes or Represent Different Sections of the Herbal Content
+**Priority:** medium
+**Status:** open
+**Source:** F088 (exp_081): Aiin-dom and y-dom Herbal A show: (1) different suffix paradigms (-ol/-or vs -ey/-eey); (2) opposite she-→qo coupling; (3) different bigram grammar strength; (4) different e-infix word rates. These differences are as large as the A vs B dialect difference for some features. The AIIN_DOM_FOLIOS set (f1r-f16v) may correspond to a specific quire or scribe section in the physical manuscript.
+**Description:** (1) Map the aiin-dom and y-dom folios to their physical quires in the manuscript. Do they fall into distinct quires? (2) Do the aiin-dom folios have different illustration styles (herbal A plant drawings vs y-dom plant drawings)? (3) Is the aiin-dom/y-dom split purely folio-based or does it appear within single folios? (4) Is the AIIN_DOM_FOLIOS set (f1r-f16v, 24 folios) physically contiguous in the manuscript?
+**Expected outcome:** If scribe split: aiin-dom folios are all from one or two quires (suggesting different hands). If section split: aiin-dom represents a specific content subsection of Herbal A with different language register.
+**Cost estimate:** small (reference-based)
+**Prerequisites:** exp_081 (done)
