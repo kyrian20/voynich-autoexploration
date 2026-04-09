@@ -1578,7 +1578,7 @@
 
 ## H151: daiin-B as Line-Initial Connector Functions as a "Topic Continuation" Marker — The Preceding Line Always Ends With ch/sh-Onset Words
 **Priority:** high
-**Status:** open
+**Status:** TESTED (exp_088) — REFUTED: preceding line when daiin opens B ends with o-onset (35.2%, 1.27×); ch-onset SUPPRESSED (11.4%, 0.83×). Dominant 3-line pattern: [o-ending] → daiin-B → [o-ending]. daiin-B follows o-onset context, not ch/sh.
 **Source:** F094 (exp_087): daiin-B at position 0 is followed by sh/ch-onset 73.5% of the time. Preceding daiin (within same line, mid-position): also ch-onset (chedy=10). Does the PRECEDING LINE (before daiin-opening line) end with ch/sh-onset words? If so, daiin is a CROSS-LINE CONNECTOR bridging two sh/ch-onset content sequences.
 **Description:** (1) For each B line opening with daiin: what is the last word of the PRECEDING line? (2) Is the preceding line's last word predominantly ch- or sh-onset? (3) Does daiin-B line-opening predict that the NEXT line also opens with a ch/sh word? (4) What is the paragraph-position distribution of daiin-B openings? Do they appear at specific paragraph positions?
 **Expected outcome:** If daiin-B is a cross-line connector: preceding lines should also end with ch/sh words at elevated rates. The pattern would be [ch/sh-ending line] → [daiin-B opener] → [ch/sh content], encoding a 3-line structural unit.
@@ -1589,7 +1589,7 @@
 
 ## H152: oly/oldy (Cosmo B) vs -am Words (Herbal B/Stars B) — Different Preceding-Word Distributions Reflect Content-Level vs Grammar-Level Line-Closing
 **Priority:** medium
-**Status:** open
+**Status:** TESTED (exp_088) — SUPPORTED: oly/oldy preceded by s-onset (6.88×), d-onset (3.06×), sh-onset (2.29×). -am preceded by ch-onset (inverse 0.57×), qo (0.76×). Perfect complementary distribution follows from selectional constraint on preceding onset class.
 **Source:** F094 (exp_087): oly/oldy preferred in cosmo B (3.8% endings vs 2.0% for -am); -am preferred in herbal B (7.2% vs 0.7%). If these are functionally synonymous, why does section preference differ? Hypothesis: -am words are more "content-flexible" (can follow any onset class) while oly/oldy have specific preceding-word requirements that are more common in Cosmo.
 **Description:** (1) For -am-ending lines: what is the SECOND-TO-LAST word (word preceding -am)? (2) For oly/oldy-ending lines: same analysis. (3) Is there an onset-class or morphological difference between words preceding -am vs oly/oldy? (4) Do oly/oldy endings always follow specific word classes (e.g., only after ch-onset words in cosmo B)?
 **Expected outcome:** If content-driven: the words preceding oly/oldy should come from a restricted class specific to Cosmo vocabulary (e.g., only after specific plant/astrological terms). If grammar-driven: the difference is a section-level grammatical preference with no content explanation.
@@ -1600,7 +1600,7 @@
 
 ## H153: The y-Prefix System in B Is Parallel to the qo-Prefix System — y+[k/ch/sh/t] Are Line-Initial Compound Stems
 **Priority:** medium
-**Status:** open
+**Status:** TESTED (exp_088) — STRONGLY SUPPORTED (REVISED): y-compound is LINE-INITIAL (LFirst=47.3%, 3.75× enrichment in B; 40.3%, 2.24× in A). qo-prefix is MID-LINE (LFirst=11.3%, background). NOT parallel — they occupy opposite line positions. Both select k/t stems.
 **Source:** F094 (exp_087): y-onset B line-first words are dominated by compound forms: ycheey, ykaiin, yshey, ychedy, yteey — all y+[onset]+suffix. y-prefix attaches to the same onset classes (k, ch, sh, t) as qo-prefix. Is y- a LINE-INITIAL morphological prefix parallel to qo-? The qo-prefix appears in body text positions; does y- appear specifically at line-initial positions?
 **Description:** (1) Compare onset-class distribution of y-prefix stems vs qo-prefix stems. (2) Are y-compound words EXCLUSIVELY line-initial (LFirst%>>50%)? (3) Do y-compound words appear in the same folio sections as qo-compound words (B dialect throughout)? (4) Are there y-prefix stems that appear WITHOUT being line-initial (mid-line y-words)? (5) Does y- encode a different grammatical meaning than qo- (which is a body-text form in F037)?
 **Expected outcome:** If y-prefix is a line-initial morpheme: y-compound words (ykaiin, ycheey, ychedy) should have LFirst% >>50% and appear only at line-starts. They would form a line-initial paradigm distinct from qo-prefix (which can appear mid-line).
