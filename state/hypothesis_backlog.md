@@ -897,9 +897,52 @@
 
 ## H089: The Revised 5-Class Onset Taxonomy ({p}, {t/f}, {k}, {ch/sh}, {d/s}) Is Stable Across B Sections
 **Priority:** medium
-**Status:** open
+**Status:** tested — STRONGLY SUPPORTED (exp_071: ch/sh 0.00% para-first all sections; p 19-55× para-start all sections; qo medial all sections; k para-start varies Bio=12×, Herbal=3.77×. F078 added.)
 **Source:** F076 (exp_069): revised 5-class taxonomy derived from B-wide data. F074 (exp_067): qo-rate varies by section (Bio=26%, Astro=6.5%). Does the positional specialization of each onset class hold within individual B sections, or does the taxonomy change by section?
 **Description:** Compute the positional enrichment (first%, medial%, last%, para-first%) for each of the 5 onset classes separately within each B section (Herbal B, Bio, Special, Text, Cosmo, Astro). Is p still the dominant para-start marker in all sections? Is k still medial-dominant in all sections?
 **Expected outcome:** If taxonomy is stable: same positional enrichment pattern in each section. If section-specific: some sections use different onset classes for structural positions.
 **Cost estimate:** small
 **Prerequisites:** exp_069 (done)
+
+---
+
+## H090: The qo+gallows→ch/sh Sequential Rule Holds Across All Currier B Sections
+**Priority:** high
+**Status:** tested — WEAKLY SUPPORTED (exp_071: qo→ch 1.13-1.70× by section; strongest Bio+Cosmo; weak Herbal/Special/Text. Serendipitous: sh→qo=36.6% is dominant B transition. F078 added.)
+**Source:** F077 (exp_070): In B body text overall, qo+gallows words (qokain=86, qokaiin=78) are the most common predecessors of ch-onset words. Does this sequential rule hold within individual sections? If the rule is universal, it's a grammatical constraint; if section-specific, it's a content vocabulary effect.
+**Description:** For each Currier B section (H=Herbal, B=Bio, S=Special, T=Text, C=Cosmo), compute the top words that precede ch-onset and sh-onset words. Is qo+gallows always the top predecessor? Also compute: P(ch after qo+gallows) vs P(ch after non-qo words). This yields the conditional probability of the sequential rule.
+**Expected outcome:** If universal rule: qo+gallows precedes ch/sh in all sections. If content artifact: specific to Bio or Special section (where qo is most common).
+**Cost estimate:** small
+**Prerequisites:** exp_070 (done)
+
+---
+
+## H091: Currier A Has an Equivalent Sequential Grammar to B's qo+gallows→ch
+**Priority:** medium
+**Status:** tested — SUPPORTED (exp_072: A has NO dominant predecessor for ch; flat transitions max 1.34×; ch→ch self-following is only structure; A lacks qo-hinge function. F079 added.)
+**Source:** F077 (exp_070): B has qo+gallows→ch/sh as dominant sequential rule. In A, the top predecessor of ch words is daiin(69) and chol(67) — the dominant A bi-gram. Is there a structural parallel in A? What are the most common A word-order pairs for ch-onset and sh-onset words?
+**Description:** For Currier A, compute the top words before and after ch-onset and sh-onset words, by section. Identify the dominant A sequential grammar analogous to B's qo+gallows→ch rule. Compare: does A use the same predecessor class (daiin → ch?) systematically, and does this hold across sections?
+**Expected outcome:** If A has a parallel grammar: one A-specific word class systematically precedes ch (daiin? or-initial?). If A is different: no dominant predecessor for ch words.
+**Cost estimate:** small
+**Prerequisites:** exp_070 (done)
+
+---
+
+## H092: The sh→qo Coupling (36.6%) Reflects a Tight Two-Word Construction: sh-word + qo-word Form a Bi-Word Unit
+**Priority:** high
+**Status:** tested — STRONGLY SUPPORTED (exp_072: sh→qo 1.44-2.20× in all B sections; dominant pair shedy→qok-forms; d suppresses qo 0.76×; A has weak parallel 1.56×. F079 added.)
+**Source:** F078 (exp_071): sh→qo=36.6% is the largest single onset transition in Currier B (vs random baseline qo rate ~18.6%). sh is followed by qo at nearly 2× the baseline rate. Does this reflect a grammatically bound bi-word unit (sh-word + qo-word), or is it a serial correlation from shared section affinity?
+**Description:** (1) What are the most common sh-word + qo-word adjacent pairs? (2) Is the sh→qo transition uniform across all sections or concentrated in specific sections? (3) Does sh appear before qo more than any other class across all sections? (4) Compare P(qo after sh) vs P(qo after ch) vs P(qo after d) to confirm sh→qo is a specific coupling.
+**Expected outcome:** If grammatical coupling: specific high-frequency sh+qo pairs, uniform across sections. If coincidental: driven by specific section or folio.
+**Cost estimate:** small
+**Prerequisites:** exp_071 (done)
+
+---
+
+## H093: The Currier A Sequential Grammar: daiin Is the A-Analogue of B's qo+gallows Predecessor
+**Priority:** high
+**Status:** tested — NOT SUPPORTED (exp_072: A has flat transition matrix; ch→ch 1.34× is only notable; daiin not tested as onset class since daiin=d-class; A grammar is flatly distributed. F079 added.)
+**Source:** F077 (exp_070): in A, daiin(69) precedes ch more than any other word. F078 (exp_071): in B, qo+gallows is the dominant ch predecessor. H091 proposed testing whether daiin is A's sequential grammar rule. Test this directly: (1) P(ch | daiin prev) vs P(ch | non-daiin prev) in Currier A, by section. (2) Compute A-wide onset transition matrix. (3) What is A's dominant sh predecessor?
+**Expected outcome:** If daiin is A's dominant medial predecessor: P(ch|daiin) >> P(ch|non-daiin). If the A grammar is different: no clear dominant predecessor.
+**Cost estimate:** small
+**Prerequisites:** exp_071 (done)
