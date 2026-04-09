@@ -1,5 +1,5 @@
 # Working Model — Voynich Manuscript Cryptanalysis
-**Last updated:** 2026-04-09 (after exp_075)
+**Last updated:** 2026-04-09 (after exp_076)
 **Purpose:** Continuously-updated structured summary of current beliefs about Voynichese.
 **Discipline:** Characterization, not interpretation. Claims require experimental warrant.
 
@@ -186,6 +186,9 @@ These findings have been replicated across independent analyses or confirmed by 
 - **A dominant onset-class trigram is ch→ch→ch (2.05×, 107 tokens)** (F082, exp_075): B's dominant enriched trigrams are sh→qo→ch (3.35×) and ?→sh→qo (3.43-6.14×). A=ch-repetition grammar; B=sh→qo oscillation. A sh→qo→* chains (2.42-3.00×) don't cycle back to ch as B does.
 - **Aiin-dominant Herbal A has stronger sequential grammar than y-dominant** (F082, exp_075): Aiin-dom bigram PPL reduction=12.7% (approaching B's 13.3%); y-dom=10.2%. Key distinction: aiin-dom uses qo→ch (1.72×) and s→ch (1.76×) pathways; y-dom uses sh→qo (1.29×). Critical: aiin-dom d→qo=1.55× (OPPOSITE to B's d→qo=0.76×) — d leads TO qo in aiin-dominant Herbal A.
 - **B line-final suppression of qo and sh is universal across all sections** (F082, exp_075): qo and sh suppressed at line-ends in all 6 B sections; o enriched in all sections; d enriched in 5/6 (exception: Special section, where "other" onset dominates at 2.03×).
+- **Pharma A sequential grammar dissociated from morphology** (F083, exp_076): Pharma A has B-strength sh→qo=2.44× but pure A-type vocabulary (Jaccard with B=0.070, LOWER than Herbal A's 0.100; -edy=0.2%, -ol=18.2%). The sh→qo sequential grammar and morphological dialect are independent properties.
+- **daiin→qo coupling is register-specific in Herbal A** (F083, exp_076): In aiin-dominant Herbal A, daiin→qo=2.38×; other d-words only 1.24×. In y-dominant Herbal A, daiin→qo=0.81× (suppressed). The two A registers have OPPOSITE daiin-qo coupling — daiin predicts qo in aiin-dom, avoids qo in y-dom.
+- **Para-boundary marking: B closes paragraphs with o-onset; A closes with ch** (F083, exp_076): B para-final last word: o=40.0% (1.72×) vs within-para line-final 28.2% (1.22×); qo suppressed to 0.17× at B para-final. A para-final: ch=23.9% (1.20×) vs within-para 0.83× (suppressed). Both dialects suppress qo at para-final (B: 0.17×, A: 0.21×). Para-boundaries are grammatically marked by onset class in both dialects.
 
 **Section is the primary organizer of morphological variance; quire structure is secondary (F054, exp_047)**
 - Section F-ratios > Quire F-ratios for all 4 features (qo-rate, -edy, -ol, -aiin)

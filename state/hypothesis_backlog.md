@@ -1067,3 +1067,47 @@
 **Expected outcome:** If universal: the line-final grammar is a section-independent property of Currier B. If section-sensitive: one section (e.g., Bio with its qo-dominated vocabulary) might show different line-final patterns.
 **Cost estimate:** small
 **Prerequisites:** exp_074 (done)
+
+---
+
+## H105: Pharma A Has a B-Like Sequential Grammar Because It Shares B's Onset-Class Vocabulary Distribution
+**Priority:** high
+**Status:** tested — PARADOX CONFIRMED (exp_076: Pharma A has B-strength sh→qo=2.44× but Jaccard with B=0.070 < Herbal A's 0.100; -edy=0.2%, -ol=18.2% pure A-type. Grammar and morphology dissociated. F083 added.)
+**Source:** F082 (exp_075): Pharma A sh→qo=2.44× (stronger than B's 1.97×!). This is surprising because Pharma A should be Currier A in dialect. Is Pharma A actually closer to B in its onset-class vocabulary distribution, which would explain the stronger sh→qo coupling?
+**Description:** (1) Compute onset-class frequency distribution for Pharma A vs Herbal A vs global B. Is Pharma A's qo-rate closer to B's? (2) Compute vocabulary Jaccard between Pharma A and Currier B. Is Pharma A closer to B than Herbal A is? (3) Check Pharma A suffix profile (-edy%, -ol%, -aiin%) — is Pharma A using B-type or A-type suffixes? (4) Is the Pharma A sh→qo coupling driven by specific high-frequency words (e.g., shedy → qok-forms)?
+**Expected outcome:** If Pharma A is B-adjacent: onset-class distribution closer to B; Jaccard higher with B than Herbal A is; suffix profile mixed. If it's purely grammar-level: onset distribution matches A but transition matrix differs.
+**Cost estimate:** small
+**Prerequisites:** exp_075 (done)
+
+---
+
+## H106: The Aiin-Dominant A d→qo=1.55× Is Driven by Specific Word Pairs (daiin→qok-forms)
+**Priority:** high
+**Status:** tested — STRONGLY SUPPORTED (exp_076: daiin→qo=2.38× in aiin-dom; other-d→qo=1.24×; y-dom daiin→qo=0.81× (opposite!). Two A registers have opposite daiin-qo coupling. F083 added.)
+**Source:** F082 (exp_075): Aiin-dominant Herbal A has d→qo=1.55× (opposite to B's d→qo=0.76×). This is unexpected — in aiin-dominant A, d-onset words lead to qo, not away from it. Is this coupling driven by specific word pairs? Particularly: does daiin specifically precede qo-onset words?
+**Description:** In aiin-dominant Herbal A: (1) Compute P(qo next | daiin) vs P(qo next | other d-words). Is daiin specifically the qo-preceding word? (2) What are the actual word pairs driving d→qo in aiin-dom? (3) Compare: in B, d→qo is suppressed (0.76×). In y-dominant A, d→qo=0.81×. In aiin-dom, d→qo=1.55×. What explains this gradient?
+**Expected outcome:** If daiin-specific: daiin→qo-words is a common construction in aiin-dom A. If general d-class: all d-words show elevated qo-following in aiin-dom. The mechanism might reveal an A-specific grammatical rule.
+**Cost estimate:** small
+**Prerequisites:** exp_075 (done)
+
+---
+
+## H107: The B Special Section "Other" Line-Final Dominance Reflects Specific Onset Classes Not Captured in the 10-Class Taxonomy
+**Priority:** medium
+**Status:** tested — CLARIFIED (exp_076: "other" = a/l/r-initial words, same as non-Special B. Anomaly is quantity: Special=28.7% "other" vs ~15-18% elsewhere. Special avoids d-onset at line-ends (0.85×). F083 added.)
+**Source:** F082 (exp_075): B Special section has "other" onset enriched 2.03× at line-ends. All other B sections show d-enrichment and o-enrichment at line-ends; Special section doesn't. What specific onset classes are in the "other" category in Special section line-final words?
+**Description:** For B Special section: (1) Decompose the "other" onset category — what specific characters start these words? (2) Are there specific B Special section words that dominate line-ends? (3) Compare Special section line-final vocabulary to the rest of B. Is this an anomalous scribal practice, vocabulary effect, or genuine grammar difference?
+**Expected outcome:** If specific word type: Special section line-final "other" words are a specific class (e.g., words starting with f, l, or specific patterns). If random: "other" reflects miscellaneous unconstrained positions.
+**Cost estimate:** small
+**Prerequisites:** exp_075 (done)
+
+---
+
+## H108: The B para-Interior vs para-Final Line-Ending Onset Distribution Differs (Paragraph Boundary Marking)
+**Priority:** medium
+**Status:** tested — STRONGLY SUPPORTED (exp_076: B para-final: o=40.0% (1.72×) vs within-para 28.2% (1.22×); qo=0.17× at para-final vs 0.62× within. A para-final: ch=1.20× (vs 0.83× within). Both dialects suppress qo at para-final. F083 added.)
+**Source:** H101 (pending), F082 (exp_075): B line-final grammar is section-universal. But is there a PARAGRAPH-level boundary marker in the line-final position? Para-start words are strongly marked (p-onset: 17.76×). Is the last word of a paragraph's last line also distinctively marked?
+**Description:** For B: classify each record as (1) continuation line within paragraph, (2) last line of paragraph (next record is para-start or new paragraph). Compute last-word onset distribution for each. Also: for A, compare para-final last word to within-para last word onset distribution.
+**Expected outcome:** If para-final marking: the last word of a paragraph's last line has a different onset distribution from within-para line-final words. If no distinction: the line-final grammar is line-level only.
+**Cost estimate:** small
+**Prerequisites:** exp_075 (done)
