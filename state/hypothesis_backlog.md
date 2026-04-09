@@ -1111,3 +1111,47 @@
 **Expected outcome:** If para-final marking: the last word of a paragraph's last line has a different onset distribution from within-para line-final words. If no distinction: the line-final grammar is line-level only.
 **Cost estimate:** small
 **Prerequisites:** exp_075 (done)
+
+---
+
+## H109: The B o-Onset Para-Final Pattern — Specific o-Words That Serve As Paragraph Closers
+**Priority:** high
+**Status:** tested — SUPPORTED (DISTRIBUTED) (exp_077: No single word dominates B para-finals; ary=49.86×, orol=41.55× but are rare. Para-closing is onset-class-level only. Within-para line-finals favor oly, otam, okam. F084 added.)
+**Source:** F083 (exp_076): B paragraphs close with o-onset words (40.0%, 1.72×). This is much stronger than the general line-final o enrichment (1.25×). Are there specific o-onset words that function as paragraph closers? What is the vocabulary of B para-final last words?
+**Description:** (1) List the most frequent o-onset words that appear as B para-final last words. Are a few words (e.g., "ol", "or", "o") disproportionately common? (2) Compare: are these same o-words also enriched at within-para line-finals, or specifically at para-finals? (3) Do the B para-closing o-words differ by section? (4) For A: what specific ch-words appear at A para-finals?
+**Expected outcome:** If specific closers: a few o-words (e.g., "ol", "or") dominate para-finals. If distributed: many o-words appear. Either way, identifying the specific words would reveal the vocabulary of the para-boundary marker class.
+**Cost estimate:** small
+**Prerequisites:** exp_076 (done)
+
+---
+
+## H110: The Pharma A sh→qo Coupling Has a Different Character From Herbal A — Specific sh-Words Differ
+**Priority:** medium
+**Status:** tested — SUPPORTED (exp_077: Pharma A uses she- prefix forms (sheol, sheey, sheor) vs Herbal A short sh- forms (shol, sho, shor). Pharma A sh→qo=32.3% vs Herbal A 12.9%. she- forms drive the B-strength coupling. F084 added.)
+**Source:** F083 (exp_076): Pharma A sh→qo=2.44× (stronger than B's 1.97×) despite using A-type vocabulary. The sh→qo pairs are diverse (sheey, sheol, sheody, shoy — many hapaxes). Does Pharma A use different sh-words than Herbal A? The Pharma A sh-words appear to include -eol, -eo, -ody suffixes — different from Herbal A's sh-words.
+**Description:** (1) List the most frequent sh-words in Pharma A vs Herbal A. Are they different stems? (2) What suffixes do Pharma A sh-words take (vs Herbal A sh-words)? (3) In Herbal A, what follows sh-words (if not qo)? Compare the full sh→X transition distribution in Pharma A vs Herbal A.
+**Expected outcome:** If different sh-words: Pharma A sh-words are distinct vocabulary items from Herbal A sh-words. If same stems but different grammar: the same sh-words (shedy, shey, shol) appear in both but follow different sequential rules.
+**Cost estimate:** small
+**Prerequisites:** exp_076 (done)
+
+---
+
+## H111: The daiin→qo Construction in Aiin-Dom Herbal A Has a Specific Successor Pattern (daiin → qo → X)
+**Priority:** medium
+**Status:** tested — SUGGESTIVE ONLY (exp_077: n=9 triplets; X=qo at 33.3% (4.20×), dominant triplet daiin→qotchy→qotor (2×); sh precedes daiin→qo in 3/9. Sample too small for firm conclusions. F084 added.)
+**Source:** F083 (exp_076): In aiin-dominant Herbal A, daiin→qo=2.38× (enriched); top pairs include daiin→qotchy (2), daiin→qoky, daiin→qokcho. Does this create a three-word construction: daiin → qo-word → X, where X is a specific onset class?
+**Description:** In aiin-dom Herbal A: (1) Compute P(X | daiin → qo-word) for each onset class X. Is the third word in the daiin→qo→X chain constrained? (2) Compare: in B, the three-word chain d→qo is suppressed (d avoids qo). In aiin-dom A, daiin→qo is enriched. Is there a preceding context that triggers the daiin→qo construction?
+**Expected outcome:** If structured: the daiin→qo→X chain has a constrained third word (e.g., ch, or another d-word). If free: the third position is unconstrained (consistent with the onset-class grammar being the constraint, not word-level).
+**Cost estimate:** small
+**Prerequisites:** exp_076 (done)
+
+---
+
+## H112: The A ch Para-Final Pattern Is Driven by Specific ch-Words (chol, chor, chy, cthy)
+**Priority:** medium
+**Status:** tested — SUPPORTED (exp_077: daiin dominates A para-finals (12 occ, 2.08×); ch-onset para-finals distributed (chor=3, chory=2, then hapaxes). daiin is A's "para-closing particle." F084 added.)
+**Source:** F083 (exp_076): In A, para-final last words show ch=23.9% (1.20×) enrichment, while within-para line-final ch is suppressed (0.83×). Which specific ch-onset words serve as A para-closers?
+**Description:** List the most frequent ch-onset words at A para-final positions. Are they: (1) short ch-words (chol, chor, chy, ch) — suggesting a grammatical particle role? (2) The same as the most frequent A ch-words generally? (3) Different in section (Herbal A vs Pharma A para-closers)?
+**Expected outcome:** If specific closers: cthy or chol may dominate (as these are high-frequency A ch-words). If distributed: any ch-word can close a paragraph. The specific words would constrain interpretations of A grammar.
+**Cost estimate:** trivial
+**Prerequisites:** exp_076 (done)
