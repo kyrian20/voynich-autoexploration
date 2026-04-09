@@ -1,5 +1,5 @@
 # Working Model — Voynich Manuscript Cryptanalysis
-**Last updated:** 2026-04-09 (after exp_055)
+**Last updated:** 2026-04-09 (after exp_056)
 **Purpose:** Continuously-updated structured summary of current beliefs about Voynichese.
 **Discipline:** Characterization, not interpretation. Claims require experimental warrant.
 
@@ -158,6 +158,13 @@ These findings have been replicated across independent analyses or confirmed by 
 - bio↔special shares most bigrams (1,404) and trigrams (17) of any cross-section pair — consistent with exp_038's suffix-paradigm section distribution (-aiin→S, -edy→bio)
 - Most widespread bigram: "chol daiin" on 24 folios (herbal+pharma)
 - Low cross-folio phrase repetition (0.24% trigrams) is inconsistent with template-generated text
+
+**Word formation is probabilistic [ONSET × SUFFIX]: template preferences are real but modest (F063, exp_056)**
+- Onset × suffix KL from independence: 0.01-0.32 bits (modest, not categorical)
+- d+aiin is most templated: 2.69× over-represented in A, 2.16× in B
+- qo+eedy: 2.05× in B; cth+ey: 3.40× (n=58 small); no categorical exclusions exist
+- Top 6 onset × 6 suffix classes account for 48-54% of each dialect
+- The template is probabilistic (onset-sensitive suffix preferences), not rigid slot-filling
 
 **Section is the primary organizer of morphological variance; quire structure is secondary (F054, exp_047)**
 - Section F-ratios > Quire F-ratios for all 4 features (qo-rate, -edy, -ol, -aiin)

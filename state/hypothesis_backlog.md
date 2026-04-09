@@ -619,3 +619,44 @@
 **Description:** Are the 'y-' initial line openers concentrated in specific herbal sections (e.g., particular folio ranges)? Or are they manuscript-wide? If concentrated in specific sections, the 'y-' particle may be section-specific rather than a general A-dialect particle.
 **Cost estimate:** small (per-section 'y-' analysis)
 **Prerequisites:** exp_053 (done)
+
+---
+
+## H064: The -dy Paragraph-Start Marker in A Is Also Present in Currier B as a Paragraph Opener
+**Priority:** medium
+**Status:** open
+**Source:** exp_054 (F061): -dy is 4.39× enriched at para-starts in A; is this also a B-dialect paragraph marker?
+**Description:** In Currier A, -dy words appear 4.39× more at paragraph-start first positions than at continuation first positions. H064: Is the -dy paragraph-start function also present in Currier B? If yes: -dy is a cross-dialect paragraph marker. If no: it is A-dialect-specific.
+**Cost estimate:** tiny (direct check in exp_054 data using B lines)
+**Prerequisites:** exp_054 (done — has B data)
+
+---
+
+## H065: The f6v 38% y-Initial Folio Is Structurally Anomalous (Long Paragraphs or Unusual Text Format)
+**Priority:** low
+**Status:** open
+**Source:** exp_055 (F062): f6v has 38.1% y-initial rate (far above A mean ~15%)
+**Description:** f6v (herbal, Currier A) has 38.1% of lines starting with y-initial words — the highest rate found. This suggests either (a) f6v has very long paragraphs relative to other herbal folios, (b) the folio has an unusual text layout (e.g., list format where each item continues the previous), or (c) this is a scribal preference specific to the scribe who wrote f6v. Test: how many paragraphs does f6v have? What is its average paragraph length compared to other herbal folios?
+**Cost estimate:** tiny
+**Prerequisites:** exp_054/055 (done)
+
+---
+
+## H066: The Currier A Line Grammar (3-Tier) Is Disrupted in Specific Folios — Exceptions Reveal Content Boundaries
+**Priority:** medium
+**Status:** open
+**Source:** F060-F061: Currier A has rigid 3-tier positional grammar. Folios that violate this grammar (e.g., -ol at line-final, no y-initial lines) may mark structurally different content.
+**Description:** If the 3-tier Currier A line grammar (-dy para-open, y-initial continuation, -aiin para-close) is consistent, then folios that violate it strongly may have different scribal hands, damaged text, or content that doesn't follow the standard template. Test: identify Currier A folios where the y-initial, -dy, and -aiin positional biases are REVERSED or absent, and characterize what's different about those folios.
+**Cost estimate:** small
+**Prerequisites:** exp_053, exp_054 (done)
+
+---
+
+## H067: Voynichese Has a Three-Slot Word Template: [Onset Class] + [Root Class] + [Suffix Class]
+**Priority:** high
+**Status:** tested — PARTIALLY SUPPORTED (exp_056: onset × suffix KL=0.01-0.32 bits; probabilistic not categorical; d+aiin 2.69× most rigid; top 6×6 covers 48-54%. F063 added.)
+**Source:** Synthesis of F060, F061, F047, F057, exp_052: the positional grammar and morphological prefix system together suggest a highly structured word-formation system
+**Description:** Based on findings so far: qo-/o-/y- are onset-class markers; k/t vs o/y/e stems are root classes; -ol/-or/-edy/-aiin/-y are suffix classes. H067: Voynichese word formation can be described as: [ONSET: qo/o/y/cth/∅] + [ROOT: k/t vs c/s/o-initial stems] + [SUFFIX: paradigm class]. Test: (a) For each combination of onset × suffix class, what is the observed vs expected frequency? (b) Which onset-suffix combinations are systematically avoided? (c) What percentage of the corpus is accounted for by the top N onset × suffix combinations?
+**Expected outcome:** If there is a true template: specific onset-suffix combinations will be dramatically over- or under-represented. If onsets and suffixes are independent: the observed = expected (multiplicative baseline).
+**Cost estimate:** medium (requires full cross-tabulation of onset × suffix classes)
+**Prerequisites:** exp_040 (qo-), exp_048 (o-), exp_052 (cth-), exp_053 (y-)
