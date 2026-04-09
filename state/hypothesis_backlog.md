@@ -493,7 +493,7 @@
 
 ## H052: Cross-Folio Exact-Phrase Repetition — "Parallel Passages" in Voynich
 **Priority:** high
-**Status:** open
+**Status:** SUPPORTED (exp_043): Bio section 6.0 shared bigrams/pair (30× herbal's rate). Only 0.24% of trigrams cross-folio (overwhelmingly unique at phrase level). bio↔special most cross-section connected (1,404 bigrams, 17 trigrams). Most widespread bigram: "chol daiin" on 24 folios. F050 added.
 **Source:** working_model.md Phase 3 gap-hunting (2026-04-09)
 **Description:** If Voynich text is formulaic (same templates repeated), we expect to find identical or near-identical sequences of words appearing on multiple folios. This is known as "parallel passages" in manuscript studies. Beyond 9-form suffix paradigm word repetition, H052 looks for repeated 3-gram and 4-gram word sequences that appear on 2+ distinct folios. Known parallel-passage candidates: f49v's L0 sequence (already shown to NOT align with f76r); zodiac folios may repeat structural formulas. Test: extract all word trigrams from body text; for each trigram appearing on 2+ folios, record the folio pairs and section context. Are the same-section trigrams the most repeated? Are any trigrams repeated across different sections (suggesting cross-section formulaic linking)?
 **Expected outcome:** High within-section trigram repetition (especially bio section, highest cross-folio TTR expectation from exp_039). Low cross-section repetition. Any cross-section repetition is especially interesting.

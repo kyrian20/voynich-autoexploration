@@ -138,6 +138,13 @@ These findings have been replicated across independent analyses or confirmed by 
 - Each section (herbal/astro/bio/pharma/cosmo) has near-zero label vocab overlap with others
 - ot-/ok- initial words are 32-41% of non-herbal labels vs 10-15% in body text (section-invariant)
 
+**Bio section is 30-85× more formulaic than herbal at phrase level; bio↔special most cross-section connected (F050, exp_043)**
+- Only 0.24% of all trigrams (73/30,910) appear on 2+ folios — manuscript is overwhelmingly unique at phrase level
+- Bio: 6.0 shared bigrams/folio-pair; herbal: 0.2 (30× difference)
+- bio↔special shares most bigrams (1,404) and trigrams (17) of any cross-section pair — consistent with exp_038's suffix-paradigm section distribution (-aiin→S, -edy→bio)
+- Most widespread bigram: "chol daiin" on 24 folios (herbal+pharma)
+- Low cross-folio phrase repetition (0.24% trigrams) is inconsistent with template-generated text
+
 **Folio diversity (TTR) splits cleanly by section (F046)**
 - Herbal: mean TTR=0.835 (most diverse), f48r/f96v = TTR=1.000 (all unique)
 - Bio: mean TTR=0.552 (most repetitive)
