@@ -1,5 +1,5 @@
 # Working Model — Voynich Manuscript Cryptanalysis
-**Last updated:** 2026-04-09 (after exp_105)
+**Last updated:** 2026-04-09 (after exp_106)
 **Purpose:** Continuously-updated structured summary of current beliefs about Voynichese.
 **Discipline:** Characterization, not interpretation. Claims require experimental warrant.
 
@@ -216,6 +216,13 @@ These findings have been replicated across independent analyses or confirmed by 
 - Within-quire variance (std≈0.05 for qo) is high: quires are morphologically heterogeneous
 - Quire M outlier (qo=25.8%, -edy=20.5%) maps almost entirely to bio section — quire signal is section signal
 - **Section-specific CONTENT WORD vocabulary confirmed (F109, exp_102)**: bare_ch content words show strong section-specialization. Herbal A: chol/chor + EXCLUSIVE words (chain, chocthy, choiin, chan, chokchy). Pharma A: cheol (6.1×!), cheeor (10.4×!), cheom (14.8×!) enriched. Stars B: cho/cheo/cheeo/cheodaiin EXCLUSIVE; Stars B also has chain (6.1×), chaiin (6.1×), cheeody (6.1×). Cosmo B: chcthy (2.3×), checthy (4.9×), cheeky (5.1×). Herbal B: cheky (3.5×), chekaiin (10×!). Each section has a distinctive ch-stem morphological signature beyond the shared core (chol/chor in A; chedy/chey in B). TIER COMPOSITION (F109): PARA+LO+WEAK tiers = only 10-20% of all word tokens; ~80% are content words (MID tier = 31-49% bare_ch/sh/qo; OTHER = 41-52%). The positional grammar labels a minority of words — most words in the manuscript are content words that show section-level semantic specialization. GRAMMAR STRICTNESS (F108/F109): Grammar strictness is PRIMARILY section-determined. Within cosmo B, length also has genuine effect. Within herbal A, grammar strictness is REVERSED with length (shorter herbal paras = higher PARA%). The positional grammar is most strict in the canonical herbal text register (10-15 line paragraphs, 70.7% PARA at PS, 0% LINE_OPEN).
+
+**d-Onset has VOWEL/CONSONANT split (line-opener vs closer); o-Prefix body words (19%) obey A/B suffix paradigm universally (F113, exp_106)**
+- d-onset (8.2% of tokens) VOWEL/CONSONANT split: d+vowel (daiin, dain, dair, dor) = LINE-OPENERs (24-37% LFirst); d+consonant (dal, dam, dy, daly) = LINE-CLOSERs (30-70% LLast). d+gallows (LINE_OPEN tier) = strongest line-openers (64-79% LFirst).
+- d-onset suppresses B-type suffixes in BOTH dialects: -edy=0.16×, -ey=0.15×, -eey=0.13× (d-onset words are morphologically A-aligned regardless of dialect context).
+- A bare_d: more closing (LLast=31.5%); B bare_d: more opening (LFirst=20.7%). D-chain: 18% of lines after d-closer start d-onset (A=19.6%, B=14.2% — weak but real).
+- o-prefix body words = 19.0% of all tokens (5,384 tokens). Low label overlap (10.8%) but 28.3% stem overlap with qo-body (shared stems = k/t-initial, F043 confirmed). Sub-class positional roles: or-onset = strong closer (LL=40.6%); ol-onset = moderate closer (LL=24%); ok/ot = mid-line content (LL=14-16%).
+- UNIVERSAL A/B PARADIGM: o-prefix obeys SAME A/B suffix split as ch-stems: A-dominant o-forms use -ol/-or (otchol=44.4×A; okol=5.8×A); B-dominant use -edy/-eedy (otedy=69.3×B; okedy=∞B; okeedy=49.2×B). The suffix paradigm governs ALL onset classes — it is a GRAMMATICAL property of the dialect, not lexical.
 
 **"OTHER" tier (43.8% of tokens) has clear sub-structure; Zipf α=1.050; 44 universal words = 21-28% of each section's tokens (F112, exp_105)**
 - OTHER tier sub-structure: (1) o-prefix content words (ok/ot/ol+anything = 37% of OTHER) — body-text object vocabulary linked to label system; (2) d-onset line-boundary words (19%): dal=30% LL, dam=70% LL, dy=46% LL (closers); dain=30% LF (opener); (3) aiin/ain particles (9%); (4) s-onset openers (saiin=51% LF, sain=60% LF = 6%). OTHER skewed SHORT (2-char 2.25×; 7-char 0.57×). qo-onset 0.08× suppressed in OTHER.

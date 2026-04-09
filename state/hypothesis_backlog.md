@@ -2170,7 +2170,7 @@
 
 ## H200: "OTHER" Vocabulary Tier — What Are the Mid-Line Words Not Classified by Positional Grammar?
 **Priority:** high
-**Status:** TESTED (exp_105) — CONFIRMED: OTHER=43.8% of all tokens. Sub-structure: o-prefix (ok/ot/ol = 37%), d-onset boundary words (19%), aiin/ain particles (9%), s-onset openers (6%). qo-onset 0.08× suppressed in OTHER. d-onset: dal=30% LL, dam=70% LL (closers); dain=30% LF (opener). Clear three-function structure.
+**Status:** TESTED (exp_105, exp_106) — CONFIRMED: OTHER=43.8% of tokens. Sub-structure: o-prefix 37% (ok/ot/ol), d-onset 19%, particles 9%, s-openers 6%. exp_106 extended: o-prefix body=19% all tokens; 28.3% stem overlap with qo-body; o-prefix obeys A/B suffix paradigm (A:-ol/-or; B:-edy/-eedy). or-onset=closer (40.6%LL); ok/ot=mid-line (14-16%LL).
 **Source:** exp_100-102 found that PARA+LINE_OPEN+WEAK_PARA+MID covers only ~50-60% of all tokens. The remaining "OTHER" 40-50% are mid-line content words with diverse vocabulary. What is the structural character of these words? Are they: (1) qo-onset words not yet classified? (2) o-onset content words? (3) Short 2-4 character words? (4) Section-specific unlabeled vocabulary?
 **Description:** Extract all "OTHER" tier tokens from the v3 classifier (not PARA, LINE_OPEN, WEAK_PARA, or MID). Compute: onset distribution, length distribution, suffix distribution, section distribution, positional stats (PS/LFirst/LLast). Compare to MID tier (ch/sh onset) to understand how OTHER differs structurally. Look for sub-classes within OTHER that have consistent structural patterns.
 **Expected outcome:** OTHER is dominated by (a) o-onset words without gallows (like ol, or, okey, okain — simple closers/openers), (b) short 2-3 char words (particles?), (c) rare hapax forms. These may represent function words, grammatical particles, or the actual content vocabulary of the manuscript.
@@ -2211,4 +2211,31 @@
 **Source:** F112 identified three sub-classes in OTHER: o-prefix (objects), d-onset (boundaries), particles (aiin/ain/ar/or/al). These should have different suffix distributions. Also from prior work: ch-MID words have -ol/-or/-edy suffixes (dialect-dependent); qo-words have -eedy/-eey. Test: does onset × suffix jointly predict the word's positional and semantic role?
 **Description:** For each of the main onset classes (ch, sh, qo, ok/ot, da, s, bare_short), compute the suffix distribution (using the same suffix taxonomy from exp_104). Rank onset-classes by suffix entropy. Lowest entropy = most constrained suffix paradigm. Test: do onset-suffix combinations cluster into (1) high-entropy pairs (content words, many suffixes possible) vs (2) low-entropy pairs (grammatical words, one suffix dominant)?
 **Expected outcome:** Grammar words: d+am (suffix: -am, 70% LL, 1 suffix), s+aiin (suffix: -aiin, 1 suffix), bare aiin (no suffix). Content words: ch-MID (multiple suffixes: -ol/-or/-ey/-edy, ~7 productive suffixes). The onset-suffix entropy would quantify the grammar/content distinction.
+**Cost estimate:** small
+
+---
+
+## H205: A/B Suffix Paradigm Is Universal — Does Every Onset Class Follow the Same A:-ol/-or vs B:-edy/-eedy Split?
+**Priority:** high
+**Source:** F113: o-prefix words show same A/B suffix split as ch-stems (F047). This suggests the paradigm is not stem-class-specific but a grammatical property of the entire dialect. Test: does EVERY onset class (ch, sh, ok, ot, d, s, qo+gallows, bare_gallows) show the same A/B suffix ratio pattern?
+**Description:** For each onset class, compute suffix distribution in dialect A vs B. For each (onset class × dialect), compute the ratio of -edy/-eedy vs -ol/-or usage. If universal: all onset classes should show A preferring -ol/-or and B preferring -edy/-eedy, with similar ratio differences. If stem-class-specific: some onsets will not show the paradigm split.
+**Expected outcome:** The paradigm split is UNIVERSAL across all onset classes, with MAGNITUDE varying by onset class (ch-stems show strongest split; bare gallows may show weaker split due to PARA-tier function). d-onset will show suppressed -edy in BOTH dialects (consistent with F113). qo-onset will show B-dominant -eedy (consistent with F043).
+**Cost estimate:** small
+
+---
+
+## H206: s-Onset Is a Distinct Grammatical Class — Are saiin/sain True Line-Openers (Parallel to daiin)?
+**Priority:** medium
+**Source:** F112: s-onset = 6% of OTHER tier; saiin=51%LF, sain=60%LF = line-openers. F105: s-words → sh/ch following (saiin-next-word: ch/sh dominant). saiin and sain are the s-onset parallels of daiin/dain. Are they SYMMETRIC with d-onset openers (d+aiin=24%LF vs s+aiin=51%LF)? Is s-onset an A-dialect or B-dialect feature?
+**Description:** Full positional and suffix analysis of s-onset words: LFirst/LLast/PS, suffix distribution, dialect split (A vs B rate), section distribution, what follows them (next-word onset). Compare s-onset to d-onset: are they the same grammatical role in different dialects, or complementary sub-classes?
+**Expected outcome:** s-onset is a dialect-specific line-opener: saiin/sain are predominantly B-section (B uses s-opening; A uses d-opening = daiin/dain). Or they may be universal but section-specific. s-onset likely has lower -edy rates than ch-onset but higher than d-onset.
+**Cost estimate:** small
+
+---
+
+## H207: Parallel Passages — Are Any Word Sequences of Length ≥4 Repeated Verbatim Across Multiple Folios?
+**Priority:** medium
+**Source:** F050 found 0.24% of trigrams appear on 2+ folios, with bio section showing 30× more cross-folio repetition than herbal. 4-gram and 5-gram cross-folio repetition has not been tested. Verbatim repeated passages of length ≥4 words would be strong evidence of formulaic construction, copy from a source text, or a substitution cipher with fixed plaintext segments.
+**Description:** Extract all 4-grams and 5-grams from body text. Find sequences appearing on 2+ distinct folios. Report: how many 4-grams repeat? What are they? Do they concentrate in specific sections (bio/cosmo, as with bigrams)? Are they grammatically structured (PARA-opener followed by specific sequence)?
+**Expected outcome:** 4-gram repetition is very rare (< 0.1% of all 4-grams). Most repetitions will be found in bio/cosmo B sections (most formulaic). Some may represent fixed formulaic phrases like the para-start sequence (p+ch+edy + qo+k+edy + ch+edy...).
 **Cost estimate:** small
