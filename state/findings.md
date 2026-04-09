@@ -101,6 +101,30 @@
 **Finding:** Words specific to B: qokeedy (298 occurrences in B, ~0 in A, ratio 14,697:1), chedy (431 in B, 4 in A, ratio 98:1), shedy (367 in B, 4 in A, 84:1). Words specific to A: cthor (36:1), cthol (36:1), cthy (27:1), sho (18:1). The A/B split is not a frequency-weighted dialect relationship — entire word categories exist in one subcorpus and are essentially absent from the other. MI(word; currier) = 0.437 bits (4.2% of word entropy).
 **Limitation:** Cannot fully disentangle section effects from language effects without finding mixed-language folios within the same section.
 
+## F018: Gallows Characters Concentrate at Word Position 1 (22.9%) — Bench-Layer Fingerprint
+**Experiment:** exp_006_gallows_grouping
+**Date:** 2026-04-09
+**Finding:** Simple gallows chars (t, k, p, f) appear in 22.9% of position-1 character slots (vs 6.9% at position 0, 17.4% at position 2, 6.5% at position 3, and 2-3% at positions 4-7). This spike at position 1 reflects the c+gallows pattern (ct-, ck-, cp-, cf-) that is the characteristic signature of the Stolfi bench layer. Gallows are followed most often by 'e' (30%) and 'a' (25.2%).
+**Limitation:** Position 1 spike conflates simple gallows (k, t after non-c chars) with compound gallows (ct, ck after initial c). A cleaner analysis would separately count c-preceded gallows from other-preceded gallows.
+
+## F019: Adjacent-Pair Pairing of Fixed-Filler Verbose Cipher Recovers Source Language h2 Exactly
+**Experiment:** exp_007_verbose_cipher_control
+**Date:** 2026-04-09
+**Finding:** Italian with every character doubled by a fixed 'x' filler has baseline h2 = 2.014. After adjacent-pair grouping, paired h2 = 3.411 — exactly equal to the original Italian h2 (3.411). This validates adjacent-pair grouping as a detector for fixed-filler verbose ciphers: paired h2 = source language h2 is the expected signature.
+**Limitation:** Only fixed-filler case tested. Variable-filler ciphers produce dramatically different results (paired h2 = 6.13 for random filler).
+
+## F020: Voynich Paired h2 (3.836) Does Not Match Italian (3.411) or Latin (3.509) — Fixed-Filler Verbose Cipher Ruled Out
+**Experiment:** exp_007_verbose_cipher_control
+**Date:** 2026-04-09
+**Finding:** If Voynich were a fixed-filler adjacent-pair verbose cipher on Italian or Latin, its paired h2 should equal Italian h2 (3.411) or Latin h2 (3.509). Observed Voynich paired h2 = 3.836 — exceeds both by 0.33-0.43 bits. The fixed-filler adjacent-pair verbose cipher on Latin or Italian is ruled out. The source language would need h2 ≈ 3.836, which exceeds both Latin and Italian.
+**Limitation:** Other natural languages (German, Arabic, Hebrew) not yet tested. Variable-filler or non-adjacent-pair groupings remain open.
+
+## F021: Stolfi Crust Stripping Does Not Recover Natural-Language h2 — Core Region h2=2.389
+**Experiment:** exp_008_stolfi_slot_entropy
+**Date:** 2026-04-09
+**Finding:** Stripping Voynich words of their outer crust characters (leading: d,l,r,s,n,y,g,q; trailing: y,n,m,d,l,r,s) raises h2 from 2.341 to only 2.389 — a gain of 0.048 bits. The core region remains far below natural-language h2 (~3.4-3.5 bits). Core region top characters are o(19.4%), e(15.6%), h(13.4%), a(10.9%), c(10.0%) — the same characters that dominate the full corpus. Stripping terminal y/n/m alone gains +0.121 bits (to 2.462). Stripping leading q alone LOSES 0.003 bits (to 2.338). Words containing gallows characters (51.9% of words) have LOWER h2 (2.271) than the full corpus average — gallows-containing words are more constrained, not less.
+**Limitation:** Crust-stripping algorithm is a character-class approximation of the Stolfi grammar, not the full slot grammar. A proper Stolfi parser might find different core residuals. Position-conditional strip (specific chars in specific slots) not yet tested.
+
 ## F002: Pure Glossographic Model (Uniform Template Across All Positions) is Contradicted
 **Experiment:** exp_001_word_initial_entropy
 **Date:** 2026-04-09

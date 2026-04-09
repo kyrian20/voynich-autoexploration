@@ -81,7 +81,7 @@
 
 ## H006: Stolfi Prefix-Midfix-Suffix Decomposition with Per-Slot Entropy
 **Priority:** medium
-**Status:** open
+**Status:** tested
 **Source:** seeds/llm_conversation_2026_04.md
 **Description:** Jorge Stolfi proposed that Voynich words decompose into three positional slots: prefix, midfix, and suffix, each drawing from a restricted character set. Replicate this decomposition on the EVA corpus, then measure entropy separately within each slot. The question: do the high-entropy slots show natural-language-like entropy? If stripping the template slots leaves residual content with h2 ~3–4, the template is adding redundancy to an underlying natural language. If per-slot entropy is uniformly low, the template is the generative mechanism.
 **Expected outcome under competing theories:**
@@ -95,7 +95,7 @@
 
 ## H007: Verbose Cipher Reversal — Systematic Grouping Search
 **Priority:** medium
-**Status:** open
+**Status:** tested
 **Source:** seeds/llm_conversation_2026_04.md
 **Description:** Systematically test whether any grouping of adjacent characters into units recovers natural-language-like h2. Test grouping schemes: adjacent pairs, adjacent triples, and class-based groupings (e.g., every gallows character + its following character as a unit). For each scheme, collapse the sequence and measure h2 on the result. A scheme that raises h2 from ~2 to ~3.5 is a candidate verbose cipher grouping. This test is large because the grouping space is combinatorial — start with the most motivated groupings (pairs and gallows-based) before exploring further.
 **Expected outcome under competing theories:**
@@ -109,7 +109,7 @@
 
 ## H008: Gallows-as-Group-Initiator Hypothesis
 **Priority:** medium
-**Status:** open
+**Status:** tested
 **Source:** seeds/llm_conversation_2026_04.md
 **Description:** A specific variant of the verbose cipher hypothesis motivated by paleography. The "gallows" characters (t, k, p, f in EVA and their variants) behave structurally differently from other characters. Test whether treating each gallows character as the start of a bigram unit (gallows + next character → single token) raises h2 or produces a more natural-language-like character distribution. This is a single specific test within the broader grouping-search space of H007, motivated by independent evidence from the writing system itself.
 **Expected outcome under competing theories:**
@@ -213,3 +213,14 @@
 - Generic structural labels: uniform distribution
 **Cost estimate:** small — requires locus codes parsed by section
 **Prerequisites:** Section-level parsing of ZL3b (feasible — folio ranges are known)
+
+---
+
+## H016: Verbose Cipher Source Language h2 Target — Arabic/Hebrew/German
+**Priority:** medium
+**Status:** open
+**Source:** exp_007_verbose_cipher_control
+**Description:** The control test established that if Voynich is a fixed-filler adjacent-pair verbose cipher, its source language must have h2 ≈ 3.836 bits. Latin (3.509) and Italian (3.411) are both too low. Test: what is h2 for unvoweled Arabic and Hebrew? These are two natural language candidates that could plausibly have h2 in the 3.5-4.0 range (Arabic without diacritics, Hebrew without nikkud). If either matches 3.836 ± 0.1 bits, it becomes a candidate source language. This connects to the Reddy/Knight abjad hypothesis in the KB.
+**Expected outcome:** If Arabic unvoweled h2 ≈ 3.836, the abjad hypothesis gains support. If not, the fixed-filler verbose cipher interpretation is further constrained.
+**Cost estimate:** small — need Arabic/Hebrew corpora; computation is trivial
+**Prerequisites:** Acquire Arabic/Hebrew text corpora (not yet downloaded)

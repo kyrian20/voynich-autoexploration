@@ -22,6 +22,30 @@
 **Why ruled out:** The effect is too small to indicate structural exposure of latent content. qo is not a separable prefix in any recoverable sense at this level of analysis.
 **Variants worth trying:** Whether qo-words form a semantically coherent class (e.g., all appear in specific manuscript sections). This is a distributional question, not an entropy question.
 
+## X003: H008 — Gallows-as-Group-Initiator Raises h2 to Natural-Language Range
+**Experiment:** exp_006_gallows_grouping
+**Date:** 2026-04-09
+**What was tested:** H008 predicted that treating gallows characters (t, k, p, f) + their following character as a single verbose-cipher unit would raise h2 from ~2.34 toward 3.0-3.5 bits.
+**Result:** Gallows + next char grouping raises h2 to only 2.513 (gain: +0.172 bits). Nowhere near natural-language range.
+**Why ruled out:** The prediction specified a substantial h2 recovery; +0.17 bits is negligible in context. Even compound gallows treatment gives only +0.19 bits.
+**Variants worth trying:** Context-dependent gallows grouping (only when gallows appears after specific characters); also, measuring whether gallows grouping recovers the natural language character distribution (not just h2).
+
+## X004: H007 (Simple) — Adjacent-Pair or Triple Grouping Recovers Natural-Language h2
+**Experiment:** exp_006_gallows_grouping
+**Date:** 2026-04-09
+**What was tested:** H007 (partial) predicted that some simple positional grouping (pairs or triples) would bring h2 into the natural-language range (3.0-3.5 bits).
+**Result:** Adjacent pairs: h2 = 3.836 (overshoots NL range). Adjacent triples: h2 = 4.229 (far overshoots). Both exceed natural language h2, which makes them inconsistent with a verbose cipher interpretation (which should recover to NL range, not exceed it).
+**Why ruled out:** Overshooting NL range rules out the simple interpretation. The increase in h2 is a mathematical artifact of creating 289 unique bigram types from 30 character types — the token diversity inflates h2 regardless of any underlying language.
+**Variants worth trying:** Non-adjacent groupings; interleaved groupings (odd vs even positions); position-within-word-conditional groupings; also, comparing the token frequency distribution to natural language character frequencies as a stricter test.
+
+## X005: H006 — Stolfi Crust Stripping Reveals Natural-Language h2 in Inner Slots
+**Experiment:** exp_008_stolfi_slot_entropy
+**Date:** 2026-04-09
+**What was tested:** H006 predicted that the outer crust characters (grammatical affixes per Stolfi grammar) suppress h2, and that stripping them would expose a higher-entropy core approaching natural-language h2 (~3.4-3.5 bits).
+**Result:** Core region h2 = 2.389 — only 0.048 bits above full corpus h2 (2.341). Nowhere near the natural-language target. Gallows-containing words (the "core" in Stolfi's grammar) actually have LOWER h2 (2.271) than the full corpus.
+**Why ruled out:** The prediction required a substantial rise toward natural-language h2. The actual rise is negligible. The information is not concentrated in the inner slots.
+**Variants worth trying:** A full Stolfi slot grammar parser (position-conditional character class assignment) rather than character-class approximation; testing whether inner-slot entropy rises within word-length-controlled groups.
+
 <!-- Additional entries will be added as experiments are completed. -->
 <!-- Example format:
 ## X001: [Hypothesis title]
