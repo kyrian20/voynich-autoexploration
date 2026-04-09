@@ -1523,7 +1523,7 @@
 
 ## H146: The Positional Grammar Models Are Falsifiable With a Held-Out Test Set — A Grammatical Parsing Attempt on New Sections
 **Priority:** high
-**Status:** open
+**Status:** TESTED (exp_090) — NOT FALSIFIED: she-prefix precision=45.7% (4.74×), astro A=100%. olfchedy/olkey/opchedy B precision=61.5% (14.72×). Cross-dialect combined: 1.95×. Daiin para-final weak (1.35×). Models are high-precision, low-recall on full corpus.
 **Source:** F090/F091/F092 (exp_083/084/085): We have two full positional grammar models: A=[she-para-start → -am within-para → daiin/ch para-end]; B=[o/sh+long+edy para-start → -am within-para → o+med+eedy para-end]. Can these models PREDICT paragraph structure in new folios not used for model building?
 **Description:** (1) Hold out a subset of folios (e.g., Pharma A, Astro B). (2) Use the positional grammar model to predict: which lines are para-starts, which are para-finals? (3) Evaluate precision/recall against the actual locus-code para-start markers. (4) What is the best predictor combination? Is it above chance?
 **Expected outcome:** If grammar models are real: precision/recall for para-start prediction should exceed 30%/30% (far above the ~10% base rate). If over-fit to training data: prediction on held-out sections falls to chance.
