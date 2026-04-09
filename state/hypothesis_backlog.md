@@ -2060,3 +2060,37 @@
 **Expected outcome:** There is a positive correlation between paragraph length and PARA% at para-start. Very short paragraphs (2-4 lines) have lower grammatical constraint.
 **Cost estimate:** small
 **Prerequisites:** F107 (exp_100)
+
+---
+
+## H191: o-Onset Para-Start Words
+**Priority:** high
+**Status:** TESTED (exp_101) — CONFIRMED (negative): o-onset is NOT a coherent para-start class (0.52× A suppressed, 1.28× B neutral). Only "op-" sub-onset (9.5×) is para-enriched — via internal p-gallows. olfchedy/olfchey are enriched via internal f+ch morphology. ~17-20% OTHER after v3 is genuinely diverse vocabulary beyond the grammar system.
+
+---
+
+## H192: Grammar Strength vs Paragraph Length
+**Priority:** medium
+**Status:** TESTED (exp_101) — STRONGLY CONFIRMED: Para-start grammar strictness scales with paragraph length. A long (10-15 lines): 70.7% PARA, 0% LINE_OPEN — strictest in manuscript. A short (2-4 lines): 31% PARA, 8.6% LINE_OPEN allowed. B monotonically increasing (22%→65%), never violates LINE_OPEN exclusion.
+
+---
+
+## H193: Section vs Length Separation — Is Grammar Strictness Driven by Section or Length?
+**Priority:** medium
+**Status:** open
+**Source:** F108: H192 finding conflates section (short=astro, long=herbal, very_long=cosmo+stars) with length. Need within-section analysis: within herbal A, do shorter paragraphs follow grammar less strictly than longer herbal paragraphs?
+**Description:** Within each major section (herbal A, pharma A), split paragraphs by length and compute PARA% at PS. If within-section length still predicts grammar strictness, it's a genuine length effect, not a section effect.
+**Expected outcome:** Within herbal A, there may be modest length effects (longer herbal paras have higher PARA%), but the main effect is section-level. The "very long" paragraphs in "other" (mean=39.7 lines) may have lower PARA% due to content differences.
+**Cost estimate:** small
+**Prerequisites:** F108 (exp_101)
+
+---
+
+## H194: Cross-Sectional Positional Grammar Summary — What Is the Final Model?
+**Priority:** high
+**Status:** open
+**Source:** F101-F108: We now have a comprehensive positional grammar model. Time to synthesize into a unified, quantitative summary of the complete Voynichese positional grammar.
+**Description:** Build a comprehensive table: For each morphological class × position combination, report the attested rates. Final classifier performance with v3. Summary of what fraction of the manuscript is "explained" by the positional grammar.
+**Expected outcome:** A complete, coherent positional grammar model for Voynichese: PARA tier covers ~55% of para-starts in main text, LINE_OPEN tier is perfectly excluded from para-starts, the model correctly classifies ~70-75% of main-text (herbal/pharma/stars) para-start words.
+**Cost estimate:** medium
+**Prerequisites:** F101-F108
