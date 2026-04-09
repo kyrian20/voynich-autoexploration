@@ -1,0 +1,40 @@
+{
+  "f68r2_header": "<f68r2>    <! $Q=I $P=I $F=z $B=1 $I=A $H=4>",
+  "at231_234_context": "<f68r2.31,@Cc>    <!09:30>okey.okoaiin.okol.o,ky.oeeeo.r.okey.okeeol.cheo.o.@231;@232;@233;@234;",
+  "is_repeating": false,
+  "pattern_type": "terminal_concatenated",
+  "f57v_comparison": "different_structure",
+  "consecutive_at_glyph_lines": [
+    {
+      "line_num": 923,
+      "folio": "f22r",
+      "locus": "+P0",
+      "consecutive_groups": [
+        "@162;@136;"
+      ],
+      "max_consecutive": 2,
+      "raw": "<f22r.7,+P0>      <%>kchol.shol.dsheor.{c'@162;@136;}.chdoly.ytaiin.ol<->otchy.cphal"
+    },
+    {
+      "line_num": 2603,
+      "folio": "f58v",
+      "locus": "+P0",
+      "consecutive_groups": [
+        "@191;@191;"
+      ],
+      "max_consecutive": 2,
+      "raw": "<f58v.3,+P0>      todal.qotain.sho{@246;k@191;@191;h}y<!corr?>.qokeol.okey.qokalchal.daly.ar.aim"
+    },
+    {
+      "line_num": 3152,
+      "folio": "f68r2",
+      "locus": "@Cc",
+      "consecutive_groups": [
+        "@231;@232;@233;@234;"
+      ],
+      "max_consecutive": 4,
+      "raw": "<f68r2.31,@Cc>    <!09:30>okey.okoaiin.okol.o,ky.oeeeo.r.okey.okeeol.cheo.o.@231;@232;@233;@234;"
+    }
+  ],
+  "verdict": "f68r2 @231-@234 is terminal concatenation, NOT a second structured cluster"
+}

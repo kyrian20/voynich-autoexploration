@@ -267,14 +267,15 @@
 
 ---
 
-## H023: f57v Circular "Key-Like" Text and f66r Column 2 Encode the Same Underlying Material
-**Priority:** high
-**Source:** exp_012_f66r_alphabet_test (raw ZL3b), exp_014_prior_work_check
-**Status:** open
-**Description:** f57v (Scribe 1, cosmological folio, explicitly "has 'key-like' sequences" per ZL3b) contains a circular Cc text repeating `o.l.[d:j].r.v.x.k.m.f.@169;v.t.r.@170;.@171;.y.I.@172;` (3-4 times). f66r column 2 contains a list including @169, @172, and many characters that overlap with this sequence (o, l, r, x, f, t, y). ZL3b transcribers cross-referenced f57v and f66r directly via "cf f57v?" on f66r L38. Both are called "key-like." Three-way cluster: f49v (line markers), f57v (circular text), f66r (column 2) all use non-standard @NNN; glyphs. Sub-questions: (a) Do the shared characters between f57v circular text and f66r column 2 exceed random overlap? (b) Is the f57v repeating sequence an ordered key (like a cipher alphabet arranged in a circle)? (c) Do the @169/@172 glyphs have visual analogs in manuscript imagery (e.g., specific alchemical symbols, Tranchedino cipher characters)?
-**Expected outcome:** If the overlap is significant and ordered, f57v may be the "master key" that f66r column 2 samples from. This would be among the most structurally important findings in the project.
-**Cost estimate:** medium — requires character-level comparison, possibly visual inspection of f57v manuscript images
-**Prerequisites:** exp_012 (done), exp_014 (done)
+## H023: f57v Circular "Key-Like" Text and f66r Column 2 Share @169/@172 and Overlap in Standard Characters
+**Priority:** medium
+**Source:** exp_012_f66r_alphabet_test, exp_014_prior_work_check, exp_017_cluster_distinctiveness
+**Status:** open — reformulated after exp_017 falsified cluster-homogeneity framing
+**Reformulation note (exp_017):** The original H023 framing assumed f49v/f57v/f66r form a statistical cluster; exp_017 falsified this. H023 is reformulated to focus on the specific f57v↔f66r connection (shared @169/@172, ZL3b cross-reference) without implying a 3- or 4-folio statistical cluster.
+**Description:** f57v's 17-token repeating sequence uses @169;v compound, @170, @171, @172 in fixed positions. f66r column 2 contains standalone @169 and @172 (not @170/@171). The two folios are by different scribes (Hand 1 vs Hand 5), in different sections, yet ZL3b transcribers explicitly cross-referenced them ("cf f57v?" on f66r L38). The shared standard characters between f57v's sequence (o, l, d, r, v, x, k, m, f/p, t, y, I/c) and f66r column 2 (o, y, s, sh, d, f, x, air, c, t, r, l, p) show substantial overlap but not identity. Sub-questions: (a) Does the character overlap between f57v's 17-token sequence and f66r column 2 exceed random expectation? (b) What is the immediate context of @169 and @172 in f66r column 2 compared to f57v's sequence? (c) Could f66r column 2 be a linear sampling from a circular structure exemplified by f57v?
+**Expected outcome:** If the overlap significantly exceeds random, the two lists may be related. If at chance, the shared @169/@172 may be coincidental (same glyph ID used for visually similar but functionally unrelated manuscript marks).
+**Cost estimate:** small — character overlap computation + context comparison already partially done
+**Prerequisites:** exp_012 (done), exp_015 (done), exp_019 (done)
 
 ---
 
@@ -312,13 +313,10 @@
 ---
 
 ## H027: The f68r2 Four-Consecutive-@Glyph Sequence (@231-@234) Is a Second Structured @Glyph Group
-**Priority:** medium
-**Status:** open
+**Priority:** low
+**Status:** FALSIFIED (exp_020)
 **Source:** exp_016_at_glyph_census
-**Description:** f68r2 (Hand 4, astronomical section, Quire 9) contains 4 consecutive distinct @glyphs (@231, @232, @233, @234) appearing together in one line — structurally analogous to f57v's @169→@170→@171→@172 cluster. Test: (a) extract the full f68r2 transcription and characterize the locus and context of these 4 @glyphs; (b) check if they form a sub-sequence within a repeating structure as in f57v; (c) visually inspect f68r2 manuscript image; (d) compare character context (what surrounds @231-@234) against f57v's @169-@172 context. If f68r2 also has a short repeating sequence with @glyphs in fixed order, this would suggest a manuscript-wide convention for encoding structured information using @glyph clusters.
-**Expected outcome:** Either f68r2 has a similar repeating structure (broadening the phenomenon), or the 4 consecutive @glyphs are a one-off annotation (narrowing it to f57v only). Either outcome is informative.
-**Cost estimate:** small — extract f68r2 transcription from ZL3b + image inspection
-**Prerequisites:** exp_016 (done)
+**Falsification:** exp_020 shows f68r2's @231-@234 are a single concatenated terminus token (`@231;@232;@233;@234;` with no dot separators) at the end of the bottom circular text — structurally opposite to f57v's distributed @glyphs within a repeating cycle. f68r2 does NOT have a repeating structure. The f57v pattern is unique in the manuscript. See X009 in failed_approaches.md.
 
 ---
 

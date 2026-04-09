@@ -62,6 +62,22 @@
 **Why ruled out:** The finding was an artifact of treating all L0 locus codes as equivalent object labels. The underlying data is correctly transcribed; the analytical interpretation was wrong.
 **Variants worth trying:** A proper object-label analysis would need to filter L0 entries to exclude line markers and list/table content. The few genuine plant labels in herbal_A (if any) need to be identified by cross-referencing locus context more carefully.
 
+## X008: Statistical Clustering Cannot Detect the @Glyph-Connected Folios as a Group
+**Experiment:** exp_017_cluster_distinctiveness
+**Date:** 2026-04-09
+**What was tested:** Whether the four structurally anomalous folios (f49v, f57v, f66r, f76r) sharing @glyph appearances and "key-like" designations form a detectable statistical cluster using character/word frequency distributions (KL divergence) and word length distributions (KS test).
+**Result:** The four folios are NOT statistically homogeneous. f57v is a strong outlier (KL_char=0.768 vs corpus) due to its repeating single-character sequence, while f66r and f76r are statistically NORMAL Currier B text (KL_char=0.037-0.063, indistinguishable from 10 control folios). f49v is intermediate. There is no shared statistical signature that unites these four folios as a cluster.
+**Why ruled out:** Statistical frequency methods (character/word distribution KL divergence, word length KS tests) are insensitive to the structural features that define this cluster (@glyph appearances, editorial "key-like" designations, L0 line-marker patterns). The cluster is defined by manuscript structural anomalies, not frequency regularities.
+**Variants worth trying:** Structural analysis (locus pattern mining, @glyph co-occurrence, transcription metadata) is the correct approach for this cluster. Frequency methods could detect clustering only if the @glyph-connected text elements were a large fraction of each folio's content — they are not (e.g., f57v's 19 @glyphs are embedded in ~181 words of text that otherwise looks statistically different from the cluster folios).
+
+## X009: f68r2 @231-@234 Is Not a Second Structured @Glyph Cluster (H027 Falsified)
+**Experiment:** exp_020_f68r2_second_cluster
+**Date:** 2026-04-09
+**What was tested:** H027 predicted that f68r2's four consecutive @glyphs (@231, @232, @233, @234) might be a second instance of a structured @glyph pattern analogous to f57v's distributed @169→@170→@171→@172 cycle.
+**Result:** f68r2's @231-@234 appear as a single concatenated compound token (`@231;@232;@233;@234;`) at the TERMINUS of the bottom ring circular text — no dot separators between them, no repeating structure, and no standard characters distributed between the @glyphs. This is structurally opposite to f57v's pattern (distributed @glyphs at fixed positions within a 17-token repeating cycle with standard characters between them).
+**Why ruled out:** The defining features of the f57v pattern (repetition, distribution within a cycle, standard characters between @glyphs) are absent in f68r2. The f68r2 case is more consistent with: (a) an end-of-text annotation using non-standard symbols, or (b) transcriber encoding of 4 unrecognizable consecutive glyphs. A full manuscript scan for 2+ consecutive @glyphs found only 3 cases total — f68r2 is unique in having 4 outside a correction bracket, but its structure differs fundamentally from f57v.
+**Variants worth trying:** Visual inspection of f68r2 at the @231-@234 position could clarify whether these are 4 distinct manuscript glyphs or a cluster of difficult-to-read marks. If they visually represent 4 distinct symbols (not just transcriber-encoded illegibility), an astronomical/symbolic interpretation remains open.
+
 <!-- Additional entries will be added as experiments are completed. -->
 <!-- Example format:
 ## X001: [Hypothesis title]
