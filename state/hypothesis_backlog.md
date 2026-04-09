@@ -1913,3 +1913,110 @@
 **Expected outcome:** Paragraphs have consistent structure with gallows word at line 1, followed by y/d+ch-type openers for internal lines, and possibly d+ch or d-onset words at para-final line. This would complete the multi-level grammar characterization.
 **Cost estimate:** medium
 **Prerequisites:** F100-F104
+
+---
+
+## H181: Positional Grammar Classifier Accuracy
+**Priority:** high
+**Status:** TESTED (exp_098) — CONFIRMED: LINE_OPEN tier is categorically excluded from para-starts (B=100% clean, A=98.6% clean). PARA tier: A=55.6% precision (11.8× enriched), B=14.8% precision (3.94× enriched). ~54% of para-starts have "OTHER" words — major classifier coverage gap. WEAK_PARA also enriched (2.6-3.4×).
+
+---
+
+## H182: Paragraph Internal Structure Template
+**Priority:** high
+**Status:** TESTED (exp_098) — CONFIRMED: Sharpest morphological transition in MS is para-boundary. PARA markers: 33%→0.6% (line 1→2, 55× drop). LINE_OPEN: 2.4%→29% (12× jump). Within-para structure is uniform (no distinct closing morphology). Para-final words are o-ending (27-35%) and d-ending (24% A). Canonical sequence: PARA-opener → LINE_OPEN on lines 2+.
+
+---
+
+## H183: Paragraph Length by Section
+**Priority:** medium
+**Status:** TESTED (exp_098) — CONFIRMED: Stars(B)=47 lines, cosmo(B)=25 lines, herbal(A/B)=12-13 lines, pharma(A)=7.7 lines, astro(A)=3.4 lines. Para length is section-determined.
+
+---
+
+## H184: What Are the "OTHER" Para-Start Words? — Coverage Gap Investigation
+**Priority:** high
+**Status:** open
+**Source:** F105 (exp_098): ~54% of para-starts begin with "OTHER" words not captured by the PARA/LINE_OPEN/MID/WEAK_PARA classifier. This is the largest single category at para-starts. What onset classes do these words use? Are they: (1) o-onset words, (2) words beginning with specific vowel-onset patterns, (3) word-forms with specific suffixes, (4) section-specific vocabulary?
+**Description:** Extract all para-start words classified as "OTHER" in A and B. Compute onset distribution (o, a, e, s, c, etc.). Compare to within-para OTHER words. Identify if specific word forms are para-start-enriched within the OTHER category.
+**Expected outcome:** Likely find that o-onset words (like ol, or, or similar) are para-start enriched. These would be a FOURTH positional class beyond the gallows system — an "o-prefix para-start" class to complement p/k/t/f para-starters.
+**Cost estimate:** small
+**Prerequisites:** F105 (exp_098)
+
+---
+
+## H185: Para-Final o-Onset Specialization — Is o-Ending a Paragraph Closer Morpheme?
+**Priority:** medium
+**Status:** open
+**Source:** F105 (exp_098): Para-final last words are 27.4% (A) / 35.3% (B) o-onset. Is this para-specialized or just a property of line-final words in general? Compare o-onset line-last rate at para-final lines vs within-para line-last positions.
+**Description:** Test if o-onset words are SPECIFICALLY enriched at para-final positions vs within-para line-last positions. If para-final o-onset > within-para line-last o-onset, then o-onset is a paragraph-closer signal.
+**Expected outcome:** o-onset words are somewhat enriched at para-final line-last positions but not dramatically so — the 27-35% rate may simply reflect the general distribution of line-final words ending in o-onset forms.
+**Cost estimate:** small
+**Prerequisites:** F105 (exp_098)
+
+---
+
+## H186: Stars (B) Paragraph Internal Structure — Are 47-Line Paragraphs Internally Structured Into Sub-Sections?
+**Priority:** medium
+**Status:** open
+**Source:** F105/H183: Stars (B) paragraphs have mean 47 lines (range 37-54). These are massive structural units. Do they have sub-structure? Test: (1) Within-stars paragraphs, do PARA-tier markers appear mid-paragraph (creating internal "sub-paragraphs")? (2) Is there a repeating N-line cycle within stars paragraphs? (3) Do the ~47-line stars paragraphs correspond to known astronomical sub-structures (12 zodiac signs × 4 lines? 36 decans?)?
+**Description:** Extract stars-section B paragraphs. Look at line position × opener-tier to find any mid-paragraph structure. Check if paragraph length = some astronomically meaningful number.
+**Expected outcome:** Stars paragraphs may have internal structure corresponding to astronomical catalog format. The ~47-line length in stars may be 47 = some combination like 12+12+12+11 (seasonal months) or 36+N (decans).
+**Cost estimate:** small
+**Prerequisites:** F105/H183 (exp_098)
+
+---
+
+## H187: "OTHER" Para-Start Words — Do They Form Positional Bigrams With Line-2 Words?
+**Priority:** medium
+**Status:** open
+**Source:** F105: 23.2% of A paragraphs start with "OTHER→OTHER" 2-line sequence. If OTHER para-start words have positional grammar, it should appear in their transition probabilities. Do specific OTHER para-starters predict specific line-2 continuations?
+**Description:** Extract OTHER para-start words. For each, compute what tier appears on line 2. Does OTHER→LINE_OPEN rate differ by specific OTHER word type? Are some "OTHER" para-starters actually predictive of line-2 structure?
+**Expected outcome:** Some OTHER para-start words behave like PARA-tier words (followed by LINE_OPEN at line 2). These would extend the PARA tier class.
+**Cost estimate:** small
+**Prerequisites:** F105 (exp_098)
+
+---
+
+## H184: "OTHER" Para-Start Investigation
+**Priority:** high
+**Status:** TESTED (exp_099) — CONFIRMED: "OTHER" PS words dominated by bare_k (9-12× enriched) and bare_t (3.25× A). These are bare gallows para-starters missing from classifier. Extended PARA tier = {p,f}+stem + bare_k + bare_t covers ~65-70% of para-starts.
+
+---
+
+## H185: Para-Final o-Onset Specialization
+**Priority:** medium
+**Status:** TESTED (exp_099) — PARTIALLY CONFIRMED: o-onset mildly enriched (A=1.52×, B=1.25×). B has stronger para-final specialization: sh-onset (2.88×) and words okeey (16.4×), orol (21.9×), shedy (6.25×). P-onset perfectly excluded from para-finals (0.00×).
+
+---
+
+## H188: Extended Positional Classifier — Add bare_k and bare_t to PARA Tier; Test Coverage Improvement
+**Priority:** high
+**Status:** open
+**Source:** F106 (exp_099): bare_k and bare_t are para-starters (F101, 4-10× enriched) but were missing from the PARA-tier classifier. Adding them should improve classifier coverage from ~38-39% to ~65-70% of para-starts.
+**Description:** Rebuild the classifier with bare_k and bare_t in PARA tier. Re-evaluate: (1) new precision/recall for PARA tier; (2) what fraction of para-starts are still "OTHER"? (3) Does adding bare_k/bare_t create false positives (within-para k/t words)?
+**Expected outcome:** Coverage increases to ~65-70%, precision may decrease slightly (bare_k/bare_t appear within-para too), but enrichment should still be strong (4-12×).
+**Cost estimate:** small
+**Prerequisites:** F106 (exp_099)
+
+---
+
+## H189: B Para-Final Closing Words — okeey, orol, shedy, cheam as a Specialized Para-Closing Class
+**Priority:** medium
+**Status:** open
+**Source:** F106 (exp_099): B has para-final words okeey (16.4×), orol (21.9×), shedy (6.25×), cheam (10.9×). Do these form a coherent lexical class? Test: (1) Are they systematically distributed across all B sections or section-specific? (2) Do they share morphological features (all o-onset + -ey/-eey, or sh- + -edy)? (3) Is the para-final closing signal consistent within individual B folios?
+**Description:** Extract all para-final last words in B. Cluster by onset class and suffix. Identify the core B para-closing vocabulary. Compare to B line-final words (which are separate from para-final).
+**Expected outcome:** B para-closing words = {o-onset + -ey/-eey} + {sh-onset + -edy} — a closed class of 10-15 words that systematically end paragraphs in B. This would be the B equivalent of A's daiin para-closing function.
+**Cost estimate:** small
+**Prerequisites:** F106 (exp_099)
+
+---
+
+## H190: Astro Section Anomalous Para-Start Grammar — 69% OTHER — What Words Actually Start A Astro Paragraphs?
+**Priority:** medium
+**Status:** open
+**Source:** F106/H186: A_astro has 69.2% OTHER para-starts — highest of any section. These are short captions/labels (~3.4 lines each). What vocabulary do they use? Are they using a completely different para-start system (perhaps image-specific labels)?
+**Description:** Extract all astro-section A para-start words. Compute onset distribution. Identify top 20 para-start words. Compare to herbal A para-start vocabulary.
+**Expected outcome:** Astro A para-starts use a diverse open-class vocabulary, possibly with more d-onset or o-onset words than other sections, reflecting the label-like nature of astro captions.
+**Cost estimate:** very small
+**Prerequisites:** F106 (exp_099)
