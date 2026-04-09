@@ -1606,3 +1606,25 @@
 **Expected outcome:** If y-prefix is a line-initial morpheme: y-compound words (ykaiin, ycheey, ychedy) should have LFirst% >>50% and appear only at line-starts. They would form a line-initial paradigm distinct from qo-prefix (which can appear mid-line).
 **Cost estimate:** small
 **Prerequisites:** F093/F094 (exp_086/087)
+
+---
+
+## H154: y+{Stem} and qo+{Stem} Are LINE-INITIAL vs MID-LINE Alternants of the SAME Stem — A Positional Morphological Paradigm
+**Priority:** high
+**Status:** TESTED (exp_089) — STRONGLY SUPPORTED: B shows 3.12× y/qo LFirst ratio across 81 shared stems (bare=8.9%, qo=11.6%, y=36.2%). Individual stems: tal=8.17×, tchedy=6.00×, tar=5.27×. A weaker (1.28×). Prefix-encoded positional paradigm confirmed for B.
+**Source:** F095 (exp_088): y-compound selects k/t stems (ykaiin, ykeey, ytaiin, yteedy) — the same stem class as qo-prefix (qo-stems are 60.5% k-initial, 21.2% t-initial). y-compound LFirst=47.3% (line-initial); qo-prefix LFirst=11.3% (mid-line). Hypothesis: y+{stem} is the LINE-INITIAL form of the k/t-stem paradigm, while qo+{stem} is the MID-LINE form. Same content word appears with different position-marking prefix depending on where it falls in the line.
+**Description:** (1) Take the top y-compound words (ykaiin, ykeey, ytaiin, yteedy). Strip y-prefix to get stem: kaiin, keey, taiin, teedy. (2) Do these stems also appear as qo+stem forms (qokaiin, qokeey, qotaiin, qoteedy)? (3) What are the positional profiles of ykaiin vs qokaiin, ykeey vs qokeey? Are they complementarily distributed by line position? (4) Compute: for stem X, what % of yX tokens are line-initial and what % of qoX tokens are line-initial? Is there a consistent y-initial/qo-mid pattern?
+**Expected outcome:** If positional alternation: ykaiin should be predominantly line-initial and qokaiin predominantly mid-line; the two forms occupy complementary positions. This would establish a POSITIONAL PREFIX PARADIGM: LINE-START → y-{stem}; MID-LINE → qo-{stem}.
+**Cost estimate:** small
+**Prerequisites:** F095 (exp_088)
+
+---
+
+## H155: The Complete B Line Structure [y/s → qo → -am/oly] Can Be Verified as a Sequence Pattern — What Fraction of B Lines Follow This Template?
+**Priority:** high
+**Status:** TESTED (exp_089) — NOT SUPPORTED: Full template only 0.7% (chance=0.8%, enrichment=0.95×). Components are INDEPENDENT. qo-mid pervasive (65.4%); opener/closer optional (20.8%/5.6%). B line grammar is modular, not rigid sequence.
+**Source:** F095 (exp_088): Proposed B line structure: [y-compound or s-onset LINE-OPENER] → [qo-prefix MID-LINE] → [-am or oly/oldy LINE-CLOSER]. Is this actually a common B line template? Or is the line structure more variable?
+**Description:** (1) Classify each B line word-by-word: opener (y-compound or s-onset at pos0), mid (qo-prefix anywhere mid-line), closer (-am or oly/oldy at final). (2) Count how many B lines have the full [opener → qo-mid → closer] structure. (3) Count lines with partial matches (opener only, closer only, qo-mid only). (4) What fraction of B lines have NO opener/mid/closer — are there blank-template lines? (5) Compare: lines that DO follow the template — are they from specific sections?
+**Expected outcome:** If template is real: 15-30% of B lines follow the full [opener → qo-mid → closer] pattern (much above the ~1-3% expected by chance). If template is just statistical: the overlap is at chance levels.
+**Cost estimate:** small
+**Prerequisites:** F093/F094/F095 (exp_086/087/088)
