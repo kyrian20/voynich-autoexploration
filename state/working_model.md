@@ -242,9 +242,11 @@ These are definitively ruled out by experiment:
 - If the paradigm is productive (not lexically listed), any new stem should take all 9 forms at some rate
 - Predictive test: what fraction of stems with 1 observed suffix have their "missing" suffix forms at very low count (suggesting the paradigm is productive but evidence sparse)?
 
-**Q003: Do scribal hands vary in their morphological usage (qo-rate, suffix preferences, o-label rate)?**
-- If Hand 1 and Hand 2 differ in qo-rate independently of section, this constrains the dialect model
-- Not yet tested: dataset needed (token-level hand assignment from ZL3b $H= fields)
+**Q003: Scribal Hand 4 is morphologically anomalous — does it represent a third variety? (F051, exp_044)**
+- Hand 4 (astro/cosmo): qo=5.9%, -edy=0.4%, -ol=8.3% — resembles Currier A more than other Currier B hands
+- Hand 3 (Special section): -aiin=11.4%, corroborating exp_038's aiin→Special concentration
+- Within-Hand 2, qo-rate varies 0-37% across folios (std=0.090) — content-driven more than scribe-driven
+- H056 open: does the astro/cosmo section form a morphologically intermediate third dialect?
 
 **Q004: Is there cross-folio repetition beyond the 9-form paradigm?**
 - How often does the exact same word sequence appear on two different folios?

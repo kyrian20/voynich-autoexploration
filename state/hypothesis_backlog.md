@@ -471,7 +471,7 @@
 
 ## H050: Scribal Hand Variation in qo-Morphology Rate — Do Hands 1–5 Differ Systematically?
 **Priority:** high
-**Status:** open
+**Status:** PARTIALLY SUPPORTED (exp_044): Hand 4 outlier: qo=5.9% (vs 18-21% for Hands 2-3), -edy=0.4%, -ol=8.3% — resembles Currier A. Hand-section confound is strong. Within-Hand 2 qo-rate std=0.090 (content-driven more than hand-driven). H056 generated. F051 added.
 **Source:** working_model.md Phase 3 gap-hunting (2026-04-09)
 **Description:** qo- prefix rate varies across sections (bio=19.4%, herbal=11.1%) and correlates with Currier B. But section and hand are confounded: Hand 1 writes primarily Currier A herbal; Hands 2-5 write primarily Currier B sections. H050 attempts to decompose: within the same section, do different hands show different qo- rates? ZL3b $H= field assigns a hand number (1-5) to each folio. For folios in the bio section written by the same Currier dialect, measure qo-rate per hand. If hands vary independently of section/dialect, qo- has a scribal component. If hands don't vary within section+dialect combinations, qo- is entirely explained by section or dialect.
 **Expected outcome:** If qo-rate is a hand feature: Hand 2 and Hand 3 (both bio section) will have measurably different rates. If qo- is section-driven: hands within the same section will show no difference. The result constrains whether the morphological system is stable across different scribes (language feature) or variable (idiolect/scribal habit feature).
@@ -533,3 +533,14 @@
 **Expected outcome:** If systematic: lag=13 peak appears in ≥5 of the 19 bio folios with sufficient tokens. If random artifact: lag=13 peaks in ~1-2 folios by chance (consistent with 5% alpha).
 **Cost estimate:** small (loop the exp_042 analysis across bio section folios)
 **Prerequisites:** exp_042 (done)
+
+---
+
+## H056: The Astro/Cosmo Section (Hand 4) Is Morphologically Intermediate Between Currier A and B
+**Priority:** medium
+**Status:** open
+**Source:** exp_044_hand_qo_variation (F051)
+**Description:** Hand 4 (astro/cosmo folios f67-f70) has Currier B designation but morphological features close to Currier A: qo=5.9% (vs B average 17-21%), -edy=0.4% (vs B average 10-16%), -ol=8.3% (highest of any B hand, approaching A's 17%). H056 tests whether the astro/cosmo section is statistically intermediate between A and B on multiple morphological measures. Test: for the Hand 4 folios, compute (a) vocabulary Jaccard with Currier A vs Currier B bodies, (b) suffix distribution distance to A vs B, (c) word-initial entropy and character distribution. Also test: is the A-like profile a consequence of circular text structure (ring diagrams constrain vocabulary), or is it present in all Hand 4 text regardless of locus type?
+**Expected outcome:** If astro/cosmo is intermediate: Jaccard(Hand4, A) > Jaccard(Hand4, B) or approximately equal. If astro/cosmo is B: Jaccard(Hand4, B) > Jaccard(Hand4, A). The former would suggest a three-way dialect distinction (A, B, astro/cosmo).
+**Cost estimate:** small (comparative vocabulary analysis on the 9 Hand 4 folios)
+**Prerequisites:** exp_044 (done), exp_023 (A/B alignment data)
