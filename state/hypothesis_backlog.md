@@ -1232,3 +1232,91 @@
 **Expected outcome:** If qo-enriched section: Pharma A has higher qo-rate which mechanically elevates all X→qo rates. If genuine grammar: qo-following rates are elevated even controlling for qo base-rate.
 **Cost estimate:** small
 **Prerequisites:** exp_078 (done)
+
+---
+
+## H120: The e-Infix Morphological Marker Co-Occurs with Specific Suffix Classes (e-Infix = Specific Syllable Template)
+**Priority:** high
+**Status:** tested — STRONGLY SUPPORTED (exp_080: B she-→-edy 29% vs sh-other→-dy 16%; A she-→-ey 20% vs sh-other→-aiin 9%. Complete syllable template {onset}+e+{stem}+{e-suffix} confirmed in both dialects. F087 added.)
+**Source:** F086 (exp_079): e-vowel infix after onset universally predicts higher qo-following rate. Do e-infix words (she-, che-, ke-, oe-) also preferentially take specific suffixes? In B, she-forms (shedy, sheedy, sheey) take -edy/-eedy/-ey suffixes. Is there a coherent syllable template: {onset}+e+{suffix}?
+**Description:** For each onset class, compare suffix distribution of e-infix vs non-e-infix forms. Do e-infix words take specific suffixes? Is the e-infix correlated with the -edy/-eedy suffix paradigm? If the template is {onset}+e+{edy/eedy/ey}, this would define a major morphological class of B words.
+**Expected outcome:** If syllable template: e-infix words predominantly take -edy, -eedy, -ey suffixes, forming a coherent class. If uncorrelated: e-infix and suffix are independent dimensions.
+**Cost estimate:** small
+**Prerequisites:** exp_079 (done)
+
+---
+
+## H121: The B -am Suffix Class Is a Grammatical Line-Boundary Marker (Not Content Words)
+**Priority:** high
+**Status:** tested — STRONGLY SUPPORTED (exp_080: -am words 81.6% line-final vs 11.9% average; SUPPRESSED at para-final 7.7% vs within-para 14.0%; marks WITHIN-para line-boundaries NOT para-finals. B tripartite grammar: p-onset para-start → [-am line-ends] × N → o-onset para-end. F087 added.)
+**Source:** F086 (exp_079): 6 of 14 B line-closers end in -am: am (81%), dam (77%), okam (75%), olkam (80%), qokam (86%), otam (66%). Is -am a grammatical suffix marking line-endings in B? Is -am also enriched at para-finals (B's o-onset para-closers)?
+**Description:** (1) Compute line-final rate for ALL B words ending in -am vs corpus average. (2) Is -am enriched at para-final positions? (3) What precedes -am words? (4) Do -am words appear in labels? (5) Compare -am suffix distribution in A: does A have -am line-closers?
+**Expected outcome:** If grammatical marker: -am words are systematically line-final, never line-initial, absent from labels, and preceded by specific onset classes. If coincidental: -am words are just common words that happen to appear at line-ends.
+**Cost estimate:** small
+**Prerequisites:** exp_079 (done)
+
+---
+
+## H122: Pharma A Is a Transitional Text — Closer to B Than to Herbal A in Sequential Grammar and qo-Vocabulary Despite A-Type Morphology
+**Priority:** high
+**Status:** tested — STRONGLY SUPPORTED (DISSOCIATION, NOT INTERPOLATION) (exp_080: Pharma A bigram PPL=12.9%≈B 13.3%; sh→qo=2.44×>B 1.97×; she-→qo=2.91×>B 2.19×; BUT -edy=0.47% vs B 18%; Jaccard with B=0.070 < Herbal A 0.100. NOT transitional — has B-strength grammar AND MORE DISTANT vocabulary than Herbal A. F087 added.)
+**Source:** F083/F086 (exp_076/exp_079): Pharma A shows: (1) B-strength sh→qo coupling (2.44× vs B 1.97×); (2) B-like qo-vocabulary (qokeol, qokeey resembling qokeedy, qokedy); (3) she-→qo=2.91× (even stronger than B's 2.19×); (4) but pure A-type suffix morphology (-ol=18.2%, -edy=0.2%). Is Pharma A a "transitional" or "mixed" text — one that uses A-type words but B-type grammar?
+**Description:** Systematically compare Pharma A to the spectrum from Herbal A to Currier B on multiple dimensions: (1) bigram onset-class PPL reduction; (2) specific B-diagnostic features (sh→qo coupling, qo-word vocabulary, e-infix prevalence); (3) suffix paradigm; (4) onset-class distribution. Where does Pharma A sit on the A-to-B gradient for each feature?
+**Expected outcome:** If transitional: Pharma A sits between Herbal A and B on most sequential grammar features. If purely A with B-like qo: only the qo-handling differs, not the overall grammar.
+**Cost estimate:** small
+**Prerequisites:** exp_079 (done)
+
+---
+
+## H123: The e-Infix Syllable Template Defines a Complete Morphological Paradigm (e-Infix Defines Stem Class, Not Individual Words)
+**Priority:** high
+**Status:** tested — NOT SUPPORTED AS STATED (exp_081: e-infix is a vocabulary partition, not a productive morphological operation. 70-98% of stems are exclusive to e-infix or non-e contexts. In shared stems, suffix distributions identical (e-context 16-18% e-suffix ≈ non-e-context 14-22%). H120's e-infix→-edy correlation driven by MINIMAL WORDS (shedy=onset+e+suffix with no stem). F088 added.)
+**Source:** F087 (exp_080): e-infix words take e-extended suffixes (B: -edy, -eedy, -ey, -eey; A: -ey, -eey) while non-e forms take -dy/-aiin. The co-occurrence suggests the e-infix is a CLASS marker. Do e-infix stems (the part between onset and suffix) appear consistently with ONLY e-extended suffixes? If shedy and sheedy share the same stem "sh" + e + d/dy, is there a systematic mapping from stem to suffix paradigm — i.e., given a stem, can you predict whether it takes e- or non-e suffixes?
+**Description:** Extract stem from e-infix words by removing onset+e prefix and -edy/-ey/-eey/-eedy suffix. Do these stems ALSO appear in non-e contexts (sh+stem without e)? If shedy and shdy are both attested, do they use complementary suffixes? Or do certain stems appear exclusively in e-infix contexts? This tests whether the e-infix is a stem-class marker or a productive morphological operation.
+**Expected outcome:** If stem-class: e-infix stems appear only in e-suffix contexts; non-e stems appear only in non-e contexts — two disjoint stem classes. If productive morphology: same stem appears in both e-infix and non-e contexts with different suffixes.
+**Cost estimate:** medium
+**Prerequisites:** exp_080 (done)
+
+---
+
+## H124: The B -am Suffix Suppression at Para-Final Reflects a Third-Person vs First/Second-Person Grammar (or Tense/Aspect Shift)
+**Priority:** medium
+**Status:** tested — PARTIALLY SUPPORTED (exp_081: B para-final suffix fingerprint is {-edy 16.2%, -aiin 11.8%, -eedy 7.4%}; within-para line-final fingerprint {-y 17.6%, -am 11.3%, -edy 12.0%}. -am modestly suppressed at para-final (10.3% vs 12.5%). Top B para-final word: chedy (5 occurrences). F088 added.)
+**Source:** F087 (exp_080): -am words mark within-para line-ends (81.6%) but are SUPPRESSED at para-ends (7.7%). Para-ends use o-onset words (F083). What is the grammatical contrast between -am words and o-onset para-closers? Both are positional markers, but for different levels of structure. Does the -am suffix correspond to a specific grammatical feature (e.g., tense/aspect/person) that is appropriate for line-ends but not paragraph conclusions?
+**Description:** (1) What suffixes do B para-final words actually take? Compare suffix distribution of para-final last words vs within-para line-final words. (2) Do o-onset para-final words take specific non-am suffixes? (3) Is there a COMBINATION of onset AND suffix that marks para-finals in B? (4) Does the -am suffix appear in A para-finals or only within-para?
+**Expected outcome:** If grammatical contrast: para-final words take a different suffix class from within-para line-final words, suggesting -am and the para-final suffix encode different grammatical features. If positional only: the contrast is purely structural with no morphological parallel.
+**Cost estimate:** small
+**Prerequisites:** exp_080 (done)
+
+---
+
+## H125: The Pharma A Dissociation (Grammar-Morphology Independence) Extends to Aiin-Dominant Herbal A vs Y-Dominant Herbal A
+**Priority:** high
+**Status:** tested — STRONGLY SUPPORTED (exp_081: Aiin-dom: bigram PPL=5.8%, d→qo=1.90×, she-→qo=0.41× SUPPRESSED, -ol=13.6%, -or=12.2%, e-infix rate=7.54%. Y-dom: bigram PPL=4.0%, sh→qo=1.75×, she-→qo=2.23×, -ey=6.65%, -eey=5.99%, e-infix rate=12.59%. Grammar-morphology dissociation is GENERAL, not Pharma A anomaly. F088 added.)
+**Source:** F087 (exp_080): Pharma A shows B-strength sequential grammar with A-type morphology. A similar dissociation might appear within Herbal A's two registers: aiin-dom has stronger overall bigram grammar (12.7% PPL reduction) vs y-dom (10.2%), while their suffix morphologies are similar (both use -aiin, -ol, -or, -y paradigm). Does aiin-dom have more B-like sequential grammar (higher sh→qo, stronger bigram coupling) independently of its suffix paradigm?
+**Description:** (1) For aiin-dom vs y-dom Herbal A: compute the FULL onset-class transition matrix and compare each entry to B. (2) Compare suffix paradigm between aiin-dom and y-dom (are they actually the same morphologically, just different in daiin rate?). (3) Does the grammar-morphology dissociation pattern hold WITHIN Herbal A, not just in Pharma A? This would confirm that sequential grammar and morphological paradigm are independently varying throughout the corpus.
+**Expected outcome:** If dissociation universal: aiin-dom's stronger sequential grammar is not accompanied by more B-like suffix morphology — grammar and morphology vary independently within A. If Pharma-A-specific: the dissociation is unique to Pharma A's section-level grammar, not a general feature.
+**Cost estimate:** small
+**Prerequisites:** exp_080 (done)
+
+---
+
+## H126: The B Paragraph Tripartite Structure (p-onset START → -am LINE-ENDs → o-onset PARA-END) Can Be Used to Parse Paragraph Structure Automatically
+**Priority:** medium
+**Status:** open
+**Source:** F087 (exp_080): B shows a tripartite positional grammar: p-onset marks para-starts; -am suffix marks within-para line-ends; o-onset marks para-ends. If this structure is consistent, it should be possible to use these markers to PREDICT where paragraph boundaries are — i.e., to parse paragraph structure from word features alone (without the locus codes). How accurately does the tripartite grammar predict the observed locus-code paragraph structure?
+**Description:** (1) For each B line, compute: is the first word p-onset? is the last word -am? is the last word o-onset? (2) Train a simple classifier: predict is_para_start from previous-line's last word features (is it o-onset? is it -am?). (3) Evaluate precision/recall of -am words for identifying within-para line-ends vs para-final line-ends. (4) How often does the tripartite grammar break down (p-onset mid-paragraph, o-onset within-para, -am at para-end)?
+**Expected outcome:** If parseable: -am predicts within-para line-end with high precision (>70%); o-onset last word predicts para-final with >50% precision; p-onset first word predicts para-start with >60% precision. If inconsistent: the grammar is more approximate than suggested.
+**Cost estimate:** small
+**Prerequisites:** exp_080 (done)
+
+---
+
+## H127: The d-Onset Words (dam, chdam) Forming Line-Closers in Both Dialects Are a Cross-Dialect Function Word Subclass
+**Priority:** medium
+**Status:** open
+**Source:** F086/F087 (exp_079/exp_080): dam is the only word appearing as a line-closer in BOTH A (62.5%) and B (77.4%). chdam is a B line-closer (60%). Both end in -am. Are there other d-onset words that bridge A and B in their positional behavior? d-onset is enriched at line-finals in BOTH dialects (A: d→1.73×, B: d→1.51×) — a cross-dialect positional grammar feature. Is d-onset the "cross-dialect bridge" onset class, appearing at line-finals in both systems?
+**Description:** (1) Compute d-onset line-final rate for ALL d-onset words in both A and B. (2) Are there d-onset words that appear in both dialects with similar positional behavior? (3) Compare: dam in A vs B (line-final rate, what precedes it, what follows). (4) Does dam in A have the same positional role as dam in B, or are they the same orthographic form serving different grammatical functions?
+**Expected outcome:** If cross-dialect bridge: d-onset words (especially dam and chdam) have similar line-final rates in both dialects, suggesting d-onset grammatical words are dialect-stable (unlike the sh→qo vs d→qo opposition). If dialect-specific: dam in A and dam in B have different distributional profiles despite the same form.
+**Cost estimate:** small
+**Prerequisites:** exp_080 (done)
