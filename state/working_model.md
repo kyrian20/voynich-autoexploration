@@ -1,5 +1,5 @@
 # Working Model — Voynich Manuscript Cryptanalysis
-**Last updated:** 2026-04-09 (after exp_039)
+**Last updated:** 2026-04-09 (after exp_050)
 **Purpose:** Continuously-updated structured summary of current beliefs about Voynichese.
 **Discipline:** Characterization, not interpretation. Claims require experimental warrant.
 
@@ -18,12 +18,15 @@ These findings have been replicated across independent analyses or confirmed by 
 - qo is NOT a grammatical article (no complementary distribution with bare stems; no positional separability)
 - 11/15 top B-exclusive qo-stems are absent from A vocabulary entirely
 
-**'o' is a label-form morpheme parallel to qo- (F043, F044)**
+**'o' and 'qo' are parallel prefix morphemes on the SAME k/t-initial stem class (F043, F044, F055)**
 - 58.4% of object labels (Lf/Ls/Ln/Lt) begin with 'o' vs 20.5% of body text
 - 64.3% of o-initial labels have o-stripped stem in body vocabulary (otar→tar, otol→tol)
 - Section-invariant 2.5–3.3× elevation in o-initial rate: rules out section vocabulary bias
-- KL divergence of o-initial bigrams (label vs body) = 0.154 bits — after the 'o', the stems follow body-text patterns
-- 'o' transforms body-text vocabulary items into labeled/grammatical object-naming forms
+- 10/13 (76.9%) of frequent o-stems also appear as qo-stems in Currier B body
+- Onset distributions parallel: o-labels=66.5% k/t-initial; qo-body=82.5% k/t-initial
+- Stem-in-free-vocab rate identical: o-stems 43.1%, qo-stems 42.0%
+- Register distinction: qo- = body-text form; o- = label form (qo-words essentially absent from labels)
+- Three-prefix system confirmed: (1) qo- [B body, k/t stems], (2) o- [labels, k/t stems], (3) cth- [A body, o/y/e stems]
 
 **{y,n,l,r} cover 88.8% of all word endings (F042)**
 - Top-4 word-final chars: y=41.1%, n=17.0%, l=15.7%, r=14.9%
@@ -124,6 +127,14 @@ These findings have been replicated across independent analyses or confirmed by 
 - Most frequent single word in Herbal A; appears only once in labels
 - Not a universal function word; Currier A / Herbal A specific
 
+**Currier A: 'd'-stem words are line-final markers; -ol/-or words are excluded from line endings (F057, exp_050)**
+- dam=62.5% line-final (3.92× above baseline), dy=49.2%, dal=35.5%, daiin=22.5%, dain=25.4%
+- chol=0.9% line-final (18× below baseline!), shol=1.0%, chor=4.1%
+- Strong positional complementary distribution: 'd'-stem→line endings; -ol/-or→medial/line-initial
+- The 'd' stem functions as a line-boundary element in Currier A
+- -aiin suffix class in A is also line-final elevated (20.2% vs 15.9% baseline)
+- Note: B's -ain words are NOT line-final elevated (8.5%, below baseline) — A and B use different mechanisms for positional encoding
+
 **Bio section vocabulary is dominated by qo-words; Herbal A by short words (F015)**
 - Bio top words: shedy, chedy, qokain, qokedy, ol, qokeedy, qokal, qokaiin
 - Herbal A top words: daiin, chol, chor, shol, dar, or, chy, cthy
@@ -144,6 +155,12 @@ These findings have been replicated across independent analyses or confirmed by 
 - bio↔special shares most bigrams (1,404) and trigrams (17) of any cross-section pair — consistent with exp_038's suffix-paradigm section distribution (-aiin→S, -edy→bio)
 - Most widespread bigram: "chol daiin" on 24 folios (herbal+pharma)
 - Low cross-folio phrase repetition (0.24% trigrams) is inconsistent with template-generated text
+
+**Section is the primary organizer of morphological variance; quire structure is secondary (F054, exp_047)**
+- Section F-ratios > Quire F-ratios for all 4 features (qo-rate, -edy, -ol, -aiin)
+- Pharma section (P) has -ol=18.5% (highest of any section) + -edy=0.3% — distinct pharma morphological signature
+- Within-quire variance (std≈0.05 for qo) is high: quires are morphologically heterogeneous
+- Quire M outlier (qo=25.8%, -edy=20.5%) maps almost entirely to bio section — quire signal is section signal
 
 **Folio diversity (TTR) splits cleanly by section (F046)**
 - Herbal: mean TTR=0.835 (most diverse), f48r/f96v = TTR=1.000 (all unique)
@@ -259,9 +276,7 @@ These are definitively ruled out by experiment:
 - How often does the exact same word sequence appear on two different folios?
 - Are there "parallel passages" suggesting formulaic construction?
 
-**Q005: What is the quire-level organization of the morphological features?**
-- Do suffix preferences cluster by quire (physical gathering) rather than section?
-- If quire boundaries predict morphology better than section boundaries, this suggests production-order effects
+**Q005: [ANSWERED — exp_047/F054] Section explains morphological variance better than quire for all features.** Quire is not an independent predictor of morphology. Pharma section has a distinctive -ol=18.5% signature (highest of any section) not previously noted at the section level.
 
 **Q006: What is the H028 glyph identity question?**
 - Jim Reeds X1-X128 document: @169, @172, @195 physical identity unknown

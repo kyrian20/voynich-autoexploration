@@ -438,7 +438,7 @@
 
 ## H042: The o-Label Morpheme Distribution Correlates with Section, but Not with qo-Distribution
 **Priority:** medium
-**Status:** open
+**Status:** tested — STRONGLY SUPPORTED (exp_048: 10/13 (77%) of o-stems are also qo-stems; both select k/t-initial stem class; parallel register morphemes confirmed)
 **Source:** working_model.md Phase 2 synthesis (2026-04-09)
 **Description:** Both 'o' (label morpheme) and 'qo' (Currier B body-text prefix) attach to shared stem vocabulary. H042 tests whether the same stems that appear as qo+stem in body text appear as o+stem in labels, and whether section mediates this relationship. The structural parallel (both are prefix + body-stem) could mean: (a) 'o' = "label register version of qo-" — the same underlying morpheme in two registers, (b) 'o' and 'qo' are independent morphemes that happen to attach to similar stems, or (c) they co-occur on the same folios (section governs both). Test: for the top-50 qo-stems (keedy, kain, kaiin, kal, etc.), check whether the label vocabulary contains o+same_stem (okeedy, okain, etc.). Measure co-occurrence rate. Also compare section distribution of 'o'-initial labels vs qo-words in body text.
 **Expected outcome:** If 'o' and 'qo' attach to the same stems: stem class is shared; the morphemes select the same vocabulary base. If they attach to different stems: 'o' and 'qo' select different vocabulary registers, suggesting they're not parallel morphemes.
@@ -449,7 +449,7 @@
 
 ## H043: Word N-gram Repetition Rate Varies by Section — Bio Has Highest Cross-Folio Repetition
 **Priority:** medium
-**Status:** open
+**Status:** tested — SUPPORTED (exp_043: bio 6.0 bigrams/folio-pair vs herbal 0.2; bio 30× more formulaic; only 0.24% trigrams cross-folio)
 **Source:** working_model.md Phase 2 synthesis (2026-04-09)
 **Description:** The 9-form suffix paradigm and section-level TTR patterns suggest Bio section is structurally the most repetitive. H043 measures not just within-folio repetition (TTR) but CROSS-FOLIO repetition: what fraction of consecutive 2-gram (bigram) and 3-gram (trigram) word sequences on one folio also appear on a different folio in the same section? High cross-folio repetition suggests formulaic text (repeated phrases, templates, or reused passages). Low cross-folio repetition with low TTR could mean word repetition is single-word (the same individual words repeat) but phrases are unique. Test: for each section, compute the fraction of within-section folio pairs that share at least one word bigram, and the mean number of shared bigrams.
 **Expected outcome:** If Bio is formulaic: Bio section will have the highest cross-folio bigram sharing rate. If labels are formulaic: astro/pharma labels may share phrase templates. The herbal section (highest folio TTR) should have the LOWEST cross-folio bigram overlap.
@@ -460,7 +460,7 @@
 
 ## H044: Currier A cth- Cluster Functions as a Prefix Morpheme Parallel to B's qo-
 **Priority:** medium
-**Status:** open
+**Status:** tested — STRONGLY SUPPORTED (exp_040: H_initial drops 3.061→1.966 after stripping; KL=2.281 bits; selects o/y/e-initial stems; parallel structure to qo- confirmed)
 **Source:** working_model.md Phase 2 synthesis (2026-04-09)
 **Description:** The Currier A vocabulary is dominated by cth- initial words (cthy=85, cthol, cthor, qotchy) that are near-absent in Currier B. These structurally resemble the qo- prefix in B: they are a small cluster of heavily used words that all share an initial morpheme. H044 tests whether cth- is a morphological prefix in A. Test: (a) strip 'cth' from cth-initial A words and check if the resulting stems appear in A's free vocabulary, (b) measure KL divergence between cth-stripped stem initials and non-cth A word initials (parallel to exp_031's qo analysis), (c) check if cth-words avoid the same line positions that qo-words favor in B. If cth- is A's equivalent of B's qo- prefix, this would suggest both dialects share a "obligatory prefix class" mechanism even though the actual morphemes differ.
 **Expected outcome:** If cth- is a prefix: stripped stems (hy, ol, or...) appear in A free vocabulary; KL between stem initials and free word initials is low. If cth- is a stem root: stripped residues are not valid free words; KL is high.
@@ -482,7 +482,7 @@
 
 ## H051: Quire Structure Predicts Morphological Features Better Than Section Labels
 **Priority:** high
-**Status:** open
+**Status:** tested — NOT SUPPORTED (exp_047: Section F-ratios higher than Quire F-ratios for all features; section is primary organizing variable)
 **Source:** working_model.md Phase 3 gap-hunting (2026-04-09)
 **Description:** The manuscript is organized into physical quires (gatherings of folios, labeled A-R in ZL3b via $Q= field). Section labels (herbal, bio, astro, etc.) reflect content; quire labels reflect physical production order. If morphological features (qo-rate, suffix type, TTR) cluster by quire rather than by section, this would suggest the text was generated/copied in quire-sized batches with consistent scribal practice per quire. H051 measures: for each quire, compute (a) qo-rate, (b) mean suffix distribution (-edy vs -ain vs -aiin fractions), (c) mean folio TTR. Then test whether quire explains more variance than section in each measure. If quire > section: physical production order matters more than content category. If section > quire: content register drives morphology.
 **Expected outcome:** Neither pure quire nor pure section effects — likely partial confound since quires and sections overlap. But if quire-level variation is substantial, this opens a line of evidence about manuscript production sequence.
@@ -527,7 +527,7 @@
 
 ## H055: Bio Section Prose Has a Lag-13 Autocorrelation Peak — Possible Paragraph Unit Structure
 **Priority:** low
-**Status:** open
+**Status:** tested — PARTIALLY SUPPORTED (exp_049: effect is folio-specific, not section-wide; 3/19 bio folios have ratio>2.0 but bio mean=1.00 at baseline)
 **Source:** exp_042_f76r_autocorrelation (bonus finding in f84v and f75v)
 **Description:** Both f84v (ratio=2.30***, p≈0.03) and f75v (ratio=2.22***, p≈0.04) show significant word-level autocorrelation at lag=13 in the bio section. This could reflect: (a) bio-section text organized in ~13-word "paragraph chunks" where the same theme word recurs every ~13 positions, (b) a systematic folio-level structural convention for bio pages (numbered items? plant descriptions?), or (c) a sampling artifact at these token counts. Test: compute word autocorrelation for all bio section folios with ≥200 tokens; check whether lag=13 is systematically elevated across the section (vs. random folios). If lag=13 is a bio-section feature, it may reflect the underlying content structure (e.g., each "paragraph" ~13 words, with the topic word appearing at start and end).
 **Expected outcome:** If systematic: lag=13 peak appears in ≥5 of the 19 bio folios with sufficient tokens. If random artifact: lag=13 peaks in ~1-2 folios by chance (consistent with 5% alpha).
@@ -544,3 +544,47 @@
 **Expected outcome:** If astro/cosmo is intermediate: Jaccard(Hand4, A) > Jaccard(Hand4, B) or approximately equal. If astro/cosmo is B: Jaccard(Hand4, B) > Jaccard(Hand4, A). The former would suggest a three-way dialect distinction (A, B, astro/cosmo).
 **Cost estimate:** small (comparative vocabulary analysis on the 9 Hand 4 folios)
 **Prerequisites:** exp_044 (done), exp_023 (A/B alignment data)
+
+---
+
+## H057: The Pharma Section's -ol Dominance Reflects Plant-Name/Ingredient Morphology
+**Priority:** medium
+**Status:** open
+**Source:** exp_047 (F054: pharma -ol=18.5%, highest of any section)
+**Description:** The pharma section has -ol as its dominant suffix (18.5% vs herbal 10.4%, bio 7.4%). This section primarily contains labels (plant names, ingredient names: Lf locus TTR=0.956) and short recipe-like body text. H057: The -ol suffix in pharma encodes a "plant/ingredient name" function — the pharmacological register defaults to -ol-terminal words as naming forms. Test: (a) what fraction of pharma body text words end in -ol vs other sections? (b) Do pharma label words also prefer -ol endings (label corpus analysis)? (c) Is -ol elevation in pharma driven by a small set of highly frequent words or distributed across stems?
+**Expected outcome:** If -ol is pharma's naming morpheme: pharma labels should also prefer -ol; the elevation should be distributed across many -ol-ending stems. If it's a small cluster: a few high-frequency pharma words (like "chol", "shol") explain the elevation.
+**Cost estimate:** small (targeted pharma corpus analysis from existing parse)
+**Prerequisites:** exp_047 (done), exp_038 (section suffix distributions)
+
+---
+
+## H058: The Three Prefix Morphemes (qo-, o-, cth-) Form a Morphological System Based on Stem-Initial Class
+**Priority:** medium
+**Status:** open
+**Source:** F055 (exp_048) + F047 (exp_040): qo- and o- both select k/t-initial stems; cth- selects o/y/e-initial stems
+**Description:** The three confirmed prefix morphemes select complementary stem classes: qo- and o- both select k/t-initial stems (66-82% of their stems), while cth- selects o/y/e-initial stems (o=40%, y=24%, e=20%). H058: This division reflects a deeper phonological or semantic categorization — k/t-initial stems belong to one morphological class (nouns/objects?), and o/y/e-initial stems to another (verbs/actions? or a different noun class). Test: (a) Do qo-stems, o-stems, and bare k/t-initial words have similar suffix distributions (suggesting same grammatical category)? (b) Are cth-stems (o/y/e-initial) different in suffix distribution from qo-/o-stems (k/t-initial)?
+**Expected outcome:** If the stem classes have distinct grammatical functions: cth-stems should have systematically different suffix distributions than qo-/o-stems. If the stem classes are arbitrary: suffix distributions will be similar.
+**Cost estimate:** medium (requires cross-corpus suffix analysis by stem-initial class)
+**Prerequisites:** exp_040 (cth- data), exp_048 (qo-/o- data)
+
+---
+
+## H059: The f75v/f82v/f84v Bathing-Pool Folios Share Distinctive Phrase Structures
+**Priority:** low
+**Status:** open
+**Source:** exp_049 (F056): lag=13 word autocorrelation signal concentrated in these 3 folios
+**Description:** The three bio folios with strongest lag=13 autocorrelation signal (f75v=2.22, f82v=2.17, f84v=2.30) all come from the bathing-pool content sequence (bio folios featuring pools of bathing women). H059: These three folios share a structural text pattern — possibly a repeated phrase template at 13-word intervals (e.g., a descriptive sentence about each woman/pool of fixed length) that doesn't appear in other bio folios. Test: extract the specific word sequences that repeat at lag=13 in each folio and check if the same sequences are shared across f75v, f82v, f84v.
+**Expected outcome:** If a shared template: the same word sequence should appear at ~13-word intervals on all three folios. If coincidence: the lag=13 peaks reflect different structures in each folio.
+**Cost estimate:** small (targeted analysis of those 3 folios)
+**Prerequisites:** exp_049 (done)
+
+---
+
+## H060: Currier A daiin Is Morphologically Parallel to Currier B qokain/-ain Words
+**Priority:** medium
+**Status:** tested — PARTIALLY SUPPORTED (exp_050: daiin IS line-final elevated 1.41×; entire d-stem paradigm marks line endings in A; -ol/-or words excluded from line endings. B -ain is NOT line-final elevated. F057 added.)
+**Source:** working_model.md (F012: daiin concentrates in Currier A/Herbal A at 4.11-4.58%); F047 (A has -aiin as irregular high-frequency form like a verb)
+**Description:** In Currier A, 'daiin' is the single most frequent word (4-4.5% of tokens), with irregular paradigm behavior (KL=1.077, dominated by -aiin). In Currier B, the paradigm is -ain-terminal words at line-final position (exp_038: -ain 8.0% line-final). H060: 'd'+aiin in A is the functional parallel of qok+ain in B — both encode a high-frequency, potentially grammatical function word (verb? auxiliary? connective?). Test: (a) Is 'd+aiin' in A concentrated at line-final position (parallel to -ain in B being line-final dominant)? (b) What is the daiin positional profile (line-initial, medial, final)? (c) Does 'd' as a bare stem appear in A or only with -aiin suffix?
+**Expected outcome:** If daiin is A's functional equivalent of B's qokain: daiin should show line-final preference (A's equivalent of B's -ain=8% line-final). If daiin is neutral: no positional preference.
+**Cost estimate:** small (positional analysis of 'd' stem in Currier A)
+**Prerequisites:** exp_038 (suffix positional data), exp_041 (productivity data for 'd' stem)
