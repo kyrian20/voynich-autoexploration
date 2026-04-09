@@ -2246,6 +2246,7 @@
 
 ## H208: s/d-Onset Complementary Distribution — Are They Mutually Exclusive Line-Openers on the Same Lines?
 **Priority:** high
+**Status:** TESTED (exp_108) — CONFIRMED (partial): Co-occurrence ratio=0.97× (near independence). NOT strict complementary. s-opener suppresses d (0.67×). B uses s-openers 1.78× more (cosmo B: 2.98×). pharma A slightly prefers d. Frequency-complementary by dialect/section, not grammatically exclusive.
 **Source:** F114: s-onset and d-onset are both LINE-OPENER classes leading to qo at 2.2-2.5×. They have OPPOSITE suffix alignment (s=B-paradigm, d=A-paradigm). Are they in COMPLEMENTARY DISTRIBUTION — i.e., does the same line use EITHER s-onset opener OR d-onset opener, but not both? If so, they may be dialect/register variants of the same grammatical slot.
 **Description:** Identify all lines with a line-initial s-onset or d-onset word. Compute: (1) co-occurrence on the SAME LINE — does s-line-initial predict d-absence (and vice versa)? (2) Does dialect determine which is used (A uses d-opener; B uses s-opener)? (3) Is there a section-level preference (cosmo B uses more s-openers; herbal A uses more d-openers)?
 **Expected outcome:** s-openers and d-openers are NOT perfectly complementary (they can co-occur on long lines) but are frequency-complementary: lines with s-opener have lower d-content and vice versa. A-dialect predominantly uses d-openers; B-dialect uses both but s-opener at higher rate. This would confirm s and d are variant encodings of the same grammatical role (LINE-OPENER → qo-mid).
@@ -2264,7 +2265,35 @@
 
 ## H210: Suffix Entropy by Onset Class — Do Grammar Words Have Lower Suffix Entropy Than Content Words?
 **Priority:** medium
+**Status:** TESTED (exp_108) — CONFIRMED: Grammar/content at STEM level (3+ bit gap), NOT onset-class level (0.55 bit range). Grammar particles (cham, otam, dam = -am class): H=0 bits. Content stems (ch, sh, qok): H=2.9-3.4 bits. Two-tier vocabulary confirmed.
 **Source:** F114 found that d-onset is -aiin dominant (single suffix, low entropy) while s-onset is more diverse. F112: OTHER tier = particles (aiin/ain) have essentially ZERO suffix (they ARE suffixes). H204 proposed onset × suffix entropy analysis to quantify grammar/content distinction.
 **Description:** For each onset class, compute Shannon entropy of suffix distribution. Low entropy = one dominant suffix (grammar word). High entropy = many possible suffixes (content word). Compare: bare_d entropy vs bare_ch entropy vs aiin (particle) entropy. Do the grammatical word classes (d-closers, s-openers) have lower suffix entropy than content words (ch-stems)?
 **Expected outcome:** Grammar words: daiin-as-suffix (H=0 bits, one form), dam (H=0, one suffix), dy (H=0). Content words: ch-stem (H≈2-3 bits, 7+ productive suffixes). d-onset has high -aiin concentration but variable tail → medium entropy. This would quantify the grammar/content distinction from suffix entropy.
+**Cost estimate:** small
+
+---
+
+## H211: Productivity of the -am Closed Class — Do cham/otam/dam Follow the Same A/B Paradigm as -edy/-ol Stems?
+**Priority:** medium
+**Source:** F115: The -am closed class (cham, otam, dam, okam, ram, ytam) has H=0 bits (zero suffix variation). F093: -am words are within-para line-closers in PERFECT complementary distribution with oly/oldy (zero co-occurrence). But do -am words themselves follow A/B paradigm? In A, are the dominant -am words different from B?
+**Description:** Compute -am word frequency and rates in A vs B: which -am words appear in A? Which in B? Is dam A-dominant? Is otam B-dominant? Are the section distributions of -am words different from oly/oldy? This tests whether the -am closed class is a universal function word (same in A and B) or a dialect-split function word.
+**Expected outcome:** The -am class is partially dialect-split: dam (d-onset → A-paradigm aligned) is A-dominant; otam (o+t onset) may be B-neutral or B-dominant. This would show that even the grammar particle layer has dialect-specific variant selection.
+**Cost estimate:** trivial
+
+---
+
+## H212: 4-gram Cross-Folio Repetition — Are There Verbatim 4-Word Sequences Shared Across Folios?
+**Priority:** medium
+**Source:** H207 (open): F050 found 0.24% of trigrams repeat. 4-grams untested. Verbatim repeated passages indicate formulaic construction.
+**Description:** Extract all 4-grams (length-4 word sequences). Count occurrences per folio. Find 4-grams appearing on 2+ distinct folios. Characterize: which sections? Are they grammatically structured (PARA-start + mid-line)?
+**Expected outcome:** Very few 4-gram repeats (<20 unique 4-grams on 2+ folios). Most in bio/cosmo B (most formulaic per F050). Any that repeat will likely begin with a PARA-tier word (structural anchor).
+**Cost estimate:** small
+
+---
+
+## H213: cth-Cluster Words — Is cth- a Morphological Prefix Parallel to qo- and o-?
+**Priority:** medium
+**Source:** F043-F044: cth- is an A-dialect prefix morpheme parallel to qo- (B) and o- (labels). F113: A-exclusive o-prefix words include otchol, otchor (ot+ch+ol, ot+ch+or) — these contain cth-like structure. F115: A_herbal exclusive vocabulary is dominated by cth-cluster words (cthor=34, dchor=20, kchy=19, dchy=19, tchy=14). Is cth- a productive prefix on o/y/e stems (as suggested by F043), and do cth-words follow the A/B paradigm split?
+**Description:** Extract all cth-onset words. Compute: (1) A vs B dialect distribution; (2) suffix distribution (A-paradigm or B-paradigm?); (3) stem overlap after stripping cth- — do cth-stripped stems appear as other-onset words? (4) Positional profile (PARA-tier? LINE_OPEN? MID?).
+**Expected outcome:** cth- words are overwhelmingly A-dialect (cth- suppressed in B). After stripping cth-, stems are o/y/e initial (parallel to F043). Suffix distribution shows A-paradigm dominance (-ol/-or). Positional role: mid-line or para-level, not line-opening.
 **Cost estimate:** small
