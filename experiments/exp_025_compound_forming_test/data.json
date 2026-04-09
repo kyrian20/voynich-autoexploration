@@ -1,0 +1,225 @@
+{
+  "char_data": [
+    {
+      "char": "h",
+      "total": 16016,
+      "in_compound": 15954,
+      "rate": 0.9961288711288712,
+      "in_col2": 0,
+      "is_compound_forming": 1
+    },
+    {
+      "char": "c",
+      "total": 11822,
+      "in_compound": 11761,
+      "rate": 0.9948401285738454,
+      "in_col2": 1,
+      "is_compound_forming": 1
+    },
+    {
+      "char": "q",
+      "total": 5276,
+      "in_compound": 5152,
+      "rate": 0.976497346474602,
+      "in_col2": 0,
+      "is_compound_forming": 1
+    },
+    {
+      "char": "n",
+      "total": 5646,
+      "in_compound": 5498,
+      "rate": 0.9737867516826072,
+      "in_col2": 0,
+      "is_compound_forming": 1
+    },
+    {
+      "char": "i",
+      "total": 10630,
+      "in_compound": 9966,
+      "rate": 0.9375352775164628,
+      "in_col2": 0,
+      "is_compound_forming": 1
+    },
+    {
+      "char": "s",
+      "total": 6308,
+      "in_compound": 4195,
+      "rate": 0.6650285351934052,
+      "in_col2": 1,
+      "is_compound_forming": 1
+    },
+    {
+      "char": "e",
+      "total": 17631,
+      "in_compound": 8700,
+      "rate": 0.4934490386251489,
+      "in_col2": 0,
+      "is_compound_forming": 1
+    },
+    {
+      "char": "a",
+      "total": 12465,
+      "in_compound": 5168,
+      "rate": 0.4146008824709186,
+      "in_col2": 0,
+      "is_compound_forming": 1
+    },
+    {
+      "char": "o",
+      "total": 21781,
+      "in_compound": 5152,
+      "rate": 0.2365364308342133,
+      "in_col2": 1,
+      "is_compound_forming": 0
+    },
+    {
+      "char": "t",
+      "total": 5774,
+      "in_compound": 842,
+      "rate": 0.14582611707655005,
+      "in_col2": 1,
+      "is_compound_forming": 0
+    },
+    {
+      "char": "p",
+      "total": 1443,
+      "in_compound": 187,
+      "rate": 0.1295911295911296,
+      "in_col2": 1,
+      "is_compound_forming": 0
+    },
+    {
+      "char": "k",
+      "total": 9803,
+      "in_compound": 828,
+      "rate": 0.08446393961032338,
+      "in_col2": 0,
+      "is_compound_forming": 0
+    },
+    {
+      "char": "b",
+      "total": 13,
+      "in_compound": 0,
+      "rate": 0.0,
+      "in_col2": 0,
+      "is_compound_forming": 0
+    },
+    {
+      "char": "d",
+      "total": 11608,
+      "in_compound": 0,
+      "rate": 0.0,
+      "in_col2": 1,
+      "is_compound_forming": 0
+    },
+    {
+      "char": "f",
+      "total": 391,
+      "in_compound": 0,
+      "rate": 0.0,
+      "in_col2": 1,
+      "is_compound_forming": 0
+    },
+    {
+      "char": "g",
+      "total": 93,
+      "in_compound": 0,
+      "rate": 0.0,
+      "in_col2": 0,
+      "is_compound_forming": 0
+    },
+    {
+      "char": "l",
+      "total": 9307,
+      "in_compound": 0,
+      "rate": 0.0,
+      "in_col2": 1,
+      "is_compound_forming": 0
+    },
+    {
+      "char": "m",
+      "total": 887,
+      "in_compound": 0,
+      "rate": 0.0,
+      "in_col2": 0,
+      "is_compound_forming": 0
+    },
+    {
+      "char": "r",
+      "total": 6313,
+      "in_compound": 0,
+      "rate": 0.0,
+      "in_col2": 1,
+      "is_compound_forming": 0
+    },
+    {
+      "char": "x",
+      "total": 21,
+      "in_compound": 0,
+      "rate": 0.0,
+      "in_col2": 1,
+      "is_compound_forming": 0
+    },
+    {
+      "char": "y",
+      "total": 15690,
+      "in_compound": 0,
+      "rate": 0.0,
+      "in_col2": 1,
+      "is_compound_forming": 0
+    }
+  ],
+  "contingency": {
+    "a": 2,
+    "b": 6,
+    "c": 9,
+    "d": {
+      "char": "y",
+      "total": 15690,
+      "in_compound": 0,
+      "rate": 0.0,
+      "in_col2": 1,
+      "is_compound_forming": 0
+    }
+  },
+  "fisher_p": 0.063467,
+  "fisher_odds": 0.148,
+  "compound_forming_set": [
+    "a",
+    "c",
+    "e",
+    "h",
+    "i",
+    "n",
+    "q",
+    "s"
+  ],
+  "standalone_set": [
+    "b",
+    "d",
+    "f",
+    "g",
+    "k",
+    "l",
+    "m",
+    "o",
+    "p",
+    "r",
+    "t",
+    "x",
+    "y"
+  ],
+  "col2_set": [
+    "c",
+    "d",
+    "f",
+    "l",
+    "o",
+    "p",
+    "r",
+    "s",
+    "t",
+    "x",
+    "y"
+  ]
+}
