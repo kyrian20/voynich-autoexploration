@@ -219,6 +219,12 @@
 **Finding:** The character sets of f57v's 17-token repeating cycle and f66r column 2 overlap significantly (Jaccard=0.667, p=0.003 vs hypergeometric null). Of 25 EVA single chars, f57v uses 14 and f66r col2 uses 11; the intersection is 10 — 3.84 chars above random expectation. Both sets converge on: {c, d, f, l, o, p, r, t, x, y}. The only char in f66r but not f57v is 's'; only in f57v are I, k, m, v. Additionally, the f→@169 adjacency appears in both: f57v pos 9-10 is f then @169;v; f66r col2 entries 8-9 are 'f' then '@169'. The character ORDER in f66r col2 does NOT correspond to f57v cycle positions (Spearman ρ ≈ -0.09), ruling out f66r as a simple linearization of f57v's cycle.
 **Limitation:** The shared char set heavily overlaps with H022's "non-compound-forming chars" category, so the overlap may partially reflect both lists independently avoiding compound-forming chars rather than a direct relationship. These two explanations are not mutually exclusive.
 
+## F037: qo Is a Morphological Prefix Selecting k/t-Initial Stems — Not a Grammatical Article
+**Experiment:** exp_031_qo_stripping
+**Date:** 2026-04-09
+**Finding:** After stripping the "qo" prefix from qo-initial words (16.8% of corpus), the resulting stems have H_initial = 1.931 bits — 1.095 bits LOWER than non-qo words (3.027 bits). KL divergence between qo-stem initials and non-qo word initials = 2.96 bits. qo-stems are dominated by 'k' (60.5%) and 't' (21.2%), whereas free words are dominated by 'o' (25.1%), 'c' (23.0%), 's' (14.6%). qo-stripped stem H2 = 1.818 bits (lower than corpus average 2.060). 52.6% of qo-stripped stem types appear as independent free words. qo-words are nearly twice as frequent in Currier B (19.4%) vs A (11.1%); B's top qo-words all have k-initial stems (qokeedy, qokain, qokedy).
+**Limitation:** The stem identification relies on simple prefix-stripping; morphological analysis doesn't account for possible elision or phonological conditioning. Complementary distribution test (H032) still needed to confirm grammatical alternant status.
+
 ## F036: f49v Margin Numerals 1-5 Are Later-Hand Annotations; @140 = Numeral "5"
 **Experiment:** exp_030_f49v_numerals
 **Date:** 2026-04-09

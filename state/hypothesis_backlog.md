@@ -178,7 +178,7 @@
 
 ## H013: "qo" as a Single Token — Bigram Onset Analysis
 **Priority:** medium
-**Status:** open
+**Status:** REFUTED as article/particle (exp_031): qo-stripped stems H_initial=1.931 bits (LOWER, not higher, than non-qo words at 3.027). Stems 60.5% k-initial, 21.2% t-initial (KL=2.96 bits from free words). qo is a morphological prefix selecting k/t-initial word class, not a free-floating article. 52.6% of stems exist as free words. H032 generated (complementary distribution test). F037 added.
 **Source:** exp_002_positional_entropy
 **Description:** Q is followed by 'o' in 97.7% of cases at word onset. If "qo" functions as a single onset unit (like a digraph), treating it as one token changes the effective word-initial distribution. Strip all leading "qo" from words (leaving the remainder), recompute H_initial and H2, and compare. If the "true" onset (after qo) has higher entropy, qo is a prefix particle or article that precedes content words. If entropy stays low, qo removal makes no fundamental difference.
 **Expected outcome under competing theories:**
@@ -361,3 +361,18 @@
 **Expected outcome:** If the numerals match the f116v annotation hand (same ink, script style), this narrows the annotation date. If they match the zodiac month names, it suggests a single reader who studied the manuscript systematically.
 **Cost estimate:** small — image comparison, prior work literature search
 **Prerequisites:** exp_030 (done)
+
+---
+
+## H032: qo-Words and Their Stem-Equivalents Are in Complementary Distribution by Line Position or Section
+**Priority:** medium
+**Status:** open
+**Source:** exp_031_qo_stripping
+**Description:** 52.6% of qo-stripped stem types appear as independent free words (e.g., both "qokeedy" and "keedy" exist). If qo marks a grammatical inflection (case, number, aspect), the qo-form and the bare form should appear in different syntactic positions (e.g., qo-form is line-medial, bare form is line-final) or in different sections. If they're randomly distributed, qo may be a cipher artifact or phonotactically determined variant rather than a grammatical marker.
+**Expected outcome:**
+- Grammatical inflection: complementary positional/sectional distribution
+- Phonotactic conditioning: no distribution difference, qo-form appears wherever stem-form appears (cipher artifact possibility)
+- Dialectal: one form dominates in A, other in B
+**Test:** For the top 20 qo/bare stem pairs (e.g., qokeedy/keedy), compute: (a) position-in-line distribution (word-initial, medial, final), (b) Currier A/B frequency, (c) section (herbal/bio/pharma/astro/cosmo) frequency.
+**Cost estimate:** medium — requires parsing positional data per token
+**Prerequisites:** exp_031 (done)
