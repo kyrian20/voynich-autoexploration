@@ -515,10 +515,21 @@
 
 ## H054: The f76r "Key-Like Sequence" Has Higher Within-Sequence Bigram Repetition Than Normal Bio Text
 **Priority:** medium
-**Status:** open
+**Status:** NOT SUPPORTED (exp_042): f76r body text max ACF ratio=1.85 (below 2.0 threshold). Low TTR from high frequency of standard Currier B words (shedy/chedy/chey). "Key-like" refers to L0 line markers only. Bonus: f84v and f75v both peak at lag=13 (ratios 2.30/2.22***). F049 added.
 **Source:** working_model.md Phase 3 gap-hunting (2026-04-09)
 **Description:** f76r has the lowest TTR in the entire manuscript (TTR=0.466, exp_039). Its low TTR means its words repeat heavily — but WHY? Two models: (a) f76r contains a small vocabulary cycling through a fixed template (like f57v's 4×17 cycle), or (b) f76r contains normal Bio text that happens to use fewer word types because it repeats a fixed subject matter. H054 tests: does f76r have a periodic word-level structure (like f57v's 17-cycle)? Test: extract f76r body text word sequence; compute word autocorrelation at lags 1-20 (does word[i] predict word[i+k] for some k?). Also compute body line similarity (do consecutive lines share more words than expected by TTR alone?).
 **Expected outcome:** If f76r has a cycle: autocorrelation will peak at the cycle period. If f76r is just repetitive Bio text: autocorrelation will be noise at all lags. Given that ZL3b already labeled f76r as "key-like sequence," some structure is expected.
 **Cost estimate:** small (autocorrelation on word sequence)
 **Prerequisites:** exp_039 (done)
 
+
+---
+
+## H055: Bio Section Prose Has a Lag-13 Autocorrelation Peak — Possible Paragraph Unit Structure
+**Priority:** low
+**Status:** open
+**Source:** exp_042_f76r_autocorrelation (bonus finding in f84v and f75v)
+**Description:** Both f84v (ratio=2.30***, p≈0.03) and f75v (ratio=2.22***, p≈0.04) show significant word-level autocorrelation at lag=13 in the bio section. This could reflect: (a) bio-section text organized in ~13-word "paragraph chunks" where the same theme word recurs every ~13 positions, (b) a systematic folio-level structural convention for bio pages (numbered items? plant descriptions?), or (c) a sampling artifact at these token counts. Test: compute word autocorrelation for all bio section folios with ≥200 tokens; check whether lag=13 is systematically elevated across the section (vs. random folios). If lag=13 is a bio-section feature, it may reflect the underlying content structure (e.g., each "paragraph" ~13 words, with the topic word appearing at start and end).
+**Expected outcome:** If systematic: lag=13 peak appears in ≥5 of the 19 bio folios with sufficient tokens. If random artifact: lag=13 peaks in ~1-2 folios by chance (consistent with 5% alpha).
+**Cost estimate:** small (loop the exp_042 analysis across bio section folios)
+**Prerequisites:** exp_042 (done)
