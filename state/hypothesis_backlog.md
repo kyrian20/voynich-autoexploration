@@ -571,7 +571,7 @@
 
 ## H059: The f75v/f82v/f84v Bathing-Pool Folios Share Distinctive Phrase Structures
 **Priority:** low
-**Status:** open
+**Status:** tested — NOT SUPPORTED (exp_055: lag=13 signal is statistical; cross-folio bigram sharing 2-8, indistinguishable from other bio pairs. F062 added.)
 **Source:** exp_049 (F056): lag=13 word autocorrelation signal concentrated in these 3 folios
 **Description:** The three bio folios with strongest lag=13 autocorrelation signal (f75v=2.22, f82v=2.17, f84v=2.30) all come from the bathing-pool content sequence (bio folios featuring pools of bathing women). H059: These three folios share a structural text pattern — possibly a repeated phrase template at 13-word intervals (e.g., a descriptive sentence about each woman/pool of fixed length) that doesn't appear in other bio folios. Test: extract the specific word sequences that repeat at lag=13 in each folio and check if the same sequences are shared across f75v, f82v, f84v.
 **Expected outcome:** If a shared template: the same word sequence should appear at ~13-word intervals on all three folios. If coincidence: the lag=13 peaks reflect different structures in each folio.
@@ -614,7 +614,7 @@
 
 ## H063: The y-Initial Line-Opening Correlates with Specific Content/Section
 **Priority:** low
-**Status:** open
+**Status:** tested — PARTIALLY SUPPORTED (exp_055: astro=23.2%, pharma=17.9%, bio=7.5% — variation reflects paragraph length, not vocabulary preference. F062 added.)
 **Source:** exp_053 (F060): 30% of A lines open with -ol/-or words; 'y-' words are highly enriched at line openings
 **Description:** Are the 'y-' initial line openers concentrated in specific herbal sections (e.g., particular folio ranges)? Or are they manuscript-wide? If concentrated in specific sections, the 'y-' particle may be section-specific rather than a general A-dialect particle.
 **Cost estimate:** small (per-section 'y-' analysis)
