@@ -408,3 +408,117 @@
 **Description:** Manuscript-wide vocabulary variation is documented at section level, but not at folio level. Some folios may be statistical outliers (very restricted vocabulary suggesting formulaic text, or very diverse suggesting unique content). Test: for each folio with sufficient tokens (>50), compute TTR and H2. Identify top outliers above/below the section mean.
 **Cost estimate:** small
 **Prerequisites:** none
+
+---
+
+## H040: Currier A Has a Structural Parallel to B's -edy/-ain Suffix Paradigm
+**Priority:** high
+**Status:** STRONGLY SUPPORTED (exp_040): A has 349 multi-suffix stems; same core stems (ch,sh,ot,ok) appear in both dialects with opposite suffix preferences (A: -ol/-or dominant; B: -edy/-eedy dominant). cth- in A is a prefix morpheme parallel to qo- in B (H_initial drops 3.061→1.966 after stripping; KL=2.281 bits). F047 added.
+**Source:** working_model.md Phase 2 synthesis (2026-04-09)
+**Description:** Currier B's 9-form suffix paradigm is the most striking morphological regularity found to date. Currier A has its own distinctive vocabulary (cthy, cthol, cthor, daiin, chor, chol) but no suffix analysis has been run on it. H040 tests whether A words also decompose into stem + suffix families, with a small set of high-productivity stems taking multiple suffix variants. The cth- cluster in A could be a prefix (parallel to B's qo-) or could be a stem class (c-gallows-h = a specific morpheme). Test: apply the same suffix_group() function from exp_038 to Currier A body text. Measure: (a) how many stems have 2+ suffix variants, (b) which suffixes are A-specific vs shared with B, (c) whether the cth- cluster distributes as a prefix morpheme (applies to varied stems) or a stem root (combines with varied prefixes/suffixes).
+**Expected outcome under competing models:**
+- If A has its own suffix paradigm: A morphology is parallel to B, same system different lexicon — suggests two dialects of one language
+- If A vocabulary is morphologically unsystematic: A and B are genuinely different systems (not dialects)
+- If A has the same suffixes as B (but different stems): surface vocabulary differs but morphological system is shared
+**Cost estimate:** small (same methodology as exp_038)
+**Prerequisites:** exp_038 (done)
+
+---
+
+## H041: The 9-Form Suffix Paradigm Is Productive — Rare Stems Predict Suffix Counts
+**Priority:** high
+**Status:** open
+**Source:** working_model.md Phase 2 synthesis (2026-04-09)
+**Description:** The 384-stem paradigm discovered in exp_038 could reflect either (a) a productive generative grammar where any stem can take any suffix, with low-count stems just lacking evidence, or (b) a fixed lexical list where the 384 stems are the complete vocabulary and each suffix form is individually memorized. Distinguishing these has major implications: productive grammar suggests encoding of a natural language; fixed lexical list suggests a constructed vocabulary. Test: for stems with exactly 1 observed suffix variant (the "singleton" stems), measure the observed frequency distribution. Under productivity, their "missing" suffix forms should appear at very low frequency (1-2 tokens each), consistent with sparse sampling of a productive paradigm. Under the lexical-list model, missing forms should be completely absent (exactly 0 tokens). Also test: does stem frequency predict number-of-suffix-variants? Under productivity, more frequent stems will show more variants simply because sampling is deeper.
+**Expected outcome:** Pearson r between stem frequency and suffix variant count > 0.5 would support productivity (frequency drives paradigm completeness, not intrinsic stem class). Near-zero r would suggest paradigm completeness is lexically fixed.
+**Cost estimate:** small (use exp_038 data + additional pass on low-frequency stems)
+**Prerequisites:** exp_038 (done)
+
+---
+
+## H042: The o-Label Morpheme Distribution Correlates with Section, but Not with qo-Distribution
+**Priority:** medium
+**Status:** open
+**Source:** working_model.md Phase 2 synthesis (2026-04-09)
+**Description:** Both 'o' (label morpheme) and 'qo' (Currier B body-text prefix) attach to shared stem vocabulary. H042 tests whether the same stems that appear as qo+stem in body text appear as o+stem in labels, and whether section mediates this relationship. The structural parallel (both are prefix + body-stem) could mean: (a) 'o' = "label register version of qo-" — the same underlying morpheme in two registers, (b) 'o' and 'qo' are independent morphemes that happen to attach to similar stems, or (c) they co-occur on the same folios (section governs both). Test: for the top-50 qo-stems (keedy, kain, kaiin, kal, etc.), check whether the label vocabulary contains o+same_stem (okeedy, okain, etc.). Measure co-occurrence rate. Also compare section distribution of 'o'-initial labels vs qo-words in body text.
+**Expected outcome:** If 'o' and 'qo' attach to the same stems: stem class is shared; the morphemes select the same vocabulary base. If they attach to different stems: 'o' and 'qo' select different vocabulary registers, suggesting they're not parallel morphemes.
+**Cost estimate:** small
+**Prerequisites:** exp_031 (qo-stripping data), exp_037 (o-label data)
+
+---
+
+## H043: Word N-gram Repetition Rate Varies by Section — Bio Has Highest Cross-Folio Repetition
+**Priority:** medium
+**Status:** open
+**Source:** working_model.md Phase 2 synthesis (2026-04-09)
+**Description:** The 9-form suffix paradigm and section-level TTR patterns suggest Bio section is structurally the most repetitive. H043 measures not just within-folio repetition (TTR) but CROSS-FOLIO repetition: what fraction of consecutive 2-gram (bigram) and 3-gram (trigram) word sequences on one folio also appear on a different folio in the same section? High cross-folio repetition suggests formulaic text (repeated phrases, templates, or reused passages). Low cross-folio repetition with low TTR could mean word repetition is single-word (the same individual words repeat) but phrases are unique. Test: for each section, compute the fraction of within-section folio pairs that share at least one word bigram, and the mean number of shared bigrams.
+**Expected outcome:** If Bio is formulaic: Bio section will have the highest cross-folio bigram sharing rate. If labels are formulaic: astro/pharma labels may share phrase templates. The herbal section (highest folio TTR) should have the LOWEST cross-folio bigram overlap.
+**Cost estimate:** medium (requires bigram extraction + pairwise folio comparison)
+**Prerequisites:** none (direct from corpus)
+
+---
+
+## H044: Currier A cth- Cluster Functions as a Prefix Morpheme Parallel to B's qo-
+**Priority:** medium
+**Status:** open
+**Source:** working_model.md Phase 2 synthesis (2026-04-09)
+**Description:** The Currier A vocabulary is dominated by cth- initial words (cthy=85, cthol, cthor, qotchy) that are near-absent in Currier B. These structurally resemble the qo- prefix in B: they are a small cluster of heavily used words that all share an initial morpheme. H044 tests whether cth- is a morphological prefix in A. Test: (a) strip 'cth' from cth-initial A words and check if the resulting stems appear in A's free vocabulary, (b) measure KL divergence between cth-stripped stem initials and non-cth A word initials (parallel to exp_031's qo analysis), (c) check if cth-words avoid the same line positions that qo-words favor in B. If cth- is A's equivalent of B's qo- prefix, this would suggest both dialects share a "obligatory prefix class" mechanism even though the actual morphemes differ.
+**Expected outcome:** If cth- is a prefix: stripped stems (hy, ol, or...) appear in A free vocabulary; KL between stem initials and free word initials is low. If cth- is a stem root: stripped residues are not valid free words; KL is high.
+**Cost estimate:** small (same method as exp_031)
+**Prerequisites:** exp_031 (done)
+
+---
+
+## H050: Scribal Hand Variation in qo-Morphology Rate — Do Hands 1–5 Differ Systematically?
+**Priority:** high
+**Status:** open
+**Source:** working_model.md Phase 3 gap-hunting (2026-04-09)
+**Description:** qo- prefix rate varies across sections (bio=19.4%, herbal=11.1%) and correlates with Currier B. But section and hand are confounded: Hand 1 writes primarily Currier A herbal; Hands 2-5 write primarily Currier B sections. H050 attempts to decompose: within the same section, do different hands show different qo- rates? ZL3b $H= field assigns a hand number (1-5) to each folio. For folios in the bio section written by the same Currier dialect, measure qo-rate per hand. If hands vary independently of section/dialect, qo- has a scribal component. If hands don't vary within section+dialect combinations, qo- is entirely explained by section or dialect.
+**Expected outcome:** If qo-rate is a hand feature: Hand 2 and Hand 3 (both bio section) will have measurably different rates. If qo- is section-driven: hands within the same section will show no difference. The result constrains whether the morphological system is stable across different scribes (language feature) or variable (idiolect/scribal habit feature).
+**Cost estimate:** medium (requires per-folio hand metadata join with token data)
+**Prerequisites:** exp_031 (qo data), exp_033 (positional data)
+
+---
+
+## H051: Quire Structure Predicts Morphological Features Better Than Section Labels
+**Priority:** high
+**Status:** open
+**Source:** working_model.md Phase 3 gap-hunting (2026-04-09)
+**Description:** The manuscript is organized into physical quires (gatherings of folios, labeled A-R in ZL3b via $Q= field). Section labels (herbal, bio, astro, etc.) reflect content; quire labels reflect physical production order. If morphological features (qo-rate, suffix type, TTR) cluster by quire rather than by section, this would suggest the text was generated/copied in quire-sized batches with consistent scribal practice per quire. H051 measures: for each quire, compute (a) qo-rate, (b) mean suffix distribution (-edy vs -ain vs -aiin fractions), (c) mean folio TTR. Then test whether quire explains more variance than section in each measure. If quire > section: physical production order matters more than content category. If section > quire: content register drives morphology.
+**Expected outcome:** Neither pure quire nor pure section effects — likely partial confound since quires and sections overlap. But if quire-level variation is substantial, this opens a line of evidence about manuscript production sequence.
+**Cost estimate:** medium (requires $Q= field parsing + per-quire statistics)
+**Prerequisites:** exp_033, exp_038, exp_039 data
+
+---
+
+## H052: Cross-Folio Exact-Phrase Repetition — "Parallel Passages" in Voynich
+**Priority:** high
+**Status:** open
+**Source:** working_model.md Phase 3 gap-hunting (2026-04-09)
+**Description:** If Voynich text is formulaic (same templates repeated), we expect to find identical or near-identical sequences of words appearing on multiple folios. This is known as "parallel passages" in manuscript studies. Beyond 9-form suffix paradigm word repetition, H052 looks for repeated 3-gram and 4-gram word sequences that appear on 2+ distinct folios. Known parallel-passage candidates: f49v's L0 sequence (already shown to NOT align with f76r); zodiac folios may repeat structural formulas. Test: extract all word trigrams from body text; for each trigram appearing on 2+ folios, record the folio pairs and section context. Are the same-section trigrams the most repeated? Are any trigrams repeated across different sections (suggesting cross-section formulaic linking)?
+**Expected outcome:** High within-section trigram repetition (especially bio section, highest cross-folio TTR expectation from exp_039). Low cross-section repetition. Any cross-section repetition is especially interesting.
+**Cost estimate:** medium (trigram extraction + folio-pair matrix)
+**Prerequisites:** exp_039 (done)
+
+---
+
+## H053: Per-Folio Label Vocabulary Correlates with Per-Folio Body Vocabulary
+**Priority:** medium
+**Status:** open
+**Source:** working_model.md Phase 3 gap-hunting (2026-04-09)
+**Description:** For folios with both labels (Lf/Ln/Lt/Ls) and substantial body text, do the label words predict the body word distribution on the same folio? If labels name the illustrated objects and body text describes them, we'd expect label stem vocabulary to show elevated frequency in the body text of the same folio (co-occurrence). If labels are formulaic (standard names regardless of body content), label-body correlation per folio would be low. Test: for each folio with ≥5 label tokens AND ≥30 body tokens, compute the Jaccard similarity between label word types and body word types. Compare to the expected Jaccard given the folio's label size and body size (random null). Is there a per-folio correlation (label vocabulary predicts same-folio body vocabulary) that exceeds the manuscript-wide baseline?
+**Expected outcome:** Pharma section (Lf labels, f88-f102) is the best candidate for high correlation if label = plant name and body = recipe/use. Astro labels (Ls) may show low correlation if labels are constellation names and body text is general astronomical prose.
+**Cost estimate:** medium (per-folio label + body token extraction)
+**Prerequisites:** exp_032 (clean label corpus)
+
+---
+
+## H054: The f76r "Key-Like Sequence" Has Higher Within-Sequence Bigram Repetition Than Normal Bio Text
+**Priority:** medium
+**Status:** open
+**Source:** working_model.md Phase 3 gap-hunting (2026-04-09)
+**Description:** f76r has the lowest TTR in the entire manuscript (TTR=0.466, exp_039). Its low TTR means its words repeat heavily — but WHY? Two models: (a) f76r contains a small vocabulary cycling through a fixed template (like f57v's 4×17 cycle), or (b) f76r contains normal Bio text that happens to use fewer word types because it repeats a fixed subject matter. H054 tests: does f76r have a periodic word-level structure (like f57v's 17-cycle)? Test: extract f76r body text word sequence; compute word autocorrelation at lags 1-20 (does word[i] predict word[i+k] for some k?). Also compute body line similarity (do consecutive lines share more words than expected by TTR alone?).
+**Expected outcome:** If f76r has a cycle: autocorrelation will peak at the cycle period. If f76r is just repetitive Bio text: autocorrelation will be noise at all lags. Given that ZL3b already labeled f76r as "key-like sequence," some structure is expected.
+**Cost estimate:** small (autocorrelation on word sequence)
+**Prerequisites:** exp_039 (done)
+
