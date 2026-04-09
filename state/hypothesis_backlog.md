@@ -427,7 +427,7 @@
 
 ## H041: The 9-Form Suffix Paradigm Is Productive — Rare Stems Predict Suffix Counts
 **Priority:** high
-**Status:** open
+**Status:** CONFIRMED (exp_041): Log-linear Pearson r=0.830(B)/0.891(A) between stem frequency and paradigm completeness. KL from marginal=0.2-1.1 bits (partially productive, consistent with NL inflection). Singletons are sparse samples, not fixed mono-suffix forms. F048 added.
 **Source:** working_model.md Phase 2 synthesis (2026-04-09)
 **Description:** The 384-stem paradigm discovered in exp_038 could reflect either (a) a productive generative grammar where any stem can take any suffix, with low-count stems just lacking evidence, or (b) a fixed lexical list where the 384 stems are the complete vocabulary and each suffix form is individually memorized. Distinguishing these has major implications: productive grammar suggests encoding of a natural language; fixed lexical list suggests a constructed vocabulary. Test: for stems with exactly 1 observed suffix variant (the "singleton" stems), measure the observed frequency distribution. Under productivity, their "missing" suffix forms should appear at very low frequency (1-2 tokens each), consistent with sparse sampling of a productive paradigm. Under the lexical-list model, missing forms should be completely absent (exactly 0 tokens). Also test: does stem frequency predict number-of-suffix-variants? Under productivity, more frequent stems will show more variants simply because sampling is deeper.
 **Expected outcome:** Pearson r between stem frequency and suffix variant count > 0.5 would support productivity (frequency drives paradigm completeness, not intrinsic stem class). Near-zero r would suggest paradigm completeness is lexically fixed.

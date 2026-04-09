@@ -42,6 +42,12 @@ These findings have been replicated across independent analyses or confirmed by 
 - cth- in A is a prefix morpheme structurally parallel to qo- in B: H_initial drops from 3.061 to 1.966 after stripping (nearly identical to qo-'s 1.931/3.027); selects o/y/e-initial stems (vs qo-'s k/t-initial stems)
 - This reframes the A/B split: they share a morphological system but differ in which suffix dominates the paradigm
 
+**The suffix paradigm is PRODUCTIVE in both A and B — log-linear r=0.83-0.89 (F048, exp_041)**
+- Stem frequency (log scale) explains 69-79% of variance in paradigm completeness
+- Singletons are sparse samples from a productive paradigm, not lexically fixed forms
+- KL from marginal = 0.2-1.1 bits: "partially productive" consistent with natural language inflection
+- 'd' in A is an outlier (KL=1.077, dominated by -aiin = daiin) — like an irregular high-frequency verb
+
 **Currier B has a systematic 9-form suffix paradigm on ~10 productive stems (F045)**
 - 384 stems take 2+ suffix variants; 311 have edy/ain/aiin variants
 - Top stem 'qok' generates 1,559 tokens in 9 suffix forms: {-eedy,-ain,-edy,-eey,-aiin,-y,-ey,-chy,-dy}
