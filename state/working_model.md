@@ -1,5 +1,5 @@
 # Working Model — Voynich Manuscript Cryptanalysis
-**Last updated:** 2026-04-09 (after exp_066)
+**Last updated:** 2026-04-09 (after exp_070)
 **Purpose:** Continuously-updated structured summary of current beliefs about Voynichese.
 **Discipline:** Characterization, not interpretation. Claims require experimental warrant.
 
@@ -167,7 +167,12 @@ These findings have been replicated across independent analyses or confirmed by 
 - qo+eedy: 2.05× in B; no categorical exclusions exist
 - Top 6 onset × 6 suffix classes account for 48-54% of each dialect
 - The template is probabilistic (onset-sensitive suffix preferences), not rigid slot-filling
-- **Currier B effective onset taxonomy = 4 classes** (KL analysis, exp_061): {ch/sh} (high -y/-edy; KL=0.062); {k/t/p} (balanced; KL=0.082-0.111); {d/s} (aiin-dominant; d: 20.8%, s: 20.6% -aiin); {qo} (extended -eedy/-eey dominant)
+- **Currier B effective onset taxonomy — MORPHOLOGICAL classes (F068, exp_061)**: {ch/sh} (high -y/-edy; KL=0.062); {k/t/p} (balanced; KL=0.082-0.111); {d/s} (aiin-dominant; d: 20.8%, s: 20.6% -aiin); {qo} (extended -eedy/-eey dominant)
+- **POSITIONAL taxonomy (F076, exp_069) DIFFERS from morphological taxonomy**: {p} (primary para-start: 17.76×, 75.3% first); {t/f} (secondary line-opener: t=7.64× para-start, 3.82× first; f=8.04× para-start, 1.90× first, rare); {k} (medial gallows: 1.05× medial, 0.66× first; -dy suffix preference 2.14×); {ch/sh} (medial-dominant: ch 87.3% medial in B); {qo+gallows} (medial 1.12×, para-start suppressed 0.12×). Morphological and positional classifications are orthogonal — {k/t/p} share suffix profiles but have radically different positional niches.
+- **ch and sh are morphologically distinct** (F076, exp_069): sh more line-initial (B: 5.0% vs ch 2.1%); ch more line-final (B: 10.6% vs sh 5.0%). In B: ch prefers short suffixes (-aiin 1.87×, -ain 1.69×, -al 1.66×, -ar 1.56×); sh prefers extended suffixes (-edy 1.31×, -eedy 1.93×). sh follows p-onset words at 4.1×.
+- **B sequential word-order rule** (F077, exp_070): qo+gallows→ch/sh is the dominant medial sequence. qokain→ch (86), qokaiin→ch (78), more than daiin→ch (74). Full B sequence: [p-onset para-start] → [qo+gallows medial] → [ch/sh medial] → [closing word].
+- **qo prefix attaches to gallows in 86.5% of cases** (F075, exp_068): qo+k=62.6%, qo+t=19.9%, qo+p=3.3%, qo+f=0.7%. Section-sensitive: Bio=26%, Astro=6.5%. Confirms Tier 1 qo→k/t-initial stem selectivity.
+- **A ch-ch self-following** (F077, exp_070): Currier A ch-ch repetition 1.34× enriched; dominant pair "chol chol" (20 tokens). B near-random (1.09×).
 - The s-initial class is aiin-dominant like d — a new finding suggesting s-words encode a similar role to d-words
 
 **Section is the primary organizer of morphological variance; quire structure is secondary (F054, exp_047)**

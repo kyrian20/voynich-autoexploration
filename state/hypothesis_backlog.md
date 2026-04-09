@@ -799,7 +799,7 @@
 
 ## H080: The Currier B p-Onset Para-Start Words Have a Different Quire Distribution Than B Baseline (Are They Section-Specific?)
 **Priority:** medium
-**Status:** open
+**Status:** tested — NOT SUPPORTED (exp_067: pch/tch distributed across all B quires, range 0.58-2.36% combined; no strong clustering. F074 added.)
 **Source:** F070 (exp_063): pch/tch onset words are concentrated in Special (1.01%), Herbal (0.85-0.91%), Bio (0.47-0.58%) sections of B and absent from Astro. Are pch/tch words also concentrated in specific quires of the B manuscript?
 **Description:** If pch/tch words are uniformly distributed across all B quires, the para-start function is a manuscript-wide convention. If they cluster in specific quires (as the aiin-dominant A register clusters in Quires D/F), this suggests a B-side quire-level scribal variation. Test: compute pch/tch rates per B quire.
 **Expected outcome:** If uniform: manuscript-wide B convention. If clustered: quire-specific scribal convention (parallel to aiin-dominant A).
@@ -821,10 +821,85 @@
 
 ## H082: The Bio Section Has a Two-Register System Analogous to Herbal A (Pool vs Non-Pool Folios)
 **Priority:** medium
-**Status:** open
+**Status:** tested — NOT SUPPORTED (exp_067: Jaccard=0.201 far above A register split=0.138; identical suffix profiles, qo-rates. Bio pool/non-pool is organizational not linguistic. F074 added.)
 **Source:** F068 (exp_061): Bio multi-para folios are specifically pool/bathing folios. F069 (exp_062): two-register system in Herbal A. Does the Bio section also have two registers — pool folios (multi-paragraph, specialized vocabulary) vs non-pool folios (single-paragraph)?
 **Description:** Pool folios (f75v, f82r, f83r, f83v, f84r, f84v) vs non-pool bio folios (the rest). Test: (a) Do pool vs non-pool bio folios differ in vocabulary (Jaccard)? (b) Do they differ in suffix distributions? (c) Do pool folios have higher qo-rates or different positional grammar? The pool/non-pool distinction in bio may be as significant as the aiin/y-dominant distinction in herbal A.
 **Expected outcome:** Some vocabulary difference expected (pool scenes describe different content). Structural grammar differences would be more significant.
 **Cost estimate:** small
 **Prerequisites:** exp_061 (done)
 
+
+---
+
+## H083: Within Multi-Para Bio Folios, Paragraphs Are Independent Vocabulary Units
+**Priority:** high
+**Status:** tested — PARTIALLY SUPPORTED (exp_068: non-trivial para pairs Jaccard 0.075-0.156 ≈ cross-folio 0.155; tiny paras are marginal annotations; paragraphs share structural B vocabulary. F075 added.)
+**Source:** F074 (exp_067): Bio pool/non-pool is organizational, not linguistic. F068 (exp_061): Bio has 37% multi-para folios. Within a single multi-paragraph bio folio, are the paragraphs independent vocabulary units (each paragraph describing a different figure/subject) or do they repeat the same high-frequency words?
+**Description:** For each multi-para bio folio, split words by paragraph (para index 0, 1, 2, ...). Compute within-folio inter-paragraph Jaccard. If paragraphs are semantically independent units (each describes a different person), we expect low within-folio inter-paragraph Jaccard. If paragraphs are continuation of the same text, we expect high Jaccard. Compare to cross-folio Jaccard as a baseline.
+**Expected outcome:** If bio paragraphs describe independent figures: Jaccard < overall bio Jaccard. If continuation: high Jaccard with same vocabulary.
+**Cost estimate:** small
+**Prerequisites:** exp_067 (done)
+
+---
+
+## H084: qo-Onset Words Have a Distinct Morphological Sub-Grammar (qo + restricted suffix set)
+**Priority:** high
+**Status:** tested — STRONGLY SUPPORTED (exp_068: qo attaches to gallows k/t/p/f in 86.5%; medial 1.12× enriched; para-start 0.12× suppressed; -eedy 2.05×; Bio=26%; F075 added.)
+**Source:** F068 (exp_061): qo is a distinct onset class in Currier B. F071 (exp_064): qo is 0.64× line-first biased (slightly medial). Do qo-onset words have a restricted suffix grammar? The qo-prefix may function as a grammatical particle (determiner? negation? quantifier?) that combines with a limited set of stems.
+**Description:** Extract all qo-initial words from Currier B. What follows 'qo'? Map the post-qo character distribution. Does qo consistently combine with a restricted set of stems/suffixes? Compare qo-suffix distribution to the overall B suffix distribution. Also test: is qo more common in specific sections (Herbal vs Bio vs Cosmo)?
+**Expected outcome:** If qo is a grammatical particle: restricted suffix set, not just any word with qo prefix. If qo is a phonological coincidence: same suffix distribution as non-qo words.
+**Cost estimate:** small
+**Prerequisites:** none — corpus analysis
+
+---
+
+## H085: ch vs sh Discrimination — What Determines Which Allomorph Appears?
+**Priority:** medium
+**Status:** tested — SUPPORTED (exp_069: sh more line-initial A:11.2% vs ch:3.9%, B:5.0% vs 2.1%; ch more line-final; B ch+short suffix, sh+extended suffix; sh follows p-onset 4.1×; self-following repetition. F076 added.)
+**Source:** F068 (exp_061): KL(ch vs sh) = 0.062 bits — nearly identical positional profiles. Both are strongly medial. But ch is far more frequent. Is there a phonological or positional context that distinguishes ch from sh? Are they in complementary distribution (one appears after certain words, the other after different words)?
+**Description:** For all body-text lines in Currier B: (1) Compute the word immediately BEFORE ch-onset vs sh-onset words. Do different words precede ch vs sh? (2) Compute the character immediately before ch vs sh in the raw EVA (within-word context — are they ever word-medial after a prefix?). (3) Test whether ch and sh have different suffix preferences. (4) Check if one appears more in specific sections.
+**Expected outcome:** If complementary distribution: ch appears after certain word classes, sh after others. If free variation: no predictable context.
+**Cost estimate:** small
+**Prerequisites:** none
+
+---
+
+## H086: The Voynich 'Gallows' Letters (k, t, f, p) Have Individual Positional Grammar Despite Being One Onset Class
+**Priority:** medium
+**Status:** tested — STRONGLY SUPPORTED (exp_069: p=17.76× para-start; t=7.64×; f=8.04×; k=medial 1.05× but 4.88× para-start; k has -dy suffix preference 2.14×. Revised taxonomy: {p}, {t/f}, {k}, {ch/sh}. F076 added.)
+**Source:** F068 (exp_061): KL(k vs t) = 0.082 bits — same suffix class. F071 (exp_064): p is 6.34× line-first while k is only 0.66× line-first. The 4-class taxonomy groups k/t/p but they have very different positional behavior. Do k, t, f each have distinct positional signatures, or are k and t truly interchangeable while p is the outlier?
+**Description:** Compute line-first%, line-last%, para-start% for each of k, t, f, p individually in Currier B. Also compute suffix distributions for each. Are k and t truly interchangeable (similar positional profiles)? Is f (a less common gallows) positionally distinct?
+**Expected outcome:** If k/t interchangeable: similar line-first%, similar suffix profiles. If p is the sole outlier: k/t clustered, p separate. If 4-way distinct: all have different positional grammar.
+**Cost estimate:** tiny
+**Prerequisites:** exp_064 (done)
+
+---
+
+## H087: The k+-dy Combination Is a Specific Grammatical Morpheme (Medial Particle)
+**Priority:** high
+**Status:** tested — WEAKLY SUPPORTED (exp_070: k-dy forms are complex k+ch+dy compounds; slightly more line-final 1.43×; follows gallows 2.79×. Not a clear particle. F077 added.)
+**Source:** F076 (exp_069): k is the medial gallows (1.05× medial) with -dy suffix preference (13.9% = 2.14× baseline). The most common k words are keedy, kar, kaiin, kedy, kain. k+-dy (kedy) is disproportionately common. Is this a specific grammatical morpheme — a medial particle or conjunction? Test: (1) Is 'kedy' more positionally restricted than random k words? (2) Does 'kedy' appear in a specific syntactic slot (e.g., always medial, always after qo- words)? (3) Do k+-dy words differ from k+-other-suffix words in positional grammar?
+**Expected outcome:** If kedy is a particle: positionally restricted (exclusively medial), follows specific word classes. If kedy is a random form: same distribution as other k words.
+**Cost estimate:** small
+**Prerequisites:** exp_069 (done)
+
+---
+
+## H088: ch-ch and sh-sh Self-Following Sequences Form Bi-Word Constructions
+**Priority:** medium
+**Status:** tested — SUPPORTED FOR A, NOT B (exp_070: A ch-ch 1.34×, sh-sh 1.46×; dominant pair "chol chol"(20); B near-random 1.04-1.09×. New: qo+gallows→ch is dominant B word-order rule. F077 added.)
+**Source:** F076 (exp_069): ch follows ch at 1.52-1.63×; sh follows sh at 2×. This self-following repetition suggests that ch-ch and sh-sh bigrams may be bi-word constructions (determiners + nouns, or compound phrases). Test: (1) What are the most common ch-ch and sh-sh word pairs? (2) Do they appear at specific positions (both medial)? (3) Is the second word of a ch-ch pair different from a random ch word?
+**Expected outcome:** If bi-word constructions: specific high-frequency ch-ch pairs, restricted to medial position. If coincidental: random ch pairs with no structural binding.
+**Cost estimate:** small
+**Prerequisites:** exp_069 (done)
+
+---
+
+## H089: The Revised 5-Class Onset Taxonomy ({p}, {t/f}, {k}, {ch/sh}, {d/s}) Is Stable Across B Sections
+**Priority:** medium
+**Status:** open
+**Source:** F076 (exp_069): revised 5-class taxonomy derived from B-wide data. F074 (exp_067): qo-rate varies by section (Bio=26%, Astro=6.5%). Does the positional specialization of each onset class hold within individual B sections, or does the taxonomy change by section?
+**Description:** Compute the positional enrichment (first%, medial%, last%, para-first%) for each of the 5 onset classes separately within each B section (Herbal B, Bio, Special, Text, Cosmo, Astro). Is p still the dominant para-start marker in all sections? Is k still medial-dominant in all sections?
+**Expected outcome:** If taxonomy is stable: same positional enrichment pattern in each section. If section-specific: some sections use different onset classes for structural positions.
+**Cost estimate:** small
+**Prerequisites:** exp_069 (done)
