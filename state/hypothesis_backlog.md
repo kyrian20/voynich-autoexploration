@@ -1452,3 +1452,91 @@
 **Expected outcome:** The positional grammar suggests Voynichese paragraphs have consistent internal structure: an opening formula (sh/ch in A; o/sh+long in B) followed by content lines ending in -am, concluding with a closing formula (daiin in A; o+medium in B).
 **Cost estimate:** zero (synthesis from existing data)
 **Prerequisites:** exp_083 (done)
+
+---
+
+## H140: The she- Para-Start Function (4.74×) and the she-→qo Grammar Function (2.23×) Are the SAME Function — Paragraphs Opening with she- Develop sh→qo Sequences
+**Priority:** high
+**Status:** TESTED (exp_085) — REFUTED: The two functions are INDEPENDENT. she-→qo rates are nearly identical on para-start (27.5%) and non-para-start (24.1%) lines. qo-prediction is an INTRINSIC LEXICAL property of she-words, not a context-dependent para-start function. The two co-occur in she-lexemes but are not causally linked.
+**Source:** F091 (exp_084): she-prefix words serve two roles: (1) para-start markers (4.74×); (2) qo-predictors in y-dom (2.23×). Are these the same phenomenon? Para-start lines that begin with she-words may subsequently contain more qo-onset words (because she-→qo and she-starts-para both predict qo following). Or are there two distinct she-functions that happen to co-occur?
+**Description:** (1) For A para-start lines that begin with she-prefix words: what is the onset distribution of subsequent words ON THAT LINE? Is qo more frequent after she-para-start-words? (2) For A para-start lines that begin with sh-other words: what is the qo rate on that same line? (3) If she-→qo coupling operates both at line-start (she-opens-para) and mid-line (she-precedes-qo), then she- is a single grammatical category encoding "qo-transition topic/initiator". (4) For Pharma A: does she-→qo=2.91× track with a high para-start she-rate too?
+**Expected outcome:** If unified: A paragraphs beginning with she-words have significantly more qo-onset words on the opening line and subsequent lines. If separate: the she-para-start function and she-→qo function operate independently in different syntactic positions.
+**Cost estimate:** small
+**Prerequisites:** exp_084 (done)
+
+---
+
+## H141: The B ol-Prefix Sub-Classes Reflect a Morphological Opposition Between "Line-Terminal" and "Line-Initiating" Stems
+**Priority:** medium
+**Status:** TESTED (exp_085) — PARTIALLY SUPPORTED: Stem complexity gradient exists (simple→line-closer 27.5% LLast; complex→para-starter 7.7% PSFirst) but weak. Specific lexical identity is a stronger predictor than stem structure. oly/oldy/olam (empty stems) are pure line-closers; olfchedy/olkair (complex stems) are para-starters. Gallows vs no-gallows does not cleanly separate roles.
+**Source:** F091 (exp_084): B ol-prefix words divide into line-closers (oly=88.6% line-last, oldy=78.6%) and para-starters (olkey=33.3% PSFirst). The difference appears to be the stem AFTER 'ol': oly/oldy have simple stems (y, dy) while olkey/olfchedy have complex stems (key, fchedy). Is the morphological complexity of the ol-stem predictive of positional role?
+**Description:** (1) For all B ol-prefix words: compute stem_complexity (length of the part between 'ol' and suffix). (2) Do shorter ol-stems (oly=stem+y, oldy=stem+dy) favor line-final positions while longer ol-stems favor line-initial? (3) More specifically: do ol+{short_stem} words favor line-ends; ol+{gallows_stem} (olkey, olfchedy — stems containing gallows letters k, f) favor line/para-starts? (4) Is the ol- prefix morphological class internally structured by stem type?
+**Expected outcome:** If stem-structured: ol+{short/simple} → line-closer; ol+{gallows/complex} → para-starter. If lexically listed: the positional roles are determined by the specific words, not by the stem structure.
+**Cost estimate:** small
+**Prerequisites:** exp_084 (done)
+
+---
+
+## H142: The Complete Positional Grammar Models (A and B) Are Universal Across All Folio Sections — Not Section-Specific
+**Priority:** medium
+**Status:** open
+**Source:** F090/F091 (exp_083/084): A model: [she-prefix PARA-START] → [-am line-ends] → [daiin PARA-END]. B model: [o/sh+long+edy PARA-START] → [-am line-ends] → [o+medium+eedy PARA-END]. Are these models consistent across all sections (Herbal A/Pharma A, Herbal B/Astro/Cosmo/Special) or section-specific?
+**Description:** (1) Check if the -am within-para / para-final suppression holds for Pharma A, Astro B, and Special section separately. (2) Does the she-para-start model hold in Pharma A (which has different grammar from Herbal A)? (3) Does the B o-onset para-start model hold in all B sections (Bio/Pharma B/Special)? (4) Are there section-specific exceptions to the positional grammar?
+**Expected outcome:** If universal: the positional grammar models hold across all sections, confirming they are grammar-level (not content-level) phenomena. If section-specific: some sections deviate, suggesting content drives positional word choice.
+**Cost estimate:** small
+**Prerequisites:** exp_084 (done)
+
+---
+
+## H143: The -am Suffix Has a Different Onset-Class Distribution Than Non-am Words — It Is Specifically a d-Onset and o-Onset Suffix
+**Priority:** medium
+**Status:** TESTED (exp_085) — STRONGLY SUPPORTED: -am is onset-structured. d-onset dominant in A (2.01×), d/t/o enriched in B (1.67×/1.55×/1.45×). sh-onset suppressed in BOTH dialects (A=0.56×, B=0.37×). p-onset completely absent in A (0.00%). Core cross-dialect -am vocabulary: dam, otam, qokam, okam. -am attaches predominantly to {t,k,d,r} short stems.
+**Source:** F087/F090 (exp_080/083): Top -am words in B: otam (35), dam (31), qokam (22), okam (20), chdam (10), olkam (10), ram (10). Top A -am words: dam (32), cham (9), otam (7), okam (6). The -am suffix appears on words from diverse onset classes (d, o, qo, ch, r). Is there a pattern to WHICH onset classes take -am? Specifically: d-onset (dam, chdam) and o-onset (otam, okam, olkam) seem to dominate. Is -am more frequent after certain stems?
+**Description:** (1) Compute -am suffix rate by onset class for B. (2) Compare: do d-onset and o-onset words have higher -am rates than qo/sh/ch-onset? (3) What is the internal structure of -am words: do they have specific stems (ot+am, ok+am, ol+k+am)? (4) Is the -am suffix productive (can be added to any stem) or lexically restricted?
+**Expected outcome:** If onset-structured: -am is predominantly a d-onset and o-onset suffix class, reflecting a specific grammatical relationship between line-ending function and word onset. If general: -am attaches equally to any onset class stem.
+**Cost estimate:** small
+**Prerequisites:** exp_084 (done)
+
+---
+
+## H144: The -am Suffix Suppression in sh-Onset Is Related to sh-Onset Para-Start Enrichment — sh-Words Serve Opening Functions, Not Line-Ending Functions
+**Priority:** medium
+**Status:** open
+**Source:** F092 (exp_085): sh-onset is suppressed for -am in both A (0.56×) and B (0.37×). From F090/F091: sh-onset words are enriched at para-starts in both dialects (A=2.54×, B=1.72×). Hypothesis: sh-onset encodes an "opening/initiating" grammatical function; -am encodes "within-para line-ending"; these are functionally incompatible. sh-words cannot serve the line-ending role that -am marks.
+**Description:** (1) Compute the positional profile of -am words vs non-am words by onset class: do -am words have suppressed line-first rates? (2) Does sh-onset have specifically SUPPRESSED line-last rates? (3) If sh-words never end lines (they start them), that explains zero -am rate. (4) Cross-validate: do sh-onset words have LOW LLast% in B? (from F089 data)
+**Expected outcome:** If hypothesis correct: sh-onset words have very low LLast% AND very high LFirst% across both dialects — confirming sh-words are pure line-openers that cannot take -am (a line-ender marker).
+**Cost estimate:** small
+**Prerequisites:** F090 (exp_083), F092 (exp_085)
+
+---
+
+## H145: The core -am Vocabulary (dam, otam, qokam, okam) Represents a Closed Grammatical Class — a Small Set of High-Frequency Function Words That Mark Within-Para Line Endings
+**Priority:** medium
+**Status:** open
+**Source:** F092 (exp_085): Top B -am words: otam(27), dam(22), qokam(22), okam(19). Top A: dam(38), otam(13), cham(10). dam and otam appear in both dialects at high frequency. Hypothesis: these are FUNCTION WORDS from a small closed class, not open-class content words. Like daiin (para-closing) and oly (line-closing), dam/otam may be the core WITHIN-PARA line-ending function words.
+**Description:** (1) Do dam/otam/qokam/okam show the characteristic function-word positional profile: high LLast%, low LFirst%, within-para enriched? (2) How do they compare to daiin (para-closing) and oly (line-closing)? (3) Are they contextually restricted (e.g. appear in specific folio sections or only with certain preceding words)? (4) Cross-dialect: in A, dam is 38× — is dam the primary within-para line-ending function word in A?
+**Expected outcome:** If function words: dam/otam/okam have LLast% >>50%, LFirst%<<5%, and near-zero PSFirst rates. They would form a parallel paradigm to daiin (PSLast) and oly (LLast).
+**Cost estimate:** small
+**Prerequisites:** F092 (exp_085)
+
+---
+
+## H146: The Positional Grammar Models Are Falsifiable With a Held-Out Test Set — A Grammatical Parsing Attempt on New Sections
+**Priority:** high
+**Status:** open
+**Source:** F090/F091/F092 (exp_083/084/085): We have two full positional grammar models: A=[she-para-start → -am within-para → daiin/ch para-end]; B=[o/sh+long+edy para-start → -am within-para → o+med+eedy para-end]. Can these models PREDICT paragraph structure in new folios not used for model building?
+**Description:** (1) Hold out a subset of folios (e.g., Pharma A, Astro B). (2) Use the positional grammar model to predict: which lines are para-starts, which are para-finals? (3) Evaluate precision/recall against the actual locus-code para-start markers. (4) What is the best predictor combination? Is it above chance?
+**Expected outcome:** If grammar models are real: precision/recall for para-start prediction should exceed 30%/30% (far above the ~10% base rate). If over-fit to training data: prediction on held-out sections falls to chance.
+**Cost estimate:** medium
+**Prerequisites:** F090/F091 (exp_083/084)
+
+---
+
+## H147: The she- Lexical Class Has a Consistent Semantic Register — she-Words Appear With Specific Content Words That Suggest a Grammatical Function (Aspect/Topic Marker)
+**Priority:** medium
+**Status:** open
+**Source:** F091/F092 (exp_084/085): she-prefix is 4.74× enriched at para-starts, AND predicts qo-following (27.5% she-→qo vs 11.4% base). The she- function appears to be inherent to she-lexemes (not context-driven). What follows she-words? Do specific content words co-occur with she-words more than expected?
+**Description:** (1) For each A record containing she-prefix words: what are the most over-represented following-words? (2) Is there a recurring {she-word} → {X} pattern where X is a specific content or function word? (3) Do she-words appear in specific topic/content contexts (e.g., only in Herbal sections, not Pharma)? (4) Compare she-para-start lines vs she-non-para-start lines: do they have different following-word profiles?
+**Expected outcome:** If she- is a grammatical marker: the following-word distribution after she-words would be drawn from a restricted class (qo-onset words plus a few other common words). The co-occurrence pattern may reveal what grammatical role she- encodes.
+**Cost estimate:** small
+**Prerequisites:** F091/F092 (exp_084/085)
