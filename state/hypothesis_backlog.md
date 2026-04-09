@@ -1873,3 +1873,43 @@
 **Expected outcome:** The B f+ch distribution may be section-specific or folio-specific. Alternatively, B uses different gallows (k+sh=9% in B, which is stronger than k+sh in A) to compensate for f+ch's mid-line role. The exception may be real: A uses both p and f as para-starters; B uses primarily p (and less f).
 **Cost estimate:** small
 **Prerequisites:** F103 (exp_096)
+
+---
+
+## H178: Stem × Prefix Independence
+**Priority:** high
+**Status:** TESTED (exp_097) — PARTIALLY CONFIRMED: Core stems (chol, chor, cheey) appear with ALL prefix classes. 87.8% exclusivity is frequency-driven (rare stems don't have enough tokens to appear in all contexts). Consistent with productive morphology.
+
+---
+
+## H179: f+ch Cross-Dialect Asymmetry
+**Priority:** medium
+**Status:** TESTED (exp_097) — CONFIRMED: f+ch asymmetry is real and section-driven. A: f+ch in herbal (21% PS). B: f+ch in stars (0% PS, B-type suffixes). Genuine dialect difference in f-gallows para-start usage.
+
+---
+
+## H180: Stem Productivity Gradient
+**Priority:** medium
+**Status:** TESTED (exp_097) — CONFIRMED: 3 fully-productive stems (all 7 prefix classes): chol, cheey, cho. Zipfian distribution: ~16 productive stems = 47% of ch-stem tokens. Consistent with natural language morphology.
+
+---
+
+## H181: Voynichese Positional Grammar Completeness Test — Can We Predict Line Position From Prefix With >80% Accuracy?
+**Priority:** high
+**Status:** open
+**Source:** F101-F104 (exp_093-097): We now have a complete positional grammar model: {p,f}+stem=para; {y,d}+stem=line-opener; {qo}+gallows=mid-line; bare_ch=mid-line. Test: given a word's morphological form (prefix + stem class), can we predict whether it's at (1) para-start, (2) within-para line-first, (3) mid-line, or (4) line-last with >80% accuracy?
+**Description:** (1) Build a classifier: word → predict positional tier. (2) Use prefix type and stem class as features. (3) Compute confusion matrix: how often does the predicted tier match the actual position? (4) What are the most common misclassifications? (5) Does accuracy differ by section or dialect?
+**Expected outcome:** High accuracy (>70%) for classifying words into positional tiers based on morphology alone. This would confirm the MORPHOLOGY-TO-POSITION MAPPING is the dominant grammatical rule in Voynichese. Misclassifications would identify edge cases.
+**Cost estimate:** medium
+**Prerequisites:** F101-F104 (exp_093-097)
+
+---
+
+## H182: Do Voynichese Paragraphs Have Consistent Internal Structure? (Para-Level Template Test)
+**Priority:** high
+**Status:** open
+**Source:** F100-F104: We know individual words have strong positional grammar. But do paragraphs have consistent internal structure? Test: (1) What is the typical A/B paragraph length (in lines)? (2) Is there a consistent pattern within paragraphs: gallows-word first line, then multiple y/d+ch openers, then final d-onset closer? (3) Is the "paragraph" a coherent unit with observable internal structure?
+**Description:** (1) Compute paragraph lengths (number of lines per paragraph) for A and B. (2) For each paragraph, track the sequence of line-opener types: para-start line (gallows opener), then line 2 (y/d+ch?), line 3... (3) Is there a modal paragraph template? (4) Do para-start gallows words always appear at line 1, or also mid-paragraph?
+**Expected outcome:** Paragraphs have consistent structure with gallows word at line 1, followed by y/d+ch-type openers for internal lines, and possibly d+ch or d-onset words at para-final line. This would complete the multi-level grammar characterization.
+**Cost estimate:** medium
+**Prerequisites:** F100-F104
