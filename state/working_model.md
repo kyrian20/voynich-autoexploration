@@ -1,5 +1,5 @@
 # Working Model — Voynich Manuscript Cryptanalysis
-**Last updated:** 2026-04-09 (after exp_052)
+**Last updated:** 2026-04-09 (after exp_053)
 **Purpose:** Continuously-updated structured summary of current beliefs about Voynichese.
 **Discipline:** Characterization, not interpretation. Claims require experimental warrant.
 
@@ -129,13 +129,12 @@ These findings have been replicated across independent analyses or confirmed by 
 - Most frequent single word in Herbal A; appears only once in labels
 - Not a universal function word; Currier A / Herbal A specific
 
-**Currier A: 'd'-stem words are line-final markers; -ol/-or words are excluded from line endings (F057, exp_050)**
-- dam=62.5% line-final (3.92× above baseline), dy=49.2%, dal=35.5%, daiin=22.5%, dain=25.4%
-- chol=0.9% line-final (18× below baseline!), shol=1.0%, chor=4.1%
-- Strong positional complementary distribution: 'd'-stem→line endings; -ol/-or→medial/line-initial
-- The 'd' stem functions as a line-boundary element in Currier A
-- -aiin suffix class in A is also line-final elevated (20.2% vs 15.9% baseline)
-- Note: B's -ain words are NOT line-final elevated (8.5%, below baseline) — A and B use different mechanisms for positional encoding
+**Currier A has a partial line grammar with distinct suffix-level slot structure (F057, F060, exp_050, exp_053)**
+- Line-initial slot: -or suffix (1.66×); 'y-'+ch words (ychor=5.83×, ychol=5.38×, ycheey=6.27×) — 'y' may be a line-initial particle; 30% of lines open with [or-word][ol-word] pair
+- Line-final slot: -dy (1.59×), -al (1.35×), -ain (1.45×); '-am' words (dam=3.92×, dan/dom=6.27×); d-stem words generally (dam=62.5%, dy=49.2%, dal=35.5%)
+- Medial slot: -ol (80.7% medial), -ey (80.8%), -eey (80.0%) — these strictly avoid line edges
+- -ain: BOTH line edges (1.30 first, 1.45 last) — possible sentence-boundary marker
+- Currier B contrast: in B, BOTH -or (1.84) and -ol (1.46) are line-initial; -aiin is line-initial in B (1.50) but line-FINAL in A (1.27); the positional grammars differ between dialects
 
 **Bio section vocabulary is dominated by qo-words; Herbal A by short words (F015)**
 - Bio top words: shedy, chedy, qokain, qokedy, ol, qokeedy, qokal, qokaiin
