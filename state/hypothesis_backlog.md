@@ -366,7 +366,7 @@
 
 ## H032: qo-Words and Their Stem-Equivalents Are in Complementary Distribution by Line Position or Section
 **Priority:** medium
-**Status:** open
+**Status:** NOT SUPPORTED (exp_033): Distribution is NOT complementary. Both forms coexist in same dialects/sections. qo-forms are 2.3x more A-absent (88% B vs 11.6% A); bare forms 72.7% B vs 26.6% A. Section: qo=39% bio/14% herbal; bare=18% bio/37% herbal. Line position differences <3%. qo is a DIALECTAL MARKER for B/bio vocabulary, not a grammatical alternant. F040 added.
 **Source:** exp_031_qo_stripping
 **Description:** 52.6% of qo-stripped stem types appear as independent free words (e.g., both "qokeedy" and "keedy" exist). If qo marks a grammatical inflection (case, number, aspect), the qo-form and the bare form should appear in different syntactic positions (e.g., qo-form is line-medial, bare form is line-final) or in different sections. If they're randomly distributed, qo may be a cipher artifact or phonotactically determined variant rather than a grammatical marker.
 **Expected outcome:**
