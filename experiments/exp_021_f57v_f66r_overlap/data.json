@@ -1,0 +1,74 @@
+{
+  "f57v_single_chars": [
+    "I",
+    "c",
+    "d",
+    "f",
+    "k",
+    "l",
+    "m",
+    "o",
+    "p",
+    "r",
+    "t",
+    "v",
+    "x",
+    "y"
+  ],
+  "f66r_single_chars": [
+    "c",
+    "d",
+    "f",
+    "l",
+    "o",
+    "p",
+    "r",
+    "s",
+    "t",
+    "x",
+    "y"
+  ],
+  "overlap_single": [
+    "c",
+    "d",
+    "f",
+    "l",
+    "o",
+    "p",
+    "r",
+    "t",
+    "x",
+    "y"
+  ],
+  "only_f57v": [
+    "I",
+    "k",
+    "m",
+    "v"
+  ],
+  "only_f66r": [
+    "s"
+  ],
+  "jaccard": 0.6667,
+  "hypergeom": {
+    "N": 25,
+    "K": 14,
+    "n": 11,
+    "k_obs": 10,
+    "expected": 6.16,
+    "p_value_one_tailed": 0.002552
+  },
+  "at_glyph_shared_ids": [
+    169,
+    172
+  ],
+  "at_glyph_f57v_only": [
+    170,
+    171
+  ],
+  "at_glyph_f66r_only": [
+    195
+  ],
+  "spearman_rho": -0.093,
+  "spearman_t_stat": -0.459
+}

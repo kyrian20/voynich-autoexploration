@@ -195,6 +195,30 @@
 **Finding:** Stripping Voynich words of their outer crust characters (leading: d,l,r,s,n,y,g,q; trailing: y,n,m,d,l,r,s) raises h2 from 2.341 to only 2.389 — a gain of 0.048 bits. The core region remains far below natural-language h2 (~3.4-3.5 bits). Core region top characters are o(19.4%), e(15.6%), h(13.4%), a(10.9%), c(10.0%) — the same characters that dominate the full corpus. Stripping terminal y/n/m alone gains +0.121 bits (to 2.462). Stripping leading q alone LOSES 0.003 bits (to 2.338). Words containing gallows characters (51.9% of words) have LOWER h2 (2.271) than the full corpus average — gallows-containing words are more constrained, not less.
 **Limitation:** Crust-stripping algorithm is a character-class approximation of the Stolfi grammar, not the full slot grammar. A proper Stolfi parser might find different core residuals. Position-conditional strip (specific chars in specific slots) not yet tested.
 
+## F035: Currier A and B Vocabularies Are Structurally Incompatible as Dialects (Jaccard=0.148, Alignment 2%)
+**Experiment:** exp_023_currier_ab_alignment
+**Date:** 2026-04-09
+**Finding:** Currier A (10,255 tokens, 3,356 types) and Currier B (22,178 tokens, 4,876 types) share only 14.8% of their combined vocabulary (Jaccard = 0.148). Context-vector alignment of top-100 words from each dialect produces only 2/100 identical matched pairs (2%) — far below the 21% null expectation from vocabulary overlap. Frequency rank Spearman ρ = 0.337 for 94 shared words in each top-200 (dialects would show ρ > 0.8). A-exclusive high-frequency words are cth-cluster (cthy, cthol, cthor, qotchy: ~250 total tokens) absent from B's top vocabulary. B-exclusive high-frequency words are -edy/-ain paradigm (chedy=478, shedy=411, qokeedy=299, qokain=273 — absent from A's top vocabulary). Shared vocabulary (~21 top-50 words: or, ol, ar, chey, daiin, aiin, dar, etc.) consists of short, structurally neutral function/template words.
+**Limitation:** Context vectors were built on just top-100 words per dialect; alignment is greedy (not optimal). The token parsing normalizes uncertainty brackets. A larger alignment (top-300) could reveal additional shared function words.
+
+## F033: f75v Is a Third Line-Marker Folio; f75v and f76r Form a Bio-Section Line-Marker Pair
+**Experiment:** exp_022_l0_structural_audit
+**Date:** 2026-04-09
+**Finding:** The full L0 locus audit identifies f75v (biological section) as a previously unknown line-marker folio with 5 L0/P0 alternating pairs (markers: s, l, l, r, s). Combined with f49v (herbal_A, 26 pairs) and f76r (bio, 9 pairs), this makes three confirmed line-marker folios in the manuscript. f75v and f76r are both in the biological section, both begin their marker sequences with 's', and f75v's 5-char set {s, l, r} is nearly a subset of f76r's 9-char set {s, d, q, s, o, l, k, r, s}.
+**Limitation:** f75v not previously investigated; image inspection needed to confirm same-hand vs different-hand markers; the f75v/f76r proximity (adjacent folios in bio section) may or may not be significant.
+
+## F034: ZL3b L0 Contains Only 9 True Object Labels Out of 160 Entries (5.6%); Cosmo Section Has 53 L0 List Entries
+**Experiment:** exp_022_l0_structural_audit
+**Date:** 2026-04-09
+**Finding:** Full L0 audit (all prefix variants: L0, *L0, +L0, @L0, =L0, &L0, /L0, ~L0) finds 160 total entries classified as: 9 TRUE_LABEL (5.6%), 43 LINE_MARKER (26.9%), 108 LIST_ENTRY (67.5%). Herbal_A has only 1 TRUE_LABEL (f2r: 'ios an on' = 3 tokens) after excluding f49v. Cosmo section folios f67r2 (19 entries), f67v1 (12 entries), and f69r (22 entries) account for 53 L0 list entries — cosmo zodiac/ring diagram labels in list format. The majority of Voynich "label" content is in other L* locus codes (Lf ≈193, Lz ≈299, Ls ≈75, Lc ≈40) not yet audited.
+**Limitation:** This audit covers L0 only. The locus codes Lf, Ls, Lz, Lc, Ln, Lt need separate auditing to fully characterize the label corpus. The exp_003 "label corpus" of 1065 tokens was likely drawn from multiple L* codes combined.
+
+## F032: f57v Cycle and f66r Column 2 Share a Statistically Significant Character Inventory (p=0.003)
+**Experiment:** exp_021_f57v_f66r_overlap
+**Date:** 2026-04-09
+**Finding:** The character sets of f57v's 17-token repeating cycle and f66r column 2 overlap significantly (Jaccard=0.667, p=0.003 vs hypergeometric null). Of 25 EVA single chars, f57v uses 14 and f66r col2 uses 11; the intersection is 10 — 3.84 chars above random expectation. Both sets converge on: {c, d, f, l, o, p, r, t, x, y}. The only char in f66r but not f57v is 's'; only in f57v are I, k, m, v. Additionally, the f→@169 adjacency appears in both: f57v pos 9-10 is f then @169;v; f66r col2 entries 8-9 are 'f' then '@169'. The character ORDER in f66r col2 does NOT correspond to f57v cycle positions (Spearman ρ ≈ -0.09), ruling out f66r as a simple linearization of f57v's cycle.
+**Limitation:** The shared char set heavily overlaps with H022's "non-compound-forming chars" category, so the overlap may partially reflect both lists independently avoiding compound-forming chars rather than a direct relationship. These two explanations are not mutually exclusive.
+
 ## F002: Pure Glossographic Model (Uniform Template Across All Positions) is Contradicted
 **Experiment:** exp_001_word_initial_entropy
 **Date:** 2026-04-09

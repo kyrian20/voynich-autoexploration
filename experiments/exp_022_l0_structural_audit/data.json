@@ -1,0 +1,106 @@
+{
+  "total_l0": 160,
+  "by_class": {
+    "TRUE_LABEL": 9,
+    "LINE_MARKER": 43,
+    "LIST_ENTRY": 108
+  },
+  "marker_folios": {
+    "f11v": {
+      "LINE_MARKER": 1
+    },
+    "f49v": {
+      "LINE_MARKER": 26
+    },
+    "f57v": {
+      "TRUE_LABEL": 1,
+      "LIST_ENTRY": 4
+    },
+    "f66r": {
+      "LIST_ENTRY": 48,
+      "LINE_MARKER": 1
+    },
+    "f67r2": {
+      "LIST_ENTRY": 19,
+      "TRUE_LABEL": 7,
+      "LINE_MARKER": 1
+    },
+    "f67v1": {
+      "LIST_ENTRY": 12
+    },
+    "f68v3": {
+      "LIST_ENTRY": 2
+    },
+    "f69r": {
+      "LIST_ENTRY": 22
+    },
+    "f75v": {
+      "LINE_MARKER": 5,
+      "LIST_ENTRY": 1
+    },
+    "f76r": {
+      "LINE_MARKER": 9
+    }
+  },
+  "true_label_count": 9,
+  "true_label_by_section": {
+    "herbal_A": 1,
+    "astro": 1,
+    "cosmo": 7
+  },
+  "true_label_top20_tokens": [
+    [
+      "ios",
+      1
+    ],
+    [
+      "an",
+      1
+    ],
+    [
+      "on",
+      1
+    ],
+    [
+      "dairal",
+      1
+    ],
+    [
+      "dolchsody",
+      1
+    ],
+    [
+      "okal",
+      1
+    ],
+    [
+      "okain",
+      1
+    ],
+    [
+      "a[m:g]",
+      1
+    ],
+    [
+      "opcholdy",
+      1
+    ],
+    [
+      "ofar",
+      1
+    ],
+    [
+      "oeoldan",
+      1
+    ],
+    [
+      "ytoaiin",
+      1
+    ],
+    [
+      "yfain",
+      1
+    ]
+  ],
+  "herbal_a_true_labels_excl_f49v_f66r": 1
+}
