@@ -2217,6 +2217,7 @@
 
 ## H205: A/B Suffix Paradigm Is Universal — Does Every Onset Class Follow the Same A:-ol/-or vs B:-edy/-eedy Split?
 **Priority:** high
+**Status:** TESTED (exp_107) — CONFIRMED: All 16 onset classes show same direction. bare_t=12.6× B-ratio (strongest), d+gallows=9.3×, bare_ch=5.7×. d/s-onset in A-dialect: ZERO -edy. Universal grammatical property of dialect.
 **Source:** F113: o-prefix words show same A/B suffix split as ch-stems (F047). This suggests the paradigm is not stem-class-specific but a grammatical property of the entire dialect. Test: does EVERY onset class (ch, sh, ok, ot, d, s, qo+gallows, bare_gallows) show the same A/B suffix ratio pattern?
 **Description:** For each onset class, compute suffix distribution in dialect A vs B. For each (onset class × dialect), compute the ratio of -edy/-eedy vs -ol/-or usage. If universal: all onset classes should show A preferring -ol/-or and B preferring -edy/-eedy, with similar ratio differences. If stem-class-specific: some onsets will not show the paradigm split.
 **Expected outcome:** The paradigm split is UNIVERSAL across all onset classes, with MAGNITUDE varying by onset class (ch-stems show strongest split; bare gallows may show weaker split due to PARA-tier function). d-onset will show suppressed -edy in BOTH dialects (consistent with F113). qo-onset will show B-dominant -eedy (consistent with F043).
@@ -2226,6 +2227,7 @@
 
 ## H206: s-Onset Is a Distinct Grammatical Class — Are saiin/sain True Line-Openers (Parallel to daiin)?
 **Priority:** medium
+**Status:** TESTED (exp_107) — CONFIRMED: s-onset (11.8%) is LINE-OPENER (LFirst=18.7%, LLast=9.9%). saiin=51%LF, sain=60%LF, sor=66%LF. SUFFIX OPPOSITE of d-onset: s enriches -edy (1.40×), suppresses -aiin (0.73×); d suppresses -edy (0.16×), enriches -aiin (3.08×). Both s/d-openers followed by qo at 2.2-2.5×. s=B-paradigm; d=A-paradigm aligned.
 **Source:** F112: s-onset = 6% of OTHER tier; saiin=51%LF, sain=60%LF = line-openers. F105: s-words → sh/ch following (saiin-next-word: ch/sh dominant). saiin and sain are the s-onset parallels of daiin/dain. Are they SYMMETRIC with d-onset openers (d+aiin=24%LF vs s+aiin=51%LF)? Is s-onset an A-dialect or B-dialect feature?
 **Description:** Full positional and suffix analysis of s-onset words: LFirst/LLast/PS, suffix distribution, dialect split (A vs B rate), section distribution, what follows them (next-word onset). Compare s-onset to d-onset: are they the same grammatical role in different dialects, or complementary sub-classes?
 **Expected outcome:** s-onset is a dialect-specific line-opener: saiin/sain are predominantly B-section (B uses s-opening; A uses d-opening = daiin/dain). Or they may be universal but section-specific. s-onset likely has lower -edy rates than ch-onset but higher than d-onset.
@@ -2238,4 +2240,31 @@
 **Source:** F050 found 0.24% of trigrams appear on 2+ folios, with bio section showing 30× more cross-folio repetition than herbal. 4-gram and 5-gram cross-folio repetition has not been tested. Verbatim repeated passages of length ≥4 words would be strong evidence of formulaic construction, copy from a source text, or a substitution cipher with fixed plaintext segments.
 **Description:** Extract all 4-grams and 5-grams from body text. Find sequences appearing on 2+ distinct folios. Report: how many 4-grams repeat? What are they? Do they concentrate in specific sections (bio/cosmo, as with bigrams)? Are they grammatically structured (PARA-opener followed by specific sequence)?
 **Expected outcome:** 4-gram repetition is very rare (< 0.1% of all 4-grams). Most repetitions will be found in bio/cosmo B sections (most formulaic). Some may represent fixed formulaic phrases like the para-start sequence (p+ch+edy + qo+k+edy + ch+edy...).
+**Cost estimate:** small
+
+---
+
+## H208: s/d-Onset Complementary Distribution — Are They Mutually Exclusive Line-Openers on the Same Lines?
+**Priority:** high
+**Source:** F114: s-onset and d-onset are both LINE-OPENER classes leading to qo at 2.2-2.5×. They have OPPOSITE suffix alignment (s=B-paradigm, d=A-paradigm). Are they in COMPLEMENTARY DISTRIBUTION — i.e., does the same line use EITHER s-onset opener OR d-onset opener, but not both? If so, they may be dialect/register variants of the same grammatical slot.
+**Description:** Identify all lines with a line-initial s-onset or d-onset word. Compute: (1) co-occurrence on the SAME LINE — does s-line-initial predict d-absence (and vice versa)? (2) Does dialect determine which is used (A uses d-opener; B uses s-opener)? (3) Is there a section-level preference (cosmo B uses more s-openers; herbal A uses more d-openers)?
+**Expected outcome:** s-openers and d-openers are NOT perfectly complementary (they can co-occur on long lines) but are frequency-complementary: lines with s-opener have lower d-content and vice versa. A-dialect predominantly uses d-openers; B-dialect uses both but s-opener at higher rate. This would confirm s and d are variant encodings of the same grammatical role (LINE-OPENER → qo-mid).
+**Cost estimate:** small
+
+---
+
+## H209: Parallel Passages (4-gram Repetition) — Are There Verbatim 4-Word Sequences Repeated Across Folios?
+**Priority:** medium
+**Source:** F050 found 0.24% of trigrams repeat across folios; bio section has 30× more repetition. 4-gram cross-folio repetition untested. Verbatim repeated passages indicate formulaic construction.
+**Description:** Extract all 4-grams from body text. Find 4-grams appearing on 2+ distinct folios. Report: how many? Which sections? Are they grammatically structured?
+**Expected outcome:** Very few 4-gram repeats (<0.1% of all 4-grams); mostly in bio/cosmo B sections.
+**Cost estimate:** small
+
+---
+
+## H210: Suffix Entropy by Onset Class — Do Grammar Words Have Lower Suffix Entropy Than Content Words?
+**Priority:** medium
+**Source:** F114 found that d-onset is -aiin dominant (single suffix, low entropy) while s-onset is more diverse. F112: OTHER tier = particles (aiin/ain) have essentially ZERO suffix (they ARE suffixes). H204 proposed onset × suffix entropy analysis to quantify grammar/content distinction.
+**Description:** For each onset class, compute Shannon entropy of suffix distribution. Low entropy = one dominant suffix (grammar word). High entropy = many possible suffixes (content word). Compare: bare_d entropy vs bare_ch entropy vs aiin (particle) entropy. Do the grammatical word classes (d-closers, s-openers) have lower suffix entropy than content words (ch-stems)?
+**Expected outcome:** Grammar words: daiin-as-suffix (H=0 bits, one form), dam (H=0, one suffix), dy (H=0). Content words: ch-stem (H≈2-3 bits, 7+ productive suffixes). d-onset has high -aiin concentration but variable tail → medium entropy. This would quantify the grammar/content distinction from suffix entropy.
 **Cost estimate:** small
