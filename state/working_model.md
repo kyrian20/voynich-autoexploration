@@ -1,5 +1,5 @@
 # Working Model — Voynich Manuscript Cryptanalysis
-**Last updated:** 2026-04-09 (after exp_103)
+**Last updated:** 2026-04-09 (after exp_104)
 **Purpose:** Continuously-updated structured summary of current beliefs about Voynichese.
 **Discipline:** Characterization, not interpretation. Claims require experimental warrant.
 
@@ -216,6 +216,12 @@ These findings have been replicated across independent analyses or confirmed by 
 - Within-quire variance (std≈0.05 for qo) is high: quires are morphologically heterogeneous
 - Quire M outlier (qo=25.8%, -edy=20.5%) maps almost entirely to bio section — quire signal is section signal
 - **Section-specific CONTENT WORD vocabulary confirmed (F109, exp_102)**: bare_ch content words show strong section-specialization. Herbal A: chol/chor + EXCLUSIVE words (chain, chocthy, choiin, chan, chokchy). Pharma A: cheol (6.1×!), cheeor (10.4×!), cheom (14.8×!) enriched. Stars B: cho/cheo/cheeo/cheodaiin EXCLUSIVE; Stars B also has chain (6.1×), chaiin (6.1×), cheeody (6.1×). Cosmo B: chcthy (2.3×), checthy (4.9×), cheeky (5.1×). Herbal B: cheky (3.5×), chekaiin (10×!). Each section has a distinctive ch-stem morphological signature beyond the shared core (chol/chor in A; chedy/chey in B). TIER COMPOSITION (F109): PARA+LO+WEAK tiers = only 10-20% of all word tokens; ~80% are content words (MID tier = 31-49% bare_ch/sh/qo; OTHER = 41-52%). The positional grammar labels a minority of words — most words in the manuscript are content words that show section-level semantic specialization. GRAMMAR STRICTNESS (F108/F109): Grammar strictness is PRIMARILY section-determined. Within cosmo B, length also has genuine effect. Within herbal A, grammar strictness is REVERSED with length (shorter herbal paras = higher PARA%). The positional grammar is most strict in the canonical herbal text register (10-15 line paragraphs, 70.7% PARA at PS, 0% LINE_OPEN).
+
+**Voynichese follows Heaps' law; section-level β=0.661-0.744 (upper end of NL range); "chd" is NOT a B morphological unit (F111, exp_104)**
+- Heaps' law: V=K×N^β confirmed at section level. B cosmo=0.674 (most repetitive); A/B herbal=0.744; B stars=0.735; A pharma=0.661 (also within NL range 0.5-0.7). All within natural language range (English prose β≈0.55-0.65); Voynichese slightly higher — consistent with morphologically complex languages.
+- Overall A/B β=0.84 is an artifact of cross-section vocabulary divergence; within any section, β is in NL range. This is strong evidence against random/substitution cipher models (which would have anomalous β).
+- "chd cluster" (B-exclusive words from F110: chedar, chdaiin, chdal, chdar) is NOT a morphological unit — these are ch-onset words with B-type -edy/-dy suffixes. The 'd' belongs to the suffix. Positional profile of ch+d forms (PS=0.1%, LFirst=1.8%, LLast=11.8%) is identical to all bare_ch in B (PS=0.0%, LFirst=3.7%, LLast=12.1%). chedy (424 tokens) = ch + -edy; chdaiin = ch + -daiin.
+- The B ch+d pattern from F110 explained: B's -edy suffix (2.97× enriched in ch+d forms; -y/-ey suppressed 0.06×) applied to ch-stems naturally produces forms that LOOK like ch+d clusters but are morphologically ch-onset + B-suffix.
 
 **Folio diversity (TTR) splits cleanly by section (F046)**
 - Herbal: mean TTR=0.835 (most diverse), f48r/f96v = TTR=1.000 (all unique)

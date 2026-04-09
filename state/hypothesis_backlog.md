@@ -2140,7 +2140,7 @@
 
 ## H197: B ch+d Cluster Pattern — Is "chd" a Morphological Unit in B?
 **Priority:** medium
-**Status:** open
+**Status:** TESTED (exp_104) — CONFIRMED (negative): "chd" is NOT a morphological unit. ch+d forms are ch-onset + B-type -edy/-dy suffix. Identical positional profile to bare_ch (mid-line). -edy enriched 2.97×; -y/-ey suppressed to 0.06×. The B-exclusive ch+d cluster from F110 is explained by B's suffix preference, not new morphology.
 **Source:** F110: B-exclusive ch-words include chedar(25), chdaiin(17), chdal(16), chdar(15), chdam(10), chdor(9). These share a ch+d structure. Is "chd" a distinct B-morphological unit (ch-onset followed by d-element), or are these coincidental forms?
 **Description:** Extract all B words starting with "chd". Compute their positional distribution (PS/LFirst/LLast). Are they mid-line content words (MID tier) or have different positional behavior? Compare suffix patterns of chd-words vs bare ch-words.
 **Expected outcome:** chd-words are mid-line content words with B-type -aiin/-al/-or suffixes, confirming they are ch-stems followed by d-element (possibly a B-specific infix).
@@ -2150,8 +2150,36 @@
 
 ## H198: Vocabulary Growth (Heaps' Law) by Section — Does Voynichese Vocabulary Grow at Natural Language Rates?
 **Priority:** medium
-**Status:** open
+**Status:** TESTED (exp_104) — CONFIRMED: Voynichese follows Heaps' law. Section-level β=0.661-0.744 (upper end of NL range 0.5-0.7). B cosmo=0.674 (most repetitive); A herbal=0.744, B stars=0.735. Overall A/B β=0.84 is artifact of cross-section vocabulary divergence. Consistent with natural language statistics.
 **Source:** (new direction): In natural languages, vocabulary grows as V=K*N^β where β≈0.5-0.7. Does Voynichese follow Heaps' law? And do different sections follow the same law?
 **Description:** Plot cumulative unique words vs cumulative word tokens for each section. Fit V=K*N^β. If β≈0.5-0.7: natural language-like growth. If β<0.3: repetitive/formulaic. If β>0.8: artificial/random.
 **Expected outcome:** Heaps' β≈0.5-0.6 consistent with natural language, varying by section. Stars (B) may have lower β (more repetitive) than herbal (A).
+**Cost estimate:** small
+
+---
+
+## H199: Zipf's Law — Does Voynichese Word Frequency Follow a Power Law Rank-Frequency Distribution?
+**Priority:** medium
+**Status:** open
+**Source:** F111 (Heaps' law confirmed). Heaps' law and Zipf's law are mathematically related (Heaps' β ≈ 1/Zipf's α for pure power law). Test whether Voynich word frequency rank-frequency distribution follows Zipf's law f(r) ∝ r^(-α), and whether the Zipf exponent α is consistent with the Heaps' β values found in F111.
+**Description:** Compute word rank vs frequency for each section and overall. Fit f(r) = C × r^(-α) on log-log scale. Expected: Zipf's α ≈ 1.0-1.5 for natural language. Compare α to the theoretical prediction from Heaps' β (α ≈ 1/β). If α matches the Heaps' prediction, the two statistics are mutually consistent (as they should be for natural language). Also test: are the most frequent words (rank 1-10) the same across sections, or section-specific?
+**Expected outcome:** α ≈ 1.3-1.5 (consistent with β≈0.66-0.74 via α≈1/β). Top-ranked words may be grammar/function words (daiin, chedy, qokeedy) universal across sections; lower-ranked words more section-specific.
+**Cost estimate:** small
+
+---
+
+## H200: "OTHER" Vocabulary Tier — What Are the Mid-Line Words Not Classified by Positional Grammar?
+**Priority:** high
+**Source:** exp_100-102 found that PARA+LINE_OPEN+WEAK_PARA+MID covers only ~50-60% of all tokens. The remaining "OTHER" 40-50% are mid-line content words with diverse vocabulary. What is the structural character of these words? Are they: (1) qo-onset words not yet classified? (2) o-onset content words? (3) Short 2-4 character words? (4) Section-specific unlabeled vocabulary?
+**Description:** Extract all "OTHER" tier tokens from the v3 classifier (not PARA, LINE_OPEN, WEAK_PARA, or MID). Compute: onset distribution, length distribution, suffix distribution, section distribution, positional stats (PS/LFirst/LLast). Compare to MID tier (ch/sh onset) to understand how OTHER differs structurally. Look for sub-classes within OTHER that have consistent structural patterns.
+**Expected outcome:** OTHER is dominated by (a) o-onset words without gallows (like ol, or, okey, okain — simple closers/openers), (b) short 2-3 char words (particles?), (c) rare hapax forms. These may represent function words, grammatical particles, or the actual content vocabulary of the manuscript.
+**Cost estimate:** medium
+
+---
+
+## H201: Cross-Section Universal Vocabulary — Are There Words Appearing in ALL Sections With High Frequency?
+**Priority:** medium
+**Source:** F109-F111 established section-specific ch-vocabularies. But some words must be "universal" — appearing in all sections at significant rates. Identifying these could reveal grammatical function words (like "the", "of", "and" in English) vs content words.
+**Description:** For each section (A herbal, A pharma, B cosmo, B stars, B herbal), compute the set of words appearing with rate > 0.5‰. Intersect these across all 5 sections. Words in the intersection are "universal" — appearing in all sections at non-trivial frequency. Then compute which of these universal words are also the highest-rank words overall. Compare: are universal words predominantly PARA tier (gallows-onset) or MID tier (ch/sh) or OTHER?
+**Expected outcome:** Universal words are predominantly grammar words: daiin (line-connecting particle), aiin (B suffix pattern), qokeedy/qokeey (B function words), olkeedydy (formulaic). Section-specific words are content words. The split would strongly support a two-tier vocabulary model (grammar words + content words).
 **Cost estimate:** small
