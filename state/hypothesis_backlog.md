@@ -1748,3 +1748,47 @@
 **Expected outcome:** f-onset words are also para-start enriched. The four gallows characters (p/k/t/f) collectively mark paragraph-level positions; prefixes (y/d/q) recruit the same gallows stems for within-line positions.
 **Cost estimate:** small
 **Prerequisites:** F100 (exp_093)
+
+---
+
+## H167: k-Onset A Para-Start Words
+**Priority:** high
+**Status:** TESTED (exp_094) — CONFIRMED: k-onset is OPEN CLASS para-start marker; all individual words are hapaxes. Same pattern as p-onset. Both k and p use onset character to encode para-start, with variable stems.
+
+---
+
+## H168: All Four Gallows Characters Are Para-Start Enriched
+**Priority:** high
+**Status:** TESTED (exp_094) — STRONGLY CONFIRMED: p(A=12.41×,B=3.71×), k(A=4.32×,B=9.91×), t(A=2.72×,B=2.05×), f(A=9.50×,B=7.62×) all enriched. Non-gallows all suppressed. Gallows glyph class = PARA-LEVEL positional morpheme class.
+
+---
+
+## H169: qo+Gallows and y+Gallows Suppressed at Para-Starts
+**Priority:** high
+**Status:** TESTED (exp_094) — STRONGLY CONFIRMED: qo+gallows = 0.27-0.32× PS suppressed; y+gallows = 0.19-0.40×. Prefix DEMOTES gallows from para-level to line-level. MASTER FINDING: morphological prefix = positional demotion mechanism.
+
+---
+
+## H170: Complete Gallows Positional Hierarchy
+**Priority:** high
+**Status:** TESTED (exp_094) — CONFIRMED: Same hierarchy in A and B. bare_p strongest para-starter (A=40.2%!, B=10.7%). y+gallows = within-para line-opener (LFirst=30%). qo+gallows = mid-line. bare_ch = mid-line/closing. Four-level grammar: bare gallows(para) > y/d+gallows(line-open) > qo+gallows(mid-line) > bare non-gallows(closing).
+
+---
+
+## H171: Is the Gallows Hierarchy Consistent for ALL Gallows Characters Individually? (bare_p > bare_t > bare_k?)
+**Priority:** medium
+**Status:** open
+**Source:** F101 (exp_094): bare_p is strongest (A=40.2% PS, B=10.7%); bare_t next (A=10.2%, B=3.9%); bare_k weakest (A=5.7%, B=3.0%). Is there a consistent internal hierarchy within the gallows class: p > f > t > k? And is this hierarchy consistent across sections?
+**Description:** (1) Section-specific analysis: does herbal A show same gallows hierarchy as pharma A? (2) Does bare_t appear at para-starts more than bare_k in all sections? (3) What is the functional difference between bare_k and qo+k — if they have same LFirst% (~10%) but different PS rates (3% vs 0.1%), they may differ in discourse function but not line position. (4) Is p > f > t > k a consistent hierarchy across sections and dialects?
+**Cost estimate:** small
+**Prerequisites:** F101 (exp_094)
+
+---
+
+## H172: The Prefix-Demoted Gallows Grammar Applies to A's ch-Stems Analogously — p+ch = Para-Starter, y+ch/d+ch = Line-Opener, bare ch = Mid-Line
+**Priority:** high
+**Status:** open  
+**Source:** F101 (exp_094): A's ch-stem system: bare_ch(7.1% LFirst) < d+ch(59.6%)/y+ch(85.9%) line-openers < p+ch(para-starters). This is exactly the gallows-demotion hierarchy! p+ch would be the "recruited gallows for ch-stem para-start". Test: (1) p+ch words in A — what are their PSFirst% rates? (2) If p+ch = para-starters and d+ch/y+ch = line-openers, this extends the gallows-demotion model to ch-stems in A. (3) Does A have p+sh, p+s, p+d forms as para-starters for sh-stems?
+**Expected outcome:** p+ch words have high PSFirst% (para-starters), extending the gallows-demotion model to A's ch-stem paradigm. This would unify A's positional grammar with B's under a single framework: para-starters use gallows-initial prefix; line-openers use y/d-prefix; mid-line = bare.
+**Cost estimate:** small
+**Prerequisites:** F101 (exp_094)
