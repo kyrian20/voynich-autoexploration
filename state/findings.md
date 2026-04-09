@@ -219,6 +219,12 @@
 **Finding:** The character sets of f57v's 17-token repeating cycle and f66r column 2 overlap significantly (Jaccard=0.667, p=0.003 vs hypergeometric null). Of 25 EVA single chars, f57v uses 14 and f66r col2 uses 11; the intersection is 10 — 3.84 chars above random expectation. Both sets converge on: {c, d, f, l, o, p, r, t, x, y}. The only char in f66r but not f57v is 's'; only in f57v are I, k, m, v. Additionally, the f→@169 adjacency appears in both: f57v pos 9-10 is f then @169;v; f66r col2 entries 8-9 are 'f' then '@169'. The character ORDER in f66r col2 does NOT correspond to f57v cycle positions (Spearman ρ ≈ -0.09), ruling out f66r as a simple linearization of f57v's cycle.
 **Limitation:** The shared char set heavily overlaps with H022's "non-compound-forming chars" category, so the overlap may partially reflect both lists independently avoiding compound-forming chars rather than a direct relationship. These two explanations are not mutually exclusive.
 
+## F046: Bio Section Is Most Repetitive (TTR=0.552); f76r Is Most Repetitive Folio (TTR=0.466)
+**Experiment:** exp_039_folio_diversity
+**Date:** 2026-04-09
+**Finding:** Section mean TTR: herbal=0.835 (most diverse, 122 folios), pharma=0.771, special=0.646, text=0.645, bio=0.552 (most repetitive, 19 folios). Folio outliers: f48r and f96v (herbal) have TTR=1.000 — every token unique. f76r (text/T section, the "key-like sequence" folio) has TTR=0.466 — LOWEST in the manuscript, z=-1.7 for its section. f84v (bio, TTR=0.478) and f116r (special, TTR=0.505) also extremely low. All high-TTR outliers are herbal; all low-TTR outliers are Currier B (bio/text/special). f19r (herbal) is the most repetitive herbal folio (TTR=0.653, z=-2.6).
+**Limitation:** TTR is inversely correlated with token count; folios with more tokens naturally have lower TTR. High-TTR herbal outliers (TTR=1.0) have only 50-74 tokens each — this is partly a small-sample effect.
+
 ## F045: Currier B Has a Systematic 9-Form Suffix Paradigm: 384 Stems with 2+ Suffix Variants
 **Experiment:** exp_038_edy_ain_paradigm
 **Date:** 2026-04-09

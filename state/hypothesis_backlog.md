@@ -403,7 +403,7 @@
 
 ## H035: Folio-Level Vocabulary Diversity Shows Outlier Folios with Unusually Restricted or Diverse Vocabulary
 **Priority:** low
-**Status:** open
+**Status:** CONFIRMED (exp_039): Bio mean TTR=0.552 (lowest), herbal=0.835 (highest). f48r/f96v TTR=1.000 (all-unique). f76r TTR=0.466 (lowest in MS, z=-1.7). All high-TTR outliers are herbal; all low-TTR outliers are Currier B. F046 added.
 **Source:** exp_017 + accumulated section findings
 **Description:** Manuscript-wide vocabulary variation is documented at section level, but not at folio level. Some folios may be statistical outliers (very restricted vocabulary suggesting formulaic text, or very diverse suggesting unique content). Test: for each folio with sufficient tokens (>50), compute TTR and H2. Identify top outliers above/below the section mean.
 **Cost estimate:** small

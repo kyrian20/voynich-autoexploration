@@ -1,0 +1,76 @@
+Folios with >=50 tokens: 190
+
+=== MEAN TTR BY SECTION ===
+  B: mean_TTR=0.552 (n=19 folios)
+  C: mean_TTR=0.838 (n=2 folios)
+  H: mean_TTR=0.835 (n=122 folios)
+  P: mean_TTR=0.771 (n=16 folios)
+  S: mean_TTR=0.646 (n=25 folios)
+  T: mean_TTR=0.645 (n=6 folios)
+
+=== TOP 15 HIGHEST-TTR FOLIOS (most diverse) ===
+     Folio |  Tokens |  Types |    TTR |  Sec |  Lang
+-------------------------------------------------------
+      f48r |      74 |     74 |  1.000 |    H |     B
+      f96v |      50 |     50 |  1.000 |    H |     A
+      f87v |      71 |     70 |  0.986 |    H |     A
+     f90r1 |      61 |     59 |  0.967 |    H |     A
+       f7r |      55 |     53 |  0.964 |    H |     A
+      f94r |      74 |     71 |  0.959 |    H |     B
+      f17r |      71 |     68 |  0.958 |    H |     A
+      f28r |      58 |     55 |  0.948 |    H |     A
+      f45v |      71 |     67 |  0.944 |    H |     A
+     f90v2 |      57 |     53 |  0.930 |    H |     A
+       f9r |      69 |     64 |  0.928 |    H |     A
+      f44r |      69 |     64 |  0.928 |    H |     A
+      f24v |      80 |     74 |  0.925 |    H |     A
+     f95v2 |      53 |     49 |  0.925 |    H |     B
+      f53r |      52 |     48 |  0.923 |    H |     A
+
+=== BOTTOM 15 LOWEST-TTR FOLIOS (most repetitive) ===
+     Folio |  Tokens |  Types |    TTR |  Sec |  Lang
+-------------------------------------------------------
+     f111v |     544 |    299 |  0.550 |    S |     B
+     f103r |     513 |    280 |  0.546 |    S |     B
+      f75v |     297 |    162 |  0.545 |    B |     B
+      f78v |     284 |    153 |  0.539 |    B |     B
+     f103v |     442 |    235 |  0.532 |    S |     B
+      f80r |     420 |    221 |  0.526 |    B |     B
+      f75r |     369 |    194 |  0.526 |    B |     B
+      f77r |     313 |    164 |  0.524 |    B |     B
+      f80v |     371 |    192 |  0.518 |    B |     B
+     f108v |     561 |    290 |  0.517 |    S |     B
+      f84r |     342 |    176 |  0.515 |    B |     B
+      f77v |     320 |    162 |  0.506 |    B |     B
+     f116r |     523 |    264 |  0.505 |    S |     B
+      f84v |     322 |    154 |  0.478 |    B |     B
+      f76r |     543 |    253 |  0.466 |    T |     B
+
+=== NOTABLE TTR OUTLIERS (>1.5 SD from section mean) ===
+      f48r (sec=H): TTR=1.000, z=+2.4, tokens=74
+      f96v (sec=H): TTR=1.000, z=+2.4, tokens=50
+      f87v (sec=H): TTR=0.986, z=+2.2, tokens=71
+     f90r1 (sec=H): TTR=0.967, z=+1.9, tokens=61
+       f7r (sec=H): TTR=0.964, z=+1.9, tokens=55
+      f94r (sec=H): TTR=0.959, z=+1.8, tokens=74
+      f17r (sec=H): TTR=0.958, z=+1.8, tokens=71
+      f28r (sec=H): TTR=0.948, z=+1.6, tokens=58
+      f45v (sec=H): TTR=0.944, z=+1.6, tokens=71
+      f39v (sec=H): TTR=0.729, z=-1.5, tokens=133
+      f54r (sec=H): TTR=0.723, z=-1.6, tokens=94
+      f10v (sec=H): TTR=0.719, z=-1.7, tokens=57
+      f47r (sec=H): TTR=0.716, z=-1.7, tokens=74
+      f56v (sec=H): TTR=0.714, z=-1.7, tokens=84
+      f15v (sec=H): TTR=0.708, z=-1.8, tokens=65
+      f19r (sec=H): TTR=0.653, z=-2.6, tokens=72
+    f102r1 (sec=P): TTR=0.876, z=+1.6, tokens=97
+     f100v (sec=P): TTR=0.868, z=+1.5, tokens=76
+     f101r (sec=P): TTR=0.644, z=-2.0, tokens=216
+     f89r2 (sec=P): TTR=0.641, z=-2.0, tokens=198
+     f115v (sec=S): TTR=0.776, z=+1.7, tokens=401
+     f108v (sec=S): TTR=0.517, z=-1.7, tokens=561
+     f116r (sec=S): TTR=0.505, z=-1.8, tokens=523
+      f76r (sec=T): TTR=0.466, z=-1.7, tokens=543
+      f81r (sec=B): TTR=0.620, z=+1.8, tokens=205
+      f81v (sec=B): TTR=0.610, z=+1.6, tokens=249
+      f84v (sec=B): TTR=0.478, z=-2.0, tokens=322
