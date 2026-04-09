@@ -2020,3 +2020,43 @@
 **Expected outcome:** Astro A para-starts use a diverse open-class vocabulary, possibly with more d-onset or o-onset words than other sections, reflecting the label-like nature of astro captions.
 **Cost estimate:** very small
 **Prerequisites:** F106 (exp_099)
+
+---
+
+## H188: Extended Positional Classifier
+**Priority:** high
+**Status:** TESTED (exp_100) — CONFIRMED: v2 classifier (PARA = {p,f}+stem + bare_k + bare_t) doubles PS coverage (33%→54% A, 39%→54% B). OTHER shrinks to 18-24%. Remaining OTHER is 52-63% o-onset. LINE_OPEN still 0/100% clean. PARA enrichment: 6.58× A, 3.48× B.
+
+---
+
+## H189: B Para-Final Closing Vocabulary
+**Priority:** medium
+**Status:** TESTED (exp_100) — PARTIALLY CONFIRMED: okeey/okeeey (∞), orol (21.9×), shedy (6.25×, cosmo-specific). Closing class covers only 22.8% of para-finals. No universal B para-final morphological class. Most B paragraphs end with hapax/section-specific words.
+
+---
+
+## H190: Astro Section Anomalous Para-Start Grammar
+**Priority:** medium
+**Status:** TESTED (exp_100) — CONFIRMED: Astro A has relaxed grammar: 50% OTHER, LINE_OPEN at para-starts (11.5%), t/o onset dominant. Short captions don't follow the strict positional grammar of long-paragraph sections.
+
+---
+
+## H191: o-Onset Para-Start Words — Which Specific o-Onset Words Are Para-Enriched?
+**Priority:** high
+**Status:** open
+**Source:** F107 (exp_100): Remaining OTHER (52-63% o-onset) is the biggest gap in the classifier. But o-onset words are NOT uniformly enriched at para-starts (overall o-onset: A=0.52×, B=1.28×). ONLY SPECIFIC o-onset words are para-enriched. Need to identify which ones.
+**Description:** Extract all o-onset words at para-starts and within-para positions. Compute per-word enrichment at para-start. Identify the specific o-onset words that are para-enriched (≥2×). Are they: (1) olfchedy/olkey-type (established from exp_090 as 87.6× para-starters); (2) o+gallows (ok-, ot-) prefix forms; (3) o+ch (och-onset)?
+**Expected outcome:** A small set of specific o-onset words (olfchedy, olkey, opchedy, okar, oty, etc.) are strongly para-enriched, while the majority of o-onset words (otol, okaiin, or, etc.) are within-para. This will identify the "o-onset para-starter" class as a closed set of 10-20 specific words.
+**Cost estimate:** small
+**Prerequisites:** F107 (exp_100)
+
+---
+
+## H192: Positional Grammar Strength vs Paragraph Length — Short Paragraphs Have Relaxed Grammar?
+**Priority:** medium
+**Status:** open
+**Source:** F107: Astro A (3.4 lines) has relaxed grammar; herbal A (12-13 lines) has strict grammar. Is there a systematic relationship between paragraph length and grammatical strictness?
+**Description:** Bin all paragraphs by length (2-4 lines, 5-9 lines, 10-15 lines, 16+ lines). For each bin, compute PARA% and LINE_OPEN% at para-start and within-para. Test whether short paragraphs have lower PARA% and higher LINE_OPEN% at para-starts.
+**Expected outcome:** There is a positive correlation between paragraph length and PARA% at para-start. Very short paragraphs (2-4 lines) have lower grammatical constraint.
+**Cost estimate:** small
+**Prerequisites:** F107 (exp_100)
