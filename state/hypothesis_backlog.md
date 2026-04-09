@@ -2094,3 +2094,32 @@
 **Expected outcome:** A complete, coherent positional grammar model for Voynichese: PARA tier covers ~55% of para-starts in main text, LINE_OPEN tier is perfectly excluded from para-starts, the model correctly classifies ~70-75% of main-text (herbal/pharma/stars) para-start words.
 **Cost estimate:** medium
 **Prerequisites:** F101-F108
+
+---
+
+## H193: Section vs Length Grammar Separation
+**Priority:** medium
+**Status:** TESTED (exp_102) — PARTIALLY CONFIRMED: Grammar strictness is primarily section-driven. Within herbal A, shorter paras have HIGHER PARA% (reversed from H192). Within cosmo B, length has genuine positive effect. H192 cross-section gradient = section composition artifact.
+
+---
+
+## H194: Content Word Analysis
+**Priority:** high
+**Status:** TESTED (exp_102) — CONFIRMED: ch-stem content words show strong section-specific vocabulary. Herbal A: chain, chocthy, choiin exclusive; Pharma A: cheol (6.1×), cheeor (10.4×) enriched; Stars B: cho/cheo/cheeo exclusive; Cosmo B: chcthy/checthy enriched. Each section has distinctive ch-stem morphological signature. PARA+LO+WEAK tiers = only 10-20% of all tokens; ~80% are content words (MID+OTHER).
+
+---
+
+## H195: Section-Specific ch-Stem Vocabulary — Can We Build a ch-Stem Section Classifier?
+**Priority:** high
+**Status:** open
+**Source:** F109: ch-stem words are section-enriched. Can a ch-stem vocabulary-based classifier identify which section a fragment of text comes from? Test: given a set of ch-words from an unknown paragraph, predict its section (herbal/pharma/stars/cosmo). Baseline: random assignment. Performance: how well does ch-stem vocabulary predict section?
+**Expected outcome:** The classifier achieves >50% accuracy on section prediction using only ch-stem words (vs 25% baseline for 4-way classification). The section-distinctive ch-words (chain, cheol, cheo) are the best features.
+**Cost estimate:** medium
+
+---
+
+## H196: Cross-Dialect ch-Stem Comparison — Do the Same ch-Stems Appear in A-Herbal and B-Stars?
+**Priority:** medium
+**Status:** open
+**Source:** F109: Stars B has exclusive ch-words (cheo, cheeo, chedam) not found in herbal B. Do these appear in herbal A? Are the "exclusive" words truly absent or just below detection threshold?
+**Expected outcome:** Some ch-stems appear in herbal A but not in B dialect, and vice versa, reflecting genuine vocabulary differences between dialects.
