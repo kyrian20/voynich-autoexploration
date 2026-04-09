@@ -1792,3 +1792,46 @@
 **Expected outcome:** p+ch words have high PSFirst% (para-starters), extending the gallows-demotion model to A's ch-stem paradigm. This would unify A's positional grammar with B's under a single framework: para-starters use gallows-initial prefix; line-openers use y/d-prefix; mid-line = bare.
 **Cost estimate:** small
 **Prerequisites:** F101 (exp_094)
+
+---
+
+## H171: Internal Gallows Hierarchy — p > f > t > k for Para-Start Specialization
+**Priority:** medium
+**Status:** TESTED (exp_095) — SUPPORTED: Platform gallows (p,f) consistently > Regular gallows (t,k) for PS rate. Bare: p=40%>f=24%>t=10%>k=6%. +ch: p=27%>f=21%>t=4%>k=4%. Consistent across herbal and pharma A.
+
+---
+
+## H172: p+ch = A Para-Starter (Gallows-Demotion Model for ch-Stems)
+**Priority:** high
+**Status:** TESTED (exp_095) — STRONGLY CONFIRMED: p+ch=26.9% PS (61.5% LFirst); f+ch=21.4% PS. y/d+ch=0% PS (line-openers). bare_ch=0.3% PS (mid-line). Complete 5-level ch-stem hierarchy.
+
+---
+
+## H173: p+sh = A Para-Starter for sh-Stems
+**Priority:** high
+**Status:** TESTED (exp_095) — STRONGLY CONFIRMED: p+sh=33.3% PS; t+sh=28.6% PS; y/d+sh=0%; bare_sh=1%. IDENTICAL hierarchy to ch-stems. Universal prefix×stem positional system confirmed.
+
+---
+
+## H174: Complete Prefix × Stem Matrix
+**Priority:** high
+**Status:** TESTED (exp_095) — COMPLETE MATRIX: Para-level={p,f,t}+stem or bare_p/f (PS=20-56%); Line-opener={y,d}+stem (PS=0%, LFirst=55-86%); Mid-line=bare_ch/sh/qo+gallows (PS≈0%). Three clean tiers.
+
+---
+
+## H175: Does the B Dialect Show the Same Gallows+Stem Para-Start Hierarchy? (pch/fch/tch in B)
+**Priority:** high
+**Status:** open
+**Source:** F102 (exp_095): In A, p+ch and f+ch are para-starters, y+ch/d+ch are line-openers. In B, the ch-stem system is used differently (ch is mid-line in B; B uses k/t stems not ch). But B also has gallows words at para-starts. Does B show p+ch = para-starter? Or p+t/p+k? Test the B-equivalent of the A gallows+stem hierarchy.
+**Expected outcome:** In B, p+ch should also show elevated PS rate; but B's primary para-starters may be p+t or p+k (gallows+gallows compounds). The B answer will tell us if the A gallows-demotion model is universal.
+**Cost estimate:** small
+**Prerequisites:** F102 (exp_095)
+
+---
+
+## H176: The k-onset Words in A Are a DIFFERENT Positional Class Than k-onset in B — A's k-onset Is Line-Distributed; B's k-onset Is More Para-Concentrated
+**Priority:** medium
+**Status:** open
+**Source:** F101-F102: In A, k+ch=3.5% PS (very weak); bare_k=5.7% PS (weak). In B, bare_k=3.0% PS but total B k-onset=9.91× — the B k enrichment is driven by k at line-first generally, not just para-starts. Test: is B k-onset concentrated at ANY line-first position (not just para-starts) more than A k-onset?
+**Cost estimate:** small
+**Prerequisites:** F101, F102
