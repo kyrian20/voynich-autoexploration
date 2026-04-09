@@ -46,6 +46,14 @@
 **Why ruled out:** The prediction required a substantial rise toward natural-language h2. The actual rise is negligible. The information is not concentrated in the inner slots.
 **Variants worth trying:** A full Stolfi slot grammar parser (position-conditional character class assignment) rather than character-class approximation; testing whether inner-slot entropy rises within word-length-controlled groups.
 
+## X007: L0 Locus Code Conflation — ZL3b L0 Is Not a Homogeneous "Label" Category
+**Experiment:** exp_010_label_word_sections → validated in exp_011_single_char_validation
+**Date:** 2026-04-09
+**What was tested:** Any analysis that treats all ZL3b L0 locus entries as semantically equivalent "object labels" (as exp_010 did initially).
+**Result:** ZL3b L0 conflates at least three structurally different content types: (1) true object labels placed near illustrations (e.g., astro/bio/pharma label words), (2) line margin markers that pair one-to-one with body text lines (f49v: perfectly alternating L0/P0 pattern), (3) list/table column entries (f66r two-column word list). f49v alone contributes 20 of the 81 herbal "labels"; f66r contributes 47. After removing both folios, genuine herbal plant labels shrink to 14 tokens across 6 folios.
+**Why ruled out:** Treating L0 as homogeneous produces category errors: the herbal "label" corpus was 83% non-label content. Any published analysis using ZL3b L0 as a label category may be similarly affected.
+**Variants worth trying:** A proper label analysis requires (a) auditing all L0 entries to classify by structural type, and (b) restricting label analysis to type (1) entries only. See H021 (L0 audit hypothesis) for the proposed systematic fix.
+
 ## X006: F024 — Herbal Single-Char Labels as Object Annotation Layer
 **Experiment:** exp_010_label_word_sections → validated in exp_011_single_char_validation
 **Date:** 2026-04-09

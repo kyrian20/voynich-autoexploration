@@ -119,11 +119,23 @@
 **Finding:** If Voynich were a fixed-filler adjacent-pair verbose cipher on Italian or Latin, its paired h2 should equal Italian h2 (3.411) or Latin h2 (3.509). Observed Voynich paired h2 = 3.836 — exceeds both by 0.33-0.43 bits. The fixed-filler adjacent-pair verbose cipher on Latin or Italian is ruled out. The source language would need h2 ≈ 3.836, which exceeds both Latin and Italian.
 **Limitation:** Other natural languages (German, Arabic, Hebrew) not yet tested. Variable-filler or non-adjacent-pair groupings remain open.
 
-## F023: ot-/ok- Label Words Cluster in Astro/Bio/Pharma Sections (40%) — Nearly Absent in Herbal (3.7%)
-**Experiment:** exp_010_label_word_sections
+## F025: f66r Contains a Two-Column Word/Character List with 67% Hapax Words
+**Experiment:** exp_011_f66r_wordlist
 **Date:** 2026-04-09
-**Finding:** ot-/ok- initial label words account for 40.9% of astro labels, 39.2% of bio labels, 32.4% of pharma labels, but only 3.7% of herbal_A labels and 0% of recipe labels. In body text, ot-/ok- appears uniformly at 10-15% across all sections. The label-specific clustering (vs. body text uniformity) means ot-/ok- is a label naming convention for non-herbal illustrated content, not a general body-text word class.
-**Limitation:** Folio-based section assignment is approximate. Single-character herbal labels may include parsing artifacts.
+**Finding:** f66r (Quire H, Scribe 5, Currier B, text-only folio) has a two-column L0 structure: Column 1 is a 15-word list (all unique; lengths 3-6 chars); Column 2 is a 31-entry list of mostly single characters, followed by standard Currier B body text. Of Column 1's 15 words, 6 are hapax legomena (never appear elsewhere in manuscript) and 4 more appear only 3 times each — 67% of the word list is rare or unique. Column 2 over-represents rare gallows characters: 'f' (4/10 total occurrences = 40%), 'x' (3/10 = 30%), 'p' (1/7 = 14%). The ZL3b transcription comment explicitly notes "Now individual characters in next column," confirming the two-column structure was recognized by transcribers. Adjacent folios (f65r-f66v) are structurally normal; f66r's structure is isolated.
+**Limitation:** Physical manuscript inspection needed to confirm visual column separation. 6 hapax words could theoretically appear in damaged/untranscribed sections.
+
+## F026: ZL3b L0 "Key-Like" Line Markers Found on f49v (Scribe 1) and f76r (Scribe 2)
+**Experiment:** exp_011_f66r_wordlist
+**Date:** 2026-04-09
+**Finding:** Full L0 structural audit reveals exactly 2 folios with a perfectly alternating L0/P0 pattern (one single-char L0 marker per body text line): f49v (Quire G, Scribe 1/Hand 1, Currier A, herbal section) and f76r (Quire M, Scribe 2/Hand 2, Currier B, biological section). ZL3b transcription comment on f76r explicitly reads: "has 'key-like' sequence, here transcribed as L0 labels" — the expert transcribers themselves recognized this structural type as distinctive. Both f49v and f76r are text-only folios (`$I=T`). Two different scribes (1 and 2) use this structure in two different sections (herbal and biological), suggesting it is a deliberate manuscript feature.
+**Limitation:** The ZL3b $H= field (hand number) may not exactly correspond to Davis (2020) scribe numbering. Visual confirmation of f76r's key-like sequence against manuscript images not yet performed.
+
+## F023: ot-/ok- Label Words Are Elevated in Non-Herbal Labels (32-41%) vs Body Text (10-15%)
+**Experiment:** exp_010_label_word_sections (corrected after exp_011 L0 validation)
+**Date:** 2026-04-09
+**Finding:** In non-herbal illustrated sections, ot-/ok- initial words account for 40.9% of astro labels (N=499), 39.2% of bio labels (N=125), and 32.4% of pharma labels (N=358). In body text, ot-/ok- appears uniformly at 10-15% across all sections. The herbal section original figure (3.7%) was inflated by L0 misclassification; corrected genuine herbal labels yield only 14 tokens across 6 folios (3/14 = 21.4% ot-/ok-, but N is too small to compare). Core validated finding: ot-/ok- is systematically elevated in labels for non-herbal illustrated content (astro, bio, pharma) compared to body text, making it a labeling-register convention for depicted objects, not a body-text word class.
+**Limitation:** Herbal genuine label count (14 tokens) is too small for reliable rate comparison. L0 overloading in ZL3b affects herbal label analysis — see Q002.
 
 ## F024: [RETRACTED] "Herbal_A single-char labels" — Analytical Misclassification
 **Experiment:** exp_010_label_word_sections → exp_011_single_char_validation

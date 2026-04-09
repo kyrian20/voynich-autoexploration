@@ -1,0 +1,357 @@
+{
+  "f66r_word_column": [
+    "rary",
+    "rals",
+    "qor",
+    "dary",
+    "ykeol",
+    "saly",
+    "salf",
+    "fary",
+    "qotesy",
+    "ykaly",
+    "doly",
+    "saiin",
+    "qokal",
+    "qolsa",
+    "raral"
+  ],
+  "f66r_char_column": [
+    "y",
+    "o",
+    "s",
+    "sh",
+    "y",
+    "d",
+    "o",
+    "f",
+    "x",
+    "air",
+    "d",
+    "sh",
+    "y",
+    "f",
+    "f",
+    "y",
+    "o",
+    "d",
+    "s",
+    "f",
+    "c",
+    "x",
+    "t",
+    "o",
+    "l",
+    "r",
+    "t",
+    "o",
+    "x",
+    "p",
+    "d"
+  ],
+  "f66r_body_top_words": {
+    "shedy": 8,
+    "daiin": 7,
+    "ol": 7,
+    "qoky": 5,
+    "okedy": 4,
+    "chedy": 4,
+    "qokeody": 4,
+    "dal": 4,
+    "sheol": 4,
+    "dor": 4,
+    "chdy": 3,
+    "dar": 3,
+    "ar": 3,
+    "cheky": 3,
+    "shcthy": 3,
+    "daly": 3,
+    "oteedy": 2,
+    "sair": 2,
+    "qokal": 2,
+    "shdy": 2
+  },
+  "word_col_global_freq": {
+    "rary": 3,
+    "rals": 0,
+    "qor": 20,
+    "dary": 16,
+    "ykeol": 10,
+    "saly": 3,
+    "salf": 0,
+    "fary": 0,
+    "qotesy": 0,
+    "ykaly": 3,
+    "doly": 3,
+    "saiin": 98,
+    "qokal": 169,
+    "qolsa": 0,
+    "raral": 0
+  },
+  "l0_audit": {
+    "f2r": {
+      "n_l0": 2,
+      "n_p0": 13,
+      "alternating_ratio": 0.0,
+      "max_consecutive_l0_run": 2,
+      "classification": "single_label",
+      "single_char_count": 0
+    },
+    "f11v": {
+      "n_l0": 1,
+      "n_p0": 6,
+      "alternating_ratio": 1.0,
+      "max_consecutive_l0_run": 1,
+      "classification": "single_label",
+      "single_char_count": 0
+    },
+    "f17r": {
+      "n_l0": 1,
+      "n_p0": 12,
+      "alternating_ratio": 0.0,
+      "max_consecutive_l0_run": 1,
+      "classification": "single_label",
+      "single_char_count": 0
+    },
+    "f41v": {
+      "n_l0": 1,
+      "n_p0": 7,
+      "alternating_ratio": 1.0,
+      "max_consecutive_l0_run": 1,
+      "classification": "single_label",
+      "single_char_count": 0
+    },
+    "f49v": {
+      "n_l0": 26,
+      "n_p0": 26,
+      "alternating_ratio": 1.0,
+      "max_consecutive_l0_run": 1,
+      "classification": "line_marker",
+      "single_char_count": 20
+    },
+    "f57v": {
+      "n_l0": 5,
+      "n_p0": 0,
+      "alternating_ratio": 0.0,
+      "max_consecutive_l0_run": 4,
+      "classification": "mixed",
+      "single_char_count": 0
+    },
+    "f65r": {
+      "n_l0": 1,
+      "n_p0": 0,
+      "alternating_ratio": 0.0,
+      "max_consecutive_l0_run": 1,
+      "classification": "single_label",
+      "single_char_count": 0
+    },
+    "f66r": {
+      "n_l0": 50,
+      "n_p0": 32,
+      "alternating_ratio": 0.02,
+      "max_consecutive_l0_run": 49,
+      "classification": "standalone_list",
+      "single_char_count": 28
+    },
+    "f69r": {
+      "n_l0": 22,
+      "n_p0": 4,
+      "alternating_ratio": 0.0,
+      "max_consecutive_l0_run": 16,
+      "classification": "standalone_list",
+      "single_char_count": 5
+    },
+    "f71r": {
+      "n_l0": 15,
+      "n_p0": 0,
+      "alternating_ratio": 0.0,
+      "max_consecutive_l0_run": 10,
+      "classification": "standalone_list",
+      "single_char_count": 0
+    },
+    "f71v": {
+      "n_l0": 15,
+      "n_p0": 0,
+      "alternating_ratio": 0.0,
+      "max_consecutive_l0_run": 10,
+      "classification": "standalone_list",
+      "single_char_count": 0
+    },
+    "f73r": {
+      "n_l0": 30,
+      "n_p0": 0,
+      "alternating_ratio": 0.0,
+      "max_consecutive_l0_run": 16,
+      "classification": "standalone_list",
+      "single_char_count": 0
+    },
+    "f73v": {
+      "n_l0": 30,
+      "n_p0": 0,
+      "alternating_ratio": 0.0,
+      "max_consecutive_l0_run": 16,
+      "classification": "standalone_list",
+      "single_char_count": 1
+    },
+    "f75v": {
+      "n_l0": 33,
+      "n_p0": 37,
+      "alternating_ratio": 0.212,
+      "max_consecutive_l0_run": 20,
+      "classification": "standalone_list",
+      "single_char_count": 6
+    },
+    "f76r": {
+      "n_l0": 9,
+      "n_p0": 47,
+      "alternating_ratio": 1.0,
+      "max_consecutive_l0_run": 1,
+      "classification": "line_marker",
+      "single_char_count": 9
+    },
+    "f77r": {
+      "n_l0": 10,
+      "n_p0": 40,
+      "alternating_ratio": 0.1,
+      "max_consecutive_l0_run": 8,
+      "classification": "standalone_list",
+      "single_char_count": 1
+    },
+    "f77v": {
+      "n_l0": 8,
+      "n_p0": 37,
+      "alternating_ratio": 0.125,
+      "max_consecutive_l0_run": 5,
+      "classification": "standalone_list",
+      "single_char_count": 1
+    },
+    "f78r": {
+      "n_l0": 6,
+      "n_p0": 41,
+      "alternating_ratio": 0.167,
+      "max_consecutive_l0_run": 4,
+      "classification": "mixed",
+      "single_char_count": 0
+    },
+    "f80r": {
+      "n_l0": 10,
+      "n_p0": 43,
+      "alternating_ratio": 0.1,
+      "max_consecutive_l0_run": 10,
+      "classification": "standalone_list",
+      "single_char_count": 0
+    },
+    "f81v": {
+      "n_l0": 1,
+      "n_p0": 27,
+      "alternating_ratio": 0.0,
+      "max_consecutive_l0_run": 1,
+      "classification": "single_label",
+      "single_char_count": 0
+    },
+    "f82r": {
+      "n_l0": 13,
+      "n_p0": 32,
+      "alternating_ratio": 0.077,
+      "max_consecutive_l0_run": 12,
+      "classification": "standalone_list",
+      "single_char_count": 0
+    },
+    "f82v": {
+      "n_l0": 14,
+      "n_p0": 34,
+      "alternating_ratio": 0.071,
+      "max_consecutive_l0_run": 10,
+      "classification": "standalone_list",
+      "single_char_count": 0
+    },
+    "f83r": {
+      "n_l0": 4,
+      "n_p0": 51,
+      "alternating_ratio": 0.5,
+      "max_consecutive_l0_run": 2,
+      "classification": "mixed",
+      "single_char_count": 0
+    },
+    "f83v": {
+      "n_l0": 4,
+      "n_p0": 31,
+      "alternating_ratio": 0.25,
+      "max_consecutive_l0_run": 2,
+      "classification": "mixed",
+      "single_char_count": 0
+    },
+    "f84r": {
+      "n_l0": 13,
+      "n_p0": 34,
+      "alternating_ratio": 0.077,
+      "max_consecutive_l0_run": 12,
+      "classification": "standalone_list",
+      "single_char_count": 0
+    },
+    "f88r": {
+      "n_l0": 15,
+      "n_p0": 16,
+      "alternating_ratio": 0.2,
+      "max_consecutive_l0_run": 6,
+      "classification": "mixed",
+      "single_char_count": 0
+    },
+    "f88v": {
+      "n_l0": 13,
+      "n_p0": 17,
+      "alternating_ratio": 0.154,
+      "max_consecutive_l0_run": 5,
+      "classification": "mixed",
+      "single_char_count": 0
+    },
+    "f99r": {
+      "n_l0": 34,
+      "n_p0": 18,
+      "alternating_ratio": 0.118,
+      "max_consecutive_l0_run": 14,
+      "classification": "mixed",
+      "single_char_count": 2
+    },
+    "f99v": {
+      "n_l0": 25,
+      "n_p0": 19,
+      "alternating_ratio": 0.16,
+      "max_consecutive_l0_run": 9,
+      "classification": "mixed",
+      "single_char_count": 0
+    },
+    "f100r": {
+      "n_l0": 17,
+      "n_p0": 10,
+      "alternating_ratio": 0.118,
+      "max_consecutive_l0_run": 11,
+      "classification": "standalone_list",
+      "single_char_count": 0
+    },
+    "f100v": {
+      "n_l0": 13,
+      "n_p0": 9,
+      "alternating_ratio": 0.077,
+      "max_consecutive_l0_run": 13,
+      "classification": "standalone_list",
+      "single_char_count": 0
+    },
+    "f101v": {
+      "n_l0": 18,
+      "n_p0": 10,
+      "alternating_ratio": 0.056,
+      "max_consecutive_l0_run": 18,
+      "classification": "standalone_list",
+      "single_char_count": 0
+    },
+    "f116v": {
+      "n_l0": 1,
+      "n_p0": 0,
+      "alternating_ratio": 0.0,
+      "max_consecutive_l0_run": 1,
+      "classification": "single_label",
+      "single_char_count": 0
+    }
+  }
+}

@@ -216,6 +216,35 @@
 
 ---
 
+## H020: f49v and f76r "Key-Like" Line-Marker System — Nature and Cross-Manuscript Scope
+**Priority:** medium
+**Status:** open
+**Source:** exp_011_single_char_validation → exp_011_f66r_wordlist
+**Description:** Two text-only folios (f49v: Scribe 1/Currier A/herbal; f76r: Scribe 2/Currier B/biological) have a "key-like" single-character L0 marker before body text lines. ZL3b transcribers already named f76r's sequence "key-like." Both scribes independently use this structure. Three sub-questions: (a) Are the marker characters in the same hand as the body text? (b) Do the marker sequences (f49v: f,o,r,y,e,k,s,p,...; f76r: s,d,q,s,o,l) correspond to anything — a cipher key, a cross-reference system, an abbreviated alphabet? (c) Are there other "text only" folios with similar marker systems not yet detected? The f76r chars (s,d,q,s,o,l) vs f49v chars (f,o,r,y,e,k,s,p,...) show some overlap (s, o) but are not identical.
+**Expected outcome:** If the two sequences are related or decipherable, this is among the most structurally interesting finds in the project. If they're unrelated scribal quirks, they can be set aside.
+**Cost estimate:** small — raw transcription inspection for other text-only folios; image comparison for handwriting
+**Prerequisites:** H021 (L0 audit) — already partially run in exp_011
+**Priority:** medium
+**Status:** open
+**Source:** exp_011_single_char_validation
+**Description:** f49v has a perfectly alternating L0/P0 structure where every body text line is preceded by a single-character L0 marker (f, o, r, y, e, k, s, p, o, y, e, p, o, y, e, d, y, e, k, y). Some L0 slots contain @NNN; special characters (unrepresented glyphs). These are real manuscript features, not transcription artifacts. Three sub-questions: (a) Are the marker characters in the same scribal hand as the body text, or a different hand? (paleographic test per Davis 2020 — Scribe 1 writes f49v Currier A). (b) Does the marker sequence (f,o,r,y,e,k,s,p...) correspond to anything elsewhere in the manuscript — another folio's marker sequence, a body-text word, or a cipher key? (c) Do similar one-per-line marker systems exist on other folios that the L0 overloading issue caused us to miss?
+**Expected outcome:** If markers are in the same hand as body text, they were written by the same scribe and are intentional annotations. If they're a different hand, they're a secondary annotation layer. If the sequence matches something elsewhere in the manuscript, it may be a cross-reference system.
+**Cost estimate:** small — requires raw ZL3b inspection and image comparison
+**Prerequisites:** H021 (L0 audit) should run first to identify all folios with line-marker L0 patterns
+
+---
+
+## H021: ZL3b L0 Structural Audit — Classify All L0 Entries by Functional Type
+**Priority:** high
+**Status:** open
+**Source:** exp_011_single_char_validation
+**Description:** ZL3b L0 locus code conflates at least three distinct structural types: (1) true object labels near illustrations, (2) line margin markers alternating with body text (discovered in f49v), (3) list/table column entries (discovered in f66r). This conflation invalidated 83% of exp_010's herbal label analysis. A systematic audit of all L0 entries across all folios is needed to: (a) determine what fraction of L0 entries fall into each category, (b) produce a cleaned label-only subcorpus for reliable analysis, (c) identify other folios with line-marker or list structures. Diagnostic criteria: line-marker pattern = L0 entry immediately precedes a P0 entry (alternating); list/table pattern = multiple consecutive L0 entries with no intervening P0; true label = L0 entry with no adjacent P0 (standalone or with illustration context).
+**Expected outcome:** A classification of all ~1,065 L0 tokens that enables reliable label analysis. May also reveal other folios with unusual structural features (more f49v-like or f66r-like pages).
+**Cost estimate:** medium — systematic pass through full ZL3b with pattern matching
+**Prerequisites:** none
+
+---
+
 ## H016: Verbose Cipher Source Language h2 Target — Arabic/Hebrew/German
 **Priority:** medium
 **Status:** tested
