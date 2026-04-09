@@ -1,5 +1,5 @@
 # Working Model — Voynich Manuscript Cryptanalysis
-**Last updated:** 2026-04-09 (after exp_074)
+**Last updated:** 2026-04-09 (after exp_075)
 **Purpose:** Continuously-updated structured summary of current beliefs about Voynichese.
 **Discipline:** Characterization, not interpretation. Claims require experimental warrant.
 
@@ -182,6 +182,10 @@ These findings have been replicated across independent analyses or confirmed by 
 - **A has weaker d/sh complementarity; s-onset plays the "d role" in A** (F081, exp_074): A sh→qo=1.58× (vs B 1.97×), d→ch=1.09× (vs B 1.27×), d→qo=0.93× (vs B 0.76×). In A, s→ch=1.36× and s→qo=0.63× — s is the stronger complement of sh in A. The A {sh vs s} complementary structure parallels B's {sh vs d} structure.
 - **B's sequential grammar is quantifiably stronger than A's** (F081, exp_074): Bigram onset-class model reduces perplexity by 13.3% in B (0.207 bits/bigram) vs 9.1% in A (0.138 bits/bigram). B's sequential grammar is 35% stronger by this measure.
 - **B line-final words are non-random; A line-finals dominated by d-onset** (F081, exp_074): B: qo (0.61×) and sh (0.42×) suppressed at line-ends; o (1.25×) and d (1.50×) enriched. sh-penult → qo-last: 28.0% (sh→qo coupling extends to line boundary). A: d-onset is 1.73× enriched at line-ends (25.4%), consistent with -aiin/-daiin line-end marker pattern.
+- **A sequential grammar is section-sensitive: Pharma A has B-strength sh→qo coupling** (F082, exp_075): Pharma A sh→qo=2.44× (exceeds B's 1.97×!), sh→ch=0.36×, s→ch=1.64×. Herbal A is much weaker (sh→qo=1.27×). Global A "weakness" (1.58×) reflects Herbal A's corpus dominance masking Pharma A's B-like structure.
+- **A dominant onset-class trigram is ch→ch→ch (2.05×, 107 tokens)** (F082, exp_075): B's dominant enriched trigrams are sh→qo→ch (3.35×) and ?→sh→qo (3.43-6.14×). A=ch-repetition grammar; B=sh→qo oscillation. A sh→qo→* chains (2.42-3.00×) don't cycle back to ch as B does.
+- **Aiin-dominant Herbal A has stronger sequential grammar than y-dominant** (F082, exp_075): Aiin-dom bigram PPL reduction=12.7% (approaching B's 13.3%); y-dom=10.2%. Key distinction: aiin-dom uses qo→ch (1.72×) and s→ch (1.76×) pathways; y-dom uses sh→qo (1.29×). Critical: aiin-dom d→qo=1.55× (OPPOSITE to B's d→qo=0.76×) — d leads TO qo in aiin-dominant Herbal A.
+- **B line-final suppression of qo and sh is universal across all sections** (F082, exp_075): qo and sh suppressed at line-ends in all 6 B sections; o enriched in all sections; d enriched in 5/6 (exception: Special section, where "other" onset dominates at 2.03×).
 
 **Section is the primary organizer of morphological variance; quire structure is secondary (F054, exp_047)**
 - Section F-ratios > Quire F-ratios for all 4 features (qo-rate, -edy, -ol, -aiin)

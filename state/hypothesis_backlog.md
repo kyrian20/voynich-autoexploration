@@ -1017,7 +1017,7 @@
 
 ## H100: The A {sh vs s} Complementarity Is Section-Sensitive (Like B's {sh vs d})
 **Priority:** high
-**Status:** open
+**Status:** tested — STRONGLY SUPPORTED (exp_075: Pharma A sh→qo=2.44× > B's 1.97×! sh→ch=0.36×. Herbal A weak: sh→qo=1.27×. Pharma A has B-strength sequential grammar. F082 added.)
 **Source:** F081 (exp_074): In A, s→ch=1.36× and s→qo=0.63×, mirroring B's d→ch=1.27× and d→qo=0.76×. But the A s-onset role was measured globally. Does the s/sh complementarity in A vary by section (Herbal A vs Pharma A), as B's d/sh complementarity varies by section?
 **Description:** Compute P(ch|s), P(qo|s), P(ch|sh), P(qo|sh) for each Currier A section separately (Herbal A, Pharma A). Are there sections where s plays the d-role more strongly? Also: does the two-register system (y-dominant vs aiin-dominant folios) affect the s/sh complementarity?
 **Expected outcome:** If section-sensitive: one A section has stronger s/sh complementarity (analogous to B Astro being the strongest sh→qo section). If uniform: s/sh is cross-section in A.
@@ -1039,7 +1039,7 @@
 
 ## H102: The B Trigram Grammar (qo→ch→qo) Has an A Equivalent (ch→ch→ch or s→ch→s)
 **Priority:** medium
-**Status:** open
+**Status:** tested — SUPPORTED (exp_075: A dominant trigram ch→ch→ch=2.05× (107 tokens); B dominant sh→qo→ch=3.35×. A=ch-repetition grammar; B=sh-qo oscillation. F082 added.)
 **Source:** F081 (exp_074): A has ch→ch self-following (1.34×) and s plays the d role (s→ch=1.36×). F080: B has a confirmed qo→ch→qo alternation loop (after qo+ch, next is qo at 29.7%). Does A have an analogous alternation? Specifically: does A have ch→ch→ch triplets? Or s→ch→s? Or some other 3-slot onset sequence?
 **Description:** Compute A onset-class trigrams (onset classes for consecutive triplets of words). Find the most enriched trigrams vs a unigram baseline. Compare to B's dominant trigram structure (qo→ch→qo: 29.7% after qo+ch). Does A have a comparable dominant trigram structure?
 **Expected outcome:** If analogous: A has ch→ch→ch or s→ch→s as a dominant triplet (reflecting the ch→ch self-following). If not: A's grammar is truly flat at the trigram level.
@@ -1050,7 +1050,7 @@
 
 ## H103: The sh→qo Coupling Differs in Strength Between y-Dominant and aiin-Dominant Herbal A Folios
 **Priority:** medium
-**Status:** open
+**Status:** tested — SUPPORTED (exp_075: aiin-dom bigram PPL 12.7% vs y-dom 10.2%; aiin-dom uses qo→ch (1.72×) and s→ch (1.76×) pathways; y-dom uses sh→qo (1.29×). Critical: aiin-dom d→qo=1.55× (opposite to B). F082 added.)
 **Source:** F081 (exp_074): The A sequential grammar is weaker than B's (bigram PPL reduction: 9.1% vs B 13.3%). F066 (exp_059): Two-register Herbal A — y-dominant vs aiin-dominant folios have different onset profiles (y-dominant enriches o-onset 1.59×; aiin-dominant enriches d-onset 1.61×). Does the {sh vs s} complementarity differ between these A registers?
 **Description:** Split Herbal A folios into y-dominant vs aiin-dominant registers (using the exp_059/exp_062 classification). Compute onset-class bigram transition matrices separately for each. Compare: (1) sh→qo coupling, (2) s→ch enrichment, (3) bigram vs unigram PPL reduction. Are the two registers of Herbal A as different in sequential grammar as A vs B?
 **Expected outcome:** If register-sensitive: aiin-dominant A has stronger d-like grammar (d→ch enriched); y-dominant A has different structure. If uniform: the two registers share the same sequential grammar despite different onset-class frequencies.
@@ -1061,7 +1061,7 @@
 
 ## H104: The B Line-Final Onset Pattern Differs Systematically by Section (Bio vs Herbal B)
 **Priority:** low
-**Status:** open
+**Status:** tested — PARTIALLY SUPPORTED (exp_075: qo/sh suppression and o enrichment universal across all B sections; d enrichment 5/6 sections; Special section exception: no d enrichment, "other"=2.03×. F082 added.)
 **Source:** F081 (exp_074): B line-final words are non-random (o=1.25×, d=1.50×, qo=0.61×, sh=0.42×) — measured globally. But B sections differ morphologically (F078: 5-class taxonomy stable; Bio enriches k at para-starts). Does the line-final onset distribution differ by section?
 **Description:** For each B section (Herbal B, Bio B, Pharma B, Text B, Special B), compute the last-word onset distribution and enrichment. Does the d-onset line-final enrichment (1.50×) hold across all sections? Is the qo suppression at line-ends universal or section-specific?
 **Expected outcome:** If universal: the line-final grammar is a section-independent property of Currier B. If section-sensitive: one section (e.g., Bio with its qo-dominated vocabulary) might show different line-final patterns.
