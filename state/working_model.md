@@ -1,5 +1,5 @@
 # Working Model — Voynich Manuscript Cryptanalysis
-**Last updated:** 2026-04-09 (after exp_104)
+**Last updated:** 2026-04-09 (after exp_105)
 **Purpose:** Continuously-updated structured summary of current beliefs about Voynichese.
 **Discipline:** Characterization, not interpretation. Claims require experimental warrant.
 
@@ -216,6 +216,13 @@ These findings have been replicated across independent analyses or confirmed by 
 - Within-quire variance (std≈0.05 for qo) is high: quires are morphologically heterogeneous
 - Quire M outlier (qo=25.8%, -edy=20.5%) maps almost entirely to bio section — quire signal is section signal
 - **Section-specific CONTENT WORD vocabulary confirmed (F109, exp_102)**: bare_ch content words show strong section-specialization. Herbal A: chol/chor + EXCLUSIVE words (chain, chocthy, choiin, chan, chokchy). Pharma A: cheol (6.1×!), cheeor (10.4×!), cheom (14.8×!) enriched. Stars B: cho/cheo/cheeo/cheodaiin EXCLUSIVE; Stars B also has chain (6.1×), chaiin (6.1×), cheeody (6.1×). Cosmo B: chcthy (2.3×), checthy (4.9×), cheeky (5.1×). Herbal B: cheky (3.5×), chekaiin (10×!). Each section has a distinctive ch-stem morphological signature beyond the shared core (chol/chor in A; chedy/chey in B). TIER COMPOSITION (F109): PARA+LO+WEAK tiers = only 10-20% of all word tokens; ~80% are content words (MID tier = 31-49% bare_ch/sh/qo; OTHER = 41-52%). The positional grammar labels a minority of words — most words in the manuscript are content words that show section-level semantic specialization. GRAMMAR STRICTNESS (F108/F109): Grammar strictness is PRIMARILY section-determined. Within cosmo B, length also has genuine effect. Within herbal A, grammar strictness is REVERSED with length (shorter herbal paras = higher PARA%). The positional grammar is most strict in the canonical herbal text register (10-15 line paragraphs, 70.7% PARA at PS, 0% LINE_OPEN).
+
+**"OTHER" tier (43.8% of tokens) has clear sub-structure; Zipf α=1.050; 44 universal words = 21-28% of each section's tokens (F112, exp_105)**
+- OTHER tier sub-structure: (1) o-prefix content words (ok/ot/ol+anything = 37% of OTHER) — body-text object vocabulary linked to label system; (2) d-onset line-boundary words (19%): dal=30% LL, dam=70% LL, dy=46% LL (closers); dain=30% LF (opener); (3) aiin/ain particles (9%); (4) s-onset openers (saiin=51% LF, sain=60% LF = 6%). OTHER skewed SHORT (2-char 2.25×; 7-char 0.57×). qo-onset 0.08× suppressed in OTHER.
+- Zipf's law: α=1.050 overall (NL range 1.0-1.5). By section: B cosmo=1.105, B stars=0.979, A herbal=0.876, A pharma=0.819. Heaps-Zipf deviation (observed α=1.05 vs predicted 1.34 from β=0.744) indicates Zipf-Mandelbrot pattern — no single dominant "the"-equivalent. daiin (rank 1) = only 2.5% of corpus. Section-specific function words dilute corpus-wide rank.
+- Universal vocabulary: 44 words appear in ALL 5 large sections at ≥3 tokens. Universal tokens = 21-28% of each section (consistent). Universal tier composition: OTHER (57%: daiin, ol, aiin, or, dar) + MID (41%: chol, qokeey, chey, shey). No PARA-tier words are universal. Remaining 72-79% of each section = section-specific content.
+- Section-exclusive words: B_stars=215 (most diverse; consistent with highest Heaps' β=0.735); A_herbal=144 (cth-cluster exclusives: cthor, dchor, kchy, dchy); B_herbal=12 (fewest, shares most with other B sections).
+- THREE-LAYER VOCABULARY MODEL: (1) Universal function-word core (21-28% tokens): 44 words crossing all sections; (2) Section-specific content (72-79%): section-restricted vocabulary; (3) OTHER tier = o-prefix body-objects + d-boundary + particles (43.8% all tokens).
 
 **Voynichese follows Heaps' law; section-level β=0.661-0.744 (upper end of NL range); "chd" is NOT a B morphological unit (F111, exp_104)**
 - Heaps' law: V=K×N^β confirmed at section level. B cosmo=0.674 (most repetitive); A/B herbal=0.744; B stars=0.735; A pharma=0.661 (also within NL range 0.5-0.7). All within natural language range (English prose β≈0.55-0.65); Voynichese slightly higher — consistent with morphologically complex languages.

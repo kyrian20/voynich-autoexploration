@@ -2170,6 +2170,7 @@
 
 ## H200: "OTHER" Vocabulary Tier — What Are the Mid-Line Words Not Classified by Positional Grammar?
 **Priority:** high
+**Status:** TESTED (exp_105) — CONFIRMED: OTHER=43.8% of all tokens. Sub-structure: o-prefix (ok/ot/ol = 37%), d-onset boundary words (19%), aiin/ain particles (9%), s-onset openers (6%). qo-onset 0.08× suppressed in OTHER. d-onset: dal=30% LL, dam=70% LL (closers); dain=30% LF (opener). Clear three-function structure.
 **Source:** exp_100-102 found that PARA+LINE_OPEN+WEAK_PARA+MID covers only ~50-60% of all tokens. The remaining "OTHER" 40-50% are mid-line content words with diverse vocabulary. What is the structural character of these words? Are they: (1) qo-onset words not yet classified? (2) o-onset content words? (3) Short 2-4 character words? (4) Section-specific unlabeled vocabulary?
 **Description:** Extract all "OTHER" tier tokens from the v3 classifier (not PARA, LINE_OPEN, WEAK_PARA, or MID). Compute: onset distribution, length distribution, suffix distribution, section distribution, positional stats (PS/LFirst/LLast). Compare to MID tier (ch/sh onset) to understand how OTHER differs structurally. Look for sub-classes within OTHER that have consistent structural patterns.
 **Expected outcome:** OTHER is dominated by (a) o-onset words without gallows (like ol, or, okey, okain — simple closers/openers), (b) short 2-3 char words (particles?), (c) rare hapax forms. These may represent function words, grammatical particles, or the actual content vocabulary of the manuscript.
@@ -2179,7 +2180,35 @@
 
 ## H201: Cross-Section Universal Vocabulary — Are There Words Appearing in ALL Sections With High Frequency?
 **Priority:** medium
+**Status:** TESTED (exp_105) — CONFIRMED: 44 universal words in all 5 sections (≥3 tokens). Universal tokens = 21-28% of each section. Universal words: OTHER (57%) + MID (41%). No PARA words are universal. B_stars=215 exclusive words (most diverse); B_herbal=12 (most shared). A_herbal exclusive: cth-cluster forms.
 **Source:** F109-F111 established section-specific ch-vocabularies. But some words must be "universal" — appearing in all sections at significant rates. Identifying these could reveal grammatical function words (like "the", "of", "and" in English) vs content words.
 **Description:** For each section (A herbal, A pharma, B cosmo, B stars, B herbal), compute the set of words appearing with rate > 0.5‰. Intersect these across all 5 sections. Words in the intersection are "universal" — appearing in all sections at non-trivial frequency. Then compute which of these universal words are also the highest-rank words overall. Compare: are universal words predominantly PARA tier (gallows-onset) or MID tier (ch/sh) or OTHER?
 **Expected outcome:** Universal words are predominantly grammar words: daiin (line-connecting particle), aiin (B suffix pattern), qokeedy/qokeey (B function words), olkeedydy (formulaic). Section-specific words are content words. The split would strongly support a two-tier vocabulary model (grammar words + content words).
+**Cost estimate:** small
+
+---
+
+## H202: o-Prefix Body Words (ok/ot/ol) as the Body-Text Counterpart to Label System — Does the o-Prefix System in Body Text Decode as Object-Naming Vocabulary?
+**Priority:** high
+**Source:** F112: OTHER tier is dominated by ok+/ot+/ol+ words (37% of OTHER). F043: o-prefix in labels parallels qo-prefix in body text (three-prefix system). But ok/ot-onset OTHER words are NOT qo-words — they are SEPARATE body-text vocabulary. Do ok/ot words in body text correlate with labeled objects? Do ok-onset body words appear near illustrations, or do they show section-specific rates consistent with naming specific object types?
+**Description:** Extract all ok+/ot+/ol+ body-text words. Compute: (1) section distribution vs what's expected from F112 (ok/ot words = universal content class or section-specific?); (2) compare ok-body words to ok-label words — are they the same vocabulary? (3) Do ok-body words appear with higher frequency in lines near paragraph boundaries (suggesting a naming or reference function)? (4) Do specific ok words co-occur with specific ch-words (suggesting noun-verb pairing)?
+**Expected outcome:** ok/ot-body words are partially shared with label vocabulary, appear section-neutrally (universal content), and show mid-line distribution (content words, not line-boundary markers). This would confirm the three-prefix body parallel: qo=B-form, o-label=label-form, o-body=A-or-neutral-form of same semantic class.
+**Cost estimate:** medium
+
+---
+
+## H203: d-Onset Words as LINE-BOUNDARY MORPHEME Class — Is There a Unified d-Onset Grammar?
+**Priority:** high
+**Source:** F112: d-onset sub-class within OTHER is a line-boundary marker system: dal=30% LL, dam=70% LL, dy=46% LL (closers); dain=30% LF, dar=15% LF, dol=16% LF (openers). But this was also found in prior experiments (F097-F101: d+ch/sh = LINE_OPEN tier; daiin = line-closer in A, opener in B). Is the d-onset class unified? Are bare d-words (dal, dain) structurally parallel to prefixed d+ch words (dch- = LINE_OPEN tier)? Or are they different word classes?
+**Description:** Systematically analyze all d-onset words: (1) classify as bare_d (no gallows following) vs d+gallows (LINE_OPEN tier); (2) compute LF/LL for each sub-type; (3) compare bare_d-closers (dal/dam/dy) vs bare_d-openers (dain/dar/dol) — are they morphologically distinct? (4) Do d-closers and d-openers complement each other (d-chain: d-closer → d+ch-opener on next line, as in F099)?
+**Expected outcome:** Bare d-onset words have a clear two-way split: d-closers (dal/dam/dy/dar final) and d-openers (dain/dol/dor initial). The d-chain (d-closer on line N → d+ch on line N+1) from F099 may extend to bare_d: d-closer on line N → bare d-opener on line N+1 (without requiring the ch-prefix).
+**Cost estimate:** small
+
+---
+
+## H204: Suffix-Onset Joint Distribution — Does Each Onset Class Have a Characteristic Suffix Profile That Distinguishes Content from Function Words?
+**Priority:** medium
+**Source:** F112 identified three sub-classes in OTHER: o-prefix (objects), d-onset (boundaries), particles (aiin/ain/ar/or/al). These should have different suffix distributions. Also from prior work: ch-MID words have -ol/-or/-edy suffixes (dialect-dependent); qo-words have -eedy/-eey. Test: does onset × suffix jointly predict the word's positional and semantic role?
+**Description:** For each of the main onset classes (ch, sh, qo, ok/ot, da, s, bare_short), compute the suffix distribution (using the same suffix taxonomy from exp_104). Rank onset-classes by suffix entropy. Lowest entropy = most constrained suffix paradigm. Test: do onset-suffix combinations cluster into (1) high-entropy pairs (content words, many suffixes possible) vs (2) low-entropy pairs (grammatical words, one suffix dominant)?
+**Expected outcome:** Grammar words: d+am (suffix: -am, 70% LL, 1 suffix), s+aiin (suffix: -aiin, 1 suffix), bare aiin (no suffix). Content words: ch-MID (multiple suffixes: -ol/-or/-ey/-edy, ~7 productive suffixes). The onset-suffix entropy would quantify the grammar/content distinction.
 **Cost estimate:** small
