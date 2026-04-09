@@ -103,3 +103,17 @@
 - **Finding:** F070 added
 
 ### Generating new hypotheses...
+
+## Session continuation (exp_064–065), 2026-04-09
+
+### exp_064: s/d Positional Analysis + B Two-Marker System (H074, H075, H076)
+- **H074 NOT SUPPORTED**: s is 4.61× line-first (NOT line-final like d); same suffix profile (-aiin~20.7%) but different positional grammar
+- **H075 PARTIALLY SUPPORTED**: p-onset para-start marker is cross-dialect (A:7.38×, B:2.80×); y-initial is cross-dialect continuation marker; NOT B-specific
+- **H076 PARTIALLY SUPPORTED**: Complete B positional grammar: p(6.34×first), s/y/t(3-5×first), d(2.43×first+1.42×last), ch/sh/qo(medial 0.17-0.64×), o(1.24×last)
+- **Finding:** F071 added
+
+### exp_065: Aiin-Dominant A vs B Proximity (H077)
+- **H077 NOT SUPPORTED**: aiin-dom A Jaccard with y-dom A=0.138 > with all B=0.046; both A registers share A suffix profile (-ol/-or dominant, -edy<0.2%); two-register system is intra-A convention difference
+- **Finding:** F072 added
+
+### Status: All hypotheses H064-H077 resolved (or blocked by missing images). Generating new hypotheses.

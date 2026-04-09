@@ -727,3 +727,48 @@
 **Cost estimate:** small
 **Prerequisites:** exp_057 (done)
 
+
+---
+
+## H074: The s-Initial Onset Class in Currier B Is Aiin-Dominant and Functions Like d-Initial
+**Priority:** high
+**Status:** tested — NOT SUPPORTED (exp_064: s is 4.61× line-FIRST biased; d is 2.43× first AND 1.42× last. Same suffix profile but different positional grammar. F071 added.)
+**Source:** F068 (exp_061): s-initial words in B have -aiin=20.6% (KL from k/t is 0.339 bits) — similar to d-initial (-aiin=20.8%). Both s and d are aiin-dominant onset classes in B. Are s-words grammatically similar to d-words (e.g., both mark line endings, both suppress at line-initial positions)?
+**Description:** If s-initial and d-initial words share both suffix distribution AND positional grammar (both appear at line-final positions, both avoided at line-initial), this confirms they form a single grammatical class. From exp_050, d-stem words are strongly line-final (dam=3.92×, dain, etc.). Test: (a) What is the positional distribution of s-initial words? (b) Do s-initial words prefer line-final positions? (c) Are s-initial and d-initial words mutually exclusive at specific positions (complementary distribution)?
+**Expected outcome:** If same class: s-initial = line-final bias (similar to dam/dain). If different: different positional profile despite similar suffix distribution.
+**Cost estimate:** small (extend exp_050 to include s-initial words)
+**Prerequisites:** exp_050, exp_061 (done)
+
+---
+
+## H075: In Currier B, p-Onset Line-Opening and y-Onset Line-Continuation Are Symmetrical Systems
+**Priority:** high
+**Status:** tested — PARTIALLY SUPPORTED (exp_064: p-onset cross-dialect para-start marker (A:7.38×, B:2.80×); y-initial cross-dialect continuation marker (suppressed at PS); symmetrical but pan-Voynichese not B-specific. F071 added.)
+**Source:** F061 (y-initial = continuation marker in A), F070 (p-onset = para-start marker in B). In Currier B: y-initial suppressed at B para-starts (0.28×) and p-onset is the para-start marker. Does y-initial in B serve as a continuation marker (like in A) while p-onset serves as the para-start marker? This would establish a two-marker positional system in B parallel to A's two-marker system.
+**Description:** From exp_054/F061: y-initial is at 14.2% of B continuation lines but suppressed at B para-starts. From exp_063/F070: p-onset is 17-18× enriched at B para-starts. If these are symmetric: p-onset marks para-START, y-initial marks LINE-CONTINUATION. Test: (a) Is y-initial enriched at B CONTINUATION positions relative to all B lines? (b) Is the B continuation y-initial rate similar to A's (16.4%)? (c) Are B para-start p-onset words and B continuation y-initial words mutually exclusive (no para-start y-initial p-onset words)?
+**Expected outcome:** If symmetric system: B continuation y-initial rate ~ 14-16%; B para-starts have p-onset but no y-initial.
+**Cost estimate:** tiny (direct from exp_057 data)
+**Prerequisites:** exp_057, exp_063 (done)
+
+---
+
+## H076: The 4-Class Onset Taxonomy in Currier B Maps Onto Grammatical Roles
+**Priority:** medium
+**Status:** tested — PARTIALLY SUPPORTED (exp_064: positional grammar confirmed but 4-class taxonomy is imperfect: {k/t/p} splits — k=neutral, t=3.38× first, p=6.34× first. {d/s} splits — s=4.61× first, d=2.43× first AND 1.42× last. {ch/sh/qo}=medial confirmed. F071 added.)
+**Source:** F068 (exp_061): Currier B has 4 effective onset classes: {ch/sh}, {k/t/p}, {d/s}, {qo}. F069-F070 suggest these onset classes correspond to grammatical roles. Do the four onset classes have systematically different grammatical functions (positional distributions)?
+**Description:** From the findings so far: qo-prefix selects k/t class (F037/F055); d/s are aiin-dominant (F068); p-onset marks para-starts (F070); ch/sh have high -y/-edy suffix. Test: do these four onset classes have systematically different LINE-POSITIONAL distributions? Specifically: (a) Is {d/s} class line-final biased? (b) Is {qo} class medial biased? (c) Is {ch/sh} class medial biased (since -edy and -ey are medial)? (d) Is {p} class specifically line-initial biased? Mapping onset classes to positional functions would unify F068 (suffix distributions) with the positional grammar findings (F057-F070).
+**Expected outcome:** If onset maps onto positional grammar: {d/s} = line-final, {p} = line-initial, {qo}/{ch/sh} = medial.
+**Cost estimate:** small
+**Prerequisites:** exp_050, exp_061, exp_063 (done)
+
+---
+
+## H077: The Herbal A Aiin-Dominant Sub-Dialect Is Closer to Currier B Than to Standard Currier A
+**Priority:** high
+**Status:** tested — NOT SUPPORTED (exp_065: aiin-dom A Jaccard with y-dom A=0.138 > with all B=0.046; both A registers show A suffix profile -ol/-or dominant, -edy<0.2%; two-register system is intra-A. F072 added.)
+**Source:** F069 (exp_062): aiin-dominant herbal A folios have vocabulary Jaccard=0.138 from y-dominant folios — near A/B inter-dialect gap. But aiin-dominant folios use d-onset (1.61×), ch-onset (1.50×) — which are also strong in B. If aiin-dominant folios are a B-like scribal tradition mislabeled as A, they should be closer to B in vocabulary and morphology.
+**Description:** Compare the aiin-dominant herbal A folios to: (a) y-dominant herbal A folios, (b) Currier B herbal folios (if any), (c) Currier B overall. Measure Jaccard overlap and frequency-rank correlation. If aiin-dominant ≈ B: the Currier classification of these folios may be wrong, or these represent a B-type scribal tradition that was part of the Herbal A compilation.
+**Expected outcome:** If mislabeled: aiin-dominant Jaccard with B > aiin-dominant Jaccard with y-dominant A. If genuine A sub-dialect: aiin-dominant Jaccard with B < aiin-dominant Jaccard with y-dominant.
+**Cost estimate:** small
+**Prerequisites:** exp_062 (done)
+
