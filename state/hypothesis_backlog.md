@@ -720,7 +720,7 @@
 
 ## H073: B Para-Start p/t-Onset Words Are a Distinct Vocabulary Class with Their Own Morphology
 **Priority:** medium
-**Status:** open
+**Status:** tested — SUPPORTED (exp_063: pch=17×, tch=11× enriched at B para-starts; 0/781 in labels; line-last=0.1%; -edy preferred (19-25%); p-onset is B's paragraph-start marker class. F070 added.)
 **Source:** F064 (exp_057): B para-start words cluster around p/t-onset forms (pchedar, tchedy, pchedal) that are rare in the general B corpus (0.4-0.9%). These look morphologically distinctive with 'pc-' and 'tc-' onset clusters.
 **Description:** In Currier B, the most common para-start opener words are pchedar (×3), tchedy (×3), pchedal (×2). These start with the consonant clusters 'pch' and 'tch' — which are unusual onset combinations not found in the main onset classes (qo-, o-, ch-, sh-, d-, y-). Test: (a) What is the full frequency of 'pch' and 'tch' onset words in the B corpus? (b) Do these words concentrate at para-starts and line-starts, or are they evenly distributed? (c) Are 'pch' and 'tch' words absent from labels? (d) Do they take a distinct suffix distribution (e.g., prefer -ar/-al over -edy/-aiin)?
 **Expected outcome:** If they are a dedicated structural vocabulary: concentration at para-starts, distinctive suffix distribution, label absence. If random coincidence: evenly distributed, no suffix specialization.

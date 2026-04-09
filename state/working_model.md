@@ -1,5 +1,5 @@
 # Working Model — Voynich Manuscript Cryptanalysis
-**Last updated:** 2026-04-09 (after exp_062)
+**Last updated:** 2026-04-09 (after exp_063)
 **Purpose:** Continuously-updated structured summary of current beliefs about Voynichese.
 **Discipline:** Characterization, not interpretation. Claims require experimental warrant.
 
@@ -137,8 +137,8 @@ These findings have been replicated across independent analyses or confirmed by 
 - **Medial slot**: -ol (80.7% medial), -ey (80.8%), -eey (80.0%) — strictly avoid both edges
 - 'y-' prefix = LINE-CONTINUATION PARTICLE (marks lines within a paragraph, not sentence-openers)
 - **Two-register system in Herbal A (near sub-dialect level)**: y-dominant vs aiin-dominant; vocabulary Jaccard = 0.138 (cf. A/B = 0.148 — near inter-dialect gap). y-dominant: 9.3% y-initial words globally (enriched 'or' 4.04×, odaiin 7.02×, o-onset 1.59×). Aiin-dominant: y-initial globally suppressed (0.21×), d-onset enriched (1.61×), chaiin (11.75×), daiin (2.01×); 2× higher daiin rate. Aiin-dominant cluster in Quires D (50%) and F (62%); Quires B/O/Q exclusively y-dominant. All grammar violators are Herbal A — none in Special, Pharma, or Text. This likely represents distinct scribal traditions within Herbal A.
-- **Currier B paragraph grammar**: -dy (1.53×), -chy (2.94×), -ar (2.11×) at para-starts; y-initial suppressed (0.28×, not complete); -aiin and -ain strongly suppressed at B para-starts (0.37×, 0.31×); B para-starts cluster around p/t-onset formulaic words (pchedar ×3, tchedy ×3)
-- A vs B para-start grammar: same TYPE (position-sensitive morphological marking) but different MORPHEMES
+- **Currier B paragraph grammar**: p-onset is the dominant B paragraph-START marker (17-18× enriched at para-starts; pch 17.19×, p_other 18.21×); tch: 10.81×. B para-start words are almost exclusively line-initial and absent from labels (0/781). Most common B para-start forms: pchedy, tchedy (both pch/tch + -edy). -y initial suppressed at B para-starts (0.28×, not complete as in A)
+- A vs B para-start grammar: A marks para-starts with SUFFIX class (-dy: 3.36×); B marks them with ONSET class (p-onset: 17-18×). Same structural function, different morphological slot.
 
 **Bio section vocabulary is dominated by qo-words; Herbal A by short words (F015)**
 - Bio top words: shedy, chedy, qokain, qokedy, ol, qokeedy, qokal, qokaiin

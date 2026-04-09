@@ -95,3 +95,11 @@
 ### exp_062: Two-Register Herbal A Vocabulary (H068)
 - **H068 STRONGLY SUPPORTED**: aiin-dominant vs y-dominant registers have vocabulary Jaccard=0.138 (near A/B gap of 0.148). y-onset globally suppressed in aiin-dominant (0.21×); d-onset enriched (1.61×); chaiin (11.75×) aiin-dominant marker. 447 aiin-exclusive / 781 y-exclusive word types. Near sub-dialect level distinction.
 - **Finding:** F069 added
+
+## Session continuation (exp_063), 2026-04-09
+
+### exp_063: B Para-Start pch/tch Onset Class (H073)
+- **H073 SUPPORTED**: pch=17×, tch=11×, p_other=18× enriched at B para-starts. 0/781 in labels. Line-last=0.1%. -edy preferred (19-25%). p-onset is B's paragraph-start onset class (analogous to A's -dy suffix marker but much stronger). A uses SUFFIX marking, B uses ONSET marking for same structural function.
+- **Finding:** F070 added
+
+### Generating new hypotheses...
