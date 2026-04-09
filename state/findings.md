@@ -156,6 +156,24 @@
 **Finding:** German (Goethe Faust, 163k chars) h2=3.535, Arabic consonantal (UDHR, 6k chars) h2=3.673, Hebrew consonantal (UDHR, 6k chars) h2=3.723. All are below the Voynich paired h2 target of 3.836 established in exp_007. Hebrew is the closest at 3.723 (-0.112 bits gap). Across five tested languages spanning European alphabets and Semitic abjads (Italian 3.411, Latin 3.509, German 3.535, Arabic 3.673, Hebrew 3.723), no language reaches the Voynich paired h2 target. The trend is monotonic: higher consonant-to-vowel ratio → higher h2, but even consonantal abjads fall short.
 **Limitation:** Arabic and Hebrew samples are small (~6k chars from UDHR). Turkish and Finnish (agglutinative languages) not yet tested. Test applies only to fixed-filler adjacent-pair grouping scheme.
 
+## F027: f66r Column 2 Is NOT a Comprehensive EVA Alphabet Inventory (44% Single-Char Coverage)
+**Experiment:** exp_012_f66r_alphabet_test
+**Date:** 2026-04-09
+**Finding:** f66r column 2 (34 entries, 16 unique) covers only 11/25 EVA single characters (44%) and 1/12 common compound forms (sh only, 8.3%). The 8 absent common characters include the top 5 most frequent EVA characters: e(10.45%), h(9.42%), a(7.44%), i(6.34%), k(5.74%). The characters PRESENT in column 2 (o, y, d, c, l, r, s, t, f, p, x plus sh, @specials) are predominantly characters that stand alone without forming common compound clusters. The characters ABSENT (e, h, a, i, k, n, q) are precisely the characters that fuse into compound forms (ee, ch, sh, aiin, ck, etc.). Also present: 3 non-standard EVA glyphs (@169, @172, @195) and 'air' (a compound form with zero body occurrences). Column 2 may be listing graphically "atomic" or compound-resistant glyph units rather than a full alphabet.
+**Limitation:** Column 2 entries were manually enumerated from raw ZL3b transcription. The 'air' entry (zero body occurrences) may be a transcription of a rare glyph or ligature. The @NNN; glyph identities depend on ZL3b transcriber conventions.
+
+## F028: f57v Circular Text Shares Special Glyphs (@169, @172) with f66r Column 2
+**Experiment:** exp_012_f66r_alphabet_test (raw ZL3b inspection), exp_014_prior_work_check
+**Date:** 2026-04-09
+**Finding:** f57v (astronomical/cosmological folio, Scribe 1/Hand 1, ZL3b header: "has 'key-like' sequences") contains a circular text (Cc locus) with a sequence `o.l.[d:j].r.v.x.k.m.f.@169;v.t.r.@170;.@171;.y.I.@172;` repeated 3–4 times. This sequence contains @169; and @172; — the SAME special glyphs that appear in f66r column 2. ZL3b transcribers cross-referenced the two folios explicitly via a "cf f57v?" comment on f66r line L38. The two folios were written by different scribes (Hand 1 vs Hand 5) in different sections (astronomical vs pharmaceutical), yet share the same unusual non-EVA glyphs. This creates a three-way cluster of folios with "key-like" designations in ZL3b: f49v (line markers with @SPECIAL), f57v (circular text, explicitly "key-like"), and f76r (paragraph markers, explicitly "key-like"). The f66r column 2 connects to this cluster via the @NNN; shared glyphs.
+**Limitation:** The @169 and @172 glyph identities are assigned by the ZL3b transcribers; the actual manuscript glyphs need visual confirmation to verify they are the same characters in both folios.
+
+## F029: f49v and f76r Line-Marker Sequences Are Independent, Non-Periodic, and Don't Correspond to Adjacent Body Text
+**Experiment:** exp_013_line_marker_structure
+**Date:** 2026-04-09
+**Finding:** f49v has 26 L0/P0 marker pairs; f76r has 9. Neither sequence shows periodic structure (period 1–8, no period achieves ≥50% match). No systematic correspondence to adjacent body text: marker == body first char at 4% (f49v) and 11% (f76r), both at or below the expected-by-chance level (~6%). The two sequences share some characters {d, k, o, r, s} but zero 2-grams or 3-grams, and neither is a subsequence of the other — consistent with independent composition by different scribes. f49v markers show gallows overrepresentation (f: 16.5x, p: 9.1x the corpus rate) and include 6/26 @SPECIAL glyphs (23% of markers are non-EVA). f76r markers show 's' overrepresentation (8.9x) but no @SPECIAL glyphs. The markers do NOT function as running first-char catchwords or content indices into their adjacent lines.
+**Limitation:** With N=26 and N=9, statistical power for correspondence tests is low. The @SPECIAL glyphs in f49v markers cannot be further identified without visual inspection.
+
 ## F021: Stolfi Crust Stripping Does Not Recover Natural-Language h2 — Core Region h2=2.389
 **Experiment:** exp_008_stolfi_slot_entropy
 **Date:** 2026-04-09

@@ -218,7 +218,7 @@
 
 ## H020: f49v and f76r "Key-Like" Line-Marker System — Nature and Cross-Manuscript Scope
 **Priority:** medium
-**Status:** open
+**Status:** partially tested (exp_012, exp_013, exp_014)
 **Source:** exp_011_single_char_validation → exp_011_f66r_wordlist
 **Description:** Two text-only folios (f49v: Scribe 1/Currier A/herbal; f76r: Scribe 2/Currier B/biological) have a "key-like" single-character L0 marker before body text lines. ZL3b transcribers already named f76r's sequence "key-like." Both scribes independently use this structure. Three sub-questions: (a) Are the marker characters in the same hand as the body text? (b) Do the marker sequences (f49v: f,o,r,y,e,k,s,p,...; f76r: s,d,q,s,o,l) correspond to anything — a cipher key, a cross-reference system, an abbreviated alphabet? (c) Are there other "text only" folios with similar marker systems not yet detected? The f76r chars (s,d,q,s,o,l) vs f49v chars (f,o,r,y,e,k,s,p,...) show some overlap (s, o) but are not identical.
 **Expected outcome:** If the two sequences are related or decipherable, this is among the most structurally interesting finds in the project. If they're unrelated scribal quirks, they can be set aside.
@@ -253,3 +253,47 @@
 **Expected outcome:** If Arabic unvoweled h2 ≈ 3.836, the abjad hypothesis gains support. If not, the fixed-filler verbose cipher interpretation is further constrained.
 **Cost estimate:** small — need Arabic/Hebrew corpora; computation is trivial
 **Prerequisites:** Acquire Arabic/Hebrew text corpora (not yet downloaded)
+
+---
+
+## H022: f66r Column 2 Lists "Atomic" (Non-Compound-Forming) EVA Characters
+**Priority:** medium
+**Status:** open
+**Source:** exp_012_f66r_alphabet_test
+**Description:** The characters present in f66r column 2 (o, y, d, c, l, r, s, t, f, p, x plus sh) are precisely those that typically stand alone or form bounded units. The characters absent (e, h, a, i, k, n, q) are precisely those that frequently fuse into compound clusters (ee, ch, sh, aiin, ck, etc.). This pattern is too clean to be coincidental. Test: does the set of "compound-forming" EVA characters have a statistically significant anti-correlation with column 2 membership? If so, column 2 may be a list of graphically atomic or compound-resistant glyphs — a subset of the writing system that represents simple, non-ligated forms.
+**Expected outcome:** If compound-forming chars are systematically absent, column 2 is a sub-inventory (not a full alphabet) of non-compound-forming units. This would be structurally significant for understanding EVA compound formation rules.
+**Cost estimate:** small — requires compound frequency computation per EVA character already done in exp_012
+**Prerequisites:** exp_012 (done)
+
+---
+
+## H023: f57v Circular "Key-Like" Text and f66r Column 2 Encode the Same Underlying Material
+**Priority:** high
+**Source:** exp_012_f66r_alphabet_test (raw ZL3b), exp_014_prior_work_check
+**Status:** open
+**Description:** f57v (Scribe 1, cosmological folio, explicitly "has 'key-like' sequences" per ZL3b) contains a circular Cc text repeating `o.l.[d:j].r.v.x.k.m.f.@169;v.t.r.@170;.@171;.y.I.@172;` (3-4 times). f66r column 2 contains a list including @169, @172, and many characters that overlap with this sequence (o, l, r, x, f, t, y). ZL3b transcribers cross-referenced f57v and f66r directly via "cf f57v?" on f66r L38. Both are called "key-like." Three-way cluster: f49v (line markers), f57v (circular text), f66r (column 2) all use non-standard @NNN; glyphs. Sub-questions: (a) Do the shared characters between f57v circular text and f66r column 2 exceed random overlap? (b) Is the f57v repeating sequence an ordered key (like a cipher alphabet arranged in a circle)? (c) Do the @169/@172 glyphs have visual analogs in manuscript imagery (e.g., specific alchemical symbols, Tranchedino cipher characters)?
+**Expected outcome:** If the overlap is significant and ordered, f57v may be the "master key" that f66r column 2 samples from. This would be among the most structurally important findings in the project.
+**Cost estimate:** medium — requires character-level comparison, possibly visual inspection of f57v manuscript images
+**Prerequisites:** exp_012 (done), exp_014 (done)
+
+---
+
+## H024: f49v @SPECIAL Glyphs in Line Markers Are the Same Physical Glyphs as f57v Circular Text
+**Priority:** medium
+**Status:** open
+**Source:** exp_013_line_marker_structure
+**Description:** f49v has 6/26 line markers as @SPECIAL glyphs (non-EVA characters). f57v circular text also uses @169, @170, @171, @172. Since f49v is Scribe 1 and f57v is also Scribe 1 (Hand 1, Currier A), these @SPECIAL glyphs may be the same physical glyphs. If the @SPECIAL glyphs in f49v margins correspond to @169/@172 from f57v, then the f49v line marker sequence contains BOTH EVA characters AND the special glyphs from the f57v "key" — making f49v the first discovered folio where the "key-like" glyph set appears in a structural role (margin markers).
+**Expected outcome:** Visual comparison of f49v @SPECIAL margin glyphs with f57v @169/@172 would determine if they are the same. A positive identification would strongly link all three key-cluster folios.
+**Cost estimate:** small — requires image inspection only
+**Prerequisites:** exp_013 (done)
+
+---
+
+## H025: Gallows Characters in Line Markers Function as Section-Level Structural Indices
+**Priority:** low
+**Status:** open
+**Source:** exp_013_line_marker_structure
+**Description:** f49v line markers show dramatic gallows overrepresentation (f: 16.5x, p: 9.1x corpus rate). f76r shows 's' overrepresentation (8.9x). Gallows characters (t, k, f, p) in the Voynich main text spike at word-position 1, consistent with a structural marking role. If gallows in margin markers serve as section-level labels (e.g., "f" = folio, "p" = paragraph, "k" = key entry), the marker sequence would encode a hierarchical structure invisible in body text statistics. Test: compare gallows marker identity with section-level features of the corresponding body text line (line length, topic, section boundary).
+**Expected outcome:** If gallows markers cluster at body text boundaries (section starts, paragraph heads), they may be structural delimiters. If random relative to structure, the overrepresentation is a character-selection artifact.
+**Cost estimate:** small — requires body text analysis per marker, mostly done in exp_013
+**Prerequisites:** exp_013 (done)
