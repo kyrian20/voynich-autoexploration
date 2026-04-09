@@ -1,0 +1,40 @@
+{
+  "experiment": "exp_001_word_initial_entropy",
+  "date": "2026-04-09",
+  "preprocessing": "ZL3b IVTFF, uncertainty markers [a:b] resolved to first option, {xx} removed, @NNN glyph codes removed, non-alpha tokens dropped",
+  "voynich_all": {
+    "words": 32866,
+    "characters": 173270,
+    "unique_initials": 23,
+    "h1_unigram": 3.8609,
+    "h2_conditional": 2.3413,
+    "h_initial_actual": 3.1373,
+    "h_initial_shuffled": 3.8713,
+    "gap_initial_minus_h2": 0.7960,
+    "gap_shuffled_minus_actual": 0.7340,
+    "top_initials": {"o": 7750, "c": 6042, "q": 5091, "s": 3886, "d": 3054, "y": 1576, "a": 1426, "l": 1163, "k": 858, "t": 835}
+  },
+  "note_labels": "Label detection returned 0 words — locus code parsing needs revision. The ZL3b locus field includes prefix characters (=, *, +, @) before the code (P0, Pt, La, etc.). Script checked locus.startswith('L') but locus may be '=La' or '*La'. Fix in exp_003_label_body_entropy.",
+  "latin_vulgate": {
+    "words": 991553,
+    "characters": 4067522,
+    "unique_initials": 26,
+    "h1_unigram": 4.1301,
+    "h2_conditional": 3.4779,
+    "h_initial_actual": 3.9775,
+    "h_initial_shuffled": 4.0762,
+    "gap_initial_minus_h2": 0.4996,
+    "gap_shuffled_minus_actual": 0.0987
+  },
+  "italian_dante": {
+    "words": 102180,
+    "characters": 398918,
+    "unique_initials": 25,
+    "h1_unigram": 4.0231,
+    "h2_conditional": 3.4126,
+    "h_initial_actual": 4.0374,
+    "h_initial_shuffled": 3.9600,
+    "gap_initial_minus_h2": 0.6248,
+    "gap_shuffled_minus_actual": -0.0774
+  }
+}
