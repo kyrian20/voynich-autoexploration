@@ -218,7 +218,7 @@
 
 ## H020: f49v and f76r "Key-Like" Line-Marker System — Nature and Cross-Manuscript Scope
 **Priority:** medium
-**Status:** partially tested (exp_012, exp_013, exp_014)
+**Status:** SUBSTANTIALLY RESOLVED by accumulated experiments (exp_012-014, 022, 026, 030): (a) image-based hand comparison still required; (b) sequences don't correspond to adjacent body text (exp_013, <5% match vs 6% chance); (c) f75v/f76r confirmed as third/second line-marker folio pair (exp_026). f49v's L0 positions 2-6 are later-hand numerals (exp_030), not original markers — "key-like" applies to the structural pattern, not a cipher key. Sub-question (a) requires manuscript image access and is blocked.
 **Source:** exp_011_single_char_validation → exp_011_f66r_wordlist
 **Description:** Two text-only folios (f49v: Scribe 1/Currier A/herbal; f76r: Scribe 2/Currier B/biological) have a "key-like" single-character L0 marker before body text lines. ZL3b transcribers already named f76r's sequence "key-like." Both scribes independently use this structure. Three sub-questions: (a) Are the marker characters in the same hand as the body text? (b) Do the marker sequences (f49v: f,o,r,y,e,k,s,p,...; f76r: s,d,q,s,o,l) correspond to anything — a cipher key, a cross-reference system, an abbreviated alphabet? (c) Are there other "text only" folios with similar marker systems not yet detected? The f76r chars (s,d,q,s,o,l) vs f49v chars (f,o,r,y,e,k,s,p,...) show some overlap (s, o) but are not identical.
 **Expected outcome:** If the two sequences are related or decipherable, this is among the most structurally interesting finds in the project. If they're unrelated scribal quirks, they can be set aside.

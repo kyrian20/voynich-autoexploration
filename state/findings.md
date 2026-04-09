@@ -219,6 +219,12 @@
 **Finding:** The character sets of f57v's 17-token repeating cycle and f66r column 2 overlap significantly (Jaccard=0.667, p=0.003 vs hypergeometric null). Of 25 EVA single chars, f57v uses 14 and f66r col2 uses 11; the intersection is 10 — 3.84 chars above random expectation. Both sets converge on: {c, d, f, l, o, p, r, t, x, y}. The only char in f66r but not f57v is 's'; only in f57v are I, k, m, v. Additionally, the f→@169 adjacency appears in both: f57v pos 9-10 is f then @169;v; f66r col2 entries 8-9 are 'f' then '@169'. The character ORDER in f66r col2 does NOT correspond to f57v cycle positions (Spearman ρ ≈ -0.09), ruling out f66r as a simple linearization of f57v's cycle.
 **Limitation:** The shared char set heavily overlaps with H022's "non-compound-forming chars" category, so the overlap may partially reflect both lists independently avoiding compound-forming chars rather than a direct relationship. These two explanations are not mutually exclusive.
 
+## F041: qo-Prefix Does Not Bridge A/B Gap — qo-Stripped B Stems Are Mostly B-Exclusive
+**Experiment:** exp_035_ab_qo_normalization
+**Date:** 2026-04-09
+**Finding:** Stripping "qo" from Currier B vocabulary barely changes A/B divergence: Jaccard 0.152→0.153 (both normalized), Spearman ρ 0.348→0.387. Of top-15 B-exclusive qo-words, 11/15 stripped stems are NOT in A vocabulary (qokeedy→keedy, qotedy→tedy, etc. all B-exclusive). qo-stripped stems are B-specific vocabulary items, not A-vocabulary with a prefix. 397/3766 B-exclusive types are qo-words (10.5%). The A/B divergence is NOT explained by the qo morphological prefix — the vocabularies are fundamentally different independent of morphological conventions.
+**Limitation:** Analysis uses simple type overlap (Jaccard) and rank correlation; word2vec embedding alignment (as originally proposed in H004) could reveal deeper structural similarities.
+
 ## F040: qo-Prefix Is a Currier B/Bio-Section Dialectal Marker for k-Initial Vocabulary
 **Experiment:** exp_033_qo_complementary
 **Date:** 2026-04-09
