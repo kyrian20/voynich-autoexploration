@@ -772,3 +772,59 @@
 **Cost estimate:** small
 **Prerequisites:** exp_062 (done)
 
+
+---
+
+## H078: Bio Section Has Multiple Paragraphs Per Folio Because Pool Folios Have Multiple "Scenes"
+**Priority:** medium
+**Status:** open
+**Source:** F068 (exp_061): Bio multi-para folios are f83r (4 PS), f84v (4 PS), f75v (3 PS), f75r, f82r, f83v, f84r — mostly pool/bathing folios. Do multi-paragraph bio folios have more words/lines per paragraph (longer scenes) or more paragraphs (more scenes)?
+**Description:** In the bio section, some folios have 1 paragraph (single-scene bio illustrations) and some have 2-4 paragraphs (pool folios with multiple bathing scenes). Test: (a) Do multi-paragraph bio folios have the same word-per-paragraph count as single-paragraph bio folios, or longer paragraphs? (b) Are the paragraph texts in multi-para bio folios independent vocabulary (each scene described separately) or do they repeat the same words? (c) Does the text within each bio-folio paragraph use the same vocabulary as other bio paragraphs on the same folio?
+**Expected outcome:** If each paragraph = independent scene description: different vocabulary per paragraph on the same folio.
+**Cost estimate:** small
+**Prerequisites:** exp_061 (done)
+
+---
+
+## H079: The Aiin-Dominant Herbal A Register Has Higher Entropy Than y-Dominant (Less Predictable Words)
+**Priority:** medium
+**Status:** tested — SUPPORTED (opposite direction): y-dom has HIGHER h1=9.180 vs aiin-dom=8.488; aiin-dom concentrated around daiin (6.48%). Same bigram h2~1.57. F073 added.
+**Source:** F069 (exp_062): the two A registers have vocabulary Jaccard=0.138, suggesting different word inventories. The aiin-dominant register uses more diverse -aiin suffix words (chaiin, chey, chy) while y-dominant uses more y-initial compound words. Which register has higher vocabulary entropy?
+**Description:** If the aiin-dominant register uses a more diverse (higher-entropy) vocabulary than y-dominant, this suggests the aiin-dominant scribal tradition encoded more information per token. If lower entropy, it's more formulaic. Test: compute h1 (unigram entropy), h2 (bigram conditional entropy), and TTR for each register.
+**Expected outcome:** If aiin-dom is more formulaic (lower entropy): it uses a smaller set of words more repetitively. If higher entropy: it uses a more diverse vocabulary.
+**Cost estimate:** tiny
+**Prerequisites:** exp_062 (done)
+
+---
+
+## H080: The Currier B p-Onset Para-Start Words Have a Different Quire Distribution Than B Baseline (Are They Section-Specific?)
+**Priority:** medium
+**Status:** open
+**Source:** F070 (exp_063): pch/tch onset words are concentrated in Special (1.01%), Herbal (0.85-0.91%), Bio (0.47-0.58%) sections of B and absent from Astro. Are pch/tch words also concentrated in specific quires of the B manuscript?
+**Description:** If pch/tch words are uniformly distributed across all B quires, the para-start function is a manuscript-wide convention. If they cluster in specific quires (as the aiin-dominant A register clusters in Quires D/F), this suggests a B-side quire-level scribal variation. Test: compute pch/tch rates per B quire.
+**Expected outcome:** If uniform: manuscript-wide B convention. If clustered: quire-specific scribal convention (parallel to aiin-dominant A).
+**Cost estimate:** tiny
+**Prerequisites:** exp_063 (done)
+
+---
+
+## H081: Voynichese Has a "Word Length Grammar" — Word Length Distribution Differs Systematically by Line Position
+**Priority:** high
+**Status:** tested — STRONGLY SUPPORTED (exp_066: A para_start=6.55, B para_start=7.15; B gradient para>cont>medial>last; para-start words are longest, last words shortest. F073 added.)
+**Source:** Synthesis of F057-F071: line-initial words tend to be p-onset (long compound words like pchedar, tchedy) while medial words (ch/sh) and line-final words (o-onset) may have different length distributions. Does Voynichese use word LENGTH as an additional positional signal?
+**Description:** The positional grammar findings so far focus on onset class and suffix class. But word length itself may be a positional signal: if line-initial words are systematically longer than line-final words, this adds another dimension to the positional grammar. Test: compute mean word length (in EVA characters) for (a) para-start first words, (b) continuation first words, (c) line-medial words, (d) line-last words, separately for Currier A and B. Compare with the positional onset class results.
+**Expected outcome:** If length is a positional signal: para-start words are longer (p-onset compound words); line-final words are shorter (e.g., 'ol', 'or', 'al').
+**Cost estimate:** small
+**Prerequisites:** exp_057, exp_063, exp_064 (done)
+
+---
+
+## H082: The Bio Section Has a Two-Register System Analogous to Herbal A (Pool vs Non-Pool Folios)
+**Priority:** medium
+**Status:** open
+**Source:** F068 (exp_061): Bio multi-para folios are specifically pool/bathing folios. F069 (exp_062): two-register system in Herbal A. Does the Bio section also have two registers — pool folios (multi-paragraph, specialized vocabulary) vs non-pool folios (single-paragraph)?
+**Description:** Pool folios (f75v, f82r, f83r, f83v, f84r, f84v) vs non-pool bio folios (the rest). Test: (a) Do pool vs non-pool bio folios differ in vocabulary (Jaccard)? (b) Do they differ in suffix distributions? (c) Do pool folios have higher qo-rates or different positional grammar? The pool/non-pool distinction in bio may be as significant as the aiin/y-dominant distinction in herbal A.
+**Expected outcome:** Some vocabulary difference expected (pool scenes describe different content). Structural grammar differences would be more significant.
+**Cost estimate:** small
+**Prerequisites:** exp_061 (done)
+
