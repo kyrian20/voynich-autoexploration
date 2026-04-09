@@ -1,0 +1,1833 @@
+{
+  "total_words": 37676,
+  "total_at_glyph_occurrences": 114,
+  "at_glyph_fraction": 0.003025798917082493,
+  "glyph_frequency": {
+    "@192": 4,
+    "@130": 1,
+    "@163": 1,
+    "@135": 2,
+    "@152": 3,
+    "@137": 1,
+    "@138": 3,
+    "@154": 2,
+    "@140": 4,
+    "@241": 1,
+    "@242": 1,
+    "@243": 3,
+    "@244": 1,
+    "@203": 1,
+    "@145": 2,
+    "@146": 2,
+    "@147": 1,
+    "@149": 1,
+    "@150": 2,
+    "@151": 1,
+    "@153": 1,
+    "@156": 1,
+    "@190": 1,
+    "@201": 1,
+    "@136": 1,
+    "@159": 1,
+    "@161": 1,
+    "@164": 1,
+    "@165": 1,
+    "@166": 2,
+    "@193": 1,
+    "@194": 1,
+    "@167": 3,
+    "@168": 2,
+    "@169": 5,
+    "@170": 5,
+    "@171": 5,
+    "@172": 6,
+    "@210": 1,
+    "@195": 1,
+    "@231": 1,
+    "@232": 1,
+    "@233": 1,
+    "@234": 1,
+    "@240": 2,
+    "@197": 2,
+    "@211": 1,
+    "@212": 1,
+    "@174": 1,
+    "@175": 6,
+    "@176": 2,
+    "@206": 4,
+    "@177": 1,
+    "@208": 2,
+    "@185": 2,
+    "@180": 1,
+    "@183": 1,
+    "@184": 1,
+    "@199": 1,
+    "@186": 1,
+    "@187": 1,
+    "@188": 1,
+    "@189": 1
+  },
+  "folios_with_at_glyphs": 64,
+  "multi_folio_glyphs": {
+    "@192": [
+      "f1r",
+      "f49v",
+      "f72r3"
+    ],
+    "@152": [
+      "f11v",
+      "f36r",
+      "f82v"
+    ],
+    "@138": [
+      "f101v",
+      "f15v",
+      "f26r"
+    ],
+    "@154": [
+      "f17r",
+      "f40r"
+    ],
+    "@140": [
+      "f18v",
+      "f49v"
+    ],
+    "@243": [
+      "f19r",
+      "f20r",
+      "f49v"
+    ],
+    "@145": [
+      "f105r",
+      "f24r"
+    ],
+    "@146": [
+      "f24v",
+      "f84r"
+    ],
+    "@150": [
+      "f32r",
+      "f68v2"
+    ],
+    "@166": [
+      "f55r",
+      "f78v"
+    ],
+    "@167": [
+      "f56r",
+      "f68r1",
+      "f68r2"
+    ],
+    "@168": [
+      "f100r",
+      "f56r"
+    ],
+    "@169": [
+      "f57v",
+      "f66r"
+    ],
+    "@172": [
+      "f57v",
+      "f66r"
+    ],
+    "@197": [
+      "f70v2",
+      "f89r1"
+    ],
+    "@175": [
+      "f111r",
+      "f112v",
+      "f76v",
+      "f86v3"
+    ],
+    "@206": [
+      "f104v",
+      "f113v",
+      "f78r"
+    ],
+    "@208": [
+      "f104v",
+      "f83r"
+    ],
+    "@185": [
+      "f112r",
+      "f86v6"
+    ]
+  },
+  "single_folio_glyphs": {
+    "@130": "f1r",
+    "@163": "f4r",
+    "@135": "f10r",
+    "@137": "f14r",
+    "@241": "f19r",
+    "@242": "f19r",
+    "@244": "f20v",
+    "@203": "f22r",
+    "@147": "f25v",
+    "@149": "f31r",
+    "@151": "f36r",
+    "@153": "f38v",
+    "@156": "f42v",
+    "@190": "f44r",
+    "@201": "f45r",
+    "@136": "f46r",
+    "@159": "f47r",
+    "@161": "f47r",
+    "@164": "f49v",
+    "@165": "f54r",
+    "@193": "f55r",
+    "@194": "f55v",
+    "@170": "f57v",
+    "@171": "f57v",
+    "@210": "f58r",
+    "@195": "f66r",
+    "@231": "f68r2",
+    "@232": "f68r2",
+    "@233": "f68r2",
+    "@234": "f68r2",
+    "@240": "f69v",
+    "@211": "f72r2",
+    "@212": "f72r3",
+    "@174": "f76r",
+    "@176": "f78r",
+    "@177": "f78v",
+    "@180": "f87v",
+    "@183": "f101r",
+    "@184": "f101r",
+    "@199": "f105r",
+    "@186": "f113r",
+    "@187": "f113v",
+    "@188": "f114r",
+    "@189": "f114v"
+  },
+  "per_folio": {
+    "f1r": {
+      "hand": 1,
+      "total": 2,
+      "glyphs": {
+        "@192": 1,
+        "@130": 1
+      },
+      "records": [
+        {
+          "folio": "f1r",
+          "linenum": 19,
+          "locus": "+P0",
+          "hand": 1,
+          "glyph": "@192",
+          "glyph_id": 192,
+          "context": "cthaiin.okaiir.chey.@192;chy.@130;tol.cthols."
+        },
+        {
+          "folio": "f1r",
+          "linenum": 19,
+          "locus": "+P0",
+          "hand": 1,
+          "glyph": "@130",
+          "glyph_id": 130,
+          "context": "kaiir.chey.@192;chy.@130;tol.cthols.dloo"
+        }
+      ]
+    },
+    "f4r": {
+      "hand": 1,
+      "total": 1,
+      "glyphs": {
+        "@163": 1
+      },
+      "records": [
+        {
+          "folio": "f4r",
+          "linenum": 2,
+          "locus": "+P0",
+          "hand": 1,
+          "glyph": "@163",
+          "glyph_id": 163,
+          "context": "cthol.shtchy.chaiin.@163;schoraiin.chom"
+        }
+      ]
+    },
+    "f10r": {
+      "hand": 1,
+      "total": 2,
+      "glyphs": {
+        "@135": 2
+      },
+      "records": [
+        {
+          "folio": "f10r",
+          "linenum": 11,
+          "locus": "+P0",
+          "hand": 1,
+          "glyph": "@135",
+          "glyph_id": 135,
+          "context": "@135;otchoshor.qoty.qotor"
+        },
+        {
+          "folio": "f10r",
+          "linenum": 12,
+          "locus": "+P0",
+          "hand": 1,
+          "glyph": "@135",
+          "glyph_id": 135,
+          "context": "@135;odaiin.daiin.qotchy."
+        }
+      ]
+    },
+    "f11v": {
+      "hand": 1,
+      "total": 1,
+      "glyphs": {
+        "@152": 1
+      },
+      "records": [
+        {
+          "folio": "f11v",
+          "linenum": 3,
+          "locus": "+P0",
+          "hand": 1,
+          "glyph": "@152",
+          "glyph_id": 152,
+          "context": "otchor.dy.kchy.tchy.@152;ar.qokchdoky.choldy,"
+        }
+      ]
+    },
+    "f14r": {
+      "hand": 1,
+      "total": 1,
+      "glyphs": {
+        "@137": 1
+      },
+      "records": [
+        {
+          "folio": "f14r",
+          "linenum": 8,
+          "locus": "+P0",
+          "hand": 1,
+          "glyph": "@137",
+          "glyph_id": 137,
+          "context": "soshy.@137;chol.shor.cheos.ykai"
+        }
+      ]
+    },
+    "f15v": {
+      "hand": 1,
+      "total": 1,
+      "glyphs": {
+        "@138": 1
+      },
+      "records": [
+        {
+          "folio": "f15v",
+          "linenum": 2,
+          "locus": "+P0",
+          "hand": 1,
+          "glyph": "@138",
+          "glyph_id": 138,
+          "context": "@138;chor.or.oro.r,aiin.c"
+        }
+      ]
+    },
+    "f17r": {
+      "hand": 1,
+      "total": 1,
+      "glyphs": {
+        "@154": 1
+      },
+      "records": [
+        {
+          "folio": "f17r",
+          "linenum": 4,
+          "locus": "+P0",
+          "hand": 1,
+          "glyph": "@154",
+          "glyph_id": 154,
+          "context": "tcho@154;.shol.qokol.qor.olai"
+        }
+      ]
+    },
+    "f18v": {
+      "hand": 1,
+      "total": 1,
+      "glyphs": {
+        "@140": 1
+      },
+      "records": [
+        {
+          "folio": "f18v",
+          "linenum": 2,
+          "locus": "+P0",
+          "hand": 1,
+          "glyph": "@140",
+          "glyph_id": 140,
+          "context": "qoeees.or.oaiin.shy@140;.okshy.qokchy.qokchy"
+        }
+      ]
+    },
+    "f19r": {
+      "hand": 1,
+      "total": 3,
+      "glyphs": {
+        "@241": 1,
+        "@242": 1,
+        "@243": 1
+      },
+      "records": [
+        {
+          "folio": "f19r",
+          "linenum": 2,
+          "locus": "+P0",
+          "hand": 1,
+          "glyph": "@241",
+          "glyph_id": 241,
+          "context": "y.chordy.daiin.dyty.@241;.cho@242;"
+        },
+        {
+          "folio": "f19r",
+          "linenum": 2,
+          "locus": "+P0",
+          "hand": 1,
+          "glyph": "@242",
+          "glyph_id": 242,
+          "context": "daiin.dyty.@241;.cho@242;"
+        },
+        {
+          "folio": "f19r",
+          "linenum": 5,
+          "locus": "+P0",
+          "hand": 1,
+          "glyph": "@243",
+          "glyph_id": 243,
+          "context": "chy.tchy.qoky.daiin.@243;"
+        }
+      ]
+    },
+    "f20r": {
+      "hand": 1,
+      "total": 1,
+      "glyphs": {
+        "@243": 1
+      },
+      "records": [
+        {
+          "folio": "f20r",
+          "linenum": 5,
+          "locus": "+P0",
+          "hand": 1,
+          "glyph": "@243",
+          "glyph_id": 243,
+          "context": "eeb.opchey.shosaiin.@243;"
+        }
+      ]
+    },
+    "f20v": {
+      "hand": 1,
+      "total": 1,
+      "glyphs": {
+        "@244": 1
+      },
+      "records": [
+        {
+          "folio": "f20v",
+          "linenum": 9,
+          "locus": "+P0",
+          "hand": 1,
+          "glyph": "@244",
+          "glyph_id": 244,
+          "context": "cthy.chol.shd.qoty.d@244;"
+        }
+      ]
+    },
+    "f22r": {
+      "hand": 1,
+      "total": 1,
+      "glyphs": {
+        "@203": 1
+      },
+      "records": [
+        {
+          "folio": "f22r",
+          "linenum": 8,
+          "locus": "+P0",
+          "hand": 1,
+          "glyph": "@203",
+          "glyph_id": 203,
+          "context": "y.chotaiin.chocthydo@203;iin.dchor"
+        }
+      ]
+    },
+    "f24r": {
+      "hand": 1,
+      "total": 1,
+      "glyphs": {
+        "@145": 1
+      },
+      "records": [
+        {
+          "folio": "f24r",
+          "linenum": 7,
+          "locus": "+P0",
+          "hand": 1,
+          "glyph": "@145",
+          "glyph_id": 145,
+          "context": "q@145;kar.chtar.s.cheor.ct"
+        }
+      ]
+    },
+    "f24v": {
+      "hand": 1,
+      "total": 1,
+      "glyphs": {
+        "@146": 1
+      },
+      "records": [
+        {
+          "folio": "f24v",
+          "linenum": 1,
+          "locus": "@P0",
+          "hand": 1,
+          "glyph": "@146",
+          "glyph_id": 146,
+          "context": "ody.ocphoraiin.o,k,o@146;am"
+        }
+      ]
+    },
+    "f25v": {
+      "hand": 1,
+      "total": 1,
+      "glyphs": {
+        "@147": 1
+      },
+      "records": [
+        {
+          "folio": "f25v",
+          "linenum": 6,
+          "locus": "+P0",
+          "hand": 1,
+          "glyph": "@147",
+          "glyph_id": 147,
+          "context": "y.qotchy.qotoralcho.@147;.chain.deeaiir.s"
+        }
+      ]
+    },
+    "f26r": {
+      "hand": 2,
+      "total": 1,
+      "glyphs": {
+        "@138": 1
+      },
+      "records": [
+        {
+          "folio": "f26r",
+          "linenum": 2,
+          "locus": "+P0",
+          "hand": 2,
+          "glyph": "@138",
+          "glyph_id": 138,
+          "context": "dchey.@138;aiin.adeeodyykecthey"
+        }
+      ]
+    },
+    "f31r": {
+      "hand": 2,
+      "total": 1,
+      "glyphs": {
+        "@149": 1
+      },
+      "records": [
+        {
+          "folio": "f31r",
+          "linenum": 1,
+          "locus": "@P0",
+          "hand": 2,
+          "glyph": "@149",
+          "glyph_id": 149,
+          "context": "dy.shee,s.aiin.qokee@149;.chepakeo"
+        }
+      ]
+    },
+    "f32r": {
+      "hand": 1,
+      "total": 1,
+      "glyphs": {
+        "@150": 1
+      },
+      "records": [
+        {
+          "folio": "f32r",
+          "linenum": 12,
+          "locus": "+P0",
+          "hand": 1,
+          "glyph": "@150",
+          "glyph_id": 150,
+          "context": "shodaiin.@150;tol"
+        }
+      ]
+    },
+    "f36r": {
+      "hand": 1,
+      "total": 2,
+      "glyphs": {
+        "@151": 1,
+        "@152": 1
+      },
+      "records": [
+        {
+          "folio": "f36r",
+          "linenum": 1,
+          "locus": "@P0",
+          "hand": 1,
+          "glyph": "@151",
+          "glyph_id": 151,
+          "context": "pcha@151;dan.qorain.chcfhal.s"
+        },
+        {
+          "folio": "f36r",
+          "linenum": 3,
+          "locus": "+P0",
+          "hand": 1,
+          "glyph": "@152",
+          "glyph_id": 152,
+          "context": "qotchy.tchy.daiin.@152;aiin.dolsain"
+        }
+      ]
+    },
+    "f38v": {
+      "hand": 1,
+      "total": 1,
+      "glyphs": {
+        "@153": 1
+      },
+      "records": [
+        {
+          "folio": "f38v",
+          "linenum": 7,
+          "locus": "+P0",
+          "hand": 1,
+          "glyph": "@153",
+          "glyph_id": 153,
+          "context": "daiin.qol.chy.dain.@153;.or.daiindain.daldy"
+        }
+      ]
+    },
+    "f40r": {
+      "hand": 2,
+      "total": 1,
+      "glyphs": {
+        "@154": 1
+      },
+      "records": [
+        {
+          "folio": "f40r",
+          "linenum": 10,
+          "locus": "+P0",
+          "hand": 2,
+          "glyph": "@154",
+          "glyph_id": 154,
+          "context": "olcheey.chdyychey.ka@154;ar.oky.ykedy.okair.o"
+        }
+      ]
+    },
+    "f42v": {
+      "hand": 1,
+      "total": 1,
+      "glyphs": {
+        "@156": 1
+      },
+      "records": [
+        {
+          "folio": "f42v",
+          "linenum": 1,
+          "locus": "@P0",
+          "hand": 1,
+          "glyph": "@156",
+          "glyph_id": 156,
+          "context": "@156;cho..sheey.qocho.tai"
+        }
+      ]
+    },
+    "f44r": {
+      "hand": 1,
+      "total": 1,
+      "glyphs": {
+        "@190": 1
+      },
+      "records": [
+        {
+          "folio": "f44r",
+          "linenum": 6,
+          "locus": "+P0",
+          "hand": 1,
+          "glyph": "@190",
+          "glyph_id": 190,
+          "context": "dshor.y,tchol.shy.o.@190;cheekchy.qotchy.otch"
+        }
+      ]
+    },
+    "f45r": {
+      "hand": 1,
+      "total": 1,
+      "glyphs": {
+        "@201": 1
+      },
+      "records": [
+        {
+          "folio": "f45r",
+          "linenum": 9,
+          "locus": "+P0",
+          "hand": 1,
+          "glyph": "@201",
+          "glyph_id": 201,
+          "context": "@201;or.or.chain.dain.yko"
+        }
+      ]
+    },
+    "f46r": {
+      "hand": 2,
+      "total": 1,
+      "glyphs": {
+        "@136": 1
+      },
+      "records": [
+        {
+          "folio": "f46r",
+          "linenum": 11,
+          "locus": "+P0",
+          "hand": 2,
+          "glyph": "@136",
+          "glyph_id": 136,
+          "context": "y.shear.opdarshdy.s.@136;yfchedy"
+        }
+      ]
+    },
+    "f47r": {
+      "hand": 1,
+      "total": 2,
+      "glyphs": {
+        "@159": 1,
+        "@161": 1
+      },
+      "records": [
+        {
+          "folio": "f47r",
+          "linenum": 1,
+          "locus": "@P0",
+          "hand": 1,
+          "glyph": "@159",
+          "glyph_id": 159,
+          "context": "@159;chair.oly.sheaiin.sh"
+        },
+        {
+          "folio": "f47r",
+          "linenum": 8,
+          "locus": "+P0",
+          "hand": 1,
+          "glyph": "@161",
+          "glyph_id": 161,
+          "context": "hod.choy.sho.chtchy.@161;char.ctham"
+        }
+      ]
+    },
+    "f49v": {
+      "hand": 1,
+      "total": 7,
+      "glyphs": {
+        "@140": 3,
+        "@192": 2,
+        "@164": 1,
+        "@243": 1
+      },
+      "records": [
+        {
+          "folio": "f49v",
+          "linenum": 11,
+          "locus": "*L0",
+          "hand": 1,
+          "glyph": "@140",
+          "glyph_id": 140,
+          "context": "@140;"
+        },
+        {
+          "folio": "f49v",
+          "linenum": 21,
+          "locus": "*L0",
+          "hand": 1,
+          "glyph": "@192",
+          "glyph_id": 192,
+          "context": "@192;"
+        },
+        {
+          "folio": "f49v",
+          "linenum": 27,
+          "locus": "*L0",
+          "hand": 1,
+          "glyph": "@140",
+          "glyph_id": 140,
+          "context": "@140;"
+        },
+        {
+          "folio": "f49v",
+          "linenum": 29,
+          "locus": "*L0",
+          "hand": 1,
+          "glyph": "@164",
+          "glyph_id": 164,
+          "context": "@164;"
+        },
+        {
+          "folio": "f49v",
+          "linenum": 35,
+          "locus": "*L0",
+          "hand": 1,
+          "glyph": "@192",
+          "glyph_id": 192,
+          "context": "@192;"
+        },
+        {
+          "folio": "f49v",
+          "linenum": 41,
+          "locus": "*L0",
+          "hand": 1,
+          "glyph": "@140",
+          "glyph_id": 140,
+          "context": "@140;"
+        },
+        {
+          "folio": "f49v",
+          "linenum": 46,
+          "locus": "=P0",
+          "hand": 1,
+          "glyph": "@243",
+          "glyph_id": 243,
+          "context": "oaiin.cheky.@243;.cho.rchseesy.kchor."
+        }
+      ]
+    },
+    "f54r": {
+      "hand": 1,
+      "total": 1,
+      "glyphs": {
+        "@165": 1
+      },
+      "records": [
+        {
+          "folio": "f54r",
+          "linenum": 11,
+          "locus": "+P0",
+          "hand": 1,
+          "glyph": "@165",
+          "glyph_id": 165,
+          "context": "or.ol.ckhol.chor.cho@165;.damor.sho.chol.dom"
+        }
+      ]
+    },
+    "f55r": {
+      "hand": 2,
+      "total": 2,
+      "glyphs": {
+        "@166": 1,
+        "@193": 1
+      },
+      "records": [
+        {
+          "folio": "f55r",
+          "linenum": 6,
+          "locus": "+P0",
+          "hand": 2,
+          "glyph": "@166",
+          "glyph_id": 166,
+          "context": "tcho,daiin.sho.ke@166;y.kedy.okol.chdy"
+        },
+        {
+          "folio": "f55r",
+          "linenum": 10,
+          "locus": "+P0",
+          "hand": 2,
+          "glyph": "@193",
+          "glyph_id": 193,
+          "context": "air.okal.qokar.or.or@193;.o.ar.odaiin.okeey.d"
+        }
+      ]
+    },
+    "f55v": {
+      "hand": 2,
+      "total": 1,
+      "glyphs": {
+        "@194": 1
+      },
+      "records": [
+        {
+          "folio": "f55v",
+          "linenum": 8,
+          "locus": "+P0",
+          "hand": 2,
+          "glyph": "@194",
+          "glyph_id": 194,
+          "context": "iin.okar.qolotar,cho@194;ar.talody.okar,y"
+        }
+      ]
+    },
+    "f56r": {
+      "hand": 1,
+      "total": 2,
+      "glyphs": {
+        "@167": 1,
+        "@168": 1
+      },
+      "records": [
+        {
+          "folio": "f56r",
+          "linenum": 1,
+          "locus": "@P0",
+          "hand": 1,
+          "glyph": "@167",
+          "glyph_id": 167,
+          "context": "o@167;chal.chchs@168;y.oty"
+        },
+        {
+          "folio": "f56r",
+          "linenum": 1,
+          "locus": "@P0",
+          "hand": 1,
+          "glyph": "@168",
+          "glyph_id": 168,
+          "context": "o@167;chal.chchs@168;y.oty.esedy.chy.ycho"
+        }
+      ]
+    },
+    "f57v": {
+      "hand": 1,
+      "total": 19,
+      "glyphs": {
+        "@169": 4,
+        "@170": 5,
+        "@171": 5,
+        "@172": 5
+      },
+      "records": [
+        {
+          "folio": "f57v",
+          "linenum": 3,
+          "locus": "+Cc",
+          "hand": 1,
+          "glyph": "@169",
+          "glyph_id": 169,
+          "context": "o.l.d.r.v.x.k.m.f.@169;v.t.r.@170;.@171;.y."
+        },
+        {
+          "folio": "f57v",
+          "linenum": 3,
+          "locus": "+Cc",
+          "hand": 1,
+          "glyph": "@170",
+          "glyph_id": 170,
+          "context": ".x.k.m.f.@169;v.t.r.@170;.@171;.y.I.@172;.o.l"
+        },
+        {
+          "folio": "f57v",
+          "linenum": 3,
+          "locus": "+Cc",
+          "hand": 1,
+          "glyph": "@171",
+          "glyph_id": 171,
+          "context": ".f.@169;v.t.r.@170;.@171;.y.I.@172;.o.l.d.r.v"
+        },
+        {
+          "folio": "f57v",
+          "linenum": 3,
+          "locus": "+Cc",
+          "hand": 1,
+          "glyph": "@172",
+          "glyph_id": 172,
+          "context": "t.r.@170;.@171;.y.I.@172;.o.l.d.r.v.x.k.m.f.@"
+        },
+        {
+          "folio": "f57v",
+          "linenum": 3,
+          "locus": "+Cc",
+          "hand": 1,
+          "glyph": "@169",
+          "glyph_id": 169,
+          "context": ";.o.l.d.r.v.x.k.m.f.@169;v.t.r.@170;.@171;.y."
+        },
+        {
+          "folio": "f57v",
+          "linenum": 3,
+          "locus": "+Cc",
+          "hand": 1,
+          "glyph": "@170",
+          "glyph_id": 170,
+          "context": ".x.k.m.f.@169;v.t.r.@170;.@171;.y.c.@172;.o.l"
+        },
+        {
+          "folio": "f57v",
+          "linenum": 3,
+          "locus": "+Cc",
+          "hand": 1,
+          "glyph": "@171",
+          "glyph_id": 171,
+          "context": ".f.@169;v.t.r.@170;.@171;.y.c.@172;.o.l.d.r.v"
+        },
+        {
+          "folio": "f57v",
+          "linenum": 3,
+          "locus": "+Cc",
+          "hand": 1,
+          "glyph": "@172",
+          "glyph_id": 172,
+          "context": "t.r.@170;.@171;.y.c.@172;.o.l.d.r.v.x.k.m.p.@"
+        },
+        {
+          "folio": "f57v",
+          "linenum": 3,
+          "locus": "+Cc",
+          "hand": 1,
+          "glyph": "@169",
+          "glyph_id": 169,
+          "context": ";.o.l.d.r.v.x.k.m.p.@169;v.t.r.@170;.@171;.y."
+        },
+        {
+          "folio": "f57v",
+          "linenum": 3,
+          "locus": "+Cc",
+          "hand": 1,
+          "glyph": "@170",
+          "glyph_id": 170,
+          "context": ".x.k.m.p.@169;v.t.r.@170;.@171;.y.c.@172;.o.l"
+        },
+        {
+          "folio": "f57v",
+          "linenum": 3,
+          "locus": "+Cc",
+          "hand": 1,
+          "glyph": "@171",
+          "glyph_id": 171,
+          "context": ".p.@169;v.t.r.@170;.@171;.y.c.@172;.o.l.d.r.v"
+        },
+        {
+          "folio": "f57v",
+          "linenum": 3,
+          "locus": "+Cc",
+          "hand": 1,
+          "glyph": "@172",
+          "glyph_id": 172,
+          "context": "t.r.@170;.@171;.y.c.@172;.o.l.d.r.v.x.k.m.p.@"
+        },
+        {
+          "folio": "f57v",
+          "linenum": 3,
+          "locus": "+Cc",
+          "hand": 1,
+          "glyph": "@169",
+          "glyph_id": 169,
+          "context": ";.o.l.d.r.v.x.k.m.p.@169;v.t.r.@170;.@171;.y."
+        },
+        {
+          "folio": "f57v",
+          "linenum": 3,
+          "locus": "+Cc",
+          "hand": 1,
+          "glyph": "@170",
+          "glyph_id": 170,
+          "context": ".x.k.m.p.@169;v.t.r.@170;.@171;.y.c.@172;"
+        },
+        {
+          "folio": "f57v",
+          "linenum": 3,
+          "locus": "+Cc",
+          "hand": 1,
+          "glyph": "@171",
+          "glyph_id": 171,
+          "context": ".p.@169;v.t.r.@170;.@171;.y.c.@172;"
+        },
+        {
+          "folio": "f57v",
+          "linenum": 3,
+          "locus": "+Cc",
+          "hand": 1,
+          "glyph": "@172",
+          "glyph_id": 172,
+          "context": "t.r.@170;.@171;.y.c.@172;"
+        },
+        {
+          "folio": "f57v",
+          "linenum": 4,
+          "locus": "+Cc",
+          "hand": 1,
+          "glyph": "@172",
+          "glyph_id": 172,
+          "context": "vo.tchor..kedar.dal.@172;.daiin.aiin.otal.dar"
+        },
+        {
+          "folio": "f57v",
+          "linenum": 5,
+          "locus": "+Cc",
+          "hand": 1,
+          "glyph": "@170",
+          "glyph_id": 170,
+          "context": "o.v.l.r.m.aiin.d.@170;.c.f.s.y.l.k.x.l.r.@"
+        },
+        {
+          "folio": "f57v",
+          "linenum": 5,
+          "locus": "+Cc",
+          "hand": 1,
+          "glyph": "@171",
+          "glyph_id": 171,
+          "context": ";.c.f.s.y.l.k.x.l.r.@171;,ar.o.r.a.t.l.s.d.y."
+        }
+      ]
+    },
+    "f58r": {
+      "hand": 3,
+      "total": 1,
+      "glyphs": {
+        "@210": 1
+      },
+      "records": [
+        {
+          "folio": "f58r",
+          "linenum": 4,
+          "locus": "+P0",
+          "hand": 3,
+          "glyph": "@210",
+          "glyph_id": 210,
+          "context": "hy.oteom.dal.sholala@210;"
+        }
+      ]
+    },
+    "f66r": {
+      "hand": 5,
+      "total": 3,
+      "glyphs": {
+        "@169": 1,
+        "@172": 1,
+        "@195": 1
+      },
+      "records": [
+        {
+          "folio": "f66r",
+          "linenum": 24,
+          "locus": "+L0",
+          "hand": 5,
+          "glyph": "@169",
+          "glyph_id": 169,
+          "context": "@169;"
+        },
+        {
+          "folio": "f66r",
+          "linenum": 38,
+          "locus": "+L0",
+          "hand": 5,
+          "glyph": "@172",
+          "glyph_id": 172,
+          "context": "@172;"
+        },
+        {
+          "folio": "f66r",
+          "linenum": 42,
+          "locus": "+L0",
+          "hand": 5,
+          "glyph": "@195",
+          "glyph_id": 195,
+          "context": "@195;"
+        }
+      ]
+    },
+    "f68r1": {
+      "hand": 4,
+      "total": 1,
+      "glyphs": {
+        "@167": 1
+      },
+      "records": [
+        {
+          "folio": "f68r1",
+          "linenum": 30,
+          "locus": "@Ls",
+          "hand": 4,
+          "glyph": "@167",
+          "glyph_id": 167,
+          "context": "@167;oeeody"
+        }
+      ]
+    },
+    "f68r2": {
+      "hand": 4,
+      "total": 5,
+      "glyphs": {
+        "@167": 1,
+        "@231": 1,
+        "@232": 1,
+        "@233": 1,
+        "@234": 1
+      },
+      "records": [
+        {
+          "folio": "f68r2",
+          "linenum": 7,
+          "locus": "@Ls",
+          "hand": 4,
+          "glyph": "@167",
+          "glyph_id": 167,
+          "context": "o@167;olchy"
+        },
+        {
+          "folio": "f68r2",
+          "linenum": 31,
+          "locus": "@Cc",
+          "hand": 4,
+          "glyph": "@231",
+          "glyph_id": 231,
+          "context": ".okey.okeeol.cheo.o.@231;@232;@233;@234;"
+        },
+        {
+          "folio": "f68r2",
+          "linenum": 31,
+          "locus": "@Cc",
+          "hand": 4,
+          "glyph": "@232",
+          "glyph_id": 232,
+          "context": ".okeeol.cheo.o.@231;@232;@233;@234;"
+        },
+        {
+          "folio": "f68r2",
+          "linenum": 31,
+          "locus": "@Cc",
+          "hand": 4,
+          "glyph": "@233",
+          "glyph_id": 233,
+          "context": "ol.cheo.o.@231;@232;@233;@234;"
+        },
+        {
+          "folio": "f68r2",
+          "linenum": 31,
+          "locus": "@Cc",
+          "hand": 4,
+          "glyph": "@234",
+          "glyph_id": 234,
+          "context": "eo.o.@231;@232;@233;@234;"
+        }
+      ]
+    },
+    "f68v2": {
+      "hand": 4,
+      "total": 1,
+      "glyphs": {
+        "@150": 1
+      },
+      "records": [
+        {
+          "folio": "f68v2",
+          "linenum": 6,
+          "locus": "@Cc",
+          "hand": 4,
+          "glyph": "@150",
+          "glyph_id": 150,
+          "context": "ody.chetedy.chedady.@150;eectheey.otychdy.ote"
+        }
+      ]
+    },
+    "f69v": {
+      "hand": 4,
+      "total": 2,
+      "glyphs": {
+        "@240": 2
+      },
+      "records": [
+        {
+          "folio": "f69v",
+          "linenum": 3,
+          "locus": "@Cc",
+          "hand": 4,
+          "glyph": "@240",
+          "glyph_id": 240,
+          "context": "doair.otaldal.dair.@240;.chdy.otoar.ar,@240;"
+        },
+        {
+          "folio": "f69v",
+          "linenum": 3,
+          "locus": "@Cc",
+          "hand": 4,
+          "glyph": "@240",
+          "glyph_id": 240,
+          "context": "@240;.chdy.otoar.ar,@240;,chy.qoteor.cho.qota"
+        }
+      ]
+    },
+    "f70v2": {
+      "hand": 4,
+      "total": 1,
+      "glyphs": {
+        "@197": 1
+      },
+      "records": [
+        {
+          "folio": "f70v2",
+          "linenum": 21,
+          "locus": "@Cc",
+          "hand": 4,
+          "glyph": "@197",
+          "glyph_id": 197,
+          "context": "daii@197;amdy.otar.am.aral.ot"
+        }
+      ]
+    },
+    "f72r2": {
+      "hand": 4,
+      "total": 1,
+      "glyphs": {
+        "@211": 1
+      },
+      "records": [
+        {
+          "folio": "f72r2",
+          "linenum": 32,
+          "locus": "@Cc",
+          "hand": 4,
+          "glyph": "@211",
+          "glyph_id": 211,
+          "context": "tchey.okaiin.olaiin.@211;y"
+        }
+      ]
+    },
+    "f72r3": {
+      "hand": 4,
+      "total": 2,
+      "glyphs": {
+        "@192": 1,
+        "@212": 1
+      },
+      "records": [
+        {
+          "folio": "f72r3",
+          "linenum": 6,
+          "locus": "&Lz",
+          "hand": 4,
+          "glyph": "@192",
+          "glyph_id": 192,
+          "context": "oto@192;aiin"
+        },
+        {
+          "folio": "f72r3",
+          "linenum": 26,
+          "locus": "@Cc",
+          "hand": 4,
+          "glyph": "@212",
+          "glyph_id": 212,
+          "context": "oteey.arary.eeer,che@212;shees.opcholalaiin.o"
+        }
+      ]
+    },
+    "f76r": {
+      "hand": 2,
+      "total": 1,
+      "glyphs": {
+        "@174": 1
+      },
+      "records": [
+        {
+          "folio": "f76r",
+          "linenum": 50,
+          "locus": "+P0",
+          "hand": 2,
+          "glyph": "@174",
+          "glyph_id": 174,
+          "context": "pchedy.@174;.sal.dol.shdy.olkedy"
+        }
+      ]
+    },
+    "f76v": {
+      "hand": 2,
+      "total": 1,
+      "glyphs": {
+        "@175": 1
+      },
+      "records": [
+        {
+          "folio": "f76v",
+          "linenum": 20,
+          "locus": "+P0",
+          "hand": 2,
+          "glyph": "@175",
+          "glyph_id": 175,
+          "context": "dy.qokeedy.shl.loiii@175;"
+        }
+      ]
+    },
+    "f78r": {
+      "hand": 2,
+      "total": 3,
+      "glyphs": {
+        "@176": 2,
+        "@206": 1
+      },
+      "records": [
+        {
+          "folio": "f78r",
+          "linenum": 7,
+          "locus": "+P0",
+          "hand": 2,
+          "glyph": "@176",
+          "glyph_id": 176,
+          "context": "dal.qokedy.qokedy.s,@176;am"
+        },
+        {
+          "folio": "f78r",
+          "linenum": 28,
+          "locus": "+P0",
+          "hand": 2,
+          "glyph": "@176",
+          "glyph_id": 176,
+          "context": "@176;orain.ol.qokeedy.kch"
+        },
+        {
+          "folio": "f78r",
+          "linenum": 40,
+          "locus": "+P0",
+          "hand": 2,
+          "glyph": "@206",
+          "glyph_id": 206,
+          "context": "qol.shedy.qokaiin.d,@206;ol"
+        }
+      ]
+    },
+    "f78v": {
+      "hand": 2,
+      "total": 2,
+      "glyphs": {
+        "@177": 1,
+        "@166": 1
+      },
+      "records": [
+        {
+          "folio": "f78v",
+          "linenum": 1,
+          "locus": "@P0",
+          "hand": 2,
+          "glyph": "@177",
+          "glyph_id": 177,
+          "context": "@177;ykedy.olfchedy.qoked"
+        },
+        {
+          "folio": "f78v",
+          "linenum": 10,
+          "locus": "+P0",
+          "hand": 2,
+          "glyph": "@166",
+          "glyph_id": 166,
+          "context": "or,shedy.pchedy.qoke@166;dy.okedy.opchedy"
+        }
+      ]
+    },
+    "f82v": {
+      "hand": 2,
+      "total": 1,
+      "glyphs": {
+        "@152": 1
+      },
+      "records": [
+        {
+          "folio": "f82v",
+          "linenum": 24,
+          "locus": "+P0",
+          "hand": 2,
+          "glyph": "@152",
+          "glyph_id": 152,
+          "context": "hedy.qotal.dytar,y,l@152;l"
+        }
+      ]
+    },
+    "f83r": {
+      "hand": 2,
+      "total": 1,
+      "glyphs": {
+        "@208": 1
+      },
+      "records": [
+        {
+          "folio": "f83r",
+          "linenum": 30,
+          "locus": "+P1",
+          "hand": 2,
+          "glyph": "@208",
+          "glyph_id": 208,
+          "context": "dy.qokeedy.qoky.saii@208;"
+        }
+      ]
+    },
+    "f84r": {
+      "hand": 2,
+      "total": 1,
+      "glyphs": {
+        "@146": 1
+      },
+      "records": [
+        {
+          "folio": "f84r",
+          "linenum": 27,
+          "locus": "+P0",
+          "hand": 2,
+          "glyph": "@146",
+          "glyph_id": 146,
+          "context": "palchd.@146;chedy.shcthy.olky.da"
+        }
+      ]
+    },
+    "f86v6": {
+      "hand": 2,
+      "total": 1,
+      "glyphs": {
+        "@185": 1
+      },
+      "records": [
+        {
+          "folio": "f86v6",
+          "linenum": 10,
+          "locus": "+P0",
+          "hand": 2,
+          "glyph": "@185",
+          "glyph_id": 185,
+          "context": "aiin.olkaiin.qodar.o@185;y"
+        }
+      ]
+    },
+    "f86v3": {
+      "hand": 2,
+      "total": 2,
+      "glyphs": {
+        "@175": 2
+      },
+      "records": [
+        {
+          "folio": "f86v3",
+          "linenum": 30,
+          "locus": "+Pb",
+          "hand": 2,
+          "glyph": "@175",
+          "glyph_id": 175,
+          "context": "cheey.daiin.cheokaii@175;"
+        },
+        {
+          "folio": "f86v3",
+          "linenum": 35,
+          "locus": "+Pb",
+          "hand": 2,
+          "glyph": "@175",
+          "glyph_id": 175,
+          "context": "oty.otchedy.daiiraii@175;"
+        }
+      ]
+    },
+    "f87v": {
+      "hand": 1,
+      "total": 1,
+      "glyphs": {
+        "@180": 1
+      },
+      "records": [
+        {
+          "folio": "f87v",
+          "linenum": 1,
+          "locus": "@P0",
+          "hand": 1,
+          "glyph": "@180",
+          "glyph_id": 180,
+          "context": "@180;cheey.daiin.cpheodar"
+        }
+      ]
+    },
+    "f89r1": {
+      "hand": 1,
+      "total": 1,
+      "glyphs": {
+        "@197": 1
+      },
+      "records": [
+        {
+          "folio": "f89r1",
+          "linenum": 20,
+          "locus": "+P0",
+          "hand": 1,
+          "glyph": "@197",
+          "glyph_id": 197,
+          "context": "dain.dal.chom.chtaii@197;"
+        }
+      ]
+    },
+    "f100r": {
+      "hand": 1,
+      "total": 1,
+      "glyphs": {
+        "@168": 1
+      },
+      "records": [
+        {
+          "folio": "f100r",
+          "linenum": 12,
+          "locus": "@P0",
+          "hand": 1,
+          "glyph": "@168",
+          "glyph_id": 168,
+          "context": "cpheeckhy.shodol.da,@168;oto.cho?os.sheey.cho"
+        }
+      ]
+    },
+    "f101r": {
+      "hand": 1,
+      "total": 2,
+      "glyphs": {
+        "@183": 1,
+        "@184": 1
+      },
+      "records": [
+        {
+          "folio": "f101r",
+          "linenum": 3,
+          "locus": "+P0",
+          "hand": 1,
+          "glyph": "@183",
+          "glyph_id": 183,
+          "context": "@183;oleol.okeor.r.sheol."
+        },
+        {
+          "folio": "f101r",
+          "linenum": 7,
+          "locus": "+P0",
+          "hand": 1,
+          "glyph": "@184",
+          "glyph_id": 184,
+          "context": "iin.otaiin.yfolaiin.@184;cheolain.ypchey.ody."
+        }
+      ]
+    },
+    "f101v": {
+      "hand": 1,
+      "total": 1,
+      "glyphs": {
+        "@138": 1
+      },
+      "records": [
+        {
+          "folio": "f101v",
+          "linenum": 23,
+          "locus": "+P0",
+          "hand": 1,
+          "glyph": "@138",
+          "glyph_id": 138,
+          "context": "oraiin.oldaiin.keeol@138;,rch.qokeeeor.s,ydy."
+        }
+      ]
+    },
+    "f104v": {
+      "hand": 3,
+      "total": 3,
+      "glyphs": {
+        "@208": 1,
+        "@206": 2
+      },
+      "records": [
+        {
+          "folio": "f104v",
+          "linenum": 23,
+          "locus": "+P0",
+          "hand": 3,
+          "glyph": "@208",
+          "glyph_id": 208,
+          "context": "dy.dairar.otar.qotai@208;.?l"
+        },
+        {
+          "folio": "f104v",
+          "linenum": 39,
+          "locus": "+P0",
+          "hand": 3,
+          "glyph": "@206",
+          "glyph_id": 206,
+          "context": "yshey.@206;ar.a,kain.char.lkeey"
+        },
+        {
+          "folio": "f104v",
+          "linenum": 39,
+          "locus": "+P0",
+          "hand": 3,
+          "glyph": "@206",
+          "glyph_id": 206,
+          "context": "y.kar.ar.lkchs.ar,y,@206;,ais.alod"
+        }
+      ]
+    },
+    "f105r": {
+      "hand": 3,
+      "total": 2,
+      "glyphs": {
+        "@199": 1,
+        "@145": 1
+      },
+      "records": [
+        {
+          "folio": "f105r",
+          "linenum": 1,
+          "locus": "@P0",
+          "hand": 3,
+          "glyph": "@199",
+          "glyph_id": 199,
+          "context": "@199;aiin,dar.chcphy.qoke"
+        },
+        {
+          "folio": "f105r",
+          "linenum": 17,
+          "locus": "+P0",
+          "hand": 3,
+          "glyph": "@145",
+          "glyph_id": 145,
+          "context": "kchedy.daiin.okedy.q@145;ky"
+        }
+      ]
+    },
+    "f111r": {
+      "hand": 3,
+      "total": 2,
+      "glyphs": {
+        "@175": 2
+      },
+      "records": [
+        {
+          "folio": "f111r",
+          "linenum": 20,
+          "locus": "+P0",
+          "hand": 3,
+          "glyph": "@175",
+          "glyph_id": 175,
+          "context": "y.okeey.cho,ol.l,kai@175;"
+        },
+        {
+          "folio": "f111r",
+          "linenum": 24,
+          "locus": "+P0",
+          "hand": 3,
+          "glyph": "@175",
+          "glyph_id": 175,
+          "context": ".char.lky.lchr.ainai@175;"
+        }
+      ]
+    },
+    "f112r": {
+      "hand": 3,
+      "total": 1,
+      "glyphs": {
+        "@185": 1
+      },
+      "records": [
+        {
+          "folio": "f112r",
+          "linenum": 1,
+          "locus": "@P0",
+          "hand": 3,
+          "glyph": "@185",
+          "glyph_id": 185,
+          "context": "olchey.qokeey.ykair.@185;arally.oteedal.or,ai"
+        }
+      ]
+    },
+    "f112v": {
+      "hand": 3,
+      "total": 1,
+      "glyphs": {
+        "@175": 1
+      },
+      "records": [
+        {
+          "folio": "f112v",
+          "linenum": 14,
+          "locus": "+P0",
+          "hand": 3,
+          "glyph": "@175",
+          "glyph_id": 175,
+          "context": "sain.air.a@175;.ykeedain.qokeedy.ch"
+        }
+      ]
+    },
+    "f113r": {
+      "hand": 3,
+      "total": 1,
+      "glyphs": {
+        "@186": 1
+      },
+      "records": [
+        {
+          "folio": "f113r",
+          "linenum": 1,
+          "locus": "@P0",
+          "hand": 3,
+          "glyph": "@186",
+          "glyph_id": 186,
+          "context": "pches@186;chy.ypcheedy.fchdy.c"
+        }
+      ]
+    },
+    "f113v": {
+      "hand": 3,
+      "total": 2,
+      "glyphs": {
+        "@187": 1,
+        "@206": 1
+      },
+      "records": [
+        {
+          "folio": "f113v",
+          "linenum": 15,
+          "locus": "+P0",
+          "hand": 3,
+          "glyph": "@187",
+          "glyph_id": 187,
+          "context": "@187;ar,ar.okeey.oeky.otc"
+        },
+        {
+          "folio": "f113v",
+          "linenum": 15,
+          "locus": "+P0",
+          "hand": 3,
+          "glyph": "@206",
+          "glyph_id": 206,
+          "context": "tchdy.pcheol.kcheor.@206;aiin.cheey.qokaram"
+        }
+      ]
+    },
+    "f114r": {
+      "hand": 3,
+      "total": 1,
+      "glyphs": {
+        "@188": 1
+      },
+      "records": [
+        {
+          "folio": "f114r",
+          "linenum": 1,
+          "locus": "@P0",
+          "hand": 3,
+          "glyph": "@188",
+          "glyph_id": 188,
+          "context": "ody.yteeed.oteeodl.o@188;aiin.okarol"
+        }
+      ]
+    },
+    "f114v": {
+      "hand": 3,
+      "total": 1,
+      "glyphs": {
+        "@189": 1
+      },
+      "records": [
+        {
+          "folio": "f114v",
+          "linenum": 18,
+          "locus": "+P0",
+          "hand": 3,
+          "glyph": "@189",
+          "glyph_id": 189,
+          "context": "ody.choypshedy.qoto.@189;shxam"
+        }
+      ]
+    }
+  }
+}
