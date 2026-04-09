@@ -1,5 +1,5 @@
 # Working Model — Voynich Manuscript Cryptanalysis
-**Last updated:** 2026-04-09 (after exp_050)
+**Last updated:** 2026-04-09 (after exp_052)
 **Purpose:** Continuously-updated structured summary of current beliefs about Voynichese.
 **Discipline:** Characterization, not interpretation. Claims require experimental warrant.
 
@@ -51,12 +51,14 @@ These findings have been replicated across independent analyses or confirmed by 
 - KL from marginal = 0.2-1.1 bits: "partially productive" consistent with natural language inflection
 - 'd' in A is an outlier (KL=1.077, dominated by -aiin = daiin) — like an irregular high-frequency verb
 
-**Currier B has a systematic 9-form suffix paradigm on ~10 productive stems (F045)**
+**Currier B has a systematic 9-form suffix paradigm on ~10 productive stems (F045, F058)**
 - 384 stems take 2+ suffix variants; 311 have edy/ain/aiin variants
 - Top stem 'qok' generates 1,559 tokens in 9 suffix forms: {-eedy,-ain,-edy,-eey,-aiin,-y,-ey,-chy,-dy}
 - Other highly productive stems: ch(1041 tokens), sh(870), ok(704), ot(604)
 - Suffix positional bias: -aiin most line-initial (14.2%), -ain most line-final (8.0%, chi²=5.8 vs -edy's 6%), -edy most medial (85%)
-- Section: -aiin concentrates in 'S' (57%), -edy in bio (42%); pharma absent entirely
+- Section-level paradigm specialization: pharma→-eol/-ol (19.7%; -eol variant 4–28× pharma-enriched), bio→-edy (20.6%), special→-aiin dominant, herbal→balanced
+- `-eol` is a pharma-specific suffix variant extending the paradigm beyond the original 9-form list
+- Pharma labels do NOT prefer -ol (7.8% label vs 19.7% body): -ol is NOT a naming morpheme
 
 ### 1.2 Currier A/B Dialect Split
 
@@ -203,10 +205,13 @@ These findings have been replicated across independent analyses or confirmed by 
 - Both are prefix operations: qo+stem = Currier B body-text form; o+stem = label form
 - cth- is now a CONFIRMED third prefix morpheme (A-dialect; see F047)
 
-**Currier A cth- cluster is a CONFIRMED morphological prefix (F047, exp_040)**
-- H_initial drops from 3.061 to 1.966 after stripping (identical pattern to qo-: 1.931/3.027)
-- KL = 2.281 bits between cth-stem initials and free-word initials
-- Selects o/y/e-initial stems (40%/24%/20%); 37.3% of stripped stems in free A vocabulary
+**cth- in Currier A is the stem root 'cth', NOT a prefix morpheme (F047 revised, F059, exp_052)**
+- H_initial drops from 3.061 to 1.966 after stripping — previously interpreted as prefix, now: 'cth' IS the stem
+- cth+y=cthy, cth+ol=cthol, cth+or=cthor, cth+ey=cthey: 'cth' takes suffixes directly, sometimes with 1-char connector
+- cth-suffix paradigm: -y=29.8%, -ol=20.0%, -or=13.8%, -ey=8.9% — strongly A-type
+- cth dramatically suppresses -aiin (5.5% vs 14.7% all-A) — unlike all other A stems
+- KL(cth || all-A) = 0.202 bits: moderately different from A baseline within Currier A
+- Dialect determines suffix paradigm (A-type vs B-type) — stem-initial class does not independently govern suffix choice within a dialect
 
 ### 3.2 Scribal Structure
 
@@ -250,8 +255,9 @@ These are definitively ruled out by experiment:
 **Key constraint**: Any model must explain why:
 1. Currier A and B share only 14.8% vocabulary but both exhibit morphological templates
 2. The label corpus and body corpus share 44.7% vocabulary but have different onset distributions
-3. The 9-form suffix paradigm exists in B but the A equivalent (if any) has not been identified
+3. The 9-form suffix paradigm exists in B; A has a parallel system using -y/-ol/-or/-edy-suppressed paradigm on stems like ch, sh, ot, ok, cth
 4. qo-prefixed forms coexist with bare stems in the same B folios (not complementary, not dialect-only)
+5. Dialect membership (A vs B) determines suffix paradigm selection; the stem-initial class correlates with dialect but does not independently govern suffix choice (F059)
 
 ---
 
