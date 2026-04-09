@@ -219,6 +219,12 @@
 **Finding:** The character sets of f57v's 17-token repeating cycle and f66r column 2 overlap significantly (Jaccard=0.667, p=0.003 vs hypergeometric null). Of 25 EVA single chars, f57v uses 14 and f66r col2 uses 11; the intersection is 10 — 3.84 chars above random expectation. Both sets converge on: {c, d, f, l, o, p, r, t, x, y}. The only char in f66r but not f57v is 's'; only in f57v are I, k, m, v. Additionally, the f→@169 adjacency appears in both: f57v pos 9-10 is f then @169;v; f66r col2 entries 8-9 are 'f' then '@169'. The character ORDER in f66r col2 does NOT correspond to f57v cycle positions (Spearman ρ ≈ -0.09), ruling out f66r as a simple linearization of f57v's cycle.
 **Limitation:** The shared char set heavily overlaps with H022's "non-compound-forming chars" category, so the overlap may partially reflect both lists independently avoiding compound-forming chars rather than a direct relationship. These two explanations are not mutually exclusive.
 
+## F043: Labels Are 'o'-Initial Dominated (58.4%) and 'q'-Initial Absent (1.9% vs 16.3% in Body)
+**Experiment:** inline analysis (Lf+Ls+Ln+Lt label corpus vs body text)
+**Date:** 2026-04-09
+**Finding:** The clean label corpus (Lf+Ls+Ln+Lt, 269 tokens) shows dramatic initial-char differences from body text: 'o'-initial = 58.4% of labels vs 20.5% of body (+37.9%); 'q'-initial = 1.9% of labels vs 16.3% of body (-14.4%); 'c'-initial = 8.9% labels vs 18.9% body (-10.0%); 'd'-initial = 14.5% labels vs 9.4% body (+5.1%). Final char: 'l' more common in labels (21.6% vs 15.9%), 'n' much rarer (8.2% vs 16.9% — daiin/aiin/kain type words underrepresented). Mean label length = 5.64 vs body 5.18. Label vocabulary contains many tokens absent from body top-500 (otolor, darol, ytodal, ytchodly). Labels avoid qo-type and ch-type onset words, concentrating instead on o-initial vocabulary.
+**Limitation:** Only 269 label tokens in this corpus (Lf/Ls/Ln/Lt); Lz (299 entries) and Lf already studied. The 'o'-initial dominance may reflect section bias (pharma section has ot-/ok- type labels from exp_010).
+
 ## F042: Word-Final Inventory: {y,n,l,r} Cover 88.8% of Endings; ...dy/...in/...ey/...ol Are Top Bigrams
 **Experiment:** exp_036_word_final_inventory
 **Date:** 2026-04-09

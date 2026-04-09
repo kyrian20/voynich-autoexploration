@@ -376,3 +376,35 @@
 **Test:** For the top 20 qo/bare stem pairs (e.g., qokeedy/keedy), compute: (a) position-in-line distribution (word-initial, medial, final), (b) Currier A/B frequency, (c) section (herbal/bio/pharma/astro/cosmo) frequency.
 **Cost estimate:** medium — requires parsing positional data per token
 **Prerequisites:** exp_031 (done)
+
+---
+
+## H033: Labels Are Dominated by an 'ot-/ok-' Prefix Morpheme — Is 'o' a Label-Specific Onset Marker?
+**Priority:** medium
+**Status:** open
+**Source:** inline analysis + F043 + exp_010
+**Description:** 58.4% of object labels (Lf+Ls+Ln+Lt) begin with 'o', compared to 20.5% in body text. 'q'-initial words (16.3% of body) are nearly absent from labels (1.9%). The ot-/ok- subtype is known from exp_010 to concentrate in specific sections. H033 asks: is 'o' in label-initial position a GRAMMATICAL MORPHEME (a label-marker particle), or does it reflect the fact that labeled objects all start with 'o'-type vocabulary? Test: (a) check if label-initial 'o' is followed by specific characters (especially t/k/l), (b) compare ot-label initial distribution across sections, (c) check if body text o-initial words cluster in same sections as labels.
+**Expected outcome:** If 'o' is a label prefix, it should appear before varied content (ot-, ok-, or-, ol- all common). If labels just happen to use o-type vocabulary, the o-initial rate should match the relevant section's body text.
+**Cost estimate:** small
+**Prerequisites:** exp_032 (done), F043 (done)
+
+---
+
+## H034: The -edy/-ain Paradigm in Currier B Is a Grammatical Inflectional System
+**Priority:** medium
+**Status:** open
+**Source:** exp_005_currier_ab_comparison, exp_023, F035
+**Description:** Currier B's top vocabulary is dominated by -edy suffix words (chedy=478, shedy=411, qokeedy=293, qokedy=261) and -ain suffix words (qokain=270, qokaiin=238). Both paradigms use the same base words with different suffixes (-edy vs -ain vs -aiin). This looks like grammatical inflection. H034 tests whether -edy/-ain/-aiin are truly in complementary distribution (different syntactic environments) or freely alternating.
+**Expected outcome:** If -edy/-ain are grammatical, they should show positional complementarity (e.g., -edy in medial position, -ain in final position). If arbitrary alternants, positions should be similar.
+**Cost estimate:** medium
+**Prerequisites:** exp_033 (qo complementary distribution, done — same methodology)
+
+---
+
+## H035: Folio-Level Vocabulary Diversity Shows Outlier Folios with Unusually Restricted or Diverse Vocabulary
+**Priority:** low
+**Status:** open
+**Source:** exp_017 + accumulated section findings
+**Description:** Manuscript-wide vocabulary variation is documented at section level, but not at folio level. Some folios may be statistical outliers (very restricted vocabulary suggesting formulaic text, or very diverse suggesting unique content). Test: for each folio with sufficient tokens (>50), compute TTR and H2. Identify top outliers above/below the section mean.
+**Cost estimate:** small
+**Prerequisites:** none
