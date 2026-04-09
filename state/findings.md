@@ -219,6 +219,18 @@
 **Finding:** The character sets of f57v's 17-token repeating cycle and f66r column 2 overlap significantly (Jaccard=0.667, p=0.003 vs hypergeometric null). Of 25 EVA single chars, f57v uses 14 and f66r col2 uses 11; the intersection is 10 — 3.84 chars above random expectation. Both sets converge on: {c, d, f, l, o, p, r, t, x, y}. The only char in f66r but not f57v is 's'; only in f57v are I, k, m, v. Additionally, the f→@169 adjacency appears in both: f57v pos 9-10 is f then @169;v; f66r col2 entries 8-9 are 'f' then '@169'. The character ORDER in f66r col2 does NOT correspond to f57v cycle positions (Spearman ρ ≈ -0.09), ruling out f66r as a simple linearization of f57v's cycle.
 **Limitation:** The shared char set heavily overlaps with H022's "non-compound-forming chars" category, so the overlap may partially reflect both lists independently avoiding compound-forming chars rather than a direct relationship. These two explanations are not mutually exclusive.
 
+## F045: Currier B Has a Systematic 9-Form Suffix Paradigm: 384 Stems with 2+ Suffix Variants
+**Experiment:** exp_038_edy_ain_paradigm
+**Date:** 2026-04-09
+**Finding:** In Currier B, 384 stems take 2+ distinct suffix variants; 311 stems have edy/ain/aiin variants. The stem 'qok' generates 1,559 tokens in 9 suffix forms (-eedy/-ain/-edy/-eey/-aiin/-y/-ey/-chy/-dy). Top stems: ch(1041), sh(870), ok(704), ot(604). Suffix positional distribution: -aiin most line-initial (14.2%), -ain most line-final (8.0%, chi²=5.8 vs -edy's 6%), -edy most medial (85%). Section: -aiin concentrates in 'S' (57%), -edy in bio (42%), -ain in 'S' (54%). All types absent from pharma. The suffix system is structurally consistent with grammatical inflection (case/aspect marking) on a ~10-stem core vocabulary.
+**Limitation:** Position-in-line is a crude syntactic proxy; true grammatical role assignment would require sentence-level structure, which Voynich text structure doesn't clearly expose.
+
+## F044: 'o' Functions as a Label-Form Prefix — 64.3% of o-Initial Labels Are o+Body-Word
+**Experiment:** exp_037_label_o_prefix
+**Date:** 2026-04-09
+**Finding:** 101/157 (64.3%) o-initial label tokens have their body (word-minus-'o') in the body-text vocabulary (otar→tar, otol→tol, ockhy→ckhy, octhey→cthey, etc.). Labels show 2.5-3.3× higher o-initial rate than body text in the same sections (astro: 60.5% label vs 18.2% body; bio: 60.2% vs 21.4%; pharma: 54.4% vs 21.6%). The section-invariant elevation rules out section vocabulary bias. KL divergence of o-initial bigrams (label vs body) = 0.154 bits — stems after 'o' follow body-text patterns. 'o' is a label-form morpheme structurally parallel to the 'qo' prefix in Currier B: both add a prefix to transform body-text vocabulary items into a labeled/grammatical form. ot-/ok- concentration: 64.3% of o-labels start ot- or ok-.
+**Limitation:** 35.7% of o-labels do not have body-text stems — these may be label-unique vocabulary items or the stem analysis is too aggressive (e.g., okodar≠o+kodar if kodar is uncommon). Sample size 157 o-labels is small.
+
 ## F043: Labels Are 'o'-Initial Dominated (58.4%) and 'q'-Initial Absent (1.9% vs 16.3% in Body)
 **Experiment:** inline analysis (Lf+Ls+Ln+Lt label corpus vs body text)
 **Date:** 2026-04-09

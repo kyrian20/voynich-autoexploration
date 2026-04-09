@@ -381,7 +381,7 @@
 
 ## H033: Labels Are Dominated by an 'ot-/ok-' Prefix Morpheme — Is 'o' a Label-Specific Onset Marker?
 **Priority:** medium
-**Status:** open
+**Status:** SUPPORTED (exp_037): 'o' is a label-form morpheme. 64.3% of o-initial label words have their body (o-stripped) in body vocabulary. Section-invariant 2.5-3.3× higher o-initial rate than body text. KL of o-bigrams=0.154 bits (similar distribution). F044 added.
 **Source:** inline analysis + F043 + exp_010
 **Description:** 58.4% of object labels (Lf+Ls+Ln+Lt) begin with 'o', compared to 20.5% in body text. 'q'-initial words (16.3% of body) are nearly absent from labels (1.9%). The ot-/ok- subtype is known from exp_010 to concentrate in specific sections. H033 asks: is 'o' in label-initial position a GRAMMATICAL MORPHEME (a label-marker particle), or does it reflect the fact that labeled objects all start with 'o'-type vocabulary? Test: (a) check if label-initial 'o' is followed by specific characters (especially t/k/l), (b) compare ot-label initial distribution across sections, (c) check if body text o-initial words cluster in same sections as labels.
 **Expected outcome:** If 'o' is a label prefix, it should appear before varied content (ot-, ok-, or-, ol- all common). If labels just happen to use o-type vocabulary, the o-initial rate should match the relevant section's body text.
@@ -392,7 +392,7 @@
 
 ## H034: The -edy/-ain Paradigm in Currier B Is a Grammatical Inflectional System
 **Priority:** medium
-**Status:** open
+**Status:** PARTIALLY SUPPORTED (exp_038): 384 stems with 2+ suffix variants; 311 have edy/ain/aiin variants. qok stem alone has 9 forms (1559 tokens). -ain more line-final (8%, chi²=5.8 vs -edy 6%), -aiin more line-initial (14.2%). Section: -aiin in S-section (57%), -edy in bio (42%). Positional complementarity is weak (all forms ~80% medial). F045 added.
 **Source:** exp_005_currier_ab_comparison, exp_023, F035
 **Description:** Currier B's top vocabulary is dominated by -edy suffix words (chedy=478, shedy=411, qokeedy=293, qokedy=261) and -ain suffix words (qokain=270, qokaiin=238). Both paradigms use the same base words with different suffixes (-edy vs -ain vs -aiin). This looks like grammatical inflection. H034 tests whether -edy/-ain/-aiin are truly in complementary distribution (different syntactic environments) or freely alternating.
 **Expected outcome:** If -edy/-ain are grammatical, they should show positional complementarity (e.g., -edy in medial position, -ain in final position). If arbitrary alternants, positions should be similar.
