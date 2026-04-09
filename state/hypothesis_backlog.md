@@ -538,7 +538,7 @@
 
 ## H056: The Astro/Cosmo Section (Hand 4) Is Morphologically Intermediate Between Currier A and B
 **Priority:** medium
-**Status:** open
+**Status:** PARTIALLY SUPPORTED (exp_045): Astro is A-adjacent (qo=0.059 below A=0.110, -edy=0.7% near A=0.2%, -ol=13.8% intermediate). Jaccard: A↔Astro=0.046 > B↔Astro=0.033. But -ey/-eey anomalously above B. F052 added.
 **Source:** exp_044_hand_qo_variation (F051)
 **Description:** Hand 4 (astro/cosmo folios f67-f70) has Currier B designation but morphological features close to Currier A: qo=5.9% (vs B average 17-21%), -edy=0.4% (vs B average 10-16%), -ol=8.3% (highest of any B hand, approaching A's 17%). H056 tests whether the astro/cosmo section is statistically intermediate between A and B on multiple morphological measures. Test: for the Hand 4 folios, compute (a) vocabulary Jaccard with Currier A vs Currier B bodies, (b) suffix distribution distance to A vs B, (c) word-initial entropy and character distribution. Also test: is the A-like profile a consequence of circular text structure (ring diagrams constrain vocabulary), or is it present in all Hand 4 text regardless of locus type?
 **Expected outcome:** If astro/cosmo is intermediate: Jaccard(Hand4, A) > Jaccard(Hand4, B) or approximately equal. If astro/cosmo is B: Jaccard(Hand4, B) > Jaccard(Hand4, A). The former would suggest a three-way dialect distinction (A, B, astro/cosmo).
