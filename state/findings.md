@@ -219,6 +219,18 @@
 **Finding:** The character sets of f57v's 17-token repeating cycle and f66r column 2 overlap significantly (Jaccard=0.667, p=0.003 vs hypergeometric null). Of 25 EVA single chars, f57v uses 14 and f66r col2 uses 11; the intersection is 10 — 3.84 chars above random expectation. Both sets converge on: {c, d, f, l, o, p, r, t, x, y}. The only char in f66r but not f57v is 's'; only in f57v are I, k, m, v. Additionally, the f→@169 adjacency appears in both: f57v pos 9-10 is f then @169;v; f66r col2 entries 8-9 are 'f' then '@169'. The character ORDER in f66r col2 does NOT correspond to f57v cycle positions (Spearman ρ ≈ -0.09), ruling out f66r as a simple linearization of f57v's cycle.
 **Limitation:** The shared char set heavily overlaps with H022's "non-compound-forming chars" category, so the overlap may partially reflect both lists independently avoiding compound-forming chars rather than a direct relationship. These two explanations are not mutually exclusive.
 
+## F038: Non-L0 Label Loci (Lf/Lz/Ls/Lc/Ln/Lt) Are Uncontaminated — 732 True Labels, 100% Section-Specific
+**Experiment:** exp_032_label_locus_audit
+**Date:** 2026-04-09
+**Finding:** All non-L0 label loci have zero single-char entries (no LINE_MARKER contamination). Each locus is 100% section-specific: Lf→pharma (194), Lz→zodiac (299), Ls→astrological (76), Lc→cosmo-pharma (40), Ln→bio (63), Lt→bio (47), plus La/Lp/Lx (13). Total clean true-label corpus: ~732 entries. Type-token ratios are extremely high across all label types: Lc=1.000 (all hapax), Ls=0.988, Lf=0.956, Ln=0.962, Lt=0.957, Lz=0.821 — near-unique labels throughout. Pharma labels (Lf) concentrated in f88-f102 range. Bio labels (Ln/Lt) concentrated in f75v-f84r range; f75v alone contributes 27 label entries (Ln+Lt) confirming its LINE_MARKER L0 entries are structural, not labels.
+**Limitation:** Lz "month name" (Romance language) entries were not detected by regex — the zodiac month labels may be in a non-standard format or separate locus within ZL3b.
+
+## F039: Label H2 Shows Section Gradient: L0/Ls > Lf > Body > Lz > Ln > Lc > Lt (1.74–2.31 bits)
+**Experiment:** exp_032_label_locus_audit
+**Date:** 2026-04-09
+**Finding:** H2 values by label type: L0=2.312, Ls=2.265, Lf=2.153, body=2.071, Lz=1.851, Ln=1.833, Lc=1.780, Lt=1.739 bits. Biological section labels (Ln, Lt) have the LOWEST H2 — more internally constrained than even body text. Astrological labels (L0, Ls) have the HIGHEST — more diverse than body text. This inverts the section body-text entropy relationship (Currier A herbal tends to be lower H2 than B biological in body text). Near-unique vocabulary (TTR 0.82-1.00) across all label types.
+**Limitation:** Token counts for individual label types are small (20-299 tokens); H2 estimates may be noisy.
+
 ## F037: qo Is a Morphological Prefix Selecting k/t-Initial Stems — Not a Grammatical Article
 **Experiment:** exp_031_qo_stripping
 **Date:** 2026-04-09
