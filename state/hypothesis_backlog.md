@@ -1628,3 +1628,43 @@
 **Expected outcome:** If template is real: 15-30% of B lines follow the full [opener → qo-mid → closer] pattern (much above the ~1-3% expected by chance). If template is just statistical: the overlap is at chance levels.
 **Cost estimate:** small
 **Prerequisites:** F093/F094/F095 (exp_086/087/088)
+
+---
+
+## H158: d+ch Compound Words in A (dchor, dchol, dchey) Are A's Line-Initial Opener System
+**Priority:** high
+**Status:** TESTED (exp_091) — STRONGLY SUPPORTED (REVISED): A has TWO line-initial systems: y+ch (LFirst=85.9%, 8.86× vs bare) and d+ch (LFirst=59.6%, 6.17× vs bare). Bare ch = background (9.7%). Three-tier paradigm: bare < d+ch < y+ch in LFirst%.
+
+---
+
+## H159: Three-Level Positional Paradigm for ch-Stems in A (Analogous to B's bare/qo/y Paradigm)
+**Priority:** high
+**Status:** TESTED (exp_091) — STRONGLY SUPPORTED: A ch paradigm: bare (9.7%) << d+ch (59.6%, 6.17×) ≤ y+ch (85.9%, 8.86×). No mid-line prefix identified in A (unlike B's qo-prefix). A has 2-tier prefix system (both d and y = line-initial) vs B's 3-tier (bare < qo-mid < y-initial).
+
+---
+
+## H160: A Mid-Line ch-Onset Words Form a Self-Continuing Sequence — ch→ch Is the Dominant A Line Interior
+**Priority:** medium
+**Status:** TESTED (exp_091) — CONFIRMED: ch→ch at pos2 = 28.4% (most common continuation). Bare ch-onset at pos1 dominated by chol(78), chor(50). A line structure is modular: [d+ch/y+ch opener] → [bare ch mid ×N] → [d-closer]. Template enrichment modest (1.29×).
+
+---
+
+## H161: The A Line-Initial y+ch System and the A Line-Initial d+ch System Have Different Preceding/Following Contexts — They Are Not Interchangeable
+**Priority:** medium
+**Status:** open
+**Source:** F098 (exp_091): A has both y+ch (85.9% LFirst) and d+ch (59.6% LFirst) as line-initial prefix systems. But y+ch has HIGHER LFirst% than d+ch. Are they truly synonymous openers? Or do they appear in different contexts (e.g., y+ch at para-starts, d+ch at within-para line-starts)?
+**Description:** (1) Compare y+ch vs d+ch: do they appear at para-start lines at different rates? (2) What FOLLOWS y+ch at pos1 vs what follows d+ch at pos1? (3) Are y+ch and d+ch in complementary distribution within paragraphs (e.g., y+ch opens first line, d+ch opens subsequent lines)? (4) Do y+ch words appear only in specific folio sections while d+ch appears in others?
+**Expected outcome:** If distinct functions: y+ch opens para-start lines while d+ch opens within-para lines — the difference in LFirst% (85.9% vs 59.6%) reflects different para-level positions. If synonymous: both appear at similar para-position rates.
+**Cost estimate:** small
+**Prerequisites:** F098 (exp_091)
+
+---
+
+## H162: The Cross-Dialect Positional Grammar Paradigm Has a Universal Structure — Position-Encoding Prefix System Is Voynichese-Level, Not Dialect-Specific
+**Priority:** high
+**Status:** open
+**Source:** F095-F098 (exp_088-091): Both A and B implement: [PREFIXED LINE-OPENER] → [MID-LINE CONTENT] → [LINE-CLOSER]. B: y+k/t opener; qo+k/t mid; -am/oly closer. A: y+ch or d+ch opener; bare ch mid; d+suffix closer. The prefix-encoded positional paradigm is present in BOTH dialects. Hypothesis: this is a universal Voynichese grammatical property, not dialect-specific.
+**Description:** (1) Test if the A positional paradigm extends to other stem classes (not just ch): do y+sh, d+sh compounds exist in A and show similar LFirst enrichment? (2) Do the A d+ch openers appear on the same lines as the B y+k/t openers in mixed-dialect sections? (3) Is there a universal line-grammar rule that applies across all Voynichese text?
+**Expected outcome:** If universal: the same three-position line grammar should appear in all sections regardless of dialect assignment. This would be the strongest possible evidence for Voynichese as a rule-governed linguistic system.
+**Cost estimate:** medium
+**Prerequisites:** F095-F098 (exp_088-091)
