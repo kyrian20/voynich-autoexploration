@@ -1835,3 +1835,41 @@
 **Source:** F101-F102: In A, k+ch=3.5% PS (very weak); bare_k=5.7% PS (weak). In B, bare_k=3.0% PS but total B k-onset=9.91× — the B k enrichment is driven by k at line-first generally, not just para-starts. Test: is B k-onset concentrated at ANY line-first position (not just para-starts) more than A k-onset?
 **Cost estimate:** small
 **Prerequisites:** F101, F102
+
+---
+
+## H175: B Dialect Gallows+Stem Para-Start Hierarchy
+**Priority:** high
+**Status:** TESTED (exp_096) — STRONGLY CONFIRMED: p+ch=11.6% PS in B (para-level, same as A=26.9%); y+ch=0% PS (line-opener); d+ch=0% PS (line-opener); bare_ch=0.1% PS (mid-line). SAME role in both dialects.
+
+---
+
+## H176: B k-Onset Concentration Analysis
+**Priority:** medium
+**Status:** TESTED (exp_096) — CONFIRMED: B bare_k 9.91× enrichment is a contrast effect. bare_k is mostly mid-line (92%). Para-start count is only 8 tokens. The high ratio arises because k is very rare at within-para line-first (0.78%).
+
+---
+
+## H177: Unified Cross-Dialect Gallows Grammar
+**Priority:** high
+**Status:** TESTED (exp_096) — STRONGLY CONFIRMED (F103): Prefix = positional morpheme universally. {p,f}+stem=para; {y,d}+stem=line-opener; {qo}+gallows/bare_ch=mid-line. SAME class has SAME role in BOTH dialects. Stem = content; prefix = position.
+
+---
+
+## H178: The Prefix Determines Position; Does the STEM AFFECT MEANING (Content vs Function Words)?
+**Priority:** high
+**Status:** open
+**Source:** F103 (exp_096): Prefix determines position; stem determines content. But are some stems FUNCTION words (abstract) while others are CONTENT words (concrete)? Test: (1) Do para-start p+ch words use the SAME ch-stems as within-para y+ch and d+ch? (2) Are there "exclusive" stems that only appear with one prefix type? (3) If stem = content and prefix = position, then the same stem should appear with p-, y-, d-, and bare forms depending on context. Test this.
+**Expected outcome:** The same ch-stems (chor, chol, chey) appear with all three prefixes (p+ch, y+ch, d+ch) — the stem is semantically stable and the prefix shifts position. If TRUE: Voynichese is a positional morphology system. If FALSE (stems are prefix-exclusive): the stem+prefix combination = lexical item with no stem reuse.
+**Cost estimate:** small
+**Prerequisites:** F103 (exp_096)
+
+---
+
+## H179: f+ch Cross-Dialect Asymmetry — Why Is f+ch Para-Level in A (21% PS) But Mid-Line in B (0% PS)?
+**Priority:** medium
+**Status:** open
+**Source:** F103 (exp_096): f+ch appears at para-starts 21.4% in A but 0% in B (n=34). This is the one major exception to the unified grammar model. Test: (1) In B, where do f+ch words appear? Are they truly mid-line? (2) Is the B f+ch distribution section-specific (only in specific B folios)? (3) Could the n=34 sample in B be too small? (4) Does B use other gallows+ch forms for para-starts instead of f+ch?
+**Expected outcome:** The B f+ch distribution may be section-specific or folio-specific. Alternatively, B uses different gallows (k+sh=9% in B, which is stronger than k+sh in A) to compensate for f+ch's mid-line role. The exception may be real: A uses both p and f as para-starters; B uses primarily p (and less f).
+**Cost estimate:** small
+**Prerequisites:** F103 (exp_096)
