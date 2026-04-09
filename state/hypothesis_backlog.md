@@ -979,3 +979,91 @@
 **Expected outcome:** If daiin-specific: P(ch|daiin) >> P(ch|other-d). If coincidental: P(ch|daiin) ≈ P(ch|other-d) ≈ baseline.
 **Cost estimate:** tiny
 **Prerequisites:** exp_072 (done)
+
+---
+
+## H097: The d/sh Sequential Complementarity Exists in Currier A (Cross-Dialect Sequential Grammar)
+**Priority:** high
+**Status:** tested — SUPPORTED (exp_074: A has d/sh complementarity but weaker than B; sh→qo=1.58× vs B 1.97×, d→ch=1.09× vs B 1.27×. Critical: in A, s-onset is the true complement of sh — s→ch=1.36×, s→qo=0.63×. F081 added.)
+**Source:** F080 (exp_073): d and sh are perfect sequential complements in B (sh→qo=1.97×, d→ch=1.27×, sh→ch=0.64×, d→qo=0.76×). F079: A has weak sh→qo (1.56×). Does A also have d/sh complementarity? In A, the qo-hinge is weaker — does d→ch still hold?
+**Description:** Compute P(ch|d), P(qo|d), P(ch|sh), P(qo|sh) for Currier A. Compare to B values. Are d and sh in complementary roles in A too? Also: does A have a different complementary structure (perhaps y vs d instead of sh vs d)?
+**Expected outcome:** If cross-dialect: A also shows d→ch enrichment and sh→ch suppression. If B-specific: A shows no complementarity or different pairs.
+**Cost estimate:** tiny (reuse A transition matrix from exp_072)
+**Prerequisites:** exp_073 (done)
+
+---
+
+## H098: The B Grammar Model Can Predict Onset Class Sequences: A Bigram Language Model at Onset Level Has Lower Perplexity Than Unigram
+**Priority:** high
+**Status:** tested — SUPPORTED (exp_074: B bigram model 13.3% improvement over unigram, 0.207 bits; A 9.1%, 0.138 bits. B's sequential grammar is 35% stronger. F081 added.)
+**Source:** F078-F080: The B sequential grammar is encoded in onset-class bigram transition probabilities (sh→qo=1.97×, qo→ch=1.31×, d→ch=1.27×). This should be learnable as a bigram language model. Does a bigram model over onset classes have significantly lower perplexity than a unigram model? And does A have lower bigram perplexity than B (B's grammar is stronger)?
+**Description:** Build unigram and bigram language models over onset classes (not words) for Currier A and B separately. Compute perplexity (average bits per onset class token). The difference in perplexity (bigram vs unigram) measures how much the sequential grammar helps prediction. Compare A vs B: which dialect has a stronger onset-class sequential grammar?
+**Expected outcome:** B bigram model has significantly lower perplexity than B unigram (due to sh→qo coupling). A bigram model has smaller perplexity reduction (flatter transitions).
+**Cost estimate:** small
+**Prerequisites:** exp_073 (done)
+
+---
+
+## H099: Line-Final Words Are Determined by the Onset Class of the Preceding Word
+**Priority:** medium
+**Status:** tested — SUPPORTED (exp_074: B line-final: qo=0.61×, sh=0.42× suppressed; o=1.25×, d=1.50× enriched. sh-penult→qo-last: 28.0%. A line-final: d=1.73× dominant. F081 added.)
+**Source:** F071 (exp_064): o-onset words are slightly line-final biased (1.24×). The B sequential grammar loop (sh→qo→ch→qo→...) must terminate with a line-final word. Is the line-final word class determined by the onset class of the word preceding it?
+**Description:** For B body text: group line-final words by the onset class of the second-to-last word. Do specific onset classes (e.g., qo, ch) systematically precede line-final words with specific onset classes (e.g., o)? Also: what onset classes appear as second-to-last words in B lines?
+**Expected outcome:** If line-final determination: specific onset classes reliably precede line-final words. If free: the second-to-last word has a flat distribution.
+**Cost estimate:** small
+**Prerequisites:** exp_073 (done)
+
+---
+
+## H100: The A {sh vs s} Complementarity Is Section-Sensitive (Like B's {sh vs d})
+**Priority:** high
+**Status:** open
+**Source:** F081 (exp_074): In A, s→ch=1.36× and s→qo=0.63×, mirroring B's d→ch=1.27× and d→qo=0.76×. But the A s-onset role was measured globally. Does the s/sh complementarity in A vary by section (Herbal A vs Pharma A), as B's d/sh complementarity varies by section?
+**Description:** Compute P(ch|s), P(qo|s), P(ch|sh), P(qo|sh) for each Currier A section separately (Herbal A, Pharma A). Are there sections where s plays the d-role more strongly? Also: does the two-register system (y-dominant vs aiin-dominant folios) affect the s/sh complementarity?
+**Expected outcome:** If section-sensitive: one A section has stronger s/sh complementarity (analogous to B Astro being the strongest sh→qo section). If uniform: s/sh is cross-section in A.
+**Cost estimate:** small
+**Prerequisites:** exp_074 (done)
+
+---
+
+## H101: The Line-Final Onset Distribution Is Preserved Within Paragraphs vs Paragraph-Final Lines
+**Priority:** medium
+**Status:** open
+**Source:** F081 (exp_074): B last-word onsets are non-random (o=1.25×, d=1.50×, qo=0.61×, sh=0.42×). F064 (exp_057): para-start words have a distinct onset class. Is there a difference between line-final words on para-INTERIOR lines vs the line-FINAL of a paragraph?
+**Description:** For B body text, classify lines as: (1) within-paragraph continuation lines, (2) last line of a paragraph. For each group, compute last-word onset distribution and enrichment. If the para-final last word has a different onset class than within-para last words, this would show paragraph-level boundary marking at the last word.
+**Expected outcome:** If boundary marking: para-final last words have different onset distribution than mid-para last words (e.g., para-final avoids qo, prefers o or d). If no distinction: the line-final grammar is purely line-level, not paragraph-level.
+**Cost estimate:** small
+**Prerequisites:** exp_074 (done)
+
+---
+
+## H102: The B Trigram Grammar (qo→ch→qo) Has an A Equivalent (ch→ch→ch or s→ch→s)
+**Priority:** medium
+**Status:** open
+**Source:** F081 (exp_074): A has ch→ch self-following (1.34×) and s plays the d role (s→ch=1.36×). F080: B has a confirmed qo→ch→qo alternation loop (after qo+ch, next is qo at 29.7%). Does A have an analogous alternation? Specifically: does A have ch→ch→ch triplets? Or s→ch→s? Or some other 3-slot onset sequence?
+**Description:** Compute A onset-class trigrams (onset classes for consecutive triplets of words). Find the most enriched trigrams vs a unigram baseline. Compare to B's dominant trigram structure (qo→ch→qo: 29.7% after qo+ch). Does A have a comparable dominant trigram structure?
+**Expected outcome:** If analogous: A has ch→ch→ch or s→ch→s as a dominant triplet (reflecting the ch→ch self-following). If not: A's grammar is truly flat at the trigram level.
+**Cost estimate:** small
+**Prerequisites:** exp_074 (done)
+
+---
+
+## H103: The sh→qo Coupling Differs in Strength Between y-Dominant and aiin-Dominant Herbal A Folios
+**Priority:** medium
+**Status:** open
+**Source:** F081 (exp_074): The A sequential grammar is weaker than B's (bigram PPL reduction: 9.1% vs B 13.3%). F066 (exp_059): Two-register Herbal A — y-dominant vs aiin-dominant folios have different onset profiles (y-dominant enriches o-onset 1.59×; aiin-dominant enriches d-onset 1.61×). Does the {sh vs s} complementarity differ between these A registers?
+**Description:** Split Herbal A folios into y-dominant vs aiin-dominant registers (using the exp_059/exp_062 classification). Compute onset-class bigram transition matrices separately for each. Compare: (1) sh→qo coupling, (2) s→ch enrichment, (3) bigram vs unigram PPL reduction. Are the two registers of Herbal A as different in sequential grammar as A vs B?
+**Expected outcome:** If register-sensitive: aiin-dominant A has stronger d-like grammar (d→ch enriched); y-dominant A has different structure. If uniform: the two registers share the same sequential grammar despite different onset-class frequencies.
+**Cost estimate:** small
+**Prerequisites:** exp_059, exp_074 (done)
+
+---
+
+## H104: The B Line-Final Onset Pattern Differs Systematically by Section (Bio vs Herbal B)
+**Priority:** low
+**Status:** open
+**Source:** F081 (exp_074): B line-final words are non-random (o=1.25×, d=1.50×, qo=0.61×, sh=0.42×) — measured globally. But B sections differ morphologically (F078: 5-class taxonomy stable; Bio enriches k at para-starts). Does the line-final onset distribution differ by section?
+**Description:** For each B section (Herbal B, Bio B, Pharma B, Text B, Special B), compute the last-word onset distribution and enrichment. Does the d-onset line-final enrichment (1.50×) hold across all sections? Is the qo suppression at line-ends universal or section-specific?
+**Expected outcome:** If universal: the line-final grammar is a section-independent property of Currier B. If section-sensitive: one section (e.g., Bio with its qo-dominated vocabulary) might show different line-final patterns.
+**Cost estimate:** small
+**Prerequisites:** exp_074 (done)

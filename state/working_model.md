@@ -1,5 +1,5 @@
 # Working Model — Voynich Manuscript Cryptanalysis
-**Last updated:** 2026-04-09 (after exp_072)
+**Last updated:** 2026-04-09 (after exp_074)
 **Purpose:** Continuously-updated structured summary of current beliefs about Voynichese.
 **Discipline:** Characterization, not interpretation. Claims require experimental warrant.
 
@@ -175,7 +175,13 @@ These findings have been replicated across independent analyses or confirmed by 
 - **A ch-ch self-following** (F077, exp_070): Currier A ch-ch repetition 1.34× enriched; dominant pair "chol chol" (20 tokens). B near-random (1.09×).
 - **B sequential hinge: sh→qo coupling** (F079, exp_072): sh→qo is ~2× enriched in ALL B sections (1.44-2.20×, universal). Top construction: shedy/shey → qok+suffix. sh is the STRONGEST predictor of qo-following (1.97×); d SUPPRESSES qo-following (0.76×). Combined with ch→qo (1.16×), creates B medial alternation: ...sh → qo → ch → qo → sh...
 - **A vs B sequential grammar** (F079, exp_072): B uses qo as a sequential hinge (sh→qo=1.97×); A has FLAT transitions (max ch→ch: 1.34×). A lacks the qo-hinge function. A/B distinction extends to word-ordering grammar, not just morphology. Both have weak sh→qo coupling (A: 1.56×, B: 1.97×) — a cross-dialect feature.
+- **d and sh are perfect sequential complements** (F080, exp_073): sh→ch 0.64× and sh→qo 1.97×; d→ch 1.27× and d→qo 0.76×. s→qo also suppressed (0.57×). Two paths to ch in B medial: (1) sh → qo → ch; (2) d → ch (direct bypass). After qo+ch, next word is again qo (29.7%), confirming alternation loop.
+- **B medial grammar operates at onset-class level, lexically free** (F080, exp_073): Medial trigrams (qo+ch+X) are 99.4% unique (667 tokens, 663 types). Sequential grammar constrains onset classes, not specific words. This is structurally consistent with natural language.
+- **Complete B sequential grammar**: [p-onset para-start] → [o/sh transition (p→o=29.6%, p→sh=19.0%)] → [qo↔ch/sh alternation (sh→qo: 1.97×, qo→ch: 1.31×) OR d→ch direct (d→ch: 1.27×)] → [closing word].
 - The s-initial class is aiin-dominant like d — a new finding suggesting s-words encode a similar role to d-words
+- **A has weaker d/sh complementarity; s-onset plays the "d role" in A** (F081, exp_074): A sh→qo=1.58× (vs B 1.97×), d→ch=1.09× (vs B 1.27×), d→qo=0.93× (vs B 0.76×). In A, s→ch=1.36× and s→qo=0.63× — s is the stronger complement of sh in A. The A {sh vs s} complementary structure parallels B's {sh vs d} structure.
+- **B's sequential grammar is quantifiably stronger than A's** (F081, exp_074): Bigram onset-class model reduces perplexity by 13.3% in B (0.207 bits/bigram) vs 9.1% in A (0.138 bits/bigram). B's sequential grammar is 35% stronger by this measure.
+- **B line-final words are non-random; A line-finals dominated by d-onset** (F081, exp_074): B: qo (0.61×) and sh (0.42×) suppressed at line-ends; o (1.25×) and d (1.50×) enriched. sh-penult → qo-last: 28.0% (sh→qo coupling extends to line boundary). A: d-onset is 1.73× enriched at line-ends (25.4%), consistent with -aiin/-daiin line-end marker pattern.
 
 **Section is the primary organizer of morphological variance; quire structure is secondary (F054, exp_047)**
 - Section F-ratios > Quire F-ratios for all 4 features (qo-rate, -edy, -ol, -aiin)
