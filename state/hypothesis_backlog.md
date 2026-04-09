@@ -588,3 +588,34 @@
 **Expected outcome:** If daiin is A's functional equivalent of B's qokain: daiin should show line-final preference (A's equivalent of B's -ain=8% line-final). If daiin is neutral: no positional preference.
 **Cost estimate:** small (positional analysis of 'd' stem in Currier A)
 **Prerequisites:** exp_038 (suffix positional data), exp_041 (productivity data for 'd' stem)
+
+---
+
+## H061: The 'y-' Prefix in Currier A Is a Line-Initial Particle (Analogous to a Definite Article or Sentence-Opener)
+**Priority:** high
+**Status:** tested — NOT SUPPORTED (exp_054: y-initial is 0% at para-starts; is a CONTINUATION line marker, not sentence-opener. -dy is para-start marker (4.39×). F061 added.)
+**Source:** exp_053 (F060: y-initial words are 5-6× enriched at line beginnings; ychor, ycheor, ychol, ycheey all strongly line-initial)
+**Description:** In Currier A, words beginning with 'y' followed by 'ch' (ychor, ycheor, ychol, ychey) are 5-6× over-represented at line beginnings. This parallels the EVA 'y' known to function as a word-initial element in many Voynichese words. H061: The prefix 'y-' in Currier A marks sentence-initial position (like a definite article, narrative opener, or quotative marker). Test: (a) What fraction of Currier A lines begin with a 'y-' initial word? (b) Is the 'y-' line-initial effect also present in Currier B? (c) Do 'y-' words cluster specifically at PARAGRAPH beginnings (@P0) vs line beginnings within a paragraph (+P0)?
+**Expected outcome:** If 'y-' is a true paragraph/sentence opener: it should concentrate at @P0 lines (paragraph starts) more than +P0 lines. If it's simply a line-initial marker without paragraph-level structure: equal distribution across @P0 and +P0.
+**Cost estimate:** small (targeted re-analysis of positional data from exp_053)
+**Prerequisites:** exp_053 (done)
+
+---
+
+## H062: The -ain Suffix Is a Sentence-Boundary Marker, Appearing at Both Line-Initial and Line-Final Positions
+**Priority:** medium
+**Status:** tested — PARTIALLY SUPPORTED (exp_054: -ain is suppressed at para-starts (0.25× A, 0.30× B). -aiin marks para-ENDS (19.5% A, 10.5% B). The boundary marker function is -aiin not -ain. F061 added.)
+**Source:** exp_053 (F060: -ain is 1.30× first AND 1.45× last in A; exp_038: -ain 8.0% line-final in B at chi²=5.8)
+**Description:** The -ain suffix appears to mark sentence boundaries in both Currier A and B, appearing above baseline at both line edges. H062: -ain marks syntactic boundaries (sentence-initial or sentence-final position) rather than a specific grammatical category (like -edy marking medial content). Test: (a) Do -ain words concentrate at PARAGRAPH beginnings (@P0) and PARAGRAPH endings (=Pt) more than at mid-paragraph lines? (b) Does the line-initial vs line-final split change between @P0 and +P0 lines?
+**Cost estimate:** small (re-parse with @P0 vs +P0 distinction)
+**Prerequisites:** exp_053 (done)
+
+---
+
+## H063: The y-Initial Line-Opening Correlates with Specific Content/Section
+**Priority:** low
+**Status:** open
+**Source:** exp_053 (F060): 30% of A lines open with -ol/-or words; 'y-' words are highly enriched at line openings
+**Description:** Are the 'y-' initial line openers concentrated in specific herbal sections (e.g., particular folio ranges)? Or are they manuscript-wide? If concentrated in specific sections, the 'y-' particle may be section-specific rather than a general A-dialect particle.
+**Cost estimate:** small (per-section 'y-' analysis)
+**Prerequisites:** exp_053 (done)

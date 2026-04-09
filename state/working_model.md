@@ -1,5 +1,5 @@
 # Working Model — Voynich Manuscript Cryptanalysis
-**Last updated:** 2026-04-09 (after exp_053)
+**Last updated:** 2026-04-09 (after exp_054)
 **Purpose:** Continuously-updated structured summary of current beliefs about Voynichese.
 **Discipline:** Characterization, not interpretation. Claims require experimental warrant.
 
@@ -129,12 +129,14 @@ These findings have been replicated across independent analyses or confirmed by 
 - Most frequent single word in Herbal A; appears only once in labels
 - Not a universal function word; Currier A / Herbal A specific
 
-**Currier A has a partial line grammar with distinct suffix-level slot structure (F057, F060, exp_050, exp_053)**
-- Line-initial slot: -or suffix (1.66×); 'y-'+ch words (ychor=5.83×, ychol=5.38×, ycheey=6.27×) — 'y' may be a line-initial particle; 30% of lines open with [or-word][ol-word] pair
-- Line-final slot: -dy (1.59×), -al (1.35×), -ain (1.45×); '-am' words (dam=3.92×, dan/dom=6.27×); d-stem words generally (dam=62.5%, dy=49.2%, dal=35.5%)
-- Medial slot: -ol (80.7% medial), -ey (80.8%), -eey (80.0%) — these strictly avoid line edges
-- -ain: BOTH line edges (1.30 first, 1.45 last) — possible sentence-boundary marker
-- Currier B contrast: in B, BOTH -or (1.84) and -ol (1.46) are line-initial; -aiin is line-initial in B (1.50) but line-FINAL in A (1.27); the positional grammars differ between dialects
+**Currier A has a three-tier positional grammar (F057, F060, F061, exp_050, exp_053, exp_054)**
+- **Paragraph-start slot**: -dy words (4.39× enriched), -y words (1.76×); y-initial words are ABSENT from para-starts (0/134)
+- **Within-paragraph line-start slot**: y-initial words (16.3% of continuation first-words; 5-6× vs para-starts); -or suffix (1.66×); 30% of lines open with [or-word][ol-word] pair
+- **Paragraph-end slot**: -aiin words (19.5% of A para-end last words = 1.35×; B: 10.5% = 1.30×)
+- **Line-final slot**: -dy (1.59×), -al (1.35×), -ain (1.45×), '-am' words (dam=3.92×, dan/dom=6.27×)
+- **Medial slot**: -ol (80.7% medial), -ey (80.8%), -eey (80.0%) — strictly avoid both edges
+- 'y-' prefix = LINE-CONTINUATION PARTICLE (marks lines within a paragraph that continue previous line, not sentence-openers)
+- Currier B contrast: both -or (1.84) and -ol (1.46) line-initial in B; -aiin line-initial in B (1.50) but line-FINAL in A (1.27)
 
 **Bio section vocabulary is dominated by qo-words; Herbal A by short words (F015)**
 - Bio top words: shedy, chedy, qokain, qokedy, ol, qokeedy, qokal, qokaiin
