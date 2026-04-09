@@ -946,3 +946,36 @@
 **Expected outcome:** If daiin is A's dominant medial predecessor: P(ch|daiin) >> P(ch|non-daiin). If the A grammar is different: no clear dominant predecessor.
 **Cost estimate:** small
 **Prerequisites:** exp_071 (done)
+
+---
+
+## H094: The d→qo Suppression (0.76×) Reflects That d-onset Words and qo-onset Words Occupy Complementary Slots
+**Priority:** high
+**Status:** tested — STRONGLY SUPPORTED (exp_073: d→ch=1.27×, d→qo=0.76×; sh→ch=0.64×, sh→qo=1.97×. Perfect complements. Two paths to ch: sh→qo→ch and d→ch. F080 added.)
+**Source:** F079 (exp_072): sh→qo=1.97× (enriched) while d→qo=0.76× (suppressed). d and qo are in opposite sequential relationships to sh: sh prefers qo, d avoids qo. Does d occupy a positional slot that is FOLLOWED by ch directly (bypassing qo)? Is there a d→ch coupling analogous to sh→qo?
+**Description:** Compute P(ch|d), P(ch|sh), P(ch|qo), P(ch|o) directly and compare to baseline. Also: what does d follow most often? Is there a word class that systematically precedes d? If d and qo are in complementary sequential niches, the sequence around d would be: [something] → d → ch, while around qo it would be: sh → qo → ch.
+**Expected outcome:** If d→ch coupling: P(ch|d) > P(ch|sh). If d is the "medial non-qo" class: d words appear in the same slot as qo but with different preceding and following words.
+**Cost estimate:** tiny (uses existing transition matrix data from exp_072)
+**Prerequisites:** exp_072 (done)
+
+---
+
+## H095: The B Grammar Has a Three-Slot Medial Structure: [qo-gallows] + [ch/sh] + [suffix-word]
+**Priority:** high
+**Status:** tested — REFUTED AT WORD LEVEL (exp_073: qo+ch trigrams 99.4% unique; grammar is onset-class level only, not word level. After qo+ch: qo=29.7%, confirming alternation loop. F080 added.)
+**Source:** F078 (exp_071, transition matrix): the B medial sequence is qo→ch/sh→qo→ch/sh (alternation). F079 (exp_072): sh→qo coupling is specific to shedy/shey → qok-forms. Do three-word medial sequences (qo-word + ch/sh-word + closing-word) appear at elevated rates as specific trigram constructions?
+**Description:** Extract all three-word sequences where word 1 is qo-onset, word 2 is ch/sh-onset, word 3 is any onset. What are the most common three-word medial sequences? Are specific trigrams (qo+ch/sh+suffix-word) highly repetitive across folios? Compare trigram diversity in B medial positions to A.
+**Expected outcome:** If three-slot structure exists: specific qo+ch/sh+word trigrams appear repeatedly across folios. If not: medial words combine freely.
+**Cost estimate:** small
+**Prerequisites:** exp_071, exp_072 (done)
+
+---
+
+## H096: The A 'daiin' Word Encodes a Specific Sequential Role: It Precedes ch-onset Words More Than Expected When Controlling for Its Overall Frequency
+**Priority:** medium
+**Status:** tested — NOT SUPPORTED (exp_073: P(ch|daiin)=1.06×, P(ch|other-d)=1.10×; daiin not enriched vs d-class baseline. The d→ch enrichment is a class property. F080 added.)
+**Source:** H093 tested onset classes in A; daiin is a d-class word. F079: A has flat transition matrix, with d→ch at 1.09× baseline. But daiin specifically (not all d-words) was the most common predecessor of ch in the raw word-count analysis (F070: daiin=74 occurrences before ch). Is daiin itself (not the d-class generally) enriched as a ch-predecessor?
+**Description:** Compute P(ch|daiin) vs P(ch|other-d-words) in Currier A. Is daiin specifically enriched as a ch-predecessor, while other d-words (dar, dain, dy...) are not? This would show that daiin is NOT just a common word that happens to precede ch, but specifically enriched as a ch-predecessor.
+**Expected outcome:** If daiin-specific: P(ch|daiin) >> P(ch|other-d). If coincidental: P(ch|daiin) ≈ P(ch|other-d) ≈ baseline.
+**Cost estimate:** tiny
+**Prerequisites:** exp_072 (done)

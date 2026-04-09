@@ -1,5 +1,5 @@
 # Working Model — Voynich Manuscript Cryptanalysis
-**Last updated:** 2026-04-09 (after exp_070)
+**Last updated:** 2026-04-09 (after exp_072)
 **Purpose:** Continuously-updated structured summary of current beliefs about Voynichese.
 **Discipline:** Characterization, not interpretation. Claims require experimental warrant.
 
@@ -173,6 +173,8 @@ These findings have been replicated across independent analyses or confirmed by 
 - **B sequential word-order rule** (F077, exp_070): qo+gallows→ch/sh is the dominant medial sequence. qokain→ch (86), qokaiin→ch (78), more than daiin→ch (74). Full B sequence: [p-onset para-start] → [qo+gallows medial] → [ch/sh medial] → [closing word].
 - **qo prefix attaches to gallows in 86.5% of cases** (F075, exp_068): qo+k=62.6%, qo+t=19.9%, qo+p=3.3%, qo+f=0.7%. Section-sensitive: Bio=26%, Astro=6.5%. Confirms Tier 1 qo→k/t-initial stem selectivity.
 - **A ch-ch self-following** (F077, exp_070): Currier A ch-ch repetition 1.34× enriched; dominant pair "chol chol" (20 tokens). B near-random (1.09×).
+- **B sequential hinge: sh→qo coupling** (F079, exp_072): sh→qo is ~2× enriched in ALL B sections (1.44-2.20×, universal). Top construction: shedy/shey → qok+suffix. sh is the STRONGEST predictor of qo-following (1.97×); d SUPPRESSES qo-following (0.76×). Combined with ch→qo (1.16×), creates B medial alternation: ...sh → qo → ch → qo → sh...
+- **A vs B sequential grammar** (F079, exp_072): B uses qo as a sequential hinge (sh→qo=1.97×); A has FLAT transitions (max ch→ch: 1.34×). A lacks the qo-hinge function. A/B distinction extends to word-ordering grammar, not just morphology. Both have weak sh→qo coupling (A: 1.56×, B: 1.97×) — a cross-dialect feature.
 - The s-initial class is aiin-dominant like d — a new finding suggesting s-words encode a similar role to d-words
 
 **Section is the primary organizer of morphological variance; quire structure is secondary (F054, exp_047)**
