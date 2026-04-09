@@ -219,6 +219,12 @@
 **Finding:** The character sets of f57v's 17-token repeating cycle and f66r column 2 overlap significantly (Jaccard=0.667, p=0.003 vs hypergeometric null). Of 25 EVA single chars, f57v uses 14 and f66r col2 uses 11; the intersection is 10 — 3.84 chars above random expectation. Both sets converge on: {c, d, f, l, o, p, r, t, x, y}. The only char in f66r but not f57v is 's'; only in f57v are I, k, m, v. Additionally, the f→@169 adjacency appears in both: f57v pos 9-10 is f then @169;v; f66r col2 entries 8-9 are 'f' then '@169'. The character ORDER in f66r col2 does NOT correspond to f57v cycle positions (Spearman ρ ≈ -0.09), ruling out f66r as a simple linearization of f57v's cycle.
 **Limitation:** The shared char set heavily overlaps with H022's "non-compound-forming chars" category, so the overlap may partially reflect both lists independently avoiding compound-forming chars rather than a direct relationship. These two explanations are not mutually exclusive.
 
+## F042: Word-Final Inventory: {y,n,l,r} Cover 88.8% of Endings; ...dy/...in/...ey/...ol Are Top Bigrams
+**Experiment:** exp_036_word_final_inventory
+**Date:** 2026-04-09
+**Finding:** Word-final character distribution: 'y'=41.1%, 'n'=17.0%, 'l'=15.7%, 'r'=14.9% (together = 88.8%). Top 5 covers 91.8%. Final H = 2.460 bits (vs shuffled 3.86 bits, bias=1.48). Top word-final bigrams: ...dy=18.6%, ...in=16.7%, ...ey=11.0%, ...ol=9.7%, ...ar=7.1%, ...hy=5.8%, ...al=5.4% — top 7 cover 74.2% of all word endings. Currier B has 'y' dominant (45.5% vs A's 31.8%); B final H = 2.324 bits vs A's 2.682 bits (B more constrained). Bio section most y-heavy (54%); pharma most l-heavy (24%). These patterns directly match Stolfi's suffix template predictions.
+**Limitation:** Analysis uses word tokens; compound treatments (EVA ch=one char vs two) affect count slightly.
+
 ## F041: qo-Prefix Does Not Bridge A/B Gap — qo-Stripped B Stems Are Mostly B-Exclusive
 **Experiment:** exp_035_ab_qo_normalization
 **Date:** 2026-04-09
