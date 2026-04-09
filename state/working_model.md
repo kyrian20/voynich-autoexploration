@@ -203,9 +203,15 @@ These findings have been replicated across independent analyses or confirmed by 
 
 ### 3.3 Vocabulary Organization
 
+**Labels are a formulaic distinct register from body text — NOT content annotations (F053, exp_046)**
+- 60% of folios with labels have ZERO label-body vocabulary overlap
+- The 40% with overlap share 'o'-prefix words (morphological relationship, not content naming)
+- Pharma labels (Lf, 15 folios): median ratio=0.00 — completely formulaic regardless of folio body
+- Labels are NOT "naming what's illustrated in body text" — they are a separate linguistic layer
+
 **The label corpus TTR ≈ 1.0 across all sections suggests labels are primarily names (hapax phrases)**
-- If labels were grammatical phrases (article + noun), TTR would be lower
 - Near-unique labels suggest each labeled object gets a unique identifier
+- But label vocabulary is NOT derived from same-folio body text
 
 **The section-suffix correlation (-aiin→S, -edy→bio) may reflect pragmatic register rather than grammar**
 - If the suffix paradigm marks aspect/tense/case, section differences suggest the manuscript sections have different modal registers (statements vs descriptions vs commands)

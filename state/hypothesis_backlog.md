@@ -504,7 +504,7 @@
 
 ## H053: Per-Folio Label Vocabulary Correlates with Per-Folio Body Vocabulary
 **Priority:** medium
-**Status:** open
+**Status:** PARTIALLY SUPPORTED (exp_046): 60% of folios have zero label-body overlap (formulaic register). 40% with above-chance overlap use o-prefix words (morphological relationship, not content). Pharma labels completely formulaic (median ratio=0.00). F053 added.
 **Source:** working_model.md Phase 3 gap-hunting (2026-04-09)
 **Description:** For folios with both labels (Lf/Ln/Lt/Ls) and substantial body text, do the label words predict the body word distribution on the same folio? If labels name the illustrated objects and body text describes them, we'd expect label stem vocabulary to show elevated frequency in the body text of the same folio (co-occurrence). If labels are formulaic (standard names regardless of body content), label-body correlation per folio would be low. Test: for each folio with ≥5 label tokens AND ≥30 body tokens, compute the Jaccard similarity between label word types and body word types. Compare to the expected Jaccard given the folio's label size and body size (random null). Is there a per-folio correlation (label vocabulary predicts same-folio body vocabulary) that exceeds the manuscript-wide baseline?
 **Expected outcome:** Pharma section (Lf labels, f88-f102) is the best candidate for high correlation if label = plant name and body = recipe/use. Astro labels (Ls) may show low correlation if labels are constellation names and body text is general astronomical prose.
