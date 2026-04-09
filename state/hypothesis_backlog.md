@@ -281,7 +281,7 @@
 
 ## H024: f49v @SPECIAL Glyphs in Line Markers Are the Same Physical Glyphs as f57v Circular Text
 **Priority:** medium
-**Status:** open
+**Status:** REFUTED (exp_034): f49v @NNN = {140,192,164,243}; f57v @NNN = {169,170,171,172,255}. Zero overlap. @140 is now identified as numeral "5" (later-hand annotation). f49v @NNN codes are a different physical layer (numerals) from f57v's original Voynich special characters. f49v↔f57v @NNN connection: none.
 **Source:** exp_013_line_marker_structure
 **Description:** f49v has 6/26 line markers as @SPECIAL glyphs (non-EVA characters). f57v circular text also uses @169, @170, @171, @172. Since f49v is Scribe 1 and f57v is also Scribe 1 (Hand 1, Currier A), these @SPECIAL glyphs may be the same physical glyphs. If the @SPECIAL glyphs in f49v margins correspond to @169/@172 from f57v, then the f49v line marker sequence contains BOTH EVA characters AND the special glyphs from the f57v "key" — making f49v the first discovered folio where the "key-like" glyph set appears in a structural role (margin markers).
 **Expected outcome:** Visual comparison of f49v @SPECIAL margin glyphs with f57v @169/@172 would determine if they are the same. A positive identification would strongly link all three key-cluster folios.
