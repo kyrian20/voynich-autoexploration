@@ -297,3 +297,47 @@
 **Expected outcome:** If gallows markers cluster at body text boundaries (section starts, paragraph heads), they may be structural delimiters. If random relative to structure, the overrepresentation is a character-selection artifact.
 **Cost estimate:** small — requires body text analysis per marker, mostly done in exp_013
 **Prerequisites:** exp_013 (done)
+
+---
+
+## H026: The f57v Repeating Sequence Is 17 Units Per Cycle, with @169 Functioning as a Compound Glyph Including 'v'
+**Priority:** medium
+**Status:** open
+**Source:** exp_015_f57v_characterization + exp_018_at_glyph_prior_work
+**Description:** Voynich.nu describes the f57v repeating sequence as "4 × 17 characters," while ZL3b tokenization gives 18 tokens per cycle (because @169;v is split at the dot separator). The discrepancy is exactly 1 — consistent with @169 being a compound glyph that incorporates the following 'v' stroke, making the actual repeating unit 17 characters: `o l d r v x k m [f/p @169v] t r @170 @171 y [I/c] @172`. Test: (a) visually inspect the f57v manuscript image at the @169 position to determine if @169 and v are visually fused or separate; (b) check whether ZL3b's own description confirms compound treatment; (c) compare position counts from Zandbergen's folio page (4×17) against our tokenization. If @169 is compound, the cycle is: 8 standard chars, then @169v (1 compound), then 4 chars, then @170, @171, y, [I/c], @172 — a tight 17-unit ring.
+**Expected outcome:** If @169;v is a compound, the repeating unit becomes 17, matching voynich.nu. This would mean @169 is a ligature (two-part glyph) and should be treated as a single structural unit.
+**Cost estimate:** small — primarily visual inspection of manuscript image
+**Prerequisites:** exp_015 (done), exp_018 (done)
+
+---
+
+## H027: The f68r2 Four-Consecutive-@Glyph Sequence (@231-@234) Is a Second Structured @Glyph Group
+**Priority:** medium
+**Status:** open
+**Source:** exp_016_at_glyph_census
+**Description:** f68r2 (Hand 4, astronomical section, Quire 9) contains 4 consecutive distinct @glyphs (@231, @232, @233, @234) appearing together in one line — structurally analogous to f57v's @169→@170→@171→@172 cluster. Test: (a) extract the full f68r2 transcription and characterize the locus and context of these 4 @glyphs; (b) check if they form a sub-sequence within a repeating structure as in f57v; (c) visually inspect f68r2 manuscript image; (d) compare character context (what surrounds @231-@234) against f57v's @169-@172 context. If f68r2 also has a short repeating sequence with @glyphs in fixed order, this would suggest a manuscript-wide convention for encoding structured information using @glyph clusters.
+**Expected outcome:** Either f68r2 has a similar repeating structure (broadening the phenomenon), or the 4 consecutive @glyphs are a one-off annotation (narrowing it to f57v only). Either outcome is informative.
+**Cost estimate:** small — extract f68r2 transcription from ZL3b + image inspection
+**Prerequisites:** exp_016 (done)
+
+---
+
+## H028: The Jim Reeds X1-X128 Rare Character Document Identifies the Physical Glyphs for @169, @172, @195
+**Priority:** medium
+**Status:** open
+**Source:** exp_018_at_glyph_prior_work
+**Description:** Jim Reeds produced a systematic document of rare Voynich characters, designated X1-X128, which covers the non-standard EVA glyphs. This document would identify what manuscript glyphs correspond to @NNN codes (ASCII values 130-255). If located, it would: (a) name the physical glyph @169 represents; (b) show whether @169 and @172 on f57v vs f66r are the same physical character or coincidentally assigned the same code; (c) clarify the @169;v compound question. Test: search voynich.nu, Reeds's archived papers (via Wayback Machine or university archives), and voynich community resources (voynich.ninja forum) for the Reeds X-character document or any equivalent enumeration.
+**Expected outcome:** The document either exists and is findable (resolving the glyph identity question) or has been lost/unpublished (leaving the question open but quantifying the gap).
+**Cost estimate:** small — web search and archive check
+**Prerequisites:** exp_018 (done)
+
+---
+
+## H029: The f49v Margin Numerals 1-5 Are Latin-Script Digits That Were Added by a Different Hand
+**Priority:** low
+**Status:** open
+**Source:** exp_018_at_glyph_prior_work + exp_013_line_marker_structure
+**Description:** Voynich.nu documents "numbers 1-5 written to the left of lines 2-6" on f49v alongside the Voynich character margin sequence. These numerals are NOT captured as @SPECIAL in ZL3b's machine-readable content (the @SPECIAL markers in f49v are @140, @164, @192, @243 — not numerals). This suggests the numerals are either: (a) a separate extraneous annotation not in ZL3b (like the zodiac month names or Jacobus ex libris), (b) encoded as @NNN themselves (possibly @164 is the numeral sequence), or (c) visible in the manuscript image but not transcribed. Test: (a) inspect the f49v manuscript image for the numerals; (b) check if any @NNN code in f49v corresponds to numerals; (c) cross-reference with ZL3b's transcription metadata for f49v. If the numerals are a later addition by a different hand, they could be a reader's annotation rather than original text.
+**Expected outcome:** Either the numerals are the @NNN markers (explaining some of the @SPECIAL tokens) or they're a separate layer. The former would resolve the @140/@192/@243 identity question for f49v.
+**Cost estimate:** small — image inspection + ZL3b metadata check
+**Prerequisites:** exp_013 (done), exp_016 (done)
