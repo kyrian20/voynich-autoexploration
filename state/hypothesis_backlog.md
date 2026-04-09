@@ -1708,3 +1708,43 @@
 **Expected outcome:** d-chains appear at significantly above chance. This would establish a INTER-LINE CONTINUITY GRAMMAR: d-onset words create runs across consecutive lines.
 **Cost estimate:** small
 **Prerequisites:** F099 (exp_092)
+
+---
+
+## H164: A Para-Start p-Onset Words Are a Specific Closed Class
+**Priority:** high
+**Status:** TESTED (exp_093) — CONFIRMED WITH EXTENSION: p-onset enrichment real (12.41×) but OPEN CLASS (43 unique forms). p- PREFIX marks para-initial position; stems vary. p+ch/sh/o = A para-start morphemes. p- is A's THIRD POSITIONAL PREFIX. High-enrichment forms: pchor(9.5×), pcheol(9.5×), podaiin(19.0×).
+
+---
+
+## H165: d-Chain Pattern — d-Closer Triggers d+ch Opener
+**Priority:** medium
+**Status:** TESTED (exp_093) — CONFIRMED (MODEST): d+ch after d-closer = 1.76× (P=6.6% vs 3.7%). y+ch SUPPRESSED (0.61×) after d-closer. Chains mostly length=1 pairs. o→y+ch weaker (1.20×). Effect real but not dominant.
+
+---
+
+## H166: Cross-Dialect Para-Start Onset Comparison
+**Priority:** high
+**Status:** TESTED (exp_093) — STRONGLY CONFIRMED UNIVERSAL GRAMMAR: p-onset (A=12.41×, B=3.71×), k-onset (A=4.32×, B=9.91×), t-onset (A=2.72×, B=2.05×) ALL enriched at para-starts in BOTH dialects. y/d/qo/s/sh suppressed in BOTH. Gallows-onset words = PARAGRAPH-LEVEL POSITIONAL CLASS across manuscript. Complete 4-level grammar: Para(p/k/t) → Line-opener(y+/d+) → Mid-line(bare/qo) → Closer(-am/d+).
+
+---
+
+## H167: k-Onset A Para-Start Words — Identify the Specific k-Onset Para-Start Vocabulary
+**Priority:** high
+**Status:** open
+**Source:** F100 (exp_093): k-onset words are para-start enriched in A (4.32×) and VERY strongly in B (9.91×!). k-onset is the SECOND strongest gallows-initial para-start class. Need to identify which specific k-onset words (kol, kor, kaiin, kedy, etc.) drive the para-start enrichment.
+**Description:** (1) List all k-onset A words by frequency. (2) Compute PSFirst% for k-onset A words with n≥3. (3) Compare: are k-onset A PS words the same structural forms as p-onset A PS words? (4) Check B k-onset PS words (9.91× — even stronger than p-onset!) — what specific B k-onset words open paragraphs? (5) Is there a "gallows-initial" closed class for k/p/t/f that marks discourse-level positions?
+**Expected outcome:** A specific subset of k-onset words (like kol, kor — the same stems as ch-stems but with k-initial gallows) will show high PSFirst%. The gallows character (k gallows ≡ t/p gallows) systematically marks para-starts.
+**Cost estimate:** small
+**Prerequisites:** F100 (exp_093)
+
+---
+
+## H168: The Four-Level Positional Grammar Is Encode in the Gallows Character System — p/k = Para-Level; Non-Gallows = Line-Level
+**Priority:** high
+**Status:** open
+**Source:** F100 (exp_093): p/k/t-onset (gallows characters) = para-starters; y/d/qo (non-gallows) = line-level. In EVA, k and t are the "regular gallows"; p and f are the "platform gallows". All four gallows characters should show para-start enrichment.
+**Description:** (1) Check f-onset words — do f-onset words also show para-start enrichment? (2) Within gallows class: is p-gallows enrichment > k-gallows > t-gallows > f-gallows? (3) Are qo-prefix + gallows words (qok, qot) showing para-start SUPPRESSION? (4) Does the y-initial line-opener system ever use gallows stems (y+k, y+t)? This would explain y+k/t compounds in B as a way to "recruit" gallows stems into the WITHIN-LINE position.
+**Expected outcome:** f-onset words are also para-start enriched. The four gallows characters (p/k/t/f) collectively mark paragraph-level positions; prefixes (y/d/q) recruit the same gallows stems for within-line positions.
+**Cost estimate:** small
+**Prerequisites:** F100 (exp_093)
