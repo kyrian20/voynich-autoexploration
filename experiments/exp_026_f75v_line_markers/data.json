@@ -1,0 +1,93 @@
+{
+  "f75v_markers": [
+    "s",
+    "l",
+    "l",
+    "o",
+    "r",
+    "s"
+  ],
+  "f76r_markers": [
+    "s",
+    "d",
+    "q",
+    "s",
+    "o",
+    "l",
+    "k",
+    "r",
+    "s"
+  ],
+  "f49v_markers": [
+    "f",
+    "o",
+    "r",
+    "y",
+    "e",
+    "@140;",
+    "k",
+    "s",
+    "p",
+    "o",
+    "@192;",
+    "y",
+    "e",
+    "@140;",
+    "@164;",
+    "p",
+    "o",
+    "@192;",
+    "y",
+    "e",
+    "@140;",
+    "d",
+    "y",
+    "e",
+    "k",
+    "y"
+  ],
+  "f75v_char_set": [
+    "l",
+    "o",
+    "r",
+    "s"
+  ],
+  "f76r_char_set": [
+    "d",
+    "k",
+    "l",
+    "o",
+    "q",
+    "r",
+    "s"
+  ],
+  "shared_75_76": [
+    "l",
+    "o",
+    "r",
+    "s"
+  ],
+  "f75v_subset_of_f76r": true,
+  "body_match_rate": 0.167,
+  "expected_chance": 0.092,
+  "zl3b_comment": [
+    "# page 148",
+    "# biological",
+    "# Currier's language B, hand 2",
+    "# Oesophagus @ dissected stomach (GL) or water stream @ lake.",
+    "# last character in first 5 lines aligned vertically reading slors",
+    "#",
+    "#",
+    "# Text near nymphs treated as two-word labels.",
+    "# That means 20 labels",
+    "#",
+    "#",
+    "# Continue normal loci. Petersen counted the above as 11a and 12 so he's 1 out now",
+    "#",
+    "#",
+    "# Alignment of all following lines is very uncertain",
+    "#",
+    "#",
+    "#"
+  ]
+}

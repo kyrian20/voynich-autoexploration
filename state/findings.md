@@ -201,11 +201,11 @@
 **Finding:** Currier A (10,255 tokens, 3,356 types) and Currier B (22,178 tokens, 4,876 types) share only 14.8% of their combined vocabulary (Jaccard = 0.148). Context-vector alignment of top-100 words from each dialect produces only 2/100 identical matched pairs (2%) — far below the 21% null expectation from vocabulary overlap. Frequency rank Spearman ρ = 0.337 for 94 shared words in each top-200 (dialects would show ρ > 0.8). A-exclusive high-frequency words are cth-cluster (cthy, cthol, cthor, qotchy: ~250 total tokens) absent from B's top vocabulary. B-exclusive high-frequency words are -edy/-ain paradigm (chedy=478, shedy=411, qokeedy=299, qokain=273 — absent from A's top vocabulary). Shared vocabulary (~21 top-50 words: or, ol, ar, chey, daiin, aiin, dar, etc.) consists of short, structurally neutral function/template words.
 **Limitation:** Context vectors were built on just top-100 words per dialect; alignment is greedy (not optimal). The token parsing normalizes uncertainty brackets. A larger alignment (top-300) could reveal additional shared function words.
 
-## F033: f75v Is a Third Line-Marker Folio; f75v and f76r Form a Bio-Section Line-Marker Pair
-**Experiment:** exp_022_l0_structural_audit
+## F033: f75v Is a Third Line-Marker Folio — Hand 2, Bio Section; Marker Set ⊆ f76r's Marker Set
+**Experiment:** exp_022_l0_structural_audit + exp_026_f75v_line_markers
 **Date:** 2026-04-09
-**Finding:** The full L0 locus audit identifies f75v (biological section) as a previously unknown line-marker folio with 5 L0/P0 alternating pairs (markers: s, l, l, r, s). Combined with f49v (herbal_A, 26 pairs) and f76r (bio, 9 pairs), this makes three confirmed line-marker folios in the manuscript. f75v and f76r are both in the biological section, both begin their marker sequences with 's', and f75v's 5-char set {s, l, r} is nearly a subset of f76r's 9-char set {s, d, q, s, o, l, k, r, s}.
-**Limitation:** f75v not previously investigated; image inspection needed to confirm same-hand vs different-hand markers; the f75v/f76r proximity (adjacent folios in bio section) may or may not be significant.
+**Finding:** f75v (biological section, Hand 2, Currier B) has 6 L0 markers in alternating L0/P0 structure: sequence s,l,l,o,r,s. ZL3b transcribers noted this explicitly: "last character in first 5 lines aligned vertically reading slors" (counting L8='o' and L9='r' as a compound 4th-position marker 'or'). f75v is Hand 2 — THE SAME HAND as f76r (also Hand 2, Currier B, bio). Combined with f49v (Hand 1/Currier A/herbal, 26 pairs), this makes three confirmed line-marker folios. Crucially, f75v's character set {l,o,r,s} is a proper subset of f76r's character set {d,k,l,o,q,r,s}: all 4 f75v chars appear in f76r, and f76r has 3 additional chars {d,k,q}.
+**Limitation:** Image inspection needed to confirm markers are in the same scribal hand as the body text (or a different layer).
 
 ## F034: ZL3b L0 Contains Only 9 True Object Labels Out of 160 Entries (5.6%); Cosmo Section Has 53 L0 List Entries
 **Experiment:** exp_022_l0_structural_audit
