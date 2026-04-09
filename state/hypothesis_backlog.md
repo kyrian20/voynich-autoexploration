@@ -1408,3 +1408,47 @@
 **Expected outcome:** If A marks para-starts: specific A words or onset classes are enriched at A para-start lines. If A doesn't mark para-starts: A para-start lines are indistinguishable from para-interior lines (unlike A para-finals where daiin is enriched).
 **Cost estimate:** small
 **Prerequisites:** exp_082 (done)
+
+---
+
+## H136: The B Para-Start ol-Prefix Word Class (olfchedy, olkey) Is a Distinct Morphological Class Marking Paragraph Openings
+**Priority:** high
+**Status:** tested — SUPPORTED (exp_084: ol-prefix splits into: (1) ol-line-closers (oly=88.6% line-last, oldy=78.6%) — pure line-final markers; (2) ol-para-starters (olkey=33.3% PSFirst, olkeeey=9.1%) — para-opening words. Two functional sub-classes based on stem after ol-. F091 added.)
+**Source:** F090 (exp_083): Top B para-start first words are olfchedy (87.6× enrichment), olkey (58.4×), opchedy (7.6×) — all starting with o-onset + complex internal form + -edy/-ey suffix. The ol- prefix appears in both olfchedy and olkey. Is there a class of B words starting with "ol+" that are disproportionately paragraph-opening words? These words differ from the general o-onset words (otaiin, okeedy) that mark para-finals.
+**Description:** (1) Extract all B words starting with 'ol': olkey, olfchedy, olkam, oly, oldy, etc. (2) Compute their positional statistics: line-final rate, para-start rate, para-final rate. (3) Are ol-prefix words specifically para-start markers (vs general o-onset words)? (4) What is the internal structure of ol-prefix words: onset=o + l + {complex stem} + {suffix}? (5) Do ol-prefix words and non-ol o-onset words have different positional roles?
+**Expected outcome:** If ol-class: ol-prefix words are enriched at B para-starts AND line-finals (oly, olkam already known as line-final markers). The ol-prefix may mark BOTH line-starts and line-finals in different word types (oly/olkam for line-finals; olfchedy/olkey for para-starts).
+**Cost estimate:** small
+**Prerequisites:** exp_083 (done)
+
+---
+
+## H137: A Para-Start sh/ch-Onset Words Are Specifically the LONGER sh/che-Forms (sheol, shey) Not Short sh-Forms (shol, sho)
+**Priority:** medium
+**Status:** tested — STRONGLY SUPPORTED (exp_084: she-=4.74× at para-start vs sh-other=1.62×; she- is 3× more specifically a para-start marker. daiin=0.13× anti-para-start. FINAL A MODEL: [she-prefix PARA-START 4.74×] → [-am 6.4%] → [daiin/ch PARA-END 8.6%]. F091 added.)
+**Source:** F090 (exp_083): A para-start top words: shey (4.4× enrichment), sheol (5.7×), shol (1.6×), shor (2.8×), chor (1.8×). The she-prefix forms (shey, sheol) have HIGHER enrichment than plain sh-forms (shol, shor). Does the she- prefix specifically mark A para-starts more than plain sh-forms? This would link the e-infix morphological class to positional marking.
+**Description:** (1) Compare para-start rate for she-prefix sh-words vs plain sh-words in A. (2) Similarly: che-prefix vs plain ch-words at para-starts. (3) What is the para-final rate for she- vs sh-other? (daiin is para-final; are she-words NOT para-final?) (4) Is the e-infix's para-start enrichment related to its y-dom qo-coupling (she-→qo=2.23×)?
+**Expected outcome:** If she-specific: she-words (shey, sheol) are more enriched at para-starts than plain sh-words (shol, sho). This would mean the e-infix marks paragraph openings in A, connecting morphological class to positional grammar.
+**Cost estimate:** small
+**Prerequisites:** exp_083 (done)
+
+---
+
+## H138: daiin Functions as a SENTENCE-FINAL (Not Just Para-Final) Marker in Currier A — It Marks the End of Syntactic Units at Multiple Levels
+**Priority:** high
+**Status:** tested — PARTIALLY SUPPORTED (exp_084: daiin shows binary-step pattern: first line=2.93% vs middle=4.83% vs last=6.50%. NOT smooth monotonic hierarchy — step function, not gradient. First-line avoidance is key (39% below middle). daiin-as-last-word: line 1=3.7%, later ordinals 3.7-11% (high variance). F091 added.)
+**Source:** F090 (exp_083): daiin is enriched at A para-final (8.6%) but also appears as a line-final marker (1.41× enrichment from earlier experiments). The gradient from non-para-start first word (5.3%) to within-para last word (6.2%) to para-final last word (8.6%) suggests daiin marks hierarchical boundaries at increasing scales. If daiin marks multiple levels (line-end, para-end), it may be analogous to a sentence-final particle in natural language.
+**Description:** (1) Within para-INTERIOR lines of A: compute daiin rate at different word positions (first word, middle, last word). (2) Compare daiin rate in short A paragraphs (2-3 lines) vs long paragraphs (5+ lines) at each line position. (3) Is daiin rate monotonically increasing as you approach para-final from para-start? (4) Does daiin appear preferentially at the end of the LAST WORD in lines that aren't para-final (i.e., as a within-para line-final marker too)?
+**Expected outcome:** If hierarchical: daiin rate increases continuously from para-start (0.6%) → within-para lines → para-final (8.6%), with intermediate rates at para-interior line-ends. If binary: daiin only marks para-final, not intermediate positions.
+**Cost estimate:** small
+**Prerequisites:** exp_083 (done)
+
+---
+
+## H139: The A and B Positional Grammar Models Predict a Consistent Sentence/Phrase Structure (Subject/Verb/Object Analogues)
+**Priority:** medium
+**Status:** open
+**Source:** F090 (exp_083): A model: [sh/ch PARA-START] → [-am line-ends] → [daiin PARA-END]. B model: [o/sh+long+edy PARA-START] → [-am line-ends] → [o+med+eedy PARA-END]. The positional grammar has a clear tripartite structure in both dialects. If Voynichese is a natural language (or encodes one), these positional markers might correspond to syntactic roles: para-start = topic/subject; para-final = predicate/conclusion; -am line-ends = continuation. Does this match any known typological pattern?
+**Description:** (1) Are there any natural language typologies where sentence-initial and sentence-final particles differ this systematically? (2) Do the positional markers (para-start words, para-final words) co-occur in specific ways — e.g., is there a fixed topic-comment order at the paragraph level? (3) Can paragraph content between sh/ch-onset start and daiin-final end be decoded as a consistent syntactic unit? This is more interpretive than computational.
+**Expected outcome:** The positional grammar suggests Voynichese paragraphs have consistent internal structure: an opening formula (sh/ch in A; o/sh+long in B) followed by content lines ending in -am, concluding with a closing formula (daiin in A; o+medium in B).
+**Cost estimate:** zero (synthesis from existing data)
+**Prerequisites:** exp_083 (done)
