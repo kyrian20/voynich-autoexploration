@@ -205,7 +205,7 @@
 
 ## H015: ot-/ok- Label Words — Section Distribution
 **Priority:** medium
-**Status:** open
+**Status:** tested
 **Source:** exp_003_label_body_entropy
 **Description:** Label words with 'ot-' or 'ok-' initial bigrams (otedy, oky, otaly, okal, okol, otal) dominate the label vocabulary. Test whether these words cluster in specific manuscript sections (herbal labels vs astronomical labels vs biological labels) or are uniformly distributed. Section-specific clustering would suggest these are content words naming section-specific objects; uniform distribution would suggest they are generic label words (like "genus," "figure," "note").
 **Expected outcome under competing theories:**
@@ -218,7 +218,7 @@
 
 ## H016: Verbose Cipher Source Language h2 Target — Arabic/Hebrew/German
 **Priority:** medium
-**Status:** open
+**Status:** tested
 **Source:** exp_007_verbose_cipher_control
 **Description:** The control test established that if Voynich is a fixed-filler adjacent-pair verbose cipher, its source language must have h2 ≈ 3.836 bits. Latin (3.509) and Italian (3.411) are both too low. Test: what is h2 for unvoweled Arabic and Hebrew? These are two natural language candidates that could plausibly have h2 in the 3.5-4.0 range (Arabic without diacritics, Hebrew without nikkud). If either matches 3.836 ± 0.1 bits, it becomes a candidate source language. This connects to the Reddy/Knight abjad hypothesis in the KB.
 **Expected outcome:** If Arabic unvoweled h2 ≈ 3.836, the abjad hypothesis gains support. If not, the fixed-filler verbose cipher interpretation is further constrained.

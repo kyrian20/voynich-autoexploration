@@ -119,6 +119,24 @@
 **Finding:** If Voynich were a fixed-filler adjacent-pair verbose cipher on Italian or Latin, its paired h2 should equal Italian h2 (3.411) or Latin h2 (3.509). Observed Voynich paired h2 = 3.836 — exceeds both by 0.33-0.43 bits. The fixed-filler adjacent-pair verbose cipher on Latin or Italian is ruled out. The source language would need h2 ≈ 3.836, which exceeds both Latin and Italian.
 **Limitation:** Other natural languages (German, Arabic, Hebrew) not yet tested. Variable-filler or non-adjacent-pair groupings remain open.
 
+## F023: ot-/ok- Label Words Cluster in Astro/Bio/Pharma Sections (40%) — Nearly Absent in Herbal (3.7%)
+**Experiment:** exp_010_label_word_sections
+**Date:** 2026-04-09
+**Finding:** ot-/ok- initial label words account for 40.9% of astro labels, 39.2% of bio labels, 32.4% of pharma labels, but only 3.7% of herbal_A labels and 0% of recipe labels. In body text, ot-/ok- appears uniformly at 10-15% across all sections. The label-specific clustering (vs. body text uniformity) means ot-/ok- is a label naming convention for non-herbal illustrated content, not a general body-text word class.
+**Limitation:** Folio-based section assignment is approximate. Single-character herbal labels may include parsing artifacts.
+
+## F024: Herbal_A Labels Are Dominated by Single Characters (y, o, f, d, e, s, p, x)
+**Experiment:** exp_010_label_word_sections
+**Date:** 2026-04-09
+**Finding:** Herbal_A has 81 label tokens, TTR=0.556, top "words": y, o, f, d, e, s, p, x — all single characters. This contrasts sharply with astro (TTR=0.828, ot-/ok- multi-word names), bio (TTR=0.864), and pharma (TTR=0.911, near-unique names). The herbal section uses a qualitatively different single-character annotation system. Each section has near-zero vocabulary overlap with other sections (herbal ∩ pharma = 3 shared types).
+**Limitation:** Single-character herbal labels need verification against facsimile images — some may be parsing artifacts from damaged or uncertain text.
+
+## F022: No Tested Natural Language Has h2 ≥ 3.836 — Verbose Cipher Hypothesis Further Constrained
+**Experiment:** exp_009_source_language_h2
+**Date:** 2026-04-09
+**Finding:** German (Goethe Faust, 163k chars) h2=3.535, Arabic consonantal (UDHR, 6k chars) h2=3.673, Hebrew consonantal (UDHR, 6k chars) h2=3.723. All are below the Voynich paired h2 target of 3.836 established in exp_007. Hebrew is the closest at 3.723 (-0.112 bits gap). Across five tested languages spanning European alphabets and Semitic abjads (Italian 3.411, Latin 3.509, German 3.535, Arabic 3.673, Hebrew 3.723), no language reaches the Voynich paired h2 target. The trend is monotonic: higher consonant-to-vowel ratio → higher h2, but even consonantal abjads fall short.
+**Limitation:** Arabic and Hebrew samples are small (~6k chars from UDHR). Turkish and Finnish (agglutinative languages) not yet tested. Test applies only to fixed-filler adjacent-pair grouping scheme.
+
 ## F021: Stolfi Crust Stripping Does Not Recover Natural-Language h2 — Core Region h2=2.389
 **Experiment:** exp_008_stolfi_slot_entropy
 **Date:** 2026-04-09
