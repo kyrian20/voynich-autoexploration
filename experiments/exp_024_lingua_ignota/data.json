@@ -1,0 +1,69 @@
+{
+  "sample_note": "35/1011 words available (full list in Higley 2007)",
+  "lingua_ignota": {
+    "n": 35,
+    "mean_len": 7.26,
+    "h_initial": 3.829,
+    "h_final": 2.567,
+    "h_bigram": 6.156,
+    "top4_initial_coverage": 0.4286,
+    "top_initials": {
+      "z": 4,
+      "l": 4,
+      "p": 4,
+      "h": 3,
+      "c": 3,
+      "a": 2,
+      "i": 2,
+      "j": 2,
+      "v": 2,
+      "k": 2
+    },
+    "top_finals": {
+      "z": 14,
+      "l": 5,
+      "r": 4,
+      "a": 4,
+      "s": 3,
+      "o": 2,
+      "n": 2,
+      "x": 1
+    }
+  },
+  "voynich": {
+    "n": 32469,
+    "mean_len": 5.21,
+    "h_initial": 3.176,
+    "h_final": 2.455,
+    "h_bigram": 5.712,
+    "top4_initial_coverage": 0.6743,
+    "top_initials": {
+      "o": 6696,
+      "c": 6195,
+      "q": 5225,
+      "s": 3779,
+      "d": 3063,
+      "a": 1733,
+      "y": 1301,
+      "l": 1234,
+      "k": 1193,
+      "t": 931
+    }
+  },
+  "latin": {
+    "n": 66528,
+    "mean_len": 5.75,
+    "h_initial": 4.138,
+    "h_final": 3.306,
+    "h_bigram": 7.349,
+    "top4_initial_coverage": 0.356
+  },
+  "german": {
+    "n": 34433,
+    "mean_len": 4.6,
+    "h_initial": 4.263,
+    "h_final": 3.567,
+    "h_bigram": 7.16,
+    "top4_initial_coverage": 0.355
+  }
+}
