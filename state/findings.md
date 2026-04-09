@@ -219,6 +219,12 @@
 **Finding:** The character sets of f57v's 17-token repeating cycle and f66r column 2 overlap significantly (Jaccard=0.667, p=0.003 vs hypergeometric null). Of 25 EVA single chars, f57v uses 14 and f66r col2 uses 11; the intersection is 10 — 3.84 chars above random expectation. Both sets converge on: {c, d, f, l, o, p, r, t, x, y}. The only char in f66r but not f57v is 's'; only in f57v are I, k, m, v. Additionally, the f→@169 adjacency appears in both: f57v pos 9-10 is f then @169;v; f66r col2 entries 8-9 are 'f' then '@169'. The character ORDER in f66r col2 does NOT correspond to f57v cycle positions (Spearman ρ ≈ -0.09), ruling out f66r as a simple linearization of f57v's cycle.
 **Limitation:** The shared char set heavily overlaps with H022's "non-compound-forming chars" category, so the overlap may partially reflect both lists independently avoiding compound-forming chars rather than a direct relationship. These two explanations are not mutually exclusive.
 
+## F036: f49v Margin Numerals 1-5 Are Later-Hand Annotations; @140 = Numeral "5"
+**Experiment:** exp_030_f49v_numerals
+**Date:** 2026-04-09
+**Finding:** ZL3b comment on f49v explicitly identifies "a vertical sequence 1 2 3 4 5 aligned with the 1st paragraph, starting from line 2." The L0 entries for f49v lines 2-6 are: o=1, r=2, y=3, e=4, @140=5. These are the ZL3b transcription of Arabic numerals visible in the manuscript margin — a later-hand annotation by a non-Voynich reader/owner numbering the first 5 body lines. @140 is the non-EVA glyph representing "5" (its shape was too non-standard for EVA approximation). The remaining 21 L0 markers (positions 1, 7-26) are original Voynich margin glyphs. The @NNN codes (@140, @192, @164) do NOT form a counting system: gaps between @140 occurrences are 8 and 7 positions (not 5), and modular analysis shows @NNN positions are not multiples of 5. Cross-paragraph alignment is 0/13 — the two f49v paragraphs' L0 sequences are completely independent.
+**Limitation:** Image inspection required to confirm the annotation layer identity (ink color, script style) and whether the "1-5" numerals are Arabic digits or another numeral system.
+
 ## F002: Pure Glossographic Model (Uniform Template Across All Positions) is Contradicted
 **Experiment:** exp_001_word_initial_entropy
 **Date:** 2026-04-09

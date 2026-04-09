@@ -333,7 +333,7 @@
 
 ## H029: The f49v Margin Numerals 1-5 Are Latin-Script Digits That Were Added by a Different Hand
 **Priority:** low
-**Status:** open
+**Status:** RESOLVED (exp_030): ZL3b comment confirms "1 2 3 4 5" sequence at lines 2-6, encoded as L0 entries o=1, r=2, y=3, e=4, @140=5. These are later-hand Arabic numeral annotations, NOT original Voynich content. @140 = numeral "5". @NNN codes do NOT form a counting system (irregular gaps). Cross-paragraph L0 alignment 0/13. F036 added.
 **Source:** exp_018_at_glyph_prior_work + exp_013_line_marker_structure
 **Description:** Voynich.nu documents "numbers 1-5 written to the left of lines 2-6" on f49v alongside the Voynich character margin sequence.
 
@@ -350,3 +350,14 @@
 **Expected outcome:** Either the numerals are the @NNN markers (explaining some of the @SPECIAL tokens) or they're a separate layer. The former would resolve the @140/@192/@243 identity question for f49v.
 **Cost estimate:** small — image inspection + ZL3b metadata check
 **Prerequisites:** exp_013 (done), exp_016 (done)
+
+---
+
+## H031: The f49v Numeral "1-5" Annotation Is by the Same Hand as Other Known Later Annotations (e.g., f116v)
+**Priority:** low
+**Status:** open
+**Source:** exp_030_f49v_numerals
+**Description:** The f49v numeral annotation (1-5 in the margin, later hand) is one of several non-Voynich additions to the manuscript. Known later annotations include: f116v "michitonese" text (post-15th century), zodiac month names (Romance language), "Jacobus ex libris" owner inscription, and Dee/Kelley marginalia theories. H031 asks whether the f49v numeral hand matches any of these known annotators.
+**Expected outcome:** If the numerals match the f116v annotation hand (same ink, script style), this narrows the annotation date. If they match the zodiac month names, it suggests a single reader who studied the manuscript systematically.
+**Cost estimate:** small — image comparison, prior work literature search
+**Prerequisites:** exp_030 (done)
