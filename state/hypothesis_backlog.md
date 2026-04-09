@@ -665,7 +665,7 @@
 
 ## H068: The Two-Register Herbal A Folios Differ in Vocabulary, Not Just Positional Grammar
 **Priority:** high
-**Status:** open
+**Status:** tested — STRONGLY SUPPORTED (exp_062: Jaccard=0.138 near A/B gap of 0.148; y-onset globally suppressed 0.21×; d/ch/sh enriched in aiin-dom; 447 aiin-exclusive types, 781 y-exclusive types. F069 added.)
 **Source:** F066 (exp_059): six herbal A folios have 0% y-initial and elevated aiin-last, forming an "aiin-dominant" register. Are these folios lexically distinct from the y-dominant herbal folios?
 **Description:** If the aiin-dominant herbal A folios (f49r, f32r, f8v, f42v, f35r) represent a different scribal hand or content sub-type, they should differ from y-dominant folios not just in positional grammar but in word choice. Specifically: (a) Do aiin-dominant folios use more daiin? More 'a'-initial words? Different suffix distributions overall? (b) What is the vocabulary overlap (Jaccard) between aiin-dominant and y-dominant herbal A folios? (c) Do aiin-dominant folios cluster around any shared high-frequency words not found in y-dominant folios?
 **Expected outcome:** If same scribal hand but different grammar: vocabulary should overlap strongly. If different hand: vocabulary will differ, especially in the most common words.
@@ -687,7 +687,7 @@
 
 ## H070: The 'k' and 't' Onset Classes Have Different Suffix Preferences Within the Currier B 'Other' Category
 **Priority:** high
-**Status:** open
+**Status:** tested — REFUTED (exp_061: k vs t KL=0.082 bits, nearly identical — same onset class. sh vs ch=0.062 bits also same class. 4 effective onset classes in B: {ch/sh}, {k/t/p}, {d/s}, {qo}. F068 added.)
 **Source:** F063 (exp_056): the 'other' onset class (25.6% of B tokens) is heterogeneous; KL=0.033 bits (very low). Disaggregating k-initial vs t-initial words (the two main stem classes identified in qo-stripping, exp_040) may reveal onset-specific suffix preferences invisible in the lumped 'other' category.
 **Description:** exp_040 showed that qo-stems are dominated by 'k' (60.5%) and 't' (21.2%) initial stems. The free-word corpus contains many k-initial (keedy, kaiin, kal) and t-initial (taiin, tol, tcheey) words. If k-initial and t-initial words have the same suffix preferences, they're the same morphological class. If they differ (e.g., k-initial prefers -edy while t-initial prefers -aiin), they're distinct classes. This would extend the 3-slot template (exp_056) to include root-class specificity.
 **Expected outcome:** If k and t are the same class: overlapping suffix distributions. If different: different suffix preferences that were averaged out in the 'other' category.
@@ -698,7 +698,7 @@
 
 ## H071: Multi-Paragraph Structure Is NOT Herbal-Specific — Bio and Pharma Folios Have Multiple Paragraphs
 **Priority:** medium
-**Status:** open
+**Status:** tested — SUPPORTED (exp_061: Herbal/Special/Text=100% single-para; Pharma=75% multi-para, Cosmo=71%, Astro=50%, Bio=37% multi-para; para count mirrors content complexity. F068 added.)
 **Source:** F065 (exp_058): all 75 herbal A folios are single-paragraph. Is this herbal-specific? Or does the single-paragraph structure extend to all sections?
 **Description:** If herbal A folios are universally single-paragraph (1 para-start per folio) but bio/pharma/special have multi-paragraph folios, this reveals a structural difference between sections: herbal text is continuous narrative (one plant = one paragraph = one folio), while bio/pharma use a different organizational scheme. Test: how many para-starts per folio across each section? Are some sections uniformly single-paragraph and others multi-paragraph?
 **Expected outcome:** Expected herbal = single para (confirmed for A); bio = likely multi-paragraph (shorter formulaic units per exp_055/F062); pharma/special = uncertain.

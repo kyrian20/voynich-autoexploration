@@ -84,3 +84,14 @@
 - **Finding:** F066 added
 
 ### Status: H064, H065, H066, H067 all resolved. Generating next hypotheses.
+
+## Session continuation (exp_061–062), 2026-04-09
+
+### exp_061: Paragraph Structure by Section + k/t Onset Classes (H070, H071)
+- **H071 SUPPORTED**: Single-paragraph structure is property of content sections (Herbal/Special/Text=100%); technical sections have multi-para: Pharma=75%, Cosmo=71%, Astro=50%, Bio=37%. Bio multi-para = bathing pool folios (f75v, f82r etc.). Astro f67r2 has 13 para-starts.
+- **H070 REFUTED (k≠t expected)**: k and t are THE SAME onset class (KL=0.082 bits). sh and ch also same class (KL=0.062). Currier B reduces to 4 effective onset classes: {ch/sh}, {k/t/p}, {d/s}, {qo}.
+- **Finding:** F068 added
+
+### exp_062: Two-Register Herbal A Vocabulary (H068)
+- **H068 STRONGLY SUPPORTED**: aiin-dominant vs y-dominant registers have vocabulary Jaccard=0.138 (near A/B gap of 0.148). y-onset globally suppressed in aiin-dominant (0.21×); d-onset enriched (1.61×); chaiin (11.75×) aiin-dominant marker. 447 aiin-exclusive / 781 y-exclusive word types. Near sub-dialect level distinction.
+- **Finding:** F069 added
