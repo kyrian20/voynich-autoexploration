@@ -1364,3 +1364,47 @@
 **Expected outcome:** If scribe split: aiin-dom folios are all from one or two quires (suggesting different hands). If section split: aiin-dom represents a specific content subsection of Herbal A with different language register.
 **Cost estimate:** small (reference-based)
 **Prerequisites:** exp_081 (done)
+
+---
+
+## H132: The Liquid-Final (-ol/-or) vs Glide-Final (-ey/-eey) Suffix Substitution Involves Specific Stem Pairs (chol↔chey, chor↔cheor, shor↔sheor)
+**Priority:** high
+**Status:** tested — PARTIALLY SUPPORTED (exp_083: substitution is distributed, not concentrated. Best pair: o+k stem (aiin-dom 38% liquid vs y-dom 12%). No dominant word-pair alternation — it's a register-level paradigm shift across many stems. F090 added.)
+**Source:** F089 (exp_082): Aiin-dom uses -ol/-or where y-dom uses -ey/-eey for ch/sh/cth stems. Top -ol words in aiin-dom: chol (53), shol (28), cthol (12); y-dom also has chol (70), shol (31) but uses more cheol, sheol. The substitution appears to be at the suffix level: chol in both registers (same word) + additional cheol/sheol variants in y-dom. Is there a true complementary pair: does chol appear MORE in aiin-dom while chey appears MORE in y-dom (using the same ch stem with different suffixes)?
+**Description:** For key ch-stems (ch+ol, ch+ey, ch+or, ch+eor) and sh-stems (sh+ol, sh+ey, sh+or, sh+eor): compute rate in aiin-dom vs y-dom. Are chol and chey complementary across registers? Does shol substitute for shey? Create a "liquid-to-glide substitution table" showing which word pairs are register-complementary.
+**Expected outcome:** If stem pairs: chol is enriched in aiin-dom; chey is enriched in y-dom; shol vs shey shows the same pattern; cthol vs cthey. If just rate: same words at different rates but no true complementary pair (chol high in BOTH but even higher in aiin-dom).
+**Cost estimate:** small
+**Prerequisites:** exp_082 (done)
+
+---
+
+## H133: B Para-Starts Are NOT Morphologically Marked — Paragraph Boundaries Are a Scribal/Layout Feature, Not Encoded in Word Grammar
+**Priority:** medium
+**Status:** tested — NOT SUPPORTED (OPPOSITE): B para-starts ARE marked: o-onset(2.42×), sh(1.72×), long words, -dy/-edy/-ey suffix (2.59×/1.68×/1.78×). -aiin(0.21×) and -eey(0.24×) suppressed. d/s/y/p/t suppressed. Top words: olfchedy(87.6×), olkey(58.4×). COMPLETE B MODEL: [o/sh+long-edy PARA-START] → [-am 12.6%] → [o+med-eedy PARA-END]. F090 added.)
+**Source:** F089 (exp_082): B para-starts show no distinctive morphological marker: first-word onset is o (36.6%), qo (18.8%), sh (14.9%) — same as corpus base rates. p-onset is NOT enriched (0.0% at para-starts). Para-final lines also end with o-onset (32.7%) but many other onset classes too. The paragraph boundary appears to be a purely positional/scribal convention, not encoded in the word grammar.
+**Description:** (1) Compare the FULL morphological profile of para-start first words vs non-para-start first words in B. Is there ANY feature (suffix, length, specific word) that distinguishes para-start lines? (2) Is the para-start word distribution indistinguishable from the general B word distribution? (3) If paragraph boundaries are purely scribal, should we expect the -am last-word marker to ALSO be purely positional (not grammatical)? (4) Compare A para-starts — does A show any morphological marking of para-starts?
+**Expected outcome:** If no marking: B para-start words are statistically indistinguishable from general B words. If subtle marking: there exists some morphological feature (length, specific suffix, specific word) that is enriched at para-starts even if not dominant.
+**Cost estimate:** small
+**Prerequisites:** exp_082 (done)
+
+---
+
+## H134: The Aiin-Dom Register Corresponds to Specific Early Quires (f1-f16 = Quires 1-3), Suggesting a Scribal or Section Break in Herbal A
+**Priority:** medium
+**Status:** open
+**Source:** F089 (exp_082): The AIIN_DOM_FOLIOS set (f1r-f16v) was identified by their high daiin/y-suppression rates in exp_059. These folios are f1-f16, which correspond to early quires of the Voynich manuscript. The large morphological difference between aiin-dom and y-dom (different suffix paradigms, opposite she-→qo coupling) may reflect a physical manuscript break — either different scribes or different content sections. Are f1-f16 physically contiguous (early quires), and does this align with known codicological breaks?
+**Description:** (1) Map f1r-f16v to quire numbers using standard Voynich MS codicology. (2) Do f1-f16 form complete quires (quires 1-3 of the manuscript)? (3) Are there known hand-changes at these folio boundaries? (4) Check the Beinecke MS 408 catalog for quire structure information. (5) Are there other register differences at the f16/f17 boundary beyond suffix paradigm?
+**Expected outcome:** If quire break: f1-f16 = quires 1-2 or 1-3, with a clear physical demarcation from f17+. This would suggest the aiin-dom register corresponds to a scribal section or quire. If not: folios are from mixed quires and the register split is content-based, not physical.
+**Cost estimate:** small (reference-based)
+**Prerequisites:** exp_082 (done)
+
+---
+
+## H135: The A Dialect Has a Para-Start Morphological Marker Analogous to B's -am Line-Final Marker
+**Priority:** medium
+**Status:** tested — STRONGLY SUPPORTED (exp_083: A para-starts use sh(2.54×)/ch(2.25×); d(0.21×)/y(0.38×)/t suppressed. daiin SUPPRESSED at A para-start(0.6%) and enriched at A para-final(8.6%). -am suppressed at A para-final(1.9% vs 6.4%) — cross-dialect finding. A model: [sh/ch PARA-START] → [-am 6.4%] → [daiin/ch PARA-END]. F090 added.)
+**Source:** F089 (exp_082): B's -am is strongly suppressed at para-final (2.0% vs 12.6%). A has only 2 line-closing words (sy: 90%, dam: 62.5%). But what about A PARA-STARTS — is there a morphological marker for paragraph openings in A? daiin is a para-final marker in A (F084, exp_077); what marks para-starts?
+**Description:** (1) For A para-start lines: what is the first-word onset distribution? (2) Are there specific words enriched at A para-starts? (3) Compare A para-start profile to B para-start profile. (4) Does daiin appear at different rates at A para-start vs para-mid vs para-final? (5) Is there a cross-dialect para-start marker (analogous to dam being cross-dialect)?
+**Expected outcome:** If A marks para-starts: specific A words or onset classes are enriched at A para-start lines. If A doesn't mark para-starts: A para-start lines are indistinguishable from para-interior lines (unlike A para-finals where daiin is enriched).
+**Cost estimate:** small
+**Prerequisites:** exp_082 (done)
