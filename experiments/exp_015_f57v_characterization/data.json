@@ -1,0 +1,1186 @@
+{
+  "folio": "f57v",
+  "header": "<f57v>     <! $Q=H $P=B $F=a $B=1 $I=C $H=1>",
+  "entries": [
+    {
+      "type": "comment",
+      "raw": "# page 112"
+    },
+    {
+      "type": "comment",
+      "raw": "# cosmological"
+    },
+    {
+      "type": "comment",
+      "raw": "# Currier's language B,  hand 2 (???)"
+    },
+    {
+      "type": "comment",
+      "raw": "# has `key-like' sequences"
+    },
+    {
+      "type": "comment",
+      "raw": "# has extraneous writing ==> Saturn symbol in lower right corner"
+    },
+    {
+      "type": "comment",
+      "raw": "# General description of page:"
+    },
+    {
+      "type": "comment",
+      "raw": "# Four bands of circular text. Contains various sequences"
+    },
+    {
+      "type": "comment",
+      "raw": "# of characters. Outside outer ring one word (@L0) possibly"
+    },
+    {
+      "type": "comment",
+      "raw": "# meaning 'start here'. Inside innermost ring 8 labels,"
+    },
+    {
+      "type": "comment",
+      "raw": "# numbered cf. Petersen."
+    },
+    {
+      "type": "comment",
+      "raw": "#"
+    },
+    {
+      "linenum": 1,
+      "locus_raw": "@L0",
+      "text": "<!10:30>dairal",
+      "raw": "<f57v.1,@L0>      <!10:30>dairal",
+      "locus_prefix": "@",
+      "locus_base": "L0",
+      "clean_text": "dairal",
+      "at_glyphs": []
+    },
+    {
+      "linenum": 2,
+      "locus_raw": "@Cc",
+      "text": "<!10:30>v.sal,y.soeos.vs.ar.okees.o.d.soefchees.l,g.sos.okey.defo.f.o.rkedam.sh.ofol.sar.ddal.yty.s.y.daiir.otey.dshdy.dkal[s:r].oty,pchchy.a.r.opaiin.dal.karody.v,r,okeey.daram.qokar.okal.okal.d.o.l.shkeal.dy,das.o.k.sher.s,aiin",
+      "raw": "<f57v.2,@Cc>      <!10:30>v.sal,y.soeos.vs.ar.okees.o.d.soefchees.l,g.sos.okey.defo.f.o.rkedam.sh.ofol.sar.ddal.yty.s.y.daiir.otey.dshdy.dkal[s:r].oty,pchchy.a.r.opaiin.dal.karody.v,r,okeey.daram.qokar.okal.okal.d.o.l.shkeal.dy,das.o.k.sher.s,aiin",
+      "locus_prefix": "@",
+      "locus_base": "Cc",
+      "clean_text": "v.sal,y.soeos.vs.ar.okees.o.d.soefchees.l,g.sos.okey.defo.f.o.rkedam.sh.ofol.sar.ddal.yty.s.y.daiir.otey.dshdy.dkals.oty,pchchy.a.r.opaiin.dal.karody.v,r,okeey.daram.qokar.okal.okal.d.o.l.shkeal.dy,das.o.k.sher.s,aiin",
+      "at_glyphs": []
+    },
+    {
+      "type": "comment",
+      "raw": "#"
+    },
+    {
+      "linenum": 3,
+      "locus_raw": "+Cc",
+      "text": "<!10:30>o.l.[d:j].r.v.x.k.m.f.@169;v.t.r.@170;.@171;.y.I.@172;.o.l.d.r.v.x.k.m.f.@169;v.t.r.@170;.@171;.y.c.@172;.o.l.d.r.v.x.k.m.p.@169;v.t.r.@170;.@171;.y.c.@172;.o.l.d.r.v.x.k.m.p.@169;v.t.r.@170;.@171;.y.c.@172;",
+      "raw": "<f57v.3,+Cc>      <!10:30>o.l.[d:j].r.v.x.k.m.f.@169;v.t.r.@170;.@171;.y.I.@172;.o.l.d.r.v.x.k.m.f.@169;v.t.r.@170;.@171;.y.c.@172;.o.l.d.r.v.x.k.m.p.@169;v.t.r.@170;.@171;.y.c.@172;.o.l.d.r.v.x.k.m.p.@169;v.t.r.@170;.@171;.y.c.@172;",
+      "locus_prefix": "",
+      "locus_base": "+Cc",
+      "clean_text": "o.l.d.r.v.x.k.m.f.@169;v.t.r.@170;.@171;.y.I.@172;.o.l.d.r.v.x.k.m.f.@169;v.t.r.@170;.@171;.y.c.@172;.o.l.d.r.v.x.k.m.p.@169;v.t.r.@170;.@171;.y.c.@172;.o.l.d.r.v.x.k.m.p.@169;v.t.r.@170;.@171;.y.c.@172;",
+      "at_glyphs": [
+        "@169",
+        "@170",
+        "@171",
+        "@172",
+        "@169",
+        "@170",
+        "@171",
+        "@172",
+        "@169",
+        "@170",
+        "@171",
+        "@172",
+        "@169",
+        "@170",
+        "@171",
+        "@172"
+      ]
+    },
+    {
+      "linenum": 4,
+      "locus_raw": "+Cc",
+      "text": "<!10:00>daiin.otey.of[che:eee]y.shes.o.d.okeeod.l.o.lkeeol.dkedar.yf.aros.s.y.chedaiin.k.eeety.x.deeodal.vo.tchor.{ch'}.kedar.dal.@172;.daiin.aiin.otal.daro.v",
+      "raw": "<f57v.4,+Cc>      <!10:00>daiin.otey.of[che:eee]y.shes.o.d.okeeod.l.o.lkeeol.dkedar.yf.aros.s.y.chedaiin.k.eeety.x.deeodal.vo.tchor.{ch'}.kedar.dal.@172;.daiin.aiin.otal.daro.v",
+      "locus_prefix": "",
+      "locus_base": "+Cc",
+      "clean_text": "daiin.otey.ofchey.shes.o.d.okeeod.l.o.lkeeol.dkedar.yf.aros.s.y.chedaiin.k.eeety.x.deeodal.vo.tchor..kedar.dal.@172;.daiin.aiin.otal.daro.v",
+      "at_glyphs": [
+        "@172"
+      ]
+    },
+    {
+      "linenum": 5,
+      "locus_raw": "+Cc",
+      "text": "<!10:00>o.[v:a].l.r.m.aiin.d.@170;.c.f.[s:r].y.l.k.x.l.r.@171;,ar.o.r.[a:?].t.l.[s:r].d.y.dar.teodar.otodal.sheky.oteeody.x.[s:r].l",
+      "raw": "<f57v.5,+Cc>      <!10:00>o.[v:a].l.r.m.aiin.d.@170;.c.f.[s:r].y.l.k.x.l.r.@171;,ar.o.r.[a:?].t.l.[s:r].d.y.dar.teodar.otodal.sheky.oteeody.x.[s:r].l",
+      "locus_prefix": "",
+      "locus_base": "+Cc",
+      "clean_text": "o.v.l.r.m.aiin.d.@170;.c.f.s.y.l.k.x.l.r.@171;,ar.o.r.a.t.l.s.d.y.dar.teodar.otodal.sheky.oteeody.x.s.l",
+      "at_glyphs": [
+        "@170",
+        "@171"
+      ]
+    },
+    {
+      "linenum": 6,
+      "locus_raw": "@L0",
+      "text": "otodara[g:m]",
+      "raw": "<f57v.6,@L0>      otodara[g:m]",
+      "locus_prefix": "@",
+      "locus_base": "L0",
+      "clean_text": "otodarag",
+      "at_glyphs": []
+    },
+    {
+      "linenum": 7,
+      "locus_raw": "@L0",
+      "text": "oparairdly",
+      "raw": "<f57v.7,@L0>      oparairdly",
+      "locus_prefix": "@",
+      "locus_base": "L0",
+      "clean_text": "oparairdly",
+      "at_glyphs": []
+    },
+    {
+      "linenum": 8,
+      "locus_raw": "@L0",
+      "text": "olkeedal",
+      "raw": "<f57v.8,@L0>      olkeedal",
+      "locus_prefix": "@",
+      "locus_base": "L0",
+      "clean_text": "olkeedal",
+      "at_glyphs": []
+    },
+    {
+      "linenum": 9,
+      "locus_raw": "@L0",
+      "text": "otardaly",
+      "raw": "<f57v.9,@L0>      otardaly",
+      "locus_prefix": "@",
+      "locus_base": "L0",
+      "clean_text": "otardaly",
+      "at_glyphs": []
+    },
+    {
+      "linenum": 10,
+      "locus_raw": "@Ro",
+      "text": "ark[a:o]ldy",
+      "raw": "<f57v.10,@Ro>     ark[a:o]ldy",
+      "locus_prefix": "@",
+      "locus_base": "Ro",
+      "clean_text": "arkaldy",
+      "at_glyphs": []
+    },
+    {
+      "linenum": 11,
+      "locus_raw": "@Ro",
+      "text": "ara?arar",
+      "raw": "<f57v.11,@Ro>     ara?arar",
+      "locus_prefix": "@",
+      "locus_base": "Ro",
+      "clean_text": "ara?arar",
+      "at_glyphs": []
+    },
+    {
+      "linenum": 12,
+      "locus_raw": "@Ro",
+      "text": "okeely",
+      "raw": "<f57v.12,@Ro>     okeely",
+      "locus_prefix": "@",
+      "locus_base": "Ro",
+      "clean_text": "okeely",
+      "at_glyphs": []
+    },
+    {
+      "linenum": 13,
+      "locus_raw": "@Ro",
+      "text": "ocfhor,okear",
+      "raw": "<f57v.13,@Ro>     ocfhor,okear",
+      "locus_prefix": "@",
+      "locus_base": "Ro",
+      "clean_text": "ocfhor,okear",
+      "at_glyphs": []
+    },
+    {
+      "type": "comment",
+      "raw": "#"
+    },
+    {
+      "type": "comment",
+      "raw": "# Symbol in lower right corner: @255;"
+    },
+    {
+      "type": "comment",
+      "raw": "#"
+    }
+  ],
+  "locus_summary": {
+    "L0": 5,
+    "Cc": 1,
+    "+Cc": 3,
+    "Ro": 4
+  },
+  "at_glyph_frequency": {
+    "@169": 4,
+    "@170": 5,
+    "@171": 5,
+    "@172": 5
+  },
+  "at_glyph_contexts": {
+    "@169": [
+      {
+        "before": [
+          "k",
+          "m",
+          "f"
+        ],
+        "glyph": "@169;v",
+        "after": [
+          "t",
+          "r",
+          "@170;"
+        ],
+        "pos": 9
+      },
+      {
+        "before": [
+          "k",
+          "m",
+          "f"
+        ],
+        "glyph": "@169;v",
+        "after": [
+          "t",
+          "r",
+          "@170;"
+        ],
+        "pos": 26
+      },
+      {
+        "before": [
+          "k",
+          "m",
+          "p"
+        ],
+        "glyph": "@169;v",
+        "after": [
+          "t",
+          "r",
+          "@170;"
+        ],
+        "pos": 43
+      },
+      {
+        "before": [
+          "k",
+          "m",
+          "p"
+        ],
+        "glyph": "@169;v",
+        "after": [
+          "t",
+          "r",
+          "@170;"
+        ],
+        "pos": 60
+      },
+      {
+        "before": [
+          "k",
+          "m",
+          "f"
+        ],
+        "glyph": "@169;v",
+        "after": [
+          "t",
+          "r",
+          "@170;"
+        ],
+        "pos": 9
+      },
+      {
+        "before": [
+          "k",
+          "m",
+          "f"
+        ],
+        "glyph": "@169;v",
+        "after": [
+          "t",
+          "r",
+          "@170;"
+        ],
+        "pos": 26
+      },
+      {
+        "before": [
+          "k",
+          "m",
+          "p"
+        ],
+        "glyph": "@169;v",
+        "after": [
+          "t",
+          "r",
+          "@170;"
+        ],
+        "pos": 43
+      },
+      {
+        "before": [
+          "k",
+          "m",
+          "p"
+        ],
+        "glyph": "@169;v",
+        "after": [
+          "t",
+          "r",
+          "@170;"
+        ],
+        "pos": 60
+      },
+      {
+        "before": [
+          "k",
+          "m",
+          "f"
+        ],
+        "glyph": "@169;v",
+        "after": [
+          "t",
+          "r",
+          "@170;"
+        ],
+        "pos": 9
+      },
+      {
+        "before": [
+          "k",
+          "m",
+          "f"
+        ],
+        "glyph": "@169;v",
+        "after": [
+          "t",
+          "r",
+          "@170;"
+        ],
+        "pos": 26
+      },
+      {
+        "before": [
+          "k",
+          "m",
+          "p"
+        ],
+        "glyph": "@169;v",
+        "after": [
+          "t",
+          "r",
+          "@170;"
+        ],
+        "pos": 43
+      },
+      {
+        "before": [
+          "k",
+          "m",
+          "p"
+        ],
+        "glyph": "@169;v",
+        "after": [
+          "t",
+          "r",
+          "@170;"
+        ],
+        "pos": 60
+      },
+      {
+        "before": [
+          "k",
+          "m",
+          "f"
+        ],
+        "glyph": "@169;v",
+        "after": [
+          "t",
+          "r",
+          "@170;"
+        ],
+        "pos": 9
+      },
+      {
+        "before": [
+          "k",
+          "m",
+          "f"
+        ],
+        "glyph": "@169;v",
+        "after": [
+          "t",
+          "r",
+          "@170;"
+        ],
+        "pos": 26
+      },
+      {
+        "before": [
+          "k",
+          "m",
+          "p"
+        ],
+        "glyph": "@169;v",
+        "after": [
+          "t",
+          "r",
+          "@170;"
+        ],
+        "pos": 43
+      },
+      {
+        "before": [
+          "k",
+          "m",
+          "p"
+        ],
+        "glyph": "@169;v",
+        "after": [
+          "t",
+          "r",
+          "@170;"
+        ],
+        "pos": 60
+      }
+    ],
+    "@170": [
+      {
+        "before": [
+          "@169;v",
+          "t",
+          "r"
+        ],
+        "glyph": "@170;",
+        "after": [
+          "@171;",
+          "y",
+          "I"
+        ],
+        "pos": 12
+      },
+      {
+        "before": [
+          "@169;v",
+          "t",
+          "r"
+        ],
+        "glyph": "@170;",
+        "after": [
+          "@171;",
+          "y",
+          "c"
+        ],
+        "pos": 29
+      },
+      {
+        "before": [
+          "@169;v",
+          "t",
+          "r"
+        ],
+        "glyph": "@170;",
+        "after": [
+          "@171;",
+          "y",
+          "c"
+        ],
+        "pos": 46
+      },
+      {
+        "before": [
+          "@169;v",
+          "t",
+          "r"
+        ],
+        "glyph": "@170;",
+        "after": [
+          "@171;",
+          "y",
+          "c"
+        ],
+        "pos": 63
+      },
+      {
+        "before": [
+          "@169;v",
+          "t",
+          "r"
+        ],
+        "glyph": "@170;",
+        "after": [
+          "@171;",
+          "y",
+          "I"
+        ],
+        "pos": 12
+      },
+      {
+        "before": [
+          "@169;v",
+          "t",
+          "r"
+        ],
+        "glyph": "@170;",
+        "after": [
+          "@171;",
+          "y",
+          "c"
+        ],
+        "pos": 29
+      },
+      {
+        "before": [
+          "@169;v",
+          "t",
+          "r"
+        ],
+        "glyph": "@170;",
+        "after": [
+          "@171;",
+          "y",
+          "c"
+        ],
+        "pos": 46
+      },
+      {
+        "before": [
+          "@169;v",
+          "t",
+          "r"
+        ],
+        "glyph": "@170;",
+        "after": [
+          "@171;",
+          "y",
+          "c"
+        ],
+        "pos": 63
+      },
+      {
+        "before": [
+          "@169;v",
+          "t",
+          "r"
+        ],
+        "glyph": "@170;",
+        "after": [
+          "@171;",
+          "y",
+          "I"
+        ],
+        "pos": 12
+      },
+      {
+        "before": [
+          "@169;v",
+          "t",
+          "r"
+        ],
+        "glyph": "@170;",
+        "after": [
+          "@171;",
+          "y",
+          "c"
+        ],
+        "pos": 29
+      },
+      {
+        "before": [
+          "@169;v",
+          "t",
+          "r"
+        ],
+        "glyph": "@170;",
+        "after": [
+          "@171;",
+          "y",
+          "c"
+        ],
+        "pos": 46
+      },
+      {
+        "before": [
+          "@169;v",
+          "t",
+          "r"
+        ],
+        "glyph": "@170;",
+        "after": [
+          "@171;",
+          "y",
+          "c"
+        ],
+        "pos": 63
+      },
+      {
+        "before": [
+          "@169;v",
+          "t",
+          "r"
+        ],
+        "glyph": "@170;",
+        "after": [
+          "@171;",
+          "y",
+          "I"
+        ],
+        "pos": 12
+      },
+      {
+        "before": [
+          "@169;v",
+          "t",
+          "r"
+        ],
+        "glyph": "@170;",
+        "after": [
+          "@171;",
+          "y",
+          "c"
+        ],
+        "pos": 29
+      },
+      {
+        "before": [
+          "@169;v",
+          "t",
+          "r"
+        ],
+        "glyph": "@170;",
+        "after": [
+          "@171;",
+          "y",
+          "c"
+        ],
+        "pos": 46
+      },
+      {
+        "before": [
+          "@169;v",
+          "t",
+          "r"
+        ],
+        "glyph": "@170;",
+        "after": [
+          "@171;",
+          "y",
+          "c"
+        ],
+        "pos": 63
+      },
+      {
+        "before": [
+          "m",
+          "aiin",
+          "d"
+        ],
+        "glyph": "@170;",
+        "after": [
+          "c",
+          "f",
+          "s"
+        ],
+        "pos": 7
+      }
+    ],
+    "@171": [
+      {
+        "before": [
+          "t",
+          "r",
+          "@170;"
+        ],
+        "glyph": "@171;",
+        "after": [
+          "y",
+          "I",
+          "@172;"
+        ],
+        "pos": 13
+      },
+      {
+        "before": [
+          "t",
+          "r",
+          "@170;"
+        ],
+        "glyph": "@171;",
+        "after": [
+          "y",
+          "c",
+          "@172;"
+        ],
+        "pos": 30
+      },
+      {
+        "before": [
+          "t",
+          "r",
+          "@170;"
+        ],
+        "glyph": "@171;",
+        "after": [
+          "y",
+          "c",
+          "@172;"
+        ],
+        "pos": 47
+      },
+      {
+        "before": [
+          "t",
+          "r",
+          "@170;"
+        ],
+        "glyph": "@171;",
+        "after": [
+          "y",
+          "c",
+          "@172;"
+        ],
+        "pos": 64
+      },
+      {
+        "before": [
+          "t",
+          "r",
+          "@170;"
+        ],
+        "glyph": "@171;",
+        "after": [
+          "y",
+          "I",
+          "@172;"
+        ],
+        "pos": 13
+      },
+      {
+        "before": [
+          "t",
+          "r",
+          "@170;"
+        ],
+        "glyph": "@171;",
+        "after": [
+          "y",
+          "c",
+          "@172;"
+        ],
+        "pos": 30
+      },
+      {
+        "before": [
+          "t",
+          "r",
+          "@170;"
+        ],
+        "glyph": "@171;",
+        "after": [
+          "y",
+          "c",
+          "@172;"
+        ],
+        "pos": 47
+      },
+      {
+        "before": [
+          "t",
+          "r",
+          "@170;"
+        ],
+        "glyph": "@171;",
+        "after": [
+          "y",
+          "c",
+          "@172;"
+        ],
+        "pos": 64
+      },
+      {
+        "before": [
+          "t",
+          "r",
+          "@170;"
+        ],
+        "glyph": "@171;",
+        "after": [
+          "y",
+          "I",
+          "@172;"
+        ],
+        "pos": 13
+      },
+      {
+        "before": [
+          "t",
+          "r",
+          "@170;"
+        ],
+        "glyph": "@171;",
+        "after": [
+          "y",
+          "c",
+          "@172;"
+        ],
+        "pos": 30
+      },
+      {
+        "before": [
+          "t",
+          "r",
+          "@170;"
+        ],
+        "glyph": "@171;",
+        "after": [
+          "y",
+          "c",
+          "@172;"
+        ],
+        "pos": 47
+      },
+      {
+        "before": [
+          "t",
+          "r",
+          "@170;"
+        ],
+        "glyph": "@171;",
+        "after": [
+          "y",
+          "c",
+          "@172;"
+        ],
+        "pos": 64
+      },
+      {
+        "before": [
+          "t",
+          "r",
+          "@170;"
+        ],
+        "glyph": "@171;",
+        "after": [
+          "y",
+          "I",
+          "@172;"
+        ],
+        "pos": 13
+      },
+      {
+        "before": [
+          "t",
+          "r",
+          "@170;"
+        ],
+        "glyph": "@171;",
+        "after": [
+          "y",
+          "c",
+          "@172;"
+        ],
+        "pos": 30
+      },
+      {
+        "before": [
+          "t",
+          "r",
+          "@170;"
+        ],
+        "glyph": "@171;",
+        "after": [
+          "y",
+          "c",
+          "@172;"
+        ],
+        "pos": 47
+      },
+      {
+        "before": [
+          "t",
+          "r",
+          "@170;"
+        ],
+        "glyph": "@171;",
+        "after": [
+          "y",
+          "c",
+          "@172;"
+        ],
+        "pos": 64
+      },
+      {
+        "before": [
+          "x",
+          "l",
+          "r"
+        ],
+        "glyph": "@171;,ar",
+        "after": [
+          "o",
+          "r",
+          "a"
+        ],
+        "pos": 17
+      }
+    ],
+    "@172": [
+      {
+        "before": [
+          "@171;",
+          "y",
+          "I"
+        ],
+        "glyph": "@172;",
+        "after": [
+          "o",
+          "l",
+          "d"
+        ],
+        "pos": 16
+      },
+      {
+        "before": [
+          "@171;",
+          "y",
+          "c"
+        ],
+        "glyph": "@172;",
+        "after": [
+          "o",
+          "l",
+          "d"
+        ],
+        "pos": 33
+      },
+      {
+        "before": [
+          "@171;",
+          "y",
+          "c"
+        ],
+        "glyph": "@172;",
+        "after": [
+          "o",
+          "l",
+          "d"
+        ],
+        "pos": 50
+      },
+      {
+        "before": [
+          "@171;",
+          "y",
+          "c"
+        ],
+        "glyph": "@172;",
+        "after": [],
+        "pos": 67
+      },
+      {
+        "before": [
+          "@171;",
+          "y",
+          "I"
+        ],
+        "glyph": "@172;",
+        "after": [
+          "o",
+          "l",
+          "d"
+        ],
+        "pos": 16
+      },
+      {
+        "before": [
+          "@171;",
+          "y",
+          "c"
+        ],
+        "glyph": "@172;",
+        "after": [
+          "o",
+          "l",
+          "d"
+        ],
+        "pos": 33
+      },
+      {
+        "before": [
+          "@171;",
+          "y",
+          "c"
+        ],
+        "glyph": "@172;",
+        "after": [
+          "o",
+          "l",
+          "d"
+        ],
+        "pos": 50
+      },
+      {
+        "before": [
+          "@171;",
+          "y",
+          "c"
+        ],
+        "glyph": "@172;",
+        "after": [],
+        "pos": 67
+      },
+      {
+        "before": [
+          "@171;",
+          "y",
+          "I"
+        ],
+        "glyph": "@172;",
+        "after": [
+          "o",
+          "l",
+          "d"
+        ],
+        "pos": 16
+      },
+      {
+        "before": [
+          "@171;",
+          "y",
+          "c"
+        ],
+        "glyph": "@172;",
+        "after": [
+          "o",
+          "l",
+          "d"
+        ],
+        "pos": 33
+      },
+      {
+        "before": [
+          "@171;",
+          "y",
+          "c"
+        ],
+        "glyph": "@172;",
+        "after": [
+          "o",
+          "l",
+          "d"
+        ],
+        "pos": 50
+      },
+      {
+        "before": [
+          "@171;",
+          "y",
+          "c"
+        ],
+        "glyph": "@172;",
+        "after": [],
+        "pos": 67
+      },
+      {
+        "before": [
+          "@171;",
+          "y",
+          "I"
+        ],
+        "glyph": "@172;",
+        "after": [
+          "o",
+          "l",
+          "d"
+        ],
+        "pos": 16
+      },
+      {
+        "before": [
+          "@171;",
+          "y",
+          "c"
+        ],
+        "glyph": "@172;",
+        "after": [
+          "o",
+          "l",
+          "d"
+        ],
+        "pos": 33
+      },
+      {
+        "before": [
+          "@171;",
+          "y",
+          "c"
+        ],
+        "glyph": "@172;",
+        "after": [
+          "o",
+          "l",
+          "d"
+        ],
+        "pos": 50
+      },
+      {
+        "before": [
+          "@171;",
+          "y",
+          "c"
+        ],
+        "glyph": "@172;",
+        "after": [],
+        "pos": 67
+      },
+      {
+        "before": [
+          "tchor",
+          "kedar",
+          "dal"
+        ],
+        "glyph": "@172;",
+        "after": [
+          "daiin",
+          "aiin",
+          "otal"
+        ],
+        "pos": 24
+      }
+    ]
+  },
+  "f66r_comparison": {
+    "f57v_glyphs": [
+      "@169",
+      "@170",
+      "@171",
+      "@172"
+    ],
+    "f66r_glyphs": [
+      "@169",
+      "@172",
+      "@195"
+    ],
+    "shared": [
+      "@169",
+      "@172"
+    ],
+    "only_57v": [
+      "@170",
+      "@171"
+    ],
+    "only_66r": [
+      "@195"
+    ]
+  }
+}

@@ -156,6 +156,12 @@
 **Finding:** German (Goethe Faust, 163k chars) h2=3.535, Arabic consonantal (UDHR, 6k chars) h2=3.673, Hebrew consonantal (UDHR, 6k chars) h2=3.723. All are below the Voynich paired h2 target of 3.836 established in exp_007. Hebrew is the closest at 3.723 (-0.112 bits gap). Across five tested languages spanning European alphabets and Semitic abjads (Italian 3.411, Latin 3.509, German 3.535, Arabic 3.673, Hebrew 3.723), no language reaches the Voynich paired h2 target. The trend is monotonic: higher consonant-to-vowel ratio → higher h2, but even consonantal abjads fall short.
 **Limitation:** Arabic and Hebrew samples are small (~6k chars from UDHR). Turkish and Finnish (agglutinative languages) not yet tested. Test applies only to fixed-filler adjacent-pair grouping scheme.
 
+## F030: f57v Contains a Repeating 18-Character Sequence with a Fixed 4-Tuple @Glyph Cluster
+**Experiment:** exp_015_f57v_characterization
+**Date:** 2026-04-09
+**Finding:** f57v (Quire H, Hand 1, cosmological wheel diagram) contains a circular text band (L03, +Cc locus) with an 18-character sequence repeated exactly 4 times: `o l d r v x k m f/p @169 v t r @170 @171 y I/c @172`. Positions 1-8 and the flanking characters are fully invariant across all 4 cycles. Only 2 positions vary: position 9 (f in cycles 1-2, p in cycles 3-4; both are gallows characters) and position 17 (I in cycle 1, c in cycles 2-4). The @glyph cluster @169→@170→@171→@172 is in fixed order in every cycle. @169 is exclusively structural — it appears only inside this repeating sequence (4 times) and never in ordinary text. @170, @171, @172 each appear once additionally in other circular bands (L04, L05), where they occur as isolated characters in otherwise standard Voynich text. The outer circular band (L02, @Cc) contains no @glyphs and reads as ordinary Voynich prose. The folio also contains a small cosmological illustration inside the innermost ring, 5 labels (@L0), 4 riders (@Ro), and a Saturn symbol (@255;) in the lower right corner.
+**Limitation:** Hand attribution is uncertain — ZL3b inline comments say "hand 2 (???)" but the machine-readable $H=1 field says Hand 1. Davis (2020) hand assignment for f57v not independently verified. The I vs c variation at position 17 may be transcription uncertainty rather than an intentional distinction.
+
 ## F027: f66r Column 2 Is NOT a Comprehensive EVA Alphabet Inventory (44% Single-Char Coverage)
 **Experiment:** exp_012_f66r_alphabet_test
 **Date:** 2026-04-09
