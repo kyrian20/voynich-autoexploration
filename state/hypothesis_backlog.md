@@ -1479,7 +1479,7 @@
 
 ## H142: The Complete Positional Grammar Models (A and B) Are Universal Across All Folio Sections — Not Section-Specific
 **Priority:** medium
-**Status:** open
+**Status:** TESTED (exp_086) — PARTIALLY SUPPORTED: Grammar models hold across herbal and pharma sections. she-para-start: herbal A=10.25×, pharma A=5.03×. B o-onset para-start: cosmo B=2.87×, herbal B=2.58×, pharma B=3.60×, stars B=1.56× (weakest). -am suppression at para-final: strong in B, weak in herbal A (1.75×). daiin para-final most specifically a Pharma A effect (2.87× vs herbal A 1.27×). Models break down in unclassified "other" sections.
 **Source:** F090/F091 (exp_083/084): A model: [she-prefix PARA-START] → [-am line-ends] → [daiin PARA-END]. B model: [o/sh+long+edy PARA-START] → [-am line-ends] → [o+medium+eedy PARA-END]. Are these models consistent across all sections (Herbal A/Pharma A, Herbal B/Astro/Cosmo/Special) or section-specific?
 **Description:** (1) Check if the -am within-para / para-final suppression holds for Pharma A, Astro B, and Special section separately. (2) Does the she-para-start model hold in Pharma A (which has different grammar from Herbal A)? (3) Does the B o-onset para-start model hold in all B sections (Bio/Pharma B/Special)? (4) Are there section-specific exceptions to the positional grammar?
 **Expected outcome:** If universal: the positional grammar models hold across all sections, confirming they are grammar-level (not content-level) phenomena. If section-specific: some sections deviate, suggesting content drives positional word choice.
@@ -1501,7 +1501,7 @@
 
 ## H144: The -am Suffix Suppression in sh-Onset Is Related to sh-Onset Para-Start Enrichment — sh-Words Serve Opening Functions, Not Line-Ending Functions
 **Priority:** medium
-**Status:** open
+**Status:** TESTED (exp_086) — PARTIALLY REFUTED: sh-onset is NOT a pure line-opener (LFirst=20.7% A, 13% B; true line-openers are s=46%/61%, y=41%/44%). -am suppression for sh explained by sh's low LLast% (A=11%, B=6.8%) — mechanistic rather than grammatical incompatibility.
 **Source:** F092 (exp_085): sh-onset is suppressed for -am in both A (0.56×) and B (0.37×). From F090/F091: sh-onset words are enriched at para-starts in both dialects (A=2.54×, B=1.72×). Hypothesis: sh-onset encodes an "opening/initiating" grammatical function; -am encodes "within-para line-ending"; these are functionally incompatible. sh-words cannot serve the line-ending role that -am marks.
 **Description:** (1) Compute the positional profile of -am words vs non-am words by onset class: do -am words have suppressed line-first rates? (2) Does sh-onset have specifically SUPPRESSED line-last rates? (3) If sh-words never end lines (they start them), that explains zero -am rate. (4) Cross-validate: do sh-onset words have LOW LLast% in B? (from F089 data)
 **Expected outcome:** If hypothesis correct: sh-onset words have very low LLast% AND very high LFirst% across both dialects — confirming sh-words are pure line-openers that cannot take -am (a line-ender marker).
@@ -1512,7 +1512,7 @@
 
 ## H145: The core -am Vocabulary (dam, otam, qokam, okam) Represents a Closed Grammatical Class — a Small Set of High-Frequency Function Words That Mark Within-Para Line Endings
 **Priority:** medium
-**Status:** open
+**Status:** TESTED (exp_086) — STRONGLY SUPPORTED: {otam, qokam, dam, okam, cham, ram} all show LLast%=50-100%, WithinPara%=90-100%, PSFirst%=0%, PFLast%≈0% — confirmed closed class of within-para line-closers. daiin in B is LINE-OPENER (LFirst=34%), not line-closer — opposite from A.
 **Source:** F092 (exp_085): Top B -am words: otam(27), dam(22), qokam(22), okam(19). Top A: dam(38), otam(13), cham(10). dam and otam appear in both dialects at high frequency. Hypothesis: these are FUNCTION WORDS from a small closed class, not open-class content words. Like daiin (para-closing) and oly (line-closing), dam/otam may be the core WITHIN-PARA line-ending function words.
 **Description:** (1) Do dam/otam/qokam/okam show the characteristic function-word positional profile: high LLast%, low LFirst%, within-para enriched? (2) How do they compare to daiin (para-closing) and oly (line-closing)? (3) Are they contextually restricted (e.g. appear in specific folio sections or only with certain preceding words)? (4) Cross-dialect: in A, dam is 38× — is dam the primary within-para line-ending function word in A?
 **Expected outcome:** If function words: dam/otam/okam have LLast% >>50%, LFirst%<<5%, and near-zero PSFirst rates. They would form a parallel paradigm to daiin (PSLast) and oly (LLast).
@@ -1540,3 +1540,36 @@
 **Expected outcome:** If she- is a grammatical marker: the following-word distribution after she-words would be drawn from a restricted class (qo-onset words plus a few other common words). The co-occurrence pattern may reveal what grammatical role she- encodes.
 **Cost estimate:** small
 **Prerequisites:** F091/F092 (exp_084/085)
+
+---
+
+## H148: daiin in Currier B Is a LINE-OPENER (34.0% LFirst, 9.5% LLast) — Completely Different Grammatical Role Than A (Where daiin Is a Line-Closer)
+**Priority:** high
+**Status:** open
+**Source:** F093 (exp_086): In Currier B, daiin has LFirst%=34.0%, LLast%=9.5% — it functions as a LINE-OPENER, not a line-closer. In Currier A, daiin has LFirst%=19.4%, LLast%=25.9% — a line-closer/para-boundary marker. This is a fundamental cross-dialect reversal in daiin's grammatical role.
+**Description:** (1) Verify the daiin-B line-opener finding: what words FOLLOW daiin on the same line in B? (2) What words PRECEDE daiin on the same line in B? (3) Is daiin predominantly the FIRST WORD of B lines (34% LFirst), or does it appear both first and mid-line? (4) Is the daiin-B line-opener consistent across all B sections, or concentrated in one section? (5) Can daiin's B role be described as a "line-initial discourse particle" (like how daiin marks line-endings in A)?
+**Expected outcome:** If daiin is a B line-opener: most B daiin tokens should appear at line position 0 or 1 (first or second word), with specific following words. This would be a major grammatical discovery — the same word encoding opposite boundaries in two dialects.
+**Cost estimate:** small
+**Prerequisites:** F093 (exp_086)
+
+---
+
+## H149: The -am Function Words (otam, qokam, dam, okam) and the ol-Line-Closers (oly, oldy) Are Grammatical Synonyms — They Occupy the Same Syntactic Slot
+**Priority:** medium
+**Status:** open
+**Source:** F093 (exp_086): Both -am core words and oly/oldy have LLast%=50-100%, WithinPara%=90-100%, PSFirst%=0%, PFLast%≈0%. They appear to be functionally synonymous. Do they occupy the same syntactic slot — i.e., are they in complementary distribution with each other ON THE SAME LINE?
+**Description:** (1) On B lines that end with -am words: what other line-closing words appear? Do -am endings and oly/oldy endings alternate on different lines? (2) Are -am word endings and oly/oldy endings enriched in the same folio regions or different regions? (3) Do -am words and oly/oldy words share preceding contexts (same onset classes precede them)? (4) What is the overlap in preceding-word distributions?
+**Expected outcome:** If synonymous slots: -am words and oly/oldy should be in near-perfect complementary distribution — any given line ends with EITHER an -am word OR oly/oldy, not both. If parallel: they might appear in different folio regions (section preference) while serving the same syntactic role.
+**Cost estimate:** small
+**Prerequisites:** F093 (exp_086)
+
+---
+
+## H150: The s-Onset and y-Onset (True Line-Openers by LFirst%) Have Complementary Grammatical Functions — s Marks One Line-Type, y Another
+**Priority:** medium
+**Status:** open
+**Source:** F093 (exp_086): s-onset has LFirst%=45.9% (A) / 61.3% (B); y-onset has LFirst%=40.7% (A) / 44.4% (B). Both are strongly line-initial. But they have different LLast% and onset distributions. Are they grammatically distinct (s=topic opener, y=continuation/list) or synonymous?
+**Description:** (1) Compare s-onset and y-onset positional profiles more finely: what words FOLLOW s-onset line-openers vs y-onset line-openers? (2) Do s-onset line-openers appear in different folio sections or paragraph positions than y-onset? (3) Are s-words and y-words in complementary distribution as LINE-OPENERS (one preferred over the other by section/position)? (4) What are the most common s-onset and y-onset line-first words?
+**Expected outcome:** If complementary: s-onset and y-onset mark different line-types (e.g., s=standalone statement, y=continuation). If synonymous: they are interchangeable line-openers with no structural difference.
+**Cost estimate:** small
+**Prerequisites:** F093 (exp_086)
