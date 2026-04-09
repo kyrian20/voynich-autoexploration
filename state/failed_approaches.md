@@ -46,6 +46,14 @@
 **Why ruled out:** The prediction required a substantial rise toward natural-language h2. The actual rise is negligible. The information is not concentrated in the inner slots.
 **Variants worth trying:** A full Stolfi slot grammar parser (position-conditional character class assignment) rather than character-class approximation; testing whether inner-slot entropy rises within word-length-controlled groups.
 
+## X006: F024 — Herbal Single-Char Labels as Object Annotation Layer
+**Experiment:** exp_010_label_word_sections → validated in exp_011_single_char_validation
+**Date:** 2026-04-09
+**What was tested:** F024 proposed that herbal_A labels are dominated by single characters (y, o, f, d, e, s, p, x), implying a distinct annotation system (color codes, part-of-plant labels, scribe shorthand).
+**Result:** Raw ZL3b inspection shows all 48 single-char herbal "labels" come from two folios. f49v has a perfectly alternating L0 (single char)/P0 (body text) pattern on every line — these are line margin markers, not plant labels. f66r is a "text only" (no illustration) folio with two columns of items, explicitly noted in the transcription as "individual characters in next column." Neither constitutes object labels.
+**Why ruled out:** The finding was an artifact of treating all L0 locus codes as equivalent object labels. The underlying data is correctly transcribed; the analytical interpretation was wrong.
+**Variants worth trying:** A proper object-label analysis would need to filter L0 entries to exclude line markers and list/table content. The few genuine plant labels in herbal_A (if any) need to be identified by cross-referencing locus context more carefully.
+
 <!-- Additional entries will be added as experiments are completed. -->
 <!-- Example format:
 ## X001: [Hypothesis title]

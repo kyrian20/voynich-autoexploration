@@ -125,7 +125,14 @@
 **Finding:** ot-/ok- initial label words account for 40.9% of astro labels, 39.2% of bio labels, 32.4% of pharma labels, but only 3.7% of herbal_A labels and 0% of recipe labels. In body text, ot-/ok- appears uniformly at 10-15% across all sections. The label-specific clustering (vs. body text uniformity) means ot-/ok- is a label naming convention for non-herbal illustrated content, not a general body-text word class.
 **Limitation:** Folio-based section assignment is approximate. Single-character herbal labels may include parsing artifacts.
 
-## F024: Herbal_A Labels Are Dominated by Single Characters (y, o, f, d, e, s, p, x)
+## F024: [RETRACTED] "Herbal_A single-char labels" — Analytical Misclassification
+**Experiment:** exp_010_label_word_sections → exp_011_single_char_validation
+**Date:** 2026-04-09
+**Original claim retracted:** F024 claimed herbal_A labels are dominated by single characters (y, o, f, d, e, s, p, x). Raw transcription inspection reveals two completely different phenomena — neither represents plant labels.
+**Phenomenon 1 — f49v line markers:** f49v has a perfectly alternating L0/P0 structure: every odd line is an L0 single-character margin marker (f, o, r, y, e, k, s, p, ...), every even line is a P0 body text line. This is a systematic line annotation feature of this specific folio, NOT plant part labels. The 20 single chars on f49v all come from this alternating sequence.
+**Phenomenon 2 — f66r column entries:** f66r is a "text only" folio (no plant illustration, Currier B) at the herbal/astro boundary. It has two columns: short words (rary, rals, qor, dary, ykeol, ...) followed by single characters (y, o, s, y, d, o, f, x, ...). The ZL3b transcription comment explicitly notes "Now individual characters in next column." This is a list/table structure, not a herbal plant label page.
+**Why retracted:** All 48 herbal "single-char labels" come from exactly two folios (f49v: 20, f66r: 28) with structurally different, non-label content. The ZL3b L0 locus code covers multiple content types, not just object labels.
+**Limitation:** The L0 locus code overloading is a recurring analytical hazard in this corpus — future experiments must inspect raw transcription lines rather than relying on locus code alone.
 **Experiment:** exp_010_label_word_sections
 **Date:** 2026-04-09
 **Finding:** Herbal_A has 81 label tokens, TTR=0.556, top "words": y, o, f, d, e, s, p, x — all single characters. This contrasts sharply with astro (TTR=0.828, ot-/ok- multi-word names), bio (TTR=0.864), and pharma (TTR=0.911, near-unique names). The herbal section uses a qualitatively different single-character annotation system. Each section has near-zero vocabulary overlap with other sections (herbal ∩ pharma = 3 shared types).
