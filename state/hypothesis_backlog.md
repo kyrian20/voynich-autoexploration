@@ -2818,6 +2818,43 @@
 
 ---
 
+## H271: Folio-Level Onset Gradient — Do Onset Classes Change Systematically Across Manuscript Folio Sequence?
+**Priority:** high
+**Status:** CONFIRMED (exp_137) — Six onset classes show folio gradient |ρ|>0.5: d(ρ=-0.641), cth(ρ=-0.613), l(ρ=+0.640), qok(ρ=+0.609), ol(ρ=+0.534), ch(ρ=-0.534). sh/s: ρ≈0. Within-herbal cth(ρ=-0.486), l(ρ=+0.476). Stars cth(ρ=+0.469, UNEXPECTED). 10-folio running means show clear phase transitions at section boundaries. (F144)
+**Source:** New hypothesis arising from cross-section analysis; folio sequence as proxy for manuscript organization.
+
+---
+
+## H272: Is the Within-Herbal cth Gradient Driven by B-Herbal Insertions or a Genuine A-Herbal Scribal Shift?
+**Priority:** high
+**Source:** F144: Within-herbal cth ρ=-0.486 (notable). cth=6-10% in f1-f20 → ~0% in f40-f57. Is this explained entirely by the 12 B-herbal folios (which have cth≈0 by B-dialect definition), or does A-herbal itself show a cth gradient?
+**Description:** (1) Extract A-herbal-only folios (exclude all B-dialect folios from herbal section); (2) compute cth gradient within A-herbal alone; (3) compare A-herbal cth rate at early folios (f1-f25) vs late folios (f26-f57). If gradient disappears in A-herbal-only, the within-herbal trend is a B-insertion artifact. If gradient remains, there's a genuine A-herbal scribal shift in cth use.
+**Expected outcome:** B-insertions fully explain the gradient (A-herbal-only gradient disappears or weakens to ρ<0.2). If residual gradient remains, it would suggest the A-herbal scribe also changed register toward the end of the herbal section.
+**Cost estimate:** trivial (sub-analysis of existing data)
+**Prerequisites:** F144, F139
+
+---
+
+## H273: Why Does cth INCREASE Within Stars (ρ=+0.469)? Is It Driven by Specific Later-Stars Folios?
+**Priority:** medium
+**Source:** F144: Stars cth ρ=+0.469 (unexpected positive correlation — cth/ch increase in later stars folios). Stars is supposed to be B-dialect (cth-depleted by F139). Later stars folios (f112-f116) may have unusual cth/ch vocabulary.
+**Description:** (1) Compute per-folio cth rate in stars (f103-f116); (2) identify which folios drive the upward trend; (3) check whether these are B-cth hybrid forms (cthedy/cthdy from F132) or genuine cth-onset words; (4) check folio-level dialect assignment of later stars folios.
+**Expected outcome:** Later stars folios (f113-f116) have slightly elevated cth from B-cth hybrid forms (cthedy at f113/f116 from F132). The ρ=+0.469 is driven by a handful of folios with unusual vocabulary.
+**Cost estimate:** trivial
+**Prerequisites:** F144, F132
+
+---
+
+## H274: What Is the Full Onset/Suffix Profile of f47 (Herbal/A, Most Deviant A-Herbal Folio)?
+**Priority:** medium
+**Source:** F144: f47 (herbal/A) is the most deviant A-herbal folio (dev=0.2375) with ch:+20.0% above A-herbal centroid. This anomaly makes f47 potentially a mislabeled dialect or a scribal outlier.
+**Description:** Compute f47's complete onset-class and suffix profile. Compare to: A-herbal centroid, B-herbal centroid, pharma centroid. Check: (1) Is f47's ch elevation driven by specific ch-words? (2) Does f47's vocabulary match any other section or folio more than A-herbal?
+**Expected outcome:** f47 is genuinely unusual — likely an A-herbal folio with specific botanical content driving unusual ch-onset vocabulary. Its best-match section may be pharma or A-herbal-pharma.
+**Cost estimate:** trivial
+**Prerequisites:** F144
+
+---
+
 ## H266: Is -am a SENTENCE-FINAL (paragraph-final) Marker, Not Just a LINE-FINAL Marker?
 **Priority:** high
 **Status:** NOT CONFIRMED (REVERSED) (exp_136) — -am=0 occurrences at para-final positions (0.00×) across all 260 paragraphs and all sections. -am is SUPPRESSED even within para-final lines (0.33× internal rate). Para-final lines end with "other" (97.6%) — tail-type (=Pt) lines with transcription markers. -am is a within-paragraph line-final marker ONLY. (F143)

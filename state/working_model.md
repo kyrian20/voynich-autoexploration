@@ -1,5 +1,5 @@
 # Working Model — Voynich Manuscript Cryptanalysis
-**Last updated:** 2026-04-09 (after exp_136)
+**Last updated:** 2026-04-09 (after exp_137)
 **Purpose:** Continuously-updated structured summary of current beliefs about Voynichese.
 **Discipline:** Characterization, not interpretation. Claims require experimental warrant.
 
@@ -221,6 +221,15 @@ These findings have been replicated across independent analyses or confirmed by 
 - eee (triple-vowel) words: stars=17.25‰, cosmo=4.40‰ (suppressed). Vowel-length gradient monotonically stars-concentrated (edy→eedy→eeedy: 36%→48%→63%). eee enriched in ok/ol/qo (1.7-1.9×), suppressed in ch/sh (0.37-0.46×).
 - A-dialect section variation: herbal-A=-y dominant (qok=37%, ch=29%); pharma-A=-ol dominant (qok=41%, ok=40%); 8.9% avg diff (3.5× weaker than B's 31%).
 - FOUR-LEVEL suffix hierarchy: Dialect (A/B) → Stem class (Simple-B/Complex-B; A-y/-ol) → Section (B: stars/cosmo/herbal; A: herbal/pharma) → Vowel length (stars triple-vowel extension). Strong evidence for natural language morphology.
+
+**PARA-TAIL LINES (=Pt) = ch-DOMINANT (2.15×), y-DEPLETED (0.28×), 80% HERBAL; PARA-TAIL CLOSER = -y (27.3%); FOLIO GRADIENT: d/cth DECREASE (ρ≈-0.64), l/qok INCREASE (ρ≈+0.64) ACROSS MANUSCRIPT; WITHIN-HERBAL cth ρ=-0.486; STARS cth ρ=+0.469 (UNEXPECTED) (F144, exp_137)**
+- Para-tail (=Pt): 46 lines, mean=5.3 words (vs continuation 7.5). ch=2.15×, d=1.61×, y=0.28×. Last-word: -y=27.3%, -am=6.1%. 80% herbal, 20% cosmo; zero stars/pharma/astro tail lines.
+- Para-tail is closing vocabulary (ch/d-dominant, y-depleted) — complementary to para-start (y/p/k-dominant).
+- Six onset classes show global folio gradient (|ρ|>0.5): d/cth/ch decrease; l/qok/ol increase — traces A→B dialect transition.
+- sh/s: ρ≈0 (no folio gradient — section-concentrated but non-monotonic).
+- Within-herbal cth gradient (ρ=-0.486): cth 6-10% at early herbal → ~0% at late herbal (B-insertions concentrated in later herbal folios).
+- Stars cth ρ=+0.469 (unexpected increase in later stars folios).
+- Most deviant: f40(dev=0.2407), f47(dev=0.2375), f67(dev=0.2229). Most typical: f106(dev=0.0575), f80(dev=0.0624).
 
 **-am = WITHIN-PARAGRAPH LINE-FINAL MARKER ONLY (0 para-final occurrences); UNIVERSAL CORE (71 WORDS) = 78.9% MEDIAL; l/p/cth ABSENT FROM UNIVERSAL CORE; COSMO-ABSENT SET = 55% A-DIALECT (cth=10.90×); ol/s/l = COSMO-POSITIVE FEATURES (F143, exp_136)**
 - -am at para-final line-ends: 0/255 (0.00×) across all 260 paragraphs all sections. REVERSED: -am is NOT sentence-final, it is strictly within-paragraph. Confirms and extends F086/F094 (-am suppressed at para-final in both A and B).
