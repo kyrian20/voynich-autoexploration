@@ -3044,6 +3044,7 @@
 
 ## H305: Diagnostic — Why Does folio_to_section Return 'other' for ALL A-Dialect Folios?
 **Priority:** high
+**Status:** RESOLVED (exp_154) — Bug: folio_base value was `<f1r` (locus `<f1r.1,@P0>` → folio_raw=`<f1r` → split('.')[0]=`<f1r` — leading '<' not stripped). Fix: `.lstrip('<')` → 'f1r' → regex matches correctly. (F161)
 **Source:** F160: H303 section analysis failed in exp_152 AND exp_153 despite attempted folio_base→section fix. Both runs returned all A-dialect tokens as 'other' (herbal/pharma/astro all n=0). Root cause unknown.
 **Description:** Run a targeted diagnostic: (1) Print 10 sample folio_base values from A-dialect P-type tokens. (2) Print the SECTION_MAP keys. (3) Trace the regex match step by step for a sample folio_base. (4) Check: is the section_map keyed by int or string? Is folio_num an int or string? Is the folio range in SECTION_MAP covering the right folios? Report the exact values at each step.
 **Expected outcome:** Identify the exact failure point (e.g., type mismatch int vs string, wrong folio range, folio_base format different from expected, regex group() failure). Fix and re-run cthor section analysis (H303).
@@ -3054,11 +3055,42 @@
 
 ## H306: When daiin→cthy Occurs, Is cthy Always at LL, or Also at MID?
 **Priority:** medium
+**Status:** CONFIRMED (exp_154) — daiin→cthy (n=9): cthy at LL=55.6% (2.12× enriched), cthy at MID=44.4% (0.78×), 0× at LF/second. daiin is an LL-specific selector for cthy. (F161)
 **Source:** F160: [daiin][cthy] confirmed as specific two-word fixed phrase at LL. But does daiin→cthy also occur when cthy is at MID? If daiin→cthy is exclusively or predominantly LL-targeted, daiin is a line-terminal selector. If daiin→cthy also appears with cthy at MID frequently, daiin is a general cthy-introducer (not LL-specific).
 **Description:** (1) For all daiin→cthy bigrams in A P-type body text, compute cthy's positional slot (LF/second/MID/LL). (2) What fraction of daiin→cthy bigrams have cthy at LL vs MID vs other? (3) Compare: baseline cthy positional distribution vs daiin-selected cthy positional distribution. Does daiin shift cthy toward LL?
 **Expected outcome:** daiin→cthy bigrams have cthy at LL in majority (>50%), confirming daiin is a line-terminal selector for cthy. If cthy@MID is also common after daiin, the [daiin][cthy] fixed phrase is not LL-specific but a general determined-nominal phrase.
 **Cost estimate:** trivial
 **Prerequisites:** F160
+
+---
+
+## H307: Corrected cthol@Second Analysis — Which LF Words Precede cthol at Second (i=1)?
+**Priority:** high
+**Source:** F161: corrected cthol@second n=9 (not 15 as in F159/exp_152 which had swapped LF/second). F159's H302 analysis of "cthol@second LF-word distribution" may be invalid. Need re-run with correct slot code.
+**Description:** (1) Find all A P-type lines where cthol appears at i=1 (second, corrected definition). (2) What word appears at i=0 (LF) in these lines? (3) Compute onset distribution of LF words when cthol is at second. Is it ch-dominated (40%) as F159 claimed, or different? (4) Compare to cthol@MID LF-word distribution.
+**Expected outcome:** If the F159 analysis was computing cthol@LF incorrectly, the LF-word distribution for true cthol@second will differ. We expect the Type 2 [chol/chor@LF][cthol@second] construction to still hold but possibly at different proportions.
+**Cost estimate:** trivial
+**Prerequisites:** F161
+
+---
+
+## H308: What Is the LF Word (i=0) When cthor Is at Second (i=1)? Is [chol/chor@LF][cthor@second] The Dominant Construction?
+**Priority:** high
+**Source:** F161: cthor=SECOND-enriched (2.16×). cthor appears at i=1 in 11/33 A-dialect cases. What is the i=0 (LF) word in these cases? The corrected Type 2 construction (F157) may specifically be [chol/chor@LF][cthor@second] rather than [chol/chor@LF][cthol@second].
+**Description:** (1) Extract all A P-type lines where cthor is at i=1 (second). (2) What word is at i=0 (LF)? (3) Compute onset distribution — is ch-class dominant? Is chol specifically dominant? (4) Compare to the baseline LF word distribution. Is there a specific [LF-word][cthor@second] bigram pattern?
+**Expected outcome:** chol/chor or more broadly ch-onset words dominate LF position when cthor is at second — consistent with the Type 2 line-opening construction ([chol/chor@LF][cthor@second]). This would pin down which cth-word the chol/chor opener specifically introduces.
+**Cost estimate:** trivial
+**Prerequisites:** F161
+
+---
+
+## H309: Is the Type 2 [chol/chor@LF][cth@second] Construction Specifically [chol@LF][cthor@second], or Is It Spread Across cthol/cthy/cthody@second Too?
+**Priority:** medium
+**Source:** F161: cthor=SECOND-enriched (2.16×), cthol=MID-enriched. The F157 "Type 2 construction" was described as chol/chor at LF → cth at second/MID. Now with corrected data: is the specific second-position cth-word predominantly cthor (not cthol)? F157's analysis placed cth-word at second=45-50% after chol/chor — but which cth-word was it?
+**Description:** (1) For all chol@LF bigrams with cth-word at second (i=1): which cth-words appear? Is cthor dominant? (2) For chor@LF bigrams with cth-word at second: which cth-words? (3) Compute: P(cthor@second | chol@LF) vs P(cthol@second | chol@LF) vs P(cthy@second | chol@LF). The dominant second-position cth-word after chol/chor defines the Type 2 construction.
+**Expected outcome:** cthor dominates at second after chol/chor@LF (since cthor is the most second-enriched cth-word). This would make the Type 2 construction specifically [chol/chor@LF][cthor@second], with cthol appearing later at MID.
+**Cost estimate:** trivial
+**Prerequisites:** F161, H308
 
 ---
 

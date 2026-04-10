@@ -13,6 +13,14 @@
 
 ---
 
+## F161: SECTION BUG FIXED (folio_base kept leading '<'; .lstrip('<') fixes regex match); cthor=97% IN A-HERBAL; CORRECTED cth PARADIGM (cthor=SECOND 2.16×, cthol=MID 1.33×, cthy=LL 1.63×); ALL cth-WORDS AVOID LF (0.00-0.38×); daiin→cthy SELECTS LL (2.12×, H306 CONFIRMED); F158 cthor=LF CLAIM RETRACTED
+**Experiment:** exp_154_section_fix_cthor_daiin_cthy_position
+**Date:** 2026-04-10
+**Finding:** H305 RESOLVED. Bug: locus `<f1r.1,@P0>` → folio_base = `<f1r` (leading `<` not stripped); `re.match(r'f(\d+)', '<f1r')` fails → 'other'. Fix: `.lstrip('<')` → `f1r` → folio_num=1 → section='herbal'. H303 CONFIRMED: cthor is 97% concentrated in A-herbal (32/33 tokens); astro=0, cosmo=0. CORRECTED cth POSITIONAL PARADIGM (exp_151/152 inline analyses had swapped LF/second labels): cthor=SECOND-enriched (second=33.3%, 2.16×; LF=0.38× depleted); cthol=MID-enriched (MID=69.4%, 1.33×; LF=0.13×); cthy=LL-enriched (LL=26.2%, 1.63×; LF=0.15×); ctheody=MID (1.53×); cthom=LL (2.49×). ALL cth-words are LF-depleted (0.00-0.38×) — NO cth-word opens lines. F158's claim "cthor=LF-OPENER (1.76×)" is RETRACTED: the correct enrichment is cthor=SECOND (2.16×). The cthor/cthol distinction is preserved (second vs MID) but shifted: cthor appears at i=1 (not i=0). H306 CONFIRMED: daiin→cthy bigrams (n=9) place cthy at LL in 55.6% (2.12× enriched) and 0× at LF or second. daiin is an LL-specific selector for cthy.
+**Limitation:** cthor n=33 (moderate), cthol n=49, cthy n=84 — enrichment estimates stable. cthom n=5, ctheody n=5 (small). The corrected F158 still retains that cthor≠cthol (second vs MID) and cthy=LL-closer; those structural contrasts hold. The daiin→cthy@LL n=5 (small but consistent with F160).
+
+---
+
 ## F159: cthol@SECOND DRIVEN BY ch/sh LINE-OPENERS BROADLY (ch=40%, d=20%); NOT EXCLUSIVELY [chol/chor][cthol]; daiin→cthy→LL CONFIRMED AS DOMINANT cthy-CLOSING CONSTRUCTION (daiin=19% of penultimate pre-cthy-LL, ~5× enriched); H301 SECTION ANALYSIS FAILED (bug: folio_base 'f1r' ≠ section_map key 'f1')
 **Experiment:** exp_152_cthor_section_cthol_second
 **Date:** 2026-04-10
@@ -21,11 +29,12 @@
 
 ---
 
-## F158: 4-WAY cth POSITIONAL PARADIGM CONFIRMED (cthor=LF-OPENER 1.76×; cthol=SECOND 1.94×; cthody/ctheody=MID 1.29-1.68×; cthy=LL-CLOSER 1.39×); daiin→cthy=LINE-CLOSING (5 cases) + daiin→cthol=MEDIAL (6 cases); chol@LF→cth@SECOND=3.11× (31.2% of chol-lines have cth)
+## F158: [PARTIALLY RETRACTED — see F161] 4-WAY cth POSITIONAL PARADIGM; cthor=LF-OPENER CLAIM RETRACTED (actual: cthor=SECOND 2.16×); cthol=MID-enriched (not second 1.94×); cthy=LL-CLOSER CONFIRMED; chol@LF→cth@SECOND CONSTRUCTION STILL VALID
 **Experiment:** exp_151_cth_positional_paradigm
 **Date:** 2026-04-10
-**Finding:** H299 CONFIRMED: chol at LF → cth at second = 14.1% (3.11× vs 4.53% baseline). chol-opening lines have cth anywhere in 31.2%. chor at LF = 2.37×, shol at LF = 2.14×. H300 CONFIRMED: The cth-vocabulary has a 4-way positional paradigm: cthor=LF-enriched (LF=31.2%, 1.76×; LL=0.35×); cthol=second-enriched (second=31.2%, 1.94×; LL=0.59×); cthody=MID-enriched (MID=61.5%, 1.29×); ctheody=MID-enriched (MID=80.0%, 1.68×); cthy=LL-enriched (LL=24.7%, 1.39×; second=0.58×). DAIIN→cth DECOMPOSES: daiin→cthy→LL (5 cases, cthy is dominant LL-cth after daiin = line-closing nominal); daiin→cthol→MID/second (6 cases, cthol is dominant medial cth after daiin). The daiin determiner introduces different cth-words depending on target position. BONUS: cthom is bimodal (second=3.72×, LL=2.25×, never MID, n=5) — a grammatical boundary marker.
-**Limitation:** cthody n=13, ctheody n=5, cthom n=5 — small samples for positional analysis. The Type 2 construction (chol@LF→cthol@second) n=9 for chol; confirmatory but not large. The daiin→cthy→LL=5 cases is a specific small-n claim.
+**RETRACTION NOTE (exp_154, F161):** exp_151/152 inline code had swapped LF and second slot labels. The correct cth paradigm (from exp_154 with verified code): cthor=SECOND-enriched (2.16×), NOT LF-enriched; cthol=MID-enriched (1.33×), NOT second-enriched (1.94×); cthy=LL-enriched (1.63×) — CONFIRMED but value revised upward from 1.39×. The cthor/cthol positional distinction (second vs MID) is preserved. All cth-words avoid LF (0.00-0.38×). The chol@LF→cth@second construction (Type 2, F157) is consistent with corrected data: chol at LF introduces cthor at second (i=1). daiin→cthy→LL (F157/F160) is confirmed by exp_154.
+**Finding (original, partially superseded):** H299 CONFIRMED: chol at LF → cth at second = 14.1% (3.11× vs 4.53% baseline). chol-opening lines have cth anywhere in 31.2%. chor at LF = 2.37×, shol at LF = 2.14×. H300 CONFIRMED: The cth-vocabulary has a 4-way positional paradigm: cthor=LF-enriched (LF=31.2%, 1.76×; LL=0.35×) [RETRACTED: see F161]; cthol=second-enriched (second=31.2%, 1.94×; LL=0.59×) [RETRACTED: see F161]; cthody=MID-enriched; ctheody=MID-enriched; cthy=LL-enriched [CONFIRMED, value revised]. cthom bimodal [PARTIALLY RETRACTED: exp_154 shows cthom=LL-dominant (2.49×), never second].
+**Limitation:** Methodological error in inline slot assignment. Corrected results in F161 (exp_154).
 
 ---
 

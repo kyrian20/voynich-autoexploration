@@ -1,5 +1,5 @@
 # Working Model — Voynich Manuscript Cryptanalysis
-**Last updated:** 2026-04-10 (after exp_153)
+**Last updated:** 2026-04-10 (after exp_154)
 **Purpose:** Continuously-updated structured summary of current beliefs about Voynichese.
 **Discipline:** Characterization, not interpretation. Claims require experimental warrant.
 
@@ -222,10 +222,13 @@ These findings have been replicated across independent analyses or confirmed by 
 - A-dialect section variation: herbal-A=-y dominant (qok=37%, ch=29%); pharma-A=-ol dominant (qok=41%, ok=40%); 8.9% avg diff (3.5× weaker than B's 31%).
 - FOUR-LEVEL suffix hierarchy: Dialect (A/B) → Stem class (Simple-B/Complex-B; A-y/-ol) → Section (B: stars/cosmo/herbal; A: herbal/pharma) → Vowel length (stars triple-vowel extension). Strong evidence for natural language morphology.
 
-**[daiin][cthy] IS A SPECIFIC TWO-WORD FIXED PHRASE: daiin=3.57× AS PENULTIMATE BEFORE cthy@LL, 0.00× BEFORE ALL OTHER cth@LL; cthol@SECOND DRIVEN BY ch/sh LINE-OPENERS (ch=40%) (F160, exp_153; F159, exp_152)**
-- [daiin][cthy] specificity CONFIRMED (H304): daiin=19.0% penultimate before cthy@LL (3.57× enriched), 0/5=0× before cthol@LL, 0/2=0× before cthor@LL. Not a general daiin→cth@LL construction — daiin SPECIFICALLY selects cthy as its line-terminal nominal form.
-- cthol@second (n=15): ch-onset LF=40%, d(daiin)=20%, sh=13%. chol/chor specific=33%. Not a pure Type 2 construction.
-- Section bug (H303) persists — folio_to_section returns 'other' for all A-dialect folios. Diagnostic required (H305).
+**CORRECTED cth POSITIONAL PARADIGM: cthor=SECOND (2.16×); cthol=MID (1.33×); cthy=LL (1.63×); ALL cth AVOID LF (0.00-0.38×); cthor=97% IN A-HERBAL; daiin→cthy SELECTS LL (2.12×); [daiin][cthy] SPECIFIC PHRASE (F161, exp_154; F160, exp_153)**
+- CORRECTION: F158 claimed cthor=LF-opener (1.76×) — RETRACTED. Exp_151/152 had swapped LF/second labels. Correct: cthor=SECOND-enriched (2.16×), LF-depleted (0.38×). cthor appears at i=1 (second word), not i=0 (first word).
+- Corrected paradigm: cthor=second (2.16×); cthol=MID (1.33×); cthody/ctheody=MID (1.33-1.53×); cthy=LL (1.63×); cthom=LL (2.49×). All cth-words avoid LF.
+- cthor: 97% concentrated in A-herbal (32/33 tokens). A-pharma n=1; astro/cosmo n=0.
+- [daiin][cthy]: daiin→cthy bigrams (n=9): cthy at LL=55.6% (2.12×), never at LF/second. daiin is an LL-specific selector for cthy.
+- [daiin][cthy] specificity confirmed (H304/F160): daiin=3.57× as penultimate before cthy@LL, 0× before all other cth@LL.
+- Section bug fixed (H305): folio_base kept leading '<' (e.g., '<f1r'); .lstrip('<') fixes regex match.
 
 **4-WAY cth POSITIONAL PARADIGM: cthor=LF-OPENER (1.76×); cthol=SECOND (1.94×); cthody/ctheody=MID (1.29-1.68×); cthy=LL-CLOSER (1.39×); daiin→cthy=LINE-CLOSER + daiin→cthol=MEDIAL; chol@LF→cth@SECOND=3.11× (F158, exp_151)**
 - cthor=LF-enriched (LF=31.2%, 1.76×), LL-depleted (0.35×). cthol=second-enriched (31.2%, 1.94×), LL-depleted (0.59×). cthody/ctheody=MID-enriched (1.29-1.68×). cthy=LL-enriched (24.7%, 1.39×), second-depleted (0.58×).
