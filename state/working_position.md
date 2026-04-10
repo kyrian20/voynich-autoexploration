@@ -95,14 +95,16 @@ Within-line onset-class MI at lags 1-12. Comparison: VMS B-dialect vs 20 Timm si
 
 **Result**: VMS MI PROFILE IS INCONSISTENT WITH SELF-CITATION.
 
-| Lag | VMS-B vs Timm |
-|-----|--------------|
-| 1 | **ABOVE** (VMS has stronger local onset grammar) |
-| 2-7 | **BELOW** (Timm copy-window creates artificial mid-range MI VMS lacks) |
-| 8-9 | inside |
-| 10-12 | **ABOVE** (VMS long-range structure exceeds Timm's window) |
+| Lag | VMS-B vs Timm | Status |
+|-----|--------------|--------|
+| 1 | **ABOVE** | Robust — VMS has stronger local onset grammar |
+| 2-7 | **BELOW** | Robust — Timm copy-window creates mid-range MI VMS lacks |
+| 8-9 | inside | Transition zone |
+| 10-12 | ABOVE Timm CI but BELOW within-line shuffle | **RETRACTED** — sampling artifact, not signal |
 
-The VMS B-dialect MI profile shows a crossover: higher than Timm at lag 1 (onset-class grammar), lower than Timm at lags 2-7 (lacks copy-window mid-range MI), then above Timm at lags 10-12 (genuine long-range structure in long lines).
+**[Lags 10-12 claim retracted]**: At lags 11-12, within-line shuffled VMS produces *higher* MI than real VMS (VMS/Within = 0.825, 0.873). Genuine long-range structure would show real > shuffle. The lags 10-12 ABOVE Timm result is a line-length sampling artifact. MI structure beyond lag 7 cannot be reliably estimated with this corpus.
+
+The two robust MI findings: (1) lag-1 VMS ABOVE Timm — local onset-class grammar; (2) lags 2-7 VMS BELOW Timm — absence of copy-window mid-range MI. Sequential structure in VMS B-dialect concentrates at lag 1 with rapid decay — consistent with adjacent-word grammar rules, not long-range syntactic dependency.
 
 Within-line shuffle destroys 63% of VMS B-dialect lag-1 MI, confirming sequential structure is real.
 
@@ -195,7 +197,7 @@ After controlling for line position, the onset-class effects persist. This rules
 
 4. **Two-dialect grammar**: A and B share the same stems but select opposing suffix paradigms, opposite positional grammar signatures, and different sequential rules. This is consistent with two registers of the same system, not two different systems.
 
-5. **MI structure consistent with adjacent-word grammar**: Lag-1 MI is high (strong adjacent-word onset-class coherence); mid-range MI (lags 2-7) is lower than Timm (rules out copy mechanism); long-range MI (lags 10-12) is above Timm (consistent with within-line structural coherence in long lines).
+5. **MI structure consistent with adjacent-word grammar**: Lag-1 MI is high (strong adjacent-word onset-class coherence); mid-range MI (lags 2-7) is lower than Timm (rules out copy mechanism). Sequential structure concentrates at lag 1 with rapid decay — consistent with adjacent-word grammar rules rather than long-range syntactic dependency. (Lags 10-12 result retracted — see exp_175.)
 
 ---
 
@@ -212,8 +214,8 @@ If the VMS is a cipher, the plaintext must be in a language that: (a) produces -
 **Whether dialects A and B are scribal registers or different encodings**:
 The dialect split is structurally real (vocabulary Jaccard 0.148, suffix paradigm inversion). Whether this reflects two scribes encoding the same language in different styles, two languages, or two different states of the same encoding system cannot be determined from morphological analysis.
 
-**The long-range MI structure in long lines**:
-VMS MI is above Timm at lags 10-12, but this is driven by the longest VMS lines (≥11 tokens). Whether this reflects genuine long-sentence dependency or a different structuring principle for long lines is unresolved.
+**Whether VMS has long-range sequential structure beyond lag 1**:
+The lags 10-12 MI result has been retracted (the within-line shuffle exceeds real VMS at lags 11-12, indicating sampling artifact rather than signal). The robust MI finding is that sequential structure concentrates at lag 1. VMS does not show the slowly-decaying MI of natural-language syntax. Whether this rules out natural language as the underlying system, or merely reflects that VMS lines are too short to exhibit long-range syntactic MI, is unresolved.
 
 ---
 
@@ -254,7 +256,7 @@ A single-model failure could be attributed to a flaw in that specific model. Con
 
 **#1 (theoretically decisive): VMS B-dialect MI at lags 2-7 is BELOW the Timm 95% CI.**
 
-This is a direct test of a necessary implication of self-citation. Any copy-window mechanism MUST generate elevated MI within the window length (WINDOW=50 words ≈ 6 lines ≈ lags 1-50 at the word level). At the within-line lags that should show window effects (2-7), VMS MI is systematically below Timm's. This is the opposite of what self-citation predicts. The finding rules out the specific MI profile that any copy-window mechanism must produce, regardless of parameter choices. (Note: the lags 10-12 ABOVE Timm result is internally ambiguous — see synthesis_audit.md — and should not be given equal weight.)
+This is a direct test of a necessary implication of self-citation. Any copy-window mechanism MUST generate elevated MI within the window length (WINDOW=50 words ≈ 6 lines ≈ lags 1-50 at the word level). At the within-line lags that should show window effects (2-7), VMS MI is systematically below Timm's. This is the opposite of what self-citation predicts. The finding rules out the specific MI profile that any copy-window mechanism must produce, regardless of parameter choices. (Note: the lags 10-12 ABOVE Timm result has been retracted — the within-line shuffle exceeds real VMS at those lags, indicating a sampling artifact. MI evidence beyond lag 7 is unreliable.)
 
 **#2 (quantitative): Identical adjacent word rate is 4× too high in Timm (0.037) vs VMS (0.009).**
 
