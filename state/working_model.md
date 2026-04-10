@@ -1,5 +1,5 @@
 # Working Model — Voynich Manuscript Cryptanalysis
-**Last updated:** 2026-04-09 (after exp_135)
+**Last updated:** 2026-04-09 (after exp_136)
 **Purpose:** Continuously-updated structured summary of current beliefs about Voynichese.
 **Discipline:** Characterization, not interpretation. Claims require experimental warrant.
 
@@ -221,6 +221,13 @@ These findings have been replicated across independent analyses or confirmed by 
 - eee (triple-vowel) words: stars=17.25‰, cosmo=4.40‰ (suppressed). Vowel-length gradient monotonically stars-concentrated (edy→eedy→eeedy: 36%→48%→63%). eee enriched in ok/ol/qo (1.7-1.9×), suppressed in ch/sh (0.37-0.46×).
 - A-dialect section variation: herbal-A=-y dominant (qok=37%, ch=29%); pharma-A=-ol dominant (qok=41%, ok=40%); 8.9% avg diff (3.5× weaker than B's 31%).
 - FOUR-LEVEL suffix hierarchy: Dialect (A/B) → Stem class (Simple-B/Complex-B; A-y/-ol) → Section (B: stars/cosmo/herbal; A: herbal/pharma) → Vowel length (stars triple-vowel extension). Strong evidence for natural language morphology.
+
+**-am = WITHIN-PARAGRAPH LINE-FINAL MARKER ONLY (0 para-final occurrences); UNIVERSAL CORE (71 WORDS) = 78.9% MEDIAL; l/p/cth ABSENT FROM UNIVERSAL CORE; COSMO-ABSENT SET = 55% A-DIALECT (cth=10.90×); ol/s/l = COSMO-POSITIVE FEATURES (F143, exp_136)**
+- -am at para-final line-ends: 0/255 (0.00×) across all 260 paragraphs all sections. REVERSED: -am is NOT sentence-final, it is strictly within-paragraph. Confirms and extends F086/F094 (-am suppressed at para-final in both A and B).
+- Para-final lines end with "other" suffix (97.6%) — paragraph tail (=Pt) lines with transcription markers; NOT a closing formula.
+- Universal core (71 types, 6708 tokens): LF=11.6%, MID=78.9%, LL=9.5% vs section-exclusive LF=16.1%, MID=60.2%, LL=23.8%. Core contains openers (saiin=53.5%LF), closers (dy=41.9%LL), and medials (chey=95.7%MID).
+- l/p/cth ABSENT from 71 universal types. s(9.9%), ot(8.5%), ok(7%), sh(9.9%) overrepresented. After-universal bigram context = baseline.
+- 73 high-freq cosmo-absent words: 55% A-dominated (cth onset = 10.90× in cosmo-absent set). cthy=96.6%A, cthol=96.1%A. ol/s/l = 0.00× in cosmo-absent (these are cosmo's exclusive features).
 
 **COSMO LINE TEMPLATE = [s/y/p/t/d OPENER (2.6-4.7×)][sh 2nd (1.75×)][l/r/ol CLOSER][-am(7.87×)/-y/-dy SUFFIX CLOSER]; -am IS PAN-B-SECTION CLOSER (COSMO=7.87×, STARS=7.48×); COSMO-STARS=CLOSEST SECTION PAIR (Jaccard=0.1371); 71-WORD UNIVERSAL CORE (daiin/ol/chol dominant); HERBAL=VOCABULARY SUPERSET (F142, exp_135)**
 - Cosmo template: FIRST: p(4.67×), s(4.10×), y(3.78×), t(2.59×), d(1.81×); DEPLETED: ch_e(0.23×), sh(0.47×). SECOND: sh(1.75×). LAST onset: r(2.19×), l(2.16×), ol(1.69×). LAST suffix: -am(7.87×), -dy(2.22×), -y(2.04×).

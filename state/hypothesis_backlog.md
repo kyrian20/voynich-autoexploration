@@ -2820,6 +2820,7 @@
 
 ## H266: Is -am a SENTENCE-FINAL (paragraph-final) Marker, Not Just a LINE-FINAL Marker?
 **Priority:** high
+**Status:** NOT CONFIRMED (REVERSED) (exp_136) — -am=0 occurrences at para-final positions (0.00×) across all 260 paragraphs and all sections. -am is SUPPRESSED even within para-final lines (0.33× internal rate). Para-final lines end with "other" (97.6%) — tail-type (=Pt) lines with transcription markers. -am is a within-paragraph line-final marker ONLY. (F143)
 **Source:** F142: -am CLOSER is pan-B-section with ~7.8× line-end enrichment in both cosmo and stars. F138: stars -am=8.06×. The -am pattern may be even stronger at paragraph-final lines.
 **Description:** Identify paragraph-final lines using locus code changes (new paragraph marker). Compute -am enrichment at paragraph-final lines vs all line-final positions vs non-final positions. Compare cosmo and stars. If -am is ~2× more common at paragraph-final than at regular line-final, it is a sentence/paragraph boundary marker, not just a line closer.
 **Expected outcome:** -am is elevated at paragraph-final lines (>10× enrichment vs corpus baseline). This would make -am a discourse-level boundary marker, the strongest structural signal in the manuscript.
@@ -2830,6 +2831,7 @@
 
 ## H267: Does the 71-Word Universal Core Constitute a Closed Functional Vocabulary With Distinctive Positional Distribution?
 **Priority:** medium
+**Status:** CONFIRMED (exp_136) — Universal core (71 types) = 78.9% medial (vs section-exclusive 60.2%); LL=9.5% (vs exclusive 23.8%). Core contains both openers (saiin=53.5%LF, dain=29.9%LF) and closers (dy=41.9%LL) and medials (chey=95.7%MID). l/p/cth ABSENT from universal core. s/ot/ok overrepresented. After-universal bigram context ≈ baseline. (F143)
 **Source:** F142: 71 word types appear in all 5 sections, dominated by d-onset (daiin, dain, dal, dar, dy) and ol/other particles (ol, aiin, ar, or, al). These are likely the manuscript's "function words."
 **Description:** Extract the 71 universal words. Compute their: (1) positional distribution (LF/MID/LL) vs section-exclusive words; (2) onset-class composition vs section-exclusive vocabulary; (3) bigram context (what onset classes precede/follow universal words?). If these 71 words are more positionally variable (can appear at any position) but bigram-context-specific, they are function words in the linguistic sense.
 **Expected outcome:** Universal words have balanced LF/MID/LL distribution (not position-constrained) unlike section-exclusive vocabulary. They appear in diverse bigram contexts, consistent with grammatical function words.
@@ -2840,6 +2842,7 @@
 
 ## H268: What Is the Positional Distribution of the 31 Cosmo-Absent Words (chor, sho, cthy, cthol, cheo)?
 **Priority:** medium
+**Status:** CONFIRMED (exp_136) — 55% of 73 high-freq cosmo-absent words are A-dialect dominated (≥70%A). cth=10.90× in cosmo-absent (cthy=96.6%A, cthol=96.1%A). ol/s/l = 0.00× in cosmo-absent (these are cosmo's unique features). Cosmo absence is B-dialect cth suppression mechanism (same as F139). (F143)
 **Source:** F142: 31 word types are in all sections except cosmo, including chor(167), sho(89), cthy(87), cthol(51), cheo(33). All are cth/ch-onset words. Are these concentrated in specific folio ranges suggesting scribe-specific vocabulary?
 **Description:** Extract chor, sho, cthy, cthol, cheo, and the other 26 cosmo-absent words. For each: (1) compute folio-level frequency distribution; (2) check whether they cluster in A-dialect folios specifically; (3) compare their onset profiles to the ch/cth depletion confirmed for B-cosmo (F139). If chor/sho/cthy all concentrate in A-dialect herbal folios, the cosmo absence reflects dialect-level suppression of the A-nominal class (cth/ch).
 **Expected outcome:** chor/sho/cthy/cthol cluster in A-herbal/A-pharma folios. Their absence from cosmo reflects the same B-dialect cth depletion mechanism identified in F139 (B-herbal universally depleted in cth). This would make the cosmo-absent set a near-perfect A-dialect vocabulary marker.
@@ -2866,3 +2869,23 @@
 **Expected outcome:** Astro has a mixed onset profile — perhaps intermediate between A-herbal and B-stars. The 4 astro folios are heterogeneous (different scribe conventions or subject matter). f87 looks astro-like because it shares an unusual onset class distribution (possibly elevated s or d-onset relative to pharma centroid).
 **Cost estimate:** small
 **Prerequisites:** F138
+
+---
+
+## H269: Is the Para-Final "other=97.6%" a Transcription Artifact? What Vocabulary Do Paragraph Tail Lines (=Pt) Actually Contain?
+**Priority:** medium
+**Source:** F143: Para-final lines end with "other" suffix at 97.6%. These are likely =Pt (paragraph tail) lines ending with `<$>` or similar transcription markers. Do paragraph-final lines have ANY systematic vocabulary? Are they short or long? Do they differ from mid-paragraph lines in onset or word-length profile?
+**Description:** (1) Extract all lines with `=` prefix (paragraph tail type, =Pt); (2) compare their word count, onset profile, suffix profile, and ending tokens vs `+` (continuation) lines; (3) check whether `<$>` line-end markers cluster in para-tail lines; (4) identify what vocabulary actually closes paragraphs when `<$>` is excluded.
+**Expected outcome:** =Pt lines are shorter than + continuation lines; their "other" suffix rate is driven by `<$>` or short words. When `<$>` is excluded, para-closing words may show an onset profile (o-onset or d-onset for para-final words per F106).
+**Cost estimate:** small
+**Prerequisites:** F143, F106
+
+---
+
+## H270: Among the 71 Universal Words, Which Are POSITIONAL CONNECTORS (High LF AND High LL) vs Pure Medials (High MID Only)?
+**Priority:** low
+**Source:** F143: Universal core = 78.9% medial, but contains both openers (saiin=53.5%LF, dain=29.9%LF) and closers (dy=41.9%LL, dal=26.9%LL). Some words like daiin (22.9%LF + 13.1%LL) appear at both edges.
+**Description:** For each of the 71 universal words: classify as (1) CONNECTOR = high LF AND high LL; (2) OPENER = high LF only; (3) CLOSER = high LL only; (4) MEDIAL = low LF and low LL. Compare connector words to openers/closers — do connectors have more section-balanced distribution than edge-specialized words?
+**Expected outcome:** A small set (~5-10) of universal words are true connectors (appear at any position). The majority are either openers (y-initial words, saiin) or closers (dy, dal) or pure medials (chey, cheey, aiin). Connectors would represent the most grammatically versatile function words.
+**Cost estimate:** trivial
+**Prerequisites:** F143
