@@ -2540,3 +2540,60 @@
 **Expected outcome:** otaiin shows strong ot-onset enrichment in next-word (4.27× confirmed). A general pattern: [onset-aiin] → [onset-onset] suggests -aiin is a "cross-referential" suffix — marking the determiner of a subsequent noun from the same onset class.
 **Cost estimate:** small
 
+
+---
+
+## H238: Trigram Phrase Structure — Do [A-suffix-word] [cth-word] pairs form consistent 3-grams with preceding words?
+**Priority:** high
+**Status:** CONFIRMED PARTIAL (exp_121) — W1 before [daiin][cth] is ch-onset (1.94×), -ol suffix (2.48×). Top W1: chol, shol, chor. d-onset depleted before daiin (0.60×). W0 shows no pattern — template is exactly 3 words [ch-word][daiin][cth-noun]. (F128)
+**Source:** F127: A-dialect rule daiin→cth is strong. If daiin + cth-word forms a "determiner + noun" phrase, the word BEFORE daiin should be consistently different (e.g., a verb or adjective). Testing the trigram [X] [daiin] [cth-word] would reveal whether there's a consistent phrase-initial word class.
+**Description:** Extract all trigrams [W1] [W2] [W3] where W2=daiin and get_onset(W3)=cth. What is the onset/suffix class distribution of W1? Compare to [W1] [daiin] [non-cth W3] — is W1 different depending on whether daiin is followed by cth or not? Also test trigrams [W1] [chol] [cth-word] and [W1] [shol] [cth-word].
+**Expected outcome:** W1 (before daiin-before-cth) has a consistent onset profile — likely s-onset (topic opener) or d-onset. This would reveal a 3-word phrase template: [s-word/opener] [daiin] [cth-noun] = "topic determiner noun" in A-dialect.
+**Cost estimate:** small
+
+---
+
+## H239: Stars Paragraph Template — Do Stars Entries Follow a Canonical Suffix Sequence?
+**Priority:** medium
+**Status:** CONFIRMED PARTIAL (exp_121) — All stars folios B-dialect. No repeating whole-line template (all 580 sequences unique). Positional structure: pos-0 constrained (H=-0.532: other/d/s), 2nd-half ot-enriched (1.75×), s-onset depleted in 2nd half (0.28×). Template: [d/s-opener][B-content][ot-nominal phrase][other-closer]. otaiin→ot=3.99× in stars. (F128)
+**Source:** F122: Stars has highest within-para repetition (0.476). Stars likely contains catalog entries for individual stars. H232: stars paragraphs may follow a template. H235: untested.
+**Description:** Extract all 25 stars paragraphs. For each paragraph, compute the suffix sequence of each line (what suffix does each word take, in order). Identify: (1) does each line follow a suffix template? (2) is there a consistent first-line vs non-first-line pattern? (3) do all paragraphs share a common suffix n-gram?
+**Expected outcome:** Stars lines follow a template like "-eey/-eedy word + -ol/-or + daiin + cth-word", repeated for each star entry. The template is visible as a consistent suffix sequence.
+**Cost estimate:** small
+
+---
+
+## H240: chol vs chor — Are -ol and -or Suffix Variants Context-Distinguishable?
+**Priority:** high
+**Source:** F128: chol (31 pre-daiin occurrences) is 3.4× more common than chor (9) as pre-daiin word, but exp_119 showed chor→cth=4.73× (the strongest bigram in the mixed corpus). exp_120 revealed chor→cth=1.77× in A-dialect only while chol→cth was moderate. So chol and chor have different bigram profiles despite sharing the ch- onset. Are -ol and -or selecting for different subsequent word classes?
+**Description:** Compute full bigram enrichment matrix for chol vs chor separately: what onset classes follow each? Test: chol→X vs chor→X for all onset classes X. Also test shol vs shor. Is -ol a "pre-determiner" suffix (precedes daiin/determiners) while -or is a "pre-noun" suffix (precedes cth directly)? Test positional distribution: chol vs chor at line-first/mid/last. Test section distribution.
+**Expected outcome:** chol→daiin enriched; chor→cth enriched directly (without daiin). The -ol and -or suffix variants encode different syntactic positions within the A-paradigm NP — chol = A-paradigm adjective-like modifier; chor = A-paradigm that directly precedes the head noun.
+**Cost estimate:** small
+
+---
+
+## H241: B-Dialect NP Template — What Precedes qok-Onset Words in B?
+**Priority:** high
+**Source:** F128: A-dialect has [chol/shol][daiin][cth-noun] as NP template. B-dialect has shedy/qokeedy→qok bigrams (F126/F127). Is there a parallel B-dialect NP template [W1][otaiin][ot-noun] or [W1][shedy][qok-word]? F128: otaiin→ot=3.99× in stars (B-dialect). Does otaiin serve as B's determiner in the same way daiin serves A's?
+**Description:** In B-dialect text, extract: (1) trigrams [W1][shedy][qok-word] — what is W1 onset? (2) trigrams [W1][otaiin][ot-word] — what is W1 onset? (3) trigrams [W1][qokaiin][ch-word] (since qokaiin→ch=1.84×). Compare B-dialect NP structure to A-dialect [chol][daiin][cthy]. Also test: what precedes otaiin in stars? Is there a B-dialect formula [X][otaiin][otal/otedy]?
+**Expected outcome:** B-dialect has a parallel NP template using otaiin as determiner: [B-onset-word][otaiin][ot-noun], analogous to A-dialect [ch-word][daiin][cth-noun]. This would confirm a symmetric NP grammar across dialects with different determiners (daiin vs otaiin) and different noun classes (cth vs ot).
+**Cost estimate:** small
+
+---
+
+## H242: The "other" Onset Class in Stars — What Words Constitute It?
+**Priority:** medium
+**Source:** F128: In stars, pos-0 onset distribution is 48% "other" (vs ~27% overall baseline). Stars lines predominantly start with "other"-onset words. F117: 'other' top words are free morphemes (ol, aiin, or, ar, al). But in stars (B-dialect), the "other" words at line-start are likely different from A-dialect free morphemes. What specific words constitute the "other" class at stars line-starts?
+**Description:** Extract all stars lines. Identify the specific words at pos-0 that classify as "other" onset. Build a frequency table. Compare to: (1) overall "other" class composition, (2) B-dialect "other" words more generally, (3) check if these are standalone particles (ol, ar, al), compound words, or genuinely unclassified new word types. Also: what "other"-onset words appear at stars line-final positions (where "other" also dominates)?
+**Expected outcome:** Stars line-start "other" words are a specific set of B-dialect particles or formula words that function as paragraph/entry openers (like "Item", "The star", etc. in natural language catalogs). Stars line-final "other" words may be a different set (closing particles, possibly -am words).
+**Cost estimate:** small
+
+---
+
+## H243: chol→daiin Bigram — Is -ol Suffix Specifically a "Pre-Determiner" Marker?
+**Priority:** medium
+**Source:** F128: W1 in [W1][daiin][cth-noun] has -ol suffix at 2.48× enrichment. chol is the top W1 word (31 of 401 pre-daiin occurrences = 7.7%). Is this a general property of -ol suffix words? Test: all -ol suffix words: what onset follows each of them? Is -ol suffix systematically followed by daiin (or other d-onset determiners) more than other suffixes?
+**Description:** Compute for each suffix (-ol, -or, -y, -ey, -aiin, -edy, -al, -ar) the bigram enrichment to next-onset class. Specifically test: [X-ol]→d-onset vs [X-or]→d-onset in A-dialect. Also test [X-ol]→cth vs [X-or]→cth. Build a full suffix→next-onset enrichment table analogous to the word-level bigram matrix.
+**Expected outcome:** -ol suffix words are pre-determiner (enrich d-onset next); -or suffix words are pre-nominal (enrich cth-onset next directly). This would establish that suffix choice within A-paradigm encodes syntactic position, not just morphological slot — the -ol/-or distinction maps to adjective/modifier vs pre-nominal determiner positions.
+**Cost estimate:** small
+

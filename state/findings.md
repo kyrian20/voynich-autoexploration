@@ -5,6 +5,14 @@
 
 ---
 
+## F128: [chol/shol/chor][daiin][cth-noun] Is A-Dialect NP Template; d-Onset Depleted Before daiin (0.60×); Stars Is ALL B-Dialect (12/12 Folios); No Repeating Star-Line Template; Stars Positional Structure: d/s-Onset Line-Start, ot-Onset 2nd-Half (1.75×), s-Onset 1st-Half Only (0.28× 2nd half)
+**Experiment:** exp_121_trigrams_stars
+**Date:** 2026-04-09
+**Finding:** H238 CONFIRMED PARTIAL: The A-dialect NP template is [W1][daiin][cth-noun] where W1 is ch-onset (1.94×) with -ol suffix (2.48×). Top W1 words: chol (2), chy (2), shol, chor. The 3-word phrase [ch-word][daiin][cth-noun] is the structural A-dialect nominal phrase. d-onset is DEPLETED before daiin (0.60×); ch-onset enriched (1.33×); top pre-daiin words: chol (31), shol (9), chor (9), cthy (7), cthol (6). 4-gram [W0][W1][daiin][cth] shows no W0 pattern — phrase structure is exactly 3 words. daiin at line-start → cth-onset word = 2.37× enriched. H239 CONFIRMED PARTIAL: Stars section is 100% B-dialect (all 12 folios). No repeating whole-line template exists (all 580 suffix/onset sequences unique). Positional structure: pos-0 highly constrained (H=-0.532 bits; 48% "other", 16% d-onset, 13% s-onset); mid-line is near-baseline; 2nd-half ot-enriched (1.75×) and qot-enriched (1.51×); s-onset confined to 1st half (0.28× in 2nd half, 0.58× sh). Stars line template: [d/s-function opener][B-content cluster: ch/sh/qok][ot-nominal phrase][other-closer]. otaiin→ot=3.99× in stars (n=53). Line endings (pos 11+): "other"-class dominant, -am at 12-16% (very small n).
+**Limitation:** The [W1][daiin][cth] trigram has only n=26 examples in A-dialect — results directional but not robust. The stars template is inferred from positional entropy trends, not an explicit sequence match. Stars folios 109, 110 are missing from the data (folios not present in transcription), so the analysis covers 12 of 14 expected stars folios. The -am at line-end pattern is based on n<15 tokens at positions 11-13.
+
+---
+
 ## F127: Pre-cth Pattern Is Dialect-Split: A-Dialect Uses daiin/chol/shol→cth; B-Uses chor=19.04×; cth Is A-Dominant (15×); chedy→qok=23.31× in A-Dialect; otaiin→ot=4.27×; aiin→ok=2.5×
 **Experiment:** exp_120_dialect_bigram
 **Date:** 2026-04-09

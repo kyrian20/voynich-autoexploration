@@ -1,5 +1,5 @@
 # Working Model — Voynich Manuscript Cryptanalysis
-**Last updated:** 2026-04-09 (after exp_120)
+**Last updated:** 2026-04-09 (after exp_121)
 **Purpose:** Continuously-updated structured summary of current beliefs about Voynichese.
 **Discipline:** Characterization, not interpretation. Claims require experimental warrant.
 
@@ -221,6 +221,12 @@ These findings have been replicated across independent analyses or confirmed by 
 - eee (triple-vowel) words: stars=17.25‰, cosmo=4.40‰ (suppressed). Vowel-length gradient monotonically stars-concentrated (edy→eedy→eeedy: 36%→48%→63%). eee enriched in ok/ol/qo (1.7-1.9×), suppressed in ch/sh (0.37-0.46×).
 - A-dialect section variation: herbal-A=-y dominant (qok=37%, ch=29%); pharma-A=-ol dominant (qok=41%, ok=40%); 8.9% avg diff (3.5× weaker than B's 31%).
 - FOUR-LEVEL suffix hierarchy: Dialect (A/B) → Stem class (Simple-B/Complex-B; A-y/-ol) → Section (B: stars/cosmo/herbal; A: herbal/pharma) → Vowel length (stars triple-vowel extension). Strong evidence for natural language morphology.
+
+**A-Dialect NP Template: [chol/shol/chor][daiin][cth-noun]; d-Depleted Before daiin (0.60×); Stars=All-B (12/12), No Fixed Line Template, ot-Enriched in 2nd Half (1.75×), s-Onset Line-Start Only (F128, exp_121)**
+- A-dialect 3-word NP template: [W1][daiin][cth-noun] where W1 is ch-onset (1.94×) with -ol suffix (2.48×). Top W1 words: chol, shol, chor. W0 (4-gram) shows no pattern — phrase is exactly 3 words.
+- General pre-daiin pattern: ch-onset=1.33×; d-onset DEPLETED (0.60×) — d-words don't precede daiin. Top pre-daiin: chol (31), shol (9), chor (9), daiin→daiin chains (8).
+- Stars = 100% B-dialect (all 12 present folios). No repeating line template (all 580 lines unique). Positional structure: pos-0 highly constrained (H=-0.532; 48% "other", 16% d, 13% s); mid-line near-baseline; ot-onset enriched in 2nd half (1.75×), s-onset depleted in 2nd half (0.28×). Template: [d/s-opener][B-content][ot-nominal][other-closer].
+- otaiin→ot=3.99× in stars (n=53) — confirmed ot-determiner in B-dialect star entries.
 
 **Bigram Split by Dialect: A-daiin/chol/shol→cth; B-chor=19.04×→cth; cth=15× More A; chedy→qok=23.31× in A-Only; otaiin→ot=4.27×; aiin→ok=2.5× (F127, exp_120)**
 - Pre-cth is A-dialect rule: daiin/chol/shol appear before cth only in A-dialect (zero in B). cth = 39.29‰ A vs 2.57‰ B (15× ratio). In B-dialect, chor→cth=19.04× (rare B-text cth occurrences).
