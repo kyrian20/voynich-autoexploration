@@ -1,5 +1,5 @@
 # Working Model — Voynich Manuscript Cryptanalysis
-**Last updated:** 2026-04-09 (after exp_131)
+**Last updated:** 2026-04-09 (after exp_132)
 **Purpose:** Continuously-updated structured summary of current beliefs about Voynichese.
 **Discipline:** Characterization, not interpretation. Claims require experimental warrant.
 
@@ -221,6 +221,14 @@ These findings have been replicated across independent analyses or confirmed by 
 - eee (triple-vowel) words: stars=17.25‰, cosmo=4.40‰ (suppressed). Vowel-length gradient monotonically stars-concentrated (edy→eedy→eeedy: 36%→48%→63%). eee enriched in ok/ol/qo (1.7-1.9×), suppressed in ch/sh (0.37-0.46×).
 - A-dialect section variation: herbal-A=-y dominant (qok=37%, ch=29%); pharma-A=-ol dominant (qok=41%, ok=40%); 8.9% avg diff (3.5× weaker than B's 31%).
 - FOUR-LEVEL suffix hierarchy: Dialect (A/B) → Stem class (Simple-B/Complex-B; A-y/-ol) → Section (B: stars/cosmo/herbal; A: herbal/pharma) → Vowel length (stars triple-vowel extension). Strong evidence for natural language morphology.
+
+**B-HERBAL FOLIOS UNIVERSALLY DEPLETED IN cth (A-NOMINALS, mean_dev=-0.037) AND d (A-FUNCTION WORDS, mean_dev=-0.062); f40 ok=16.1% (3.8× A-HERBAL) → STARS BEST-MATCH; s-ONSET = LINE-OPENER (LF=48.9%); s-OPENERS (saiin/sol=50-72%LF) + s-CLOSERS (sy=85%LL, sam=89%LL); Post-s sh=1.92× (s→sh RULE); FOUR LINE-OPENER CLASSES: y/p/d+ch-sh/s (F139, exp_132)**
+- B-herbal (12 folios by dialect): universal cth depletion (B-herbal nearly CTHLESS, A-herbal=4.5%) and d depletion (37% fewer d-words). Elevated ok/qok/other (B-content classes).
+- f40→stars mechanism: ok=16.1% (3.8× A-herbal rate, close to stars=7.0%). f26/f31/f50→pharma (pharma also has elevated qok vs A-herbal). f48→astro (elevated ot/t).
+- s-onset: LF=48.9% (pure line-opener, vs d=20.5%LF). Two sub-classes: s-OPENERS (saiin 50%LF, sol 64%, soiin 72%, sshedy 100%LF) and s-CLOSERS (sy=85%LL, sam=89%LL — parallel to dy/dam).
+- Post-s sh=1.92× (s→sh opener-to-content rule, same as stars line template [opener][sh-2nd]).
+- s is COSMO/ASTRO-concentrated (1.52×/2.15×), NOT stars-concentrated (stars=0.67×). Stars s-words are rare but 67.2% LF in stars context.
+- FOUR LINE-OPENER CLASSES: y (k/t stems, both dialects, 39.6%LF), p (B+ch/sh, 71.1%LF), d+ch/sh compounds (A+B, dialect-split), s (various stems, cosmo/pharma, 48.9%LF overall).
 
 **27% of FOLIOS BEST-MATCH ≠ ASSIGNED SECTION; B-HERBAL BIFOLIO INSERTIONS (f26/f31/f40/f48/f50) CLUSTER with Pharma/Stars; HERBAL=LEAST COHESIVE (0.914), COSMO=MOST (0.965); STARS LINE TEMPLATE: [p/s/y/d/t OPENER (5-7×)][sh 2nd (2.25×)][mid content][-am LAST (8.06×=STRONGEST POSITIONAL SUFFIX IN MANUSCRIPT)] (F138, exp_131)**
 - Cosine similarity on folio onset-class profile vectors: 25/94 folios (27%) best-match a different section. Section cohesion: cosmo=0.965 > stars=0.954 > pharma=0.940 > herbal=0.914 > astro=0.886.

@@ -2752,3 +2752,34 @@
 **Expected outcome:** raiin appears in B-stars context where aiin appears in A-herbal context — they are dialectal/section counterparts (daiin=A-determiner, raiin=B-stars particle). Pre-raiin and pre-aiin should show different onset class enrichments.
 **Cost estimate:** small
 **Prerequisites:** F135
+
+---
+
+## H258: B-Herbal Folio Onset Profile Diagnostic — What Specific Onset Classes Make f40/f26/f31/f48/f50 Cluster with Stars/Pharma Rather Than Herbal?
+**Priority:** high
+**Status:** CONFIRMED (exp_132) — ALL B-herbal folios universally depleted in cth (mean_dev=-0.037) and d (mean_dev=-0.062). Most elevated in ok/qok/other. f40→stars because ok=16.1% (3.8× A-herbal). f26/f31/f50→pharma (pharma also has elevated qok vs A-herbal). f48→astro (elevated ot/t). f43/f46 B-dialect but herbal-best-match (less extreme B-vocabulary). (F139)
+**Source:** F138: B-herbal bifolio insertions (f26/f31/f40/f48/f50) all best-match sections other than herbal by cosine similarity on onset-class profile vectors. f40→stars(0.860 vs self=0.755); f26/f31→pharma(0.966/0.959); f48→astro(0.890); f50→pharma(0.893). The onset-class DIFFERENCE between these B-herbal folios and the herbal centroid is the key diagnostic.
+**Description:** For each B-herbal folio (f26, f31, f40, f48, f50): (1) compute onset-class profile; (2) subtract herbal centroid to get per-class deviation; (3) identify which onset classes are OVER- and UNDER-represented vs A-herbal; (4) compare deviation profile to the best-match section's centroid. Specifically: does f40 have elevated qok/ok/ot (B-paradigm classes) and depleted cth/ch-onset (A-paradigm classes)?
+**Expected outcome:** B-herbal folios are elevated in qok/ok/ot/p onset classes (B-paradigm content words) and depleted in cth/ch (A-paradigm) relative to A-herbal. f40 specifically matches stars because it has stars-level qok/ot and depleted A-paradigm classes. f26/f31 match pharma because pharma also uses elevated qok relative to A-herbal.
+**Cost estimate:** small
+**Prerequisites:** F138 (exp_131 folio profile vectors); onset-class taxonomy from exp_131
+
+---
+
+## H259: s-Onset Characterization — Is s a SECTION MARKER and LINE-OPENING GRAMMATICAL PARTICLE? Sub-Classes of s-Onset Words?
+**Priority:** high
+**Status:** CONFIRMED (exp_132) — s=LINE-OPENER class (LF=48.9%). Two sub-classes: s-OPENERS (saiin/sain/sol/soiin=50-72%LF, sshedy/sshey=100%LF) and s-CLOSERS (sy=85%LL, sam=89%LL). Post-s sh=1.92× (s→sh sequential rule). Cosmo=1.52×, astro=2.15× concentrated; stars=0.67× depleted. Stars s-words are rare but 67.2% LF. (F139)
+**Source:** F138: s=6.56× at stars line-start (strongest section-specific enrichment after p=6.84×). F126: s-onset is para-start marker (48.5% para-first position). F136: pre-raiin s=3.25× (s-words immediately precede raiin in B-stars). s appears to be a critical grammatical onset class that has NOT been characterized in depth (unlike d/p/r/y which have all been analyzed).
+**Description:** Characterize all s-onset words: (1) total tokens, types, hapax rate; (2) positional profile (line-first/mid/last %); (3) section/dialect distribution; (4) top s-words and their positional profiles; (5) sub-classes: are there s-openers vs s-closers vs s-particles? (6) bigram context: what precedes s-words, what follows? (7) comparison to d-onset (which has three sub-classes): does s also have opener/closer/medial sub-classes?
+**Expected outcome:** s-onset splits into at least two sub-classes: (1) s-openers (saiin, sar, sain = line-start, topic-opening function); (2) s-content words in stars (stars-specific s-vocabulary). s is a GRAMMATICAL OPENER (parallel to d-openers but perhaps more stars-specific). s-onset has lower vocabulary diversity than d-onset but higher positional concentration.
+**Cost estimate:** small
+
+---
+
+## H260: Astro Section Characterization — Why Is Astro the LEAST Cohesive Section (mean=0.886) and Why Does f87 (Pharma) Best-Match Astro?
+**Priority:** medium
+**Source:** F138: Astro has mean self-similarity=0.886 (lowest of all sections), n=4 folios. f87 (pharma, A-dialect) best-matches astro (0.885 vs self=0.884). The 4 astro folios (f67, f68, f69, f70 approx) are poorly internally consistent. What makes astro distinctive and low-cohesion?
+**Description:** (1) Extract onset-class profiles for each astro folio (f67-f73); (2) compare astro centroid to all other section centroids — which onset classes distinguish astro from herbal/pharma/stars/cosmo? (3) Compute pairwise similarity between astro folios — are they more different from each other than within any other section? (4) Check f87 (pharma) onset profile vs astro centroid — which onset classes make f87 look astro-like?
+**Expected outcome:** Astro has a mixed onset profile — perhaps intermediate between A-herbal and B-stars. The 4 astro folios are heterogeneous (different scribe conventions or subject matter). f87 looks astro-like because it shares an unusual onset class distribution (possibly elevated s or d-onset relative to pharma centroid).
+**Cost estimate:** small
+**Prerequisites:** F138
