@@ -2956,6 +2956,7 @@
 
 ## H297: Do the "cth-Introducer" Particles (daiin/chol/chor/cthol) Appear in Specific Positions Before cth-Words?
 **Priority:** medium
+**Status:** CONFIRMED WITH SURPRISE (exp_150). Two distinct cth-introduction constructions: Type 1=[daiin@MID→cth@MID/LL] (daiin=within-line medial determiner); Type 2=[chol/chor@LF→cth@second] (line-opener construction, not determiner). aiin/ol/ar/s→cth=0 bigrams (categorical). cthol→cth fully medial. Cluster=2.77× collective enrichment (22.9% of before-cth). (F157)
 **Source:** F156: daiin/chol/chor/cthol all precede cth at 2.1-3.1× and deplete sh/ch_e. They form a cluster of "cth-nominal introducer" particles. Do they appear in specific positional contexts (LF vs second vs MID) when they precede cth-words?
 **Description:** For each of daiin/chol/chor/cthol: (1) When it precedes a cth-onset word, what slot is it in? (LF, second, MID?) (2) Is the pattern that these particles appear at line-final (LL) position and the cth-word opens the NEXT line, or within the same line? (3) Compute: when the bigram [particle→cth] occurs, what is the positional slot of the particle? This reveals whether "cth-introduction" is within-line (particle at MID; cth-word at MID+1) or cross-line (particle at LL; cth-word at LF of next line).
 **Expected outcome:** daiin precedes cth within the same line (both at MID positions). If confirmed, daiin is a within-line determiner. If particle is at LL and cth is at LF, these are line-boundary bigrams — counting line-boundary bigrams should be excluded for within-line grammar analysis.
@@ -2966,11 +2967,32 @@
 
 ## H298: Is dy→sh=1.96× a Within-Line Construction or a Cross-Line Bigram Artifact?
 **Priority:** low
+**Status:** CONFIRMED NOT ARTIFACT (exp_150). All 6 dy→sh bigrams have dy at second/MID/LF (never LL). Among non-LL dy occurrences (~32), ~19% are followed by sh (vs ~10% baseline). Real within-line construction. (F157)
 **Source:** F156: dy→sh=1.96× (n=6/32 transitions). dy is primarily a line-final short word in A; if dy appears at line-end (LL) and sh appears at LF of the next line, the bigram spans a line boundary and is not a syntactic construction.
 **Description:** Check all 6 dy→sh bigrams: are they within the same parsed line (same locus P-type line) or cross-line (dy at end of line N, sh at start of line N+1)? If all 6 are within-line, dy→sh is a real construction. If most are cross-line, the enrichment is a line-boundary artifact.
 **Expected outcome:** dy→sh is a cross-line artifact (dy ending one line, next line starting with sh). This would confirm that line-boundary bigrams inflate apparent enrichments for line-final words (dy) followed by line-initial onset classes (sh).
 **Cost estimate:** trivial
 **Prerequisites:** F156
+
+---
+
+## H299: In A-Dialect, What Fraction of Lines Beginning with chol or chor Have a cth-Word at Position 2?
+**Priority:** medium
+**Source:** F157: Type 2 cth-introduction = [chol/chor at LF] → [cth-word at second] (n=32 bigrams). chol/chor at LF are followed by cth at second in 45-50% of chol/chor→cth bigrams. But what fraction of ALL chol-at-LF lines have cth at second?
+**Description:** (1) Count all A P-type lines where first word is chol or chor. (2) What fraction have a cth-onset word at second position? (3) Compare to baseline: what is the rate of cth at second across all A lines? (4) Is there a specific set of chol-starting or chor-starting lines that consistently produce cth at second (e.g., specific folios or sections)?
+**Expected outcome:** ~10-20% of chol-at-LF lines have cth at second (elevated above baseline ~4-5%). If this holds, the Type 2 construction [chol at LF][cth at second] is a recurring A-herbal formula, not an artifact of the reverse selection (we found chol→cth bigrams and looked at chol's position).
+**Cost estimate:** trivial
+**Prerequisites:** F157
+
+---
+
+## H300: Do cth-Words at LL (Line-Final) Tend to Be Specific cth-Words (e.g., cthol/cthy vs cthor)?
+**Priority:** medium
+**Source:** F157: daiin→cth places cth-word at LL 36.1% of the time (13/36 cases). Also, cth has overall mild LL-enrichment (1.20×). Are line-final cth-words from a specific subset of the cth vocabulary?
+**Description:** (1) Compute positional distribution (LF/second/MID/LL) for each top cth-word: cthy, cthol, cthor, cthain, ctheol, cthody. (2) Are some cth-words LL-enriched (line-closers) while others are MID-enriched (medial nominals)? (3) Specifically: does cthol or cthy show strong LL-enrichment (closing role), while cthor remains MID/second (medial role)? This would reveal a positional paradigm split within the cth vocabulary.
+**Expected outcome:** cthol (the most common medial cth-word per F148) is MID-enriched (confirmed from exp_141). cthy may be LL-enriched (closing role). cthor is MID/second (confirmed from exp_142). A LL-enriched cth-word (cthy or cthain) would be the "cth-closing particle" completing the daiin→cth-at-LL construction.
+**Cost estimate:** small
+**Prerequisites:** F157, F148
 
 ---
 

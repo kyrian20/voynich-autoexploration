@@ -1,5 +1,5 @@
 # Working Model — Voynich Manuscript Cryptanalysis
-**Last updated:** 2026-04-10 (after exp_149)
+**Last updated:** 2026-04-10 (after exp_150)
 **Purpose:** Continuously-updated structured summary of current beliefs about Voynichese.
 **Discipline:** Characterization, not interpretation. Claims require experimental warrant.
 
@@ -221,6 +221,12 @@ These findings have been replicated across independent analyses or confirmed by 
 - eee (triple-vowel) words: stars=17.25‰, cosmo=4.40‰ (suppressed). Vowel-length gradient monotonically stars-concentrated (edy→eedy→eeedy: 36%→48%→63%). eee enriched in ok/ol/qo (1.7-1.9×), suppressed in ch/sh (0.37-0.46×).
 - A-dialect section variation: herbal-A=-y dominant (qok=37%, ch=29%); pharma-A=-ol dominant (qok=41%, ok=40%); 8.9% avg diff (3.5× weaker than B's 31%).
 - FOUR-LEVEL suffix hierarchy: Dialect (A/B) → Stem class (Simple-B/Complex-B; A-y/-ol) → Section (B: stars/cosmo/herbal; A: herbal/pharma) → Vowel length (stars triple-vowel extension). Strong evidence for natural language morphology.
+
+**TWO DISTINCT cth-INTRODUCTION CONSTRUCTIONS: TYPE1=[daiin@MID→cth@MID/LL]; TYPE2=[chol/chor@LF→cth@second] (LINE-OPENER); dy→sh=1.96× REAL (NOT CROSS-LINE) (F157, exp_150)**
+- Type 1 (daiin, n=36): daiin at MID(61%) → cth at MID/LL. daiin = within-line medial determiner. cth-word at LL 36.1% — explains cth mild LL-enrichment (1.20×).
+- Type 2 (chol/chor, n=32): chol/chor at LF(50%) → cth at second(45-50%). Line-opening construction, not grammatical determiner. Reframes chol/chor's cth-enrichment.
+- aiin/ol/ar/s→cth = 0 bigrams (categorical). Cluster=2.77× collective (22.9% of before-cth).
+- dy→sh bigrams: dy at second/MID/LF (never LL). Among non-LL dy, ~19% followed by sh (vs 10% baseline). Real construction.
 
 **NO A-PARTICLE INTRODUCES sh/ch_e AT 3×+; sh=SELF-INTRODUCED (1.68×); ch_e=SELF-INTRODUCED (1.98×); cth-ENRICHED PARTICLE CLUSTER (daiin/chol/chor/cthol→cth AT 2.1-3.1×) DEPLETES sh/ch_e; aiin/ol→cth=0.00× BUT →ch_e=1.4-2.0× (F156, exp_149)**
 - sh before-context: self-succession=1.68×; d=0.77×, cth=0.64× (depleted). No particle >2.5×.

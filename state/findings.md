@@ -5,6 +5,14 @@
 
 ---
 
+## F157: TWO DISTINCT cth-INTRODUCTION CONSTRUCTIONS: TYPE1=[daiin@MID→cth@MID/LL] (n=36); TYPE2=[chol/chor@LF→cth@second/MID] (n=32); daiin→cth PLACES cth-WORD AT LL 36.1%; dy→sh IS REAL (NOT CROSS-LINE); cluster=2.77× COLLECTIVELY (22.9% of before-cth bigrams)
+**Experiment:** exp_150_cth_introducer_positions
+**Date:** 2026-04-10
+**Finding:** H297 CONFIRMED WITH SURPRISE. Two structurally distinct cth-introduction constructions discovered. Type 1 (daiin): daiin at MID=61%/second=25% → cth-word at MID=52.8%/LL=36.1%. daiin is a within-line medial determiner. Type 2 (chol/chor): chol at LF=50%, chor at LF=50% → cth-word at second=45-50%/MID=33-40%. chol/chor introduce cth as LINE-OPENERS — they are first-word line-starters followed by cth as second word, not grammatical determiners. This reframes chol/chor's cth-enrichment (F156): they are not parallel to daiin's determiner role but represent a different construction where the line-opener precedes the nominal. cthol→cth is fully medial (second+MID, n=4). aiin/ol/ar/s→cth = 0 bigrams (categorical). The daiin→cth-at-LL pattern explains cth's mild LL-enrichment (1.20× overall). Cluster (daiin/chol/chor/cthol) collectively=2.77× enrichment, 22.9% of before-cth bigrams. H298 CONFIRMED NOT ARTIFACT: dy→sh bigrams (n=6) have dy at second(2)/MID(3)/LF(1) — never LL. Among non-LL dy occurrences, ~19% follow sh (vs ~10% baseline). The dy→sh enrichment is a real within-line construction.
+**Limitation:** chol→cth n=20, chor→cth n=12, cthol→cth n=4 — sufficient for proportional claims but small for per-slot analysis. The cth-at-LL=36.1% after daiin (13/36 cases) is a small absolute count but consistent. dy→sh n=6 (small but all within-line). The "Type 2 line-opener" interpretation requires verification that chol at LF generally precedes cth at second (vs other second-position words).
+
+---
+
 ## F156: NO A-PARTICLE INTRODUCES sh/ch_e AT 3×+; sh=SELF-INTRODUCED (1.68×), ch_e=SELF-INTRODUCED (1.98×); cth-ENRICHED PARTICLES (daiin/chol/chor/cthol) DEPLETE sh/ch_e; aiin/ol→ch_e=1.43-1.97× BUT aiin/ol→cth=0.00×; dy→sh=1.96×
 **Experiment:** exp_149_a_sh_che_introducers
 **Date:** 2026-04-10
