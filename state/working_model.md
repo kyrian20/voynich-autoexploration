@@ -1,5 +1,5 @@
 # Working Model — Voynich Manuscript Cryptanalysis
-**Last updated:** 2026-04-09 (after exp_138)
+**Last updated:** 2026-04-09 (after exp_139)
 **Purpose:** Continuously-updated structured summary of current beliefs about Voynichese.
 **Discipline:** Characterization, not interpretation. Claims require experimental warrant.
 
@@ -221,6 +221,12 @@ These findings have been replicated across independent analyses or confirmed by 
 - eee (triple-vowel) words: stars=17.25‰, cosmo=4.40‰ (suppressed). Vowel-length gradient monotonically stars-concentrated (edy→eedy→eeedy: 36%→48%→63%). eee enriched in ok/ol/qo (1.7-1.9×), suppressed in ch/sh (0.37-0.46×).
 - A-dialect section variation: herbal-A=-y dominant (qok=37%, ch=29%); pharma-A=-ol dominant (qok=41%, ok=40%); 8.9% avg diff (3.5× weaker than B's 31%).
 - FOUR-LEVEL suffix hierarchy: Dialect (A/B) → Stem class (Simple-B/Complex-B; A-y/-ol) → Section (B: stars/cosmo/herbal; A: herbal/pharma) → Vowel length (stars triple-vowel extension). Strong evidence for natural language morphology.
+
+**A-HERBAL cth DECLINE = SMOOTH GRADIENT (T1=5.96%→T2=4.82%→T3=3.66%, −1.1pp/tertile); l-GRADIENT STRONGER (ρ=+0.627) THAN cth-GRADIENT (ρ=-0.269); A-HERBAL l-WORDS TOO SPARSE (37 tokens) FOR B-CONTAMINATION ANALYSIS (F146, exp_139)**
+- A-herbal cth tertile decline is equal-interval (−1.14pp, −1.15pp per step) — smooth gradient, not step-change. Rules out single scribal hand-change at a specific folio.
+- l-gradient ρ=+0.627 STRONGER than cth-gradient ρ=-0.269 in A-herbal. Later A-herbal shifts more consistently toward l-onset words than it depletes cth.
+- l-words in A-herbal: only 37 total tokens (16 early, 21 late). Clean B-form late l-words: lkeedy(1), lkeey(1), loldaiin(1). Sample too small for B-vocabulary contamination conclusion.
+- Spawned: H277 (cth decline = content gradient? Identify which cth-words disappear), H278 (B-dialect l-vocabulary as reference for A-herbal comparison).
 
 **A-HERBAL cth GRADIENT IS REAL IN A-ONLY (ρ=-0.353; early=5.4% → late=3.7%=0.69×); l-GRADIENT ALSO REAL (ρ=+0.457); STARS cth ρ=+0.469 = NOISE (19 tokens, F144 claim RETRACTED); f47 = SAMPLING ARTIFACT (n=134) (F145, exp_138)**
 - A-herbal-only cth ρ=-0.353 (44 folios): genuine A-herbal cth decline, not solely B-insertion artifact. B-insertions amplify (full-herbal ρ=-0.486 → A-only ρ=-0.353).

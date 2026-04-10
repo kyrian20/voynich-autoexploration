@@ -2858,8 +2858,29 @@
 
 ---
 
+## H277: Is the A-Herbal cth Smooth Gradient Explained by CONTENT Shift (Which cth-Words Disappear in Late A-Herbal)?
+**Priority:** high
+**Source:** F146: A-herbal cth decline is smooth (equal-interval −1.1 pp/tertile), consistent with content gradient. cth vocabulary is stable (cthy/cthol/cthey dominate both early and late — F145). But F145 says "fewer cth tokens, not different cth words." Is this literally true? Are the same cth-words present in both periods at different frequencies, or do some cth-words disappear entirely in late A-herbal?
+**Description:** Extract all cth-onset words from early A-herbal (f1-f18) vs late A-herbal (f38-f56). Compute: (1) Which cth-words are present in early but absent in late? (2) Which cth-words maintain similar frequency ratios? (3) Does the decline reflect uniform proportional reduction of all cth-words (consistent with a scribe writing the same content less often) or selective disappearance of specific cth-words (consistent with content change)?
+**Expected outcome:** If content gradient: specific botanical cth-words (ctholy, cthom — rare forms associated with specific plant types) disappear in late A-herbal while common forms (cthy, cthol, cthey) remain. If scribal drift: all cth-words decline proportionally.
+**Cost estimate:** small
+**Prerequisites:** F146, F145
+
+---
+
+## H278: What Is the Full l-Onset Vocabulary in B-Dialect Sections (Cosmo, Stars, Pharma)?
+**Priority:** medium
+**Source:** F146: Only 37 l-tokens in all A-herbal. B-dialect sections (cosmo, stars, pharma) presumably have many more l-onset words. Characterizing B-dialect l-vocabulary would provide a reference for evaluating whether late A-herbal l-words are B-like.
+**Description:** Extract all l-onset words from B-dialect folios in: cosmo, stars, pharma, herbal-B. Compute: (1) Top l-words by frequency in each B section; (2) suffix paradigm split (A-suffix vs B-suffix); (3) which l-words appear exclusively in B, which are shared with A. This establishes the "B l-vocabulary" profile that can be compared to the 3 clean B-form late A-herbal l-words (lkeedy, lkeey, loldaiin).
+**Expected outcome:** B-dialect l-vocabulary is dominated by lk-prefixed forms (lkeedy, lkedy, lkeey — from F131/F134) with -edy/-eedy suffixes. A-dialect l-vocabulary (from early A-herbal) uses lor/lol/lar with -or/-ol/-ar suffixes. This would establish a clean A/B l-dichotomy for comparison.
+**Cost estimate:** small
+**Prerequisites:** F146, F131, F134
+
+---
+
 ## H275: Is the A-Herbal cth Decline a Smooth Gradient or a Specific Breakpoint?
 **Priority:** high
+**Status:** CONFIRMED (SMOOTH GRADIENT) (exp_139) — A-herbal cth tertile decline is equal-interval: T1=5.96%, T2=4.82%, T3=3.66% (−1.14pp, −1.15pp per step). No discrete breakpoint. Best change-point at f54 is endpoint of continuous trend, not discrete transition. l-gradient (ρ=+0.627) stronger than cth-gradient (ρ=-0.269). (F146)
 **Source:** F145: A-herbal-only cth ρ=-0.353 (genuine gradient). Early A-herbal (f1-f28): cth=5.4%; late (f29-f57): cth=3.7%. Is this a smooth monotonic decline or a step-change at a specific folio?
 **Description:** Divide A-herbal folios into tertiles (f1-f18, f19-f37, f38-f57). Compute cth rate and l rate for each tertile. If tertile 1→2→3 shows a step-change at one boundary (e.g., f19 or f38) rather than a smooth decline, there may be a scribal hand change at that point. Also compute the within-A-herbal breakpoint using a simple change-point scan (slide a breakpoint across all A-herbal folios, find the folio that maximizes the difference in mean cth rate between before/after groups).
 **Expected outcome:** If smooth gradient: evidence for content shift (botanical content changes across the herbal section). If step-change at a specific folio: evidence for scribal hand change (two A-scribes with different cth rates).
@@ -2870,6 +2891,7 @@
 
 ## H276: Does the A-Herbal l-Gradient Reflect B-Vocabulary Contamination in Later A-Herbal Folios?
 **Priority:** medium
+**Status:** NOT CONFIRMED (INSUFFICIENT DATA) (exp_139) — A-herbal l-words: only 37 total tokens (16 early, 21 late). Clean B-form late l-words: lkeedy(1), lkeey(1), loldaiin(1). Transcription artifacts contaminate 4/6 apparent B-suffix l-words. Sample too small for statistical inference. corpus-wide some late A-herbal l-words (lor=91%B, lo=92%B) are predominantly B-dialect but each appears only once. (F146)
 **Source:** F145: A-herbal l-onset gradient (ρ=+0.457): later A-herbal folios (f29-f57) have l=0.8% vs early 0.4%. l-onset words are B-dialect markers (F131, F134). Do later A-herbal l-onset words look like B-vocabulary forms (lkeedy, lkedy, lkeey) or like A-vocabulary l-onset words (lar, lor, lol)?
 **Description:** Extract all l-onset words from early A-herbal (f1-f28) vs late A-herbal (f29-f57). Compute: (1) Which l-words appear in early vs late A-herbal? (2) Are late A-herbal l-words predominantly A-dialect l forms (short, with -ol/-or suffixes) or B-dialect l forms (lkeedy/lkedy type, with -edy/-eedy)? (3) Compute dialect purity of late A-herbal l-words using the suffix paradigm split (A-suffix vs B-suffix).
 **Expected outcome:** Late A-herbal l-words are dominated by A-dialect l forms (lar/lor/lol) rather than B-vocabulary l forms — the l-gradient is a content shift, not scribal cross-contamination. If B-dialect l forms (lkeedy) dominate in late A-herbal, it would suggest dialect mixing at the A/B boundary.
