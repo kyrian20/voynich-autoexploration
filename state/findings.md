@@ -5,6 +5,14 @@
 
 ---
 
+## F122: Folio Suffix Profiles Cluster by Section at 73.1% Accuracy; cosmo Most Coherent (Within=0.923); herbal Most Heterogeneous (0.779) Due to Regular A/B Alternating Interleave (Every 3-5 Folios); cosmo→pharma Is Sharpest Boundary; f107 ONLY eey-Dominant Folio; cosmo-stars Highest Vocabulary Overlap (Jaccard=0.391)
+**Experiment:** exp_115_folio_clustering
+**Date:** 2026-04-09
+**Finding:** H225 CONFIRMED PARTIAL: Folio-level suffix profile cosine similarity yields 73.1% section classification accuracy (vs 20% chance for 5 sections). Within-section similarity: cosmo=0.923 (most coherent), stars=0.891, pharma=0.852, herbal=0.779 (most heterogeneous), astro=0.724. Cross-section mean=0.685. Key findings: (1) Herbal section contains A-dialect and B-dialect folios alternating every 3-5 folios in a REGULAR pattern (f26/31/33-34/39-41/43/46/48/50/57 are B-dialect within A-dominant herbal) — consistent with two-source compilation during manuscript assembly. (2) Herbal-B folios are systematically misassigned to cosmo/stars because their B-paradigm suffix profile matches the B-dialect centroid. (3) cosmo-to-pharma boundary is the sharpest in the manuscript (f84→f87 suffix similarity drops to 0.479). (4) f107 is the ONLY folio in the manuscript where eey is the dominant B-suffix (44% eey > 40% edy). (5) cosmo-stars have the highest vocabulary overlap (Jaccard=0.391; both B-dialect). (6) astro is vocabulary-isolated (Jaccard=0.04-0.10 vs all sections). (7) f79 (cosmo) is a cosmo outlier with nearly stars-level eey (34.5%); f80 (cosmo) is herbal-like (misassigned to herbal by centroid).
+**Limitation:** The 73.1% classification uses suffix profile only (not full vocabulary). A vocabulary-weighted classifier would likely perform better. The herbal A/B alternating pattern uses dialect assignment (edy rate ≥5%) as a proxy, which may misclassify edge cases. Astro section has only 3 valid folios, making intra-astro statistics unreliable. The "regular" alternating pattern conclusion is visual inspection of the sequence, not a formal periodicity test.
+
+---
+
 ## F121: Four-Level Suffix Hierarchy Quantified: 20.1% Entropy Reduction (0.71 bits of 3.54); Vowel Length (Level 4) Contributes MOST (0.35 bits); Residual 2.83 bits After All Conditions; qot Onset Has Highest Dialect Polarity (0.207 bits); ol Has Lowest (0.035 bits)
 **Experiment:** exp_114_conditional_entropy
 **Date:** 2026-04-09

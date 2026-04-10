@@ -2413,7 +2413,45 @@
 
 ## H225: Folio-Level Vocabulary Distance Clustering
 **Priority:** medium
+**Status:** CONFIRMED PARTIAL (exp_115)
 **Source:** F112: 72-79% of vocabulary is section-specific. H217 (unresolved). Now we have the four-level suffix model — do folios cluster by section AND by their suffix pattern tier?
 **Description:** Build per-folio word frequency vectors. Compute cosine similarity between folio vectors. Cluster. Look for: (1) section clusters; (2) transition folios; (3) whether suffix pattern (stars-eey vs cosmo-eedy) aligns with folio clustering independent of section labels.
 **Expected outcome:** Folios cluster into 5-6 section groups. Stars folios cluster tightly (highest eey rate, distinctive eee forms). Cosmo folios may be more spread (some folio-level variation in B-suffix preference from F119).
 **Cost estimate:** medium
+
+---
+
+## H226: Herbal A/B Interleave Periodicity — Is the Alternating Pattern Regular Enough to Imply Page-Pair or Quire-Based Assembly?
+**Priority:** high
+**Source:** F122: Herbal section has B-dialect folios alternating with A-dialect every 3-5 folios (f26/31/33-34/39-41/43/46/48/50/57). This appears regular. If the pattern has a period of ~4-5 folios, it may correspond to quire structure (quires are typically 4-8 folio gatherings). A strict periodicity test could support a "two-scribes interleaved during binding" theory vs. random variation.
+**Description:** Map the dialect assignment (A or B) of each herbal folio and test for periodicity. Compute autocorrelation of the binary A/B sequence. Check whether B-folios cluster near quire boundaries (known quire structure: Q1=f1-8, Q2=f9-16, Q3=f17-24, Q4=f25-32, Q5=f33-40, Q6=f41-48, Q7=f49-57 approx). Does each quire tend to have a B-folio near its start or end?
+**Expected outcome:** IF quire-aligned: each quire's last 1-2 folios are B-dialect, suggesting a systematic insertion pattern. IF random: the B-folios appear randomly within quires with no boundary preference.
+**Cost estimate:** small
+
+---
+
+## H227: Line-Position Effect on Suffix Distribution — Do First/Last Words Use Different Suffixes Than Mid-Line?
+**Priority:** high
+**Source:** F117: Para-internal grammar step function (PARA class concentrated at first 2 lines). F118: Free-morpheme asymmetry (A-paradigm suffixes are free words; ol/or/aiin appear as standalone words). The line-position effect on word TIER is known, but line-position effect on SUFFIX CHOICE within the same onset class is unexplored.
+**Description:** For each onset class, compute suffix distribution conditioned on line-position: (1) line-first word, (2) line-last word, (3) mid-line word. Do A-dialect folios show ol/or enrichment at line-last position (consistent with standalone usage)? Do B-dialect folios show edy enrichment at specific positions? Compare to the positional entropy profile (F003).
+**Expected outcome:** Line-last words enrich -ol/-or/-aiin (standalone-like suffixes); line-first words enrich -edy/-eedy (topic/theme markers?). This would add a fifth level to the suffix hierarchy: Dialect → Onset → Section → Vowel length → Line position.
+**Cost estimate:** small
+
+---
+
+## H228: The "Other" 20.8% — What Are Words With No Identified Suffix?
+**Priority:** medium
+**Source:** F121: 20.8% of tokens (6,878/33,066) fall into the 'other' suffix category (no recognized suffix pattern). This is the largest single "suffix class." Understanding what these words are could reveal an unmodeled morphological category.
+**Description:** Extract all words falling into the 'other' category. Characterize: (1) length distribution vs. suffixed words; (2) onset class distribution; (3) section/dialect distribution; (4) frequency distribution (hapax vs. repeated); (5) whether they cluster into groups (e.g., short uninflected forms, long compound-like forms). Sample the top 50 'other' words and inspect manually.
+**Expected outcome:** 'Other' consists of: (a) short function words (2-3 chars) with no suffix structure; (b) long compound-like forms with multiple suffix-like endings; (c) possible transcription errors or illegible words. Identifying the 'other' composition would tighten the entropy estimate.
+**Cost estimate:** small
+
+---
+
+## H229: Paragraph-Internal Vocabulary Repetition — Do Words Repeat Within Paragraphs More Than Across Paragraphs?
+**Priority:** medium
+**Source:** F112 (section vocabulary specificity). F117 (para grammar step function). Within a paragraph, is there word-level cohesion (same stems repeated with different suffixes)? This would be analogous to discourse coherence in natural language (pronoun/anaphora patterns).
+**Description:** For each paragraph, compute: (1) within-para word repetition rate (how many unique words / total words); (2) cross-para word sharing rate for adjacent paragraphs vs. non-adjacent paragraphs; (3) whether the same ONSET (stem prefix) appears multiple times within a paragraph with different suffixes. Compare within-para repetition to within-section and cross-section repetition rates.
+**Expected outcome:** IF natural language: within-para words should repeat more than cross-para (topic coherence). IF cipher or generated text: repetition is uniform across distances. Finding within-para cohesion would be strong evidence for discourse-level structure.
+**Cost estimate:** medium
+

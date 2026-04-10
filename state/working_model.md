@@ -1,5 +1,5 @@
 # Working Model — Voynich Manuscript Cryptanalysis
-**Last updated:** 2026-04-09 (after exp_114)
+**Last updated:** 2026-04-09 (after exp_115)
 **Purpose:** Continuously-updated structured summary of current beliefs about Voynichese.
 **Discipline:** Characterization, not interpretation. Claims require experimental warrant.
 
@@ -221,6 +221,13 @@ These findings have been replicated across independent analyses or confirmed by 
 - eee (triple-vowel) words: stars=17.25‰, cosmo=4.40‰ (suppressed). Vowel-length gradient monotonically stars-concentrated (edy→eedy→eeedy: 36%→48%→63%). eee enriched in ok/ol/qo (1.7-1.9×), suppressed in ch/sh (0.37-0.46×).
 - A-dialect section variation: herbal-A=-y dominant (qok=37%, ch=29%); pharma-A=-ol dominant (qok=41%, ok=40%); 8.9% avg diff (3.5× weaker than B's 31%).
 - FOUR-LEVEL suffix hierarchy: Dialect (A/B) → Stem class (Simple-B/Complex-B; A-y/-ol) → Section (B: stars/cosmo/herbal; A: herbal/pharma) → Vowel length (stars triple-vowel extension). Strong evidence for natural language morphology.
+
+**Folio Suffix Profiles Cluster by Section (73.1%); Herbal A/B ALTERNATES Every 3-5 Folios; cosmo-pharma Sharpest Boundary; f107 Only eey-Dominant Folio (F122, exp_115)**
+- Cosine similarity on suffix rate vectors: cosmo=0.923 within (most coherent); herbal=0.779 (most heterogeneous — A/B dialect folios interleaved)
+- Herbal B-dialect folios alternate with A-dialect every 3-5 folios (f26/31/33-34/39-41/43/46/48/50/57): regular pattern → two-source manuscript compilation hypothesis.
+- cosmo→pharma boundary: sharpest in manuscript (f84→f87 similarity drop to 0.479). astro vocabulary-isolated (Jaccard=0.04-0.10).
+- f107: ONLY folio in manuscript where eey > edy (44% eey). f79 (cosmo): outlier with 34.5% eey (nearly stars-level).
+- cosmo-stars highest Jaccard overlap (0.391); both B-dialect sections share vocabulary more than any other pair.
 
 **Four-Level Hierarchy Quantified: 20.1% Entropy Reduction (0.71/3.54 bits); Vowel Length Contributes MOST (0.35 bits); Residual 2.83 bits (F121, exp_114)**
 - Marginal suffix entropy H = 3.54 bits. Full four-level conditioning reduces to 2.83 bits (20.1% reduction; 0.71 bits resolved).
