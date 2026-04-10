@@ -5,6 +5,14 @@
 
 ---
 
+## F151: cthor→chol DOMINANT (37.5% of cthor→ch cases); "daiin cthor chol" 2×; [qo/ok-word][daiin][cthor][ot-word] EXTENDED CONSTRUCTION; daiin=UNIVERSAL cth-PRECEDER (43 cases, cthy/cthol/cthor); ot=A/B SUFFIX PARADIGM SPLIT (1.67× B-biased by rate)
+**Experiment:** exp_144_cthor_context_daiin
+**Date:** 2026-04-10
+**Finding:** H286 CONFIRMED: cthor→chol dominates cthor→ch cases (3/8, 37.5%). "daiin cthor chol" appears 2× (f15, f19), creating a three-element formula [daiin][cthor][chol]. Combined with "daiin cthor ot*" (3×), daiin+cthor is a general construction completable by either chol or ot-onset words. H285 CONFIRMED: All 3 "daiin cthor ot*" triples are preceded by qo/ok-words: qoty(f10), qotchy(f14), okchor(f19). Extended construction: [qo/ok-word][daiin][cthor][ot-word] = 4+-element botanical nominal phrase. The qo/ok-word before daiin may be a classifier. DAIIN AS UNIVERSAL cth-PRECEDER: daiin precedes cth-words 43 times in A-dialect. daiin→cthy=9, daiin→cthol=6, daiin→cthor=6, daiin→ctheol=2, daiin→cthain=2. daiin is not cthor-specific — it is a general determiner/particle that introduces ANY cth-nominal. ot-ONSET A/B PARADIGM SPLIT CONFIRMED: A ot-words dominated by -ol/-y/-aiin (otol=33, oty=31, otchy=24, otaiin=24, otchol=23); B ot-words dominated by -edy/-eedy/-ain/-otar (otedy=122, otaiin=90, oteedy=79, otain=79, otar=78, oteey=76). ot is moderately B-biased (B rate=6.5%, A rate=3.9%, 1.67× B).
+**Limitation:** cthor total n=32; cthor→chol=3 is a small sample. The [qo/ok][daiin][cthor][ot] construction (n=3) is tentative. The daiin→cth-word count (n=43) is from A-dialect only; daiin also precedes cth-words in B (rare). The ot-rate comparison (B=6.5% vs A=3.9%) uses total token counts from exp_141 (A=9552, B=18648) which conflates sections.
+
+---
+
 ## F150: cthor→ot REAL (21.9%) NOT EARLY-HERBAL-SPECIFIC; "daiin cthor ot*" TRIPLE (3/7 cases); cth-RUNS RARE (6.8%, all bigrams hapax, 93.2% isolated); cthor DECLINE NOT DUE TO cthor→ot DISAPPEARING (present in f42/f52 late A-herbal)
 **Experiment:** exp_143_cthor_ot_bigram_cth_runs
 **Date:** 2026-04-10

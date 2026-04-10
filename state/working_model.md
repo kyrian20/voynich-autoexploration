@@ -1,5 +1,5 @@
 # Working Model — Voynich Manuscript Cryptanalysis
-**Last updated:** 2026-04-10 (after exp_143)
+**Last updated:** 2026-04-10 (after exp_144)
 **Purpose:** Continuously-updated structured summary of current beliefs about Voynichese.
 **Discipline:** Characterization, not interpretation. Claims require experimental warrant.
 
@@ -221,6 +221,12 @@ These findings have been replicated across independent analyses or confirmed by 
 - eee (triple-vowel) words: stars=17.25‰, cosmo=4.40‰ (suppressed). Vowel-length gradient monotonically stars-concentrated (edy→eedy→eeedy: 36%→48%→63%). eee enriched in ok/ol/qo (1.7-1.9×), suppressed in ch/sh (0.37-0.46×).
 - A-dialect section variation: herbal-A=-y dominant (qok=37%, ch=29%); pharma-A=-ol dominant (qok=41%, ok=40%); 8.9% avg diff (3.5× weaker than B's 31%).
 - FOUR-LEVEL suffix hierarchy: Dialect (A/B) → Stem class (Simple-B/Complex-B; A-y/-ol) → Section (B: stars/cosmo/herbal; A: herbal/pharma) → Vowel length (stars triple-vowel extension). Strong evidence for natural language morphology.
+
+**cthor→chol DOMINANT (37.5%); [qo/ok][daiin][cthor][ot-word] EXTENDED FORMULA; daiin=UNIVERSAL cth-PRECEDER (43 cases); ot=A/B PARADIGM SPLIT (1.67× B-biased) (F151, exp_144)**
+- cthor→chol 3× (f9/f15/f19); "daiin cthor chol" 2×. cthor completable by chol or ot-word.
+- Extended construction: [qo/ok][daiin][cthor][ot-word] — all 3 "daiin cthor ot*" preceded by qo/ok-word.
+- daiin: universal cth-preceder (43× in A). daiin→cthy=9, daiin→cthol=6, daiin→cthor=6.
+- ot-onset: A rate=3.9% (otol/oty dominant), B rate=6.5% (otedy/oteedy dominant). A/B paradigm split matches all other onset classes.
 
 **cthor→ot REAL (21.9%) NOT EARLY-HERBAL-SPECIFIC; "daiin cthor ot*" TRIPLE RECURRENT (3×); cth-RUNS RARE (93.2% ISOLATED, ALL BIGRAMS HAPAX) (F150, exp_143)**
 - cthor→ot: 21.9% of cthor usages, varied ot-words, spread f9-f52. "daiin cthor ot*" triple appears 3×. cthor decline not due to cthor→ot disappearing (present in late folios).

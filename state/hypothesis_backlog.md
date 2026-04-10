@@ -2858,8 +2858,29 @@
 
 ---
 
+## H287: Is daiin a Determiner for cth-Nominals Specifically, or a General Particle?
+**Priority:** high
+**Source:** F151: daiin precedes cth-words 43 times in A-dialect (daiin→cthy=9, daiin→cthol=6, daiin→cthor=6). But is daiin enriched SPECIFICALLY before cth-onset, or does it precede all onset classes equally?
+**Description:** Compute daiin→[onset] transition matrix in A-dialect: (1) What is daiin's most common following onset? (2) Is cth-onset enriched after daiin vs baseline cth rate? (3) Compare to other high-frequency particles (aiin, ain, ar, or, al) — do they also precede cth at elevated rates? (4) Does the same daiin→cth enrichment appear in B-dialect (where cth is rare)?
+**Expected outcome:** daiin is a general linker that precedes content words at baseline rates — not a cth-specific determiner. If daiin does show specific cth enrichment (>2×), it would suggest daiin is a grammatical determiner for the cth-nominal class specifically, the strongest evidence for functional word classes in Voynichese.
+**Cost estimate:** small
+**Prerequisites:** F151, F143 (universal core findings)
+
+---
+
+## H288: Does ot-Onset Have a Distinct Positional Profile (Quantity/Modifier Role)?
+**Priority:** medium
+**Source:** F151: ot-onset follows cthor at 6.18× enrichment; ot appears in "cthor→ot-word" nominal phrases. If ot-words are quantity/size modifiers, they should be more LL-enriched or second-position concentrated than typical medial content words.
+**Description:** Compute positional distribution (LF/MID/LL) of ot-words in A-dialect (all sections). Compare: (1) A ot-words vs A baseline; (2) top ot-words (otol, oty, otaiin, otchy) individually; (3) B ot-words vs B baseline. Are ot-words distributed differently than ch/cth-onset words?
+**Expected outcome:** ot-words are slightly LL-enriched (as modifiers appearing late in nominal phrases) or second-position concentrated. This would confirm ot as a "modifier/adjective" class distinct from the "nominal" cth/ch classes.
+**Cost estimate:** small
+**Prerequisites:** F151
+
+---
+
 ## H285: Is the "daiin cthor ot*" Construction Botanically Specific?
 **Priority:** medium
+**Status:** CONFIRMED (exp_144) — All 3 "daiin cthor ot*" are preceded by qo/ok-words (qoty, qotchy, okchor). Extended construction: [qo/ok][daiin][cthor][ot*]. daiin is a universal cth-preceder (43 cases, not cthor-specific). (F151)
 **Source:** F150: "daiin cthor ot*" triple appears 3× (f10, f14, f19 — all early A-herbal). Is this a specific botanical description formula?
 **Description:** Examine the context of all 3 "daiin cthor ot*" occurrences: (1) What follows the ot-word? (2) What precedes daiin in each case? (3) Are folios f10, f14, f19 botanically related (neighboring plants in the herbal sequence)? Compare to daiin usage in general A-herbal (is daiin commonly a preceding context for other cth-words?).
 **Expected outcome:** "daiin cthor ot*" is a botanical nominal phrase (plant type + shape + quantity) appearing in specific folio clusters. daiin as a cth-word preceder suggests daiin functions as a determiner or classificatory particle.
@@ -2870,6 +2891,7 @@
 
 ## H286: Which Specific ch-Words Follow cthor? (cthor→ch is Most Common at 26.7%)
 **Priority:** medium
+**Status:** CONFIRMED (exp_144) — cthor→chol dominates (3/8, 37.5%). "daiin cthor chol" 2× (f15, f19). cthor also followed by chor(1), chaiin(1), cholchom(1). No B-paradigm ch-words (chedy) follow cthor. (F151)
 **Source:** F150: cthor is followed by ch-onset in 26.7% of cases (8/30) — the most common after-cthor onset. Which ch-words specifically? If cthor is followed predominantly by chol/chor (the canonical ch-nominal forms), this would be a second "cthor→ch-nominal" bigram pattern parallel to cthor→ot.
 **Description:** Extract all cthor→ch bigrams (A-herbal). Which ch-words follow cthor most often? Compute enrichment vs baseline ch-word frequency.
 **Expected outcome:** cthor→chol or cthor→chor dominates, suggesting "cthor [ch-content-word]" is a second-position + medial nominal phrase formula. If cthor→chedy or cthor→cheey dominate, cthor may precede B-paradigm forms more than expected.
