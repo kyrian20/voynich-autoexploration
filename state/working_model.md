@@ -1,5 +1,5 @@
 # Working Model — Voynich Manuscript Cryptanalysis
-**Last updated:** 2026-04-09 (after exp_141)
+**Last updated:** 2026-04-10 (after exp_142)
 **Purpose:** Continuously-updated structured summary of current beliefs about Voynichese.
 **Discipline:** Characterization, not interpretation. Claims require experimental warrant.
 
@@ -222,7 +222,12 @@ These findings have been replicated across independent analyses or confirmed by 
 - A-dialect section variation: herbal-A=-y dominant (qok=37%, ch=29%); pharma-A=-ol dominant (qok=41%, ok=40%); 8.9% avg diff (3.5× weaker than B's 31%).
 - FOUR-LEVEL suffix hierarchy: Dialect (A/B) → Stem class (Simple-B/Complex-B; A-y/-ol) → Section (B: stars/cosmo/herbal; A: herbal/pharma) → Vowel length (stars triple-vowel extension). Strong evidence for natural language morphology.
 
-**lchedy↔cthol POSITIONAL EQUIVALENCE (MID~67-69%, LF~20-22%, LL~11-12%); cth LF=0.14× DEPLETED/LL=1.38× ENRICHED; lk-MOST MEDIAL (74.5%); BIGRAM CONTEXTS COMPLETELY DIFFERENT; cthor LF=39.4% (ANOMALOUS) (F148, exp_141)**
+**cthor=SECOND-POSITION WORD (corrects F148 LF=39.4% artifact); cthor→ot 6.18×; d before cthol=1.51× = d before lchedy=1.45× (PARALLEL CONFIRMED); SELF-SUCCESSION ~2.2× in each dialect (F149, exp_142)**
+- cthor true LF=6.1% (not 39.4%); cthor is a second-position word (~33% at position i=1) with ot-succession (6.18×). cthor not preceded by cth (0.00×) unlike cthol (1.55×).
+- d-enrichment before cthol (1.51×) = d-enrichment before lchedy (1.45×) — grammatical parallel confirmed across dialects. Self-succession: cth before cthol=1.55×, l before lchedy=2.10×.
+- After-patterns dialect-specific but same enrichment magnitude (~2×). Structural parallel confirmed at d-predecessor and self-succession levels.
+
+**lchedy↔cthol POSITIONAL EQUIVALENCE (MID~67-69%, LF~20-22%, LL~11-12%); cth LF=0.14× DEPLETED/LL=1.38× ENRICHED; lk-MOST MEDIAL (74.5%); BIGRAM CONTEXTS COMPLETELY DIFFERENT; cthor LF=39.4% RETRACTED BY F149 (F148, exp_141)**
 - lchedy (dominant B l-word) and cthol (dominant A cth-word): nearly identical positional profiles. Structural parallel of A's cth-prefix and B's l-prefix confirmed at word level.
 - cth-words strongly LF-depleted (0.14×) and LL-enriched (1.38×). lch-words moderately LF-depleted (0.81×) and LL-enriched (1.27×).
 - lk-words most purely medial (MID=74.5%, 1.15×, LF=0.33×, LL=0.87×) — different from lch and cth.

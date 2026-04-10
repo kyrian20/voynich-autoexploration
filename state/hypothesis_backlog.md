@@ -2858,8 +2858,29 @@
 
 ---
 
+## H283: What Is the cthor→ot Bigram? Which Specific ot-Words Follow cthor?
+**Priority:** medium
+**Source:** F149: cthor at MID is followed by ot-onset at 6.18× (7/29 cases). ot-onset words include otal, otol, otaiin, otchol. Is this a specific botanical construction?
+**Description:** Extract all cthor→[ot-word] bigrams from A-herbal. Compute: (1) Which ot-words follow cthor? (2) Are these cthor→ot bigrams concentrated in specific early A-herbal folios? (3) Does the cthor→ot pattern map to any botanical description pattern (e.g., "cth-form ot-quantity" or similar)?
+**Expected outcome:** cthor→otal or cthor→otol dominates, appearing in specific early A-herbal folios. Their folio distribution would explain cthor's faster decline in late A-herbal.
+**Cost estimate:** trivial
+**Prerequisites:** F149, F147
+
+---
+
+## H284: Are There "cth-Runs" (2-3 Consecutive cth-Words) in A-Herbal?
+**Priority:** medium
+**Source:** F149: cth self-succession is enriched (cth before cthol=1.55×, cth after cthol=2.25×). This suggests cth-onset words appear in clusters.
+**Description:** Extract all consecutive cth-onset word sequences (runs of 2+) from A-herbal. Compute: (1) How many runs of 2+ cth-words? (2) What are the top cth-bigrams and trigrams? (3) Are cth-runs concentrated in specific folios or periods?
+**Expected outcome:** cth-runs of 2 are relatively common (perhaps 10-15% of cth-tokens appear in runs). Specific cth-bigrams like [cthy][cthol] or [cthol][cthey] dominate. This would confirm that cth-onset words form a "noun phrase cluster" in A-herbal.
+**Cost estimate:** trivial
+**Prerequisites:** F149
+
+---
+
 ## H281: Is cthor Positionally Distinct from cthol? (cthor LF=39.4% vs cthol LF=20.4%)
 **Priority:** medium
+**Status:** CONFIRMED (exp_142) — F148 "cthor LF=39.4%" was measurement artifact (LF+second combined). True cthor LF=6.1%. cthor is SECOND-POSITION word (~33% at i=1). cthor→ot bigram 6.18×; cth never precedes cthor (0.00× vs cthol 1.55×). cthor is structurally distinct from cthol. (F149)
 **Source:** F148: cthor has LF=39.4% (vs cthol=20.4%) — anomalously LF-present for a cth-word. cthor and cthol are the -or/-ol suffix forms of the same cth-stem. If cthor is a line-opener nominal (different grammatical role from medial cthol), this explains its faster decline in late A-herbal (F147): fewer line-opening constructions in later folios.
 **Description:** (1) Compute bigram context for cthor specifically (what precedes cthor at LF vs MID positions?). (2) Compare cthor vs cthol bigram context at line-first, medial, and line-final positions separately. (3) Is cthor's LF usage followed by a specific grammatical pattern (like cthol-medial is followed by d/ch content words)?
 **Expected outcome:** cthor at LF is a "topic-introducing" nominal (the subject of the botanical description), while cthol at MID is a "content particle." If cthor predominantly appears at LF followed by d-onset words (the typical A-herbal line structure), it marks a different grammatical role.
@@ -2870,6 +2891,7 @@
 
 ## H282: Are lchedy and cthol Bigram-Context-Equivalent After Dialect Normalization?
 **Priority:** medium
+**Status:** PARTIALLY CONFIRMED (exp_142) — d-enrichment before cthol=1.51× and before lchedy=1.45× — nearly identical baseline-normalized values. Self-succession: cth before cthol=1.55×, l before lchedy=2.10×. After-contexts differ by dialect vocabulary but similar enrichment magnitudes (~2×). Structural parallel confirmed at d-predecessor level. (F149)
 **Source:** F148: lchedy and cthol have nearly identical positional profiles but completely different raw bigram contexts (qok/l before lchedy; d/ch before cthol). The difference in raw context reflects different dialect-level baseline frequencies. If we normalize by baseline onset frequencies in each dialect, do lchedy and cthol have similar RELATIVE bigram contexts?
 **Description:** (1) Compute bigram context of cthol (what onsets appear before/after, relative to A-dialect baseline). (2) Compute bigram context of lchedy (what onsets appear before/after, relative to B-dialect baseline). (3) If d-onset before cthol has the same enrichment ratio as qok-onset before lchedy (e.g., both ~1.5× baseline), this confirms positional-grammatical equivalence. If enrichment patterns are different, the positional similarity is coincidental.
 **Expected outcome:** After baseline normalization, both lchedy and cthol show similar enrichment patterns for their respective "preceding content word" onsets — confirming that both serve as medial content words following the dominant content words of their respective dialects.
