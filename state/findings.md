@@ -5,6 +5,14 @@
 
 ---
 
+## F154: B-COMPOUND-ch WORDS (chdy/chckhy/chcthy/chody) ARE B "MEDIAL NOMINAL" (MID=1.10-1.28×, LF-DEPLETED); d DEPLETED BEFORE B-ch (0.79×, OPPOSITE A-cth 1.30×); ch SELF-SUCCESSION=1.57× (CLOSEST TO A-cth 1.84×); exp_145 B-daiin→sh REVISED to 1.19× (P-TYPE ONLY); B-daiin→d=2.70× DOMINANT IN BODY TEXT
+**Experiment:** exp_147_b_ch_medial_nominal
+**Date:** 2026-04-10
+**Finding:** H291 PARTIALLY CONFIRMED. B-dialect compound ch-words (chdy=103, chckhy=102, chcthy=52, chody=37) are MID-enriched (1.10-1.28×) and LF-depleted (0.52-0.68×) — structurally the closest B-ch equivalents to A-cth's medial distribution. chol in B is a LINE-OPENER (LF=1.42×, LL=0.11×), not medial. ch self-succession = 1.57×, closer to A-cth 1.84× than B-sh (0.93×) or B-ch_e (0.87×). CRITICAL CONTRAST: d is DEPLETED before B-ch (0.79×) vs ENRICHED before A-cth (1.30×). Before B-ch: ch-self-succession (1.54×) and k-class words (1.40×) dominate. The d-predecessor grammatical signal does NOT transfer from A-cth to B-ch. METHODOLOGICAL CORRECTION: exp_145 daiin→sh=2.33× (F152) was inflated by non-P locus types. In P-type body text only: daiin→sh=1.19× (near baseline), daiin→ch_e=1.77× (moderate). The strongest B-daiin signal in body text is daiin→d=2.70×, likely driven by daiin self-succession (daiin→daiin) and daiin→dam/dar. F152's claim "B-daiin uniquely introduces sh" is REVISED: daiin→sh was a locus-type artifact; B-daiin is primarily a d-onset successor (2.70×) in body text.
+**Limitation:** B compound ch-word positional analysis uses n=25-103 per word — adequate for positional claims. The daiin→d=2.70× enrichment in B P-type (n=24/160 cases) is from a specific sub-corpus and may vary by B-section. The exp_145 revision uses P-type-only daiin total of 160 vs 223 in exp_145 — the ~63 missing transitions are from non-P locus types (labels, etc.) and may be a different functional register.
+
+---
+
 ## F153: B-DIALECT sh IS LINE-OPENER (LF=1.90×) NOT MEDIAL NOMINAL; daiin→sh≠daiin→cth ANALOGY DISPROVEN; NO B-PARTICLE PARALLELS daiin→cth (ch_e=1.42×, ch=1.27× before l-onset; -eey WORDS=2.66-3.37×); A l-ONSET FOLLOWS qo-ENVIRONMENT (qot=3.99×, qok=2.40×)
 **Experiment:** exp_146_b_sh_che_positional_parallel
 **Date:** 2026-04-10

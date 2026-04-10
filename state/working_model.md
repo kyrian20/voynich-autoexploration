@@ -1,5 +1,5 @@
 # Working Model — Voynich Manuscript Cryptanalysis
-**Last updated:** 2026-04-10 (after exp_146)
+**Last updated:** 2026-04-10 (after exp_147)
 **Purpose:** Continuously-updated structured summary of current beliefs about Voynichese.
 **Discipline:** Characterization, not interpretation. Claims require experimental warrant.
 
@@ -221,6 +221,12 @@ These findings have been replicated across independent analyses or confirmed by 
 - eee (triple-vowel) words: stars=17.25‰, cosmo=4.40‰ (suppressed). Vowel-length gradient monotonically stars-concentrated (edy→eedy→eeedy: 36%→48%→63%). eee enriched in ok/ol/qo (1.7-1.9×), suppressed in ch/sh (0.37-0.46×).
 - A-dialect section variation: herbal-A=-y dominant (qok=37%, ch=29%); pharma-A=-ol dominant (qok=41%, ok=40%); 8.9% avg diff (3.5× weaker than B's 31%).
 - FOUR-LEVEL suffix hierarchy: Dialect (A/B) → Stem class (Simple-B/Complex-B; A-y/-ol) → Section (B: stars/cosmo/herbal; A: herbal/pharma) → Vowel length (stars triple-vowel extension). Strong evidence for natural language morphology.
+
+**B-COMPOUND-ch (chdy/chckhy/chcthy) ARE B "MEDIAL NOMINALS" (MID=1.10-1.28×, LF-DEPLETED); d DEPLETED BEFORE B-ch (0.79×, OPPOSITE A-cth 1.30×); ch SELF-SUCCESSION=1.57×; exp_145 B-daiin→sh REVISED to 1.19× (P-TYPE); B-daiin→d=2.70× DOMINANT (F154, exp_147)**
+- Compound ch-words (chdy=103, chckhy=102, chcthy=52, chody=37) are MID-enriched (1.10-1.28×), LF-depleted (0.52-0.68×) — B's "medial nominal" class. chol in B is a LINE-OPENER (LF=1.42×).
+- Before B-ch: ch-self-succession (1.54×) and k-class (1.40×) dominant; d=0.79× DEPLETED. Opposite of A-cth where d=1.30× enriched.
+- ch self-succession=1.57× is the closest B-ch parallel to A-cth self-succession (1.84×). B-sh/ch_e have no self-succession.
+- CORRECTION to F152: exp_145 daiin→sh=2.33× was inflated by non-P locus types. P-type body text only: daiin→sh=1.19×; daiin→d=2.70× (dominant). B-daiin is primarily a d-predecessor, not sh-determiner.
 
 **B-sh IS B LINE-OPENER (LF=1.90×), NOT MEDIAL NOMINAL; daiin→sh≠daiin→cth ANALOGY DISPROVEN; -eey WORDS PRECEDE B l-ONSET AT 2.7-3.4× (MORPHOLOGICAL, NOT SINGLE DETERMINER); A l-ONSET FOLLOWS qo-ENVIRONMENT (qot=3.99×) (F153, exp_146)**
 - sh in B: LF=24.8% (1.90×), LL=5.2% (0.40×) — LINE-OPENER. cth in A: LF=16.6% (0.94×), LL=21.3% (1.20×) — near-baseline/mildly LL. Profiles opposite.

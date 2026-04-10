@@ -2903,11 +2903,32 @@
 
 ## H291: Is B-ch (Not sh or ch_e) the B-Dialect Medial Nominal Parallel to A-cth?
 **Priority:** medium
+**Status:** PARTIALLY CONFIRMED (exp_147). B-compound-ch words (chdy/chckhy/chcthy/chody) are MID-enriched (1.10-1.28×) and LF-depleted (0.52-0.68×). ch self-succession=1.57×. BUT d is DEPLETED before B-ch (0.79×) — opposite to A-cth where d=1.30×. Positional parallel holds; before-context parallel does NOT. B-ch and A-cth are "medial self-coherent" word classes but with different grammatical predecessors. (F154)
 **Source:** F153: B-ch shows 1.57× self-succession (closer to A-cth's 1.84× than sh=0.93× or ch_e=0.87×). B-ch is LF-depleted (0.77×), MID-enriched (1.05×) — the positional profile closest to a medial nominal class. sh is a line-opener; ch_e is near-baseline.
 **Description:** Examine B-ch in detail: (1) Positional profile of specific B-ch words (chedy, chaiin, chol, chor, chey) — do any show strong MID-enrichment and LF-depletion? (2) Before-context: is d-onset enriched before B-ch-words at ~1.5× (parallel to d before A-cthol)? (3) After-context: does B-ch follow qo at elevated rates (i.e., qo→ch bigram enrichment, part of B's qo↔ch/sh alternation grammar)? (4) What is daiin→ch enrichment in B? If B-ch is the medial nominal parallel, daiin should precede it at elevated rates.
 **Expected outcome:** B-ch-words (especially chedy) show MID-enrichment (>70% MID) and d-enriched before-context (~1.5×), confirming B-ch as the medial nominal equivalent of A-cth. This would reframe daiin→ch_e (2.11×) as more relevant than daiin→sh (2.33×).
 **Cost estimate:** small
 **Prerequisites:** F153
+
+---
+
+## H293: Are B-Compound-ch Words (chckhy/chcthy) a Distinct Morphological Class From Simple ch-Words (chol/chdy)?
+**Priority:** medium
+**Source:** F154: Top B ch-words are compound-gallows forms (chckhy=102, chcthy=52, chckhey=25) containing embedded {ck} and {ct} digraphs. These are structurally different from simple ch-words (chol=70, chdy=103). Do they form a separate morphological subclass?
+**Description:** (1) Compute suffix distribution of compound-ch (chck-/chct-) vs simple ch-words — do compound forms have a distinctive suffix paradigm? (2) Section distribution: are compound-ch words concentrated in specific B sections? (3) Positional: do compound-ch words differ from simple ch-words in LF/MID/LL rates? (4) Are compound-ch words precursors of any specific word class?
+**Expected outcome:** Compound-ch words are more MID-concentrated (as found) and may be a B-specific "heavy morpheme" class. If they're section-specific (stars/cosmo B), they may be a specialized vocabulary class for those sections.
+**Cost estimate:** small
+**Prerequisites:** F154
+
+---
+
+## H294: B-daiin→d=2.70× — Is This daiin Self-Succession or True daiin→d Enrichment?
+**Priority:** medium
+**Source:** F154: In B P-type body text, daiin→d=2.70× enriched (24/160 cases). Top words after daiin: daiin(3), dam(2), dar(2). Is this enrichment driven by daiin→daiin self-succession, or does daiin precede all d-onset words at elevated rates?
+**Description:** (1) Compute daiin→daiin separately vs daiin→dam vs daiin→dar vs daiin→(other d-words) in B. (2) If daiin→daiin is high (e.g., >5%), subtract it: does daiin→(non-self d-words) remain enriched? (3) Compare daiin→d in A-dialect vs B-dialect (A daiin→d may also be enriched). (4) What is the B baseline rate for daiin→daiin specifically (vs daiin rate = d rate = independent)?
+**Expected outcome:** daiin self-succession (daiin→daiin) exists but contributes only a fraction of the daiin→d=2.70× signal. If daiin→dam and daiin→dar are both enriched independently, daiin precedes the d-onset class in general in B — potentially as a line-boundary connector before d-words. This would parallel A-cth's d-predecessor enrichment but in B-dialect with d as the "content class."
+**Cost estimate:** trivial
+**Prerequisites:** F154
 
 ---
 
