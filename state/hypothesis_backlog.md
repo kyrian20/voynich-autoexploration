@@ -2776,8 +2776,19 @@
 
 ---
 
+## H261: Cosmo vs Stars Differentiation — What Onset Classes, Suffixes, and Positional Patterns Distinguish Cosmo from Stars? Why Is Cosmo the Most Internally Cohesive Section?
+**Priority:** high
+**Status:** CONFIRMED (exp_133) — Cosmo=ol-dominant (2.06×), qok-dominant (1.75×), s-line-opener (17.7%), -y line-closer (25.5%). Stars=ch-dominant (near baseline), ot-elevated (1.43×), -am line-closer (17.0%), ch+eo exclusive vocabulary. Jaccard=0.178. (F140)
+**Source:** F138: Cosmo=most cohesive (0.965), Stars=second (0.954). Both are B-dialect sections (F139: s=1.52× in cosmo, but 0.67× in stars). F120: Stars uses -eey suffix more; cosmo prefers -eedy. F131: cosmo=75-84, stars=103-116 — these are non-contiguous sections. What structural differences make cosmo more cohesive than stars?
+**Description:** For each onset class and suffix: compute cosmo vs stars rate comparison. Identify onset classes that are cosmo-enriched vs stars-enriched. Compute per-folio onset profiles for cosmo (n=10 folios) and stars (n=12 folios). Also compare: line-positional patterns, top words, vocabulary Jaccard between cosmo and stars. Is cosmo more homogeneous because it has fewer topics (one astronomical theme) or fewer scribes?
+**Expected outcome:** Cosmo has specific onset classes elevated: s (1.52×), possibly ol or specific content classes. Stars has ok (0.704×) and l-onset (lchedy, lkaiin) elevated. The cosmo-stars vocabulary distinction is captured by 2-3 onset classes. Both sections share the same B-paradigm suffix system but with stars preferring -eey and cosmo preferring -eedy.
+**Cost estimate:** small
+
+---
+
 ## H260: Astro Section Characterization — Why Is Astro the LEAST Cohesive Section (mean=0.886) and Why Does f87 (Pharma) Best-Match Astro?
 **Priority:** medium
+**Status:** CONFIRMED (exp_133) — Astro is heterogeneous: f67=true astro (y=2.36×, s=2.15×, other=1.87×, qok=0.33×, particle-heavy); f68/f70=A-herbal-like (sim=0.960/0.968 to herbal centroid, pairwise=0.953); f69=pharma-like. f67 vs f68 sim=0.558 explains low cohesion. f87 matches astro because s=12.35% and qok-depleted. (F140)
 **Source:** F138: Astro has mean self-similarity=0.886 (lowest of all sections), n=4 folios. f87 (pharma, A-dialect) best-matches astro (0.885 vs self=0.884). The 4 astro folios (f67, f68, f69, f70 approx) are poorly internally consistent. What makes astro distinctive and low-cohesion?
 **Description:** (1) Extract onset-class profiles for each astro folio (f67-f73); (2) compare astro centroid to all other section centroids — which onset classes distinguish astro from herbal/pharma/stars/cosmo? (3) Compute pairwise similarity between astro folios — are they more different from each other than within any other section? (4) Check f87 (pharma) onset profile vs astro centroid — which onset classes make f87 look astro-like?
 **Expected outcome:** Astro has a mixed onset profile — perhaps intermediate between A-herbal and B-stars. The 4 astro folios are heterogeneous (different scribe conventions or subject matter). f87 looks astro-like because it shares an unusual onset class distribution (possibly elevated s or d-onset relative to pharma centroid).

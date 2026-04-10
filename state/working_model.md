@@ -1,5 +1,5 @@
 # Working Model — Voynich Manuscript Cryptanalysis
-**Last updated:** 2026-04-09 (after exp_132)
+**Last updated:** 2026-04-09 (after exp_133)
 **Purpose:** Continuously-updated structured summary of current beliefs about Voynichese.
 **Discipline:** Characterization, not interpretation. Claims require experimental warrant.
 
@@ -221,6 +221,13 @@ These findings have been replicated across independent analyses or confirmed by 
 - eee (triple-vowel) words: stars=17.25‰, cosmo=4.40‰ (suppressed). Vowel-length gradient monotonically stars-concentrated (edy→eedy→eeedy: 36%→48%→63%). eee enriched in ok/ol/qo (1.7-1.9×), suppressed in ch/sh (0.37-0.46×).
 - A-dialect section variation: herbal-A=-y dominant (qok=37%, ch=29%); pharma-A=-ol dominant (qok=41%, ok=40%); 8.9% avg diff (3.5× weaker than B's 31%).
 - FOUR-LEVEL suffix hierarchy: Dialect (A/B) → Stem class (Simple-B/Complex-B; A-y/-ol) → Section (B: stars/cosmo/herbal; A: herbal/pharma) → Vowel length (stars triple-vowel extension). Strong evidence for natural language morphology.
+
+**COSMO=ol-DOMINANT (2.06×), qok-DOMINANT (1.75×), s-LINE-OPENER (17.7%), -y LINE-CLOSER (25.5%); STARS=ch-DOMINANT (BASELINE), ot-ELEVATED (1.43×), -am LINE-CLOSER (17.0%), ch+eo EXCLUSIVE; ASTRO=HETEROGENEOUS (f67=TRUE ASTRO: y-s-ELEVATED/qok-DEPLETED; f68/f70=A-HERBAL-LIKE) (F140, exp_133)**
+- Cosmo onset: ol=2.06×, qok=1.75×, qo=1.40×, sh=1.27×, s=1.52× vs corpus baseline. Stars onset: ot=1.43×, l=1.72×, ok=1.16×, other=1.20×; ch near-baseline (0.98×).
+- Suffix: cosmo -edy=19.23% (2.01× stars); stars -am=2.11% (3.1× cosmo, confirms -am=8.06× line-end from F138); cosmo -y=11.55% (1.49× stars).
+- Vocabulary Jaccard=0.178 (distinct sections). Stars-exclusive: ch+eo words (cheo/cheody/cheeo); cosmo-exclusive: qol-prefix forms (qolchedy/qoly).
+- Line-first: cosmo=s(17.7%)+qok(16.9%); stars=d(16.3%)+p(14.7%)+y(14.2%). Line-last: cosmo=-y; stars=-am.
+- Astro=heterogeneous: f67 (y=2.36×, s=2.15×, other=1.87×, qok=0.33×) vs f68/f70 (A-herbal-like, pairwise sim=0.953). f67 vs f68 sim=0.558 explains low cohesion=0.886.
 
 **B-HERBAL FOLIOS UNIVERSALLY DEPLETED IN cth (A-NOMINALS, mean_dev=-0.037) AND d (A-FUNCTION WORDS, mean_dev=-0.062); f40 ok=16.1% (3.8× A-HERBAL) → STARS BEST-MATCH; s-ONSET = LINE-OPENER (LF=48.9%); s-OPENERS (saiin/sol=50-72%LF) + s-CLOSERS (sy=85%LL, sam=89%LL); Post-s sh=1.92× (s→sh RULE); FOUR LINE-OPENER CLASSES: y/p/d+ch-sh/s (F139, exp_132)**
 - B-herbal (12 folios by dialect): universal cth depletion (B-herbal nearly CTHLESS, A-herbal=4.5%) and d depletion (37% fewer d-words). Elevated ok/qok/other (B-content classes).
