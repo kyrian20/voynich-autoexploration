@@ -5,6 +5,14 @@
 
 ---
 
+## F152: daiin IS THE UNIQUE cth-DETERMINER IN A-DIALECT (3.19×); NO OTHER PARTICLE PRECEDES cth (0.00×); IN B-DIALECT daiin SHIFTS TO sh/ch_e INTRODUCTION (2.33×/2.11×); OTHER B-PARTICLES DEPLETED BEFORE sh/ch_e (0.31×–0.45×)
+**Experiment:** exp_145_daiin_transition_matrix
+**Date:** 2026-04-10
+**Finding:** H287 CONFIRMED. daiin→cth in A-dialect: 43 cases, 12.9% observed rate vs 4.0% baseline = 3.19× enrichment. This is cth-SPECIFIC: all other tested particles (aiin n=312, ar n=98, ol n=87, chol n=201, dain n=61, qokeey n=24, saiin n=45) precede cth-words at 0.00×. The distinction is categorical. All other onsets after daiin are near-baseline (0.87×–1.14×); only cth is significantly enriched. In B-DIALECT: daiin→cth = 0 cases (0.0%), consistent with B's cth depletion (cth only 0.3% of B tokens). daiin's enrichment completely shifts: daiin→sh = 46 cases (20.6%, 2.33×); daiin→ch_e = 44 cases (19.7%, 2.11×). Meanwhile, other B particles (aiin, ar, ol, chol) are DEPLETED before sh and ch_e (0.31×–0.45×) — the exact opposite of daiin. Structural conclusion: daiin functions as a "category-specific determiner" in each dialect — introducing the marked onset class: cth in A, sh/ch_e in B. The role is preserved across dialects but the target onset class shifts completely.
+**Limitation:** The "0.00× for all other particles" finding is only tested for 7 particles; other particles not tested might show non-zero cth enrichment. The B-dialect daiin→sh/ch_e enrichment (n=46/44) is from all B-sections pooled; section-level variation not examined. The baseline rates used are corpus-wide per-dialect (not herbal-section-specific), so some inflation of enrichment ratios is possible if cth/sh/ch_e are section-concentrated.
+
+---
+
 ## F151: cthor→chol DOMINANT (37.5% of cthor→ch cases); "daiin cthor chol" 2×; [qo/ok-word][daiin][cthor][ot-word] EXTENDED CONSTRUCTION; daiin=UNIVERSAL cth-PRECEDER (43 cases, cthy/cthol/cthor); ot=A/B SUFFIX PARADIGM SPLIT (1.67× B-biased by rate)
 **Experiment:** exp_144_cthor_context_daiin
 **Date:** 2026-04-10

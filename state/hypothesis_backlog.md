@@ -2860,6 +2860,7 @@
 
 ## H287: Is daiin a Determiner for cth-Nominals Specifically, or a General Particle?
 **Priority:** high
+**Status:** CONFIRMED (exp_145) — daiin→cth in A: 3.19× enrichment (43 cases). No other tested particle precedes cth-words at all (0.00×). daiin→cth is categorically unique. In B-dialect: daiin→cth=0.0%, but daiin→sh=2.33× and daiin→ch_e=2.11× — functional role preserved, target onset class shifts. daiin is a dialect-specific "category determiner" for the marked onset class (cth in A; sh/ch_e in B). (F152)
 **Source:** F151: daiin precedes cth-words 43 times in A-dialect (daiin→cthy=9, daiin→cthol=6, daiin→cthor=6). But is daiin enriched SPECIFICALLY before cth-onset, or does it precede all onset classes equally?
 **Description:** Compute daiin→[onset] transition matrix in A-dialect: (1) What is daiin's most common following onset? (2) Is cth-onset enriched after daiin vs baseline cth rate? (3) Compare to other high-frequency particles (aiin, ain, ar, or, al) — do they also precede cth at elevated rates? (4) Does the same daiin→cth enrichment appear in B-dialect (where cth is rare)?
 **Expected outcome:** daiin is a general linker that precedes content words at baseline rates — not a cth-specific determiner. If daiin does show specific cth enrichment (>2×), it would suggest daiin is a grammatical determiner for the cth-nominal class specifically, the strongest evidence for functional word classes in Voynichese.
@@ -2875,6 +2876,26 @@
 **Expected outcome:** ot-words are slightly LL-enriched (as modifiers appearing late in nominal phrases) or second-position concentrated. This would confirm ot as a "modifier/adjective" class distinct from the "nominal" cth/ch classes.
 **Cost estimate:** small
 **Prerequisites:** F151
+
+---
+
+## H289: Is daiin's B-Dialect Role (Preceding sh/ch_e at 2.33×/2.11×) the Functional Parallel to Its A-Dialect Role (Preceding cth at 3.19×)?
+**Priority:** high
+**Source:** F152: daiin→sh=2.33× and daiin→ch_e=2.11× in B-dialect; all other B-particles depleted before sh/ch_e (0.31×–0.45×). If daiin's role as "category determiner" is preserved cross-dialect, then sh/ch_e-words in B should have the same positional profile that cth-words show in A.
+**Description:** Compute for B-dialect sh-words and ch_e-words: (1) Positional distribution (LF/MID/LL) — are sh/ch_e-words LF-depleted and LL-enriched, like A-dialect cth-words? (2) Before-context enrichment — is d-onset enriched before sh/ch_e at ~1.5× in B (parallel to d before cthol=1.51× in A)? (3) Self-succession — do sh-words precede sh/ch_e-words at elevated rates (~1.5-2×), mirroring cth before cthol? If all three checks confirm, the grammatical parallel is complete: [daiin][sh-word] in B = [daiin][cth-word] in A syntactically.
+**Expected outcome:** sh-words in B are somewhat LF-depleted (consistent with medial content words) and have d-enrichment at ~1.5×. If confirmed, this establishes that daiin encodes the same syntactic role cross-dialect, with sh/ch_e being the B-dialect functional equivalent of cth in A.
+**Cost estimate:** small
+**Prerequisites:** F152
+
+---
+
+## H290: What Particle (If Any) in B-Dialect Plays the cth-Determiner Role That daiin Plays in A?
+**Priority:** medium
+**Source:** F152: daiin is the UNIQUE cth-determiner in A (3.19×, all others 0.00×). In B-dialect, what precedes l-onset words (B's functional content-word class analogous to A's cth) at elevated enrichment? Is there a particle X such that X→l-onset is enriched at ~3× in B, while all other particles show near-zero?
+**Description:** Compute transition matrix for B-dialect: (1) For high-frequency B particles (aiin, ar, ol, chol, shedy, qokedy), compute enrichment before l-onset words. (2) Are any B-particles enriched before l-onset at ≥2×? (3) What is daiin→l-onset enrichment in B? (If daiin→l is also enriched in B, daiin may be a cross-dialect "content-word determiner," not just cth-specific). (4) Compare lchedy-specific vs all l-onset enrichment.
+**Expected outcome:** Either (a) daiin→l is enriched in B at ~2× (daiin is cross-dialect, onset-class-general determiner that shifts target per dialect); or (b) a different B-particle (e.g., aiin or chol) uniquely precedes l-words at elevated rates; or (c) l-onset words in B have no specific determiner (distributed across many particles at ~baseline). Most likely: no strong B-determiner for l, since B grammar organizes around the qo/sh hinge rather than a determiner-content word sequence.
+**Cost estimate:** small
+**Prerequisites:** F152
 
 ---
 
