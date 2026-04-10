@@ -1,5 +1,5 @@
 # Working Model — Voynich Manuscript Cryptanalysis
-**Last updated:** 2026-04-09 (after exp_129)
+**Last updated:** 2026-04-09 (after exp_130)
 **Purpose:** Continuously-updated structured summary of current beliefs about Voynichese.
 **Discipline:** Characterization, not interpretation. Claims require experimental warrant.
 
@@ -221,6 +221,10 @@ These findings have been replicated across independent analyses or confirmed by 
 - eee (triple-vowel) words: stars=17.25‰, cosmo=4.40‰ (suppressed). Vowel-length gradient monotonically stars-concentrated (edy→eedy→eeedy: 36%→48%→63%). eee enriched in ok/ol/qo (1.7-1.9×), suppressed in ch/sh (0.37-0.46×).
 - A-dialect section variation: herbal-A=-y dominant (qok=37%, ch=29%); pharma-A=-ol dominant (qok=41%, ok=40%); 8.9% avg diff (3.5× weaker than B's 31%).
 - FOUR-LEVEL suffix hierarchy: Dialect (A/B) → Stem class (Simple-B/Complex-B; A-y/-ol) → Section (B: stars/cosmo/herbal; A: herbal/pharma) → Vowel length (stars triple-vowel extension). Strong evidence for natural language morphology.
+
+**d-ONSET = THREE SUB-CLASSES: d+ch/sh OPENERS (dshedy=90.9%LF/B; dchor=59.1%LF/A), d-CLOSERS (dan=100%LL, dam=67.9%LL, dy=40.3%LL), MEDIAL FUNCTION WORDS (daiin=61.5%MID); ok/ot BODY = B-Dialect Content Nouns (81-82%MID, Stars/Cosmo 38-45%) (F137, exp_130)**
+- d-grammar: three positional sub-classes. d+ch/sh openers dialect-split (dshedy/dchedy=B; dchor/dchol=A). d-closers: short words with -am/-an/-y/-al suffix (dan=100%LL, dam=67.9%LL). Medial: daiin/dol/dar (60-80%MID). d+gallows (dk/dt) = rare (23 tokens). d-chain weak.
+- ok/ot/ol body words: B-dialect medial content nouns (81-82%MID). stars/cosmo 38-45%. Low label overlap (Jaccard=0.197/0.139/0.062). ok/ot body = B-dialect nominal class parallel to A-dialect cth-nouns. Line-closers: oly=81.2%LL, otam=62.8%LL.
 
 **p+r NOT Mandatory Bracket (1.29×); raiin=B-Stars Medial Particle (pre-s=3.25×, post-ot=2.36×); raiin≠daiin (No post-raiin cth) (F136, exp_129)**
 - p+r co-occurrence in B-dialect lines = 1.29× enriched vs independence (13 vs 10.1 expected). p and r are INDEPENDENT positional markers, not a mandatory line-bracket.

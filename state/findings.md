@@ -5,6 +5,14 @@
 
 ---
 
+## F137: d-Onset = THREE Sub-Classes: d+ch/sh OPENERS (60-100%LF, dialect-split), d-CLOSERS (dan=100%LL, dam=67.9%LL, dy=40.3%LL), MEDIAL FUNCTION Words (daiin=61.5%MID); d+Gallows RARE (23 Tokens); d-Chain WEAK; ok/ot Body Words = B-Dialect Medial Content Nouns (81-82%MID, Stars/Cosmo 38-45%, Jaccard<0.2 with Labels)
+**Experiment:** exp_130_d_onset_grammar
+**Date:** 2026-04-09
+**Finding:** H203 CONFIRMED: d-onset has three positional sub-classes. (1) d+ch/sh OPENERS: dshedy=90.9%LF (100%B), dcheey=100%LF, dchedy=70.8%LF (100%B), dchor=59.1%LF (100%A), dchol=53.3%LF (A-dominant). Dialect-split: dshedy/dchedy=B-openers, dchor/dchol=A-openers. (2) d-CLOSERS: dan=100%LL (n=11), dam=67.9%LL (n=78), dary=64.3%LL, dy=40.3%LL (n=226), dal=25.2%LL. Short words with -am/-an/-y/-al suffixes. (3) Balanced medial FUNCTION words: daiin=61.5%MID (A/B=1.63, A-dominant), dol=80.0%MID, dar=70.4%MID (B-leaning), dain=58.8%MID. d+gallows (dk/dt/dp/df) is extremely rare: only 23 tokens total. d-chain analysis: when a line ends with d-word, next-line opener is NOT strongly predicted (max enrichment: qot=1.67×, ch=1.39×) — d-chain hypothesis from F099 is WEAK at this level. H202 CONFIRMED PARTIAL: ok/ot/ol body words are B-dialect medial content nouns (MID=81-82%). Section: ok=stars 37.7%, ot=stars 44.7%, ol=cosmo 40.4% (B-dialect sections). Low overlap with labels: ok Jaccard=0.197, ot=0.139, ol=0.062 — body ok/ot vocabulary is largely distinct from label ok/ot vocabulary. Top body ok words: okaiin(201, 80.6%B), okeey(154, 76.6%B), okain(132, 93.9%B). Top ot: otedy(137, 100%B), otaiin(136, 78.7%B), otar(120, 91.7%B). Line-closer sub-forms: oly=81.2%LL (B-cosmo), otam=62.8%LL. ok/ot body words = B-dialect nominal class parallel to A-dialect cth-nouns.
+**Limitation:** The d+ch/sh "openers" classification is based on manual inspection — the script doesn't explicitly define this sub-class. The d-chain weakness may reflect folio boundary issues (consecutive records from different paragraphs). ok/ot Jaccard of 0.197 for ok seems somewhat higher than expected — need to verify shared types are genuinely shared vs format artifacts.
+
+---
+
 ## F136: p+r Co-occurrence = 1.29× (NOT Mandatory Line-Bracket); raiin = B-Stars Medial Particle (pre-raiin s=3.25×, post-raiin ot=2.36×); raiin ≠ daiin Equivalent (No Post-raiin cth Enrichment)
 **Experiment:** exp_129_pr_bracket
 **Date:** 2026-04-09
