@@ -2519,3 +2519,24 @@
 **Expected outcome:** Stars paragraphs show a star-entry template: each "entry" (1-2 lines) has a consistent suffix ordering — possibly "eey/eedy word + -ol/-or phrase + daiin cth-word". The template reuses the same suffix pattern across entries.
 **Cost estimate:** medium
 
+
+---
+
+## H236: Dialect-Specific Bigram Rules
+**Status:** CONFIRMED REVISED (exp_120) — Are [A-Suffix→cth] and [B-Suffix→qok] Patterns Dialect-Pure?
+**Priority:** high
+**Source:** F126: Pre-cth cluster = A-suffix words (chor, daiin, chol, shol); Pre-qok cluster = B-suffix words (shedy, chedy). But we tested on mixed-dialect body text. The pre-cth pattern should be STRONGER in A-dialect sections (herbal, pharma) and the pre-qok pattern STRONGER in B-dialect sections (cosmo, stars).
+**Description:** Re-run bigram analysis separately for A-dialect folios and B-dialect folios. Test: (1) Does the chor→cth enrichment increase when restricted to A-dialect text? (2) Does shedy→qok enrichment increase in B-dialect text? (3) Are there DIFFERENT pre-nominal clusters in A vs B (i.e., A-dialect has daiin→cth but B-dialect has a different word preceding qok-nouns)? Also test: does the [A-suffix→cth] rule hold at the WORD level or at the FOLIO level?
+**Expected outcome:** The cth-preceding pattern is 5-7× in A-dialect-only text (stronger than the 4.7× seen in mixed text). The qok-preceding pattern is 4-5× in B-dialect text. The patterns are dialect-pure and represent genuinely different clause structures in A vs B dialects.
+**Cost estimate:** small
+
+---
+
+## H237: otaiin as Demonstrative
+**Status:** CONFIRMED PARTIAL (exp_120)/Determiner for ot-Class Words — Parallel to daiin→cth
+**Priority:** medium
+**Source:** F126: otaiin→ot = 4.27× (third-strongest word→onset enrichment after chor→cth=4.73× and daiin→cth=4.38×). If daiin is a pre-nominal determiner for cth-nouns, otaiin may be a parallel determiner for ot-onset nouns. otaiin = ot + -aiin (parallel structure to daiin = d + -aiin).
+**Description:** Characterize otaiin: (1) positional profile vs other ot-onset words; (2) section/dialect distribution; (3) bigram context: what comes after otaiin vs after other ot-onset words? (4) Is there a parallel pattern: [other-onset]-aiin words → [same-onset] words? Test okaiin→ok, qokaiin→qok, chaiin→ch enrichments.
+**Expected outcome:** otaiin shows strong ot-onset enrichment in next-word (4.27× confirmed). A general pattern: [onset-aiin] → [onset-onset] suggests -aiin is a "cross-referential" suffix — marking the determiner of a subsequent noun from the same onset class.
+**Cost estimate:** small
+

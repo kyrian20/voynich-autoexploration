@@ -1,5 +1,5 @@
 # Working Model — Voynich Manuscript Cryptanalysis
-**Last updated:** 2026-04-09 (after exp_119)
+**Last updated:** 2026-04-09 (after exp_120)
 **Purpose:** Continuously-updated structured summary of current beliefs about Voynichese.
 **Discipline:** Characterization, not interpretation. Claims require experimental warrant.
 
@@ -221,6 +221,11 @@ These findings have been replicated across independent analyses or confirmed by 
 - eee (triple-vowel) words: stars=17.25‰, cosmo=4.40‰ (suppressed). Vowel-length gradient monotonically stars-concentrated (edy→eedy→eeedy: 36%→48%→63%). eee enriched in ok/ol/qo (1.7-1.9×), suppressed in ch/sh (0.37-0.46×).
 - A-dialect section variation: herbal-A=-y dominant (qok=37%, ch=29%); pharma-A=-ol dominant (qok=41%, ok=40%); 8.9% avg diff (3.5× weaker than B's 31%).
 - FOUR-LEVEL suffix hierarchy: Dialect (A/B) → Stem class (Simple-B/Complex-B; A-y/-ol) → Section (B: stars/cosmo/herbal; A: herbal/pharma) → Vowel length (stars triple-vowel extension). Strong evidence for natural language morphology.
+
+**Bigram Split by Dialect: A-daiin/chol/shol→cth; B-chor=19.04×→cth; cth=15× More A; chedy→qok=23.31× in A-Only; otaiin→ot=4.27×; aiin→ok=2.5× (F127, exp_120)**
+- Pre-cth is A-dialect rule: daiin/chol/shol appear before cth only in A-dialect (zero in B). cth = 39.29‰ A vs 2.57‰ B (15× ratio). In B-dialect, chor→cth=19.04× (rare B-text cth occurrences).
+- Pre-qok: shedy→qok B-ONLY; chedy→qok=23.31× in A-text only (B-words in A-context). daiin is top A-dialect precursor of BOTH cth (2.64×) AND qok (5.2% of cases).
+- otaiin = ot-class determiner (4.27×, stars-dominated 7.30‰, B-dominant). aiin→ok=2.5×. -aiin words form chains.
 
 **Bigram Syntax: [A-Suffix]→cth (chor=4.73×), [B-Suffix]→qok (shedy=3.75×); d-Onset = Function Class (H_pos=1.424 vs ch=0.699); s=Para-Start; or/ar/al Most Constrained (F126, exp_119)**
 - Pre-cth cluster: chor→cth=4.73×, daiin→4.38×, chol→3.40× — A-paradigm words systematically precede cth-onset nouns. Structural rule: [A-suffix] → [cth-noun].

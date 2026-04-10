@@ -5,6 +5,14 @@
 
 ---
 
+## F127: Pre-cth Pattern Is Dialect-Split: A-Dialect Uses daiin/chol/shol→cth; B-Uses chor=19.04×; cth Is A-Dominant (15×); chedy→qok=23.31× in A-Dialect; otaiin→ot=4.27×; aiin→ok=2.5×
+**Experiment:** exp_120_dialect_bigram
+**Date:** 2026-04-09
+**Finding:** H236 CONFIRMED REVISED: The pre-cth bigram is dialect-split. A-dialect: daiin→cth=2.64×, chol→1.62×, shol→1.45× (A-paradigm words → cth nouns). B-dialect: chor→cth=19.04×, dain→8.00× (rare B-text cth precedence). cth is 15× more common in A-dialect (39.29‰) than B (2.57‰). Pre-qok is also dialect-split: shedy→qok=3.75× and qokeedy→qok=2.94× are B-ONLY (zero in A); chedy→qok=23.31× in A-dialect only (B-words in A-context precede qok). In A-dialect, daiin is top precursor of BOTH cth (2.64×) AND qok (5.2% of pre-qok tokens) — daiin may be a general A-dialect determiner not cth-specific. H237 CONFIRMED PARTIAL: [onset-aiin]→[same-onset] is confirmed for otaiin (4.27×, ot-class determiner; stars-concentrated 7.30‰, B-dominant); aiin→ok=2.5× (ok-class); okaiin→cth=2.4× (multi-class). qokaiin→qok=0.27× (DEPLETED — does not precede its own class). -aiin words form sequential chains: okaiin→otaiin→[ot-noun] sequences. Each -aiin word targets a specific onset class that is NOT necessarily its own onset class (daiin targets cth; qokaiin targets ch/sh; aiin targets ok).
+**Limitation:** The B-dialect chor→cth=19.04× enrichment is based on very few tokens (cth appears only 52 times in 20,236 B-dialect tokens). The chor→cth=34.8× in stars is similarly small-n. The chedy→qok=23.31× in A-dialect is based on a very small count of chedy in A-dialect text (a B-paradigm word appearing rarely in A-dialect). The shaiin→cth=12.16× finding (n=20) needs verification with larger samples.
+
+---
+
 ## F126: Pre-cth Cluster: chor=4.73×, daiin=4.38×, chol=3.40× — A-Suffix Words Precede cth-Nouns; Pre-qok: shedy=3.75×, chedy=2.69× — B-Suffix Words Precede qok; d-Onset Function Class: H(position)=1.424 (2× ch/sh); s-Onset Extreme Topic-Opener (48.5% First)
 **Experiment:** exp_119_bigram_matrix
 **Date:** 2026-04-09
