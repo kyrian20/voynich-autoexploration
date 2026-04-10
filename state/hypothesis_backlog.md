@@ -3659,3 +3659,36 @@
 **Expected outcome:** f46 is consistently B-dialect (high edy/eedy rate) but has unusually high cth density, suggesting it may be a scribe-transition folio where A-herbal vocabulary (cth-words) appears in B-dialect text.
 **Cost estimate:** trivial
 **Prerequisites:** F172
+
+---
+
+## H342: Does B-Dialect cthedy Have the Same Positional Profile as Other B-Suffix Words (chedy, shedy)?
+**Priority:** high
+**Status:** untested
+**Source:** F173: B cth is positionally neutral (LF=0.97×, LL=0.97×). Does cthedy specifically match the positional profile of other -edy suffix words like chedy, shedy, qokedy?
+**Description:** For B-dialect: compute positional profiles (LF/second/MID/LL enrichments) for cthedy, chedy, shedy, qokedy. If cthedy matches chedy/shedy, it is grammatically equivalent. If it differs, B's cthedy occupies a unique grammatical position.
+**Expected outcome:** cthedy~chedy~shedy positional profiles (all MID-enriched, LL-depleted for -edy class). This would confirm cthedy is grammatically equivalent to other B-edy nominals.
+**Cost estimate:** small
+**Prerequisites:** F173, F045
+
+---
+
+## H343: qok→l=2.44× in A — Which qok-Words? Which Folios?
+**Priority:** medium
+**Status:** untested
+**Source:** F173: qok→l=2.44× is the HIGHEST qok successor enrichment in A-dialect. qok-words specifically introduce l-onset words in A late-herbal/pharma.
+**Description:** Extract all A-dialect [qok-word][l-word] consecutive pairs. Tabulate specific words and folio numbers. Are specific qok-words (qokeol? qokar?) the ones that introduce l?
+**Expected outcome:** The qok→l pairs are concentrated in late A-herbal (f29-f57) and A-pharma where B-type l-words appear (from F147). Specific qok-words like qokar→lchedy or qokol→lkeedy may dominate.
+**Cost estimate:** trivial (from exp_164 data)
+**Prerequisites:** F173, F147
+
+---
+
+## H344: Is [cthol][cthy] Part of a Longer [daiin cthol cthy] 3-Word Chain?
+**Priority:** high
+**Status:** untested
+**Source:** F173: [cth-MID][cthy@LL] is dominant cth self-succession. F164/F165: daiin→cthol (6 cases) and daiin→cthy (9 cases). Is [daiin cthol cthy] a specific 3-word sequence?
+**Description:** Search A-dialect for lines containing the trigram [daiin][cthol][cthy] in consecutive positions. Also search [daiin][cthol] where the next word is cthy. Are there any [daiin cthol cthy] 3-grams in the data?
+**Expected outcome:** 1-2 cases of [daiin cthol cthy] trigram (combining daiin→cthol and cthol→cthy). This would establish a [determiner][medial-nominal][terminal-nominal] grammatical triplet.
+**Cost estimate:** trivial
+**Prerequisites:** F173, F160, F164

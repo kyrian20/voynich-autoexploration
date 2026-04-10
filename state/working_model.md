@@ -1,5 +1,5 @@
 # Working Model — Voynich Manuscript Cryptanalysis
-**Last updated:** 2026-04-10 (after exp_165)
+**Last updated:** 2026-04-10 (after exp_166)
 **Purpose:** Continuously-updated structured summary of current beliefs about Voynichese.
 **Discipline:** Characterization, not interpretation. Claims require experimental warrant.
 
@@ -43,7 +43,7 @@ These findings have been replicated across independent analyses or confirmed by 
 - B's dominant suffixes: -edy (15.1%), -eedy (6.3%), -ain (7.0%)
 - -edy is 75× more common in B than A; -ol is 2.8× more common in A than B
 - cth- in A is a prefix morpheme structurally parallel to qo- in B: H_initial drops from 3.061 to 1.966 after stripping (nearly identical to qo-'s 1.931/3.027); selects o/y/e-initial stems (vs qo-'s k/t-initial stems)
-- **REVISED (F172, exp_165): cth- prefix is NOT purely A-exclusive** — B-dialect has 52 cth-word occurrences with B-SUFFIX FORMS: cthedy (10×, -edy suffix), cthey (10×), cthdy (6×, -dy suffix). The cth- prefix appears in B-dialect but takes B-suffix paradigm rather than A-suffix (-or/-ol/-y). B cth spread across herbal=18, bio=17, stars=15, cosmo=2. Prior F047 claim "A-exclusive: cth- cluster" requires revision: cth- is A-dominant but appears in B with B-suffix forms.
+- **REVISED (F172/F173, exp_165/166): cth- IS A TRUE CROSS-DIALECT PREFIX MORPHEME** — B-dialect has 52 cth-word occurrences with B-SUFFIX FORMS: cthedy (11×, -edy), cthey (10×), cthdy (7×, -dy). All appear in consistently B-dialect folios (avg edy-rate=0.21). Cross-section (herbal, bio, stars). B-cth POSITIONALLY NEUTRAL (LF=0.97×, LL=0.97×, MID=1.07×) vs A-cth STRONGLY SPECIALIZED (LF=0.15×, LL=1.40×). B's cthedy/cthey are ordinary content words; A's cth-words are grammatically constrained nominals. Prior F047 "A-exclusive: cth- cluster" RETRACTED: cth- is A-dominant by frequency (~8× more per-token in A than B) but cross-dialect in distribution.
 - This reframes the A/B split: they share a morphological system but differ in which suffix dominates the paradigm
 
 **The suffix paradigm is PRODUCTIVE in both A and B — log-linear r=0.83-0.89 (F048, exp_041)**

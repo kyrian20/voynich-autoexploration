@@ -5,6 +5,14 @@
 
 ---
 
+## F173: B-DIALECT cthedy/cthdy ARE GENUINE B-VOCABULARY (avg edy-rate=0.21, all genuine B-folios); B cth POSITIONALLY NEUTRAL (all slots ~1×) vs A cth STRONGLY SPECIALIZED (LF=0.15×, LL=1.40×); [cth-MID][cthy@LL] IS DOMINANT cth SELF-SUCCESSION (~8/23 cases); qok→cth=0.54× IS STRUCTURAL MORPHOLOGICAL INCOMPATIBILITY; qok→l=2.44× (HIGHEST qok SUCCESSOR IN A)
+**Experiment:** exp_166_b_cth_vocabulary_analysis
+**Date:** 2026-04-10
+**Finding:** H338 CONFIRMED: cthedy (n=11), cthdy (n=7), cthey (n=10) are genuine B-vocabulary in consistently B-dialect folios (avg edy-rate 0.20-0.22). Cross-section distribution (herbal, bio, stars). B-vocabulary predecessor and successor contexts. cth- is a true cross-dialect prefix morpheme with dialect-specific suffix paradigm. H341 CONFIRMED: f46 is genuine B-herbal (17.1% edy rate), NOT a transition folio. Herbal section has interleaved A/B folios. H340 CONFIRMED: cth self-succession (n=23) dominated by [cth-MID][cthy@LL] pattern (~8-10 cases): medial cth-nominals introduce cthy at terminal position. This is direct evidence for [cth-medial][cthy-terminal] grammatical sequence. Also cthar→cthar and cthol→cthol reduplication (1 case each). H339 CONFIRMED: qok→cth=0.54× is structural — qok selects k/t stems, cth selects o/y/e stems; morphological incompatibility drives systematic avoidance. qok's highest successor enrichment: qok→l=2.44× (qok-words introduce l-onset in A late-herbal/pharma zone). BONUS: B cth positional profile is near-baseline (LF=0.97×, LL=0.97×, MID=1.07×) vs A cth strongly specialized (LF=0.15×, LL=1.40×). B's cthedy/cthey function as regular content words; A's cth-words are grammatically constrained nominals.
+**Limitation:** B cth n=52 total (moderate). cthedy n=11, cthdy n=7, cthey n=10 (small but adequate for pattern identification). Positional profiles: B n=52 (small for reliable enrichment estimates), A n=387 (adequate). cth self-succession pairs: all 23 unique — no single dominant pair confirmed by replication. qok→cth n=10 observed vs 18.5 expected (moderate; depletion is stable but not huge absolute n).
+
+---
+
 ## F172: B-DIALECT cth VOCABULARY = B-SUFFIX FORMS (cthedy=10, cthey=10, cthdy=6) — cth- PREFIX IS NOT A-EXCLUSIVE; qok AND s DEPLETE BEFORE cth (0.51× AND 0.43×); cth SELF-SUCCESSION=1.62× (n=23); k→cth=1.37× (6TH ENRICHED ONSET BEFORE cth); cho→r IS DOMINANT ch→r PATTERN; t@LF→ot@SECOND CONSTRUCTION (8/16 t→ot CASES)
 **Experiment:** exp_165_k_cth_bigram_b_cth_occurrences
 **Date:** 2026-04-10
