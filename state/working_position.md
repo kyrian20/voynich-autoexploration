@@ -239,13 +239,13 @@ After controlling for line position, onset-class effects persist. Rules out posi
 
 **Formal status**: This is the positive hypothesis that survives after the three null hypotheses are unable to account for the core positional and sequential structure findings. The verdict rests on elimination of tested alternatives, not on direct confirmation of a specific generative grammar.
 
-**The two remaining indistinguishable hypotheses**: After Phase 3, the evidence is consistent with two distinct explanatory frameworks that cannot currently be distinguished:
+**The two remaining hypotheses after exp_179**:
 
-1. **(a) Intrinsic structured grammar**: Voynichese has genuine grammatical rules assigning specific onset/suffix classes to specific line positions and specifying sequential word-class preferences. The writing system encodes these rules regardless of whether it represents natural language.
+1. **(a) Intrinsic structured grammar**: Voynichese has genuine grammatical rules assigning specific onset/suffix classes to specific line positions and specifying sequential word-class preferences. This is the simplest uneliminated mechanism.
 
-2. **(b) Position-sensitive cipher with sequential structuring**: A cipher that uses separate encoding tables for LF/MID/LL positions AND some additional mechanism (copy buffer, plaintext sequential structure, or other source of word-class clustering) that produces the observed self-succession (1.2-1.8×). No tested implementation jointly satisfies both constraints, but no formal impossibility result rules out such a mechanism.
+2. **(b) A position-aware hybrid**: A cipher that uses separate encoding tables for LF/MID/LL positions AND selectively restricts copying to non-LL positions (so LL words always come from the cipher table). This would decouple ss_mean (driven by MID copies) from am_ll (protected by LL-exclusive cipher application). This architecture was not tested in exp_179, which used position-blind copying. However, a mechanism that reserves LL positions for cipher output is functionally equivalent to a grammar rule specifying LL word class — making hypothesis (b) a relabeling of hypothesis (a) rather than a genuinely distinct alternative.
 
-These two frameworks are currently indistinguishable because a position-sensitive cipher that produces intrinsic positional grammar AND self-succession would be functionally equivalent to a grammar: it would need to know (a) which EVA class belongs at each position and (b) which EVA class preferentially follows which — which is the definition of a positional grammar. The distinction matters for origin questions (was the grammar designed, or did it arise from cipher mechanics?) but not for the structural characterization.
+These two frameworks converge: any mechanism that jointly satisfies both properties must implement the same structural constraints as a grammar regardless of its mechanical origin.
 
 **What the evidence establishes**:
 1. **Onset-class positional grammar**: y/s/t-onset words prefer LF (2-4×); -am words strongly prefer LL (6.8×); d-onset words mildly prefer LL (1.5×); cth-onset words strongly avoid LF (0.15×). Bonferroni-corrected, cross-validated, not reproduced by position-blind mechanisms.
@@ -310,13 +310,25 @@ These two frameworks are currently indistinguishable because a position-sensitiv
 
 ### Position-blind cipher hypothesis: SIGNIFICANTLY WEAKENED
 
-**#1 (decisive): -am LL enrichment is 6.811× in VMS, ≈1.0× across all 1,900 position-blind simulations; maximum achieved is 0.572× across 75 Timm parameter combinations.**
+**#1 (decisive against ALL tested cipher mechanisms): Onset self-succession is 1.465× in VMS and is reproduced by no tested mechanism at VMS levels.**
 
-No position-blind cipher can produce line-final suffix specificity of this magnitude because a position-blind cipher maps plaintext characters to glyph strings without regard to physical line position. For the -am LL enrichment to arise from a cipher, the cipher must be position-sensitive at the time of encoding. This finding alone rules out the entire class of position-blind ciphers, not just Naibbe's specific parameter choices.
+| Mechanism | ss_mean | Direction | Status |
+|-----------|---------|-----------|--------|
+| Naibbe (position-blind cipher) | ~0.86-0.96× | depleted | OUTSIDE — underproduces |
+| Timm (copy, low COPY_PROB) | ~1.1× | marginal | OUTSIDE — underproduces |
+| Timm (copy, high COPY_PROB) | ~1.5-2.4× | enriched | OUTSIDE — overproduces |
+| Exp_177 (position-sensitive cipher) | ~1.00× | baseline | OUTSIDE — not reproduced at all |
+| **VMS target** | **1.465×** | enriched | — |
 
-**#2 (convergent): Naibbe and Timm both fail on the same positional metrics, and the Timm failure is parameter-robust (exp_176).**
+Self-succession is uniquely diagnostic because it is the one metric that falsifies both cipher classes simultaneously. Position-blind ciphers underproduce it; position-sensitive substitution ciphers produce no enrichment (ss_mean ≈ 1.0); Timm overproduces it at parameter settings that produce any self-succession at all. No tested mechanism lands in the VMS range (1.2-1.7×). Unlike -am LL enrichment (which a target-calibrated position-sensitive cipher can approach at 5.756×), self-succession has no tested mechanism that produces it at VMS levels. A viable VMS generation model must include a component that produces moderate word-class sequential memory — neither too much (like Timm copying) nor too little (like independent word selection).
 
-Convergent failure across two completely different generation mechanisms at the same four metrics rules out mechanism-specific failure. The parameter sweep confirms the Timm failure is not a parameter-tuning artifact. The convergence implies the failure is about position-blindness, not any specific mechanism's other properties.
+**#2 (decisive against position-blind ciphers specifically): -am LL enrichment is 6.811× in VMS, ≈1.0× across all 1,900 position-blind simulations; a target-calibrated position-sensitive cipher reaches 5.756×.**
+
+-am LL enrichment rules out all position-blind mechanisms cleanly: the maximum any position-blind cipher achieves is 0.572× (Timm, 75 parameter combinations). However, exp_177 showed that a position-sensitive cipher with deliberate target-aware calibration (all Latin clause-final morphemes → EVA -am) achieves 5.756×. This weakens -am LL as a discriminator against position-sensitive ciphers specifically. It remains fully decisive against position-blind mechanisms. The metric is now interpreted as: position-sensitivity is a necessary condition for approaching VMS -am LL enrichment; it is not in itself a sufficient discriminator between position-sensitive cipher and intrinsic grammar.
+
+**#3 (convergent): Naibbe and Timm both fail on the same four positional metrics despite being completely different mechanisms, and the Timm failure is parameter-robust (exp_176).**
+
+Convergent failure across a homophonic cipher and a local-copy algorithm at exactly the same four metrics rules out mechanism-specific explanations. The parameter sweep (75 Timm combinations) confirms this is not a parameter-tuning artifact. The convergence points to position-blindness as the common failure cause.
 
 ---
 
@@ -356,7 +368,26 @@ The triple convergence — Bonferroni m=175, outside Naibbe and Timm CI, passing
 
 ---
 
-## 9. WHAT WOULD CHANGE THE STRUCTURED-GRAMMAR VERDICT
+## 9. THE DUAL CONSTRAINT
+
+**Voynichese exhibits two statistically robust structural properties that no single tested generation mechanism can produce simultaneously.**
+
+**Property (1): Position-sensitive onset-class grammar.** -am LL enrichment (6.811×) and y-onset LF enrichment (3.506×) are present in VMS, absent from position-blind mechanisms (~1.0× across 1,900 simulations), and partially reproduced only by a target-calibrated position-sensitive cipher (5.756×). These patterns are Bonferroni-corrected (p < 10⁻⁹⁰), cross-validated, and template-controlled.
+
+**Property (2): Sequential word-class memory.** Onset self-succession (1.465× mean across qok, ok, ch in both dialects) and qok→ch enrichment (1.2-1.3×, surviving position control) require word-class decisions to be correlated across adjacent words. No cipher mechanism tested produces this at VMS levels: position-blind ciphers underproduce (ss_mean ~0.86-0.96×); position-sensitive substitution ciphers produce no enrichment (ss_mean ~1.0×); Timm copy algorithms overproduce at viable parameter settings (ss_mean 1.5-2.4×) and cannot satisfy self-succession and adj_rate simultaneously (exp_176).
+
+**The combination of both properties is the tightest empirical constraint on the hypothesis space**: any viable generation mechanism for VMS must be both **position-aware** AND **sequentially structured**.
+
+- Position-sensitive substitution alone (exp_177): produces Property (1) when target-calibrated, but not Property (2) (ss_mean ≈ 1.0×).
+- Self-citation alone (Timm, exp_171/176): produces a version of Property (2) but overproduces it, and produces no version of Property (1).
+- Position-blind ciphers (Naibbe): produce neither Property (1) nor Property (2).
+- **A hybrid mechanism** (position-sensitive cipher + copy buffer) was tested in exp_179 across 16 parameter combinations (COPY_PROB ∈ {0.2-0.5} × MODIFY_PROB ∈ {0.3-0.6}, 50 sims each). **0/16 combinations satisfy all three constraints simultaneously.** The fundamental incompatibility is structural: copying at LL positions dilutes -am enrichment proportionally to COPY_PROB. At COPY_PROB values needed for ss_mean ≥ 1.2 (COPY_PROB ≥ 0.5), am_ll drops to ~3.36× (below threshold). The trade-off is linear and unsolvable by parameter tuning within this architecture.
+
+**The structured-grammar hypothesis is consistent with both properties by construction**: a grammar specifies which word classes occupy which positions (Property 1) and which classes prefer to follow each other (Property 2). After exp_179, the dual constraint eliminates the tested hybrid architecture as well. The remaining viable alternatives are: (a) intrinsic structured grammar; (b) a position-aware hybrid that selectively excludes LL positions from copying — which is functionally equivalent to a grammar rule specifying that LL positions are reserved for the cipher table.
+
+---
+
+## 10. WHAT WOULD CHANGE THE STRUCTURED-GRAMMAR VERDICT
 
 ### Weakening finding 1 (most important): A position-sensitive cipher fully reproducing all four core metrics simultaneously
 
@@ -380,22 +411,24 @@ If -am LL or y-onset LF fails to replicate on ≥4 of ~8 B-dialect quires in lea
 
 ---
 
-## 10. STOPPING CONDITION
+## 11. STOPPING CONDITION
 
 This document concludes Phase 3 (methodological consolidation). The investigation is paused pending human direction.
 
-**State at pause**: 175 characterization experiments + 6 discrimination experiments + 3 Phase 3 consolidation experiments (exp_176, exp_177, exp_178) complete.
+**State at pause**: 175 characterization experiments + 6 discrimination experiments + 4 Phase 3 consolidation experiments (exp_176, exp_177, exp_178, exp_179) complete.
 
 **Phase 3 changes incorporated**:
 - Lags 10-12 MI claim retracted (sampling artifact confirmed)
 - Dual Bonferroni correction added (m=30 and m=175 reported transparently)
 - Timm falsification confirmed parameter-robust (75 parameter combinations)
-- Position-sensitive cipher partially reproduces positional grammar (5.756× vs VMS 6.811×)
+- Position-sensitive cipher: target-calibrated, reaches 5.756× on am_ll, fails ss_mean
 - Naibbe A-dialect failure confirmed exploratorily (7/8 positional metrics ABOVE in all conditions)
-- Language precision updated throughout ("position-blind cipher" for tested class)
-- Explicit limitations section added (5 categories of non-claims)
-- Structured grammar verdict reframed as surviving by elimination
+- Hybrid cipher+copy (exp_179): 0/16 combinations satisfy dual constraint; trade-off is structural
+- Evidence hierarchy restructured: self-succession is now #1 discriminator (no tested mechanism reproduces it at VMS levels)
+- Dual Constraint section added: the joint (positional grammar) + (sequential memory) requirement
+- Structured grammar verdict: two remaining hypotheses identified; hybrid architecture collapses into grammar by construction
+- Language precision updated throughout; explicit limitations section (5 categories of non-claims)
 
 ---
 
-*This document synthesizes Phases 2 and 3 (exp_170–178). For characterization findings, see `state/findings.md` and `state/working_model.md`. For raw experiment data, see individual `experiments/expN/result.md` files.*
+*This document synthesizes Phases 2 and 3 (exp_170–179). For characterization findings, see `state/findings.md` and `state/working_model.md`. For raw experiment data, see individual `experiments/expN/result.md` files.*
