@@ -5,6 +5,14 @@
 
 ---
 
+## F134: aiin→am=4.62× Is Distributional (Not Fixed Phrase); 4-gram [-ol/-or][aiin][cth][-am/-dy/-al]=4.92× Enriched (3 Observed/0.6 Expected); y-Prefix Splits Into A-y (y+A-paradigm, B%≤25%) and B-y (y+B-paradigm, B%=100%); y-Prefix Selects k/t-Stems (65.4%) = Same as qo-/o-; y Is GRAMMATICAL (Position) Prefix — Line-Continuation Opener (39.6% Line-Start)
+**Experiment:** exp_127_line_template_4gram
+**Date:** 2026-04-09
+**Finding:** H252 CONFIRMED: aiin→am=4.62× is not a fixed [daiin][am] 2-word phrase — 67 aiin→am bigrams span 57 unique pairs; [daiin][dam] appears only n=6 (herbal). Stars=36% of aiin→am bigrams. The enrichment is a distributional artifact: -am is a universal line-closer (A mean=0.799, B=0.925) and -aiin words appear mid-line, so both co-occur in lines at elevated rates without being a lexicalized phrase. H253 CONFIRMED (WEAK): The 4-gram template [-ol/-or][aiin-word][cth-onset][-am/-dy/-al] is enriched 4.92× vs independence baseline (3 observed vs 0.6 expected, P values: P(-ol/-or)=0.229, P(-aiin)=0.111, P(cth)=0.036, P(closer)=0.110). All 3 matches are in A-herbal. The 3-gram (23 matches) is more common — cth-nouns often end lines without an adjacent closer. Canonical A-clause: [chol/chor][daiin][cthy] ± closer. H251 CONFIRMED: y-prefix splits into two sub-types based on dialect and suffix paradigm. A-y (ycheor/ydaiin/ytchy/ykchy): B%≤25%, herbal 60-88%, A-paradigm suffixes (-or/-chy/-aiin), continuation particle function. B-y (yteedy/ykeedy/ykedy/ychedy): B%=100%, B-paradigm -edy/-eedy suffixes, herbal+stars formula openers. Both select k/t-stems (65.4% = same selectivity as qo-/o-). A/B Jaccard=0.174 (nearly as low as global A/B=0.148). Line-start=39.6% — y-words are predominantly line-initial. y-prefix is a GRAMMATICAL (positional) prefix marking line-continuation, not a register/dialect prefix. Extended k/t-stem prefix paradigm: bare=A-herbal, y=both+line-initial, o=labels, qo=B-body, l=B-stars/cosmo. y- is the grammatical slot marker; qo/o/l are register/dialect markers.
+**Limitation:** The 4-gram template has only n=3 matches — too few for robust enrichment calculation. The aiin→am=4.62× from exp_126 was measured across all bigrams; here we find the specific word pairs are diverse (57 unique), making the interpretation ambiguous. The y-prefix line-start=39.6% is computed across all y-words including those that happen to be first in a line for other reasons. The A-y vs B-y split is based on B% thresholds (≤25% vs ≥80%) with a gap in between; some y-words have intermediate B% (e.g., ykeey=57%, ykaiin=73%).
+
+---
+
 ## F133: cth = SEMI-CLOSED Nominal Class (Top5=55.4%, Herbal+Pharma=90%); Within-Line Suffix Grammar: -or(FIRST,0.371) < -ol(0.441) < -aiin(MIDDLE) < -dy/-al(LATE,1.51×) < -am(LAST,0.799/0.925); aiin→am=4.62× (Strongest Suffix Bigram); B-Dialect Less Positionally Structured
 **Experiment:** exp_126_cth_vocab_suffix_grammar
 **Date:** 2026-04-09

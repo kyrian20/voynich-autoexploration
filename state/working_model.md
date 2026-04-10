@@ -1,5 +1,5 @@
 # Working Model — Voynich Manuscript Cryptanalysis
-**Last updated:** 2026-04-09 (after exp_126)
+**Last updated:** 2026-04-09 (after exp_127)
 **Purpose:** Continuously-updated structured summary of current beliefs about Voynichese.
 **Discipline:** Characterization, not interpretation. Claims require experimental warrant.
 
@@ -221,6 +221,15 @@ These findings have been replicated across independent analyses or confirmed by 
 - eee (triple-vowel) words: stars=17.25‰, cosmo=4.40‰ (suppressed). Vowel-length gradient monotonically stars-concentrated (edy→eedy→eeedy: 36%→48%→63%). eee enriched in ok/ol/qo (1.7-1.9×), suppressed in ch/sh (0.37-0.46×).
 - A-dialect section variation: herbal-A=-y dominant (qok=37%, ch=29%); pharma-A=-ol dominant (qok=41%, ok=40%); 8.9% avg diff (3.5× weaker than B's 31%).
 - FOUR-LEVEL suffix hierarchy: Dialect (A/B) → Stem class (Simple-B/Complex-B; A-y/-ol) → Section (B: stars/cosmo/herbal; A: herbal/pharma) → Vowel length (stars triple-vowel extension). Strong evidence for natural language morphology.
+
+**y-PREFIX = GRAMMATICAL LINE-CONTINUATION OPENER; Splits A-y (y+A-paradigm, B%≤25%) vs B-y (y+B-paradigm, B%=100%); y Selects k/t-Stems (65.4%) = Same as qo-/o-; A/B Jaccard=0.174; 4-gram Template Enriched 4.92×; aiin→am=Distributional Not Fixed Phrase (F134, exp_127)**
+- y-prefix: 1,372 tokens, 488 types; A/B ratio=0.81 (balanced); line-start=39.6% (grammatical position opener).
+- A-y sub-type: y+A-paradigm (ycheor/ydaiin/ytchy, B%≤25%, herbal 60-88%) — A-dialect continuation particle.
+- B-y sub-type: y+B-paradigm (yteedy/ykeedy/ykedy, B%=100%) — B-dialect formula opener.
+- Both sub-types select k/t-stems (65.4%) = same selectivity as qo-/o-. A/B Jaccard=0.174 (near-distinct vocabularies).
+- Extended k/t-stem prefix paradigm: bare=A-herbal, y=both+line-initial(grammatical), o=labels, qo=B-body, l=B-stars/cosmo.
+- 4-gram [-ol/-or][aiin][cth][-am/-dy/-al] enriched 4.92× (3 observed/0.6 expected; all A-herbal); 3-gram has 23 matches.
+- aiin→am=4.62× is distributional (67 bigrams/57 pairs; NOT fixed phrase). -am is universal line-closer; aiin→am is co-occurrence in same line.
 
 **cth = SEMI-CLOSED NOMINAL CLASS (Top5=55.4%, Herbal+Pharma=90%); Within-Line A-DIALECT SUFFIX GRAMMAR: -or(FIRST) → -ol → -aiin(MIDDLE) → -dy/-al → -am(LAST); aiin→am=4.62×; B Flatter (F133, exp_126)**
 - cth top5 concentration=55.4% (vs ch=28.1%, sh=36.8%) — 2× more concentrated; marks specialized herbal/pharma nominal vocabulary (plant names, preparations). NOT a productive prefix.

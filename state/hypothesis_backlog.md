@@ -2676,6 +2676,7 @@
 
 ## H251: y-Prefix Class Full Characterization — What Are the 1374 y-Prefix Words?
 **Priority:** high
+**Status:** CONFIRMED (exp_127) — y-prefix splits into A-y (y+A-paradigm: ycheor/ydaiin/ytchy, B%≤25%, herbal) and B-y (y+B-paradigm: yteedy/ykeedy/ykedy, B%=100%, herbal+stars); both select k/t-stems (65.4% = same as qo-/o-); A/B Jaccard=0.174; line-start=39.6% (grammatical position prefix); y= dialect-neutral k/t-stem prefix marking line-continuation (F134)
 **Source:** F132: y-prefix was discovered as a new prefix class (1374 tokens, 85.6% stem recovery, A/B ratio=0.76 = balanced). Unlike r- (8.4× B) and p- (3.4× B), y- is nearly dialect-neutral. The y-prefix class appeared in stars line-start analysis (exp_123) and prefix recovery (exp_125). What are y-words? What stems do they attach to? What section/dialect/position profile do they have?
 **Description:** Extract all y-initial words (≥2 chars) from body text. Characterize: (1) top y-words by frequency; (2) y-stripped stem distribution (what onset classes after stripping y?); (3) dialect distribution of y-words (A vs B); (4) section distribution (herbal/cosmo/stars/pharma); (5) positional behavior (line-start vs line-end vs medial); (6) do y-words appear in both A-dialect and B-dialect text or are there separate A-y and B-y vocabularies? Cross-reference with the known "y-initial = line-continuation particle" (F057) and "y-prefix = B-para-start" observations (F130).
 **Expected outcome:** y-prefix shows two sub-types: (a) A-dialect y-words (y+ch/sh stems, appearing as continuation particles within A paragraphs) and (b) B-dialect y-words (y+k/t stems appearing at B-line-starts as formula openers). These may be homophonous y-prefixes with different grammatical functions. If the y-stem recovery is 85.6% for both, the underlying stems should be identifiable.
@@ -2686,6 +2687,7 @@
 
 ## H252: aiin→am Formulaic Construction — Is [daiin][am] a Recurrent A-Dialect Phrase?
 **Priority:** medium
+**Status:** CONFIRMED (exp_127) — NOT a fixed phrase; 67 bigrams span 57 unique pairs; [daiin][dam]=6 (herbal only); stars=36% of instances; aiin→am=4.62× is distributional artifact of -am as universal line-closer co-occurring with -aiin words in same lines (F134)
 **Source:** F133: aiin→am suffix bigram = 4.62× (strongest suffix bigram in the corpus; after -aiin words, -am words follow at 4.62×). This could mean: (a) [daiin][dam] is a formulaic phrase closing determiner phrases; (b) [daiin][am] as a particle sequence; (c) any -aiin word is followed by a line-closing am-word at elevated rates.
 **Description:** Test: (1) What are the specific word pairs that generate aiin→am=4.62×? Tabulate top [word_aiin][word_am] bigrams. (2) Is daiin specifically involved or is it any -aiin word? (3) Does [daiin][dam] appear as a fixed phrase? (4) What comes before and after this phrase? (5) How many times does this bigram appear and in which sections/folios?
 **Expected outcome:** [daiin][dam] or [daiin][am] is a small recurrent phrase in A-dialect herbal (consistent with the NP template: [chol][daiin][cthy][dam] = complete A-dialect sentence). If confirmed, this would give us the full 4-word A-dialect sentence template.
@@ -2696,8 +2698,29 @@
 
 ## H253: Full A-Dialect Line Template — Is [-or/-ol][daiin][cthy][-am] a Canonical 4-Word Sentence?
 **Priority:** high
+**Status:** CONFIRMED WEAK (exp_127) — 4-gram enriched 4.92× vs independence (3 observed/0.6 expected); all 3 in A-herbal; 3-gram has 23 matches; template is real but rare — cth-noun often ends phrase before closer; canonical A-clause is [chol/chor][daiin][cthy] ± closer (F134)
 **Source:** F133: The within-line suffix grammar reveals [-or/-ol modifier] → [-aiin determiner] → [cth-noun] → [-am closer]. If these four elements constitute the canonical A-dialect line, we should see the 4-gram [chol/chor][daiin][cthy/cthol][dam/am] at enriched rates. F128: The 3-gram [chol][daiin][cth-noun] is confirmed (n=26). Can we extend to the full 4-gram?
 **Description:** Search for 4-grams matching the template [W1=-ol/-or][W2=daiin/okaiin][W3=cth-onset][W4=-am/-dy/-al]. Compute: (1) how many 4-grams match; (2) what are the most common 4-gram instances; (3) what fraction of A-dialect lines contain this template; (4) is the 4-gram significantly enriched vs random onset sequence? Also test: does the -or word come BEFORE the -ol word (consistent with positional order)?
 **Expected outcome:** The full 4-gram [chor][daiin][cthy][dam] appears at enriched rates. This would be the most complete grammatical template recovered from the manuscript: a full 4-word A-dialect clause. Even if only 5-10% of A-dialect lines contain this exact template, that would be structurally significant.
 **Cost estimate:** small
 **Prerequisites:** F128 (3-gram template), F133 (4th element -am identified)
+
+---
+
+## H254: p-Prefix Class Characterization — What Are the 528 p-Prefix Words?
+**Priority:** high
+**Source:** F132: p-prefix discovered as new prefix class (528 tokens, 76.1% stem recovery, A/B=0.30 = 3.4× B-dominant, stars=43%). Similar to r-prefix (87% recovery, 8.4× B, stars). p-onset was already identified as a B-paragraph-START marker (pchedy/tchedy=B-para-starts, 17-18× enriched, F057). But F132 treats p as a PREFIX — is p-onset = p-prefix on ch/sh/k/t stems?
+**Description:** Extract all p-initial words (≥2 chars). Characterize: (1) p-stripped stems: what onset classes? (stem recovery rate); (2) dialect distribution (A vs B); (3) section distribution; (4) positional behavior (para-start vs line-start vs medial); (5) suffix distribution; (6) is pchedy = p + chedy (B-paradigm stem) or an independent word? Cross-reference with F057 (pchedy=para-start) and F076 (p-onset=75.3% first = primary para-start).
+**Expected outcome:** p-prefix on ch/sh/k/t stems — pchedy=p+chedy, pchy=p+chy. The para-start enrichment of p-onset (17-18×) reflects that the p-prefix marks paragraph-initial position — i.e., p is BOTH a morphological prefix AND a positional marker (like y- being a line-continuation marker). p- = B-dialect paragraph-start marker; y- = line-continuation opener; these are the two positional prefix types.
+**Cost estimate:** small
+**Prerequisites:** F132 (p-prefix in taxonomy), F134 (y-prefix as grammatical positional prefix)
+
+---
+
+## H255: r-Prefix Class Characterization — What Are the 346 r-Prefix Words?
+**Priority:** medium
+**Source:** F132: r-prefix (346 tokens, 87.0% stem recovery = highest, A/B=0.12 = 8.4× B-dominant, stars=51%). r-onset words: raiin, rain, raram, roar. If r is a prefix: r+aiin=raiin, r+am=ram, r+ar=rar. But r-initial words are quite short — what stems do they strip to?
+**Description:** Extract all r-initial words. (1) r-stripped stems (what are they?); (2) are the stems common vocabulary? (3) dialect and section distribution; (4) suffix distribution; (5) what precedes and follows r-words? Is r-prefix restricted to specific stem classes?
+**Expected outcome:** r-stripped stems = mostly aiin/am/ar/al particles — r-prefix on particle stems creates r-particle forms. This would explain the 87.0% stem recovery (r+aiin=raiin; raiin→aiin is in vocabulary). The 8.4× B-dominance and stars concentration suggests r-prefix marks specific B-stars content.
+**Cost estimate:** small
+**Prerequisites:** F132
