@@ -13,6 +13,14 @@
 
 ---
 
+## F162: F157 TYPE 2 [chol/chor@LF→cth@SECOND] RETRACTED (0/26 cases); F159 H302 RETRACTED (cthol@SECOND preceded by qot=6.30×, NOT ch=0×); cthor@SECOND PRECEDED BY d-ONSET (2.25×, daiin 3/11=27.3%); H307/H308/H309 CORRECTED ANALYSES
+**Experiment:** exp_155_cthor_cthol_second_lf_analysis
+**Date:** 2026-04-10
+**Finding:** H307 CONFIRMED (corrected): cthol@second (n=9) LF-onset: qot=33.3% (6.30×), y=33.3% (2.16×), d=22.2% (1.37×), ch=0% (0.00×). F159's claim "ch-onset=40% before cthol@second" was based on exp_152's incorrect slot definitions — RETRACTED. H308 CONFIRMED: cthor@second (n=11) LF-onset: d=36.4% (2.25×), daiin specifically=27.3% (3/11). No chol/chor at LF before cthor@second. H309 SURPRISING: chol@LF → cth@second = 0/11 (0%), chor@LF → cth@second = 0/15 (0%). F157's "Type 2 [chol/chor@LF][cth@second]" construction DOES NOT EXIST in the data. The chol→cth bigram enrichment is real but does not arise from chol/chor as LF word — those bigrams occur with chol/chor at non-LF positions. After chol@LF: second-pos is ch-onset (45.5%), d (18.2%), sh (18.2%) — never cth. After chor@LF: sh (20%), ch_e (20%), ch (13.3%) — never cth.
+**Limitation:** cthol@second n=9 (small); cthor@second n=11 (small). Individual onset enrichments at these n-values are directional. chol/chor@LF n=11/15 (moderate); 0/26 cth@second is categorical. The chol→cth bigram enrichment (F156) is well-established from larger samples but its positional framing (F157 Type 2) is now retracted. The actual chol→cth positional construction needs re-examination (H310).
+
+---
+
 ## F161: SECTION BUG FIXED (folio_base kept leading '<'; .lstrip('<') fixes regex match); cthor=97% IN A-HERBAL; CORRECTED cth PARADIGM (cthor=SECOND 2.16×, cthol=MID 1.33×, cthy=LL 1.63×); ALL cth-WORDS AVOID LF (0.00-0.38×); daiin→cthy SELECTS LL (2.12×, H306 CONFIRMED); F158 cthor=LF CLAIM RETRACTED
 **Experiment:** exp_154_section_fix_cthor_daiin_cthy_position
 **Date:** 2026-04-10
@@ -21,11 +29,12 @@
 
 ---
 
-## F159: cthol@SECOND DRIVEN BY ch/sh LINE-OPENERS BROADLY (ch=40%, d=20%); NOT EXCLUSIVELY [chol/chor][cthol]; daiin→cthy→LL CONFIRMED AS DOMINANT cthy-CLOSING CONSTRUCTION (daiin=19% of penultimate pre-cthy-LL, ~5× enriched); H301 SECTION ANALYSIS FAILED (bug: folio_base 'f1r' ≠ section_map key 'f1')
+## F159: [H302 RETRACTED — see F162] cthol@SECOND LF ANALYSIS WAS BASED ON INCORRECT SLOT DEFINITIONS; daiin→cthy→LL CONFIRMED; daiin=MOST COMMON PENULTIMATE BEFORE cthy@LL
 **Experiment:** exp_152_cthor_section_cthol_second
 **Date:** 2026-04-10
-**Finding:** H302 PARTIALLY CONFIRMED. cthol at second (n=15): ch-onset LF words=40% (chol=20%, chor=13%, other-ch=7%); d-onset (daiin)=20%; sh=13%. Specific chol/chor openers = 33% — not dominant. cthol's second-position enrichment (1.94×) reflects a general feature of ch/sh-opening lines, not exclusively Type 2 [chol/chor][cthol]. BONUS CONFIRMED: daiin is the most common penultimate word before cthy-at-LL (4/21=19%, ~5× enriched vs 3.8% baseline). The [daiin][cthy→LL] line-closing nominal construction is directly confirmed. H301 failed due to section-mapping bug (folio_base 'f1r' ≠ SECTION_MAP key 'f1'); requires fix.
-**Limitation:** cthol@second n=15 (small); cthy@LL n=21 (moderate); daiin-as-penultimate n=4 (small-n confirmation). Section analysis incomplete due to bug.
+**RETRACTION NOTE (exp_155, F162):** F159's H302 finding "cthol@second driven by ch-onset (40%)" is retracted. exp_152 used incorrect slot definitions (n=15 labeled "cthol@second" was a misidentified slot). Corrected analysis (exp_155): cthol@second n=9, ch-onset=0% (0.00×), dominant LF-onset is qot (6.30×) and y (2.16×). The "section analysis failed" note is also superseded by F161 (bug fixed in exp_154).
+**Finding (partially superseded):** BONUS CONFIRMED AND HELD: daiin is the most common penultimate word before cthy-at-LL (4/21=19%, ~5× enriched vs 3.8% baseline). The [daiin][cthy→LL] line-closing nominal construction is directly confirmed. This sub-finding is robust (confirmed in F160/exp_153 and F161/exp_154).
+**Limitation:** H302 analysis retracted. daiin-as-penultimate n=4 (small-n but confirmed across multiple runs). Corrected results in F162.
 
 ---
 
@@ -38,11 +47,12 @@
 
 ---
 
-## F157: TWO DISTINCT cth-INTRODUCTION CONSTRUCTIONS: TYPE1=[daiin@MID→cth@MID/LL] (n=36); TYPE2=[chol/chor@LF→cth@second/MID] (n=32); daiin→cth PLACES cth-WORD AT LL 36.1%; dy→sh IS REAL (NOT CROSS-LINE); cluster=2.77× COLLECTIVELY (22.9% of before-cth bigrams)
+## F157: [TYPE 2 CONSTRUCTION RETRACTED — see F162] daiin→cth BIGRAM IS REAL; chol/chor→cth BIGRAM IS REAL; BUT POSITIONAL FRAMING "TYPE 2 [chol/chor@LF→cth@SECOND]" IS RETRACTED; dy→sh IS REAL (NOT CROSS-LINE)
 **Experiment:** exp_150_cth_introducer_positions
 **Date:** 2026-04-10
-**Finding:** H297 CONFIRMED WITH SURPRISE. Two structurally distinct cth-introduction constructions discovered. Type 1 (daiin): daiin at MID=61%/second=25% → cth-word at MID=52.8%/LL=36.1%. daiin is a within-line medial determiner. Type 2 (chol/chor): chol at LF=50%, chor at LF=50% → cth-word at second=45-50%/MID=33-40%. chol/chor introduce cth as LINE-OPENERS — they are first-word line-starters followed by cth as second word, not grammatical determiners. This reframes chol/chor's cth-enrichment (F156): they are not parallel to daiin's determiner role but represent a different construction where the line-opener precedes the nominal. cthol→cth is fully medial (second+MID, n=4). aiin/ol/ar/s→cth = 0 bigrams (categorical). The daiin→cth-at-LL pattern explains cth's mild LL-enrichment (1.20× overall). Cluster (daiin/chol/chor/cthol) collectively=2.77× enrichment, 22.9% of before-cth bigrams. H298 CONFIRMED NOT ARTIFACT: dy→sh bigrams (n=6) have dy at second(2)/MID(3)/LF(1) — never LL. Among non-LL dy occurrences, ~19% follow sh (vs ~10% baseline). The dy→sh enrichment is a real within-line construction.
-**Limitation:** chol→cth n=20, chor→cth n=12, cthol→cth n=4 — sufficient for proportional claims but small for per-slot analysis. The cth-at-LL=36.1% after daiin (13/36 cases) is a small absolute count but consistent. dy→sh n=6 (small but all within-line). The "Type 2 line-opener" interpretation requires verification that chol at LF generally precedes cth at second (vs other second-position words).
+**RETRACTION NOTE (exp_155, F162):** F157's "Type 2 construction [chol/chor@LF][cth@second]" is retracted. exp_155 shows that chol@LF → cth@second = 0/11 (0%), chor@LF → cth@second = 0/15 (0%). The "Type 2" positional framing was based on exp_150's inline analysis with swapped LF/second labels. The chol→cth and chor→cth bigram enrichments are real (established from larger samples in F156 and earlier) but these bigrams do NOT arise from chol/chor as line-first words followed by cth at position 2. The actual chol→cth positional construction is unknown and under investigation (H310).
+**Finding (partially superseded):** daiin→cth bigram IS REAL and remains valid — daiin is a cth-determiner (3.08×). dy→sh bigrams (n=6) have dy at second/MID/LF (never LL) — HELD: dy→sh is a real within-line construction. The cluster enrichment (daiin/chol/chor/cthol collectively=2.77×) is real at the bigram level but its positional decomposition requires re-examination. daiin→cth@LL=36.1% is consistent with later exp_154 findings.
+**Limitation:** Type 2 positional framing retracted. chol/chor→cth bigram enrichment remains real but positionally unlocated. Re-examine in H310.
 
 ---
 

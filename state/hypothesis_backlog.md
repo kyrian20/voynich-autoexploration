@@ -3066,6 +3066,7 @@
 
 ## H307: Corrected cthol@Second Analysis — Which LF Words Precede cthol at Second (i=1)?
 **Priority:** high
+**Status:** CONFIRMED with surprise (exp_155) — cthol@second (n=9): qot=6.30×, y=2.16×, ch=0.00×. F159's "ch=40% before cthol@second" retracted. (F162)
 **Source:** F161: corrected cthol@second n=9 (not 15 as in F159/exp_152 which had swapped LF/second). F159's H302 analysis of "cthol@second LF-word distribution" may be invalid. Need re-run with correct slot code.
 **Description:** (1) Find all A P-type lines where cthol appears at i=1 (second, corrected definition). (2) What word appears at i=0 (LF) in these lines? (3) Compute onset distribution of LF words when cthol is at second. Is it ch-dominated (40%) as F159 claimed, or different? (4) Compare to cthol@MID LF-word distribution.
 **Expected outcome:** If the F159 analysis was computing cthol@LF incorrectly, the LF-word distribution for true cthol@second will differ. We expect the Type 2 [chol/chor@LF][cthol@second] construction to still hold but possibly at different proportions.
@@ -3076,6 +3077,7 @@
 
 ## H308: What Is the LF Word (i=0) When cthor Is at Second (i=1)? Is [chol/chor@LF][cthor@second] The Dominant Construction?
 **Priority:** high
+**Status:** CONFIRMED (exp_155) — cthor@second (n=11): d-onset=36.4% (2.25×), daiin 3/11=27.3% at LF. chol/chor at LF: 0 cases. (F162)
 **Source:** F161: cthor=SECOND-enriched (2.16×). cthor appears at i=1 in 11/33 A-dialect cases. What is the i=0 (LF) word in these cases? The corrected Type 2 construction (F157) may specifically be [chol/chor@LF][cthor@second] rather than [chol/chor@LF][cthol@second].
 **Description:** (1) Extract all A P-type lines where cthor is at i=1 (second). (2) What word is at i=0 (LF)? (3) Compute onset distribution — is ch-class dominant? Is chol specifically dominant? (4) Compare to the baseline LF word distribution. Is there a specific [LF-word][cthor@second] bigram pattern?
 **Expected outcome:** chol/chor or more broadly ch-onset words dominate LF position when cthor is at second — consistent with the Type 2 line-opening construction ([chol/chor@LF][cthor@second]). This would pin down which cth-word the chol/chor opener specifically introduces.
@@ -3086,11 +3088,42 @@
 
 ## H309: Is the Type 2 [chol/chor@LF][cth@second] Construction Specifically [chol@LF][cthor@second], or Is It Spread Across cthol/cthy/cthody@second Too?
 **Priority:** medium
+**Status:** RESOLVED BY H309 (exp_155) — chol/chor@LF → cth@second = 0/26 (0%). Type 2 construction does not exist. (F162)
 **Source:** F161: cthor=SECOND-enriched (2.16×), cthol=MID-enriched. The F157 "Type 2 construction" was described as chol/chor at LF → cth at second/MID. Now with corrected data: is the specific second-position cth-word predominantly cthor (not cthol)? F157's analysis placed cth-word at second=45-50% after chol/chor — but which cth-word was it?
 **Description:** (1) For all chol@LF bigrams with cth-word at second (i=1): which cth-words appear? Is cthor dominant? (2) For chor@LF bigrams with cth-word at second: which cth-words? (3) Compute: P(cthor@second | chol@LF) vs P(cthol@second | chol@LF) vs P(cthy@second | chol@LF). The dominant second-position cth-word after chol/chor defines the Type 2 construction.
 **Expected outcome:** cthor dominates at second after chol/chor@LF (since cthor is the most second-enriched cth-word). This would make the Type 2 construction specifically [chol/chor@LF][cthor@second], with cthol appearing later at MID.
 **Cost estimate:** trivial
 **Prerequisites:** F161, H308
+
+---
+
+## H310: What Is the Actual Positional Context of chol→cth Bigrams? (chol@LF Never Precedes cth — Where Does chol→cth Occur?)
+**Priority:** high
+**Source:** F162: chol/chor at LF never have cth at second (0/26). But chol→cth bigram enrichment is real (F156). Where does chol appear when it precedes a cth-word? Is chol@MID → cth@subsequent MID the actual construction?
+**Description:** (1) Extract all chol→cth bigrams in A P-type body text. (2) For each bigram, record chol's position (LF/second/MID/LL). (3) Compute position distribution — is chol predominantly at MID or second when it precedes cth? (4) Same for chor→cth bigrams. (5) Compare: chol's overall positional distribution vs chol's positional distribution specifically when preceding cth.
+**Expected outcome:** chol→cth bigrams occur with chol at MID position (not LF). This would establish a within-line medial construction [chol@MID → cth@subsequent] as the actual basis of the chol→cth enrichment.
+**Cost estimate:** trivial
+**Prerequisites:** F162
+
+---
+
+## H311: After chol@LF, What Specific ch-Words Follow at Second? Is [chol@LF][chol/chor@second] a Reduplication Construction?
+**Priority:** medium
+**Source:** F162: chol@LF → second-pos = ch-onset 45.5% (5/11 lines), sh 18.2%, d 18.2%. Which specific ch-words follow chol at LF?
+**Description:** (1) List all second-position words after chol@LF. (2) Is chol→chol or chol→chor the dominant pattern? (3) Compute enrichment of specific ch-words at second after chol@LF vs baseline. (4) Is there a [chol@LF][chol@second] reduplication? Such reduplication could indicate a specific determiner/nominal pair construction where chol is both opener and a second-position word.
+**Expected outcome:** chol→chor or chol→chol at second (ch-reduplication), suggesting lines with chol@LF have a ch-word phrase at the front before moving to medial content.
+**Cost estimate:** trivial
+**Prerequisites:** F162
+
+---
+
+## H312: Verify chol/chor→cth BIGRAM ENRICHMENT WITH CORRECTED POSITIONAL CODE
+**Priority:** medium
+**Source:** F162: chol/chor→cth bigram enrichment was established in F156/exp_149 using inline code that may have had slot-swapping bugs. Verify the bigram enrichment is real (not positional artifact) using corrected parsing.
+**Description:** (1) Re-run chol→cth and chor→cth bigram enrichment analysis with corrected corpus parser (lstrip '<', P-type only). (2) Compute: how many chol→cth and chor→cth bigrams exist? (3) Compare to F156's values (chol→cth n=20, chor→cth n=12). If counts match, enrichment is confirmed real. (4) For each bigram, record positions of both words.
+**Expected outcome:** chol→cth and chor→cth bigrams are real (counts match F156), confirming the enrichment is a real syntactic relationship. The positional context (chol at MID) will be established from H310.
+**Cost estimate:** trivial
+**Prerequisites:** F162
 
 ---
 
