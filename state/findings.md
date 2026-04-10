@@ -13,6 +13,14 @@
 
 ---
 
+## F166: ychor=PURE LF-OPENER (6.24×, 13/13 TOKENS AT LF); ycheor=5.35×; y-WORDS OPEN 40% OF ALL LINES (BOTH A AND B); d-ONSET INTERNAL SPLIT: LL-CLOSERS (dam=3.98×, dy=3.02×, dal=1.95×) vs LF-OPENERS (dchol=3.74×, dchor=3.56×); daiin=NEAR-BASELINE AFTER CORPUS-ARTIFACT CORRECTION
+**Experiment:** exp_159_y_d_onset_profiles
+**Date:** 2026-04-10
+**Finding:** H317 CONFIRMED. ychor (n=13) appears at LF 13/13 times (6.24×) — the strongest single-word positional signal found in the corpus. ychor is a categorical line-opening formula word. ycheor (n=7) is nearly as strong (5.35×, 6/7 at LF). y-onset LF rate: A=40.1%, B=41.3% — ~40% of all lines in both dialects begin with a y-word. B y-onset is even more LF-enriched (3.48×) than A (2.46×). H318 CONFIRMED: d-onset has internal split: LL-closers (dam=3.98×, dy=3.02×, daiiin=2.77×, d=2.40×, dal=1.95×) vs LF-openers (dchol=3.74×, dchor=3.56×, dor=1.73×). CORPUS ARTIFACT: "daiin " (trailing space) appears as 21 LL-only tokens (6.24×) — these are daiin tokens with a trailing space character in IVTFF format; when corrected, daiin@LL = ~90/414=21.7% (1.36× — mildly LL-enriched, not near-baseline as previously estimated). daiin itself is a weak line-closer after correction.
+**Limitation:** ychor n=13, ycheor n=7 (small absolute counts but 100%/86% LF rate is definitive). d-word LF-opener patterns: dchor n=21, dchol n=10 (small-n but strong enrichment). Dam n=36 at LL=3.98× is better powered. The corpus artifact "daiin " (trailing space) adds 21 tokens to daiin LL count — all 21 should be treated as daiin.
+
+---
+
 ## F165: ot-WORDS HAVE 4-WAY INTERNAL POSITIONAL PARADIGM (otchor/otchol=LF 2.17-3.64×; oty=LL 2.08×; otol=MID 1.35×); y-ONSET IS STRONGEST A LINE-OPENER (LF=2.46×); d-ONSET IS LINE-CLOSER (LL=1.68×); cth NEVER OPENS LINES (LF=0.15×); CORRECTED 5-CONSTRUCTION GRAMMAR MODEL
 **Experiment:** exp_158_ot_positional_grammar_model
 **Date:** 2026-04-10

@@ -1,5 +1,5 @@
 # Working Model — Voynich Manuscript Cryptanalysis
-**Last updated:** 2026-04-10 (after exp_158)
+**Last updated:** 2026-04-10 (after exp_159)
 **Purpose:** Continuously-updated structured summary of current beliefs about Voynichese.
 **Discipline:** Characterization, not interpretation. Claims require experimental warrant.
 
@@ -245,6 +245,8 @@ These findings have been replicated across independent analyses or confirmed by 
 - dy→sh real within-line construction. HELD.
 - ot-words: internal 4-way positional paradigm (F165): otchor/otchol=LF 2.17-3.64×; oty=LL 2.08×; otol=MID 1.35×. Parallels cth paradigm.
 - CORRECTED ONSET PROFILES (A): y=LF 2.46× (strongest line-opener); d=LL 1.68× (strongest line-closer); cth=LF 0.15× (never opens lines); ch/ch_e=second 1.45-1.46×, LF 0.23-0.47×.
+- ychor=PURE LF-OPENER (6.24×, 13/13 at LF); ycheor=5.35×. y-words open 40% of all lines in A and B (F166).
+- d internal split: LL-closers (dam=3.98×, dy=3.02×) vs LF-openers (dchol=3.74×, dchor=3.56×). Corpus artifact: "daiin " with trailing space = 21 LL tokens → corrected daiin@LL=1.36×.
 
 **NO A-PARTICLE INTRODUCES sh/ch_e AT 3×+; sh=SELF-INTRODUCED (1.68×); ch_e=SELF-INTRODUCED (1.98×); cth-ENRICHED PARTICLE CLUSTER (daiin/chol/chor/cthol→cth AT 2.1-3.1×) DEPLETES sh/ch_e; aiin/ol→cth=0.00× BUT →ch_e=1.4-2.0× (F156, exp_149)**
 - sh before-context: self-succession=1.68×; d=0.77×, cth=0.64× (depleted). No particle >2.5×.
