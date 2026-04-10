@@ -1,0 +1,292 @@
+{
+  "am_ll_enrichment": {
+    "vms_a": 3.562,
+    "conditions": {
+      "italian_A": {
+        "mean": 1.0622,
+        "ci_lo": 0.7549,
+        "ci_hi": 1.3802,
+        "status": "ABOVE"
+      },
+      "italian_B": {
+        "mean": 0.9992,
+        "ci_lo": 0.8198,
+        "ci_hi": 1.2267,
+        "status": "ABOVE"
+      },
+      "latin_A": {
+        "mean": 0.6247,
+        "ci_lo": 0.3622,
+        "ci_hi": 0.9031,
+        "status": "ABOVE"
+      },
+      "latin_B": {
+        "mean": 1.0085,
+        "ci_lo": 0.816,
+        "ci_hi": 1.196,
+        "status": "ABOVE"
+      }
+    }
+  },
+  "y_lf_enrichment": {
+    "vms_a": 2.459,
+    "conditions": {
+      "italian_A": {
+        "mean": 0.7243,
+        "ci_lo": 0.5039,
+        "ci_hi": 0.8987,
+        "status": "ABOVE"
+      },
+      "italian_B": {
+        "mean": 1.0114,
+        "ci_lo": 0.8375,
+        "ci_hi": 1.1518,
+        "status": "ABOVE"
+      },
+      "latin_A": {
+        "mean": 1.1173,
+        "ci_lo": 0.7659,
+        "ci_hi": 1.6305,
+        "status": "ABOVE"
+      },
+      "latin_B": {
+        "mean": 1.0113,
+        "ci_lo": 0.8348,
+        "ci_hi": 1.2326,
+        "status": "ABOVE"
+      }
+    }
+  },
+  "d_ll_enrichment": {
+    "vms_a": 1.667,
+    "conditions": {
+      "italian_A": {
+        "mean": 0.8791,
+        "ci_lo": 0.7328,
+        "ci_hi": 1.0242,
+        "status": "ABOVE"
+      },
+      "italian_B": {
+        "mean": 0.9997,
+        "ci_lo": 0.8568,
+        "ci_hi": 1.143,
+        "status": "ABOVE"
+      },
+      "latin_A": {
+        "mean": 1.0633,
+        "ci_lo": 0.8666,
+        "ci_hi": 1.246,
+        "status": "ABOVE"
+      },
+      "latin_B": {
+        "mean": 0.9878,
+        "ci_lo": 0.874,
+        "ci_hi": 1.1108,
+        "status": "ABOVE"
+      }
+    }
+  },
+  "cth_lf_enrichment": {
+    "vms_a": 0.159,
+    "conditions": {
+      "italian_A": {
+        "mean": 0.9613,
+        "ci_lo": 0.5334,
+        "ci_hi": 1.4925,
+        "status": "BELOW"
+      },
+      "italian_B": {
+        "mean": 0.9955,
+        "ci_lo": 0.6342,
+        "ci_hi": 1.3782,
+        "status": "BELOW"
+      },
+      "latin_A": {
+        "mean": 0.332,
+        "ci_lo": 0.0,
+        "ci_hi": 0.8343,
+        "status": "inside"
+      },
+      "latin_B": {
+        "mean": 1.0235,
+        "ci_lo": 0.6003,
+        "ci_hi": 1.4347,
+        "status": "BELOW"
+      }
+    }
+  },
+  "ok_self_succ": {
+    "vms_a": 1.93,
+    "conditions": {
+      "italian_A": {
+        "mean": 0.8457,
+        "ci_lo": 0.6392,
+        "ci_hi": 1.0546,
+        "status": "ABOVE"
+      },
+      "italian_B": {
+        "mean": 0.8578,
+        "ci_lo": 0.6356,
+        "ci_hi": 1.1124,
+        "status": "ABOVE"
+      },
+      "latin_A": {
+        "mean": 0.958,
+        "ci_lo": 0.7545,
+        "ci_hi": 1.1579,
+        "status": "ABOVE"
+      },
+      "latin_B": {
+        "mean": 0.9636,
+        "ci_lo": 0.7684,
+        "ci_hi": 1.1427,
+        "status": "ABOVE"
+      }
+    }
+  },
+  "ch_self_succ": {
+    "vms_a": 1.427,
+    "conditions": {
+      "italian_A": {
+        "mean": 0.8131,
+        "ci_lo": 0.4848,
+        "ci_hi": 1.1984,
+        "status": "ABOVE"
+      },
+      "italian_B": {
+        "mean": 0.7931,
+        "ci_lo": 0.5445,
+        "ci_hi": 1.1129,
+        "status": "ABOVE"
+      },
+      "latin_A": {
+        "mean": 0.8882,
+        "ci_lo": 0.5809,
+        "ci_hi": 1.1051,
+        "status": "ABOVE"
+      },
+      "latin_B": {
+        "mean": 0.8669,
+        "ci_lo": 0.6177,
+        "ci_hi": 1.1681,
+        "status": "ABOVE"
+      }
+    }
+  },
+  "qok_self_succ": {
+    "vms_a": 1.623,
+    "conditions": {
+      "italian_A": {
+        "mean": 0.843,
+        "ci_lo": 0.7251,
+        "ci_hi": 0.9815,
+        "status": "ABOVE"
+      },
+      "italian_B": {
+        "mean": 0.8482,
+        "ci_lo": 0.7101,
+        "ci_hi": 1.0119,
+        "status": "ABOVE"
+      },
+      "latin_A": {
+        "mean": 0.8801,
+        "ci_lo": 0.7876,
+        "ci_hi": 0.9867,
+        "status": "ABOVE"
+      },
+      "latin_B": {
+        "mean": 0.8862,
+        "ci_lo": 0.7862,
+        "ci_hi": 0.9971,
+        "status": "ABOVE"
+      }
+    }
+  },
+  "daiin_cth_enrichment": {
+    "vms_a": 2.839,
+    "conditions": {
+      "italian_A": {
+        "mean": 0.4105,
+        "ci_lo": 0.0,
+        "ci_hi": 1.5548,
+        "status": "ABOVE"
+      },
+      "italian_B": {
+        "mean": 0.4226,
+        "ci_lo": 0.0,
+        "ci_hi": 1.6134,
+        "status": "ABOVE"
+      },
+      "latin_A": {
+        "mean": 0.1444,
+        "ci_lo": 0.0,
+        "ci_hi": 0.7288,
+        "status": "ABOVE"
+      },
+      "latin_B": {
+        "mean": 0.1408,
+        "ci_lo": 0.0,
+        "ci_hi": 0.7873,
+        "status": "ABOVE"
+      }
+    }
+  },
+  "edy_rate": {
+    "vms_a": 0.043,
+    "conditions": {
+      "italian_A": {
+        "mean": 0.1513,
+        "ci_lo": 0.148,
+        "ci_hi": 0.1552,
+        "status": "BELOW"
+      },
+      "italian_B": {
+        "mean": 0.1507,
+        "ci_lo": 0.1461,
+        "ci_hi": 0.1557,
+        "status": "BELOW"
+      },
+      "latin_A": {
+        "mean": 0.1508,
+        "ci_lo": 0.1468,
+        "ci_hi": 0.1552,
+        "status": "BELOW"
+      },
+      "latin_B": {
+        "mean": 0.1508,
+        "ci_lo": 0.1465,
+        "ci_hi": 0.1563,
+        "status": "BELOW"
+      }
+    }
+  },
+  "edy_ol_ratio": {
+    "vms_a": 0.65,
+    "conditions": {
+      "italian_A": {
+        "mean": 1.9651,
+        "ci_lo": 1.8804,
+        "ci_hi": 2.0568,
+        "status": "BELOW"
+      },
+      "italian_B": {
+        "mean": 1.9585,
+        "ci_lo": 1.8626,
+        "ci_hi": 2.0695,
+        "status": "BELOW"
+      },
+      "latin_A": {
+        "mean": 2.2815,
+        "ci_lo": 2.1587,
+        "ci_hi": 2.4104,
+        "status": "BELOW"
+      },
+      "latin_B": {
+        "mean": 2.286,
+        "ci_lo": 2.1457,
+        "ci_hi": 2.437,
+        "status": "BELOW"
+      }
+    }
+  }
+}
