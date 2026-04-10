@@ -1,5 +1,5 @@
 # Working Model — Voynich Manuscript Cryptanalysis
-**Last updated:** 2026-04-10 (after exp_163)
+**Last updated:** 2026-04-10 (after exp_164)
 **Purpose:** Continuously-updated structured summary of current beliefs about Voynichese.
 **Discipline:** Characterization, not interpretation. Claims require experimental warrant.
 
@@ -244,6 +244,7 @@ These findings have been replicated across independent analyses or confirmed by 
 - daiin→cth bigram real (3.08×). Corrected positional context (exp_157): daiin→cth from MID (70%), LF (18.6%). NEW: [daiin@LF][cth@second] = 6 cases. daiin→cthol always MID; daiin→cthy LL-biased (5/9); daiin→cthor: 3 at second, 3 at MID.
 - dy→sh real within-line construction. HELD.
 - ot-words: internal 4-way positional paradigm (F165): otchor/otchol=LF 2.17-3.64×; oty=LL 2.08×; otol=MID 1.35×. Parallels cth paradigm.
+- **d-ONSET IS THE ONLY MAJOR CLASS THAT DOES NOT SELF-CHAIN (d→d=1.08× IN BOTH A AND B) (F171, exp_164)**: d-words function as grammatical/boundary elements rather than content words that cluster. All other major classes self-chain at ≥1.4× in at least one dialect. ch_e→ch_e reversal: A=2.03×, B=0.96× — ch_e vocabulary differs structurally between dialects. B l→l=2.13× concentrated in bio section (127 cases vs 3 in A). NEW A-DIALECT BIGRAMS: t→ot=1.85×(n=16), ch→r=2.34×(n=15), k→cth=1.60×(n=18), s→ch_e=1.62×(n=32), y→k=1.65×(n=31). B-specific: ch→cth=2.75×(n=8) — rare B cth occurrences specifically preceded by ch.
 - **ONSET SELF-SUCCESSION IS SYSTEMATIC IN A-DIALECT (F170, exp_163)**: All onset classes except s/t/r show self-chaining enrichment. d-onset is the ONLY major class near-baseline (1.08×). Enrichment hierarchy: l>>>qot(2.22×)>ch_e(2.03×)>ok=ol(1.96×)>cth=ot(1.84-1.88×)>qok(1.80×)>ch(1.46×)>y(1.39×)>d(1.08×). NEW BIGRAMS: qo/qok→l=2.70-2.84×, ch_e↔r=2.55× (bidirectional). [ot][ot]=1.84× confirmed (F170).
 - **dam/dy ARE FREE TERMINAL PARTICLES — NO DOMINANT PRECURSOR (F169, exp_162)**: dam@LL (n=23) and dy@LL (n=30) precursors are diverse (d-onset=2.05-1.80×, y-onset=2.77× at penultimate — but no single word >3.23×). Unlike [daiin][cthy@LL] (fixed phrase), dam/dy are freely placed after diverse word classes. [cth][dam]=1 case; [cth][dy]=2 cases; [ot][dy]=1 case only.
 - **[ychor cthy [ch-word] ...] IS A SPECIFIC A-HERBAL 3-GRAM FORMULA (F169, exp_162)**: Both [ychor cthy@second] lines (f17, f45 A-herbal) have ch-onset at third position. f17: `ychor cthy che'eky cheo otor oteol` (ends with two consecutive ot-words). f45: `ychor cthy chol qokom sy...`. ychor appears in B-dialect (f86, f106) — not A-exclusive.

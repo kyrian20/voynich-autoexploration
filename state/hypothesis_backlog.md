@@ -3571,3 +3571,47 @@
 **Expected outcome:** Some overlap — possibly [cheol][ral][cheol] or [cheo][ar] type sequences. If they are the same pairs reversed, this suggests a specific ch_e-r couplet formula.
 **Cost estimate:** trivial
 **Prerequisites:** F170
+
+---
+
+## H334: t→ot=1.85× (n=16) — Which t-Words Precede ot-Words?
+**Priority:** medium
+**Status:** untested
+**Source:** F171: t→ot=1.85× (16 cases) from A-dialect full bigram matrix. t-onset words (tor, taiin, tol, tchey, etc.) specifically precede ot-words. New unexplored pattern.
+**Description:** Extract all 16 [t-word][ot-word] consecutive pairs. Tabulate specific word pairs. Which t-words drive this enrichment (taiin? tol? other)?
+**Expected outcome:** A few dominant t-words (possibly taiin or tor) precede ot-words. This may connect to the [otaiin→ot] stars-section pattern from B-dialect.
+**Cost estimate:** trivial
+**Prerequisites:** F171
+
+---
+
+## H335: k→cth=1.60× (n=18) — Which k-Words Precede cth-Words?
+**Priority:** high
+**Status:** untested
+**Source:** F171: k→cth=1.60× (18 cases). k-onset words before cth-words are enriched. This is NOT in the existing 5-construction cth-introduction grammar model (F165). What specific k-words and what cth-words follow?
+**Description:** Extract all 18 [k-word][cth-word] bigrams. Tabulate specific word pairs. Which k-words are involved (ky? kchol? kchy? kaiin?)? Does this represent a new 6th construction for cth introduction?
+**Expected outcome:** Moderate variety — k-words are not dominant cth-introducers but form a real minor construction.
+**Cost estimate:** trivial
+**Prerequisites:** F165, F171
+
+---
+
+## H336: ch→r=2.34× (n=15) — Which ch-Words Precede r-Onset?
+**Priority:** medium
+**Status:** untested
+**Source:** F171: ch→r=2.34× (15 cases). ch_e→r=2.55× (6 cases). Are these overlapping patterns? Which ch-words precede r?
+**Description:** Extract all 15 [ch-word][r-word] pairs. Is it predominantly chol→r, chor→r, or ch_e words? What r-words follow? Compare with the 6 ch_e→r pairs from H333/F171.
+**Expected outcome:** The 15 ch→r pairs include both ch (non-e) and ch_e forms. ch_e→r is a subset of the broader ch→r pattern.
+**Cost estimate:** trivial
+**Prerequisites:** F171
+
+---
+
+## H337: B-Dialect ch→cth=2.75× (n=8) — What Are These 8 B ch→cth Bigrams?
+**Priority:** high
+**Status:** untested
+**Source:** F171: B-dialect ch→cth=2.75× (8 cases). B has very few cth occurrences (15× less than A from F035). When cth appears in B, it's specifically preceded by ch-onset. What sections are these 8 B-dialect ch→cth bigrams from?
+**Description:** Extract all B-dialect lines containing cth-words. Find the 8 ch→cth bigrams. Tabulate: which ch-words, which cth-words, which folio/section. Are these from B-herbal (where some A-herbal-like vocabulary appears) or from other B sections?
+**Expected outcome:** 8 B ch→cth bigrams concentrated in B-herbal folios where A-dialect vocabulary occasionally appears (dialect mixing zone). cth-words in B are likely cthor/cthol imports from A-herbal.
+**Cost estimate:** small
+**Prerequisites:** F171, F035

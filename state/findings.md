@@ -5,6 +5,14 @@
 
 ---
 
+## F171: d→d=1.08× IN BOTH A AND B (ONLY MAJOR CLASS NOT SELF-CHAINING); ch_e→ch_e REVERSAL (A=2.03× vs B=0.96×); l→l IN B=127 CASES (2.13×, BIO-CONCENTRATED); t→ot=1.85×, ch→r=2.34×, k→cth=1.60×, s→ch_e=1.62× ARE NEW A-DIALECT BIGRAM ENRICHMENTS; B ch→cth=2.75× (n=8)
+**Experiment:** exp_164_self_succession_details
+**Date:** 2026-04-10
+**Finding:** H330 CONFIRMED: qot→qot (n=15) is diverse — all 15 pairs unique; qotchy is the dominant first word. qot/qok→l pairs are spread across late A-herbal and A-pharma. H331 CONFIRMED: ok→ok (n=54) is diverse; top pairs okey→okeey×2, okeol→okeol×2, okey→okey×2 — no fixed formula. H332 CONFIRMED: 3 A-dialect l→l cases all in f35/f89 (late A-herbal/pharma, B-contamination zone). B-dialect l→l=127 cases=2.13× (concentrated in bio section). H333 CONFIRMED: ch_e↔r is ASYMMETRIC — `r` (bare) specifically precedes ch_e-words (r→ch_e=2.55×); ch_e-words before diverse r-forms (ch_e→r=2.55×). Different word pairs in each direction. MAJOR FINDING: d→d=1.08× in BOTH A AND B — d is the ONLY major onset class that does not self-chain in either dialect, consistent with d-words as grammatical/boundary elements. ch_e→ch_e reversal: A=2.03× (self-chains), B=0.96× (baseline) — ch_e vocabulary differs structurally between dialects. NEW A-DIALECT BIGRAM ENRICHMENTS from full matrix survey: t→ot=1.85×(n=16), ch→r=2.34×(n=15), k→cth=1.60×(n=18), s→ch_e=1.62×(n=32), y→k=1.65×(n=31), ok→ch_e=1.55×(n=40), sh→qot=1.58×(n=35). B-specific: ch→cth=2.75×(n=8, rare B cth preceded by ch), sh→qok=2.16×(n=423).
+**Limitation:** l→l in A-dialect includes corpus notation artifacts (compound tokens in f35). qot→qot n=15 (adequate for diversity claim). ok→ok n=54 (well-powered). New bigram enrichments (t→ot, k→cth, ch→r) from n=15-21 (moderate; directional). d→d=1.08× from 203 observed (well-powered). ch_e→ch_e A vs B reversal: A n=49, B n=140 (adequate).
+
+---
+
 ## F170: [ot][ot]=1.84× (n=26); ONSET SELF-SUCCESSION IS SYSTEMATIC (all classes except s/t/r; d=1.08×=only major baseline; l→l=10.21× from n=3); qot→qot=2.22×, ch_e→ch_e=2.03×, ok→ok=1.96×; NEW BIGRAMS: qo/qok→l=2.70-2.84×, ch_e↔r=2.55×; [daiin][dam]=4.31× IMMEDIATE BIGRAM (4/23 dam lines)
 **Experiment:** exp_163_ot_ot_bigram_dchor_cthor
 **Date:** 2026-04-10
