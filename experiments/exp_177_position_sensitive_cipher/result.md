@@ -17,6 +17,16 @@ Three EVA substitution tables, one per line position:
 
 Calibration probability applies to the position-matched morphological feature only. Non-matching words get uniform random EVA words at all positions.
 
+### CALIBRATION HANDLING: TARGET-AWARE (IMPORTANT LIMITATION)
+
+**The LL table is explicitly target-aware.** It maps ALL Latin clause-final morphemes (-um, -us, -em, -is, -ae, -orum, -bus, -unt, -it, -ant, -at, and -am itself) to EVA **-am specifically** — not to a corresponding EVA suffix class. The code comment explicitly labels -am as "the target LL suffix." The LL onset weights (`d: 0.40, ok: 0.15, qok: 0.15, ch: 0.10`) were also calibrated to match the VMS LL onset distribution rather than derived from Latin morphology.
+
+**The LF table is partially target-aware.** Latin conjunctions (qu-, no, et, at) were mapped to y-onset knowing that y-onset is the VMS LF enrichment target.
+
+**Consequence**: The exp_177 result demonstrates that a position-sensitive cipher with a deliberately designed LL table (all clause-final morphemes → -am) produces -am LL enrichment of 5.756×. It does NOT demonstrate that a natural language under any position-sensitive cipher would produce this result. A non-target-aware cipher applying Latin clause-final morphemes to their corresponding EVA suffix classes (e.g., Latin -um → EVA -om, Latin -us → EVA -os) would produce -am LL enrichment only from the fraction of Latin clause-final words ending in Latin -am, yielding substantially lower enrichment.
+
+**What the result does establish**: That the VMS -am LL enrichment (6.811×) is within striking distance (5.756× at strong calibration) of what a maximally-calibrated position-sensitive cipher can produce. The mechanism class is not impossible. But the specific calibration required (map all clause-final morphemes to -am regardless of which morpheme) presupposes knowledge of the target, which would only be valid if the VMS plaintext language has a single dominant clause-final suffix that maps to -am — a strong claim not demonstrated here.
+
 ---
 
 ## RESULTS

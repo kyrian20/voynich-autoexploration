@@ -147,11 +147,13 @@ Polyalphabetic cipher with separate LF/MID/LL encoding tables. Latin source (Cic
 
 † indicates cipher overproduces (d LL at strong) or underproduces (d LL at weak) relative to VMS CI.
 
-**Key finding**: Position-sensitive encoding is a necessary condition for producing the VMS positional grammar pattern. The jump from position-blind (~1×) to position-sensitive (3.1-5.8×) is the largest single explanatory step. The residual gap to VMS (5.756 vs 6.811 at strong calibration) suggests either the plaintext has higher morphological regularity than Cicero's Latin, or additional mechanisms contribute.
+**Calibration note — target-aware design (important limitation)**: The LL table was explicitly target-aware: ALL Latin clause-final morphemes (-um, -us, -em, -is, -ae, -orum, -bus, etc.) were mapped to EVA -am specifically, not to corresponding EVA suffix classes. The code comment labels -am as "the target LL suffix." The LL onset weights were similarly calibrated to VMS LL onset distributions. The LF y-onset mapping was also designed knowing y-onset is the VMS LF target. This means exp_177 demonstrates that a maximally-calibrated position-sensitive cipher can approach -am LL enrichment of 5.756×; it does NOT demonstrate that a naive position-sensitive cipher applied to Latin would do so.
+
+**Key finding**: Position-sensitive encoding is a necessary condition for producing the VMS positional grammar pattern. The jump from position-blind (~1×) to position-sensitive (3.1-5.8×) is the largest single explanatory step even with target-aware calibration — removing position-sensitivity entirely collapses the metric to ~1× regardless of calibration.
 
 **Self-succession not reproduced**: All calibrations produce ss_mean ≈ 1.00 (VMS: 1.465). Substitution alone cannot produce word-class sequential memory — self-succession requires either a copy mechanism or genuine sequential structure in the plaintext.
 
-**Implication for theory discrimination**: Position-sensitive ciphers are NOT ruled out by the positional grammar evidence alone. They partially reproduce the key metrics. However: (a) no published position-sensitive cipher has been proposed for VMS, (b) even at strong calibration the cipher falls short of VMS -am LL, and (c) the cipher completely fails on self-succession.
+**Implication for theory discrimination**: Position-sensitive ciphers with appropriate target mapping can approach but not reach VMS -am LL levels. They remain an unruled-out hypothesis class, but any viable position-sensitive cipher must explain both the positional grammar AND the self-succession — two independent constraints the tested mechanism cannot jointly satisfy.
 
 ---
 
@@ -235,7 +237,15 @@ After controlling for line position, onset-class effects persist. Rules out posi
 
 ### Structured grammar hypothesis: SURVIVING BY ELIMINATION
 
-**Formal status**: This is the positive hypothesis that survives after the three null hypotheses are unable to account for the core positional and sequential structure findings. The term "best supported" is appropriate with the caveat that this verdict rests on elimination of tested alternatives, not on direct confirmation of a specific generative grammar. Several untested hypothesis subclasses remain (see Limitations).
+**Formal status**: This is the positive hypothesis that survives after the three null hypotheses are unable to account for the core positional and sequential structure findings. The verdict rests on elimination of tested alternatives, not on direct confirmation of a specific generative grammar.
+
+**The two remaining indistinguishable hypotheses**: After Phase 3, the evidence is consistent with two distinct explanatory frameworks that cannot currently be distinguished:
+
+1. **(a) Intrinsic structured grammar**: Voynichese has genuine grammatical rules assigning specific onset/suffix classes to specific line positions and specifying sequential word-class preferences. The writing system encodes these rules regardless of whether it represents natural language.
+
+2. **(b) Position-sensitive cipher with sequential structuring**: A cipher that uses separate encoding tables for LF/MID/LL positions AND some additional mechanism (copy buffer, plaintext sequential structure, or other source of word-class clustering) that produces the observed self-succession (1.2-1.8×). No tested implementation jointly satisfies both constraints, but no formal impossibility result rules out such a mechanism.
+
+These two frameworks are currently indistinguishable because a position-sensitive cipher that produces intrinsic positional grammar AND self-succession would be functionally equivalent to a grammar: it would need to know (a) which EVA class belongs at each position and (b) which EVA class preferentially follows which — which is the definition of a positional grammar. The distinction matters for origin questions (was the grammar designed, or did it arise from cipher mechanics?) but not for the structural characterization.
 
 **What the evidence establishes**:
 1. **Onset-class positional grammar**: y/s/t-onset words prefer LF (2-4×); -am words strongly prefer LL (6.8×); d-onset words mildly prefer LL (1.5×); cth-onset words strongly avoid LF (0.15×). Bonferroni-corrected, cross-validated, not reproduced by position-blind mechanisms.
