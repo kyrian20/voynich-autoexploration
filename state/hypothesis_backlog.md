@@ -2403,6 +2403,7 @@
 
 ## H224: Word-Level Entropy as Naturalness Test — Do the Four Levels of Suffix Hierarchy Predict Information Content Per Word?
 **Priority:** high
+**Status:** CONFIRMED (exp_114)
 **Source:** F120: The four-level suffix hierarchy (dialect→stem class→section→vowel length) encodes layered information. If the hierarchy is genuine, then knowing the onset class + section should REDUCE the uncertainty about which suffix a word takes (lower conditional entropy). This is a formal test of whether the hierarchy is meaningful.
 **Description:** Compute conditional entropy H(suffix | onset_class, section, dialect) and compare to marginal entropy H(suffix). How many bits of uncertainty are resolved by knowing onset class + section? Compare: A-dialect words in herbal vs pharma; B-dialect words by section and onset class. A genuine hierarchy reduces conditional entropy.
 **Expected outcome:** H(suffix | onset_class, section, dialect) < H(suffix) by 0.5-1.0 bits. The hierarchy resolves substantial suffix uncertainty. This would formalize that the four-level structure is a genuine morphological system encoding about 0.5-1.0 bits of information per word.

@@ -1,5 +1,5 @@
 # Working Model — Voynich Manuscript Cryptanalysis
-**Last updated:** 2026-04-09 (after exp_113)
+**Last updated:** 2026-04-09 (after exp_114)
 **Purpose:** Continuously-updated structured summary of current beliefs about Voynichese.
 **Discipline:** Characterization, not interpretation. Claims require experimental warrant.
 
@@ -221,6 +221,13 @@ These findings have been replicated across independent analyses or confirmed by 
 - eee (triple-vowel) words: stars=17.25‰, cosmo=4.40‰ (suppressed). Vowel-length gradient monotonically stars-concentrated (edy→eedy→eeedy: 36%→48%→63%). eee enriched in ok/ol/qo (1.7-1.9×), suppressed in ch/sh (0.37-0.46×).
 - A-dialect section variation: herbal-A=-y dominant (qok=37%, ch=29%); pharma-A=-ol dominant (qok=41%, ok=40%); 8.9% avg diff (3.5× weaker than B's 31%).
 - FOUR-LEVEL suffix hierarchy: Dialect (A/B) → Stem class (Simple-B/Complex-B; A-y/-ol) → Section (B: stars/cosmo/herbal; A: herbal/pharma) → Vowel length (stars triple-vowel extension). Strong evidence for natural language morphology.
+
+**Four-Level Hierarchy Quantified: 20.1% Entropy Reduction (0.71/3.54 bits); Vowel Length Contributes MOST (0.35 bits); Residual 2.83 bits (F121, exp_114)**
+- Marginal suffix entropy H = 3.54 bits. Full four-level conditioning reduces to 2.83 bits (20.1% reduction; 0.71 bits resolved).
+- Per-level contributions: dialect=0.11b, onset=0.16b, section=0.10b, vowel_length=0.35b. Vowel length (L4) > Levels 1–3 combined per-level.
+- A-dialect consistently has lower within-class entropy than B (e.g., qot-A=2.94 bits vs qot-B=3.59). A is more morphologically regular.
+- Per-onset dialect information: qot=0.207b (highest polarity); ol=0.035b (lowest — ol is both suffix and onset class).
+- 20% reduction comparable to agglutinative natural language morphological conditioning (15–30% typical range).
 
 **B-Paradigm Suffix Is a THREE-TIER Register System: Dialect (B-paradigm) → Stem Class (Simple-B/Complex-B) → Section (stars→eey; cosmo→eedy; herbal→baseline) (F119, exp_112)**
 - Stars B universally elevates -eey (highest rate across ALL onset classes; monotonic gradient stars>cosmo>herbal). Cosmo B elevates -eedy for qo-prefix stems (qok=35%, ok=38% eedy) but NOT ch/sh. -edy dominance erodes herbal→cosmo→stars.

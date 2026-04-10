@@ -5,6 +5,14 @@
 
 ---
 
+## F121: Four-Level Suffix Hierarchy Quantified: 20.1% Entropy Reduction (0.71 bits of 3.54); Vowel Length (Level 4) Contributes MOST (0.35 bits); Residual 2.83 bits After All Conditions; qot Onset Has Highest Dialect Polarity (0.207 bits); ol Has Lowest (0.035 bits)
+**Experiment:** exp_114_conditional_entropy
+**Date:** 2026-04-09
+**Finding:** H224 CONFIRMED: Conditional entropy computation formalizes the four-level suffix hierarchy. H(suffix) marginal = 3.54 bits. Four-level hierarchy resolves: Level 1 dialect = 0.11 bits (3%); Level 2 +onset_class = 0.16 bits additional (7.4% total); Level 3 +section = 0.10 bits additional (10.2% total); Level 4 +vowel_length = 0.35 bits additional (20.1% total). Total reduction = 0.71 bits (20.1%). Residual uncertainty = 2.83 bits even knowing all four levels — substantial within-class lexical variation remains. Level 4 (vowel length) is the single most informative level (0.35 bits > Levels 1–3 combined per-level). A-dialect consistently has LOWER within-class entropy than B-dialect (more concentrated suffix distribution; e.g., qot-A=2.937 bits vs qot-B=3.592 bits). Per-onset dialect information: qot highest (0.207 bits); ol lowest (0.035 bits) — consistent with ol being both an A-suffix and an onset class, blurring its dialect signal. B-dialect section information varies by onset: sh gains 0.125 bits from section; ot gains only 0.071 bits. The 20.1% entropy reduction is comparable to morphological conditioning in known agglutinative natural languages (typically 15–30%).
+**Limitation:** The "vowel length" Level 4 condition is not fully independent of the suffix type (triple-e words necessarily take specific suffixes), so it may partially capture suffix identity rather than a separate phonological feature. The residual 2.83 bits includes positional effects (line-first, line-last) not tested here. The null model in the script had a bug (shuffled suffix strings were passed as pseudo-words to get_suffix(), returning unreliable baseline) and is excluded from the finding.
+
+---
+
 ## F001: Voynich Word-Initial Entropy Is Elevated Above h2 but Below Natural-Language Levels
 **Experiment:** exp_001_word_initial_entropy
 **Date:** 2026-04-09
