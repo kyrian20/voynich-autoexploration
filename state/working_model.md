@@ -1,5 +1,5 @@
 # Working Model — Voynich Manuscript Cryptanalysis
-**Last updated:** 2026-04-10 (after exp_160)
+**Last updated:** 2026-04-10 (after exp_161)
 **Purpose:** Continuously-updated structured summary of current beliefs about Voynichese.
 **Discipline:** Characterization, not interpretation. Claims require experimental warrant.
 
@@ -244,6 +244,7 @@ These findings have been replicated across independent analyses or confirmed by 
 - daiin→cth bigram real (3.08×). Corrected positional context (exp_157): daiin→cth from MID (70%), LF (18.6%). NEW: [daiin@LF][cth@second] = 6 cases. daiin→cthol always MID; daiin→cthy LL-biased (5/9); daiin→cthor: 3 at second, 3 at MID.
 - dy→sh real within-line construction. HELD.
 - ot-words: internal 4-way positional paradigm (F165): otchor/otchol=LF 2.17-3.64×; oty=LL 2.08×; otol=MID 1.35×. Parallels cth paradigm.
+- **[cthor→ot-word]=5.57× BIGRAM ENRICHMENT (F168, exp_161)**: cthor is specifically followed by ot-words (7/31=22.6%, 5.57×). This is the strongest cth→onset bigram enrichment found. oty NEVER precedes cth (0.00×) — directional asymmetry: [cthor→oty] allowed, [oty→cth] forbidden. otchol/otaiin/otchor→cth: 2.21-2.52× (LF-ot-words introduce cth at moderate enrichment). Line-level ot+cth co-occurrence = 0.98× (near-baseline) — relationship is BIGRAM-level, not LINE-level. Both ot and cth have parallel 4-way positional paradigms integrated by the [cthor→ot-word] construction.
 - CORRECTED ONSET PROFILES (A): y=LF 2.46× (strongest line-opener); d=LL 1.68× (strongest line-closer); cth=LF 0.15× (never opens lines); ch/ch_e=second 1.45-1.46×, LF 0.23-0.47×.
 - ychor=PURE LF-OPENER (6.24×, 13/13 at LF); ycheor=5.35×. y-words open 40% of all lines in A and B (F166). ychor→cthy@second=3.62× ([ychor][cthy] 2× formula); ycheor→chor/chol (2.40×).
 - d internal split: LL-closers (dam=3.98×, dy=3.02×) vs LF-openers (dchol=3.74×, dchor=3.56×). Corpus artifact: "daiin " trailing space = 21 LL tokens → corrected daiin@LL=1.36×.

@@ -5,6 +5,14 @@
 
 ---
 
+## F168: [cthor][ot-word]=5.57× BIGRAM ENRICHMENT; oty NEVER PRECEDES cth (0.00×); ot-cth RELATIONSHIP IS BIGRAM-LEVEL NOT LINE-LEVEL (CO-OCCURRENCE=0.98×); cthom→ot=8.22× (n=3)
+**Experiment:** exp_161_ot_cth_grammatical_parallelism
+**Date:** 2026-04-10
+**Finding:** H319 CONFIRMED WITH SURPRISE. cthor→ot-word: 7/31=22.6%, enrichment=5.57× (strongest cth→onset bigram enrichment found). Top ot-successors of cthor: otol (2), oty (2), otydy (1), otam (1), otal (1). 5 bigrams from cthor@MID, 2 from cthor@second. cthom→ot: 1/3=33.3%, 8.22× (tiny-n). cthy→ot: 5/62=8.1%, 1.99× (moderate). cthol→ot: 2/44=4.5%, 1.12× (baseline). SURPRISE: oty NEVER precedes cth (0/21=0.00×). oty is a categorical LL-terminal word (2.08× from F165) that does not introduce cth-words. The asymmetry is directional: [cthor→oty] is allowed (2 cases); [oty→cth] is forbidden. Reverse (ot→cth): LF-enriched ot-words (otchol=2.30×, otaiin=2.52×, otchor=2.21×) show moderate cth-introduction enrichment. otol→cth: ~1.20× (baseline). Line-level co-occurrence of cth and ot in same line = 20.6% vs 21.0% expected (0.98× — near-baseline). The ot-cth structural relationship operates at IMMEDIATE BIGRAM level, not line level. Both ot and cth have 4-way internal positional paradigms (F165, F161), and the [cthor→ot-word] construction integrates them: cthor (second-enriched) hands off to ot-words filling MID or LL slots.
+**Limitation:** cthor→ot n=7 (small absolute, but 5.57× enrichment is large). cthom→ot n=1 bigram (8.22× from n=3 is unreliable). oty→cth=0/21 is categorical but 21 observations. The line-level co-occurrence n=adequate (A-dialect full corpus). Structural interpretation (cth-ot grammatical integration) is inference from bigram patterns, not directly observed grammatical categories.
+
+---
+
 ## F160: [daiin][cthy] IS A SPECIFIC TWO-WORD FIXED PHRASE (daiin=3.57× ENRICHED PENULTIMATE BEFORE cthy@LL; 0.00× BEFORE cthol@LL, cthor@LL, cthody@LL, cthain@LL); H303 SECTION BUG PERSISTS (root cause unclear)
 **Experiment:** exp_153_cthor_section_daiin_cthy
 **Date:** 2026-04-10

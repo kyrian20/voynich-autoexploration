@@ -3362,3 +3362,135 @@
 **Expected outcome:** A small set (~5-10) of universal words are true connectors (appear at any position). The majority are either openers (y-initial words, saiin) or closers (dy, dal) or pure medials (chey, cheey, aiin). Connectors would represent the most grammatically versatile function words.
 **Cost estimate:** trivial
 **Prerequisites:** F143
+
+---
+
+## H315: What Is the Full Sentence Context of [daiin@LF][cthor@second] Lines?
+**Priority:** high
+**Status:** CONFIRMED (exp_158) — 3 lines, all short (n=3-5 words), third word is chol or daiin. [daiin cthor chol chor] appears 2 times as formula. Lines have formula-like structure.
+**Source:** F164: daiin@LF → cthor@second appears in 3 cases. Full-line contexts needed to confirm.
+**Description:** Extract all 3 [daiin@LF][cthor@second] lines and tabulate third, fourth, fifth words.
+**Expected outcome:** Specific formula structure; consistent pattern at third/fourth position.
+**Cost estimate:** trivial
+**Prerequisites:** F164
+
+---
+
+## H316: Corrected Onset Class Positional Profiles (Grammar Model)
+**Priority:** high
+**Status:** ESTABLISHED (exp_158) — y=LF 2.46× (strongest opener), d=LL 1.68×, cth=LF 0.15× (never opens lines), ch=second 1.45×, ch_e=second 1.46×. 5-construction grammar model for cth introduction. (F165)
+**Source:** exp_155-158 corrected all prior inline slot-swapping bugs.
+**Description:** Establish corrected onset class profiles from corrected slot function.
+**Expected outcome:** Corrected values for all onset classes.
+**Cost estimate:** small
+**Prerequisites:** F161, F162, F163, F164
+
+---
+
+## H317: y-Onset Line-Opener Specificity — Which y-Words Drive the LF Enrichment?
+**Priority:** high
+**Status:** CONFIRMED (exp_159) — ychor=PURE LF-OPENER (13/13=6.24×); ycheor=5.35×; y-words open 40% of all lines in both A and B. B y-onset even more LF-enriched (3.48× vs A=2.46×). (F166)
+**Source:** F165: y-onset LF=2.46× (strongest onset-class opener in A). What individual y-words drive this? Are all y-words LF-enriched or only a few?
+**Description:** Extract top y-words by frequency and compute their individual LF/LL enrichment profiles.
+**Expected outcome:** A few y-words (ychor, ycheor) are extreme LF-enriched; others (ytaiin, yty) are LL-enriched.
+**Cost estimate:** small
+**Prerequisites:** F165
+
+---
+
+## H318: d-Onset LL Drivers — Which d-Words Are Line-Closers?
+**Priority:** high
+**Status:** CONFIRMED (exp_159) — d internal split: LL-closers (dam=3.98×, dy=3.02×, daiiin=2.77×, dal=1.95×) vs LF-openers (dchol=3.74×, dchor=3.56×, dor=1.73×). daiin=near-baseline after corpus-artifact correction. (F166)
+**Source:** F165: d-onset overall LL=1.68×. Which specific d-words drive LL? Is daiin itself a LL-closer?
+**Description:** Compute positional profiles for top d-words (dam, dy, dal, dar, daiin, dchor, dchol).
+**Expected outcome:** d has internal split between LL-closers and LF-openers.
+**Cost estimate:** small
+**Prerequisites:** F165
+
+---
+
+## H319: ot-cth Grammatical Parallelism — Does [cthor@second][ot-word] Appear at Bigram Level?
+**Priority:** high
+**Status:** CONFIRMED WITH SURPRISE (exp_161) — cthor→ot=5.57× (7/31 cthor bigrams); oty→cth=0.00× (oty never precedes cth); line-level co-occurrence=baseline (0.98×). Bigram-level not line-level relationship. (F168)
+**Source:** F165: ot and cth have parallel 4-way positional paradigms. Do they co-occur specifically at bigram level?
+**Description:** Compute cthor→ot enrichment; reverse ot→cth enrichment; line-level ot+cth co-occurrence.
+**Expected outcome:** cthor followed by ot-word at moderate enrichment; line co-occurrence near-baseline.
+**Cost estimate:** small
+**Prerequisites:** F165
+
+---
+
+## H320: What Follows ychor@LF and ycheor@LF at Second Position?
+**Priority:** high
+**Status:** CONFIRMED (exp_160) — ychor@LF → cth@second=3.62×; [ychor][cthy@second]=2 cases. ycheor@LF → ch@second dominates (chor/chol, 2.40×). (F167)
+**Source:** F166: ychor and ycheor are pure LF-openers. What is the second-position word?
+**Description:** Extract all ychor@LF and ycheor@LF lines; tabulate second-position onset class and specific words.
+**Expected outcome:** Specific formula words at second position after ychor/ycheor.
+**Cost estimate:** small
+**Prerequisites:** F166
+
+---
+
+## H321: What Precedes dam@LL and dy@LL? Is [X][dam@LL] a Specific Bigram Construction?
+**Priority:** high
+**Status:** untested
+**Source:** F166: dam=3.98× LL-closer, dy=3.02× LL-closer in A. What precedes these terminal words? Is there a [cth-word][dam@LL] or [ot-word][dy@LL] construction?
+**Description:** Extract all lines ending in dam@LL (n=23) and dy@LL (n=30). Tabulate penultimate words and onset classes. Compute enrichment of specific penultimate onset classes vs baseline.
+**Expected outcome:** dam/dy are preceded by specific onset classes (possibly cth-words or ot-words), revealing a terminal construction [X][dam/dy@LL].
+**Cost estimate:** small
+**Prerequisites:** F166
+
+---
+
+## H322: Grammar of y-Opened Lines — Second-Position and LL Patterns After y@LF
+**Priority:** high
+**Status:** CONFIRMED (exp_160) — y-opened lines near-baseline at second (y-self=1.69×). ch depleted at LL (0.59×). ot/y mildly enriched at LL (1.49-1.50×). d@LF→cth@second=1.86× vs y@LF=1.02×. (F167)
+**Source:** F166: y-words open 40% of all lines. What is the grammar of these lines?
+**Description:** For all y-opened lines (n=254), compute second-position onset class distribution and LL onset class distribution. Compare to baseline.
+**Expected outcome:** Some systematic enrichment at second or LL position after y@LF.
+**Cost estimate:** small
+**Prerequisites:** F166
+
+---
+
+## H323: The [ychor][cthy@second] Construction — Full Context and Folio Cluster
+**Priority:** high
+**Status:** untested
+**Source:** F167: [ychor][cthy@second]=2 cases. cthy normally LL-enriched (1.63×), but after ychor appears at second=atypical. What follows cthy in these lines? Specific section/folio?
+**Description:** Extract full text of all 13 ychor lines. Identify the 2 [ychor cthy...] lines. Tabulate words at positions 2, 3, 4 (third, fourth, fifth). Check folio numbers — are they in same section? Compare third-position word to the typical [ychor][other-word@second] lines.
+**Expected outcome:** The [ychor cthy ...] lines have a distinctive third-word or folio cluster (e.g., both in same folio range of herbal section).
+**Cost estimate:** trivial
+**Prerequisites:** F167
+
+---
+
+## H324: Decompose d@LF→cth@second: How Much Is Driven by daiin@LF vs Other d-LF Words?
+**Priority:** medium
+**Status:** untested
+**Source:** F167: d@LF→cth@second=1.86× (21/266=7.9%). F164: daiin@LF→cth@second=6 cases. How much of the 21 cases are daiin@LF specifically?
+**Description:** Among 266 d@LF lines, identify which d-word opened the line. Tabulate LF-word × second-onset. Focus: daiin@LF→cth@second (n=?), dchor@LF→cth@second (n=?), dchol@LF→cth@second (n=?).
+**Expected outcome:** Most d@LF→cth@second cases are daiin@LF (6/21=29%); dchor/dchol may contribute a few.
+**Cost estimate:** small
+**Prerequisites:** F165, F166, F167
+
+---
+
+## H325: Are [cthor→ot-word] Bigrams Concentrated in Specific Herbal Folio Clusters?
+**Priority:** medium
+**Status:** untested
+**Source:** F168: cthor→ot=5.57× (7 bigrams). cthor is 97% herbal (F161). Are these 7 bigrams spread through herbal or clustered in specific folios?
+**Description:** Extract folio locations of all 7 cthor→ot bigram occurrences. Check distribution across A-herbal folios. Compute whether they cluster (same folio ≥2) or are spread (1 per folio).
+**Expected outcome:** The 7 bigrams are spread across herbal section (1-2 per folio cluster), consistent with a grammatical construction rather than a specific copied formula.
+**Cost estimate:** trivial
+**Prerequisites:** F168, F161
+
+---
+
+## H326: Does the Ordering Constraint [cth before ot-terminal] Generalize? Is [oty@LL][cth-word] Ever Observed?
+**Priority:** medium
+**Status:** untested
+**Source:** F168: cthor→oty appears (cth before ot-terminal allowed). oty→cth = 0.00× (ot-terminal never followed by cth). Is this asymmetry categorical?
+**Description:** Search for all cases where an ot-terminal word (oty, otal, otam) is followed by any cth-word in the same line. Count instances. Compare to cthor/cthol→oty direction.
+**Expected outcome:** [oty@LL][cth] = 0 cases (categorical absence), confirming one-directional ordering constraint.
+**Cost estimate:** trivial
+**Prerequisites:** F168
