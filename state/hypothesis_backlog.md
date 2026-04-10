@@ -2731,6 +2731,7 @@
 
 ## H256: p and r Form a Complementary LINE-BRACKET Pair — Do B-Dialect Lines Template as [p-word][content][r-word]?
 **Priority:** high
+**Status:** NOT CONFIRMED (exp_129) — p+r co-occurrence=1.29× (13 observed/10.1 expected); p and r are independent positional markers, not a mandatory line-bracket pair; B-lines p-start=12%, r-end=3.5%, both=0.5% (near independence); p and r are each enriched at their individual positions but do not preferentially co-occur (F136)
 **Source:** F135: p-prefix is a B-dialect line-opener (71.1% line-start) and r-prefix is a B-dialect line-closer (28.7% line-end). These form a positional complementary pair. Do they co-occur in the same lines? Is there a B-dialect line template [p-word][...content...][r-word]?
 **Description:** (1) What fraction of B-dialect lines contain both a p-initial word (at start) AND an r-initial word (at end)? (2) What section shows highest p+r co-occurrence? (3) Compute enrichment: P(r-word at end | p-word at start) vs P(r-word at end | no p-word at start). (4) What are the most common p+r line combinations? (5) Is there a characteristic line length for lines with both p and r?
 **Expected outcome:** B-dialect stars/cosmo lines frequently have p-word at start and r-word at end. The enrichment would confirm p and r as grammatical line-bracket markers. This would be the most complete structural template yet: [p-opener][content phrase][r-closer] = B-dialect line template.
@@ -2741,6 +2742,7 @@
 
 ## H257: r-Prefix on Particles — Are raiin vs aiin in Different Syntactic Contexts?
 **Priority:** medium
+**Status:** CONFIRMED PARTIAL (exp_129) — raiin=B-stars/cosmo medial particle (63.9% stars, 93.4% B); pre-raiin s=3.25× (topic openers), ch=1.68×, NOT other (0.13×); post-raiin ot=2.36×, sh=1.81×; raiin≠daiin (no post-raiin cth enrichment); raiin pattern: [s-opener][content][raiin][ot/sh]; r-prefix creates B-stars specific particle forms (F136)
 **Source:** F135: r-prefix creates "prefixed particle" forms (raiin=61, rain=21, rar=17, ral=15, ror=14, ram=11). If r-prefix is morphologically meaningful, raiin should appear in different syntactic contexts than aiin. What precedes raiin vs aiin? What follows raiin vs aiin?
 **Description:** For raiin and aiin: (1) compute onset class of preceding word; (2) compute onset class of following word; (3) suffix distribution of raiin vs aiin; (4) section distribution (raiin=64% stars, aiin=?); (5) line-position distribution. Is raiin a B-stars determiner parallel to daiin in A-herbal?
 **Expected outcome:** raiin appears in B-stars context where aiin appears in A-herbal context — they are dialectal/section counterparts (daiin=A-determiner, raiin=B-stars particle). Pre-raiin and pre-aiin should show different onset class enrichments.

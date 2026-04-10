@@ -5,6 +5,14 @@
 
 ---
 
+## F136: p+r Co-occurrence = 1.29× (NOT Mandatory Line-Bracket); raiin = B-Stars Medial Particle (pre-raiin s=3.25×, post-raiin ot=2.36×); raiin ≠ daiin Equivalent (No Post-raiin cth Enrichment)
+**Experiment:** exp_129_pr_bracket
+**Date:** 2026-04-09
+**Finding:** H256 NOT CONFIRMED: p and r do NOT form a mandatory line-bracket. B-dialect lines with both p-start AND r-end = 13 (1.29× enriched vs 10.1 expected by independence). p and r are independent positional markers. H257 CONFIRMED PARTIAL: raiin (n=61) vs aiin (n=462) differ significantly. raiin = 93.4% B, 63.9% stars, 21.3% cosmo — a B-stars/cosmo medial particle. Pre-raiin: s-onset=3.25× (strongest predictor; s=topic openers from F126), l=1.73×, ch=1.68×; pre-raiin NOT preceded by "other"-onset (0.13× vs aiin=2.21×). Post-raiin: ot=2.36×, sh=1.81× (B-paradigm content); post-aiin: ok=2.70× (different class). raiin is NOT the B-stars equivalent of daiin (no post-raiin cth enrichment; daiin→cth=4.89× from F125). raiin pattern: [s-topic-opener][B-content][raiin][ot/sh-content] in B-stars. r-prefix = B-stars particle modifier creating dialect/section-specific forms of the general particle vocabulary.
+**Limitation:** raiin sample (n=61) is modest; all enrichment estimates have high variance. The p+r independence test has 13 vs 10.1 expected — only 3 excess co-occurrences above chance. The "NOT CONFIRMED" verdict is based on weak evidence in both directions.
+
+---
+
 ## F135: p-Prefix = B-Dialect LINE-OPENER on ch/sh-Stems (Line-Start=71.1%, 5.72×); r-Prefix = B-Dialect LINE-CLOSER on PARTICLE STEMS (raiin/rain/rar/ral, Line-End=28.7%); POSITIONAL PREFIX SYSTEM: y/p=OPENERS, qo/l/o=CONTENT, r=CLOSERS
 **Experiment:** exp_128_pr_prefix
 **Date:** 2026-04-09

@@ -1,5 +1,5 @@
 # Working Model — Voynich Manuscript Cryptanalysis
-**Last updated:** 2026-04-09 (after exp_128)
+**Last updated:** 2026-04-09 (after exp_129)
 **Purpose:** Continuously-updated structured summary of current beliefs about Voynichese.
 **Discipline:** Characterization, not interpretation. Claims require experimental warrant.
 
@@ -221,6 +221,11 @@ These findings have been replicated across independent analyses or confirmed by 
 - eee (triple-vowel) words: stars=17.25‰, cosmo=4.40‰ (suppressed). Vowel-length gradient monotonically stars-concentrated (edy→eedy→eeedy: 36%→48%→63%). eee enriched in ok/ol/qo (1.7-1.9×), suppressed in ch/sh (0.37-0.46×).
 - A-dialect section variation: herbal-A=-y dominant (qok=37%, ch=29%); pharma-A=-ol dominant (qok=41%, ok=40%); 8.9% avg diff (3.5× weaker than B's 31%).
 - FOUR-LEVEL suffix hierarchy: Dialect (A/B) → Stem class (Simple-B/Complex-B; A-y/-ol) → Section (B: stars/cosmo/herbal; A: herbal/pharma) → Vowel length (stars triple-vowel extension). Strong evidence for natural language morphology.
+
+**p+r NOT Mandatory Bracket (1.29×); raiin=B-Stars Medial Particle (pre-s=3.25×, post-ot=2.36×); raiin≠daiin (No post-raiin cth) (F136, exp_129)**
+- p+r co-occurrence in B-dialect lines = 1.29× enriched vs independence (13 vs 10.1 expected). p and r are INDEPENDENT positional markers, not a mandatory line-bracket.
+- raiin (n=61, 93.4% B, 63.9% stars): preceded by s-onset=3.25× (topic openers), ch=1.68×; NOT preceded by "other" (0.13×). Followed by ot=2.36×, sh=1.81×. NOT a daiin equivalent (no post-raiin cth enrichment).
+- raiin = B-stars medial particle with context [s-opener][content][raiin][ot/sh]; aiin = more general medial particle (pre-other=2.21×, post-ok=2.70×).
 
 **POSITIONAL PREFIX SYSTEM: p=LINE-OPENER (ch/sh-stems, 71.1% line-start, B-dominant); r=LINE-CLOSER (PARTICLE STEMS, 28.7% line-end, 8.3×B); p/r BRACKET B-dialect Lines; r Creates "Prefixed Particles" raiin/rain/rar/ral/ror/ram (F135, exp_128)**
 - p-prefix: 523 tokens, 285 types; A/B=0.31 (3.3×B); line-start=71.1% (5.72×); stars=43.4%, cosmo=16.8%. Stem: ch=45.5%, ol=16.8%, sh=8.6% — DISTINCT from y/qo/o (which select k/t). pchedy=35 (100%B).
