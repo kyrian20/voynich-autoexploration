@@ -1,5 +1,5 @@
 # Working Model — Voynich Manuscript Cryptanalysis
-**Last updated:** 2026-04-10 (after exp_166)
+**Last updated:** 2026-04-10 (after exp_167)
 **Purpose:** Continuously-updated structured summary of current beliefs about Voynichese.
 **Discipline:** Characterization, not interpretation. Claims require experimental warrant.
 
@@ -43,7 +43,8 @@ These findings have been replicated across independent analyses or confirmed by 
 - B's dominant suffixes: -edy (15.1%), -eedy (6.3%), -ain (7.0%)
 - -edy is 75× more common in B than A; -ol is 2.8× more common in A than B
 - cth- in A is a prefix morpheme structurally parallel to qo- in B: H_initial drops from 3.061 to 1.966 after stripping (nearly identical to qo-'s 1.931/3.027); selects o/y/e-initial stems (vs qo-'s k/t-initial stems)
-- **REVISED (F172/F173, exp_165/166): cth- IS A TRUE CROSS-DIALECT PREFIX MORPHEME** — B-dialect has 52 cth-word occurrences with B-SUFFIX FORMS: cthedy (11×, -edy), cthey (10×), cthdy (7×, -dy). All appear in consistently B-dialect folios (avg edy-rate=0.21). Cross-section (herbal, bio, stars). B-cth POSITIONALLY NEUTRAL (LF=0.97×, LL=0.97×, MID=1.07×) vs A-cth STRONGLY SPECIALIZED (LF=0.15×, LL=1.40×). B's cthedy/cthey are ordinary content words; A's cth-words are grammatically constrained nominals. Prior F047 "A-exclusive: cth- cluster" RETRACTED: cth- is A-dominant by frequency (~8× more per-token in A than B) but cross-dialect in distribution.
+- **REVISED (F172/F173/F174, exp_165/166/167): cth- IS A TRUE CROSS-DIALECT PREFIX MORPHEME** — B-dialect has 52 cth-word occurrences with B-SUFFIX FORMS: cthedy (11×, -edy), cthey (10×), cthdy (7×, -dy). All appear in consistently B-dialect folios (avg edy-rate=0.21). Cross-section (herbal, bio, stars). A-cth STRONGLY SPECIALIZED (LF=0.15×, LL=1.40×). Prior F047 "A-exclusive: cth- cluster" RETRACTED: cth- is A-dominant by frequency (~8× more per-token in A than B) but cross-dialect in distribution.
+- **B-cth INTERNAL POSITIONAL PARADIGM (F174)**: B cth-words are NOT positionally neutral overall — they have dialect-internal specialization: cthedy (1.53×) and cthey (1.69×) are LF-ENRICHED (line-OPENERS); cthdy (2.41×) is LL-ENRICHED (line-CLOSER). This is the OPPOSITE of standard B-edy words (chedy=LF 0.26×, shedy=LF 0.52×). The F173 "near-baseline" B cth finding was a misleading average of this internal split. Both A and B cth-words have internal positional paradigms, but the ROLES DIFFER: A-cth never opens lines; B-cthedy/cthey specifically open lines.
 - This reframes the A/B split: they share a morphological system but differ in which suffix dominates the paradigm
 
 **The suffix paradigm is PRODUCTIVE in both A and B — log-linear r=0.83-0.89 (F048, exp_041)**

@@ -3692,3 +3692,30 @@
 **Expected outcome:** 1-2 cases of [daiin cthol cthy] trigram (combining daiin→cthol and cthol→cthy). This would establish a [determiner][medial-nominal][terminal-nominal] grammatical triplet.
 **Cost estimate:** trivial
 **Prerequisites:** F173, F160, F164
+
+## H345: B-cthedy/cthey Are LF-Enriched (1.53×/1.69×) — What Are Their Line-Opening Formulas?
+**Priority:** high
+**Status:** untested
+**Source:** F174: B-cthedy and cthey are LF-ENRICHED (line-openers), opposite of standard B-edy words. Does cthedy@LF have a distinctive second word?
+**Description:** Extract all B-dialect lines where cthedy or cthey appears at LF position. For each, record the second word (position 1). Is there a recurring second word (analogous to A-dialect ychor@LF → cthor/cthol@second construction)? Do cthedy@LF lines have a shared structural formula?
+**Expected outcome:** If cthedy is a grammatical line-opener (like a determiner or topic marker), it may consistently select a specific class of second words. If it is a regular content word that happens to appear line-initially sometimes, successors should be diverse.
+**Cost estimate:** small
+**Prerequisites:** F174
+
+## H346: [d][cth][d]=16 Is 2nd Most Common cth Onset-Trigram — Are These All Literally [daiin][cth-word][daiin]?
+**Priority:** high
+**Status:** untested
+**Source:** F174: onset-trigram [d][cth][d]=16 (2nd highest). The d-onset class includes daiin, dam, dy, dol, dain, etc. How many of the 16 cases are specifically daiin as both flanking words?
+**Description:** Extract all 16 [d][cth][d] onset-trigrams and tabulate the specific d-words at positions 1 and 3 (flanking the cth-word). What fraction are literally [daiin][cth-word][daiin]? What other d-words flank cth-words?
+**Expected outcome:** Majority of [d][cth][d] are [daiin][cth-word][daiin] (since daiin dominates the d-class). This would confirm the specific structural role of daiin as a bilateral cth-word bracket.
+**Cost estimate:** trivial
+**Prerequisites:** F174
+
+## H347: B-cthdy Is LL-Enriched (2.41×) — Are All 7 Cases Literally at LL Position?
+**Priority:** medium
+**Status:** untested
+**Source:** F174: B-cthdy LL-enrichment = 2.41× (2/7=28.6% at LL vs 12% baseline). Does cthdy specifically close lines?
+**Description:** Extract all 7 B-dialect cthdy occurrences and check position in their lines (LL, MID, LF). Are the 2 LL cases truly at line-final position? Does cthdy have the same LL-closing role as A-dialect cthy (LL=1.81×)?
+**Expected outcome:** 2/7 cthdy at LL is marginal enrichment (n=2). May confirm or may be noise. Also check: do cthdy lines end with cthdy or is there a following word?
+**Cost estimate:** trivial
+**Prerequisites:** F174

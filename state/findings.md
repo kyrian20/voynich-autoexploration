@@ -5,6 +5,14 @@
 
 ---
 
+## F174: [daiin cthol cthy] TRIGRAM = 1 OCCURRENCE (f7); [d][cth][d]=16 IS 2ND MOST COMMON cth ONSET-TRIGRAM; B-DIALECT cth-WORDS HAVE INTERNAL POSITIONAL PARADIGM (cthedy/cthey=LF-ENRICHED 1.53-1.69×; cthdy=LL-ENRICHED 2.41×); qok→l=7 UNIQUE PAIRS IN LATE A-HERBAL/PHARMA
+**Experiment:** exp_167_trigram_analysis
+**Date:** 2026-04-10
+**Finding:** H344 CONFIRMED: [daiin cthol cthy] trigram = 1 occurrence (f7 herbal): `chochy cthy daiin qoky ch{cphh}y daiin cthol cthy cthd`. The f7 line has double-daiin structure; [daiin cthol cthy cthd] terminates the line. After [daiin cthol], next word is diverse (cthy=only 1/6 cases). [daiin][cthor][chol]=2 occurrences (f15, f19) is more recurrent. H342 CONFIRMED WITH MAJOR SURPRISE: B-dialect cthedy (1.53×) and cthey (1.69×) are LF-ENRICHED — they OPEN lines. This is opposite to standard B-edy words (chedy=LF 0.26×, shedy=LF 0.52×, qokedy=LF 0.86×). B-cthdy is LL-ENRICHED (2.41×) — it CLOSES lines. B cth-words have an INTERNAL POSITIONAL PARADIGM parallel to A-dialect cth: cthedy/cthey=line-openers; cthdy=line-closer. This explains the F173 "near-baseline" finding: it was the AVERAGE of LF-enriched and LL-enriched sub-words. H343 CONFIRMED: 7 qok→l pairs in A-dialect, all unique, concentrated in late A-herbal (f35-f58) and pharma (f89-f102). l-words include B-type forms (lkeedy, lchedy). qok-words introduce B-type l-vocabulary in A/B boundary zone. NEW TRIGRAM FINDING: [d][cth][d]=16 is 2nd highest cth onset-trigram (after [ch][d][cth]=17) — cth-words are frequently surrounded by d-words (daiin) on both sides.
+**Limitation:** [daiin cthol cthy] n=1 (single occurrence — cannot confirm as formula vs coincidence). [d][cth][d]=16 onset-level trigram aggregates diverse specific d-words (daiin and others). B cthedy n=11, cthey n=10, cthdy n=7: enrichments directional but small absolute n. The F173 "near-baseline" B cth positional profile was a misleading average of internally-split forms — the subform breakdown is more informative.
+
+---
+
 ## F173: B-DIALECT cthedy/cthdy ARE GENUINE B-VOCABULARY (avg edy-rate=0.21, all genuine B-folios); B cth POSITIONALLY NEUTRAL (all slots ~1×) vs A cth STRONGLY SPECIALIZED (LF=0.15×, LL=1.40×); [cth-MID][cthy@LL] IS DOMINANT cth SELF-SUCCESSION (~8/23 cases); qok→cth=0.54× IS STRUCTURAL MORPHOLOGICAL INCOMPATIBILITY; qok→l=2.44× (HIGHEST qok SUCCESSOR IN A)
 **Experiment:** exp_166_b_cth_vocabulary_analysis
 **Date:** 2026-04-10
