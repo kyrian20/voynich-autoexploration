@@ -1,5 +1,5 @@
 # Working Model — Voynich Manuscript Cryptanalysis
-**Last updated:** 2026-04-10 (after exp_157)
+**Last updated:** 2026-04-10 (after exp_158)
 **Purpose:** Continuously-updated structured summary of current beliefs about Voynichese.
 **Discipline:** Characterization, not interpretation. Claims require experimental warrant.
 
@@ -243,6 +243,8 @@ These findings have been replicated across independent analyses or confirmed by 
 - Verified bigram enrichments: chol→cth=2.35×, chor→cth=2.22× (real).
 - daiin→cth bigram real (3.08×). Corrected positional context (exp_157): daiin→cth from MID (70%), LF (18.6%). NEW: [daiin@LF][cth@second] = 6 cases. daiin→cthol always MID; daiin→cthy LL-biased (5/9); daiin→cthor: 3 at second, 3 at MID.
 - dy→sh real within-line construction. HELD.
+- ot-words: internal 4-way positional paradigm (F165): otchor/otchol=LF 2.17-3.64×; oty=LL 2.08×; otol=MID 1.35×. Parallels cth paradigm.
+- CORRECTED ONSET PROFILES (A): y=LF 2.46× (strongest line-opener); d=LL 1.68× (strongest line-closer); cth=LF 0.15× (never opens lines); ch/ch_e=second 1.45-1.46×, LF 0.23-0.47×.
 
 **NO A-PARTICLE INTRODUCES sh/ch_e AT 3×+; sh=SELF-INTRODUCED (1.68×); ch_e=SELF-INTRODUCED (1.98×); cth-ENRICHED PARTICLE CLUSTER (daiin/chol/chor/cthol→cth AT 2.1-3.1×) DEPLETES sh/ch_e; aiin/ol→cth=0.00× BUT →ch_e=1.4-2.0× (F156, exp_149)**
 - sh before-context: self-succession=1.68×; d=0.77×, cth=0.64× (depleted). No particle >2.5×.

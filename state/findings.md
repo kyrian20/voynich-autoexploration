@@ -13,6 +13,14 @@
 
 ---
 
+## F165: ot-WORDS HAVE 4-WAY INTERNAL POSITIONAL PARADIGM (otchor/otchol=LF 2.17-3.64×; oty=LL 2.08×; otol=MID 1.35×); y-ONSET IS STRONGEST A LINE-OPENER (LF=2.46×); d-ONSET IS LINE-CLOSER (LL=1.68×); cth NEVER OPENS LINES (LF=0.15×); CORRECTED 5-CONSTRUCTION GRAMMAR MODEL
+**Experiment:** exp_158_ot_positional_grammar_model
+**Date:** 2026-04-10
+**Finding:** H288 CONFIRMED WITH SURPRISE. ot-words have an internal 4-way positional paradigm: otchor=LF 3.64×, otchol=LF 2.17× (line-openers); oty=LL 2.08×, otal=LL 1.39× (line-closers); otol=MID 1.35×, otaiin/otchy=MID 1.25-1.30× (medials); oteol=second 1.62×. This parallels the cth internal paradigm discovered in F161. Overall ot class is near-baseline (LF=0.91×) masking the internal specialization. ONSET CLASS PROFILES (A corrected): y=LF 2.46× (strongest line-opener); sh=LF 1.13×+second 1.43×; d=LL 1.68× (strongest line-closer); cth=LF 0.15× (categorical — never opens lines); ch=LF 0.47×, second=1.45×; ch_e=LF 0.23×, second=1.46×. [daiin cthor chol chor] = recurring formula (2/3 of [daiin@LF][cthor@second] lines share this). H316 CORRECTED GRAMMAR MODEL: 5 constructions for cth-introduction in A: (1) [daiin@LF][cth@second] n=6; (2) [daiin@MID][cthol@MID] n=5; (3) [daiin@MID][cthy@LL] n=5+; (4) [chol@second/MID][cth] n=20; (5) [chor@second/MID][cth] n=12.
+**Limitation:** y-onset n=644 (adequate); d-onset n=1521 (adequate). ot-word internal paradigm: otchor n=12, otchol n=23 (LF enrichments from small-n words — directional but not definitively powered). The 5-construction grammar model is descriptive — the relative frequency of each construction not yet quantified relative to all cth occurrences. [daiin cthor chol] formula n=2 (tiny).
+
+---
+
 ## F164: daiin NEAR-BASELINE POSITIONALLY (LF=1.07×, MID=1.04×); daiin→cth: 70% FROM MID, 18.6% FROM LF; NEW [daiin@LF][cth@second] LINE-OPENING CONSTRUCTION (6 CASES); daiin→cthol ALWAYS MID (6/6); ot-ONSET AT LF BEFORE chol@SECOND (2.95×)
 **Experiment:** exp_157_daiin_cth_bigram_positions
 **Date:** 2026-04-10
