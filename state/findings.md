@@ -5,6 +5,14 @@
 
 ---
 
+## F172: B-DIALECT cth VOCABULARY = B-SUFFIX FORMS (cthedy=10, cthey=10, cthdy=6) — cth- PREFIX IS NOT A-EXCLUSIVE; qok AND s DEPLETE BEFORE cth (0.51× AND 0.43×); cth SELF-SUCCESSION=1.62× (n=23); k→cth=1.37× (6TH ENRICHED ONSET BEFORE cth); cho→r IS DOMINANT ch→r PATTERN; t@LF→ot@SECOND CONSTRUCTION (8/16 t→ot CASES)
+**Experiment:** exp_165_k_cth_bigram_b_cth_occurrences
+**Date:** 2026-04-10
+**Finding:** H335 CONFIRMED: k→cth in A = 18 cases (1.37×), all unique word pairs. k-words at MID (67%) introduce diverse cth-words. No fixed formula. kchor=3× most common k-word. H337 CONFIRMED WITH MAJOR SURPRISE: B-dialect has 52 cth-word occurrences across herbal=18, bio=17, stars=15, cosmo=2. Dominant B cth vocabulary: cthedy (10), cthey (10), cthdy (6) — B-SUFFIX FORMS taking -edy, -ey, -dy endings. cth- prefix appears in B-dialect with B-suffix paradigm. This revises F047's characterization of cth as "A-exclusive" — cth- prefix is cross-dialect but the suffix paradigm follows the dialect split (A: -or/-ol/-y; B: -edy/-ey/-dy). B ch→cth (n=8): concentrated in f46/f48/f66 (B-herbal) and f113 (B-stars). H336 CONFIRMED: ch→r driven by cho-forms (6/15=40% are cho→r). Bare `r` specifically introduces ch/ch_e words (r→ch=8, r→ch_e=6 cases). H334 CONFIRMED: t→ot (n=16): 8 cases from t@LF → ot@second (new minor line-opening construction). EXPANDED cth INTRODUCTION MODEL: enriched predecessors = cth-self(1.62×), k(1.37×), d(1.36×), ch(1.27×), qo(1.22×), sh(1.12×). DEPLETED predecessors: qok(0.51×), s(0.43×), other(0.47×) — qok and s NEVER introduce cth.
+**Limitation:** B cth vocabulary: 52 total B cth tokens. cthedy=10/cthey=10/cthdy=6 are adequate for pattern identification but small absolute n. The "cth-in-B" finding challenges F047 — need to verify whether these are scribal artifacts or genuine B-vocabulary items. cth self-succession n=23 (adequate). k→cth n=18 (adequate for enrichment claim, not for formula claim). cho→r n=6 (small). t@LF→ot@second n=8 (small).
+
+---
+
 ## F171: d→d=1.08× IN BOTH A AND B (ONLY MAJOR CLASS NOT SELF-CHAINING); ch_e→ch_e REVERSAL (A=2.03× vs B=0.96×); l→l IN B=127 CASES (2.13×, BIO-CONCENTRATED); t→ot=1.85×, ch→r=2.34×, k→cth=1.60×, s→ch_e=1.62× ARE NEW A-DIALECT BIGRAM ENRICHMENTS; B ch→cth=2.75× (n=8)
 **Experiment:** exp_164_self_succession_details
 **Date:** 2026-04-10

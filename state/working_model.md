@@ -1,5 +1,5 @@
 # Working Model — Voynich Manuscript Cryptanalysis
-**Last updated:** 2026-04-10 (after exp_164)
+**Last updated:** 2026-04-10 (after exp_165)
 **Purpose:** Continuously-updated structured summary of current beliefs about Voynichese.
 **Discipline:** Characterization, not interpretation. Claims require experimental warrant.
 
@@ -43,6 +43,7 @@ These findings have been replicated across independent analyses or confirmed by 
 - B's dominant suffixes: -edy (15.1%), -eedy (6.3%), -ain (7.0%)
 - -edy is 75× more common in B than A; -ol is 2.8× more common in A than B
 - cth- in A is a prefix morpheme structurally parallel to qo- in B: H_initial drops from 3.061 to 1.966 after stripping (nearly identical to qo-'s 1.931/3.027); selects o/y/e-initial stems (vs qo-'s k/t-initial stems)
+- **REVISED (F172, exp_165): cth- prefix is NOT purely A-exclusive** — B-dialect has 52 cth-word occurrences with B-SUFFIX FORMS: cthedy (10×, -edy suffix), cthey (10×), cthdy (6×, -dy suffix). The cth- prefix appears in B-dialect but takes B-suffix paradigm rather than A-suffix (-or/-ol/-y). B cth spread across herbal=18, bio=17, stars=15, cosmo=2. Prior F047 claim "A-exclusive: cth- cluster" requires revision: cth- is A-dominant but appears in B with B-suffix forms.
 - This reframes the A/B split: they share a morphological system but differ in which suffix dominates the paradigm
 
 **The suffix paradigm is PRODUCTIVE in both A and B — log-linear r=0.83-0.89 (F048, exp_041)**

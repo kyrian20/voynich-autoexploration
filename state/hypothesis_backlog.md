@@ -3615,3 +3615,47 @@
 **Expected outcome:** 8 B ch→cth bigrams concentrated in B-herbal folios where A-dialect vocabulary occasionally appears (dialect mixing zone). cth-words in B are likely cthor/cthol imports from A-herbal.
 **Cost estimate:** small
 **Prerequisites:** F171, F035
+
+---
+
+## H338: Is B-Dialect cthedy/cthdy Genuine B-Vocabulary or Scribal Adaptation?
+**Priority:** high
+**Status:** untested
+**Source:** F172: B-dialect has cthedy (10), cthey (10), cthdy (6) — cth- prefix with B-suffixes. Challenges F047's "cth=A-exclusive." Are these genuine B-vocabulary items or scribal errors/transcription artifacts?
+**Description:** For each B-dialect cth-occurrence line: (1) what B-suffix cth-word appears? (2) What words precede/follow it? (3) Does it appear in standard bigram contexts like other B-words? Check if cthedy appears in B-herbal, B-bio, B-stars at similar rates. Check whether these lines are consistent B-dialect (high edy/eedy rate) or mixed.
+**Expected outcome:** cthedy/cthdy are genuine B-vocabulary items (consistent B-bigram context, appear in high-edy-rate folios). This would establish cth- as a cross-dialect prefix morpheme with dialect-specific suffix paradigm.
+**Cost estimate:** small
+**Prerequisites:** F172, F047
+
+---
+
+## H339: qok DEPLETES Before cth (0.51×) — Is This Systematic Avoidance?
+**Priority:** medium
+**Status:** untested
+**Source:** F172: qok→cth = 0.51× (10 observed vs expected 19.5). qok-words specifically do NOT introduce cth. Is this because qok is predominantly B-vocabulary (88% B from F037)?
+**Description:** Compute qok→cth bigrams in A-dialect only. Does qok@A deplete before cth? Expected: qok is rare in A (12% of qok tokens) so few qok→cth bigrams regardless. Confirm whether the 0.51× depletion is significant given qok rarity in A.
+**Expected outcome:** qok→cth depletion is partly explained by qok being rare in A-dialect (not enough qok-word opportunities). The avoidance may be structural (qok and cth are morphologically incompatible — qo selects k/t stems, cth selects o/y/e stems).
+**Cost estimate:** trivial
+**Prerequisites:** F172, F037
+
+---
+
+## H340: cth Self-Succession (1.62×, n=23) — Which [cth1][cth2] Pairs?
+**Priority:** high
+**Status:** untested
+**Source:** F172: cth self-succession in A = 23 observed, 12.2 expected (1.62×). These are consecutive cth-word bigrams. What are the dominant cth→cth pairs?
+**Description:** Extract all 23 A-dialect [cth-word][cth-word] consecutive pairs. Tabulate specific word pairs. Is [cthol][cthy] (MID→LL) the dominant pair? Or [cthor][cthol]? Are any pairs recurrent?
+**Expected outcome:** [cthol][cthy] and [cthor][cthol] are the dominant pairs — matching the positional paradigm (cthor@second → cthol@MID → cthy@LL = a 3-cth sequence).
+**Cost estimate:** trivial
+**Prerequisites:** F172, F161
+
+---
+
+## H341: f46 (B-Herbal) Has Anomalous cth Concentration — Is It a Transition Folio?
+**Priority:** medium
+**Status:** untested
+**Source:** F172: f46 has 4 cth-word occurrences in 3 lines (highest B-herbal concentration). Is f46 at the A/B boundary in the herbal section?
+**Description:** Check folio f46: (1) dialect classification (edy/eedy rate); (2) cth rate vs neighboring folios (f44, f45, f47); (3) is there evidence of mixed A/B content? Compare f46's vocabulary profile to adjacent A-herbal and B-herbal folios.
+**Expected outcome:** f46 is consistently B-dialect (high edy/eedy rate) but has unusually high cth density, suggesting it may be a scribe-transition folio where A-herbal vocabulary (cth-words) appears in B-dialect text.
+**Cost estimate:** trivial
+**Prerequisites:** F172
