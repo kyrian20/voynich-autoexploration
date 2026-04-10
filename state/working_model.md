@@ -1,5 +1,5 @@
 # Working Model — Voynich Manuscript Cryptanalysis
-**Last updated:** 2026-04-09 (after exp_130)
+**Last updated:** 2026-04-09 (after exp_131)
 **Purpose:** Continuously-updated structured summary of current beliefs about Voynichese.
 **Discipline:** Characterization, not interpretation. Claims require experimental warrant.
 
@@ -221,6 +221,14 @@ These findings have been replicated across independent analyses or confirmed by 
 - eee (triple-vowel) words: stars=17.25‰, cosmo=4.40‰ (suppressed). Vowel-length gradient monotonically stars-concentrated (edy→eedy→eeedy: 36%→48%→63%). eee enriched in ok/ol/qo (1.7-1.9×), suppressed in ch/sh (0.37-0.46×).
 - A-dialect section variation: herbal-A=-y dominant (qok=37%, ch=29%); pharma-A=-ol dominant (qok=41%, ok=40%); 8.9% avg diff (3.5× weaker than B's 31%).
 - FOUR-LEVEL suffix hierarchy: Dialect (A/B) → Stem class (Simple-B/Complex-B; A-y/-ol) → Section (B: stars/cosmo/herbal; A: herbal/pharma) → Vowel length (stars triple-vowel extension). Strong evidence for natural language morphology.
+
+**27% of FOLIOS BEST-MATCH ≠ ASSIGNED SECTION; B-HERBAL BIFOLIO INSERTIONS (f26/f31/f40/f48/f50) CLUSTER with Pharma/Stars; HERBAL=LEAST COHESIVE (0.914), COSMO=MOST (0.965); STARS LINE TEMPLATE: [p/s/y/d/t OPENER (5-7×)][sh 2nd (2.25×)][mid content][-am LAST (8.06×=STRONGEST POSITIONAL SUFFIX IN MANUSCRIPT)] (F138, exp_131)**
+- Cosine similarity on folio onset-class profile vectors: 25/94 folios (27%) best-match a different section. Section cohesion: cosmo=0.965 > stars=0.954 > pharma=0.940 > herbal=0.914 > astro=0.886.
+- B-herbal bifolio insertions (f26/f31/f40/f48/f50) all mismatch: f40→stars(0.860 vs self=0.755), f48→astro(0.890), f50→pharma(0.893), f26→pharma(0.966), f31→pharma(0.959). Confirms bifolio insertion hypothesis from F123.
+- f103 (first stars folio) best-matches cosmo (transitional folio). A-herbal folios f3/f17/f24/f34 best-match pharma (herbal-pharma onset continuum).
+- Stars line-element template: [p/s/y/d/t OPENER at position-1: p=6.84×, s=6.56×, y=5.10×, t=3.75×, d=3.56×][sh-word at position-2: 2.25×][B-content middle][r-closer(2.55×) OR -am LAST(8.06×)].
+- -am=8.06× at line-end = strongest positional suffix enrichment in the entire manuscript. Stars is most line-opener constrained section.
+- Per-folio: lines=50-105, words/line=8.7-10.9. Dominant opener varies by folio (f112=s, f107/f113=p, f104/f106/f114=y, most=d).
 
 **d-ONSET = THREE SUB-CLASSES: d+ch/sh OPENERS (dshedy=90.9%LF/B; dchor=59.1%LF/A), d-CLOSERS (dan=100%LL, dam=67.9%LL, dy=40.3%LL), MEDIAL FUNCTION WORDS (daiin=61.5%MID); ok/ot BODY = B-Dialect Content Nouns (81-82%MID, Stars/Cosmo 38-45%) (F137, exp_130)**
 - d-grammar: three positional sub-classes. d+ch/sh openers dialect-split (dshedy/dchedy=B; dchor/dchol=A). d-closers: short words with -am/-an/-y/-al suffix (dan=100%LL, dam=67.9%LL). Medial: daiin/dol/dar (60-80%MID). d+gallows (dk/dt) = rare (23 tokens). d-chain weak.

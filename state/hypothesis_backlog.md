@@ -2376,6 +2376,7 @@
 
 ## H221: Folio-Level Vocabulary Distance Clustering — Do Folios Cluster by Section? Are There Transition Folios?
 **Priority:** medium
+**Status:** CONFIRMED (exp_131) — 25/94 folios (27%) best-match ≠ assigned section. Herbal=LEAST cohesive (mean=0.914); cosmo=MOST (0.965). B-herbal bifolio insertions (f26/f31/f40/f48/f50) systematically mismatch; f40 most extreme (best=stars/0.860 vs self=0.755). f103 (first stars folio) best-matches cosmo. Many A-herbal folios best-match pharma (herbal-pharma onset continuum). Stars/cosmo most homogeneous; astro/herbal most heterogeneous. (F138)
 **Source:** F117: H217 (folio clustering) proposes using cosine similarity on folio word-frequency vectors. F112: 72-79% of each section's vocabulary is section-specific. F116: Each folio has essentially unique 4-gram sequences.
 **Description:** Build per-folio word frequency vectors (normalized). Compute pairwise cosine similarity between folio vectors. Cluster by similarity. Identify: (1) clusters that correspond to sections; (2) outlier folios; (3) transition folios between sections.
 **Expected outcome:** Folios cluster into 5-6 clear groups corresponding to sections. Transition folios (f57, f85, f86, f103) may appear between clusters. Some star-section folios may cluster with herbal B if vocabulary overlaps.
@@ -2486,6 +2487,7 @@
 
 ## H232: Stars Section Catalog Structure — Do Stars Paragraphs Have a Repeating Template?
 **Priority:** medium
+**Status:** CONFIRMED (exp_131) — Stars has a line-ELEMENT template: [p/s/y/d/t OPENER (5-7× enriched at first position)][sh-word 2nd (2.25×)][B-content middle][r-closer (2.55×) or -am LAST (8.06×)]. The -am line-ending signal (8.06×) is the STRONGEST positional suffix enrichment in the manuscript. Line-openers dominated by 5 onset classes (p/s/y/d/t). Each folio has characteristic dominant opener (f112=s, f107/f113=p, f104/f106/f114=y, most others=d). Stars lines=8.7-10.9 words/line mean. No whole-line repeating template (consistent with H239/F128) but strong element-level positional grammar. (F138)
 **Source:** F122: Stars paragraphs have within-para repetition rate 0.476 (nearly double other sections). The stars section contains star catalog entries. If each paragraph follows a template "star-name + descriptor + position", the same vocabulary template should recur with variable stem slots filled differently.
 **Description:** Examine stars paragraphs at the level of paragraph-internal word sequences. Do all stars paragraphs follow a template like "X daiin Y ol Z"? Compute per-paragraph suffix sequence profiles. Look for repeated n-gram patterns within the stars section that suggest a catalog template.
 **Expected outcome:** Stars paragraphs follow a repeating suffix template (e.g., most lines end in -ol or -or; most lines start with -eey or -eedy words). The template is consistent across the 25 stars paragraphs.
