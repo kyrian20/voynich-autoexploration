@@ -5,6 +5,14 @@
 
 ---
 
+## F150: cthor→ot REAL (21.9%) NOT EARLY-HERBAL-SPECIFIC; "daiin cthor ot*" TRIPLE (3/7 cases); cth-RUNS RARE (6.8%, all bigrams hapax, 93.2% isolated); cthor DECLINE NOT DUE TO cthor→ot DISAPPEARING (present in f42/f52 late A-herbal)
+**Experiment:** exp_143_cthor_ot_bigram_cth_runs
+**Date:** 2026-04-10
+**Finding:** H283 PARTIALLY CONFIRMED: cthor→ot bigram appears in 21.9% of cthor usages (7/32). Specific ot-words: otol(2), oty(2), otydy(1), otam(1), otal(1) — varied, no dominant pair. "daiin cthor [ot-word]" triple construction appears 3× (f10, f14, f19) — a recurrent nominal formula: [particle][round-form-nominal][modifier]. Folio distribution: f9,f10,f14,f19,f24,f42,f52 — spans early to late A-herbal; f42/f52 are late. cthor's T3/T1=0.24 decline is NOT due to cthor→ot disappearing (late A-herbal still uses it). cthor→ch is most common after-cthor onset (26.7%), followed by cthor→ot (23.3%). H284 NOT CONFIRMED (RARE): cth-runs of 2+ are present in 6.8% of cth-words (19 total 2+-runs, 261 isolated). All 17 consecutive cth-bigrams are hapax — no dominant cth-cluster formula. Near-consecutive pairs (separated by 1 word) total 9. The cth self-succession enrichment in exp_142 (1.55×-2.25×) reflects relative enrichment from a small base. cth-words are predominantly isolated (93.2%). REVISED CTHOR DECLINE INTERPRETATION: cthor's faster decline (T3/T1=0.24) is a general reduction in "round/container"-type botanical nominal content in later A-herbal, not specific to the cthor→ot or cthor→ch construction.
+**Limitation:** cthor total n=32 in A-herbal, with 7 cthor→ot cases — small sample. The "daiin cthor ot*" triple (n=3) is a tentative pattern. The "near-consecutive cth-pairs" analysis uses A-herbal only (d=A filter). The cth-run analysis may over-count runs due to transcription artifacts in word boundaries (some "cth-bigrams" contain commas or brackets in transcription).
+
+---
+
 ## F149: cthor=SECOND-POSITION WORD (corrects F148: exp_141 "LF=39.4%" was LF+second combined; true LF=6.1%); cthor→ot BIGRAM (6.18×!); cth≠cth-preceding-cthor (0.00×); d-ENRICHMENT BEFORE cthol (1.51×) = d-ENRICHMENT BEFORE lchedy (1.45×) — GRAMMATICAL PARALLEL CONFIRMED; self-succession ≈ EQUAL (~2.2×) in each dialect
 **Experiment:** exp_142_cthor_cthol_lchedy_bigram
 **Date:** 2026-04-10

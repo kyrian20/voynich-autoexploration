@@ -1,5 +1,5 @@
 # Working Model — Voynich Manuscript Cryptanalysis
-**Last updated:** 2026-04-10 (after exp_142)
+**Last updated:** 2026-04-10 (after exp_143)
 **Purpose:** Continuously-updated structured summary of current beliefs about Voynichese.
 **Discipline:** Characterization, not interpretation. Claims require experimental warrant.
 
@@ -221,6 +221,10 @@ These findings have been replicated across independent analyses or confirmed by 
 - eee (triple-vowel) words: stars=17.25‰, cosmo=4.40‰ (suppressed). Vowel-length gradient monotonically stars-concentrated (edy→eedy→eeedy: 36%→48%→63%). eee enriched in ok/ol/qo (1.7-1.9×), suppressed in ch/sh (0.37-0.46×).
 - A-dialect section variation: herbal-A=-y dominant (qok=37%, ch=29%); pharma-A=-ol dominant (qok=41%, ok=40%); 8.9% avg diff (3.5× weaker than B's 31%).
 - FOUR-LEVEL suffix hierarchy: Dialect (A/B) → Stem class (Simple-B/Complex-B; A-y/-ol) → Section (B: stars/cosmo/herbal; A: herbal/pharma) → Vowel length (stars triple-vowel extension). Strong evidence for natural language morphology.
+
+**cthor→ot REAL (21.9%) NOT EARLY-HERBAL-SPECIFIC; "daiin cthor ot*" TRIPLE RECURRENT (3×); cth-RUNS RARE (93.2% ISOLATED, ALL BIGRAMS HAPAX) (F150, exp_143)**
+- cthor→ot: 21.9% of cthor usages, varied ot-words, spread f9-f52. "daiin cthor ot*" triple appears 3×. cthor decline not due to cthor→ot disappearing (present in late folios).
+- cth-runs: 93.2% isolated, 6.8% in 2+ runs. All consecutive cth-bigrams are hapax — no dominant cth-cluster formula. Confirmed cth-words are mostly isolated content words.
 
 **cthor=SECOND-POSITION WORD (corrects F148 LF=39.4% artifact); cthor→ot 6.18×; d before cthol=1.51× = d before lchedy=1.45× (PARALLEL CONFIRMED); SELF-SUCCESSION ~2.2× in each dialect (F149, exp_142)**
 - cthor true LF=6.1% (not 39.4%); cthor is a second-position word (~33% at position i=1) with ot-succession (6.18×). cthor not preceded by cth (0.00×) unlike cthol (1.55×).

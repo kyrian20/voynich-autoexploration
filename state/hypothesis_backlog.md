@@ -2858,8 +2858,29 @@
 
 ---
 
+## H285: Is the "daiin cthor ot*" Construction Botanically Specific?
+**Priority:** medium
+**Source:** F150: "daiin cthor ot*" triple appears 3× (f10, f14, f19 — all early A-herbal). Is this a specific botanical description formula?
+**Description:** Examine the context of all 3 "daiin cthor ot*" occurrences: (1) What follows the ot-word? (2) What precedes daiin in each case? (3) Are folios f10, f14, f19 botanically related (neighboring plants in the herbal sequence)? Compare to daiin usage in general A-herbal (is daiin commonly a preceding context for other cth-words?).
+**Expected outcome:** "daiin cthor ot*" is a botanical nominal phrase (plant type + shape + quantity) appearing in specific folio clusters. daiin as a cth-word preceder suggests daiin functions as a determiner or classificatory particle.
+**Cost estimate:** trivial
+**Prerequisites:** F150, F149
+
+---
+
+## H286: Which Specific ch-Words Follow cthor? (cthor→ch is Most Common at 26.7%)
+**Priority:** medium
+**Source:** F150: cthor is followed by ch-onset in 26.7% of cases (8/30) — the most common after-cthor onset. Which ch-words specifically? If cthor is followed predominantly by chol/chor (the canonical ch-nominal forms), this would be a second "cthor→ch-nominal" bigram pattern parallel to cthor→ot.
+**Description:** Extract all cthor→ch bigrams (A-herbal). Which ch-words follow cthor most often? Compute enrichment vs baseline ch-word frequency.
+**Expected outcome:** cthor→chol or cthor→chor dominates, suggesting "cthor [ch-content-word]" is a second-position + medial nominal phrase formula. If cthor→chedy or cthor→cheey dominate, cthor may precede B-paradigm forms more than expected.
+**Cost estimate:** trivial
+**Prerequisites:** F150
+
+---
+
 ## H283: What Is the cthor→ot Bigram? Which Specific ot-Words Follow cthor?
 **Priority:** medium
+**Status:** PARTIALLY CONFIRMED (exp_143) — cthor→ot: 21.9% of cthor usages (7/32). "daiin cthor ot*" triple recurrent 3×. Varied ot-words (otol/oty/otydy/otam/otal). Spread across f9-f52 (not early-specific). cthor decline not due to cthor→ot disappearing. (F150)
 **Source:** F149: cthor at MID is followed by ot-onset at 6.18× (7/29 cases). ot-onset words include otal, otol, otaiin, otchol. Is this a specific botanical construction?
 **Description:** Extract all cthor→[ot-word] bigrams from A-herbal. Compute: (1) Which ot-words follow cthor? (2) Are these cthor→ot bigrams concentrated in specific early A-herbal folios? (3) Does the cthor→ot pattern map to any botanical description pattern (e.g., "cth-form ot-quantity" or similar)?
 **Expected outcome:** cthor→otal or cthor→otol dominates, appearing in specific early A-herbal folios. Their folio distribution would explain cthor's faster decline in late A-herbal.
@@ -2870,6 +2891,7 @@
 
 ## H284: Are There "cth-Runs" (2-3 Consecutive cth-Words) in A-Herbal?
 **Priority:** medium
+**Status:** NOT CONFIRMED (RARE) (exp_143) — 93.2% of cth-words are isolated; only 6.8% in 2+ runs (19 total runs). All 17 consecutive cth-bigrams are hapax. No dominant cth-cluster formula. cth self-succession enrichment (exp_142) is relative enrichment from a small base. (F150)
 **Source:** F149: cth self-succession is enriched (cth before cthol=1.55×, cth after cthol=2.25×). This suggests cth-onset words appear in clusters.
 **Description:** Extract all consecutive cth-onset word sequences (runs of 2+) from A-herbal. Compute: (1) How many runs of 2+ cth-words? (2) What are the top cth-bigrams and trigrams? (3) Are cth-runs concentrated in specific folios or periods?
 **Expected outcome:** cth-runs of 2 are relatively common (perhaps 10-15% of cth-tokens appear in runs). Specific cth-bigrams like [cthy][cthol] or [cthol][cthey] dominate. This would confirm that cth-onset words form a "noun phrase cluster" in A-herbal.
