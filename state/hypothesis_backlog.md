@@ -2935,6 +2935,7 @@
 
 ## H295: In A-Dialect, Are sh/ch_e-Onset Words Introduced by a Different Particle (Not daiin)?
 **Priority:** medium
+**Status:** NOT CONFIRMED (exp_149). No A-particle introduces sh at ≥2.5× or ch_e at ≥2.5× systematically. sh is self-introduced (sh-succession 1.68×); ch_e is self-introduced (ch_e-succession 1.98×) with ok/qok enrichment (1.50-1.56×). The "cth-enriched particle cluster" (daiin/chol/chor/cthol) depletes sh/ch_e; aiin/ol/ar→cth=0.00× but →ch_e=1.43-1.97×. daiin's categorical cth-gatekeeping has no parallel for sh/ch_e. (F156)
 **Source:** F155: A-daiin→sh=0.64× and A-daiin→ch_e=0.42× (depleted). daiin is a cth-gatekeeper that avoids sh/ch_e. What particle (if any) introduces sh/ch_e-words in A-dialect at elevated rates? If A has its own sh/ch_e introducer (parallel to daiin→cth), this would establish a complete A-dialect particle taxonomy: [daiin→cth] + [X→sh] + [Y→ch_e].
 **Description:** Compute transition matrix for A-dialect: for each high-frequency A particle (aiin, or, ol, chol, chor, dain, saiin, ar), compute enrichment before sh-onset and before ch_e-onset. Is any A-particle enriched at ≥2× before sh or ch_e? Compare to daiin→sh (0.64×) as the depleted baseline.
 **Expected outcome:** No single A-particle specifically introduces sh or ch_e at 3× (as daiin does for cth). Instead, sh/ch_e in A-dialect appear after diverse onset classes near baseline. If a specific A-particle does introduce sh at 2×, it reveals an A-dialect grammatical slot parallel to daiin's cth-gatekeeper role.
@@ -2950,6 +2951,26 @@
 **Expected outcome:** dam/dar appear after daiin in both A and B (cross-dialect construction). B has additionally enriched daiin→dal/dol/dady (B-specific d-words). The underlying daiin→dam/dar bigram is a pan-Voynichese construction; B augments it with additional d-followers that don't appear in A.
 **Cost estimate:** trivial
 **Prerequisites:** F155
+
+---
+
+## H297: Do the "cth-Introducer" Particles (daiin/chol/chor/cthol) Appear in Specific Positions Before cth-Words?
+**Priority:** medium
+**Source:** F156: daiin/chol/chor/cthol all precede cth at 2.1-3.1× and deplete sh/ch_e. They form a cluster of "cth-nominal introducer" particles. Do they appear in specific positional contexts (LF vs second vs MID) when they precede cth-words?
+**Description:** For each of daiin/chol/chor/cthol: (1) When it precedes a cth-onset word, what slot is it in? (LF, second, MID?) (2) Is the pattern that these particles appear at line-final (LL) position and the cth-word opens the NEXT line, or within the same line? (3) Compute: when the bigram [particle→cth] occurs, what is the positional slot of the particle? This reveals whether "cth-introduction" is within-line (particle at MID; cth-word at MID+1) or cross-line (particle at LL; cth-word at LF of next line).
+**Expected outcome:** daiin precedes cth within the same line (both at MID positions). If confirmed, daiin is a within-line determiner. If particle is at LL and cth is at LF, these are line-boundary bigrams — counting line-boundary bigrams should be excluded for within-line grammar analysis.
+**Cost estimate:** small
+**Prerequisites:** F156
+
+---
+
+## H298: Is dy→sh=1.96× a Within-Line Construction or a Cross-Line Bigram Artifact?
+**Priority:** low
+**Source:** F156: dy→sh=1.96× (n=6/32 transitions). dy is primarily a line-final short word in A; if dy appears at line-end (LL) and sh appears at LF of the next line, the bigram spans a line boundary and is not a syntactic construction.
+**Description:** Check all 6 dy→sh bigrams: are they within the same parsed line (same locus P-type line) or cross-line (dy at end of line N, sh at start of line N+1)? If all 6 are within-line, dy→sh is a real construction. If most are cross-line, the enrichment is a line-boundary artifact.
+**Expected outcome:** dy→sh is a cross-line artifact (dy ending one line, next line starting with sh). This would confirm that line-boundary bigrams inflate apparent enrichments for line-final words (dy) followed by line-initial onset classes (sh).
+**Cost estimate:** trivial
+**Prerequisites:** F156
 
 ---
 

@@ -5,6 +5,14 @@
 
 ---
 
+## F156: NO A-PARTICLE INTRODUCES sh/ch_e AT 3×+; sh=SELF-INTRODUCED (1.68×), ch_e=SELF-INTRODUCED (1.98×); cth-ENRICHED PARTICLES (daiin/chol/chor/cthol) DEPLETE sh/ch_e; aiin/ol→ch_e=1.43-1.97× BUT aiin/ol→cth=0.00×; dy→sh=1.96×
+**Experiment:** exp_149_a_sh_che_introducers
+**Date:** 2026-04-10
+**Finding:** H295 NOT CONFIRMED. No A-dialect particle introduces sh at ≥2.5× systematically; highest sh-introducer is sheor=2.75× (a sh-word itself). No particle introduces ch_e at ≥2.5× with adequate n; ok/qok=1.50-1.56× are the largest onset-class enrichments before ch_e. sh is introduced by sh self-succession (1.68×); ch_e by ch_e self-succession (1.98×) with ok enrichment. daiin→cth=3.08× remains UNIQUE. CLUSTER FINDING: cth-enriched particles (daiin/chol/chor/cthol) all show sh/ch_e depletion or near-baseline (→sh=0.64-0.97×, →ch_e=0.00-1.24×). Complementary: aiin/ol/ar precede cth at 0.00× while enriching ch_e at 1.43-1.97× — "null-cth" particles collectively lean toward ch_e. dy→sh=1.96× is an unexpected moderately strong sh-predecessor (32 transitions), possibly a within-line construction or line-boundary artifact.
+**Limitation:** Small-n before-ch_e enrichments (okor=4.49× at n=4, r=3.74× at n=6) are unreliable individual-word estimates. The "cth-enriched particle cluster" (daiin/chol/chor/cthol) is based on particles with n=43-278 transitions — adequate for onset-class enrichment. The aiin→ch_e=1.43× enrichment (n=5/59=8.5%) is marginally powered. dy→sh=1.96× (n=6/32) is small.
+
+---
+
 ## F155: B-daiin→d=2.85× IS TRUE (NOT SELF-SUCCESSION); A-daiin→cth=3.08× (P-TYPE CONFIRMS); A-daiin DEPLETES sh (0.64×) AND ch_e (0.42×); B-daiin→ch_e=1.77×; A/B DAIIN REVERSAL ON sh/ch_e CONFIRMED
 **Experiment:** exp_148_b_daiin_d_enrichment
 **Date:** 2026-04-10
