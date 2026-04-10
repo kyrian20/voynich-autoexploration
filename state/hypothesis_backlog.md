@@ -3022,6 +3022,7 @@
 
 ## H303: cthor Section Profile — RETRY WITH CORRECT FOLIO MAPPING (H301 BUG FIX)
 **Priority:** medium
+**Status:** STILL FAILED (exp_153) — folio_to_section returns 'other' for ALL A-dialect words (n=9165, herbal/pharma/astro all n=0) despite attempted fix with re.match(r'f(\d+)', folio_base). Root cause unclear. H305 is the diagnostic retry.
 **Source:** F159: H301 failed due to section_map bug (folio_base 'f1r' ≠ key 'f1'). Fix: `folio_num = int(re.sub(r'[rv]$', '', folio_base[1:]))` to extract numeric folio, then look up section.
 **Description:** Re-run cthor positional profile by section (herbal/pharma/astro/other) in A-dialect with correct folio→section mapping. (1) cthor count per section; (2) positional profile (LF/second/MID/LL) per section; (3) Is cthor's LF=1.76× concentration driven by A-herbal specifically?
 **Expected outcome:** cthor is concentrated in A-herbal (consistent with F147 finding that cthor is an A-herbal specific word with T1>>T3 gradient). cthor's LF=1.76× will be confirmed or refined within A-herbal.
@@ -3032,11 +3033,32 @@
 
 ## H304: Is [daiin][cthy] A Specific Two-Word Fixed Phrase, or Does daiin Enrich Before ALL cth-Words at LL?
 **Priority:** medium
+**Status:** CONFIRMED (exp_153) — daiin=3.57× enriched as penultimate before cthy@LL (4/21=19.0% vs 5.34% baseline); 0.00× before cthol@LL (0/5), cthor@LL (0/2), cthody@LL (0/2), cthain@LL (0/1). The enrichment is SPECIFIC to cthy — categorical 0× for all other cth-words at LL. (F160)
 **Source:** F159: daiin is penultimate before cthy@LL 4/21=19% (~5× enriched). Is this enrichment specific to cthy, or does daiin also enrich before cthol@LL, cthor@LL, etc.?
 **Description:** (1) For each cth-word at LL, compute penultimate word distribution. (2) Is daiin enriched specifically before cthy@LL or equally before all cth-words@LL? (3) Compute: baseline daiin rate as penultimate word vs daiin rate as penultimate before cthy@LL vs cthol@LL vs cthor@LL. If daiin enriches only before cthy@LL, [daiin][cthy] is a specific fixed phrase. If daiin enriches before all cth@LL equally, daiin→cth@LL is a general construction (daiin introduces line-final cth-words).
 **Expected outcome:** daiin specifically enriches before cthy@LL (not equally before all cth@LL). This would confirm [daiin][cthy] as a two-word fixed phrase (nominal closing construction), analogous to a determined noun phrase where daiin=determiner and cthy=the specific nominal form used at line-ends.
 **Cost estimate:** trivial
 **Prerequisites:** F159
+
+---
+
+## H305: Diagnostic — Why Does folio_to_section Return 'other' for ALL A-Dialect Folios?
+**Priority:** high
+**Source:** F160: H303 section analysis failed in exp_152 AND exp_153 despite attempted folio_base→section fix. Both runs returned all A-dialect tokens as 'other' (herbal/pharma/astro all n=0). Root cause unknown.
+**Description:** Run a targeted diagnostic: (1) Print 10 sample folio_base values from A-dialect P-type tokens. (2) Print the SECTION_MAP keys. (3) Trace the regex match step by step for a sample folio_base. (4) Check: is the section_map keyed by int or string? Is folio_num an int or string? Is the folio range in SECTION_MAP covering the right folios? Report the exact values at each step.
+**Expected outcome:** Identify the exact failure point (e.g., type mismatch int vs string, wrong folio range, folio_base format different from expected, regex group() failure). Fix and re-run cthor section analysis (H303).
+**Cost estimate:** trivial
+**Prerequisites:** F160
+
+---
+
+## H306: When daiin→cthy Occurs, Is cthy Always at LL, or Also at MID?
+**Priority:** medium
+**Source:** F160: [daiin][cthy] confirmed as specific two-word fixed phrase at LL. But does daiin→cthy also occur when cthy is at MID? If daiin→cthy is exclusively or predominantly LL-targeted, daiin is a line-terminal selector. If daiin→cthy also appears with cthy at MID frequently, daiin is a general cthy-introducer (not LL-specific).
+**Description:** (1) For all daiin→cthy bigrams in A P-type body text, compute cthy's positional slot (LF/second/MID/LL). (2) What fraction of daiin→cthy bigrams have cthy at LL vs MID vs other? (3) Compare: baseline cthy positional distribution vs daiin-selected cthy positional distribution. Does daiin shift cthy toward LL?
+**Expected outcome:** daiin→cthy bigrams have cthy at LL in majority (>50%), confirming daiin is a line-terminal selector for cthy. If cthy@MID is also common after daiin, the [daiin][cthy] fixed phrase is not LL-specific but a general determined-nominal phrase.
+**Cost estimate:** trivial
+**Prerequisites:** F160
 
 ---
 

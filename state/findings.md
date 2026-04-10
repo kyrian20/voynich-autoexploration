@@ -5,6 +5,14 @@
 
 ---
 
+## F160: [daiin][cthy] IS A SPECIFIC TWO-WORD FIXED PHRASE (daiin=3.57× ENRICHED PENULTIMATE BEFORE cthy@LL; 0.00× BEFORE cthol@LL, cthor@LL, cthody@LL, cthain@LL); H303 SECTION BUG PERSISTS (root cause unclear)
+**Experiment:** exp_153_cthor_section_daiin_cthy
+**Date:** 2026-04-10
+**Finding:** H304 CONFIRMED. daiin as penultimate word before cthy@LL: 4/21=19.0% (3.57× vs 5.34% baseline). daiin as penultimate before cthol@LL: 0/5=0.00×. cthor@LL: 0/2=0.00×. cthody@LL: 0/2=0.00×. cthain@LL: 0/1=0.00×. The enrichment is SPECIFIC to cthy — categorical 0× for all other cth-words at LL. [daiin][cthy] is a two-word fixed phrase, not a general daiin→cth@LL construction. Combined with F158's 4-way positional paradigm: cthy is the canonical daiin-selected line-terminal nominal form; other cth-words at LL (cthol, cthor) appear via different constructions. Example lines: "qocheor chol daiin cthy"; "cheor chol daiin cthy"; "dain daiin cthy". H303 (cthor section profile) still failed despite folio_num extraction fix — folio_to_section returns 'other' for all A-dialect tokens; root cause unclear; diagnostic experiment required.
+**Limitation:** daiin→cthy@LL n=4 (small absolute count, large enrichment but small-n). cthol/cthor@LL samples n=2-5 (very small; 0/5 is absence but low-powered). The specificity claim is strong directionally but not definitively powered at small n.
+
+---
+
 ## F159: cthol@SECOND DRIVEN BY ch/sh LINE-OPENERS BROADLY (ch=40%, d=20%); NOT EXCLUSIVELY [chol/chor][cthol]; daiin→cthy→LL CONFIRMED AS DOMINANT cthy-CLOSING CONSTRUCTION (daiin=19% of penultimate pre-cthy-LL, ~5× enriched); H301 SECTION ANALYSIS FAILED (bug: folio_base 'f1r' ≠ section_map key 'f1')
 **Experiment:** exp_152_cthor_section_cthol_second
 **Date:** 2026-04-10

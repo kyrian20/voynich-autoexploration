@@ -1,5 +1,5 @@
 # Working Model — Voynich Manuscript Cryptanalysis
-**Last updated:** 2026-04-10 (after exp_152)
+**Last updated:** 2026-04-10 (after exp_153)
 **Purpose:** Continuously-updated structured summary of current beliefs about Voynichese.
 **Discipline:** Characterization, not interpretation. Claims require experimental warrant.
 
@@ -222,9 +222,10 @@ These findings have been replicated across independent analyses or confirmed by 
 - A-dialect section variation: herbal-A=-y dominant (qok=37%, ch=29%); pharma-A=-ol dominant (qok=41%, ok=40%); 8.9% avg diff (3.5× weaker than B's 31%).
 - FOUR-LEVEL suffix hierarchy: Dialect (A/B) → Stem class (Simple-B/Complex-B; A-y/-ol) → Section (B: stars/cosmo/herbal; A: herbal/pharma) → Vowel length (stars triple-vowel extension). Strong evidence for natural language morphology.
 
-**cthol@SECOND DRIVEN BY ch/sh LINE-OPENERS (ch=40%); daiin→cthy→LL CONFIRMED (daiin=19% penultimate, ~5×); [daiin][cthy] IS A SPECIFIC LINE-CLOSING PHRASE (F159, exp_152)**
+**[daiin][cthy] IS A SPECIFIC TWO-WORD FIXED PHRASE: daiin=3.57× AS PENULTIMATE BEFORE cthy@LL, 0.00× BEFORE ALL OTHER cth@LL; cthol@SECOND DRIVEN BY ch/sh LINE-OPENERS (ch=40%) (F160, exp_153; F159, exp_152)**
+- [daiin][cthy] specificity CONFIRMED (H304): daiin=19.0% penultimate before cthy@LL (3.57× enriched), 0/5=0× before cthol@LL, 0/2=0× before cthor@LL. Not a general daiin→cth@LL construction — daiin SPECIFICALLY selects cthy as its line-terminal nominal form.
 - cthol@second (n=15): ch-onset LF=40%, d(daiin)=20%, sh=13%. chol/chor specific=33%. Not a pure Type 2 construction.
-- cthy@LL: daiin is penultimate in 4/21=19% cases (~5× enriched). [daiin][cthy→LL] = the dominant specific line-closing nominal phrase in A-grammar.
+- Section bug (H303) persists — folio_to_section returns 'other' for all A-dialect folios. Diagnostic required (H305).
 
 **4-WAY cth POSITIONAL PARADIGM: cthor=LF-OPENER (1.76×); cthol=SECOND (1.94×); cthody/ctheody=MID (1.29-1.68×); cthy=LL-CLOSER (1.39×); daiin→cthy=LINE-CLOSER + daiin→cthol=MEDIAL; chol@LF→cth@SECOND=3.11× (F158, exp_151)**
 - cthor=LF-enriched (LF=31.2%, 1.76×), LL-depleted (0.35×). cthol=second-enriched (31.2%, 1.94×), LL-depleted (0.59×). cthody/ctheody=MID-enriched (1.29-1.68×). cthy=LL-enriched (24.7%, 1.39×), second-depleted (0.58×).
