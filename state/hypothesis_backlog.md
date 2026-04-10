@@ -2827,6 +2827,7 @@
 
 ## H272: Is the Within-Herbal cth Gradient Driven by B-Herbal Insertions or a Genuine A-Herbal Scribal Shift?
 **Priority:** high
+**Status:** CONFIRMED PARTIAL (exp_138) — A-herbal-only ρ=-0.353 (44 folios): genuine A-herbal cth decline. B-insertions amplify (full-herbal ρ=-0.486) but don't create the gradient. Early A-herbal cth=5.4%, late=3.7% (0.69×). l-gradient also real in A-herbal (ρ=+0.457, later A-herbal has more l-onset words). (F145)
 **Source:** F144: Within-herbal cth ρ=-0.486 (notable). cth=6-10% in f1-f20 → ~0% in f40-f57. Is this explained entirely by the 12 B-herbal folios (which have cth≈0 by B-dialect definition), or does A-herbal itself show a cth gradient?
 **Description:** (1) Extract A-herbal-only folios (exclude all B-dialect folios from herbal section); (2) compute cth gradient within A-herbal alone; (3) compare A-herbal cth rate at early folios (f1-f25) vs late folios (f26-f57). If gradient disappears in A-herbal-only, the within-herbal trend is a B-insertion artifact. If gradient remains, there's a genuine A-herbal scribal shift in cth use.
 **Expected outcome:** B-insertions fully explain the gradient (A-herbal-only gradient disappears or weakens to ρ<0.2). If residual gradient remains, it would suggest the A-herbal scribe also changed register toward the end of the herbal section.
@@ -2837,6 +2838,7 @@
 
 ## H273: Why Does cth INCREASE Within Stars (ρ=+0.469)? Is It Driven by Specific Later-Stars Folios?
 **Priority:** medium
+**Status:** NOT CONFIRMED (NOISE ARTIFACT) (exp_138) — Stars cth = 19 total tokens (0.25% rate across 7748 words). The ρ=+0.469 is entirely driven by f113 (7 tokens, 0.77%) and f116 (4 tokens, 0.79%); all other stars folios have 0-3 tokens. With only 19 total tokens, Spearman ρ is statistically unreliable — this is sampling noise, not a real gradient. F144's stars-cth ρ=+0.469 claim is RETRACTED by F145. (F145)
 **Source:** F144: Stars cth ρ=+0.469 (unexpected positive correlation — cth/ch increase in later stars folios). Stars is supposed to be B-dialect (cth-depleted by F139). Later stars folios (f112-f116) may have unusual cth/ch vocabulary.
 **Description:** (1) Compute per-folio cth rate in stars (f103-f116); (2) identify which folios drive the upward trend; (3) check whether these are B-cth hybrid forms (cthedy/cthdy from F132) or genuine cth-onset words; (4) check folio-level dialect assignment of later stars folios.
 **Expected outcome:** Later stars folios (f113-f116) have slightly elevated cth from B-cth hybrid forms (cthedy at f113/f116 from F132). The ρ=+0.469 is driven by a handful of folios with unusual vocabulary.
@@ -2847,11 +2849,32 @@
 
 ## H274: What Is the Full Onset/Suffix Profile of f47 (Herbal/A, Most Deviant A-Herbal Folio)?
 **Priority:** medium
+**Status:** CONFIRMED (exp_138) — f47 is a sampling artifact (n=134 words). ch=35.1% (2.06×) explained by chol=11 (3.0×), chy=6 (4.6×), chdy=3 (34.9×) — small-sample chance over-representation. y=0% and qo=0% consistent with n=134 draws from 6.5%/2.5% rates. Cosine similarity: herbal=0.8473 (best match). f47 is a normal A-herbal folio with no scribal anomaly. (F145)
 **Source:** F144: f47 (herbal/A) is the most deviant A-herbal folio (dev=0.2375) with ch:+20.0% above A-herbal centroid. This anomaly makes f47 potentially a mislabeled dialect or a scribal outlier.
 **Description:** Compute f47's complete onset-class and suffix profile. Compare to: A-herbal centroid, B-herbal centroid, pharma centroid. Check: (1) Is f47's ch elevation driven by specific ch-words? (2) Does f47's vocabulary match any other section or folio more than A-herbal?
 **Expected outcome:** f47 is genuinely unusual — likely an A-herbal folio with specific botanical content driving unusual ch-onset vocabulary. Its best-match section may be pharma or A-herbal-pharma.
 **Cost estimate:** trivial
 **Prerequisites:** F144
+
+---
+
+## H275: Is the A-Herbal cth Decline a Smooth Gradient or a Specific Breakpoint?
+**Priority:** high
+**Source:** F145: A-herbal-only cth ρ=-0.353 (genuine gradient). Early A-herbal (f1-f28): cth=5.4%; late (f29-f57): cth=3.7%. Is this a smooth monotonic decline or a step-change at a specific folio?
+**Description:** Divide A-herbal folios into tertiles (f1-f18, f19-f37, f38-f57). Compute cth rate and l rate for each tertile. If tertile 1→2→3 shows a step-change at one boundary (e.g., f19 or f38) rather than a smooth decline, there may be a scribal hand change at that point. Also compute the within-A-herbal breakpoint using a simple change-point scan (slide a breakpoint across all A-herbal folios, find the folio that maximizes the difference in mean cth rate between before/after groups).
+**Expected outcome:** If smooth gradient: evidence for content shift (botanical content changes across the herbal section). If step-change at a specific folio: evidence for scribal hand change (two A-scribes with different cth rates).
+**Cost estimate:** small
+**Prerequisites:** F145, F144
+
+---
+
+## H276: Does the A-Herbal l-Gradient Reflect B-Vocabulary Contamination in Later A-Herbal Folios?
+**Priority:** medium
+**Source:** F145: A-herbal l-onset gradient (ρ=+0.457): later A-herbal folios (f29-f57) have l=0.8% vs early 0.4%. l-onset words are B-dialect markers (F131, F134). Do later A-herbal l-onset words look like B-vocabulary forms (lkeedy, lkedy, lkeey) or like A-vocabulary l-onset words (lar, lor, lol)?
+**Description:** Extract all l-onset words from early A-herbal (f1-f28) vs late A-herbal (f29-f57). Compute: (1) Which l-words appear in early vs late A-herbal? (2) Are late A-herbal l-words predominantly A-dialect l forms (short, with -ol/-or suffixes) or B-dialect l forms (lkeedy/lkedy type, with -edy/-eedy)? (3) Compute dialect purity of late A-herbal l-words using the suffix paradigm split (A-suffix vs B-suffix).
+**Expected outcome:** Late A-herbal l-words are dominated by A-dialect l forms (lar/lor/lol) rather than B-vocabulary l forms — the l-gradient is a content shift, not scribal cross-contamination. If B-dialect l forms (lkeedy) dominate in late A-herbal, it would suggest dialect mixing at the A/B boundary.
+**Cost estimate:** small
+**Prerequisites:** F145, F131, F134
 
 ---
 

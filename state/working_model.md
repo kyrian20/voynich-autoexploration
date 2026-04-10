@@ -1,5 +1,5 @@
 # Working Model — Voynich Manuscript Cryptanalysis
-**Last updated:** 2026-04-09 (after exp_137)
+**Last updated:** 2026-04-09 (after exp_138)
 **Purpose:** Continuously-updated structured summary of current beliefs about Voynichese.
 **Discipline:** Characterization, not interpretation. Claims require experimental warrant.
 
@@ -222,7 +222,14 @@ These findings have been replicated across independent analyses or confirmed by 
 - A-dialect section variation: herbal-A=-y dominant (qok=37%, ch=29%); pharma-A=-ol dominant (qok=41%, ok=40%); 8.9% avg diff (3.5× weaker than B's 31%).
 - FOUR-LEVEL suffix hierarchy: Dialect (A/B) → Stem class (Simple-B/Complex-B; A-y/-ol) → Section (B: stars/cosmo/herbal; A: herbal/pharma) → Vowel length (stars triple-vowel extension). Strong evidence for natural language morphology.
 
-**PARA-TAIL LINES (=Pt) = ch-DOMINANT (2.15×), y-DEPLETED (0.28×), 80% HERBAL; PARA-TAIL CLOSER = -y (27.3%); FOLIO GRADIENT: d/cth DECREASE (ρ≈-0.64), l/qok INCREASE (ρ≈+0.64) ACROSS MANUSCRIPT; WITHIN-HERBAL cth ρ=-0.486; STARS cth ρ=+0.469 (UNEXPECTED) (F144, exp_137)**
+**A-HERBAL cth GRADIENT IS REAL IN A-ONLY (ρ=-0.353; early=5.4% → late=3.7%=0.69×); l-GRADIENT ALSO REAL (ρ=+0.457); STARS cth ρ=+0.469 = NOISE (19 tokens, F144 claim RETRACTED); f47 = SAMPLING ARTIFACT (n=134) (F145, exp_138)**
+- A-herbal-only cth ρ=-0.353 (44 folios): genuine A-herbal cth decline, not solely B-insertion artifact. B-insertions amplify (full-herbal ρ=-0.486 → A-only ρ=-0.353).
+- Early A-herbal (f1-f28): cth=5.4%, l=0.4%; late A-herbal (f29-f57): cth=3.7% (0.69×), l=0.8% (1.84×). l-gradient (ρ=+0.457) in A-herbal is a B-dialect marker increase.
+- Stars cth total = 19 tokens / 7748 words (0.25%). The F144 ρ=+0.469 was driven by f113 (7 tokens) + f116 (4 tokens) — sampling noise with unreliable Spearman ρ. F144's stars-cth claim RETRACTED.
+- f47 (n=134 words, A-herbal): ch=35.1% (2.06×) = sampling artifact. chol=11 by chance, y/qo=0% consistent with n=134. Cosine similarity=0.8473 (correctly identified herbal). No scribal anomaly.
+- Spawned: H275 (A-herbal cth breakpoint vs smooth gradient), H276 (late A-herbal l-words: B-vocabulary contamination or A-content shift?).
+
+**PARA-TAIL LINES (=Pt) = ch-DOMINANT (2.15×), y-DEPLETED (0.28×), 80% HERBAL; PARA-TAIL CLOSER = -y (27.3%); FOLIO GRADIENT: d/cth DECREASE (ρ≈-0.64), l/qok INCREASE (ρ≈+0.64) ACROSS MANUSCRIPT; WITHIN-HERBAL cth ρ=-0.486; STARS cth ρ=+0.469 (RETRACTED BY F145) (F144, exp_137)**
 - Para-tail (=Pt): 46 lines, mean=5.3 words (vs continuation 7.5). ch=2.15×, d=1.61×, y=0.28×. Last-word: -y=27.3%, -am=6.1%. 80% herbal, 20% cosmo; zero stars/pharma/astro tail lines.
 - Para-tail is closing vocabulary (ch/d-dominant, y-depleted) — complementary to para-start (y/p/k-dominant).
 - Six onset classes show global folio gradient (|ρ|>0.5): d/cth/ch decrease; l/qok/ol increase — traces A→B dialect transition.
