@@ -3746,3 +3746,30 @@
 **Expected outcome:** If cthey has a genuine ch_e affinity, we'd expect enriched ch_e successor rate even at non-LF positions. If it's noise, successor distribution should be baseline.
 **Cost estimate:** small
 **Prerequisites:** F175
+
+## H351: [chol/chor][daiin][cthy] — Is [chol][daiin] a Stable Bigram Unit Preceding cth?
+**Priority:** high
+**Status:** untested
+**Source:** F176: [ch][daiin]→cth=5.89×; chol (3×) and chor (2×) are the dominant ch-words before daiin-cth. Is [chol][daiin] itself a recurrent bigram?
+**Description:** Extract all [chol][daiin][?] trigrams in A-dialect. What follows [chol][daiin]? Does cth dominate? Also compare: [chol][daiin] enrichment vs [chol] → cth directly (without daiin). Is daiin a necessary bridge, or does chol sometimes introduce cth directly?
+**Expected outcome:** [chol][daiin][cthy] is likely the most common specific trigram (3 cases already found). [chol] without daiin may also precede cth at enriched rate, but daiin boosts the enrichment.
+**Cost estimate:** small
+**Prerequisites:** F176
+
+## H352: cthedy → l (5.79×) and ot (5.07×) in B-Dialect — Specific Word Pairs?
+**Priority:** high
+**Status:** untested
+**Source:** F176: cthedy successor onset l=5.79×, ot=5.07×. What specific l-words and ot-words follow cthedy?
+**Description:** Extract all B-dialect cthedy → [word] pairs and tabulate the specific successor words. Are the l-onset and ot-onset successors consistent (same words) or diverse? If specific l-words always follow cthedy, this would establish [cthedy][l-word] as a stable bigram formula in B-dialect.
+**Expected outcome:** Given cthedy n=11 with 9 having successors, and l=3 and ot=3 successors, the specific words may be diverse (3 different l-words, 3 different ot-words) or may converge on 1-2 items.
+**Cost estimate:** trivial (data already available from exp_169 full lines)
+**Prerequisites:** F176
+
+## H353: cthol Successor Enriched for cth (2.41×) — Are These All [cthol][cthy] Pairs?
+**Priority:** medium
+**Status:** untested
+**Source:** F176: cthol successor cth=2.41×. From F166: [cth-MID][cthy@LL] is the dominant cth self-succession. The 4 cthol→cth successor cases — are they specifically cthol→cthy?
+**Description:** Extract all [cthol][cth-word] bigrams. Is cthy the dominant cthol successor among cth-words? Also: does [cthol][daiin]=6 lead to further cth-words (i.e., [cthol][daiin][cth] trigrams)? This would reveal whether daiin mediates between cthol and cthy: [cthol][daiin][cthy].
+**Expected outcome:** Some cthol→cthy direct pairs, and possibly [cthol][daiin][cthy] trigrams where daiin intervenes. This would establish [cthol][cthy] and [cthol][daiin][cthy] as variants of the same [medial-nominal][terminal-nominal] construction.
+**Cost estimate:** trivial
+**Prerequisites:** F176, F166

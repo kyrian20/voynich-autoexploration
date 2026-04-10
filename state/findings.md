@@ -5,6 +5,14 @@
 
 ---
 
+## F176: [ch][daiin]→cth=5.89× (COMPOUND PRECURSOR: [ch-nominal][daiin][cth-nominal] GRAMMATICAL CHAIN); cthol SUCCESSOR ENRICHED FOR cth (2.41×) AND d (2.15×); cthedy→l=5.79×, ot=5.07× IN B-DIALECT (DIVERGENT cth-WORD SUCCESSOR PROFILES)
+**Experiment:** exp_169_ch_daiin_cth_compound_cthol_asymmetry
+**Date:** 2026-04-10
+**Finding:** H348 CONFIRMED STRONGLY: [ch][daiin] bigram → cth at 5.89× enrichment (12 observed vs 2.0 expected). [daiin] alone → cth=3.30×. The [ch][daiin] sequence is a compound predictor — when ch is followed by daiin, cth follows at nearly 6× baseline. Dominant pattern: [chol/chor][daiin][cthy] — medial ch-nominals (chol, chor) specifically introduce the [daiin][cth-word] terminal construction. This represents a [ch-nominal][particle][cth-nominal] three-word grammatical chain. H349 NOT CONFIRMED: no daiin-left asymmetry around cthol (daiin=54.5% before vs 42.9% after — roughly symmetric). NEW H349 FINDING: cthol SUCCESSOR is enriched for cth (2.41×) and d (2.15×) — cthol introduces further cth and d-words. [cthol][daiin]=6 (most common cthol successor), [cthol][chol]=3. Predecessor enrichments: qot=2.23×, cth=1.66×. H350 PARTIAL: cthey@LF→ch_e (2/2) is positionally specific (not general). cthey@MID introduces ok-onset (3.35×). MAJOR BONUS: B-cth words have DIVERGENT SUCCESSOR PROFILES: cthedy→l (5.79×) and ot (5.07×); cthey→ok (3.35×) and ch_e (2.47×); cthdy→qok (4.14×) and s (8.83×, n=1). Each B-cth word selects a different successor class.
+**Limitation:** [ch][daiin][cth] n=12 cases — 5.89× enrichment is robust but ch-words are diverse (chol/chor dominant but not exclusive). [chol][daiin][cthy] = 3-5 specific cases — directional pattern but small absolute n. cthol d-asymmetry: [d][cthol]=11 and [cthol][d]=14 (adequate for comparing proportions). cthedy successor enrichments (l=5.79×, ot=5.07×) are from n=9 with-successor — strong signal but small n. cthey→ch_e@LF is n=2 (marginal). cthdy bonus successor n=4 (very small, 8.83× for s is n=1).
+
+---
+
 ## F175: B-cthedy/cthey FRONT-ENRICHED AT BOTH LF AND SECOND (1.53-1.70×); [d][cth][d]=16 NOT PREDOMINANTLY [daiin][cth][daiin] (only 2/16 bilateral daiin; cthol=5/16 dominant middle); B-cthdy LL-ENRICHED (2.81×), NEVER LF/SECOND — PARALLELS A-cthy; cthdy IS UNIQUE LL-CLOSER AMONG B -dy FORMS
 **Experiment:** exp_168_b_cthedy_lf_formulas_d_cth_d_trigrams
 **Date:** 2026-04-10
