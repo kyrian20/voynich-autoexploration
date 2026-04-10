@@ -1,5 +1,5 @@
 # Working Model — Voynich Manuscript Cryptanalysis
-**Last updated:** 2026-04-10 (after exp_156)
+**Last updated:** 2026-04-10 (after exp_157)
 **Purpose:** Continuously-updated structured summary of current beliefs about Voynichese.
 **Discipline:** Characterization, not interpretation. Claims require experimental warrant.
 
@@ -241,7 +241,7 @@ These findings have been replicated across independent analyses or confirmed by 
 - chol→cth bigrams (n=20): 55% from chol@second, 45% from chol@MID, 0% from chol@LF. Corrected construction: [LF-word][chol@second][cth@subsequent].
 - chol@LF (n=11): second-pos is ch-onset 54.5% (~8× enriched) — [chol@LF][ch@second] pattern, never cth at second.
 - Verified bigram enrichments: chol→cth=2.35×, chor→cth=2.22× (real).
-- daiin→cth bigram real (3.08×). Daiin→cth positional context still to verify (H314).
+- daiin→cth bigram real (3.08×). Corrected positional context (exp_157): daiin→cth from MID (70%), LF (18.6%). NEW: [daiin@LF][cth@second] = 6 cases. daiin→cthol always MID; daiin→cthy LL-biased (5/9); daiin→cthor: 3 at second, 3 at MID.
 - dy→sh real within-line construction. HELD.
 
 **NO A-PARTICLE INTRODUCES sh/ch_e AT 3×+; sh=SELF-INTRODUCED (1.68×); ch_e=SELF-INTRODUCED (1.98×); cth-ENRICHED PARTICLE CLUSTER (daiin/chol/chor/cthol→cth AT 2.1-3.1×) DEPLETES sh/ch_e; aiin/ol→cth=0.00× BUT →ch_e=1.4-2.0× (F156, exp_149)**

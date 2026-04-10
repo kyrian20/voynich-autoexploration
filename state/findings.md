@@ -13,6 +13,14 @@
 
 ---
 
+## F164: daiin NEAR-BASELINE POSITIONALLY (LF=1.07×, MID=1.04×); daiin→cth: 70% FROM MID, 18.6% FROM LF; NEW [daiin@LF][cth@second] LINE-OPENING CONSTRUCTION (6 CASES); daiin→cthol ALWAYS MID (6/6); ot-ONSET AT LF BEFORE chol@SECOND (2.95×)
+**Experiment:** exp_157_daiin_cth_bigram_positions
+**Date:** 2026-04-10
+**Finding:** H314 CONFIRMED WITH REVISION. daiin in A is near-baseline across all positional slots (LF=1.07×, second=0.77×, MID=1.04×, LL=1.04×). NOT specifically MID-enriched as F157 claimed. However, daiin→cth bigrams (n=43) are biased toward daiin@MID (30/43=70%, above baseline 54.3%) — so while daiin occurs everywhere, it precedes cth-words predominantly from MID. NEW: daiin@LF → cth-word (8/43=18.6%) — a line-opening construction. daiin@LF → cth@second in 6 cases: [daiin@LF][cthor@second] (3 cases), [daiin@LF][cthain/ctheey/ctheol@second] (1 each). daiin@LF → cth@LL in 2 cases (short lines). By cth-word: daiin→cthol always MID (6/6); daiin→cthy LL=55.6% (5/9); daiin→cthor MID=3 or second=3. H313 CONFIRMED: ot-onset at LF before chol@second (2.95×, 7/66 lines); no dominant single LF word.
+**Limitation:** daiin→cth n=43 (moderate); daiin@LF→cth n=8 (small absolute, but categorical pattern); daiin→cthol@MID n=6 (small). The [daiin@LF][cth@second] construction is new and small-n — requires confirmation. chol@second LF-word distribution n=66 (adequate for onset distribution, weak for specific words).
+
+---
+
 ## F163: chol=SECOND-ENRICHED (1.87×), LF-DEPLETED (0.30×); chol→cth BIGRAMS FROM SECOND/MID ONLY (0 FROM LF); chol@LF→ch@SECOND (54.5%, ~8× enriched); VERIFIED chol→cth=2.35×, chor→cth=2.22×; CORRECTED cth INTRODUCTION PICTURE
 **Experiment:** exp_156_chol_cth_bigram_positions
 **Date:** 2026-04-10
