@@ -1,5 +1,5 @@
 # Working Model — Voynich Manuscript Cryptanalysis
-**Last updated:** 2026-04-09 (after exp_122)
+**Last updated:** 2026-04-09 (after exp_123)
 **Purpose:** Continuously-updated structured summary of current beliefs about Voynichese.
 **Discipline:** Characterization, not interpretation. Claims require experimental warrant.
 
@@ -221,6 +221,12 @@ These findings have been replicated across independent analyses or confirmed by 
 - eee (triple-vowel) words: stars=17.25‰, cosmo=4.40‰ (suppressed). Vowel-length gradient monotonically stars-concentrated (edy→eedy→eeedy: 36%→48%→63%). eee enriched in ok/ol/qo (1.7-1.9×), suppressed in ch/sh (0.37-0.46×).
 - A-dialect section variation: herbal-A=-y dominant (qok=37%, ch=29%); pharma-A=-ol dominant (qok=41%, ok=40%); 8.9% avg diff (3.5× weaker than B's 31%).
 - FOUR-LEVEL suffix hierarchy: Dialect (A/B) → Stem class (Simple-B/Complex-B; A-y/-ol) → Section (B: stars/cosmo/herbal; A: herbal/pharma) → Vowel length (stars triple-vowel extension). Strong evidence for natural language morphology.
+
+**Onset Grammar Probabilistic; cth→cth=4.78×=Only Mandatory; cth↔d Cycle=2.20×; Stars l-/k-Onset = NEW B-Dialect Prefix Classes; lkaiin=81% Stars; Stars Line-Start=y-/p-Openers; Line-End=am-Particles (F130, exp_123)**
+- Onset transition grammar is probabilistic — no forbidden transitions found. One mandatory pair: cth→cth=4.78× (cth-noun self-clustering).
+- cth↔d mutual cycle (cth→d=2.18×, d→cth=2.21×, mean 2.20×) is dominant syntactic pattern. sh→qok=1.99× (B-paradigm). ot→ot=1.95×, qot→qot=2.34× (self-clusters). s-onset = most constrained predictor (H=-0.169 bits).
+- Stars "other"-onset = (1) standalone particles (aiin/ar/al/or/am = 33%); (2) **l-onset** (lchedy, lkaiin=81% stars, lkeedy — new unrecognized prefix class); (3) **k-onset** (kaiin, keedy, keey — 47-55% stars); (4) y-/p-prefixed formula openers (ycheey, yshey, polaiin) at line-start; am-particles at line-end.
+- lkaiin = most stars-concentrated token in manuscript (81% of all lkaiin appear in stars). l-/k-onset likely constitute unrecognized B-dialect prefix classes.
 
 **-ol=Pre-Determiner (d-Onset 1.44-1.66×); -or=Pre-Nominal (cth 2.15×, sh 1.57×); B-otaiin→ot=4.00× MIRRORS A-daiin→cth=2.77×; Dialectal NP Complementarity: A=[ch-ol/or][daiin][cth]; B=[ot/ok][otaiin][ot] (F129, exp_122)**
 - -ol suffix = pre-determiner position: chol→d=1.66× (chol → daiin → cth-noun is 3-word A-NP template via determiner)

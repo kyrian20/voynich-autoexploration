@@ -2585,6 +2585,7 @@
 
 ## H242: The "other" Onset Class in Stars — What Words Constitute It?
 **Priority:** medium
+**Status:** CONFIRMED (exp_123) — Stars "other" = (1) standalone particles aiin/ar/al/or/am (33%); (2) l-onset (lchedy/lkaiin/lkeedy=81% stars); (3) k-onset (kaiin/keedy/keey); (4) y-/p-prefixed line-starters; line-end "other" = am particles; lkaiin=81% stars-concentrated (F130)
 **Source:** F128: In stars, pos-0 onset distribution is 48% "other" (vs ~27% overall baseline). Stars lines predominantly start with "other"-onset words. F117: 'other' top words are free morphemes (ol, aiin, or, ar, al). But in stars (B-dialect), the "other" words at line-start are likely different from A-dialect free morphemes. What specific words constitute the "other" class at stars line-starts?
 **Description:** Extract all stars lines. Identify the specific words at pos-0 that classify as "other" onset. Build a frequency table. Compare to: (1) overall "other" class composition, (2) B-dialect "other" words more generally, (3) check if these are standalone particles (ol, ar, al), compound words, or genuinely unclassified new word types. Also: what "other"-onset words appear at stars line-final positions (where "other" also dominates)?
 **Expected outcome:** Stars line-start "other" words are a specific set of B-dialect particles or formula words that function as paragraph/entry openers (like "Item", "The star", etc. in natural language catalogs). Stars line-final "other" words may be a different set (closing particles, possibly -am words).
@@ -2594,8 +2595,55 @@
 
 ## H243: chol→daiin Bigram — Is -ol Suffix Specifically a "Pre-Determiner" Marker?
 **Priority:** medium
+**Status:** CONFIRMED (exp_122 / F129) — -ol=pre-determiner (d-onset 1.44-1.66×); -or=pre-nominal (cth 2.15×); full suffix matrix completed; see H240.
 **Source:** F128: W1 in [W1][daiin][cth-noun] has -ol suffix at 2.48× enrichment. chol is the top W1 word (31 of 401 pre-daiin occurrences = 7.7%). Is this a general property of -ol suffix words? Test: all -ol suffix words: what onset follows each of them? Is -ol suffix systematically followed by daiin (or other d-onset determiners) more than other suffixes?
 **Description:** Compute for each suffix (-ol, -or, -y, -ey, -aiin, -edy, -al, -ar) the bigram enrichment to next-onset class. Specifically test: [X-ol]→d-onset vs [X-or]→d-onset in A-dialect. Also test [X-ol]→cth vs [X-or]→cth. Build a full suffix→next-onset enrichment table analogous to the word-level bigram matrix.
 **Expected outcome:** -ol suffix words are pre-determiner (enrich d-onset next); -or suffix words are pre-nominal (enrich cth-onset next directly). This would establish that suffix choice within A-paradigm encodes syntactic position, not just morphological slot — the -ol/-or distinction maps to adjective/modifier vs pre-nominal determiner positions.
+**Cost estimate:** small
+
+---
+
+## H244: Onset-Class Transition Matrix — Is There a Full Markov Grammar?
+**Priority:** high
+**Status:** CONFIRMED PARTIAL (exp_123) — Grammar is probabilistic (no forbidden pairs); only mandatory: cth→cth=4.78×; dominant cycle: cth↔d (2.18-2.21×); sh→qok=1.99×; ot→ot=1.95×; s-onset most constrained (H=-0.169 bits); B-cth→cth=8.79× (F130)
+**Source:** F129: -ol/-or encode syntactic position via next-onset enrichment. Multiple experiments have shown onset-class bigram enrichment rules. The accumulated evidence suggests a full Markov grammar over onset classes. What does the complete onset→onset transition matrix look like? Are there forbidden transitions (near-zero)? Is there a cyclic grammar: s→d→ch→cth→d→... ?
+**Description:** Build the full N×N onset-class transition matrix (conditional probability of next onset given current onset) over the full corpus. Compute enrichment (obs/baseline) for every onset→onset pair. Identify: (1) forbidden pairs (enrichment <0.2); (2) mandatory pairs (enrichment >3×); (3) whether the matrix reveals a directed cycle (a grammar graph). Test A-dialect and B-dialect separately. Compare entropies: which onset class has lowest H(next) = most grammatically constrained?
+**Expected outcome:** A-dialect reveals a grammar graph: some transitions are enriched (ch/sh→d→cth, s→ch, etc.) and others forbidden (cth→cth self-loop?, s→cth directly?). B-dialect shows a parallel grammar with different preferred transitions (qok→sh→ch→ot?). A full Markov grammar would be the strongest evidence yet for genuine syntactic structure.
+**Cost estimate:** small
+
+---
+
+## H245: cth-Onset Vocabulary — Are cth-Words a Closed or Open Noun Class?
+**Priority:** medium
+**Source:** F129: cth-onset is the target of the A-dialect NP template (daiin→cth=2.77×, chol→daiin→cth). If cth-words are nouns, they should form a relatively closed class (finite vocabulary). F114: cth- strips to reveal constrained stems. H222 (tested as exp_109): cth-onset hapax rate vs other onset classes?
+**Description:** Characterize the cth-onset vocabulary: (1) how many distinct cth-types are there? (2) what is the hapax rate (types seen only once)? (3) what is the frequency distribution (Zipfian? Geometric? Evidence for open/closed class)? (4) compare to qok-onset (B-paradigm "noun" class). (5) are cth-words section-specific (different cth words in herbal vs pharma vs cosmo)? (6) what is the cth-word type-token ratio vs baseline? A closed class would show low hapax rate, high repetition, small type count. An open class would show high hapax rate, low repetition, Zipfian distribution.
+**Expected outcome:** cth-onset is a semi-closed class (small vocabulary, moderate hapax, strong section specialization) consistent with a proper-noun or plant-name-like lexicon in herbal/pharma sections. This would support the "herbal glossary" interpretation where cth-words name plants.
+**Cost estimate:** small
+
+---
+
+## H246: Suffix Sequence Within Lines — Is There a Positional Suffix Grammar?
+**Priority:** medium
+**Source:** F129: Suffix encodes syntactic position (aiin=cth-determiner, ol=pre-d, or=pre-noun). If suffixes encode syntactic position, then WITHIN a line, the suffix sequence should show systematic patterns: e.g., -ol words appear before -aiin words appear before content words. Is there a within-line suffix grammar?
+**Description:** For each line, extract the sequence of suffixes. Compute: (1) suffix bigrams within lines (what suffix follows what suffix? constrained or free?); (2) suffix positional enrichment within lines by line-fraction (0=start, 1=end) rather than absolute position; (3) test whether -ol appears before -aiin within the same line; (4) entropy of suffix at each fractional position. Compare A-dialect and B-dialect. 
+**Expected outcome:** Within A-dialect lines: -ol suffix appears at fraction 0.2-0.4 (modifier position); -aiin appears at 0.3-0.5 (determiner position); cth-onset at 0.4-0.6 (noun position); -y/-dy at 0.7-1.0 (closing position). This would confirm that the within-line suffix sequence is a positional grammar, not random.
+**Cost estimate:** small
+
+---
+
+## H247: l-Onset Prefix Class — Is 'l' a B-Dialect Morphological Prefix?
+**Priority:** high
+**Source:** F130: Stars "other"-onset analysis revealed lchedy (52), lkaiin (39), lkeedy (30), lkeey (34), lkain (28) — words starting with 'l' that are heavily stars-concentrated (lkaiin=81% in stars). These appear to be l+[B-onset-word] compounds. If 'l' is a morphological prefix (like 'o-', 'qo-', 'cth-'), then l-stripped words should appear as standalone words in the vocabulary. This would add a fourth B-dialect prefix to the taxonomy.
+**Description:** Extract all words starting with 'l' in the manuscript. Strip the 'l' and check if the remainder is in the vocabulary (l-stem rate). Compare to qo-prefix (qo-stripped stem recovery rate = 42%). Compute: (1) dialect distribution of l-initial words; (2) section distribution; (3) suffix distribution (do they take B-paradigm suffixes?); (4) l-stripped stems: what onset classes? (5) bigram behavior: what precedes and follows l-onset words? Compare to o-prefix structure.
+**Expected outcome:** l-onset is a B-dialect prefix (B-enriched), stars-concentrated, that strips to reveal k-/ch-initial stems (similar to qo-prefix). l-stripped stems appear in the vocabulary. This would extend the onset taxonomy with 'l' as a fourth recognized prefix class.
+**Cost estimate:** small
+
+---
+
+## H248: k-Onset Words — Are They a Separate Productive Class or l-stripped k-Stems?
+**Priority:** medium
+**Source:** F130: Stars "other"-onset analysis found kaiin (36), keedy (34), keey (21), kain (20), kedy (14) — k-initial words that are 47-55% stars-concentrated. These could be: (1) standalone k-onset words (k is a recognized onset in the inner structure but not in the onset taxonomy); (2) l-prefix stripped forms (lkaiin → kaiin = l-stripped form?); (3) a third prefix class.
+**Description:** Characterize k-initial words: (1) frequency and section distribution; (2) suffix distribution (do they take B-paradigm suffixes?); (3) are k-initial words = l-stripped forms (does lkaiin → kaiin correspond?); (4) is 'k' a recognized stem-initial character in the EVA alphabet?; (5) co-occurrence: do kaiin and lkaiin appear in the same paragraphs? (6) bigram behavior: what precedes k-onset words?
+**Expected outcome:** k-onset words are related to the l-prefix class (lkaiin is l + kaiin; kaiin alone also appears as a free form). This would reveal a k-onset sub-class that is either a stripped form of l-compounds or an independent onset class analogous to ch/sh.
 **Cost estimate:** small
 

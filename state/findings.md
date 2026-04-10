@@ -5,6 +5,14 @@
 
 ---
 
+## F130: Onset Grammar Is Probabilistic (No Forbidden Pairs); cth→cth=4.78× (Only Mandatory); cth↔d Cycle=2.20× (Mean); Stars "Other"=l-/k-Onset NEW B-Dialect Classes; lkaiin=81% Stars-Concentrated; Stars Line-Start="y-/p-Prefix Formula Openers"; Stars Line-End=am-Particles
+**Experiment:** exp_123_onset_grammar
+**Date:** 2026-04-09
+**Finding:** H244 CONFIRMED PARTIAL: The Voynich onset transition grammar is probabilistic — no forbidden transitions found (no pairs below 0.15 enrichment with sufficient n). One mandatory transition: cth→cth=4.78× (cth self-clusters, suggesting compound cth-NPs or cth-noun lists). Dominant cycles: cth→d=2.18× AND d→cth=2.21× (cth↔d mutual attraction, mean cycle=2.20×); sh→qok=1.99×/sh→qo=1.95× (B-paradigm); ot→ot=1.95×, qot→qot=2.34× (self-clustering). s-onset is the most constrained predictor (H=-0.169 bits). B-dialect cth→cth=8.79× (extreme, n=47 — rare B-cth words cluster). No global directed grammar cycle found. H242 CONFIRMED: Stars "other"-onset reveals two new B-dialect onset classes: (1) l-onset (lchedy=52, lkaiin=39, lkeedy=30, lkeey=34 — l-prefix on B-onset stems; lkaiin=81% stars-concentrated = most section-specific token in manuscript); (2) k-onset (kaiin=36, keedy=34, keey=21 — k-initial B-paradigm words; 47-55% stars-concentrated). Stars line-start "other" = y-/p-/t-prefixed B-content words (ycheey, yshey, polaiin — formula openers); stars line-end "other" = am-suffix particles (am=16 at line-final positions). Standalone particles (aiin/ar/al/or/am) = 33% of stars "other".
+**Limitation:** The onset transition matrix uses onset classes as defined by the current taxonomy — "other"-onset words (33% of corpus) are excluded from the structural rows/columns. Including l-onset and k-onset as separate classes would change the matrix. The cth→cth=4.78× finding is from n=26 cth→cth transitions; the B-dialect version (8.79×) has only n=47 total cth tokens in B-text. The grammar cycle analysis tested specific chains; exhaustive search for cycles was not performed.
+
+---
+
 ## F129: -ol = Pre-Determiner Suffix (d-Onset 1.44-1.66×); -or = Pre-Nominal (cth 2.15×, sh 1.57×); B-otaiin→ot=4.00× MIRRORS A-daiin→cth=2.77× — Dialectal NP Complementarity; B-NP=[ot/ok-modifier][otaiin][ot-noun]; A-NP=[ch-ol/or][daiin][cth-noun]
 **Experiment:** exp_122_ol_or_bnp
 **Date:** 2026-04-09
