@@ -3527,3 +3527,47 @@
 **Expected outcome:** Mixed — some short (3-word [X daiin dam]) and some longer. The [daiin][dam] pattern is the closest thing to a precursor construction for dam, but it is not dominant.
 **Cost estimate:** trivial (already in exp_162 output)
 **Prerequisites:** F169
+
+---
+
+## H330: qot→qot=2.22× (15 Cases) and qot→l=2.84× — Which Specific qot-Words Self-Chain or Precede l-Onset?
+**Priority:** medium
+**Status:** untested
+**Source:** F170: qot self-succession=2.22× (15 cases, highest among large-n onset classes). Also qot→l=2.84× (4 cases). What specific qot-word pairs drive qot→qot? Are they specific reduplication formulas?
+**Description:** Extract all 15 [qot-word][qot-word] consecutive pairs. Tabulate specific word pairs. Also extract all 4 [qot-word][l-word] pairs. Are these from specific folios or spread?
+**Expected outcome:** A few dominant qot-word pairs (e.g., qotchy→qotchy, qotor→qotol) plus some diverse pairs. qot→l pairs may be from specific A-herbal folios where l-words appear.
+**Cost estimate:** trivial
+**Prerequisites:** F170
+
+---
+
+## H331: ok→ok=1.96× (54 Cases) — Which ok-Words Chain?
+**Priority:** low
+**Status:** untested
+**Source:** F170: ok self-succession=1.96× (54 cases — large n). Which specific ok-word pairs dominate?
+**Description:** Extract all 54 [ok-word][ok-word] pairs and tabulate specific bigrams. Compute top-10 most common ok-ok pairs.
+**Expected outcome:** oky→oky or oky→okchol are likely dominant pairs. ok-word chains may be a specific formula class.
+**Cost estimate:** trivial
+**Prerequisites:** F170
+
+---
+
+## H332: l→l=10.21× (n=3) — What Are the Three l→l Cases in A-Dialect?
+**Priority:** high
+**Status:** untested
+**Source:** F170: l self-succession=10.21× from n=3. l-onset words are predominantly B-dialect — are these 3 l→l cases from B-contaminated A-herbal folios?
+**Description:** Find all 3 [l-word][l-word] pairs in A-dialect. Tabulate folio, words, full line context. Are these late A-herbal folios (known B-contamination zone from F147)?
+**Expected outcome:** 3 l→l cases are from late A-herbal (f29-f57 region), consistent with B-dialect l-word intrusion in late A-herbal.
+**Cost estimate:** trivial
+**Prerequisites:** F170, F147
+
+---
+
+## H333: ch_e↔r Bidirectional Enrichment (2.55×, n=6 Each) — What Are the Specific Pairs?
+**Priority:** medium
+**Status:** untested
+**Source:** F170: ch_e→r=2.55× (6 cases) and r→ch_e=2.55× (6 cases). ch_e words (che-, chi- forms) bidirectionally enriched with r-onset words. What specific pairs?
+**Description:** Extract all 6 [ch_e][r] and 6 [r][ch_e] pairs. Are they the same words (e.g., [cheol][ral] and [ral][cheol] alternating)? Or different words?
+**Expected outcome:** Some overlap — possibly [cheol][ral][cheol] or [cheo][ar] type sequences. If they are the same pairs reversed, this suggests a specific ch_e-r couplet formula.
+**Cost estimate:** trivial
+**Prerequisites:** F170

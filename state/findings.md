@@ -5,6 +5,14 @@
 
 ---
 
+## F170: [ot][ot]=1.84× (n=26); ONSET SELF-SUCCESSION IS SYSTEMATIC (all classes except s/t/r; d=1.08×=only major baseline; l→l=10.21× from n=3); qot→qot=2.22×, ch_e→ch_e=2.03×, ok→ok=1.96×; NEW BIGRAMS: qo/qok→l=2.70-2.84×, ch_e↔r=2.55×; [daiin][dam]=4.31× IMMEDIATE BIGRAM (4/23 dam lines)
+**Experiment:** exp_163_ot_ot_bigram_dchor_cthor
+**Date:** 2026-04-10
+**Finding:** H327 CONFIRMED: [ot][ot]=1.84× (26 observed, 14.12 expected). Moderate enrichment — ot-words tend to cluster but no dominant specific ot-ot formula (otaiin→otaiin=2× is the only repeat; all others unique). H328 PARTIALLY CONFIRMED: f25 `dchor cthor chor daiin...` — [dchor][cthor] is a ch-prefix line-opening construction. f32 `dchor ctho,daiin` is ambiguous (corpus compound token). n=2 only; not definitively a recurrent formula. H329 CONFIRMED: [daiin][dam] immediate bigram = 4/23 dam@LL lines (4.31× enriched). f89 has `daiin daiin dam` — double daiin before dam. BONUS: Onset self-succession survey reveals systematic chaining across all A-dialect onset classes except s (0.99×), t (0.75×), r (0.00×). Enrichment ordering: l>>>qot>ch_e>ok=ol>cth=ot>qok>qo>ch>k>y>d>s>t>r. d-onset is the ONLY major onset class at near-baseline self-succession (1.08×) — despite being most frequent class. NEW BIGRAM ENRICHMENTS: qok→l=2.70×, qot→l=2.84× (qo-class words followed by l-onset); ch_e→r=2.55× and r→ch_e=2.55× (symmetric bidirectional); sh→qo=1.97× (confirmed); these are unexplored patterns.
+**Limitation:** l→l=10.21× is from n=3 (extreme enrichment but tiny sample). [dchor][cthor] n=2 (not powered). [daiin][dam] n=4 (small but pattern is suggestive). Onset self-succession from n=8587 A-dialect bigrams (adequate). New qo→l and ch_e↔r bigram enrichments from n=4-7 (small-n, directional only).
+
+---
+
 ## F169: dam/dy ARE FREE TERMINAL PARTICLES (NO DOMINANT PRECURSOR); [ychor cthy ch-word] 3-GRAM IN A-HERBAL (f17/f45); d@LF→cth@second: daiin=38% OF CASES (2.69×), d-ch-PREFIX WORDS=3.98-7.96×, LL-CLOSERS (dar/dor/dol)=0×
 **Experiment:** exp_162_dam_dy_precursors_ychor_context
 **Date:** 2026-04-10

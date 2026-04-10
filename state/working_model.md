@@ -1,5 +1,5 @@
 # Working Model — Voynich Manuscript Cryptanalysis
-**Last updated:** 2026-04-10 (after exp_162)
+**Last updated:** 2026-04-10 (after exp_163)
 **Purpose:** Continuously-updated structured summary of current beliefs about Voynichese.
 **Discipline:** Characterization, not interpretation. Claims require experimental warrant.
 
@@ -244,6 +244,7 @@ These findings have been replicated across independent analyses or confirmed by 
 - daiin→cth bigram real (3.08×). Corrected positional context (exp_157): daiin→cth from MID (70%), LF (18.6%). NEW: [daiin@LF][cth@second] = 6 cases. daiin→cthol always MID; daiin→cthy LL-biased (5/9); daiin→cthor: 3 at second, 3 at MID.
 - dy→sh real within-line construction. HELD.
 - ot-words: internal 4-way positional paradigm (F165): otchor/otchol=LF 2.17-3.64×; oty=LL 2.08×; otol=MID 1.35×. Parallels cth paradigm.
+- **ONSET SELF-SUCCESSION IS SYSTEMATIC IN A-DIALECT (F170, exp_163)**: All onset classes except s/t/r show self-chaining enrichment. d-onset is the ONLY major class near-baseline (1.08×). Enrichment hierarchy: l>>>qot(2.22×)>ch_e(2.03×)>ok=ol(1.96×)>cth=ot(1.84-1.88×)>qok(1.80×)>ch(1.46×)>y(1.39×)>d(1.08×). NEW BIGRAMS: qo/qok→l=2.70-2.84×, ch_e↔r=2.55× (bidirectional). [ot][ot]=1.84× confirmed (F170).
 - **dam/dy ARE FREE TERMINAL PARTICLES — NO DOMINANT PRECURSOR (F169, exp_162)**: dam@LL (n=23) and dy@LL (n=30) precursors are diverse (d-onset=2.05-1.80×, y-onset=2.77× at penultimate — but no single word >3.23×). Unlike [daiin][cthy@LL] (fixed phrase), dam/dy are freely placed after diverse word classes. [cth][dam]=1 case; [cth][dy]=2 cases; [ot][dy]=1 case only.
 - **[ychor cthy [ch-word] ...] IS A SPECIFIC A-HERBAL 3-GRAM FORMULA (F169, exp_162)**: Both [ychor cthy@second] lines (f17, f45 A-herbal) have ch-onset at third position. f17: `ychor cthy che'eky cheo otor oteol` (ends with two consecutive ot-words). f45: `ychor cthy chol qokom sy...`. ychor appears in B-dialect (f86, f106) — not A-exclusive.
 - **d@LF→cth@second decomposition (F169, exp_162)**: daiin@LF→cth@second=2.69× (8/71=11.3%, 38% of 21 total cases); d-ch-prefix openers (dchor/dchol/dshor/dchey)→cth@second=3.98×; dchaiin/daiir→cth@second=7.96×; LL-closer d-words (dar, dor, dair, dol) → cth@second = 0×. Confirms d-internal LF/LL split predicts cth@second behavior perfectly.
