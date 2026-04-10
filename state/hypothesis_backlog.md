@@ -2305,6 +2305,7 @@
 
 ## H214: Extreme B-Pole Onset Classes — Does the Dialect Polarity Axis Have a B-Extreme Counterpart to cth-?
 **Priority:** high
+**Status:** CONFIRMED UNEXPECTED — exp_110 (F117): B-extreme clusters (shed=78.8x, ched=45.5x, oked=inf) are -edy SUFFIX PRODUCTS, not morphological onset classes. NO B-exclusive onset morpheme parallel to cth- exists. A-extreme=ONSET-encoded (cth-=14x); B-extreme=SUFFIX-encoded (-edy). Dialect polarity axis is ASYMMETRIC. olk-cluster is closest B-structural class (B/A=9.5x, stars/cosmo).
 **Source:** F116: The dialect polarity axis is cth- (14× A-extreme) → d-onset (moderate A) → ch/sh/qo (neutral) → s-onset (B-shifted). The B-extreme counterpart to cth- has not been identified. cth- is a gallows-extended A-closer — by analogy the B-extreme might be a gallows-extended B-opener (perhaps fch-/pch-onset, which are PARA-tier words already identified as para-start markers in A). Or perhaps the stars/cosmo-specific forms?
 **Description:** Survey onset classes to find the most B-dominant (highest B/A rate ratio). Candidates: (1) fch/pch-onset (F-gallows extended); (2) stars/cosmo B-exclusive onset classes; (3) eee/ee-initial words (triple-vowel forms only in B cosmo). Compute B/A rate ratios for all multi-character onset clusters with n>30 tokens. Identify the B-extreme counterpart to cth-.
 **Expected outcome:** Some onset class has B/A ratio ≥5× — likely fch-, pch-, or a stars/cosmo-specific form. If found, it will complete the dialect polarity axis.
@@ -2314,6 +2315,7 @@
 
 ## H215: Paragraph-Internal Line Grammar — Do Lines Within a Paragraph Follow a Predictable Sequential Grammar?
 **Priority:** high
+**Status:** CONFIRMED (PARTIAL) — exp_110 (F117): Grammar is a STEP FUNCTION, not smooth arc. Lines 1-2 have 5.0%/3.7% PARA tier (3.5x average). From line 3+: PARA near-zero (0.2-1.9%). -am closers appear in last 3-5 lines, absent from first 2. Para-final words: A-paradigm content forms (chol, chor, ain). B-dialect has stronger grammar zone (6.0% at line+1 vs 4.1% A).
 **Source:** F114: Line-openers (s/d-onset) → qo mid-line is a confirmed sequence. F108: Para-start words (PARA tier) appear at position 0 of paragraphs. But the grammar of lines 2, 3, 4... within a paragraph is unknown. Is there a predictable line-level sequence?
 **Description:** Analyze the sequential grammar of paragraph-internal lines. For each paragraph, extract line-position (1=first, 2=second, ..., N=last). Compute the word-tier distribution at each position. Does line 1 differ from line 2? Does the last line consistently use -am words (line-closers from F093)? Is there a gradual transition from grammar-heavy (PARA-tier) openers to content-heavy lines to grammar-heavy closers?
 **Expected outcome:** Para-internal lines follow a arc: strong grammar at first line (PARA-tier), content words dominate middle lines, grammar markers (-am, oly/oldy, dal/dam) concentrate at last line. If confirmed, Voynichese paragraphs have a paragraph-level positional grammar.
@@ -2336,3 +2338,21 @@
 **Description:** Build a per-folio unigram language model (word frequency vector). Use cosine similarity or KL-divergence between folio vectors to compute folio-to-folio distances. Cluster folios by vocabulary similarity. Do folios cluster by section? By dialect? Are there any folios that cluster with the wrong section (potential mis-classification candidates or transition folios)?
 **Expected outcome:** Folios cluster strongly by section (A herbal, A pharma, B cosmo, B stars, B herbal separate clusters). Transition folios (e.g., f1r at herbal/astro boundary, f85 at herbal/cosmo boundary) may appear between clusters.
 **Cost estimate:** medium
+
+---
+
+## H218: olk-Cluster Characterization — Is olk- the B-Structural Counterpart to cth-?
+**Priority:** high
+**Source:** F117: The olk- cluster (olkedy, olkaiin, olkam, olka) has B/A=9.5× — the strongest B-dominant structural class that is NOT a suffix artifact. It's concentrated in stars/cosmo. Is olk- a morphological prefix parallel to cth- (A-closer) but for the B-dialect?
+**Description:** Extract all olk-onset words (starting with 'olk'). Compute: (1) A/B dialect distribution and section distribution; (2) positional profile (LFirst%, LLast%, PS%); (3) suffix distribution (A vs B paradigm); (4) stem overlap with qo-, ch-, sh-stems after stripping olk-; (5) Compare olk-/olka-/olke-/olkee- sub-classes. Is olk- a single morphological class or heterogeneous?
+**Expected outcome:** olk- is B-dominant (9-10× B/A), stars/cosmo concentrated, with B-paradigm suffix dominance. Positional role: mid-line or line-closing. If confirmed, olk- is the B-paradigm closer counterpart to cth-.
+**Cost estimate:** small
+
+---
+
+## H219: Suffix Paradigm Diachrony — Did the -edy Suffix Evolve From an Earlier Stem+Onset Combination?
+**Priority:** medium
+**Source:** F117: B-dialect encodes identity through -edy suffix; A-dialect through onset morphemes (cth-). The asymmetry suggests B added -edy to existing onset classes. Could -edy represent an earlier word that grammaticalized into a suffix? If -edy is a grammaticalized free morpheme, there should be: (1) a free word 'edy' or 'dy' with similar distribution; (2) 'dy' as a standalone word that mirrors -edy semantics.
+**Description:** Check if 'edy', 'eedy', 'dy', 'y' exist as standalone free words. Compute their section/dialect distribution and positional profiles. Compare standalone 'dy' with -dy suffix distribution. Does standalone 'dy' appear in similar sections and positions as -dy suffix words?
+**Expected outcome:** 'dy' and 'y' exist as standalone words (~100-200 tokens). Their distribution mirrors -dy/-y suffix words in section and dialect. This would support that Voynichese suffixes are grammaticalized free morphemes (consistent with an agglutinative or analytic language).
+**Cost estimate:** trivial

@@ -1,5 +1,5 @@
 # Working Model — Voynich Manuscript Cryptanalysis
-**Last updated:** 2026-04-09 (after exp_109)
+**Last updated:** 2026-04-09 (after exp_110)
 **Purpose:** Continuously-updated structured summary of current beliefs about Voynichese.
 **Discipline:** Characterization, not interpretation. Claims require experimental warrant.
 
@@ -216,6 +216,12 @@ These findings have been replicated across independent analyses or confirmed by 
 - Within-quire variance (std≈0.05 for qo) is high: quires are morphologically heterogeneous
 - Quire M outlier (qo=25.8%, -edy=20.5%) maps almost entirely to bio section — quire signal is section signal
 - **Section-specific CONTENT WORD vocabulary confirmed (F109, exp_102)**: bare_ch content words show strong section-specialization. Herbal A: chol/chor + EXCLUSIVE words (chain, chocthy, choiin, chan, chokchy). Pharma A: cheol (6.1×!), cheeor (10.4×!), cheom (14.8×!) enriched. Stars B: cho/cheo/cheeo/cheodaiin EXCLUSIVE; Stars B also has chain (6.1×), chaiin (6.1×), cheeody (6.1×). Cosmo B: chcthy (2.3×), checthy (4.9×), cheeky (5.1×). Herbal B: cheky (3.5×), chekaiin (10×!). Each section has a distinctive ch-stem morphological signature beyond the shared core (chol/chor in A; chedy/chey in B). TIER COMPOSITION (F109): PARA+LO+WEAK tiers = only 10-20% of all word tokens; ~80% are content words (MID tier = 31-49% bare_ch/sh/qo; OTHER = 41-52%). The positional grammar labels a minority of words — most words in the manuscript are content words that show section-level semantic specialization. GRAMMAR STRICTNESS (F108/F109): Grammar strictness is PRIMARILY section-determined. Within cosmo B, length also has genuine effect. Within herbal A, grammar strictness is REVERSED with length (shorter herbal paras = higher PARA%). The positional grammar is most strict in the canonical herbal text register (10-15 line paragraphs, 70.7% PARA at PS, 0% LINE_OPEN).
+
+**Para-Internal Grammar Is STEP FUNCTION (Lines 1-2 Grammar-Heavy → Content Throughout → -am Last 3-5 Lines); Dialect Polarity ASYMMETRY: A=Onset-Encoded; B=Suffix-Encoded (F117, exp_110)**
+- Paragraph-internal grammar is a two-zone STEP FUNCTION: Grammar Zone (lines 1-2: PARA tier at 5.0%/3.7%, 3.5× average) → Content Zone (lines 3+: PARA tier drops to 0.2-1.9%). Transition is SHARP at line 3, not a smooth arc.
+- -am closing markers appear in last 3-5 lines (1.3-2.05%, absent from lines 1-2). Para-final words: A-paradigm content forms (chor=3.0×, ain=3.6×, chol=2.1×). Para-first words: MID-tier content (shey=2.9×, oty=4.1×). B has stronger grammar zone (6.0% at line+1 vs 4.1% in A).
+- Dialect polarity axis is ASYMMETRIC: A-extreme = ONSET-encoded (cth-=14×, ctho=60.8×, ckho=45.3×); B-extreme = SUFFIX-encoded (-edy on any onset class). No B-exclusive onset MORPHEME paralleling cth- exists. olk-cluster is closest B-structural class (B/A=9.5×, stars/cosmo).
+- KEY ASYMMETRY (F117): A-dialect encodes dialect identity through ONSET morphemes (cth-); B-dialect encodes it through SUFFIX choices (-edy). B added -edy paradigm onto existing onset classes; A retained onset-extended morphology.
 
 **-am Class Dialect-NEUTRAL Overall but Dialect-SPLIT Within; No 4-gram Cross-Folio Repetition; cth- Is Most A-Exclusive Onset Class (14× A/B), Gallows-Extended A-Dialect Closer (F116, exp_109)**
 - -am class is dialect-neutral at class level (A/B=1.00×) but SPLIT within: A-onset-prefixed -am words (dam=3.1×, cham=3.5×, sam=11.6×) are A-dominant; qo/o-onset-prefixed -am words (qokam=0.3×, ram=0.2×) are B-dominant. Onset, not -am suffix, determines dialect identity. All -am words are LINE-CLOSERS (LL=60-100%). cosmo B suppresses -am (6.83‰ vs 22-41‰).
