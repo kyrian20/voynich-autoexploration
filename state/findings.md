@@ -5,6 +5,14 @@
 
 ---
 
+## F125: -am/-air Are B-Dominant Suffixes (A/B=0.44/0.32), NOT A-Paradigm; daiin Is A-Dominant (3.5×); After-daiin cth-Onset 4.89× Enriched — daiin Is a Pre-Nominal Determiner Before cth-Nouns
+**Experiment:** exp_118_am_air_daiin
+**Date:** 2026-04-09
+**Finding:** H230 CONFIRMED REVISED: -am (519 tokens; A/B=0.44, B-dominant) and -air (293 tokens; A/B=0.32, strongly B-dominant) are not A-paradigm suffixes as hypothesized but B-dialect variants. Both are stars-concentrated (2.1‰ and 1.6‰ in stars; cosmo-depleted at 0.7‰ and 0.3‰). -am is d/ot-onset enriched (1.81-1.89×); -air is stars-concentrated like eey. Adding both reduces 'other' from 20.6% to 17.9% and raises H(suffix) from 3.544 to 3.685 bits. H231 CONFIRMED: daiin (724 tokens, 2.39%) is 3.5× A-dialect enriched (45.87‰ A vs 13.05‰ B). Section: herbal=42.71‰ (highest), pharma=34.53‰, cosmo=12.30‰, stars=11.38‰. Line-first enriched 1.60×; line-last 1.39×. CRITICAL: after-daiin cth-onset = 4.89× enriched (7.2% vs 1.5% baseline) — strongest directional bigram association found in the manuscript. Same-line cthy enriched 2.10×. Lines with daiin are 0.64 words shorter. daiin functions as a pre-nominal determiner/article before cth-onset content words. This is the most specific syntactic role assignment: daiin → cth-nouns implies A-dialect has a grammaticalized determiner class. d-onset words are structurally diverse: dshedy=93.1% line-first (topic marker), dam=68.6% line-last (closer), dy=43.1% line-last (closer), daiin=20.2% first, 17.5% last (balanced function word).
+**Limitation:** The daiin→cth- bigram association (4.89×) is based on the 597 after-daiin tokens; cth- appears 7.2% of the time, which is 43 tokens — moderate sample size. The "determiner" interpretation is structural (positional and bigram-based) and cannot be confirmed without content knowledge. -am may be a combination of the -am suffix pattern and the standalone 'am' particle (56 standalone tokens noted in exp_117). The section-level -am rate in astro (3.8‰) may be inflated due to small sample size (n=480).
+
+---
+
 ## F124: 'Other' Suffix (20.6%) = Free A-Morphemes (ol/aiin/or/ar/al) + Unrecognized -am/-air Suffixes + Short Truncated Forms; Adjacent Paragraphs Share Vocabulary at 1.85× Non-Adjacent Rate; daiin in 41% of Paragraphs; Stars Highest Within-Para Repetition (0.476)
 **Experiment:** exp_117_other_suffix
 **Date:** 2026-04-09

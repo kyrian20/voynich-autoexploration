@@ -2459,3 +2459,33 @@
 **Expected outcome:** IF natural language: within-para words should repeat more than cross-para (topic coherence). IF cipher or generated text: repetition is uniform across distances. Finding within-para cohesion would be strong evidence for discourse-level structure.
 **Cost estimate:** medium
 
+
+---
+
+## H230: Extended Suffix List
+**Status:** CONFIRMED REVISED (exp_118) With -am and -air — Does Adding These Suffixes Change the Hierarchy?
+**Priority:** high
+**Source:** F124: 'other' category contains -am words (dam=70, otam=34, qokam=24; ~570 tokens) and -air words (dair=75, qokair=15; ~450 tokens). These are legitimate suffix patterns. If -am and -air are bona fide A-paradigm suffixes (A-markers like -ol/-or), adding them to the analysis would change the conditional entropy estimates and the A-dialect section variation picture.
+**Description:** Re-run the suffix analysis with -am and -air added to the suffix list. Test: (1) Are -am and -air A-dialect or B-dialect suffixes? (2) Do they show section-level variation like -ol/-or? (3) What onset classes prefer -am vs -air? (4) How does adding them change H(suffix) and conditional entropy levels? Compare to H224 baseline.
+**Expected outcome:** -am and -air are A-paradigm suffixes (like -ol/-or/-y). They may show section-level preferences (e.g., -am=pharma-dominant or -air=astro-dominant). Adding them lowers 'other' from 20.6% to ~17% and raises H(suffix) slightly.
+**Cost estimate:** small
+
+---
+
+## H231: daiin as a Syntactic Function Word
+**Status:** CONFIRMED (exp_118) — Positional Profile, Bi-gram Context, and Semantic Slot
+**Priority:** high
+**Source:** F124: daiin appears 3+ times in 41% of all paragraphs (most ubiquitous repeated word). F117: d-onset words are line-openers. daiin = d-onset + -aiin suffix. F119: -aiin is an A-paradigm suffix.
+**Description:** Characterize daiin as a syntactic unit: (1) Positional profile: is daiin a line-first word (like d-onset class)? (2) Bigram context: what words come before and after daiin? (3) Para-position: does daiin appear more at para-start or para-end? (4) Section distribution: is daiin evenly distributed or section-concentrated? (5) Co-occurrence: which words most often appear IN THE SAME LINE as daiin? This is a direct probe of daiin's syntactic role.
+**Expected outcome:** daiin is a line-opening determiner or grammatical particle that precedes content words (ch/sh/qok-onset words). It may parallel the definite article in romance languages that preceded content nouns.
+**Cost estimate:** small
+
+---
+
+## H232: Stars Section Catalog Structure — Do Stars Paragraphs Have a Repeating Template?
+**Priority:** medium
+**Source:** F122: Stars paragraphs have within-para repetition rate 0.476 (nearly double other sections). The stars section contains star catalog entries. If each paragraph follows a template "star-name + descriptor + position", the same vocabulary template should recur with variable stem slots filled differently.
+**Description:** Examine stars paragraphs at the level of paragraph-internal word sequences. Do all stars paragraphs follow a template like "X daiin Y ol Z"? Compute per-paragraph suffix sequence profiles. Look for repeated n-gram patterns within the stars section that suggest a catalog template.
+**Expected outcome:** Stars paragraphs follow a repeating suffix template (e.g., most lines end in -ol or -or; most lines start with -eey or -eedy words). The template is consistent across the 25 stars paragraphs.
+**Cost estimate:** medium
+

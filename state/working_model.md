@@ -1,5 +1,5 @@
 # Working Model — Voynich Manuscript Cryptanalysis
-**Last updated:** 2026-04-09 (after exp_117)
+**Last updated:** 2026-04-09 (after exp_118)
 **Purpose:** Continuously-updated structured summary of current beliefs about Voynichese.
 **Discipline:** Characterization, not interpretation. Claims require experimental warrant.
 
@@ -221,6 +221,11 @@ These findings have been replicated across independent analyses or confirmed by 
 - eee (triple-vowel) words: stars=17.25‰, cosmo=4.40‰ (suppressed). Vowel-length gradient monotonically stars-concentrated (edy→eedy→eeedy: 36%→48%→63%). eee enriched in ok/ol/qo (1.7-1.9×), suppressed in ch/sh (0.37-0.46×).
 - A-dialect section variation: herbal-A=-y dominant (qok=37%, ch=29%); pharma-A=-ol dominant (qok=41%, ok=40%); 8.9% avg diff (3.5× weaker than B's 31%).
 - FOUR-LEVEL suffix hierarchy: Dialect (A/B) → Stem class (Simple-B/Complex-B; A-y/-ol) → Section (B: stars/cosmo/herbal; A: herbal/pharma) → Vowel length (stars triple-vowel extension). Strong evidence for natural language morphology.
+
+**daiin = Pre-Nominal Determiner: A-Dominant (3.5×), After-daiin cth 4.89×; -am/-air Are B-Dominant (NOT A-Paradigm); 'Other' Reduced to 17.9% (F125, exp_118)**
+- daiin: 2.39% of body, 45.87‰ A vs 13.05‰ B (3.5× A-enriched). After-daiin cth-onset = 4.89× enriched — strongest bigram association in manuscript. daiin = pre-nominal determiner before cth-nouns. Lines with daiin are 0.64 words shorter.
+- -am (519 tok) and -air (293 tok) are B-DOMINANT (A/B=0.44 and 0.32) — NOT A-paradigm as expected. Both stars-concentrated, cosmo-depleted. Adding them reduces 'other' from 20.6% to 17.9%.
+- d-onset word roles: dshedy=93.1% line-first (topic marker), dam=68.6% line-last (closer), dy=43.1% last, daiin=20.2% first/17.5% last (balanced determiner).
 
 **'Other' 20.6% = Free A-Morphemes + Unrecognized -am/-air + Short Forms; Adjacent Paras Share 1.85× Non-Adjacent Vocab; daiin in 41% of Paras (F124, exp_117)**
 - 'Other' top words: ol (476), aiin (394), or (300) — standalone free A-morphemes (confirms F118 free-morpheme asymmetry). Unrecognized suffixes -am (~570 tok) and -air (~450 tok) account for 16% of 'other'.
