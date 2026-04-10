@@ -1,5 +1,5 @@
 # Working Model — Voynich Manuscript Cryptanalysis
-**Last updated:** 2026-04-09 (after exp_115)
+**Last updated:** 2026-04-09 (after exp_116)
 **Purpose:** Continuously-updated structured summary of current beliefs about Voynichese.
 **Discipline:** Characterization, not interpretation. Claims require experimental warrant.
 
@@ -221,6 +221,11 @@ These findings have been replicated across independent analyses or confirmed by 
 - eee (triple-vowel) words: stars=17.25‰, cosmo=4.40‰ (suppressed). Vowel-length gradient monotonically stars-concentrated (edy→eedy→eeedy: 36%→48%→63%). eee enriched in ok/ol/qo (1.7-1.9×), suppressed in ch/sh (0.37-0.46×).
 - A-dialect section variation: herbal-A=-y dominant (qok=37%, ch=29%); pharma-A=-ol dominant (qok=41%, ok=40%); 8.9% avg diff (3.5× weaker than B's 31%).
 - FOUR-LEVEL suffix hierarchy: Dialect (A/B) → Stem class (Simple-B/Complex-B; A-y/-ol) → Section (B: stars/cosmo/herbal; A: herbal/pharma) → Vowel length (stars triple-vowel extension). Strong evidence for natural language morphology.
+
+**Herbal B-Folios Absent in Q1-Q3; Cluster at Quire Boundaries in Q4-Q7 (Bifolio Insertion); Lag-7 Autocorr=+0.580; Line-FIRST ch/ok Reverses to eey (58%); Line-LAST = -y Closure (F123, exp_116)**
+- Herbal quires 1-3 (f1-24): pure A-dialect. B-folios appear only Q4-Q7, at quire boundary positions (1-2, 7-8 of each 8-folio quire). Consistent with bifolio insertion as outer sheets.
+- Line-LAST enriches -y (1.83×), -dy (1.55×), suppresses all B-suffixes. Line-FIRST enriches -or (2.05×). B-dialect ch/ok at line-first: eey=58% (vs 20% mid). A-dialect at line-last: y=49-66%.
+- Five-level hierarchy: Dialect=0.11b + Onset=0.16b + Section=0.10b + Vowel-length=0.35b + Line-pos=0.037b = 0.75 bits resolved (21.2% of marginal H).
 
 **Folio Suffix Profiles Cluster by Section (73.1%); Herbal A/B ALTERNATES Every 3-5 Folios; cosmo-pharma Sharpest Boundary; f107 Only eey-Dominant Folio (F122, exp_115)**
 - Cosine similarity on suffix rate vectors: cosmo=0.923 within (most coherent); herbal=0.779 (most heterogeneous — A/B dialect folios interleaved)

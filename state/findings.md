@@ -5,6 +5,14 @@
 
 ---
 
+## F123: Herbal B-Folios Are ABSENT in Quires 1-3 and Cluster at Quire Boundaries (Positions 1-2 and 7-8) in Quires 4-7; Lag-7 Autocorr=+0.580; Line-LAST Enriches -y (1.83×)/-dy (1.55×); B-Dialect ch/ok at Line-FIRST Reverses to eey-Dominant (58%); Hierarchy Now Five-Level (0.75 bits)
+**Experiment:** exp_116_herbal_ab_linepos
+**Date:** 2026-04-09
+**Finding:** H226 CONFIRMED: Herbal A/B interleaving is quire-structured. Quires 1-3 (f1-24) are pure A-dialect; B-folios appear only in Q4-Q7. Within Q4-Q7, B-folios cluster at quire boundaries (positions 1-2 and 7-8 of each 8-folio quire) — consistent with bifolio insertion as outer sheets during binding. Lag-7 autocorrelation = +0.580 (dominant signal) confirms quire-size periodicity. B-insertion is progressive (intensifies Q4→Q6). H227 CONFIRMED: Line position extends the suffix hierarchy. Line-LAST = closure register: -y enriched 1.83×, -dy 1.55×; all B-suffixes suppressed (edy=0.44×, eey=0.20×). Line-FIRST = topic/reference register: -or enriched 2.05×, -aiin 1.45×. B-dialect ch/ok at line-FIRST dramatically reverses to eey-dominant (58% eey vs 20% mid-line) — eey is a line-opening register marker. A-dialect at line-LAST: -y reaches 49-66% for ALL onset classes (-y is a closing bound suffix). Global info from position = 0.037 bits (1.1%), but onset×position interactions are very strong locally. EXPANDED HIERARCHY: five levels now total 0.75 bits resolved (21.2% of marginal): Dialect=0.11b, Onset=0.16b, Section=0.10b, Vowel length=0.35b, Line position=0.037b.
+**Limitation:** The lag-7 quire periodicity is based on an approximate quire structure (Q1-Q7 = groups of 8 folios). The actual Voynich quire boundaries may differ slightly. The line-first ch/ok reversal (n=88 and 59 tokens respectively) has moderate sample sizes; the finding is strong but would benefit from replication across sub-sections. Line-position categories (first/last/mid) don't account for paragraph position (first line of para vs later lines).
+
+---
+
 ## F122: Folio Suffix Profiles Cluster by Section at 73.1% Accuracy; cosmo Most Coherent (Within=0.923); herbal Most Heterogeneous (0.779) Due to Regular A/B Alternating Interleave (Every 3-5 Folios); cosmo→pharma Is Sharpest Boundary; f107 ONLY eey-Dominant Folio; cosmo-stars Highest Vocabulary Overlap (Jaccard=0.391)
 **Experiment:** exp_115_folio_clustering
 **Date:** 2026-04-09

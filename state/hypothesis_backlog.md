@@ -2421,7 +2421,8 @@
 
 ---
 
-## H226: Herbal A/B Interleave Periodicity — Is the Alternating Pattern Regular Enough to Imply Page-Pair or Quire-Based Assembly?
+## H226: Herbal A/B Interleave Periodicity
+**Status:** CONFIRMED (exp_116) — Is the Alternating Pattern Regular Enough to Imply Page-Pair or Quire-Based Assembly?
 **Priority:** high
 **Source:** F122: Herbal section has B-dialect folios alternating with A-dialect every 3-5 folios (f26/31/33-34/39-41/43/46/48/50/57). This appears regular. If the pattern has a period of ~4-5 folios, it may correspond to quire structure (quires are typically 4-8 folio gatherings). A strict periodicity test could support a "two-scribes interleaved during binding" theory vs. random variation.
 **Description:** Map the dialect assignment (A or B) of each herbal folio and test for periodicity. Compute autocorrelation of the binary A/B sequence. Check whether B-folios cluster near quire boundaries (known quire structure: Q1=f1-8, Q2=f9-16, Q3=f17-24, Q4=f25-32, Q5=f33-40, Q6=f41-48, Q7=f49-57 approx). Does each quire tend to have a B-folio near its start or end?
@@ -2430,7 +2431,8 @@
 
 ---
 
-## H227: Line-Position Effect on Suffix Distribution — Do First/Last Words Use Different Suffixes Than Mid-Line?
+## H227: Line-Position Effect on Suffix Distribution
+**Status:** CONFIRMED (exp_116) — Do First/Last Words Use Different Suffixes Than Mid-Line?
 **Priority:** high
 **Source:** F117: Para-internal grammar step function (PARA class concentrated at first 2 lines). F118: Free-morpheme asymmetry (A-paradigm suffixes are free words; ol/or/aiin appear as standalone words). The line-position effect on word TIER is known, but line-position effect on SUFFIX CHOICE within the same onset class is unexplored.
 **Description:** For each onset class, compute suffix distribution conditioned on line-position: (1) line-first word, (2) line-last word, (3) mid-line word. Do A-dialect folios show ol/or enrichment at line-last position (consistent with standalone usage)? Do B-dialect folios show edy enrichment at specific positions? Compare to the positional entropy profile (F003).
