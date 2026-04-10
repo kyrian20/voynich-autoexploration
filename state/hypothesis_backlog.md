@@ -2978,6 +2978,7 @@
 
 ## H299: In A-Dialect, What Fraction of Lines Beginning with chol or chor Have a cth-Word at Position 2?
 **Priority:** medium
+**Status:** CONFIRMED (exp_151). chol@LF → cth@second = 14.1% (3.11×); chor@LF → cth@second = 10.7% (2.37×); shol@LF = 9.7% (2.14×). Baseline = 4.53%. chol-opening lines have cth anywhere in 31.2%. (F158)
 **Source:** F157: Type 2 cth-introduction = [chol/chor at LF] → [cth-word at second] (n=32 bigrams). chol/chor at LF are followed by cth at second in 45-50% of chol/chor→cth bigrams. But what fraction of ALL chol-at-LF lines have cth at second?
 **Description:** (1) Count all A P-type lines where first word is chol or chor. (2) What fraction have a cth-onset word at second position? (3) Compare to baseline: what is the rate of cth at second across all A lines? (4) Is there a specific set of chol-starting or chor-starting lines that consistently produce cth at second (e.g., specific folios or sections)?
 **Expected outcome:** ~10-20% of chol-at-LF lines have cth at second (elevated above baseline ~4-5%). If this holds, the Type 2 construction [chol at LF][cth at second] is a recurring A-herbal formula, not an artifact of the reverse selection (we found chol→cth bigrams and looked at chol's position).
@@ -2988,11 +2989,32 @@
 
 ## H300: Do cth-Words at LL (Line-Final) Tend to Be Specific cth-Words (e.g., cthol/cthy vs cthor)?
 **Priority:** medium
+**Status:** CONFIRMED (exp_151). 4-way cth positional paradigm: cthor=LF(1.76×)/LL-depleted(0.35×); cthol=second(1.94×); cthody/ctheody=MID(1.29-1.68×); cthy=LL(1.39×). daiin→cthy→LL=5 cases (dominant); daiin→cthol→MID=6 cases. (F158)
 **Source:** F157: daiin→cth places cth-word at LL 36.1% of the time (13/36 cases). Also, cth has overall mild LL-enrichment (1.20×). Are line-final cth-words from a specific subset of the cth vocabulary?
 **Description:** (1) Compute positional distribution (LF/second/MID/LL) for each top cth-word: cthy, cthol, cthor, cthain, ctheol, cthody. (2) Are some cth-words LL-enriched (line-closers) while others are MID-enriched (medial nominals)? (3) Specifically: does cthol or cthy show strong LL-enrichment (closing role), while cthor remains MID/second (medial role)? This would reveal a positional paradigm split within the cth vocabulary.
 **Expected outcome:** cthol (the most common medial cth-word per F148) is MID-enriched (confirmed from exp_141). cthy may be LL-enriched (closing role). cthor is MID/second (confirmed from exp_142). A LL-enriched cth-word (cthy or cthain) would be the "cth-closing particle" completing the daiin→cth-at-LL construction.
 **Cost estimate:** small
 **Prerequisites:** F157, F148
+
+---
+
+## H301: What is cthor's Full Positional Profile in A-Herbal vs A-Pharma? Is cthor's LF=1.76× Concentrated in Herbal?
+**Priority:** medium
+**Source:** F158: cthor is LF-enriched (1.76×) across all A-dialect. cthor was previously noted (F147/F149) to have anomalous positional behavior. Does cthor's LF-enrichment come specifically from A-herbal lines?
+**Description:** (1) Compute cthor positional distribution (LF/second/MID/LL) separately for A-herbal vs A-pharma vs A-other sections. (2) In A-herbal specifically: what is cthor's LF% vs baseline? (3) What is the most common second word after cthor-at-LF? This reveals whether cthor is a line-opening nominal in herbal-specific constructions.
+**Expected outcome:** cthor's LF=1.76× is driven by A-herbal (section where cth-words are concentrated). In A-pharma, cthor may be near-baseline. A-herbal cthor-at-LF is likely followed by cthol or cthy (the second-position/medial cth-words).
+**Cost estimate:** trivial
+**Prerequisites:** F158
+
+---
+
+## H302: Is cthol@Second Driven by the Type 2 [Line-Opener][cthol] Construction or Also Appears Second in Other Contexts?
+**Priority:** medium
+**Source:** F158: cthol appears at second position 31.2% (1.94×). This could be driven by the Type 2 [chol/chor at LF][cthol at second] construction, or cthol may independently appear at second in other contexts (e.g., after daiin at LF, or after other line-openers).
+**Description:** For all A lines where cthol is at second position: (1) What word is at LF? Distribution across chol/chor/daiin/other. (2) What fraction of cthol@second come from chol/chor-opening lines vs other contexts? (3) Is cthol@second specifically a Type 2 phenomenon, or does it appear broadly at second across diverse LF words?
+**Expected outcome:** ~30-50% of cthol@second cases come from chol/chor-opening lines (Type 2). The remaining 50-70% come from other line-openers (y+ch, d+ch type), showing cthol is independently enriched at second across diverse contexts.
+**Cost estimate:** trivial
+**Prerequisites:** F158
 
 ---
 

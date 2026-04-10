@@ -1,5 +1,5 @@
 # Working Model — Voynich Manuscript Cryptanalysis
-**Last updated:** 2026-04-10 (after exp_150)
+**Last updated:** 2026-04-10 (after exp_151)
 **Purpose:** Continuously-updated structured summary of current beliefs about Voynichese.
 **Discipline:** Characterization, not interpretation. Claims require experimental warrant.
 
@@ -221,6 +221,12 @@ These findings have been replicated across independent analyses or confirmed by 
 - eee (triple-vowel) words: stars=17.25‰, cosmo=4.40‰ (suppressed). Vowel-length gradient monotonically stars-concentrated (edy→eedy→eeedy: 36%→48%→63%). eee enriched in ok/ol/qo (1.7-1.9×), suppressed in ch/sh (0.37-0.46×).
 - A-dialect section variation: herbal-A=-y dominant (qok=37%, ch=29%); pharma-A=-ol dominant (qok=41%, ok=40%); 8.9% avg diff (3.5× weaker than B's 31%).
 - FOUR-LEVEL suffix hierarchy: Dialect (A/B) → Stem class (Simple-B/Complex-B; A-y/-ol) → Section (B: stars/cosmo/herbal; A: herbal/pharma) → Vowel length (stars triple-vowel extension). Strong evidence for natural language morphology.
+
+**4-WAY cth POSITIONAL PARADIGM: cthor=LF-OPENER (1.76×); cthol=SECOND (1.94×); cthody/ctheody=MID (1.29-1.68×); cthy=LL-CLOSER (1.39×); daiin→cthy=LINE-CLOSER + daiin→cthol=MEDIAL; chol@LF→cth@SECOND=3.11× (F158, exp_151)**
+- cthor=LF-enriched (LF=31.2%, 1.76×), LL-depleted (0.35×). cthol=second-enriched (31.2%, 1.94×), LL-depleted (0.59×). cthody/ctheody=MID-enriched (1.29-1.68×). cthy=LL-enriched (24.7%, 1.39×), second-depleted (0.58×).
+- daiin→cthy→LL (n=5, dominant line-closer): daiin introduces cthy to close the line.
+- daiin→cthol→MID/second (n=6, dominant medial): daiin introduces cthol as medial nominal.
+- chol at LF → cth at second=14.1% (3.11×); 31.2% of chol-lines contain a cth-word.
 
 **TWO DISTINCT cth-INTRODUCTION CONSTRUCTIONS: TYPE1=[daiin@MID→cth@MID/LL]; TYPE2=[chol/chor@LF→cth@second] (LINE-OPENER); dy→sh=1.96× REAL (NOT CROSS-LINE) (F157, exp_150)**
 - Type 1 (daiin, n=36): daiin at MID(61%) → cth at MID/LL. daiin = within-line medial determiner. cth-word at LL 36.1% — explains cth mild LL-enrichment (1.20×).

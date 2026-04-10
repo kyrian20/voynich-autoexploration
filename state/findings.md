@@ -5,6 +5,14 @@
 
 ---
 
+## F158: 4-WAY cth POSITIONAL PARADIGM CONFIRMED (cthor=LF-OPENER 1.76×; cthol=SECOND 1.94×; cthody/ctheody=MID 1.29-1.68×; cthy=LL-CLOSER 1.39×); daiin→cthy=LINE-CLOSING (5 cases) + daiin→cthol=MEDIAL (6 cases); chol@LF→cth@SECOND=3.11× (31.2% of chol-lines have cth)
+**Experiment:** exp_151_cth_positional_paradigm
+**Date:** 2026-04-10
+**Finding:** H299 CONFIRMED: chol at LF → cth at second = 14.1% (3.11× vs 4.53% baseline). chol-opening lines have cth anywhere in 31.2%. chor at LF = 2.37×, shol at LF = 2.14×. H300 CONFIRMED: The cth-vocabulary has a 4-way positional paradigm: cthor=LF-enriched (LF=31.2%, 1.76×; LL=0.35×); cthol=second-enriched (second=31.2%, 1.94×; LL=0.59×); cthody=MID-enriched (MID=61.5%, 1.29×); ctheody=MID-enriched (MID=80.0%, 1.68×); cthy=LL-enriched (LL=24.7%, 1.39×; second=0.58×). DAIIN→cth DECOMPOSES: daiin→cthy→LL (5 cases, cthy is dominant LL-cth after daiin = line-closing nominal); daiin→cthol→MID/second (6 cases, cthol is dominant medial cth after daiin). The daiin determiner introduces different cth-words depending on target position. BONUS: cthom is bimodal (second=3.72×, LL=2.25×, never MID, n=5) — a grammatical boundary marker.
+**Limitation:** cthody n=13, ctheody n=5, cthom n=5 — small samples for positional analysis. The Type 2 construction (chol@LF→cthol@second) n=9 for chol; confirmatory but not large. The daiin→cthy→LL=5 cases is a specific small-n claim.
+
+---
+
 ## F157: TWO DISTINCT cth-INTRODUCTION CONSTRUCTIONS: TYPE1=[daiin@MID→cth@MID/LL] (n=36); TYPE2=[chol/chor@LF→cth@second/MID] (n=32); daiin→cth PLACES cth-WORD AT LL 36.1%; dy→sh IS REAL (NOT CROSS-LINE); cluster=2.77× COLLECTIVELY (22.9% of before-cth bigrams)
 **Experiment:** exp_150_cth_introducer_positions
 **Date:** 2026-04-10
