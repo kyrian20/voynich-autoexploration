@@ -3719,3 +3719,30 @@
 **Expected outcome:** 2/7 cthdy at LL is marginal enrichment (n=2). May confirm or may be noise. Also check: do cthdy lines end with cthdy or is there a following word?
 **Cost estimate:** trivial
 **Prerequisites:** F174
+
+## H348: [ch][daiin][cth]=12/17 — Is [ch-word][daiin] a Stable Compound Precursor to cth-Words?
+**Priority:** high
+**Status:** untested
+**Source:** F175: [ch][d][cth]=17 trigrams, daiin is d-word in 12/17 cases. [ch][daiin][cth] is the dominant form of the highest cth onset-trigram.
+**Description:** Extract all 12 [ch][daiin][cth] specific cases. Are these the same ch-words each time (e.g., always chor/chol)? Is [ch-word][daiin] a compound phrase unit (comparable to [ychor][daiin] constructions from F162)? Does [ch][daiin] appear together as a pair at high enrichment, suggesting they function as a grammatical unit before cth?
+**Expected outcome:** If [ch][daiin] is a compound unit, the same ch-words should appear before daiin in these cases. If random, diverse ch-words should appear.
+**Cost estimate:** small
+**Prerequisites:** F175, F162
+
+## H349: cthol Appears in 5/16 [d][cth][d] Trigrams — Does cthol Have Asymmetric d-Word Preferences (daiin Left, non-daiin Right)?
+**Priority:** medium
+**Status:** untested
+**Source:** F175: [d][cthol][d] = 5 cases — [daiin][cthol][dol], [daiin][cthol][doiin], [dchol][cthol][daiin], [dockhy][cthol][dam], [daiin][cthol][daiin]. daiin appears LEFT of cthol in 3/5; varied words appear RIGHT.
+**Description:** Expand to ALL [d][cthol] bigrams (not just trigrams). Does daiin preferentially appear before cthol? And what d-words appear after cthol (from all [cthol][d] bigrams)? Is there an asymmetric preference: daiin→cthol but cthol→diverse-d?
+**Expected outcome:** Based on F164/F167: [daiin][cthol]=6 cases (confirmed); [cthol][daiin] may be rarer. The right d-word after cthol may be dol/doiin/dam (shorter d-words) while the left is daiin.
+**Cost estimate:** small
+**Prerequisites:** F175, F164
+
+## H350: cthey@LF → ch_e Second Word (2/2 Cases) — Is This a Genuine Pattern?
+**Priority:** medium
+**Status:** untested
+**Source:** F175: both cthey@LF cases are followed by ch_e-onset second words (chey, chedain). n=2 — too small to confirm.
+**Description:** Expand beyond LF: when cthey is at the front of a line (LF or second position), what onset does the NEXT word have? Also check cthedy's front-position successors. Does cthey specifically attract ch_e-type words as successors, or is the n=2 finding noise?
+**Expected outcome:** If cthey has a genuine ch_e affinity, we'd expect enriched ch_e successor rate even at non-LF positions. If it's noise, successor distribution should be baseline.
+**Cost estimate:** small
+**Prerequisites:** F175

@@ -5,6 +5,14 @@
 
 ---
 
+## F175: B-cthedy/cthey FRONT-ENRICHED AT BOTH LF AND SECOND (1.53-1.70×); [d][cth][d]=16 NOT PREDOMINANTLY [daiin][cth][daiin] (only 2/16 bilateral daiin; cthol=5/16 dominant middle); B-cthdy LL-ENRICHED (2.81×), NEVER LF/SECOND — PARALLELS A-cthy; cthdy IS UNIQUE LL-CLOSER AMONG B -dy FORMS
+**Experiment:** exp_168_b_cthedy_lf_formulas_d_cth_d_trigrams
+**Date:** 2026-04-10
+**Finding:** H345 CONFIRMED WITH REVISION: cthedy (LF=1.53×, second=1.55×) and cthey (LF=1.69×, second=1.70×) are enriched at BOTH front positions — not just LF but also second. They are "line-front enriched." Only 2 cthedy@LF and 2 cthey@LF cases — too small for formula identification. cthey@LF is followed by ch_e-onset second words (2/2) but n=2. No fixed formula analogous to A-dialect [ychor@LF → cthor@second]. H346 CONFIRMED WITH REVISION: [d][cth][d]=16 is NOT predominantly [daiin][cth][daiin] — only 2/16 have daiin on both sides. daiin before=8/16 (50%), daiin after=5/16 (31%). cthol is the dominant central cth-word (5/16). [daiin][cthol][other-d] is the most common specific sub-pattern. For [ch][d][cth]=17 (highest trigram): daiin is d-word in 12/17=71% — [ch][daiin][cth] is the dominant form. H347 CONFIRMED: B-cthdy LL=2/6=33.3%=2.81× enrichment; NEVER at LF or second (0.00×). Direct parallel to A-cthy (LL=1.63×, LF=0.15×). Both are cross-dialect terminal cth-words. ALL other B -dy suffix words are LL-DEPLETED (chedy=0.47×, shedy=0.21×, qokedy=0.29×, qokeedy=0.14×). cthdy is the unique LL-closer in the B -dy paradigm.
+**Limitation:** cthedy/cthey@LF n=2 each — positional patterns directional but not formula-confirming. cthdy n=6 total (n=2 at LL): enrichment robust (2.81×) but very small absolute n. cthey@LF → ch_e second word (2/2) is suggestive but n=2. [d][cth][d] analysis mixes diverse d-class words — the heterogeneity of d-words is itself informative but makes the analysis messy.
+
+---
+
 ## F174: [daiin cthol cthy] TRIGRAM = 1 OCCURRENCE (f7); [d][cth][d]=16 IS 2ND MOST COMMON cth ONSET-TRIGRAM; B-DIALECT cth-WORDS HAVE INTERNAL POSITIONAL PARADIGM (cthedy/cthey=LF-ENRICHED 1.53-1.69×; cthdy=LL-ENRICHED 2.41×); qok→l=7 UNIQUE PAIRS IN LATE A-HERBAL/PHARMA
 **Experiment:** exp_167_trigram_analysis
 **Date:** 2026-04-10
