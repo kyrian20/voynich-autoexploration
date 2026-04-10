@@ -2325,6 +2325,7 @@
 
 ## H216: Suffix Co-Occurrence Within Single Words — Are Certain Suffix Combinations (e.g., -eedy vs -edy) Mutually Exclusive at the Stem Level?
 **Priority:** medium
+**Status:** CONFIRMED — exp_111 (F118): Secondary B-paradigm split: ch/sh prefer -edy (68-69%, Simple-B); qok/ok use all three B-suffixes equally (Complex-B, H=1.57-1.58 bits). Stars B systematically shifts to -eey (qok: 43% eey); cosmo B prefers -eedy. A-dialect has no secondary suffix split. The secondary B-split is a genuine stem-level morphological distinction within B-paradigm.
 **Source:** F114: B-type suffixes (-edy/-eedy/-eey) are the paradigm markers. F115: The 3+ bit entropy gap separates grammar from content. But within content stems (ch, sh, qok), do all stems freely use both -edy and -eedy, or do some stems preferentially select one over the other?
 **Description:** For the top 20 content stems (ch, sh, qok, ok, ot, etc.), compute the distribution of -edy vs -eedy vs -eey. Does ch prefer -edy while qok prefers -eedy? Is there a stem-level suffix specialization beyond the general A/B paradigm? Also test within dialects (B-dialect stem × suffix matrix).
 **Expected outcome:** Some stems preferentially select -eedy over -edy (or vice versa). This would indicate a STEM-LEVEL morphological distinction within the B-paradigm suffix class — a secondary paradigm within the B-paradigm.
@@ -2343,6 +2344,7 @@
 
 ## H218: olk-Cluster Characterization — Is olk- the B-Structural Counterpart to cth-?
 **Priority:** high
+**Status:** CONFIRMED REVISED — exp_111 (F118): olk- is B-dominant (9.5x B/A), section-complement to cth- (olk-=cosmo/stars; cth-=herbal/pharma), suffix-complement (olk-=eedy/eey; cth-=or/ol/y). BUT olk- is MID-LINE content (LLast=11.7%), NOT a closer like cth- (LLast=20.2%). No B-exclusive onset-based closer morpheme exists. olk-= B-paradigm mid-line content class.
 **Source:** F117: The olk- cluster (olkedy, olkaiin, olkam, olka) has B/A=9.5× — the strongest B-dominant structural class that is NOT a suffix artifact. It's concentrated in stars/cosmo. Is olk- a morphological prefix parallel to cth- (A-closer) but for the B-dialect?
 **Description:** Extract all olk-onset words (starting with 'olk'). Compute: (1) A/B dialect distribution and section distribution; (2) positional profile (LFirst%, LLast%, PS%); (3) suffix distribution (A vs B paradigm); (4) stem overlap with qo-, ch-, sh-stems after stripping olk-; (5) Compare olk-/olka-/olke-/olkee- sub-classes. Is olk- a single morphological class or heterogeneous?
 **Expected outcome:** olk- is B-dominant (9-10× B/A), stars/cosmo concentrated, with B-paradigm suffix dominance. Positional role: mid-line or line-closing. If confirmed, olk- is the B-paradigm closer counterpart to cth-.
@@ -2352,7 +2354,26 @@
 
 ## H219: Suffix Paradigm Diachrony — Did the -edy Suffix Evolve From an Earlier Stem+Onset Combination?
 **Priority:** medium
+**Status:** CONFIRMED — exp_111 (F118): A-paradigm suffixes (-ol/-or/-aiin/-ar/-al) have abundant standalone free-word forms (100-500+ tokens); B-paradigm suffixes (-edy/-eedy/-eey) are near-zero standalone (2-8 tokens). standalone dy = A-dialect closer (LLast=42.9%, A-dominant). y standalone = 0. A=grammaticalized free morphemes; B=novel non-free suffix innovation.
 **Source:** F117: B-dialect encodes identity through -edy suffix; A-dialect through onset morphemes (cth-). The asymmetry suggests B added -edy to existing onset classes. Could -edy represent an earlier word that grammaticalized into a suffix? If -edy is a grammaticalized free morpheme, there should be: (1) a free word 'edy' or 'dy' with similar distribution; (2) 'dy' as a standalone word that mirrors -edy semantics.
 **Description:** Check if 'edy', 'eedy', 'dy', 'y' exist as standalone free words. Compute their section/dialect distribution and positional profiles. Compare standalone 'dy' with -dy suffix distribution. Does standalone 'dy' appear in similar sections and positions as -dy suffix words?
 **Expected outcome:** 'dy' and 'y' exist as standalone words (~100-200 tokens). Their distribution mirrors -dy/-y suffix words in section and dialect. This would support that Voynichese suffixes are grammaticalized free morphemes (consistent with an agglutinative or analytic language).
 **Cost estimate:** trivial
+
+---
+
+## H220: Secondary B-Suffix in Stars vs Cosmo — Is -eey a Stars-Specific B-Paradigm Marker and -eedy a Cosmo-Specific Marker?
+**Priority:** high
+**Source:** F118: Stars B shifts to -eey (qok: 43% eey vs 11% herbal); cosmo B prefers -eedy (qok: 35% eedy). H216 confirmed section-level B-suffix variation. Is there a systematic three-way B-suffix grammar: herbal-B=-edy; cosmo-B=-eedy; stars-B=-eey?
+**Description:** For EACH B-dialect section (herbal B, cosmo B, stars B), compute the rate of -edy, -eedy, -eey separately for each major onset class (ch, sh, qok, ok, ot, qo). Test whether the three-way B-suffix partition is systematic (all onset classes show same direction in each section). Also: compute cross-section word overlap for -eedy vs -eey words — do sections share the same stems with different suffixes, or different stems?
+**Expected outcome:** Systematic three-way partition: herbal-B→-edy, cosmo-B→-eedy, stars-B→-eey. Word-level evidence: qok+eey is stars-specific; qok+eedy is cosmo-specific; qok+edy is herbal-specific. This would make the secondary B-suffix a SECTION MARKER within B-dialect (third layer of linguistic structure below dialect, above individual word).
+**Cost estimate:** small
+
+---
+
+## H221: Folio-Level Vocabulary Distance Clustering — Do Folios Cluster by Section? Are There Transition Folios?
+**Priority:** medium
+**Source:** F117: H217 (folio clustering) proposes using cosine similarity on folio word-frequency vectors. F112: 72-79% of each section's vocabulary is section-specific. F116: Each folio has essentially unique 4-gram sequences.
+**Description:** Build per-folio word frequency vectors (normalized). Compute pairwise cosine similarity between folio vectors. Cluster by similarity. Identify: (1) clusters that correspond to sections; (2) outlier folios; (3) transition folios between sections.
+**Expected outcome:** Folios cluster into 5-6 clear groups corresponding to sections. Transition folios (f57, f85, f86, f103) may appear between clusters. Some star-section folios may cluster with herbal B if vocabulary overlaps.
+**Cost estimate:** medium
