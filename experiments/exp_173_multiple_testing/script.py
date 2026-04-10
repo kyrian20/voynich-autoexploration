@@ -420,26 +420,32 @@ findings.append(('F30', 'qo self-succession (A)', 'A', 'self-succession',
 # ── Apply corrections ─────────────────────────────────────────────────────────
 p_values = [f[8] for f in findings]
 n_tests = len([p for p in p_values if p is not None])
-bonf_threshold = 0.05 / n_tests
+bonf_threshold_m30  = 0.05 / n_tests      # m = candidate set size (30)
+bonf_threshold_m175 = 0.05 / 175          # m = full search space size (175 experiments)
 
 # BH-FDR
 bh_rejects = bh_correct(p_values, q=0.05)
 
 print(f"\n{'='*90}")
 print(f"MULTIPLE TESTING CORRECTION: {len(findings)} findings, {n_tests} with valid p-values")
-print(f"Bonferroni threshold: p < {bonf_threshold:.6f}")
+print(f"Bonferroni threshold (m=30, candidate set): p < {bonf_threshold_m30:.6f}")
+print(f"Bonferroni threshold (m=175, full search):  p < {bonf_threshold_m175:.6f}")
 print(f"BH-FDR threshold: q = 0.05")
 print(f"{'='*90}")
 
+bonf_threshold = bonf_threshold_m30  # use for column label; report both below
+
 families = {}
 for idx, (fid, desc, dialect, family, k, n, p0, enr, pval) in enumerate(findings):
+    bonf30_pass  = pval < bonf_threshold_m30  if pval is not None else False
+    bonf175_pass = pval < bonf_threshold_m175 if pval is not None else False
     families.setdefault(family, []).append((idx, fid, desc, dialect, k, n, p0, enr, pval,
-                                             pval < bonf_threshold if pval is not None else False,
-                                             bh_rejects[idx]))
+                                             bonf30_pass, bonf175_pass, bh_rejects[idx]))
 
 # Print by family
 all_survivors_bh = []
-all_survivors_bonf = []
+all_survivors_bonf30 = []
+all_survivors_bonf175 = []
 
 for family_name in ['positional', 'bigram', 'self-succession', 'dialect-split',
                     'cth-positional', 'suffix', 'word-level']:
@@ -448,17 +454,19 @@ for family_name in ['positional', 'bigram', 'self-succession', 'dialect-split',
     members = families[family_name]
     print(f"\n── FAMILY: {family_name.upper()} ({len(members)} findings) ──")
     print(f"{'ID':<5} {'Description':<42} {'D':>2} {'k':>5} {'n':>6} {'p0':>6} {'Enr':>7} "
-          f"{'p-value':>10} {'Bonf':>6} {'BH':>4}")
-    print("-"*100)
-    for idx, fid, desc, dialect, k, n, p0, enr, pval, bonf_pass, bh_pass in members:
+          f"{'p-value':>10} {'B30':>5} {'B175':>5} {'BH':>4}")
+    print("-"*107)
+    for idx, fid, desc, dialect, k, n, p0, enr, pval, b30, b175, bh_pass in members:
         pstr  = f"{pval:.2e}" if pval is not None else "N/A (n<10)"
         estr  = f"{enr:.3f}" if enr is not None else "N/A"
-        bstr  = "YES" if bonf_pass else ("NO" if pval is not None else "---")
-        bhstr = "YES" if bh_pass else ("NO" if pval is not None else "---")
+        b30str  = "YES" if b30  else ("NO" if pval is not None else "---")
+        b175str = "YES" if b175 else ("NO" if pval is not None else "---")
+        bhstr   = "YES" if bh_pass else ("NO" if pval is not None else "---")
         print(f"{fid:<5} {desc:<42} {dialect:>2} {k:>5} {n:>6} {p0:>6.4f} {estr:>7} "
-              f"{pstr:>10} {bstr:>6} {bhstr:>4}")
-        if bonf_pass: all_survivors_bonf.append((fid, desc, enr))
-        if bh_pass:   all_survivors_bh.append((fid, desc, enr))
+              f"{pstr:>10} {b30str:>5} {b175str:>5} {bhstr:>4}")
+        if b30:      all_survivors_bonf30.append((fid, desc, enr))
+        if b175:     all_survivors_bonf175.append((fid, desc, enr))
+        if bh_pass:  all_survivors_bh.append((fid, desc, enr))
 
 # ── BH within families ────────────────────────────────────────────────────────
 print(f"\n{'='*70}")
@@ -477,9 +485,19 @@ for family_name, members in families.items():
 print(f"\n{'='*70}")
 print("SUMMARY")
 print(f"{'='*70}")
-print(f"Bonferroni survivors ({len(all_survivors_bonf)}/{len(findings)}):")
-for fid, desc, enr in all_survivors_bonf:
+print(f"\nBonferroni m=30 (candidate set) survivors ({len(all_survivors_bonf30)}/{len(findings)}):")
+for fid, desc, enr in all_survivors_bonf30:
     print(f"  {fid}: {desc} (enr={enr:.3f})")
+print(f"\nBonferroni m=175 (full search space) survivors ({len(all_survivors_bonf175)}/{len(findings)}):")
+for fid, desc, enr in all_survivors_bonf175:
+    print(f"  {fid}: {desc} (enr={enr:.3f})")
+print(f"\nFindings that pass m=30 but NOT m=175 ({len(all_survivors_bonf30)-len(all_survivors_bonf175)} findings):")
+bonf30_set  = {fid for fid, _, _ in all_survivors_bonf30}
+bonf175_set = {fid for fid, _, _ in all_survivors_bonf175}
+for fid, desc, enr in all_survivors_bonf30:
+    if fid not in bonf175_set:
+        pval = next(f[8] for f in findings if f[0] == fid)
+        print(f"  {fid}: {desc} (enr={enr:.3f}, p={pval:.2e})")
 print(f"\nBH-FDR survivors ({len(all_survivors_bh)}/{len(findings)}):")
 for fid, desc, enr in all_survivors_bh:
     print(f"  {fid}: {desc} (enr={enr:.3f})")

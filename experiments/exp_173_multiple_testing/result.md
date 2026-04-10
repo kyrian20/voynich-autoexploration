@@ -1,9 +1,15 @@
 # exp_173: Multiple Testing Correction (Bonferroni + BH-FDR)
-**Date**: 2026-04-10
-**Hypotheses**: After 173 characterization experiments generating 30+ candidate findings, how many survive strict multiple testing correction? Does the core positional/morphological evidence survive Bonferroni and BH-FDR?
-**Status**: ROBUST. 24/30 survive Bonferroni (threshold p < 0.001667); 26/30 survive BH-FDR (q=0.05). No pause condition triggered. All key discriminating metrics survive.
+**Date**: 2026-04-10 (dual Bonferroni added 2026-04-10)
+**Hypotheses**: After 175 characterization experiments generating 30+ candidate findings, how many survive strict multiple testing correction under both m=30 (candidate set) and m=175 (full search space)?
+**Status**: ROBUST AT BOTH THRESHOLDS. 24/30 survive Bonferroni m=30; **21/30 survive Bonferroni m=175**; 26/30 survive BH-FDR. All four core positional/discriminating metrics survive both thresholds. No pause condition triggered.
 
-**Configuration**: 30 candidate findings across 7 families. Test types: binomial exact (positional, self-succession, dialect counts) and Fisher's exact (bigram counts). One-sided tests in direction of claim. Bonferroni threshold: p < 0.05/30 = 0.001667. BH-FDR at q=0.05 (flat and within-family hierarchical).
+**Configuration**: 30 candidate findings across 7 families. Test types: binomial exact (positional, self-succession, dialect counts) and Fisher's exact (bigram counts). One-sided tests in direction of claim.
+
+**Two Bonferroni thresholds reported**:
+- **m=30** (p < 0.001667): Corrects for the 30 nominated candidate findings. Appropriate if nominees were pre-specified.
+- **m=175** (p < 0.000286): Corrects for the full 175 quantitative findings produced during the characterization phase. Appropriate if any of the 175 findings could have been nominated.
+
+**Transparency note**: 30 candidate findings were nominated post-hoc from 175 findings. Bonferroni at m=30 reflects the candidate set size; at m=175 it reflects the full search space. Both are reported to allow independent assessment. The choice of m=30 is optimistic (nominees are a non-random selection of the most striking findings); m=175 is conservative (assumes all 175 findings were equally plausible a priori).
 
 ---
 
@@ -11,43 +17,48 @@
 
 **Pause condition**: Bonferroni correction reduces robust findings to <10.
 
-- **Bonferroni survivors**: 24/30 — **WELL ABOVE threshold**
+- **Bonferroni m=30 survivors**: 24/30 — WELL ABOVE threshold
+- **Bonferroni m=175 survivors**: 21/30 — WELL ABOVE threshold
 - **BH-FDR survivors**: 26/30
 
-No pause condition triggered.
+No pause condition triggered at either threshold.
 
 ---
 
 ## SURVIVOR TABLE
 
-| ID | Description | D | Enr | p-value | Bonf | BH |
-|----|-------------|---|-----|---------|------|----|
-| F3 | **-am LL enrichment (B)** | B | 6.811 | 6.27e-161 | YES | YES |
+B30 = passes Bonferroni m=30 (p < 0.001667). B175 = passes Bonferroni m=175 (p < 0.000286).
+
+| ID | Description | D | Enr | p-value | B30 | B175 | BH |
+|----|-------------|---|-----|---------|-----|------|----|
+| F3 | **-am LL enrichment (B)** | B | 6.811 | 6.27e-161 | YES | YES | YES |
 | F17 | edy rate B > A | AB | 59.4× | ~0 | YES | YES |
 | F1 | y-onset LF enrichment (A) | A | 2.459 | 8.38e-40 | YES | YES |
-| F6 | y-onset LF enrichment (B) | B | 3.506 | 2.86e-90 | YES | YES |
-| F2 | cth LF depletion (A) | A | 0.159 | 5.68e-17 | YES | YES |
-| F21 | cth LF depletion magnitude (A) | A | 0.159 | 5.68e-17 | YES | YES |
-| F18 | cth rate A > B | AB | 14.9× | 4.24e-128 | YES | YES |
-| F4 | -am LL enrichment (A) | A | 3.562 | 1.10e-29 | YES | YES |
-| F5 | d LL enrichment (A) | A | 1.667 | 2.85e-26 | YES | YES |
-| F19 | qok rate B > A | AB | 2.343 | 2.07e-91 | YES | YES |
-| F28 | l-onset rate B > A | AB | 9.837 | 3.47e-138 | YES | YES |
-| F29 | qok LF depletion (B) | B | 0.839 | 1.39e-03 | YES | YES |
-| F7 | daiin→cth enrichment (A) | A | 2.839 | 3.72e-10 | YES | YES |
-| F9 | qok→ch enrichment (B) | B | 1.211 | 9.15e-07 | YES | YES |
-| F11 | ok self-succession (A) | A | 1.930 | 5.93e-06 | YES | YES |
-| F12 | ch self-succession (A) | A | 1.427 | 8.19e-07 | YES | YES |
-| F13 | qok self-succession (A) | A | 1.623 | 9.58e-04 | YES | YES |
-| F14 | qo self-succession (B) | B | 2.047 | 4.05e-06 | YES | YES |
-| F15 | ch self-succession (B) | B | 1.694 | 5.88e-07 | YES | YES |
-| F16 | ok self-succession (B) | B | 1.462 | 2.03e-04 | YES | YES |
-| F20 | cth LL enrichment (A) | A | 1.396 | 1.39e-03 | YES | YES |
-| F23 | -ol rate A > B | AB | 2.172 | 4.79e-98 | YES | YES |
-| F24 | -or rate A > B | AB | 2.995 | 8.63e-118 | YES | YES |
-| F25 | daiin LF enrichment (B) | B | 2.791 | 6.71e-17 | YES | YES |
-| F8 | [ch][daiin]→cth enrichment (A) | A | 1.783 | 2.07e-02 | NO | YES |
-| F22 | cthy LL enrichment (A) | A | 1.608 | 2.28e-02 | NO | YES |
+| F6 | y-onset LF enrichment (B) | B | 3.506 | 2.86e-90 | YES | YES | YES |
+| F2 | cth LF depletion (A) | A | 0.159 | 5.68e-17 | YES | YES | YES |
+| F21 | cth LF depletion magnitude (A) | A | 0.159 | 5.68e-17 | YES | YES | YES |
+| F18 | cth rate A > B | AB | 14.9× | 4.24e-128 | YES | YES | YES |
+| F4 | -am LL enrichment (A) | A | 3.562 | 1.10e-29 | YES | YES | YES |
+| F5 | d LL enrichment (A) | A | 1.667 | 2.85e-26 | YES | YES | YES |
+| F19 | qok rate B > A | AB | 2.343 | 2.07e-91 | YES | YES | YES |
+| F28 | l-onset rate B > A | AB | 9.837 | 3.47e-138 | YES | YES | YES |
+| F29 | qok LF depletion (B) | B | 0.839 | 1.39e-03 | YES | **NO** | YES |
+| F7 | daiin→cth enrichment (A) | A | 2.839 | 3.72e-10 | YES | YES | YES |
+| F9 | qok→ch enrichment (B) | B | 1.211 | 9.15e-07 | YES | YES | YES |
+| F11 | ok self-succession (A) | A | 1.930 | 5.93e-06 | YES | YES | YES |
+| F12 | ch self-succession (A) | A | 1.427 | 8.19e-07 | YES | YES | YES |
+| F13 | qok self-succession (A) | A | 1.623 | 9.58e-04 | YES | **NO** | YES |
+| F14 | qo self-succession (B) | B | 2.047 | 4.05e-06 | YES | YES | YES |
+| F15 | ch self-succession (B) | B | 1.694 | 5.88e-07 | YES | YES | YES |
+| F16 | ok self-succession (B) | B | 1.462 | 2.03e-04 | YES | YES | YES |
+| F20 | cth LL enrichment (A) | A | 1.396 | 1.39e-03 | YES | **NO** | YES |
+| F23 | -ol rate A > B | AB | 2.172 | 4.79e-98 | YES | YES | YES |
+| F24 | -or rate A > B | AB | 2.995 | 8.63e-118 | YES | YES | YES |
+| F25 | daiin LF enrichment (B) | B | 2.791 | 6.71e-17 | YES | YES | YES |
+| F8 | [ch][daiin]→cth enrichment (A) | A | 1.783 | 2.07e-02 | NO | NO | YES |
+| F22 | cthy LL enrichment (A) | A | 1.608 | 2.28e-02 | NO | NO | YES |
+
+**Three findings pass m=30 but not m=175**: F29 (qok LF depletion B), F13 (qok self-succession A), F20 (cth LL enrichment A). These are secondary findings; none of the four core positional discriminating metrics (F1-F6, -am LL, y-onset LF, d LL) drop out at m=175.
 
 ---
 
