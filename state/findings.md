@@ -5,6 +5,14 @@
 
 ---
 
+## F135: p-Prefix = B-Dialect LINE-OPENER on ch/sh-Stems (Line-Start=71.1%, 5.72×); r-Prefix = B-Dialect LINE-CLOSER on PARTICLE STEMS (raiin/rain/rar/ral, Line-End=28.7%); POSITIONAL PREFIX SYSTEM: y/p=OPENERS, qo/l/o=CONTENT, r=CLOSERS
+**Experiment:** exp_128_pr_prefix
+**Date:** 2026-04-09
+**Finding:** H254 CONFIRMED: p-prefix is a B-dialect line-opener on ch/sh-stems. 523 tokens, 285 types; A/B=0.31 (3.3× B); stars=43.4%, cosmo=16.8%; **line-start=71.1% (5.72× enriched)**. Stem selectivity: ch=45.5%, ol=16.8%, sh=8.6% — DISTINCT from y-/qo-/o-/l- which select k/t-stems. A/B Jaccard=0.095 (near-distinct vocabularies). pchedy=35 tokens (100% B, stars 37%). p-prefix attaches to ch/sh-content stems; top p-words are p+chedy/pol/pchor/pcheol = p+ch-stem forms. Stem recovery=76.9%. H255 CONFIRMED: r-prefix is a B-dialect line-closer on PARTICLE stems. 341 tokens, 117 types; A/B=0.12 (8.3× B); stars=51.6%, cosmo=32.6%; **line-end=28.7%** (line-start=3.2%). Stem selectivity: other-particles=64.5% (aiin/ain/ar/al/or/am); ch=14.7%. r-prefix uniquely attaches to PARTICLE STEMS (not content word stems). Creates "prefixed particle" forms: raiin(61), rain(21), rar(17), ral(15), ror(14), ram(11). Stem recovery=84.8%. A/B Jaccard=0.111. POSITIONAL PREFIX SYSTEM revealed: y-(both dialects, k/t, 39.6% line-start) and p-(B-dialect, ch/sh, 71.1% line-start) = OPENERS; qo-(B-body, k/t), l-(B-stars, ch/sh/k), o-(labels) = CONTENT MODIFIERS; r-(B-stars/cosmo, particles, 28.7% line-end) = CLOSER. p and r form a COMPLEMENTARY LINE-BRACKET pair: p opens B-dialect lines (71.1% line-start) while r closes them (28.7% line-end). r-prefix creates the only prefix class that attaches to particle stems — r-particles (raiin, rain, rar, ral, ror, ram) are B-stars/cosmo forms of the manuscript's fundamental particle vocabulary.
+**Limitation:** p-prefix para-start detection was incomplete (only 46 paragraph-start loci detected, likely undercounting). The 71.1% p-line-start rate is reliable but whether p marks specifically paragraph-start lines vs all line-starts requires better para-start detection. The "particle stems" classification for r-prefix depends on the "other" onset category which may include non-particle words. raiin (n=61) is the most common r-word but the r+aiin analysis doesn't distinguish whether these are really r-prefix on aiin vs independent r-initial words.
+
+---
+
 ## F134: aiin→am=4.62× Is Distributional (Not Fixed Phrase); 4-gram [-ol/-or][aiin][cth][-am/-dy/-al]=4.92× Enriched (3 Observed/0.6 Expected); y-Prefix Splits Into A-y (y+A-paradigm, B%≤25%) and B-y (y+B-paradigm, B%=100%); y-Prefix Selects k/t-Stems (65.4%) = Same as qo-/o-; y Is GRAMMATICAL (Position) Prefix — Line-Continuation Opener (39.6% Line-Start)
 **Experiment:** exp_127_line_template_4gram
 **Date:** 2026-04-09

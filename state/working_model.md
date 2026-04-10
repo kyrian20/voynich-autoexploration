@@ -1,5 +1,5 @@
 # Working Model — Voynich Manuscript Cryptanalysis
-**Last updated:** 2026-04-09 (after exp_127)
+**Last updated:** 2026-04-09 (after exp_128)
 **Purpose:** Continuously-updated structured summary of current beliefs about Voynichese.
 **Discipline:** Characterization, not interpretation. Claims require experimental warrant.
 
@@ -221,6 +221,11 @@ These findings have been replicated across independent analyses or confirmed by 
 - eee (triple-vowel) words: stars=17.25‰, cosmo=4.40‰ (suppressed). Vowel-length gradient monotonically stars-concentrated (edy→eedy→eeedy: 36%→48%→63%). eee enriched in ok/ol/qo (1.7-1.9×), suppressed in ch/sh (0.37-0.46×).
 - A-dialect section variation: herbal-A=-y dominant (qok=37%, ch=29%); pharma-A=-ol dominant (qok=41%, ok=40%); 8.9% avg diff (3.5× weaker than B's 31%).
 - FOUR-LEVEL suffix hierarchy: Dialect (A/B) → Stem class (Simple-B/Complex-B; A-y/-ol) → Section (B: stars/cosmo/herbal; A: herbal/pharma) → Vowel length (stars triple-vowel extension). Strong evidence for natural language morphology.
+
+**POSITIONAL PREFIX SYSTEM: p=LINE-OPENER (ch/sh-stems, 71.1% line-start, B-dominant); r=LINE-CLOSER (PARTICLE STEMS, 28.7% line-end, 8.3×B); p/r BRACKET B-dialect Lines; r Creates "Prefixed Particles" raiin/rain/rar/ral/ror/ram (F135, exp_128)**
+- p-prefix: 523 tokens, 285 types; A/B=0.31 (3.3×B); line-start=71.1% (5.72×); stars=43.4%, cosmo=16.8%. Stem: ch=45.5%, ol=16.8%, sh=8.6% — DISTINCT from y/qo/o (which select k/t). pchedy=35 (100%B).
+- r-prefix: 341 tokens, 117 types; A/B=0.12 (8.3×B); line-end=28.7%; stars=51.6%, cosmo=32.6%. Attaches to PARTICLE STEMS (64.5%: aiin/ain/ar/al/or/am). Creates raiin(61), rain(21), rar(17), ral(15), ror(14), ram(11).
+- COMPLETE POSITIONAL PREFIX SYSTEM: y/p=OPENERS (y=both+k/t; p=B+ch/sh); qo/l/o=CONTENT MODIFIERS; r=CLOSER (B+particles). y and p are STEM-CLASS SPECIFIC openers. r is the only prefix that selects PARTICLE stems.
 
 **y-PREFIX = GRAMMATICAL LINE-CONTINUATION OPENER; Splits A-y (y+A-paradigm, B%≤25%) vs B-y (y+B-paradigm, B%=100%); y Selects k/t-Stems (65.4%) = Same as qo-/o-; A/B Jaccard=0.174; 4-gram Template Enriched 4.92×; aiin→am=Distributional Not Fixed Phrase (F134, exp_127)**
 - y-prefix: 1,372 tokens, 488 types; A/B ratio=0.81 (balanced); line-start=39.6% (grammatical position opener).

@@ -2709,6 +2709,7 @@
 
 ## H254: p-Prefix Class Characterization — What Are the 528 p-Prefix Words?
 **Priority:** high
+**Status:** CONFIRMED (exp_128) — p-prefix is B-dialect LINE-OPENER on ch/sh-stems (ch=45.5%); line-start=71.1% (5.72×); stars=43.4%, cosmo=16.8%; A/B=0.31; Jaccard=0.095; pchedy=35 (100%B); stem recovery=76.9%; POSITIONAL PREFIX SYSTEM: p=OPENER, r=CLOSER bracket B-dialect lines (F135)
 **Source:** F132: p-prefix discovered as new prefix class (528 tokens, 76.1% stem recovery, A/B=0.30 = 3.4× B-dominant, stars=43%). Similar to r-prefix (87% recovery, 8.4× B, stars). p-onset was already identified as a B-paragraph-START marker (pchedy/tchedy=B-para-starts, 17-18× enriched, F057). But F132 treats p as a PREFIX — is p-onset = p-prefix on ch/sh/k/t stems?
 **Description:** Extract all p-initial words (≥2 chars). Characterize: (1) p-stripped stems: what onset classes? (stem recovery rate); (2) dialect distribution (A vs B); (3) section distribution; (4) positional behavior (para-start vs line-start vs medial); (5) suffix distribution; (6) is pchedy = p + chedy (B-paradigm stem) or an independent word? Cross-reference with F057 (pchedy=para-start) and F076 (p-onset=75.3% first = primary para-start).
 **Expected outcome:** p-prefix on ch/sh/k/t stems — pchedy=p+chedy, pchy=p+chy. The para-start enrichment of p-onset (17-18×) reflects that the p-prefix marks paragraph-initial position — i.e., p is BOTH a morphological prefix AND a positional marker (like y- being a line-continuation marker). p- = B-dialect paragraph-start marker; y- = line-continuation opener; these are the two positional prefix types.
@@ -2719,8 +2720,29 @@
 
 ## H255: r-Prefix Class Characterization — What Are the 346 r-Prefix Words?
 **Priority:** medium
+**Status:** CONFIRMED (exp_128) — r-prefix is B-dialect LINE-CLOSER on PARTICLE STEMS (64.5%: aiin/ain/ar/al/or/am); line-end=28.7%; stars=51.6%, cosmo=32.6%; A/B=0.12 (8.3×B); creates prefixed particles: raiin(61), rain(21), rar(17), ral(15), ror(14); stem recovery=84.8%; Jaccard=0.111 (F135)
 **Source:** F132: r-prefix (346 tokens, 87.0% stem recovery = highest, A/B=0.12 = 8.4× B-dominant, stars=51%). r-onset words: raiin, rain, raram, roar. If r is a prefix: r+aiin=raiin, r+am=ram, r+ar=rar. But r-initial words are quite short — what stems do they strip to?
 **Description:** Extract all r-initial words. (1) r-stripped stems (what are they?); (2) are the stems common vocabulary? (3) dialect and section distribution; (4) suffix distribution; (5) what precedes and follows r-words? Is r-prefix restricted to specific stem classes?
 **Expected outcome:** r-stripped stems = mostly aiin/am/ar/al particles — r-prefix on particle stems creates r-particle forms. This would explain the 87.0% stem recovery (r+aiin=raiin; raiin→aiin is in vocabulary). The 8.4× B-dominance and stars concentration suggests r-prefix marks specific B-stars content.
 **Cost estimate:** small
 **Prerequisites:** F132
+
+---
+
+## H256: p and r Form a Complementary LINE-BRACKET Pair — Do B-Dialect Lines Template as [p-word][content][r-word]?
+**Priority:** high
+**Source:** F135: p-prefix is a B-dialect line-opener (71.1% line-start) and r-prefix is a B-dialect line-closer (28.7% line-end). These form a positional complementary pair. Do they co-occur in the same lines? Is there a B-dialect line template [p-word][...content...][r-word]?
+**Description:** (1) What fraction of B-dialect lines contain both a p-initial word (at start) AND an r-initial word (at end)? (2) What section shows highest p+r co-occurrence? (3) Compute enrichment: P(r-word at end | p-word at start) vs P(r-word at end | no p-word at start). (4) What are the most common p+r line combinations? (5) Is there a characteristic line length for lines with both p and r?
+**Expected outcome:** B-dialect stars/cosmo lines frequently have p-word at start and r-word at end. The enrichment would confirm p and r as grammatical line-bracket markers. This would be the most complete structural template yet: [p-opener][content phrase][r-closer] = B-dialect line template.
+**Cost estimate:** trivial
+**Prerequisites:** F135
+
+---
+
+## H257: r-Prefix on Particles — Are raiin vs aiin in Different Syntactic Contexts?
+**Priority:** medium
+**Source:** F135: r-prefix creates "prefixed particle" forms (raiin=61, rain=21, rar=17, ral=15, ror=14, ram=11). If r-prefix is morphologically meaningful, raiin should appear in different syntactic contexts than aiin. What precedes raiin vs aiin? What follows raiin vs aiin?
+**Description:** For raiin and aiin: (1) compute onset class of preceding word; (2) compute onset class of following word; (3) suffix distribution of raiin vs aiin; (4) section distribution (raiin=64% stars, aiin=?); (5) line-position distribution. Is raiin a B-stars determiner parallel to daiin in A-herbal?
+**Expected outcome:** raiin appears in B-stars context where aiin appears in A-herbal context — they are dialectal/section counterparts (daiin=A-determiner, raiin=B-stars particle). Pre-raiin and pre-aiin should show different onset class enrichments.
+**Cost estimate:** small
+**Prerequisites:** F135
