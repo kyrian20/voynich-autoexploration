@@ -2364,6 +2364,7 @@
 
 ## H220: Secondary B-Suffix in Stars vs Cosmo — Is -eey a Stars-Specific B-Paradigm Marker and -eedy a Cosmo-Specific Marker?
 **Priority:** high
+**Status:** CONFIRMED (PARTIAL) — exp_112 (F119): Stars-B universally elevates -eey (highest rate across ALL onset classes; stars>cosmo>herbal). Cosmo-B elevates -eedy for qo-prefix stems (qok=35%, qot=41%) but NOT ch/sh. -edy remains dominant for ch/sh everywhere. GRADIENT not categorical switch. Stars exclusive: triple-vowel forms (oteeey=7, cheeey=6). Same vocabulary, different proportions.
 **Source:** F118: Stars B shifts to -eey (qok: 43% eey vs 11% herbal); cosmo B prefers -eedy (qok: 35% eedy). H216 confirmed section-level B-suffix variation. Is there a systematic three-way B-suffix grammar: herbal-B=-edy; cosmo-B=-eedy; stars-B=-eey?
 **Description:** For EACH B-dialect section (herbal B, cosmo B, stars B), compute the rate of -edy, -eedy, -eey separately for each major onset class (ch, sh, qok, ok, ot, qo). Test whether the three-way B-suffix partition is systematic (all onset classes show same direction in each section). Also: compute cross-section word overlap for -eedy vs -eey words — do sections share the same stems with different suffixes, or different stems?
 **Expected outcome:** Systematic three-way partition: herbal-B→-edy, cosmo-B→-eedy, stars-B→-eey. Word-level evidence: qok+eey is stars-specific; qok+eedy is cosmo-specific; qok+edy is herbal-specific. This would make the secondary B-suffix a SECTION MARKER within B-dialect (third layer of linguistic structure below dialect, above individual word).
@@ -2377,3 +2378,21 @@
 **Description:** Build per-folio word frequency vectors (normalized). Compute pairwise cosine similarity between folio vectors. Cluster by similarity. Identify: (1) clusters that correspond to sections; (2) outlier folios; (3) transition folios between sections.
 **Expected outcome:** Folios cluster into 5-6 clear groups corresponding to sections. Transition folios (f57, f85, f86, f103) may appear between clusters. Some star-section folios may cluster with herbal B if vocabulary overlaps.
 **Cost estimate:** medium
+
+---
+
+## H222: Triple-Vowel Extended Forms — Are oteeey/cheeey/lkeeey Stars-Exclusive Suffix Paradigm Extensions?
+**Priority:** high
+**Source:** F119: Stars B has exclusive triple-vowel forms (oteeey=7, cheeey=6, lkeeey=7, teeedy=4) not found in cosmo or herbal. These appear to be ot/ch/lk/t + eee + y/dy (triple-e vowel extension). Is this a systematic stars-specific sub-suffix paradigm?
+**Description:** Extract all words with 3+ consecutive 'e' characters (eee) from body text. Compute: (1) section distribution; (2) onset class distribution; (3) whether eee forms are stars-exclusive or appear rarely elsewhere; (4) relationship to double-e forms (eey/eedy) — is eee a further extension of the ee pattern?
+**Expected outcome:** eee forms are stars-dominant (80%+). The eee pattern extends the ee pattern: edy→eedy→eeedy; eey→eeey as a vowel-length gradient. Stars uses longer vowel strings than cosmo or herbal.
+**Cost estimate:** trivial
+
+---
+
+## H223: A-Dialect Suffix Paradigm Completeness — Does A Have Any Suffix Variation by Section Analogous to B's Three-Tier System?
+**Priority:** medium
+**Source:** F118-F119: B-dialect has a 3-tier suffix system. A-dialect was assumed to be uniform (no secondary split). Is this actually true? Do A herbal/pharma/astro sections use different proportions of -ol/-or/-y/-aiin?
+**Description:** Compute A-paradigm suffix (-ol/-or/-y/-aiin) rates by section for A-dialect onset classes (ch, sh, qok in A-dialect). Is pharma-A different from herbal-A in suffix use? Does astro-A have distinctive suffix choices? Test whether A has any section-level suffix variation comparable to B's section gradient.
+**Expected outcome:** A has minimal or no section-level suffix variation (uniform paradigm). OR: A-pharma uses more -or/-aiin than herbal-A (which might use more -ol/-y). If variation is found, it would be a secondary A-paradigm structure parallel to B's secondary structure.
+**Cost estimate:** small
