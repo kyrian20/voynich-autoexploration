@@ -1,5 +1,5 @@
 # Working Model — Voynich Manuscript Cryptanalysis
-**Last updated:** 2026-04-09 (after exp_124)
+**Last updated:** 2026-04-09 (after exp_125)
 **Purpose:** Continuously-updated structured summary of current beliefs about Voynichese.
 **Discipline:** Characterization, not interpretation. Claims require experimental warrant.
 
@@ -222,12 +222,20 @@ These findings have been replicated across independent analyses or confirmed by 
 - A-dialect section variation: herbal-A=-y dominant (qok=37%, ch=29%); pharma-A=-ol dominant (qok=41%, ok=40%); 8.9% avg diff (3.5× weaker than B's 31%).
 - FOUR-LEVEL suffix hierarchy: Dialect (A/B) → Stem class (Simple-B/Complex-B; A-y/-ol) → Section (B: stars/cosmo/herbal; A: herbal/pharma) → Vowel length (stars triple-vowel extension). Strong evidence for natural language morphology.
 
+**SEVEN-PREFIX SYSTEM: o-/qo-/l-/r-/p-/y-/cth-; ok-/ot-/qok-/qot-Onset = PREFIXED DERIVED FORMS (NOT Primitive Stems); qo-Prefix k/t-Selective (Not ch/sh); B-cth=Hybrid Words cthedy/cthdy (B_frac=0.917/1.000); B-cth→cth=n=1 Only (F132, exp_125)**
+- ok-onset (okaiin=201) = o-prefix on k-stem; ot-onset (otaiin=137) = o-prefix on t-stem; qok-onset (qokaiin=265) = qo-prefix on k-stem; qot-onset = qo-prefix on t-stem. These are NOT independent onset classes.
+- qo-prefix is EXCLUSIVELY k/t-stem selective: qochedy=1 (absent), ochedy=8 (rare). ch/sh-stems take ONLY l-prefix (lchedy=116). Resolves why qo-stripping finds k/t-initial stems.
+- New prefix classes: r- (346 tokens, 87.0% stem recovery, 8.4× B, stars 51%); p- (528 tokens, 76.1%, 3.4× B, stars 43%); y- (1374 tokens, 85.6%, balanced A/B).
+- B-dialect cth (n=55): cthedy (B_frac=0.917) and cthdy (B_frac=1.000) are hybrid morphological forms — B-paradigm suffixes (-edy/-dy) applied to cth-onset. Concentrated in B-herbal folios f26/f48 (~20‰) and stars f113/f116.
+- exp_123's B-cth→cth=8.79× was a single-token artifact; actual B-cth self-clustering = n=1 only.
+- Primitive stem classes (revised): ch / sh / k / t / r. Prefixes: o- / qo- / l- / r- / p- / y- / cth-.
+
 **FOUR-PREFIX SYSTEM: o-/qo-/cth-/l-; k-Stems Generate (bare-k/qo+k/l+k) Paradigm; l Is B-Dialect Prefix (91.3% Stem Recovery, 10.3× B-Dominant); lk=80% Stars; kaiin Folios=Herbal vs lkaiin Folios=Stars/Cosmo (Disjoint) (F131, exp_124)**
 - 'l' is a B-dialect morphological prefix with 91.3% stem recovery (qo=54.8%, o=50.4%) — most transparent prefix. l is 10.3× B-dominant (50.66‰ B vs 4.93‰ A).
 - l-words: stars-enriched (1.83×), cosmo (1.42×); herbal/pharma depleted (0.22×); astro absent. l-suffix: -edy=2.32× (B-paradigm); -y depleted (0.50×). lk-subclass = 80% stars, n=415.
 - k is a stem-initial segment generating THREE-PREFIX paradigm: bare-k (A-herbal, folios 1-56), qo+k (B-body), l+k (B-stars/cosmo, folios 75-116). kaiin folios=[1-56] ≠ lkaiin folios=[75-116] (section-disjoint).
 - **FOUR prefixes confirmed**: o- [labels, k/t stems]; qo- [B body, k/t stems]; cth- [A body, o/y/e stems]; l- [B stars/cosmo, ch/sh/k/d stems]. The prefix system encodes BOTH register (label vs body) AND section/dialect.
-- New H249: Does the prefix paradigm (bare/qo/l) generalize to all stem classes (ch, sh, t)?
+- H249 CONFIRMED (F132): Paradigm generalizes — ok/ot/qok/qot are all derived; qo-prefix k/t-selective; ch/sh take l-only. New H251: Full characterization of y-prefix class (1374 tokens, balanced dialect).
 
 **Onset Grammar Probabilistic; cth→cth=4.78×=Only Mandatory; cth↔d Cycle=2.20×; Stars l-/k-Onset = NEW B-Dialect Prefix Classes; lkaiin=81% Stars; Stars Line-Start=y-/p-Openers; Line-End=am-Particles (F130, exp_123)**
 - Onset transition grammar is probabilistic — no forbidden transitions found. One mandatory pair: cth→cth=4.78× (cth-noun self-clustering).
