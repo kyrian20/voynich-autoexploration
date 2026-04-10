@@ -2275,6 +2275,7 @@
 
 ## H211: Productivity of the -am Closed Class — Do cham/otam/dam Follow the Same A/B Paradigm as -edy/-ol Stems?
 **Priority:** medium
+**Status:** CONFIRMED (PARTIAL) — exp_109 (F116): -am class is dialect-neutral overall (A/B=1.00x) but dialect-split within: A-dominant -am (dam=3.1x, cham=3.5x, sam=11.6x) vs B-dominant (qokam=0.3x, ram=0.2x). Onset determines dialect identity; -am suffix is neutral. All -am are line-closers (LL=60-100%). cosmo B suppresses -am (6.83permill vs 22-41permill).
 **Source:** F115: The -am closed class (cham, otam, dam, okam, ram, ytam) has H=0 bits (zero suffix variation). F093: -am words are within-para line-closers in PERFECT complementary distribution with oly/oldy (zero co-occurrence). But do -am words themselves follow A/B paradigm? In A, are the dominant -am words different from B?
 **Description:** Compute -am word frequency and rates in A vs B: which -am words appear in A? Which in B? Is dam A-dominant? Is otam B-dominant? Are the section distributions of -am words different from oly/oldy? This tests whether the -am closed class is a universal function word (same in A and B) or a dialect-split function word.
 **Expected outcome:** The -am class is partially dialect-split: dam (d-onset → A-paradigm aligned) is A-dominant; otam (o+t onset) may be B-neutral or B-dominant. This would show that even the grammar particle layer has dialect-specific variant selection.
@@ -2284,6 +2285,7 @@
 
 ## H212: 4-gram Cross-Folio Repetition — Are There Verbatim 4-Word Sequences Shared Across Folios?
 **Priority:** medium
+**Status:** REFUTED — exp_109 (F116): Only 1 of 16,210 unique 4-grams repeats across 2 folios (0.006%). 5-grams: 0 cross-folio. Voynichese generates compositionally unique sequences per folio. No formulaic 4+ word repetition.
 **Source:** H207 (open): F050 found 0.24% of trigrams repeat. 4-grams untested. Verbatim repeated passages indicate formulaic construction.
 **Description:** Extract all 4-grams (length-4 word sequences). Count occurrences per folio. Find 4-grams appearing on 2+ distinct folios. Characterize: which sections? Are they grammatically structured (PARA-start + mid-line)?
 **Expected outcome:** Very few 4-gram repeats (<20 unique 4-grams on 2+ folios). Most in bio/cosmo B (most formulaic per F050). Any that repeat will likely begin with a PARA-tier word (structural anchor).
@@ -2293,7 +2295,44 @@
 
 ## H213: cth-Cluster Words — Is cth- a Morphological Prefix Parallel to qo- and o-?
 **Priority:** medium
+**Status:** CONFIRMED — exp_109 (F116): cth- is most A-exclusive onset class (14x A/B ratio), line-closer (LLast=25-26%), A-paradigm suffix dominant (enriches -y=2.16x, -or=2.24x, -ol=1.96x; suppresses -edy=0.33x). Concentrated in herbal/pharma (24-38permill), absent from stars/cosmo (~2permill). NOT a parallel to qo/o prefix systems (only 17-24% stem overlap). cth- = GALLOWS-EXTENDED A-DIALECT CLOSER.
 **Source:** F043-F044: cth- is an A-dialect prefix morpheme parallel to qo- (B) and o- (labels). F113: A-exclusive o-prefix words include otchol, otchor (ot+ch+ol, ot+ch+or) — these contain cth-like structure. F115: A_herbal exclusive vocabulary is dominated by cth-cluster words (cthor=34, dchor=20, kchy=19, dchy=19, tchy=14). Is cth- a productive prefix on o/y/e stems (as suggested by F043), and do cth-words follow the A/B paradigm split?
 **Description:** Extract all cth-onset words. Compute: (1) A vs B dialect distribution; (2) suffix distribution (A-paradigm or B-paradigm?); (3) stem overlap after stripping cth- — do cth-stripped stems appear as other-onset words? (4) Positional profile (PARA-tier? LINE_OPEN? MID?).
 **Expected outcome:** cth- words are overwhelmingly A-dialect (cth- suppressed in B). After stripping cth-, stems are o/y/e initial (parallel to F043). Suffix distribution shows A-paradigm dominance (-ol/-or). Positional role: mid-line or para-level, not line-opening.
 **Cost estimate:** small
+
+---
+
+## H214: Extreme B-Pole Onset Classes — Does the Dialect Polarity Axis Have a B-Extreme Counterpart to cth-?
+**Priority:** high
+**Source:** F116: The dialect polarity axis is cth- (14× A-extreme) → d-onset (moderate A) → ch/sh/qo (neutral) → s-onset (B-shifted). The B-extreme counterpart to cth- has not been identified. cth- is a gallows-extended A-closer — by analogy the B-extreme might be a gallows-extended B-opener (perhaps fch-/pch-onset, which are PARA-tier words already identified as para-start markers in A). Or perhaps the stars/cosmo-specific forms?
+**Description:** Survey onset classes to find the most B-dominant (highest B/A rate ratio). Candidates: (1) fch/pch-onset (F-gallows extended); (2) stars/cosmo B-exclusive onset classes; (3) eee/ee-initial words (triple-vowel forms only in B cosmo). Compute B/A rate ratios for all multi-character onset clusters with n>30 tokens. Identify the B-extreme counterpart to cth-.
+**Expected outcome:** Some onset class has B/A ratio ≥5× — likely fch-, pch-, or a stars/cosmo-specific form. If found, it will complete the dialect polarity axis.
+**Cost estimate:** small
+
+---
+
+## H215: Paragraph-Internal Line Grammar — Do Lines Within a Paragraph Follow a Predictable Sequential Grammar?
+**Priority:** high
+**Source:** F114: Line-openers (s/d-onset) → qo mid-line is a confirmed sequence. F108: Para-start words (PARA tier) appear at position 0 of paragraphs. But the grammar of lines 2, 3, 4... within a paragraph is unknown. Is there a predictable line-level sequence?
+**Description:** Analyze the sequential grammar of paragraph-internal lines. For each paragraph, extract line-position (1=first, 2=second, ..., N=last). Compute the word-tier distribution at each position. Does line 1 differ from line 2? Does the last line consistently use -am words (line-closers from F093)? Is there a gradual transition from grammar-heavy (PARA-tier) openers to content-heavy lines to grammar-heavy closers?
+**Expected outcome:** Para-internal lines follow a arc: strong grammar at first line (PARA-tier), content words dominate middle lines, grammar markers (-am, oly/oldy, dal/dam) concentrate at last line. If confirmed, Voynichese paragraphs have a paragraph-level positional grammar.
+**Cost estimate:** medium
+
+---
+
+## H216: Suffix Co-Occurrence Within Single Words — Are Certain Suffix Combinations (e.g., -eedy vs -edy) Mutually Exclusive at the Stem Level?
+**Priority:** medium
+**Source:** F114: B-type suffixes (-edy/-eedy/-eey) are the paradigm markers. F115: The 3+ bit entropy gap separates grammar from content. But within content stems (ch, sh, qok), do all stems freely use both -edy and -eedy, or do some stems preferentially select one over the other?
+**Description:** For the top 20 content stems (ch, sh, qok, ok, ot, etc.), compute the distribution of -edy vs -eedy vs -eey. Does ch prefer -edy while qok prefers -eedy? Is there a stem-level suffix specialization beyond the general A/B paradigm? Also test within dialects (B-dialect stem × suffix matrix).
+**Expected outcome:** Some stems preferentially select -eedy over -edy (or vice versa). This would indicate a STEM-LEVEL morphological distinction within the B-paradigm suffix class — a secondary paradigm within the B-paradigm.
+**Cost estimate:** small
+
+---
+
+## H217: Folio-Level Language Model — Can Each Folio's Vocabulary Distribution Predict Its Section?
+**Priority:** medium
+**Source:** F103: Section classifier achieves 96.6% accuracy (A) using all words. F109-F110: ch-stem vocabulary alone achieves 73% of full-vocabulary classification performance. F116: Each folio has essentially unique 4-gram sequences. These results imply folio-level vocabulary is strongly section-predictive.
+**Description:** Build a per-folio unigram language model (word frequency vector). Use cosine similarity or KL-divergence between folio vectors to compute folio-to-folio distances. Cluster folios by vocabulary similarity. Do folios cluster by section? By dialect? Are there any folios that cluster with the wrong section (potential mis-classification candidates or transition folios)?
+**Expected outcome:** Folios cluster strongly by section (A herbal, A pharma, B cosmo, B stars, B herbal separate clusters). Transition folios (e.g., f1r at herbal/astro boundary, f85 at herbal/cosmo boundary) may appear between clusters.
+**Cost estimate:** medium

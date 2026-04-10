@@ -1,5 +1,5 @@
 # Working Model — Voynich Manuscript Cryptanalysis
-**Last updated:** 2026-04-09 (after exp_108)
+**Last updated:** 2026-04-09 (after exp_109)
 **Purpose:** Continuously-updated structured summary of current beliefs about Voynichese.
 **Discipline:** Characterization, not interpretation. Claims require experimental warrant.
 
@@ -216,6 +216,12 @@ These findings have been replicated across independent analyses or confirmed by 
 - Within-quire variance (std≈0.05 for qo) is high: quires are morphologically heterogeneous
 - Quire M outlier (qo=25.8%, -edy=20.5%) maps almost entirely to bio section — quire signal is section signal
 - **Section-specific CONTENT WORD vocabulary confirmed (F109, exp_102)**: bare_ch content words show strong section-specialization. Herbal A: chol/chor + EXCLUSIVE words (chain, chocthy, choiin, chan, chokchy). Pharma A: cheol (6.1×!), cheeor (10.4×!), cheom (14.8×!) enriched. Stars B: cho/cheo/cheeo/cheodaiin EXCLUSIVE; Stars B also has chain (6.1×), chaiin (6.1×), cheeody (6.1×). Cosmo B: chcthy (2.3×), checthy (4.9×), cheeky (5.1×). Herbal B: cheky (3.5×), chekaiin (10×!). Each section has a distinctive ch-stem morphological signature beyond the shared core (chol/chor in A; chedy/chey in B). TIER COMPOSITION (F109): PARA+LO+WEAK tiers = only 10-20% of all word tokens; ~80% are content words (MID tier = 31-49% bare_ch/sh/qo; OTHER = 41-52%). The positional grammar labels a minority of words — most words in the manuscript are content words that show section-level semantic specialization. GRAMMAR STRICTNESS (F108/F109): Grammar strictness is PRIMARILY section-determined. Within cosmo B, length also has genuine effect. Within herbal A, grammar strictness is REVERSED with length (shorter herbal paras = higher PARA%). The positional grammar is most strict in the canonical herbal text register (10-15 line paragraphs, 70.7% PARA at PS, 0% LINE_OPEN).
+
+**-am Class Dialect-NEUTRAL Overall but Dialect-SPLIT Within; No 4-gram Cross-Folio Repetition; cth- Is Most A-Exclusive Onset Class (14× A/B), Gallows-Extended A-Dialect Closer (F116, exp_109)**
+- -am class is dialect-neutral at class level (A/B=1.00×) but SPLIT within: A-onset-prefixed -am words (dam=3.1×, cham=3.5×, sam=11.6×) are A-dominant; qo/o-onset-prefixed -am words (qokam=0.3×, ram=0.2×) are B-dominant. Onset, not -am suffix, determines dialect identity. All -am words are LINE-CLOSERS (LL=60-100%). cosmo B suppresses -am (6.83‰ vs 22-41‰).
+- 4-gram cross-folio repetition: only 1/16,210 unique 4-grams repeats (0.006%). 5-grams: 0 cross-folio. Voynichese generates compositionally unique word sequences per folio. Consistent with Heaps' β=0.66-0.74 and 72-79% section-specific vocabulary.
+- cth- onset: most A-exclusive onset class (14× A/B), line-closer (LLast=25-26% in A), A-paradigm suffix dominant (enriches -y=2.16×, -or=2.24×, -ol=1.96×; suppresses -edy=0.33×, -eedy=0.06×). Concentrated in herbal/pharma (24-38‰), nearly absent in stars/cosmo (~2‰). Low stem overlap with qo/o (17-24%) — NOT a parallel prefix system.
+- DIALECT POLARITY AXIS (F116): Onset classes encode dialect polarity on a gradient: cth- (extreme A, 14×) → d-onset (moderate A, closer) → ch/sh/qo (paradigm base) → s-onset (B-shifted, opener). A/B paradigm is graded, not binary.
 
 **s/d-Onset Are Frequency-Complementary (Not Strictly Complementary); Grammar/Content Split Is at STEM Level With 3+ Bit Entropy Gap (F115, exp_108)**
 - s/d co-occurrence = 0.97× (near independence): NOT in strict complementary distribution. s-opener lines suppress d (0.67×), but d-openers do not suppress s. B-dialect uses s-openers 1.78× more; cosmo B strongly prefers s-openers (s/d=2.98×); pharma A slightly prefers d-openers.
