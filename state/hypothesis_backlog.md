@@ -2633,6 +2633,7 @@
 
 ## H247: l-Onset Prefix Class — Is 'l' a B-Dialect Morphological Prefix?
 **Priority:** high
+**Status:** CONFIRMED (exp_124) — l is a B-dialect morphological prefix: stem recovery=91.3% (vs qo=54.8%); A/B=0.097 (10.3× B-dominant); stars=1.83×, cosmo=1.42×; -edy=2.32×; lk-subclass=80% stars; l-words 17.9% line-last; four prefix classes: o-/qo-/cth-/l- (F131)
 **Source:** F130: Stars "other"-onset analysis revealed lchedy (52), lkaiin (39), lkeedy (30), lkeey (34), lkain (28) — words starting with 'l' that are heavily stars-concentrated (lkaiin=81% in stars). These appear to be l+[B-onset-word] compounds. If 'l' is a morphological prefix (like 'o-', 'qo-', 'cth-'), then l-stripped words should appear as standalone words in the vocabulary. This would add a fourth B-dialect prefix to the taxonomy.
 **Description:** Extract all words starting with 'l' in the manuscript. Strip the 'l' and check if the remainder is in the vocabulary (l-stem rate). Compare to qo-prefix (qo-stripped stem recovery rate = 42%). Compute: (1) dialect distribution of l-initial words; (2) section distribution; (3) suffix distribution (do they take B-paradigm suffixes?); (4) l-stripped stems: what onset classes? (5) bigram behavior: what precedes and follows l-onset words? Compare to o-prefix structure.
 **Expected outcome:** l-onset is a B-dialect prefix (B-enriched), stars-concentrated, that strips to reveal k-/ch-initial stems (similar to qo-prefix). l-stripped stems appear in the vocabulary. This would extend the onset taxonomy with 'l' as a fourth recognized prefix class.
@@ -2642,8 +2643,27 @@
 
 ## H248: k-Onset Words — Are They a Separate Productive Class or l-stripped k-Stems?
 **Priority:** medium
+**Status:** CONFIRMED (exp_124) — k is a stem-initial segment (NOT independent prefix); generates 3-prefix paradigm: bare-k (A-herbal f1-56), qo+k (B-body), l+k (B-stars/cosmo f75-116); kaiin vs lkaiin are section-disjoint; qo-stripped qok-words = k-stems; k-suffix = mixed A+B (F131)
 **Source:** F130: Stars "other"-onset analysis found kaiin (36), keedy (34), keey (21), kain (20), kedy (14) — k-initial words that are 47-55% stars-concentrated. These could be: (1) standalone k-onset words (k is a recognized onset in the inner structure but not in the onset taxonomy); (2) l-prefix stripped forms (lkaiin → kaiin = l-stripped form?); (3) a third prefix class.
 **Description:** Characterize k-initial words: (1) frequency and section distribution; (2) suffix distribution (do they take B-paradigm suffixes?); (3) are k-initial words = l-stripped forms (does lkaiin → kaiin correspond?); (4) is 'k' a recognized stem-initial character in the EVA alphabet?; (5) co-occurrence: do kaiin and lkaiin appear in the same paragraphs? (6) bigram behavior: what precedes k-onset words?
 **Expected outcome:** k-onset words are related to the l-prefix class (lkaiin is l + kaiin; kaiin alone also appears as a free form). This would reveal a k-onset sub-class that is either a stripped form of l-compounds or an independent onset class analogous to ch/sh.
 **Cost estimate:** small
 
+
+---
+
+## H249: Full Prefix Paradigm Reconstruction — Do All Major Stem Classes Take (bare/qo-/l-) Prefixes?
+**Priority:** high
+**Source:** F131: k-stems generate a three-prefix paradigm (bare-k/qo+k/l+k). Does this generalize? Do ch-stems have bare-ch vs qo+ch vs l+ch? (qokaiin=qo+kaiin; qochor=qo+chor?). Test: for each major stem class (ch-, sh-, k-, t-, ot-), compute what prefixes appear (bare vs qo vs l vs o) and what section/dialect each prefix form appears in.
+**Description:** Build a systematic prefix paradigm table: for each stem class, count bare/qo-/l-/o- prefixed forms. Compute: (1) stem recovery rate for each prefix applied to each stem class; (2) section distribution of each prefix×stem combination; (3) is there a consistent pattern: bare=A-herbal, qo=B-body, l=B-stars/cosmo, o=labels? Test ch-stem: chedy(bare) vs qo+chedy=? vs l+chedy=lchedy. Also test t-stem (taiin, teedy) with l-prefix (ltaiin?, lteedy?).
+**Expected outcome:** The prefix paradigm generalizes: ch-stems take l-prefix for B-stars/cosmo context (lchedy is the top l-word, n=116); qo+ch is a recognized form. t-stems may similarly have l+t forms (lteedy appears 6 times in stars). This would establish a complete FOUR-PREFIX system: o-[labels]/bare[A-herbal]/qo-[B-body]/l-[B-stars+cosmo].
+**Cost estimate:** small
+
+---
+
+## H250: cth-Onset in B-Dialect — What ARE the 52 cth-Tokens in B-Text?
+**Priority:** medium
+**Source:** F127: cth appears only 52 times in 20,236 B-dialect tokens (2.57‰ vs 39.29‰ in A). F130: B-dialect cth→cth=8.79× (extreme self-clustering). These 52 B-dialect cth-tokens are anomalous — are they: (1) B-dialect folios that contain some A-dialect text (code-switching); (2) a specific set of formulaic cth-words repeated in B-text; (3) a specific section or folio localization?
+**Description:** Extract all cth-onset tokens in B-dialect text. Characterize: (1) which specific words (cthy, cthor, cthol, etc.); (2) which folios and sections contain them; (3) are they in specific paragraphs or distributed evenly?; (4) do they appear next to A-paradigm words (daiin, chol) or B-paradigm words (shedy, qokeedy)?; (5) are these the same cth-words as in A-dialect or different cth-words?
+**Expected outcome:** B-dialect cth-tokens are: (a) localized to specific folios with mixed A/B dialect content (folio-level misclassification), OR (b) a fixed set of cth-words used formulaically in B-dialect (e.g., as proper names or section headings), OR (c) A-dialect insertions into B-dialect folios. The cth→cth=8.79× self-clustering suggests they cluster in specific passages.
+**Cost estimate:** small

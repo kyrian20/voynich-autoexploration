@@ -5,6 +5,14 @@
 
 ---
 
+## F131: 'l' Is a B-Dialect Morphological Prefix (91.3% Stem Recovery, 10.3× B-Dominant); l-Stems=ch/sh/k/d; lk=80% Stars; THREE-PREFIX System on k-Stems: Bare-k(Herbal A), qo+k(B-Body), l+k(B-Stars/Cosmo); kaiin Folios=[1-56] vs lkaiin Folios=[75-116] — Section-Disjoint
+**Experiment:** exp_124_lk_onset
+**Date:** 2026-04-09
+**Finding:** H247 CONFIRMED: 'l' is a bona fide B-dialect morphological prefix. l-stem recovery = 91.3% (highest: qo=54.8%, o=50.4%). l is 10.3× more B-dominant (50.66‰ B vs 4.93‰ A; A/B=0.097). Stars-enriched (1.83×), cosmo (1.42×); herbal/pharma depleted (0.22×); astro absent. l-suffix: -edy=2.32× (B-paradigm); -y depleted (0.50×, A-paradigm). lk-subclass = 80% stars, n=415 (largest l-sub-class). l-words positional: 17.9% line-last (vs qo=6.8%) — l-words cluster at line end. Pre-l: ch(1.33×), qok(1.46×) — B-content precedes. Post-l: qok(1.41×). d-onset depleted before/after l (0.50-0.53×). H248 CONFIRMED: k is a stem-initial segment, not a prefix class. k-stems generate a THREE-PREFIX paradigm: bare-k (A-herbal, folios 1-56), qo+k (B-body text), l+k (B-stars/cosmo, folios 75-116). kaiin folios=[1-56] vs lkaiin folios=[75-116] are section-disjoint. qo-stripped forms of qo-words ARE k-initial forms in vocabulary (qokaiin→kaiin, qokeedy→keedy). Nearly all k-words have their l-prefixed form in vocabulary (l+k always valid). k-suffix distribution: mixed A+B paradigms (k in both dialects). The prefix taxonomy now has FOUR classes: o-/qo-/cth-/l-.
+**Limitation:** The "section-disjoint" folio claim is approximate — some kaiin appears in B-dialect stars sections (36/77 tokens) and some overlap exists (11 folios) due to kaiin being used in both A-herbal and B-dialect contexts. The l-prefix stem recovery of 91.3% reflects the high proportion of top l-words (lchedy→chedy, lshedy→shedy) whose stems are common words; smaller types have lower recovery. The interpretation that k is a "stem-initial segment" rather than an independent onset class requires validation: k-forms that don't appear as qo-stripped or l-stripped forms may be independent k-onset words.
+
+---
+
 ## F130: Onset Grammar Is Probabilistic (No Forbidden Pairs); cth→cth=4.78× (Only Mandatory); cth↔d Cycle=2.20× (Mean); Stars "Other"=l-/k-Onset NEW B-Dialect Classes; lkaiin=81% Stars-Concentrated; Stars Line-Start="y-/p-Prefix Formula Openers"; Stars Line-End=am-Particles
 **Experiment:** exp_123_onset_grammar
 **Date:** 2026-04-09
