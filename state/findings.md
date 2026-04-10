@@ -5,6 +5,14 @@
 
 ---
 
+## F129: -ol = Pre-Determiner Suffix (d-Onset 1.44-1.66×); -or = Pre-Nominal (cth 2.15×, sh 1.57×); B-otaiin→ot=4.00× MIRRORS A-daiin→cth=2.77× — Dialectal NP Complementarity; B-NP=[ot/ok-modifier][otaiin][ot-noun]; A-NP=[ch-ol/or][daiin][cth-noun]
+**Experiment:** exp_122_ol_or_bnp
+**Date:** 2026-04-09
+**Finding:** H240 CONFIRMED: -ol suffix = pre-determiner context (d-onset enriched 1.44-1.66×); -or suffix = pre-nominal context (cth-onset enriched 2.15×, sh 1.57×). chol→d=1.66× vs chor→d=0.75× is the key pair. shor→sh=2.84× (same-class sequencer). Full suffix→next-onset matrix (A-dialect): -aiin=cth-determiner (2.24×); -ey/-dy/-eey=pre-qok (1.57-2.48×); -al=pre-d-particle (1.47×, depletes cth 0.43×); -ar=pre-sh (1.45×). Suffix encodes syntactic position: A-NP phrase structure is [ch-or/sh-or]→[cth-noun] (direct) or [ch-ol/sh-ol]→[d-determiner]→[cth-noun] (via determiner). H241 CONFIRMED: B-dialect NP template confirmed: [ot/ok-modifier][otaiin][ot-noun] with 4.08× post-otaiin ot-enrichment and 2.47× pre-otaiin ot-enrichment. A-daiin→cth=2.77× EXACTLY MIRRORED by B-otaiin→ot=4.00× — the two dialects grammaticalize complementary noun classes (cth in A, ot in B) with structurally parallel determiners. Pre-shedy: qok-onset 1.79× enriched — B-paradigm shedy NP: [qok/ol-word][shedy][qok-noun]. Pre-otaiin in stars: okaiin appears 4× (top pre-otaiin word), confirming okaiin→otaiin→otal chain.
+**Limitation:** chol vs chor distinction in A-dialect is based on moderate sample sizes (263 and 162). The B-dialect otaiin NP template has only 66 trigram examples. The -or/-ol distinction in B-dialect is less clean (B has more -ol words in qol/sheol forms that differ from A-paradigm). The "syntactic position" interpretation of suffixes is structural — requires confirmation that suffix choice is genuinely predictive (not a consequence of vocabulary clustering).
+
+---
+
 ## F128: [chol/shol/chor][daiin][cth-noun] Is A-Dialect NP Template; d-Onset Depleted Before daiin (0.60×); Stars Is ALL B-Dialect (12/12 Folios); No Repeating Star-Line Template; Stars Positional Structure: d/s-Onset Line-Start, ot-Onset 2nd-Half (1.75×), s-Onset 1st-Half Only (0.28× 2nd half)
 **Experiment:** exp_121_trigrams_stars
 **Date:** 2026-04-09

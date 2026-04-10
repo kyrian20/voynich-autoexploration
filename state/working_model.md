@@ -1,5 +1,5 @@
 # Working Model — Voynich Manuscript Cryptanalysis
-**Last updated:** 2026-04-09 (after exp_121)
+**Last updated:** 2026-04-09 (after exp_122)
 **Purpose:** Continuously-updated structured summary of current beliefs about Voynichese.
 **Discipline:** Characterization, not interpretation. Claims require experimental warrant.
 
@@ -221,6 +221,13 @@ These findings have been replicated across independent analyses or confirmed by 
 - eee (triple-vowel) words: stars=17.25‰, cosmo=4.40‰ (suppressed). Vowel-length gradient monotonically stars-concentrated (edy→eedy→eeedy: 36%→48%→63%). eee enriched in ok/ol/qo (1.7-1.9×), suppressed in ch/sh (0.37-0.46×).
 - A-dialect section variation: herbal-A=-y dominant (qok=37%, ch=29%); pharma-A=-ol dominant (qok=41%, ok=40%); 8.9% avg diff (3.5× weaker than B's 31%).
 - FOUR-LEVEL suffix hierarchy: Dialect (A/B) → Stem class (Simple-B/Complex-B; A-y/-ol) → Section (B: stars/cosmo/herbal; A: herbal/pharma) → Vowel length (stars triple-vowel extension). Strong evidence for natural language morphology.
+
+**-ol=Pre-Determiner (d-Onset 1.44-1.66×); -or=Pre-Nominal (cth 2.15×, sh 1.57×); B-otaiin→ot=4.00× MIRRORS A-daiin→cth=2.77×; Dialectal NP Complementarity: A=[ch-ol/or][daiin][cth]; B=[ot/ok][otaiin][ot] (F129, exp_122)**
+- -ol suffix = pre-determiner position: chol→d=1.66× (chol → daiin → cth-noun is 3-word A-NP template via determiner)
+- -or suffix = pre-nominal position: chor→cth=2.15× (chor → cth-noun is 2-word direct A-NP)
+- shor→sh=2.84× (same-class sequencer); full suffix matrix: aiin=2.24× cth; ey/dy/eey=pre-qok (1.57-2.48×); al=pre-d (1.47×, depletes cth 0.43×); ar=pre-sh (1.45×)
+- B-otaiin→ot=4.00× exactly mirrors A-daiin→cth=2.77×. B-NP: [ot/ok-modifier][otaiin][ot-noun]. A-NP: [ch-ol/or][daiin?][cth-noun].
+- Pre-otaiin top word = okaiin (4×) — -aiin chain: okaiin→otaiin→ot-noun. Pre-shedy: qok→shedy→qok=1.79× (B-paradigm self-reinforcing qok sequence).
 
 **A-Dialect NP Template: [chol/shol/chor][daiin][cth-noun]; d-Depleted Before daiin (0.60×); Stars=All-B (12/12), No Fixed Line Template, ot-Enriched in 2nd Half (1.75×), s-Onset Line-Start Only (F128, exp_121)**
 - A-dialect 3-word NP template: [W1][daiin][cth-noun] where W1 is ch-onset (1.94×) with -ol suffix (2.48×). Top W1 words: chol, shol, chor. W0 (4-gram) shows no pattern — phrase is exactly 3 words.

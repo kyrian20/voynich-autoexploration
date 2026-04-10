@@ -2565,6 +2565,7 @@
 
 ## H240: chol vs chor — Are -ol and -or Suffix Variants Context-Distinguishable?
 **Priority:** high
+**Status:** CONFIRMED (exp_122) — -ol=pre-determiner (d-onset 1.44-1.66×); -or=pre-nominal (cth 2.15×, sh 1.57×); chol→d=1.66× vs chor→d=0.75×; shor→sh=2.84×; full suffix matrix: aiin=2.24× cth, ey/dy/eey=pre-qok (1.57-2.48×), al=pre-d-particle (F129)
 **Source:** F128: chol (31 pre-daiin occurrences) is 3.4× more common than chor (9) as pre-daiin word, but exp_119 showed chor→cth=4.73× (the strongest bigram in the mixed corpus). exp_120 revealed chor→cth=1.77× in A-dialect only while chol→cth was moderate. So chol and chor have different bigram profiles despite sharing the ch- onset. Are -ol and -or selecting for different subsequent word classes?
 **Description:** Compute full bigram enrichment matrix for chol vs chor separately: what onset classes follow each? Test: chol→X vs chor→X for all onset classes X. Also test shol vs shor. Is -ol a "pre-determiner" suffix (precedes daiin/determiners) while -or is a "pre-noun" suffix (precedes cth directly)? Test positional distribution: chol vs chor at line-first/mid/last. Test section distribution.
 **Expected outcome:** chol→daiin enriched; chor→cth enriched directly (without daiin). The -ol and -or suffix variants encode different syntactic positions within the A-paradigm NP — chol = A-paradigm adjective-like modifier; chor = A-paradigm that directly precedes the head noun.
@@ -2574,6 +2575,7 @@
 
 ## H241: B-Dialect NP Template — What Precedes qok-Onset Words in B?
 **Priority:** high
+**Status:** CONFIRMED (exp_122) — B-NP template: [ot/ok-modifier][otaiin][ot-noun]; post-otaiin ot=4.08×; pre-otaiin ot=2.47×; A-daiin→cth=2.77× MIRRORS B-otaiin→ot=4.00×; perfect dialectal NP complementarity; pre-otaiin top word = okaiin (4×); [qok-word][shedy][qok-word]=1.79× (F129)
 **Source:** F128: A-dialect has [chol/shol][daiin][cth-noun] as NP template. B-dialect has shedy/qokeedy→qok bigrams (F126/F127). Is there a parallel B-dialect NP template [W1][otaiin][ot-noun] or [W1][shedy][qok-word]? F128: otaiin→ot=3.99× in stars (B-dialect). Does otaiin serve as B's determiner in the same way daiin serves A's?
 **Description:** In B-dialect text, extract: (1) trigrams [W1][shedy][qok-word] — what is W1 onset? (2) trigrams [W1][otaiin][ot-word] — what is W1 onset? (3) trigrams [W1][qokaiin][ch-word] (since qokaiin→ch=1.84×). Compare B-dialect NP structure to A-dialect [chol][daiin][cthy]. Also test: what precedes otaiin in stars? Is there a B-dialect formula [X][otaiin][otal/otedy]?
 **Expected outcome:** B-dialect has a parallel NP template using otaiin as determiner: [B-onset-word][otaiin][ot-noun], analogous to A-dialect [ch-word][daiin][cth-noun]. This would confirm a symmetric NP grammar across dialects with different determiners (daiin vs otaiin) and different noun classes (cth vs ot).
