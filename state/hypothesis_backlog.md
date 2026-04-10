@@ -2924,11 +2924,32 @@
 
 ## H294: B-daiin→d=2.70× — Is This daiin Self-Succession or True daiin→d Enrichment?
 **Priority:** medium
+**Status:** CONFIRMED (TRUE ENRICHMENT, exp_148). Only 3/24 daiin→d cases are daiin self-succession. Remaining 21 cases are diverse d-words at 2.85× enrichment. A-daiin→d=1.40× (weaker). A/B reversal on sh/ch_e confirmed: A-daiin→sh=0.64×/ch_e=0.42× (depleted); B-daiin→ch_e=1.77× (enriched). B-daiin is a d/ch_e introducer; A-daiin is a cth-specific gatekeeper. (F155)
 **Source:** F154: In B P-type body text, daiin→d=2.70× enriched (24/160 cases). Top words after daiin: daiin(3), dam(2), dar(2). Is this enrichment driven by daiin→daiin self-succession, or does daiin precede all d-onset words at elevated rates?
 **Description:** (1) Compute daiin→daiin separately vs daiin→dam vs daiin→dar vs daiin→(other d-words) in B. (2) If daiin→daiin is high (e.g., >5%), subtract it: does daiin→(non-self d-words) remain enriched? (3) Compare daiin→d in A-dialect vs B-dialect (A daiin→d may also be enriched). (4) What is the B baseline rate for daiin→daiin specifically (vs daiin rate = d rate = independent)?
 **Expected outcome:** daiin self-succession (daiin→daiin) exists but contributes only a fraction of the daiin→d=2.70× signal. If daiin→dam and daiin→dar are both enriched independently, daiin precedes the d-onset class in general in B — potentially as a line-boundary connector before d-words. This would parallel A-cth's d-predecessor enrichment but in B-dialect with d as the "content class."
 **Cost estimate:** trivial
 **Prerequisites:** F154
+
+---
+
+## H295: In A-Dialect, Are sh/ch_e-Onset Words Introduced by a Different Particle (Not daiin)?
+**Priority:** medium
+**Source:** F155: A-daiin→sh=0.64× and A-daiin→ch_e=0.42× (depleted). daiin is a cth-gatekeeper that avoids sh/ch_e. What particle (if any) introduces sh/ch_e-words in A-dialect at elevated rates? If A has its own sh/ch_e introducer (parallel to daiin→cth), this would establish a complete A-dialect particle taxonomy: [daiin→cth] + [X→sh] + [Y→ch_e].
+**Description:** Compute transition matrix for A-dialect: for each high-frequency A particle (aiin, or, ol, chol, chor, dain, saiin, ar), compute enrichment before sh-onset and before ch_e-onset. Is any A-particle enriched at ≥2× before sh or ch_e? Compare to daiin→sh (0.64×) as the depleted baseline.
+**Expected outcome:** No single A-particle specifically introduces sh or ch_e at 3× (as daiin does for cth). Instead, sh/ch_e in A-dialect appear after diverse onset classes near baseline. If a specific A-particle does introduce sh at 2×, it reveals an A-dialect grammatical slot parallel to daiin's cth-gatekeeper role.
+**Cost estimate:** small
+**Prerequisites:** F155
+
+---
+
+## H296: Are the d-Words After B-daiin the Same as Those After A-daiin, or Dialect-Specific?
+**Priority:** low
+**Source:** F155: B-daiin→d=2.85× with top words dam(2), dar(2), dal(3). A-daiin→d=1.40× with top words daiin(8), dain(5), dar(4), dam(4). Both dialects show daiin→dam and daiin→dar, but enrichment is much stronger in B (2.85× vs 1.40×).
+**Description:** Compute: (1) for each specific d-word (dam, dar, dal, dain, daiin, dor, dy, dol), what is its rate after daiin in A vs B? (2) Are there B-exclusive d-words that appear after B-daiin at high rates? (3) Is the A-daiin→d=1.40× driven by the same specific d-words as B-daiin→d=2.85×? This would reveal whether daiin→d is a cross-dialect construction (same d-words appear after daiin in both A and B) or a B-specific grammatical pattern.
+**Expected outcome:** dam/dar appear after daiin in both A and B (cross-dialect construction). B has additionally enriched daiin→dal/dol/dady (B-specific d-words). The underlying daiin→dam/dar bigram is a pan-Voynichese construction; B augments it with additional d-followers that don't appear in A.
+**Cost estimate:** trivial
+**Prerequisites:** F155
 
 ---
 

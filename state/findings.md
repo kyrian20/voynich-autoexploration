@@ -5,6 +5,14 @@
 
 ---
 
+## F155: B-daiin→d=2.85× IS TRUE (NOT SELF-SUCCESSION); A-daiin→cth=3.08× (P-TYPE CONFIRMS); A-daiin DEPLETES sh (0.64×) AND ch_e (0.42×); B-daiin→ch_e=1.77×; A/B DAIIN REVERSAL ON sh/ch_e CONFIRMED
+**Experiment:** exp_148_b_daiin_d_enrichment
+**Date:** 2026-04-10
+**Finding:** H294 CONFIRMED. B-daiin→d=2.85× (non-self): only 3/24 daiin→d cases are daiin self-succession (12.5%). Enrichment persists across diverse d-words (dam, dar, dal, dol, dain, dy). In A P-type body text: daiin→cth=3.08× (vs exp_145 all-locus 3.19×; slight revision, still dominant). A-daiin→d=1.40× (moderate). Critical A/B REVERSAL: A-daiin→sh=0.64× (depleted), B-daiin→sh=1.19× (neutral); A-daiin→ch_e=0.42× (strongly depleted), B-daiin→ch_e=1.77× (enriched). A-daiin uniquely depletes sh and ch_e — the onsets it does NOT introduce — while specifically introducing cth. In B: daiin→d (2.85×) is the strongest enrichment, with ch_e second (1.77×). B-daiin does NOT precede cth (0.00×). The cross-dialect pattern: A-daiin is a cth-specific gatekeeper (cth=3.08×; sh/ch_e depleted); B-daiin is a d-class introducer (d=2.85×; ch_e=1.77×; no cth).
+**Limitation:** B P-type daiin total n=160 (adequate but small-sample for per-bigram claims). A P-type daiin total n=278. The specific d-words after B-daiin are diverse (each appearing only 1-2 times) — enrichment is at onset-class level, not word-specific. The "A/B reversal on sh/ch_e" is from P-type only; non-P locus types may show different patterns.
+
+---
+
 ## F154: B-COMPOUND-ch WORDS (chdy/chckhy/chcthy/chody) ARE B "MEDIAL NOMINAL" (MID=1.10-1.28×, LF-DEPLETED); d DEPLETED BEFORE B-ch (0.79×, OPPOSITE A-cth 1.30×); ch SELF-SUCCESSION=1.57× (CLOSEST TO A-cth 1.84×); exp_145 B-daiin→sh REVISED to 1.19× (P-TYPE ONLY); B-daiin→d=2.70× DOMINANT IN BODY TEXT
 **Experiment:** exp_147_b_ch_medial_nominal
 **Date:** 2026-04-10

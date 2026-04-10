@@ -1,5 +1,5 @@
 # Working Model — Voynich Manuscript Cryptanalysis
-**Last updated:** 2026-04-10 (after exp_147)
+**Last updated:** 2026-04-10 (after exp_148)
 **Purpose:** Continuously-updated structured summary of current beliefs about Voynichese.
 **Discipline:** Characterization, not interpretation. Claims require experimental warrant.
 
@@ -221,6 +221,11 @@ These findings have been replicated across independent analyses or confirmed by 
 - eee (triple-vowel) words: stars=17.25‰, cosmo=4.40‰ (suppressed). Vowel-length gradient monotonically stars-concentrated (edy→eedy→eeedy: 36%→48%→63%). eee enriched in ok/ol/qo (1.7-1.9×), suppressed in ch/sh (0.37-0.46×).
 - A-dialect section variation: herbal-A=-y dominant (qok=37%, ch=29%); pharma-A=-ol dominant (qok=41%, ok=40%); 8.9% avg diff (3.5× weaker than B's 31%).
 - FOUR-LEVEL suffix hierarchy: Dialect (A/B) → Stem class (Simple-B/Complex-B; A-y/-ol) → Section (B: stars/cosmo/herbal; A: herbal/pharma) → Vowel length (stars triple-vowel extension). Strong evidence for natural language morphology.
+
+**B-daiin→d=2.85× TRUE (NOT SELF-SUCCESSION); A-daiin DEPLETES sh (0.64×) AND ch_e (0.42×); B-daiin→ch_e=1.77×; A/B REVERSAL: A-daiin=[cth-introducer]; B-daiin=[d/ch_e-introducer] (F155, exp_148)**
+- A-daiin P-type: cth=3.08× (confirmed); d=1.40×; sh=0.64× (depleted); ch_e=0.42× (strongly depleted).
+- B-daiin P-type: d=2.85× (non-self, n=21); ch_e=1.77×; sh=1.19× (near baseline); cth=0.00×.
+- A/B REVERSAL: A-daiin avoids sh/ch_e; B-daiin seeks ch_e. A-daiin is cth-specific gatekeeper; B-daiin is d/ch_e introducer.
 
 **B-COMPOUND-ch (chdy/chckhy/chcthy) ARE B "MEDIAL NOMINALS" (MID=1.10-1.28×, LF-DEPLETED); d DEPLETED BEFORE B-ch (0.79×, OPPOSITE A-cth 1.30×); ch SELF-SUCCESSION=1.57×; exp_145 B-daiin→sh REVISED to 1.19× (P-TYPE); B-daiin→d=2.70× DOMINANT (F154, exp_147)**
 - Compound ch-words (chdy=103, chckhy=102, chcthy=52, chody=37) are MID-enriched (1.10-1.28×), LF-depleted (0.52-0.68×) — B's "medial nominal" class. chol in B is a LINE-OPENER (LF=1.42×).
