@@ -1,5 +1,5 @@
 # Working Model — Voynich Manuscript Cryptanalysis
-**Last updated:** 2026-04-09 (after exp_116)
+**Last updated:** 2026-04-09 (after exp_117)
 **Purpose:** Continuously-updated structured summary of current beliefs about Voynichese.
 **Discipline:** Characterization, not interpretation. Claims require experimental warrant.
 
@@ -221,6 +221,11 @@ These findings have been replicated across independent analyses or confirmed by 
 - eee (triple-vowel) words: stars=17.25‰, cosmo=4.40‰ (suppressed). Vowel-length gradient monotonically stars-concentrated (edy→eedy→eeedy: 36%→48%→63%). eee enriched in ok/ol/qo (1.7-1.9×), suppressed in ch/sh (0.37-0.46×).
 - A-dialect section variation: herbal-A=-y dominant (qok=37%, ch=29%); pharma-A=-ol dominant (qok=41%, ok=40%); 8.9% avg diff (3.5× weaker than B's 31%).
 - FOUR-LEVEL suffix hierarchy: Dialect (A/B) → Stem class (Simple-B/Complex-B; A-y/-ol) → Section (B: stars/cosmo/herbal; A: herbal/pharma) → Vowel length (stars triple-vowel extension). Strong evidence for natural language morphology.
+
+**'Other' 20.6% = Free A-Morphemes + Unrecognized -am/-air + Short Forms; Adjacent Paras Share 1.85× Non-Adjacent Vocab; daiin in 41% of Paras (F124, exp_117)**
+- 'Other' top words: ol (476), aiin (394), or (300) — standalone free A-morphemes (confirms F118 free-morpheme asymmetry). Unrecognized suffixes -am (~570 tok) and -air (~450 tok) account for 16% of 'other'.
+- Adjacent paragraphs have 1.85× higher vocabulary overlap than non-adjacent (0.084 vs 0.045 Jaccard) — genuine discourse cohesion. daiin appears 3+ times in 41% of all paragraphs.
+- Stars highest within-para repetition rate (0.476; star catalog structure). Astro lowest (0.062).
 
 **Herbal B-Folios Absent in Q1-Q3; Cluster at Quire Boundaries in Q4-Q7 (Bifolio Insertion); Lag-7 Autocorr=+0.580; Line-FIRST ch/ok Reverses to eey (58%); Line-LAST = -y Closure (F123, exp_116)**
 - Herbal quires 1-3 (f1-24): pure A-dialect. B-folios appear only Q4-Q7, at quire boundary positions (1-2, 7-8 of each 8-folio quire). Consistent with bifolio insertion as outer sheets.

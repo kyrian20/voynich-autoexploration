@@ -5,6 +5,14 @@
 
 ---
 
+## F124: 'Other' Suffix (20.6%) = Free A-Morphemes (ol/aiin/or/ar/al) + Unrecognized -am/-air Suffixes + Short Truncated Forms; Adjacent Paragraphs Share Vocabulary at 1.85× Non-Adjacent Rate; daiin in 41% of Paragraphs; Stars Highest Within-Para Repetition (0.476)
+**Experiment:** exp_117_other_suffix
+**Date:** 2026-04-09
+**Finding:** H228 CONFIRMED: The 20.6% 'other' suffix category has four components. (1) Free standalone A-paradigm morphemes: top 5 'other' words are ol (476), aiin (394), or (300), ar (268), al (193) — these words ARE the suffix itself with no stem prefix, which fails the suffix extractor's `len(word) > len(suffix)` requirement. This directly confirms F118's free-morpheme asymmetry (A-paradigm suffixes ARE grammaticalized free words). (2) Unrecognized -am suffix (dam=70, otam=34, qokam=24; 9.2% of 'other' by 2-char ending) and -air suffix (dair=75, otair=19; 7.3%) — these are legitimate suffix patterns absent from the current 14-item list. (3) Short truncated forms: -o ending (sho=108, cho=71), -eo ending (cheo=66, sheo=39). (4) Hapax residual (74.2% of types hapax vs 68.1% for suffixed). ol-onset 3.14× enriched in 'other'; qok 0.37× depleted. Adding -am/-air to suffix list would recover ~1,000 tokens (~16% of 'other'). H229 CONFIRMED: Adjacent paragraphs have 1.85× higher Jaccard similarity than non-adjacent (0.084 vs 0.045) — genuine discourse cohesion signal. Within-para word repetition rate = 27.8%. daiin appears 3+ times in 41% of paragraphs — confirmed high-frequency function word. Stars has highest within-para repetition (0.476; star catalog entries). Astro lowest (0.062; short diverse paragraphs). Discourse distance-decay is inconsistent with random or hoax text generation.
+**Limitation:** The "adjacent paragraph" comparison includes paragraphs on different folios in the same section (not truly adjacent in discourse). Para boundary detection uses the locus_type '@' and '*' markers which may misidentify some line breaks as para breaks. The -am/-air suffix identification is tentative: -am words also include the standalone 'am' particle and short forms that may not be morphological suffixes.
+
+---
+
 ## F123: Herbal B-Folios Are ABSENT in Quires 1-3 and Cluster at Quire Boundaries (Positions 1-2 and 7-8) in Quires 4-7; Lag-7 Autocorr=+0.580; Line-LAST Enriches -y (1.83×)/-dy (1.55×); B-Dialect ch/ok at Line-FIRST Reverses to eey-Dominant (58%); Hierarchy Now Five-Level (0.75 bits)
 **Experiment:** exp_116_herbal_ab_linepos
 **Date:** 2026-04-09

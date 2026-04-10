@@ -2441,7 +2441,8 @@
 
 ---
 
-## H228: The "Other" 20.8% — What Are Words With No Identified Suffix?
+## H228: The "Other" 20.8%
+**Status:** CONFIRMED (exp_117) — What Are Words With No Identified Suffix?
 **Priority:** medium
 **Source:** F121: 20.8% of tokens (6,878/33,066) fall into the 'other' suffix category (no recognized suffix pattern). This is the largest single "suffix class." Understanding what these words are could reveal an unmodeled morphological category.
 **Description:** Extract all words falling into the 'other' category. Characterize: (1) length distribution vs. suffixed words; (2) onset class distribution; (3) section/dialect distribution; (4) frequency distribution (hapax vs. repeated); (5) whether they cluster into groups (e.g., short uninflected forms, long compound-like forms). Sample the top 50 'other' words and inspect manually.
@@ -2450,7 +2451,8 @@
 
 ---
 
-## H229: Paragraph-Internal Vocabulary Repetition — Do Words Repeat Within Paragraphs More Than Across Paragraphs?
+## H229: Paragraph-Internal Vocabulary Repetition
+**Status:** CONFIRMED (exp_117) — Do Words Repeat Within Paragraphs More Than Across Paragraphs?
 **Priority:** medium
 **Source:** F112 (section vocabulary specificity). F117 (para grammar step function). Within a paragraph, is there word-level cohesion (same stems repeated with different suffixes)? This would be analogous to discourse coherence in natural language (pronoun/anaphora patterns).
 **Description:** For each paragraph, compute: (1) within-para word repetition rate (how many unique words / total words); (2) cross-para word sharing rate for adjacent paragraphs vs. non-adjacent paragraphs; (3) whether the same ONSET (stem prefix) appears multiple times within a paragraph with different suffixes. Compare within-para repetition to within-section and cross-section repetition rates.
