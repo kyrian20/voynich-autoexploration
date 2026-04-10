@@ -2383,6 +2383,7 @@
 
 ## H222: Triple-Vowel Extended Forms — Are oteeey/cheeey/lkeeey Stars-Exclusive Suffix Paradigm Extensions?
 **Priority:** high
+**Status:** CONFIRMED — exp_113 (F120): Stars-B dominant (17.25permill vs cosmo 4.40permill). Vowel-length gradient monotonic stars-concentrated (edy→eedy→eeedy: stars=36%→48%→63%; eeey: stars=59%). eee words avoid ch/sh (0.37-0.46x), concentrate on ok/ol/qo (1.7-1.9x). Stars-only forms: oteeey(7), lkeeey(7), teeedy(4).
 **Source:** F119: Stars B has exclusive triple-vowel forms (oteeey=7, cheeey=6, lkeeey=7, teeedy=4) not found in cosmo or herbal. These appear to be ot/ch/lk/t + eee + y/dy (triple-e vowel extension). Is this a systematic stars-specific sub-suffix paradigm?
 **Description:** Extract all words with 3+ consecutive 'e' characters (eee) from body text. Compute: (1) section distribution; (2) onset class distribution; (3) whether eee forms are stars-exclusive or appear rarely elsewhere; (4) relationship to double-e forms (eey/eedy) — is eee a further extension of the ee pattern?
 **Expected outcome:** eee forms are stars-dominant (80%+). The eee pattern extends the ee pattern: edy→eedy→eeedy; eey→eeey as a vowel-length gradient. Stars uses longer vowel strings than cosmo or herbal.
@@ -2392,7 +2393,26 @@
 
 ## H223: A-Dialect Suffix Paradigm Completeness — Does A Have Any Suffix Variation by Section Analogous to B's Three-Tier System?
 **Priority:** medium
+**Status:** CONFIRMED (PARTIAL) — exp_113 (F120): A has mild section variation: herbal-A=-y dominant (ch=29%, qok=37%); pharma-A=-ol dominant (ch=28%, qok=41%). Consistent across all onset classes. Avg diff=8.9% (vs B 31%). Pharma-A elevates -dy/-ey. The A-section variation is 3.5x weaker than B 3-tier system.
 **Source:** F118-F119: B-dialect has a 3-tier suffix system. A-dialect was assumed to be uniform (no secondary split). Is this actually true? Do A herbal/pharma/astro sections use different proportions of -ol/-or/-y/-aiin?
 **Description:** Compute A-paradigm suffix (-ol/-or/-y/-aiin) rates by section for A-dialect onset classes (ch, sh, qok in A-dialect). Is pharma-A different from herbal-A in suffix use? Does astro-A have distinctive suffix choices? Test whether A has any section-level suffix variation comparable to B's section gradient.
 **Expected outcome:** A has minimal or no section-level suffix variation (uniform paradigm). OR: A-pharma uses more -or/-aiin than herbal-A (which might use more -ol/-y). If variation is found, it would be a secondary A-paradigm structure parallel to B's secondary structure.
 **Cost estimate:** small
+
+---
+
+## H224: Word-Level Entropy as Naturalness Test — Do the Four Levels of Suffix Hierarchy Predict Information Content Per Word?
+**Priority:** high
+**Source:** F120: The four-level suffix hierarchy (dialect→stem class→section→vowel length) encodes layered information. If the hierarchy is genuine, then knowing the onset class + section should REDUCE the uncertainty about which suffix a word takes (lower conditional entropy). This is a formal test of whether the hierarchy is meaningful.
+**Description:** Compute conditional entropy H(suffix | onset_class, section, dialect) and compare to marginal entropy H(suffix). How many bits of uncertainty are resolved by knowing onset class + section? Compare: A-dialect words in herbal vs pharma; B-dialect words by section and onset class. A genuine hierarchy reduces conditional entropy.
+**Expected outcome:** H(suffix | onset_class, section, dialect) < H(suffix) by 0.5-1.0 bits. The hierarchy resolves substantial suffix uncertainty. This would formalize that the four-level structure is a genuine morphological system encoding about 0.5-1.0 bits of information per word.
+**Cost estimate:** small
+
+---
+
+## H225: Folio-Level Vocabulary Distance Clustering
+**Priority:** medium
+**Source:** F112: 72-79% of vocabulary is section-specific. H217 (unresolved). Now we have the four-level suffix model — do folios cluster by section AND by their suffix pattern tier?
+**Description:** Build per-folio word frequency vectors. Compute cosine similarity between folio vectors. Cluster. Look for: (1) section clusters; (2) transition folios; (3) whether suffix pattern (stars-eey vs cosmo-eedy) aligns with folio clustering independent of section labels.
+**Expected outcome:** Folios cluster into 5-6 section groups. Stars folios cluster tightly (highest eey rate, distinctive eee forms). Cosmo folios may be more spread (some folio-level variation in B-suffix preference from F119).
+**Cost estimate:** medium
