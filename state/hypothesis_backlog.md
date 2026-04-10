@@ -2858,8 +2858,29 @@
 
 ---
 
+## H279: Is cthor Botanically Specific to Early A-Herbal Folios? Why Does cthor Decline 2.5× Faster Than cthol?
+**Priority:** medium
+**Source:** F147: cthor disproportionately declines in A-herbal (T3/T1=0.24 vs cthol T3/T1=0.78). cthor and cthol are parallel nominal forms (-or vs -ol suffix). What explains cthor's extra decline?
+**Description:** (1) Which specific A-herbal folios have high cthor vs high cthol? (2) Is cthor concentrated in specific early folios (suggesting botanical specificity)? (3) Are cthor and cthol in complementary distribution (used for different types of botanical content)? Compute per-folio cthor/cthol ratio and Spearman ρ with folio number.
+**Expected outcome:** cthor is concentrated in a specific subset of early A-herbal folios (perhaps root/bulb plant descriptions) and cthol in a more even distribution. The cthor decline reflects the specific botanical content of early folios, not a general scribal pattern.
+**Cost estimate:** small
+**Prerequisites:** F147
+
+---
+
+## H280: Is l-Onset (B-Dialect) the Morphological Parallel to cth-Onset (A-Dialect)? Do lch-Words Have the Same Positional Profile as cth-Words?
+**Priority:** high
+**Source:** F147: l is B-dialect parallel to A's cth (both are productive prefix morphemes on distinct stem classes). lchedy (l+ch+edy) parallels cthol (cth+ol). Both are suppressed in cross-dialect sections. If they are true grammatical parallels, lch-words should have similar positional profiles to cth-words in A.
+**Description:** (1) Compute positional distribution (LF/MID/LL) of lch-words (lchedy, lchey, lshedy) in B-dialect sections. (2) Compare to cth-word positional distribution (cthy, cthol, cthey) in A-dialect sections. (3) If lch-words are ~90% MID (like cth-words are ~90% MID in A), this confirms the morphological parallel. (4) Check bigram context: do lch-words appear in similar contexts as cth-words?
+**Expected outcome:** lch-words in B-dialect sections are predominantly medial (70-90% MID), mirroring cth-words in A-dialect. This would establish l-prefix as B's functional equivalent to A's cth-prefix, a key structural parallel between the two dialects.
+**Cost estimate:** small
+**Prerequisites:** F147, F143 (universal core positional data)
+
+---
+
 ## H277: Is the A-Herbal cth Smooth Gradient Explained by CONTENT Shift (Which cth-Words Disappear in Late A-Herbal)?
 **Priority:** high
+**Status:** PARTIALLY CONFIRMED (exp_140) — cth decline is mixed: cthor 0.24× (2.5× faster than overall), cthaiin stable 1.03×, most words proportional ~0.46×. Many "disappearing" T3-absent words are hapax legomena. Not purely proportional, not purely selective. cthor specific decline is most notable deviation. (F147)
 **Source:** F146: A-herbal cth decline is smooth (equal-interval −1.1 pp/tertile), consistent with content gradient. cth vocabulary is stable (cthy/cthol/cthey dominate both early and late — F145). But F145 says "fewer cth tokens, not different cth words." Is this literally true? Are the same cth-words present in both periods at different frequencies, or do some cth-words disappear entirely in late A-herbal?
 **Description:** Extract all cth-onset words from early A-herbal (f1-f18) vs late A-herbal (f38-f56). Compute: (1) Which cth-words are present in early but absent in late? (2) Which cth-words maintain similar frequency ratios? (3) Does the decline reflect uniform proportional reduction of all cth-words (consistent with a scribe writing the same content less often) or selective disappearance of specific cth-words (consistent with content change)?
 **Expected outcome:** If content gradient: specific botanical cth-words (ctholy, cthom — rare forms associated with specific plant types) disappear in late A-herbal while common forms (cthy, cthol, cthey) remain. If scribal drift: all cth-words decline proportionally.
@@ -2870,6 +2891,7 @@
 
 ## H278: What Is the Full l-Onset Vocabulary in B-Dialect Sections (Cosmo, Stars, Pharma)?
 **Priority:** medium
+**Status:** CONFIRMED (exp_140) — B l-vocabulary: 1120 tokens (stars=725, cosmo=349, herbal-B=40, pharma=6, astro=0) vs A 59 tokens. Top B l-words: lchedy(102,100%B), lkaiin(37,100%B), lkeey(33,97%B), lkeedy(32,97%B). lch- and lk-prefix forms dominate. B-suffix%: 42.3% B-dialect vs 11.9% A-dialect. 376 of 396 B l-types are B-exclusive. loldaiin corrected: A-exclusive (not B-form). (F147)
 **Source:** F146: Only 37 l-tokens in all A-herbal. B-dialect sections (cosmo, stars, pharma) presumably have many more l-onset words. Characterizing B-dialect l-vocabulary would provide a reference for evaluating whether late A-herbal l-words are B-like.
 **Description:** Extract all l-onset words from B-dialect folios in: cosmo, stars, pharma, herbal-B. Compute: (1) Top l-words by frequency in each B section; (2) suffix paradigm split (A-suffix vs B-suffix); (3) which l-words appear exclusively in B, which are shared with A. This establishes the "B l-vocabulary" profile that can be compared to the 3 clean B-form late A-herbal l-words (lkeedy, lkeey, loldaiin).
 **Expected outcome:** B-dialect l-vocabulary is dominated by lk-prefixed forms (lkeedy, lkedy, lkeey — from F131/F134) with -edy/-eedy suffixes. A-dialect l-vocabulary (from early A-herbal) uses lor/lol/lar with -or/-ol/-ar suffixes. This would establish a clean A/B l-dichotomy for comparison.

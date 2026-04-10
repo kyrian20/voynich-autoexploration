@@ -1,5 +1,5 @@
 # Working Model — Voynich Manuscript Cryptanalysis
-**Last updated:** 2026-04-09 (after exp_139)
+**Last updated:** 2026-04-09 (after exp_140)
 **Purpose:** Continuously-updated structured summary of current beliefs about Voynichese.
 **Discipline:** Characterization, not interpretation. Claims require experimental warrant.
 
@@ -221,6 +221,12 @@ These findings have been replicated across independent analyses or confirmed by 
 - eee (triple-vowel) words: stars=17.25‰, cosmo=4.40‰ (suppressed). Vowel-length gradient monotonically stars-concentrated (edy→eedy→eeedy: 36%→48%→63%). eee enriched in ok/ol/qo (1.7-1.9×), suppressed in ch/sh (0.37-0.46×).
 - A-dialect section variation: herbal-A=-y dominant (qok=37%, ch=29%); pharma-A=-ol dominant (qok=41%, ok=40%); 8.9% avg diff (3.5× weaker than B's 31%).
 - FOUR-LEVEL suffix hierarchy: Dialect (A/B) → Stem class (Simple-B/Complex-B; A-y/-ol) → Section (B: stars/cosmo/herbal; A: herbal/pharma) → Vowel length (stars triple-vowel extension). Strong evidence for natural language morphology.
+
+**A-HERBAL cth VOCABULARY DECLINE MIXED (cthor 0.24×, cthaiin STABLE; l=B-MORPHOLOGICAL PARALLEL to cth: lchedy(102,100%B) DOMINANT; 1120 B vs 59 A l-tokens; loldaiin=A-EXCLUSIVE (exp_139 correction) (F147, exp_140)**
+- cth vocabulary shift: cthor disproportionately declines (T3/T1=0.24 vs overall 0.60). cthaiin completely stable (1.03×). Most cth-words decline proportionally (~0.46). Mechanism: general cth density reduction + cthor-specific botanical content shift.
+- B-dialect l-vocabulary: 1120 B vs 59 A l-tokens (19× ratio). Top B l-words: lchedy(102,100%B), lkaiin(37,100%B), lkeey(33,97%B), lkeedy(32,97%B). lk-forms are 100% B-exclusive.
+- l is B's morphological parallel to A's cth: both are prefix morphemes on distinct stem classes. lchedy (l+ch+edy) parallels cthol (cth+ol).
+- CORRECTION: loldaiin (exp_139 "B-form") is A-exclusive (A=1, B=0). Only lkeedy(1) and lkeey(1) are genuine B-dialect l-intrusions in late A-herbal.
 
 **A-HERBAL cth DECLINE = SMOOTH GRADIENT (T1=5.96%→T2=4.82%→T3=3.66%, −1.1pp/tertile); l-GRADIENT STRONGER (ρ=+0.627) THAN cth-GRADIENT (ρ=-0.269); A-HERBAL l-WORDS TOO SPARSE (37 tokens) FOR B-CONTAMINATION ANALYSIS (F146, exp_139)**
 - A-herbal cth tertile decline is equal-interval (−1.14pp, −1.15pp per step) — smooth gradient, not step-change. Rules out single scribal hand-change at a specific folio.
