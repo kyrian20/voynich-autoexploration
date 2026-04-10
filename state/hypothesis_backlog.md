@@ -2881,6 +2881,7 @@
 
 ## H289: Is daiin's B-Dialect Role (Preceding sh/ch_e at 2.33×/2.11×) the Functional Parallel to Its A-Dialect Role (Preceding cth at 3.19×)?
 **Priority:** high
+**Status:** NOT CONFIRMED (exp_146). B-sh is a LINE-OPENER (LF=1.90×), not a medial nominal like A-cth (LF≈0.94×). Before-sh in B: qok-enriched (1.42×), d near-baseline (1.20×); before-cth in A: d-enriched (1.30×), qok-suppressed. No self-succession for sh (0.93×) or ch_e (0.87×) in B; A-cth has 1.84×. The daiin→sh enrichment (2.33×) reflects both daiin and sh being LF-enriched in B sequential grammar, NOT a determiner-nominal construction. (F153)
 **Source:** F152: daiin→sh=2.33× and daiin→ch_e=2.11× in B-dialect; all other B-particles depleted before sh/ch_e (0.31×–0.45×). If daiin's role as "category determiner" is preserved cross-dialect, then sh/ch_e-words in B should have the same positional profile that cth-words show in A.
 **Description:** Compute for B-dialect sh-words and ch_e-words: (1) Positional distribution (LF/MID/LL) — are sh/ch_e-words LF-depleted and LL-enriched, like A-dialect cth-words? (2) Before-context enrichment — is d-onset enriched before sh/ch_e at ~1.5× in B (parallel to d before cthol=1.51× in A)? (3) Self-succession — do sh-words precede sh/ch_e-words at elevated rates (~1.5-2×), mirroring cth before cthol? If all three checks confirm, the grammatical parallel is complete: [daiin][sh-word] in B = [daiin][cth-word] in A syntactically.
 **Expected outcome:** sh-words in B are somewhat LF-depleted (consistent with medial content words) and have d-enrichment at ~1.5×. If confirmed, this establishes that daiin encodes the same syntactic role cross-dialect, with sh/ch_e being the B-dialect functional equivalent of cth in A.
@@ -2891,11 +2892,32 @@
 
 ## H290: What Particle (If Any) in B-Dialect Plays the cth-Determiner Role That daiin Plays in A?
 **Priority:** medium
+**Status:** NOT CONFIRMED (exp_146). No single B-particle is enriched before l-onset at 3×+. At onset-class level: ch_e=1.42×, ch=1.27× (modest). Individual -eey words (okeey=3.37×, qokey=2.96×, chey=2.94×) are enriched but small n. d is strongly DEPLETED before l in B (0.42×). The pre-l structure in B is a morphological pattern (l follows -eey suffix class), not a single determiner. No B-equivalent of daiin's categorical cth-determiner exists. (F153)
 **Source:** F152: daiin is the UNIQUE cth-determiner in A (3.19×, all others 0.00×). In B-dialect, what precedes l-onset words (B's functional content-word class analogous to A's cth) at elevated enrichment? Is there a particle X such that X→l-onset is enriched at ~3× in B, while all other particles show near-zero?
 **Description:** Compute transition matrix for B-dialect: (1) For high-frequency B particles (aiin, ar, ol, chol, shedy, qokedy), compute enrichment before l-onset words. (2) Are any B-particles enriched before l-onset at ≥2×? (3) What is daiin→l-onset enrichment in B? (If daiin→l is also enriched in B, daiin may be a cross-dialect "content-word determiner," not just cth-specific). (4) Compare lchedy-specific vs all l-onset enrichment.
 **Expected outcome:** Either (a) daiin→l is enriched in B at ~2× (daiin is cross-dialect, onset-class-general determiner that shifts target per dialect); or (b) a different B-particle (e.g., aiin or chol) uniquely precedes l-words at elevated rates; or (c) l-onset words in B have no specific determiner (distributed across many particles at ~baseline). Most likely: no strong B-determiner for l, since B grammar organizes around the qo/sh hinge rather than a determiner-content word sequence.
 **Cost estimate:** small
 **Prerequisites:** F152
+
+---
+
+## H291: Is B-ch (Not sh or ch_e) the B-Dialect Medial Nominal Parallel to A-cth?
+**Priority:** medium
+**Source:** F153: B-ch shows 1.57× self-succession (closer to A-cth's 1.84× than sh=0.93× or ch_e=0.87×). B-ch is LF-depleted (0.77×), MID-enriched (1.05×) — the positional profile closest to a medial nominal class. sh is a line-opener; ch_e is near-baseline.
+**Description:** Examine B-ch in detail: (1) Positional profile of specific B-ch words (chedy, chaiin, chol, chor, chey) — do any show strong MID-enrichment and LF-depletion? (2) Before-context: is d-onset enriched before B-ch-words at ~1.5× (parallel to d before A-cthol)? (3) After-context: does B-ch follow qo at elevated rates (i.e., qo→ch bigram enrichment, part of B's qo↔ch/sh alternation grammar)? (4) What is daiin→ch enrichment in B? If B-ch is the medial nominal parallel, daiin should precede it at elevated rates.
+**Expected outcome:** B-ch-words (especially chedy) show MID-enrichment (>70% MID) and d-enriched before-context (~1.5×), confirming B-ch as the medial nominal equivalent of A-cth. This would reframe daiin→ch_e (2.11×) as more relevant than daiin→sh (2.33×).
+**Cost estimate:** small
+**Prerequisites:** F153
+
+---
+
+## H292: The -eey Suffix Class Precedes B l-Onset Words at 2.7-3.4×. Is This a Specific [-eey][l-word] Morphological Sequence or Section Artifact?
+**Priority:** medium
+**Source:** F153: -eey suffix words (okeey=3.37×, qokey=2.96×, chey=2.94×, oteey=2.66×, cheey=2.27×) are the dominant precursors of l-onset words in B-dialect. This appears across different onset classes (ok/qo/ch/ot all with -eey suffix) — the suffix, not the onset, drives the pattern.
+**Description:** (1) What is the suffix distribution of words preceding l-onset in B? Specifically: what percentage end in -eey/-ey vs -edy/-aiin/-ain? (2) Is the [-eey word][l-word] construction section-concentrated (e.g., in stars B or cosmo B where l-words concentrate)? (3) Are the -eey+l collocations specific word pairs (e.g., always okeey+lchedy) or spread across diverse l-words? (4) Compute: baseline -eey rate in B vs -eey rate specifically before l-onset.
+**Expected outcome:** The -eey→l construction is section-specific (likely stars B, which has many l-words and -eey vocabulary). If the enrichment disappears when controlling for section, it is an artifact. If it persists across sections, it may reflect a genuine morphological coupling: [-eey words form phrases ending in l-words].
+**Cost estimate:** small
+**Prerequisites:** F153
 
 ---
 

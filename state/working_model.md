@@ -1,5 +1,5 @@
 # Working Model — Voynich Manuscript Cryptanalysis
-**Last updated:** 2026-04-10 (after exp_145)
+**Last updated:** 2026-04-10 (after exp_146)
 **Purpose:** Continuously-updated structured summary of current beliefs about Voynichese.
 **Discipline:** Characterization, not interpretation. Claims require experimental warrant.
 
@@ -221,6 +221,13 @@ These findings have been replicated across independent analyses or confirmed by 
 - eee (triple-vowel) words: stars=17.25‰, cosmo=4.40‰ (suppressed). Vowel-length gradient monotonically stars-concentrated (edy→eedy→eeedy: 36%→48%→63%). eee enriched in ok/ol/qo (1.7-1.9×), suppressed in ch/sh (0.37-0.46×).
 - A-dialect section variation: herbal-A=-y dominant (qok=37%, ch=29%); pharma-A=-ol dominant (qok=41%, ok=40%); 8.9% avg diff (3.5× weaker than B's 31%).
 - FOUR-LEVEL suffix hierarchy: Dialect (A/B) → Stem class (Simple-B/Complex-B; A-y/-ol) → Section (B: stars/cosmo/herbal; A: herbal/pharma) → Vowel length (stars triple-vowel extension). Strong evidence for natural language morphology.
+
+**B-sh IS B LINE-OPENER (LF=1.90×), NOT MEDIAL NOMINAL; daiin→sh≠daiin→cth ANALOGY DISPROVEN; -eey WORDS PRECEDE B l-ONSET AT 2.7-3.4× (MORPHOLOGICAL, NOT SINGLE DETERMINER); A l-ONSET FOLLOWS qo-ENVIRONMENT (qot=3.99×) (F153, exp_146)**
+- sh in B: LF=24.8% (1.90×), LL=5.2% (0.40×) — LINE-OPENER. cth in A: LF=16.6% (0.94×), LL=21.3% (1.20×) — near-baseline/mildly LL. Profiles opposite.
+- Before sh in B: qok=1.42× (not d); before cth in A: d=1.30×, qok-suppressed. Self-succession: A-cth=1.84×; B-sh=0.93× (absent); B-ch_e=0.87×. B-ch shows 1.57× — closer to A-cth.
+- daiin→sh (2.33×) reflects B sequential grammar: daiin (LFirst=34%) + sh (LF=1.90×) are both LF-enriched. Not determiner-nominal — two line-initial class words.
+- l-onset in B preceded by -eey suffix words (okeey=3.37×, qokey=2.96×, chey=2.94×); ch_e=1.42×, ch=1.27× at onset-class level; d=0.42× depleted. No single B-particle parallels daiin's cth-determiner role.
+- A l-onset (n=59 rare) follows qo-environment (qot=3.99×, qok=2.40×) — may be specialized qo-following vocab, not equivalent to B l-class.
 
 **daiin=UNIQUE cth-DETERMINER IN A-DIALECT (3.19×); NO OTHER PARTICLE PRECEDES cth (0.00×); B-DIALECT daiin SHIFTS TO sh/ch_e INTRODUCTION (2.33×/2.11×); OTHER B-PARTICLES DEPLETED BEFORE sh/ch_e (F152, exp_145)**
 - daiin→cth in A: 43 cases, 12.9% observed vs 4.0% baseline = 3.19× enrichment. All other tested particles (aiin/ar/ol/chol/dain/qokeey/saiin) precede cth at 0.00× — categorical distinction.

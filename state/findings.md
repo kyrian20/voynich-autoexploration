@@ -5,6 +5,14 @@
 
 ---
 
+## F153: B-DIALECT sh IS LINE-OPENER (LF=1.90×) NOT MEDIAL NOMINAL; daiin→sh≠daiin→cth ANALOGY DISPROVEN; NO B-PARTICLE PARALLELS daiin→cth (ch_e=1.42×, ch=1.27× before l-onset; -eey WORDS=2.66-3.37×); A l-ONSET FOLLOWS qo-ENVIRONMENT (qot=3.99×, qok=2.40×)
+**Experiment:** exp_146_b_sh_che_positional_parallel
+**Date:** 2026-04-10
+**Finding:** H289 NOT CONFIRMED: B-dialect sh is a LINE-OPENER (LF=1.90×, LL=0.40×), not a medial-MID nominal. cth in A is near-baseline LF (0.94×), mildly LL-enriched (1.20×). The profiles are structurally opposite. Before sh in B: qok=1.42× is the dominant enriched onset (not d); before cth in A: d=1.30×. Self-succession: A-cth=1.84×; B-sh=0.93× (absent!); B-ch_e=0.87× (absent). B-ch (control) shows 1.57× self-succession — closer to A-cth than sh or ch_e. The daiin→sh enrichment (2.33×, F152) reflects B's sequential grammar: both daiin (LFirst=34%) and sh (LF=1.90×) are LF-enriched in B; the bigram is two line-initial class words in sequence, NOT a "determiner → nominal" construction. H290 NOT CONFIRMED: No single B-particle parallels daiin's cth-determiner role. Before l-onset in B: ch_e=1.42×, ch=1.27×, qok=1.14×. Individual -eey words (okeey=3.37×, qokey=2.96×, chey=2.94×) are highest but small n=9-33. The pattern is morphological (l follows -eey suffix class) not a single determiner. d=0.42× DEPLETED before l in B (contrast: d=1.30× before cth in A). BONUS: A-dialect l-onset (n=59) follows qo-environment (qot=3.99×, qok=2.40×) — A l-words appear after qo-stem words, potentially a specialized qo-following vocabulary distinct from B's l-onset class.
+**Limitation:** sh total in B is n=1726 (large sample) for positional analysis; the before-context analysis uses n=1293 (well-powered). The l-onset analysis in B uses n=988 bigrams (adequate). Individual particle enrichments (okeey n=21, qokey n=13) are small. The A l-onset analysis (n=51 bigrams) is underpowered.
+
+---
+
 ## F152: daiin IS THE UNIQUE cth-DETERMINER IN A-DIALECT (3.19×); NO OTHER PARTICLE PRECEDES cth (0.00×); IN B-DIALECT daiin SHIFTS TO sh/ch_e INTRODUCTION (2.33×/2.11×); OTHER B-PARTICLES DEPLETED BEFORE sh/ch_e (0.31×–0.45×)
 **Experiment:** exp_145_daiin_transition_matrix
 **Date:** 2026-04-10
