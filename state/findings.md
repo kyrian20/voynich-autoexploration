@@ -13,6 +13,14 @@
 
 ---
 
+## F167: [ychor@LF][cthy@second]=2 CASES (3.62×); ycheor@LF→chor/chol (2.40×); y-OPENED LINES: ch DEPLETED AT LL (0.59×), ot/y AT LL (1.49-1.50×); d@LF→cth@SECOND=1.86× (vs y@LF→cth@SECOND=1.02×)
+**Experiment:** exp_160_ychor_ycheor_grammar
+**Date:** 2026-04-10
+**Finding:** H320 CONFIRMED. ychor@LF → cth@second=3.62× (2/13 cases are [ychor][cthy@second]). Both cthy@second lines have n=6 words with cthy at i=1 — atypical position for cthy (normally LL-enriched). ycheor@LF → ch@second dominates (chor×2, chol×1; ch=2.40×). H322 CONFIRMED: y-opened lines (n=254) have near-baseline second-position composition; y-self succession=1.69× is the only notable second-pos enrichment. cth at second after y@LF = 1.02× (baseline) — y-opened lines do NOT specifically introduce cth at second. ch depleted at LL in y-opened lines (0.59×). ot/y words mildly enriched at LL (1.49-1.50×) in y-opened lines. For comparison: d-opened lines → cth@second=1.86× (concentrated in daiin@LF cases from F164).
+**Limitation:** [ychor][cthy@second] n=2 (tiny — suggestive but not definitively powered). ycheor n=6 (small). y-opened line grammar n=254 (adequate for second-pos and LL distribution).
+
+---
+
 ## F166: ychor=PURE LF-OPENER (6.24×, 13/13 TOKENS AT LF); ycheor=5.35×; y-WORDS OPEN 40% OF ALL LINES (BOTH A AND B); d-ONSET INTERNAL SPLIT: LL-CLOSERS (dam=3.98×, dy=3.02×, dal=1.95×) vs LF-OPENERS (dchol=3.74×, dchor=3.56×); daiin=NEAR-BASELINE AFTER CORPUS-ARTIFACT CORRECTION
 **Experiment:** exp_159_y_d_onset_profiles
 **Date:** 2026-04-10
