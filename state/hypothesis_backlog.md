@@ -3494,3 +3494,36 @@
 **Expected outcome:** [oty@LL][cth] = 0 cases (categorical absence), confirming one-directional ordering constraint.
 **Cost estimate:** trivial
 **Prerequisites:** F168
+
+---
+
+## H327: Is the [ot-word][ot-word] Bigram Enriched in A-dialect? (Sparked by f17: otor oteol)
+**Priority:** medium
+**Status:** untested
+**Source:** F169: f17 line `ychor cthy che'eky cheo otor oteol` ends with two consecutive ot-words. Is [ot-word][ot-word] a real bigram construction in A?
+**Description:** Compute [ot-word][ot-word] bigram enrichment in A-dialect. Baseline: ot-onset rate in A = 4.1%. If baseline, P(ot after ot) = 4.1%. Count observed [ot][ot] consecutive pairs and compute enrichment.
+**Expected outcome:** Moderate enrichment (1.5-3×) — ot-words in MID position tend to cluster, consistent with ot-word sequences in medial positions.
+**Cost estimate:** trivial
+**Prerequisites:** F165, F168, F169
+
+---
+
+## H328: What Are the Two [dchor@LF][cth@second] Full Lines? Is [dchor][cthor] a Specific Construction?
+**Priority:** medium
+**Status:** untested
+**Source:** F169: dchor@LF → cth@second = 2/12=16.7% (3.98×). Two full lines: f25 `dchor cthor chor daiin s okeeaiin daiin ckhey daiin` and f32 `dchor ctho,daiin`.
+**Description:** Both lines identified in exp_162 output. Analyze: what is the cth-word at second in each line? Is it cthor both times? Is [dchor][cthor] a reduplication construction?
+**Expected outcome:** Both dchor@LF lines have cthor at second — [dchor][cthor] would be a ch-reduplication formula. f32 `dchor ctho,daiin` has ctho (cth-stem fragment) — consistent with cthor-variant.
+**Cost estimate:** trivial (already in exp_162 output)
+**Prerequisites:** F169
+
+---
+
+## H329: Are [daiin ... dam@LL] Lines Short? Is [daiin][dam] an Immediate Bigram?
+**Priority:** medium
+**Status:** untested
+**Source:** F169: daiin appears as penultimate in 3/23 dam@LL lines (3.23×). Are these [daiin dam] immediate bigrams (2-word lines) or longer lines?
+**Description:** Check the 3 lines ending `daiin dam`: (1) `qo,ar daiin dam` (f32), (2) `daiin okeey shoaiin otal shshy tal dam` (f70), (3) `qeaiin cheyl seey qotey qokeeol daiin daiin dam` (f89/pharma). How long are these lines? Is `daiin dam` immediate?
+**Expected outcome:** Mixed — some short (3-word [X daiin dam]) and some longer. The [daiin][dam] pattern is the closest thing to a precursor construction for dam, but it is not dominant.
+**Cost estimate:** trivial (already in exp_162 output)
+**Prerequisites:** F169

@@ -1,5 +1,5 @@
 # Working Model — Voynich Manuscript Cryptanalysis
-**Last updated:** 2026-04-10 (after exp_161)
+**Last updated:** 2026-04-10 (after exp_162)
 **Purpose:** Continuously-updated structured summary of current beliefs about Voynichese.
 **Discipline:** Characterization, not interpretation. Claims require experimental warrant.
 
@@ -244,6 +244,9 @@ These findings have been replicated across independent analyses or confirmed by 
 - daiin→cth bigram real (3.08×). Corrected positional context (exp_157): daiin→cth from MID (70%), LF (18.6%). NEW: [daiin@LF][cth@second] = 6 cases. daiin→cthol always MID; daiin→cthy LL-biased (5/9); daiin→cthor: 3 at second, 3 at MID.
 - dy→sh real within-line construction. HELD.
 - ot-words: internal 4-way positional paradigm (F165): otchor/otchol=LF 2.17-3.64×; oty=LL 2.08×; otol=MID 1.35×. Parallels cth paradigm.
+- **dam/dy ARE FREE TERMINAL PARTICLES — NO DOMINANT PRECURSOR (F169, exp_162)**: dam@LL (n=23) and dy@LL (n=30) precursors are diverse (d-onset=2.05-1.80×, y-onset=2.77× at penultimate — but no single word >3.23×). Unlike [daiin][cthy@LL] (fixed phrase), dam/dy are freely placed after diverse word classes. [cth][dam]=1 case; [cth][dy]=2 cases; [ot][dy]=1 case only.
+- **[ychor cthy [ch-word] ...] IS A SPECIFIC A-HERBAL 3-GRAM FORMULA (F169, exp_162)**: Both [ychor cthy@second] lines (f17, f45 A-herbal) have ch-onset at third position. f17: `ychor cthy che'eky cheo otor oteol` (ends with two consecutive ot-words). f45: `ychor cthy chol qokom sy...`. ychor appears in B-dialect (f86, f106) — not A-exclusive.
+- **d@LF→cth@second decomposition (F169, exp_162)**: daiin@LF→cth@second=2.69× (8/71=11.3%, 38% of 21 total cases); d-ch-prefix openers (dchor/dchol/dshor/dchey)→cth@second=3.98×; dchaiin/daiir→cth@second=7.96×; LL-closer d-words (dar, dor, dair, dol) → cth@second = 0×. Confirms d-internal LF/LL split predicts cth@second behavior perfectly.
 - **[cthor→ot-word]=5.57× BIGRAM ENRICHMENT (F168, exp_161)**: cthor is specifically followed by ot-words (7/31=22.6%, 5.57×). This is the strongest cth→onset bigram enrichment found. oty NEVER precedes cth (0.00×) — directional asymmetry: [cthor→oty] allowed, [oty→cth] forbidden. otchol/otaiin/otchor→cth: 2.21-2.52× (LF-ot-words introduce cth at moderate enrichment). Line-level ot+cth co-occurrence = 0.98× (near-baseline) — relationship is BIGRAM-level, not LINE-level. Both ot and cth have parallel 4-way positional paradigms integrated by the [cthor→ot-word] construction.
 - CORRECTED ONSET PROFILES (A): y=LF 2.46× (strongest line-opener); d=LL 1.68× (strongest line-closer); cth=LF 0.15× (never opens lines); ch/ch_e=second 1.45-1.46×, LF 0.23-0.47×.
 - ychor=PURE LF-OPENER (6.24×, 13/13 at LF); ycheor=5.35×. y-words open 40% of all lines in A and B (F166). ychor→cthy@second=3.62× ([ychor][cthy] 2× formula); ycheor→chor/chol (2.40×).

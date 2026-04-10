@@ -5,6 +5,14 @@
 
 ---
 
+## F169: dam/dy ARE FREE TERMINAL PARTICLES (NO DOMINANT PRECURSOR); [ychor cthy ch-word] 3-GRAM IN A-HERBAL (f17/f45); d@LF→cth@second: daiin=38% OF CASES (2.69×), d-ch-PREFIX WORDS=3.98-7.96×, LL-CLOSERS (dar/dor/dol)=0×
+**Experiment:** exp_162_dam_dy_precursors_ychor_context
+**Date:** 2026-04-10
+**Finding:** H321 CONFIRMED (NEGATIVE). dam@LL (n=23) and dy@LL (n=30) precursors are diverse — no single-word dominant precursor. Most enriched: d-onset=2.05-1.80× and y-onset=2.77× at penultimate before dam, but no word exceeds 3.23× (daiin=3/23). Unlike [daiin][cthy] (fixed phrase at 3.57×), dam/dy are free terminal particles placed after diverse word classes. [cth][dam@LL]=1 case; [cth][dy@LL]=2 cases; [ot][dy@LL]=1 case (oty dy, f22). H323 CONFIRMED: [ychor cthy@second] lines are f17 (herbal) and f45 (herbal), separated by 28 folios. Both have ch-onset at third position: `ychor cthy che'eky cheo otor oteol` (f17) and `ychor cthy chol qokom sy...` (f45). The [ychor cthy [ch-word] ...] 3-gram is a specific A-herbal formula. f17 line has two consecutive ot-words at LL (`otor oteol`). ychor appears in B-dialect (f86/cosmo, f106/stars) — 2/15 ychor lines are B. H324 CONFIRMED: d@LF→cth@second decomposition: daiin=8/71=11.3% (2.69×) = 38% of the 21 total cases; d-ch-prefix opener words (dchor=3.98×, dchol=3.98×, dshor=3.98×, dchey=3.98×, dchaiin=7.96×) have higher per-capita rate but smaller n; LL-enriched d-words (dar, dor, dair, dol) → cth@second = 0×. The d-internal LF/LL split (F166) perfectly predicts cth@second: LF-opener d-words introduce cth; LL-closer d-words never do.
+**Limitation:** dam@LL n=23, dy@LL n=30 (moderate). Individual onset enrichments are moderate (2-3×). The "no dominant precursor" conclusion is well-powered for the negative. ychor n=15 total (13 A from F167 + 2 B lines here — F167 count of 13 was A-only). H323 n=2 lines (tiny — but both in same A-herbal region, both with ch at third).
+
+---
+
 ## F168: [cthor][ot-word]=5.57× BIGRAM ENRICHMENT; oty NEVER PRECEDES cth (0.00×); ot-cth RELATIONSHIP IS BIGRAM-LEVEL NOT LINE-LEVEL (CO-OCCURRENCE=0.98×); cthom→ot=8.22× (n=3)
 **Experiment:** exp_161_ot_cth_grammatical_parallelism
 **Date:** 2026-04-10
