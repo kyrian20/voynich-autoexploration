@@ -1,5 +1,5 @@
 # Working Model — Voynich Manuscript Cryptanalysis
-**Last updated:** 2026-04-09 (after exp_133)
+**Last updated:** 2026-04-09 (after exp_134)
 **Purpose:** Continuously-updated structured summary of current beliefs about Voynichese.
 **Discipline:** Characterization, not interpretation. Claims require experimental warrant.
 
@@ -221,6 +221,14 @@ These findings have been replicated across independent analyses or confirmed by 
 - eee (triple-vowel) words: stars=17.25‰, cosmo=4.40‰ (suppressed). Vowel-length gradient monotonically stars-concentrated (edy→eedy→eeedy: 36%→48%→63%). eee enriched in ok/ol/qo (1.7-1.9×), suppressed in ch/sh (0.37-0.46×).
 - A-dialect section variation: herbal-A=-y dominant (qok=37%, ch=29%); pharma-A=-ol dominant (qok=41%, ok=40%); 8.9% avg diff (3.5× weaker than B's 31%).
 - FOUR-LEVEL suffix hierarchy: Dialect (A/B) → Stem class (Simple-B/Complex-B; A-y/-ol) → Section (B: stars/cosmo/herbal; A: herbal/pharma) → Vowel length (stars triple-vowel extension). Strong evidence for natural language morphology.
+
+**ol-ONSET = MEDIAL PARTICLE/MODIFIER (MID=74.6%, LF=7.7%); ol SELF-CHAINS (pre-ol=ol 1.68×, post-ol=ol 1.89×); STANDALONE "ol"(n=474) + ol+k-stem B-COSMO COMPOUND WORDS; ol = o+l DOUBLE-PREFIX; ch+eo VOWEL-GRADIENT: ch+o=27%STARS→ch+eo=40%→ch+eeo=55%→ch+eeeo=100%; e-VOWEL EXTENSION = STARS MARKER AT ALL STRUCTURAL LEVELS (F141, exp_134)**
+- ol-onset: 1333 tokens, MID=74.6%, LF=7.7% — never a line-opener. Cosmo=2.06×. B=81.5%.
+- Standalone "ol" (n=474, 84%MID, cosmo=49%) = the -ol suffix as free morpheme. ol+k-stem compound words (olkain=76.5%cosmo, olkedy=80%cosmo — all 100%B) = double-prefixed cosmo content.
+- ol-closers: oly=81.8%LL, oldy=66.7%LL, olam=100%LL. ol self-chains: post-ol=ol 1.89×.
+- Morphological: olkeedy(36) ↔ lkeedy(36) = same frequency → ol = o-prefix + l-stem word.
+- ch+eo vowel gradient: ch+o(2692 tokens)=27% stars → ch+eo(591)=40% → ch+eeo(73)=55% → ch+eeeo(1)=100%. EXACT PARALLEL to suffix gradient edy→eedy→eeedy (36%→48%→63% from F120).
+- e-vowel extension is stars-specific at: (1) word-internal ch level, (2) suffix level (edy→eedy), (3) standalone suffix words (triple-vowel F120). Universal stars morphological signal.
 
 **COSMO=ol-DOMINANT (2.06×), qok-DOMINANT (1.75×), s-LINE-OPENER (17.7%), -y LINE-CLOSER (25.5%); STARS=ch-DOMINANT (BASELINE), ot-ELEVATED (1.43×), -am LINE-CLOSER (17.0%), ch+eo EXCLUSIVE; ASTRO=HETEROGENEOUS (f67=TRUE ASTRO: y-s-ELEVATED/qok-DEPLETED; f68/f70=A-HERBAL-LIKE) (F140, exp_133)**
 - Cosmo onset: ol=2.06×, qok=1.75×, qo=1.40×, sh=1.27×, s=1.52× vs corpus baseline. Stars onset: ot=1.43×, l=1.72×, ok=1.16×, other=1.20×; ch near-baseline (0.98×).

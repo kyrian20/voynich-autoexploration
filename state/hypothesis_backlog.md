@@ -2786,6 +2786,26 @@
 
 ---
 
+## H262: ol-Onset Characterization — Is ol a Distinct Onset Class (Cosmo 2.06× Corpus) with Sub-Classes? What Are the ol-Stem Words and Their Positional Profiles?
+**Priority:** high
+**Status:** CONFIRMED (exp_134) — ol=MEDIAL class (MID=74.6%, LF=7.7%). Cosmo=2.06×. Standalone ol(n=474, 84%MID) + ol+k-stem B-cosmo compound words. ol self-chains (post-ol=ol 1.89×). ol-CLOSERS: oly=81.8%LL. ol = o-prefix + l-stem-word (olkeedy=36 ↔ lkeedy=36). (F141)
+**Source:** F140: ol=9.08% in cosmo (2.06× corpus baseline, 2.61× vs stars). F137: oly=81.2%LL (B-cosmo line-closer). ol-onset is the most cosmo-enriched onset class but has not been characterized in depth (unlike d/s/p/r/y which have all been analyzed). From F139: ol onset classified separately from 'other'.
+**Description:** Extract all ol-onset words. Compute: (1) tokens, types, hapax rate; (2) positional profile (LF/MID/LL %); (3) section/dialect distribution; (4) sub-classes: openers vs closers vs medials; (5) top words and their individual profiles; (6) bigram context (pre-ol and post-ol onset enrichment); (7) whether ol = o-prefix + l-stem (morphological derivation) or an independent onset class.
+**Expected outcome:** ol-onset splits into: (1) ol-CLOSERS (oly=81.2%LL, oldy, olchedy? — confirmed from F137); (2) ol-medials (ol=the standalone word, most common?). ol is predominantly B-dialect and cosmo-concentrated. Pre-ol and post-ol show specific enrichments related to cosmo grammar.
+**Cost estimate:** small
+
+---
+
+## H263: Stars-Exclusive ch+eo Vocabulary — Is ch+e+o a Morphological Sub-Class of Stars ch-Onset? What Are cheo/cheody/cheeo's Positional Profiles?
+**Priority:** high
+**Status:** CONFIRMED REVISED (exp_134) — ch+eo has VOWEL-GRADIENT not stars-exclusivity: ch+o=27% stars, ch+eo=40%, ch+eeo=55%, ch+eeeo=100%. Parallels suffix gradient edy→eedy→eeedy (36%→48%→63%). e-vowel extension = stars-specific marker at multiple structural levels. (F141)
+**Source:** F140: Stars-exclusive top words include cheo(38), cheody(33), chody(22), cheeo(18), sheo(17), cho(17) — all ch+[e]+o or sh+eo forms. These appear to be ch-stem + e-vowel-extension + o/ody ending, distinct from ch-stem + -ol/-or/-edy. Are cheo/cheody/cheeo a stars-specific ch-sub-paradigm?
+**Description:** Extract all body-text words matching the pattern ch+e*+o (cheo, cheeo, cheody, chody, chos, cheos, sheo, sheody, etc.). Compute: (1) section concentration; (2) positional profile (are these line-openers or line-closers?); (3) relationship to -ol suffix (chol vs cheo: same stem, different suffix pattern?); (4) prefix variation (cheo/cheeo/cheo/cheody — is this a vowel-length gradient similar to edy/eedy?).
+**Expected outcome:** cheo/cheody/cheeo are stars-exclusive ch+eo forms concentrated at line-middle or specific positions. They represent a stars-specific suffix-zero or -o/-ody suffix on ch-stem (parallel to how stars uses -eey on other stems). sheo/sheody are parallel sh-stem forms.
+**Cost estimate:** small
+
+---
+
 ## H260: Astro Section Characterization — Why Is Astro the LEAST Cohesive Section (mean=0.886) and Why Does f87 (Pharma) Best-Match Astro?
 **Priority:** medium
 **Status:** CONFIRMED (exp_133) — Astro is heterogeneous: f67=true astro (y=2.36×, s=2.15×, other=1.87×, qok=0.33×, particle-heavy); f68/f70=A-herbal-like (sim=0.960/0.968 to herbal centroid, pairwise=0.953); f69=pharma-like. f67 vs f68 sim=0.558 explains low cohesion. f87 matches astro because s=12.35% and qok-depleted. (F140)
