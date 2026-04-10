@@ -1,5 +1,5 @@
 # Working Model — Voynich Manuscript Cryptanalysis
-**Last updated:** 2026-04-09 (after exp_118)
+**Last updated:** 2026-04-09 (after exp_119)
 **Purpose:** Continuously-updated structured summary of current beliefs about Voynichese.
 **Discipline:** Characterization, not interpretation. Claims require experimental warrant.
 
@@ -221,6 +221,13 @@ These findings have been replicated across independent analyses or confirmed by 
 - eee (triple-vowel) words: stars=17.25‰, cosmo=4.40‰ (suppressed). Vowel-length gradient monotonically stars-concentrated (edy→eedy→eeedy: 36%→48%→63%). eee enriched in ok/ol/qo (1.7-1.9×), suppressed in ch/sh (0.37-0.46×).
 - A-dialect section variation: herbal-A=-y dominant (qok=37%, ch=29%); pharma-A=-ol dominant (qok=41%, ok=40%); 8.9% avg diff (3.5× weaker than B's 31%).
 - FOUR-LEVEL suffix hierarchy: Dialect (A/B) → Stem class (Simple-B/Complex-B; A-y/-ol) → Section (B: stars/cosmo/herbal; A: herbal/pharma) → Vowel length (stars triple-vowel extension). Strong evidence for natural language morphology.
+
+**Bigram Syntax: [A-Suffix]→cth (chor=4.73×), [B-Suffix]→qok (shedy=3.75×); d-Onset = Function Class (H_pos=1.424 vs ch=0.699); s=Para-Start; or/ar/al Most Constrained (F126, exp_119)**
+- Pre-cth cluster: chor→cth=4.73×, daiin→4.38×, chol→3.40× — A-paradigm words systematically precede cth-onset nouns. Structural rule: [A-suffix] → [cth-noun].
+- Pre-qok cluster: shedy→qok=3.75×, chedy→2.69× — B-paradigm words precede qok. Structural rule: [B-suffix] → [qok-word].
+- d-onset function class: H(position)=1.424 (ch=0.699, sh=0.675). Roles: dshedy=93.1% first (topic), daiin balanced (determiner), dam=68.6% last (closer). s-onset: 48.5% first (para-opener).
+- 'or'/'ar'/'al' most collocationally constrained (H=1.98-2.23 vs baseline 3.13).
+- Structural model: s=para-start → d=function → ch/sh=content → cth=A-noun → qok=B-cluster.
 
 **daiin = Pre-Nominal Determiner: A-Dominant (3.5×), After-daiin cth 4.89×; -am/-air Are B-Dominant (NOT A-Paradigm); 'Other' Reduced to 17.9% (F125, exp_118)**
 - daiin: 2.39% of body, 45.87‰ A vs 13.05‰ B (3.5× A-enriched). After-daiin cth-onset = 4.89× enriched — strongest bigram association in manuscript. daiin = pre-nominal determiner before cth-nouns. Lines with daiin are 0.64 words shorter.

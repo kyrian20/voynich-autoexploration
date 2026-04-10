@@ -2489,3 +2489,33 @@
 **Expected outcome:** Stars paragraphs follow a repeating suffix template (e.g., most lines end in -ol or -or; most lines start with -eey or -eedy words). The template is consistent across the 25 stars paragraphs.
 **Cost estimate:** medium
 
+
+---
+
+## H233: Other Pre-Nominal Determiners
+**Status:** CONFIRMED (exp_119) — Do Other High-Frequency A-Paradigm Words Show Similar Directional Bigram Enrichment Toward cth- or ch-/sh-Nouns?
+**Priority:** high
+**Source:** F125: daiin→cth-onset enriched 4.89×. This is the strongest bigram found. If daiin is a determiner class, there may be other determiners (possibly dain, dy, ol, or similar) that also show directional enrichment before nominal onset classes.
+**Description:** For each of the top 20 high-frequency words (daiin, ol, chedy, shedy, or, aiin, dy, dar, etc.): compute what onset class appears AFTER them (next-word onset) vs the baseline. Identify words with strong directional enrichment (>2×) toward specific onset classes. Build a bigram enrichment matrix: word → next_onset → enrichment_ratio. This would map out the functional word → content word syntactic patterns.
+**Expected outcome:** A cluster of "determiner-like" words that precede cth- or ch-/sh-onset content words. Possible contrast: words that precede qok-onset vs words that precede ch-onset may be different functional categories.
+**Cost estimate:** small
+
+---
+
+## H234: D-Onset as a Function-Word Class
+**Status:** CONFIRMED (exp_119) — Are d-Onset Words Structurally Distinct From All Other Onset Classes?
+**Priority:** high
+**Source:** F125: d-onset words show extreme structural diversity: dshedy=93.1% line-first (topic marker), dam=68.6% line-last (closer), dy=43.1% line-last (closer), daiin=20.2% first/17.5% last (balanced determiner), dain=26.2% first. F116: d-onset is "moderate A-paradigm." This diversity suggests d-onset encodes function words (grammatical vocabulary) rather than content vocabulary.
+**Description:** Compare the structural diversity of d-onset words vs all other onset classes: (1) positional entropy (do d-onset words span a wider range of positional roles?); (2) frequency distribution (do d-onset words have a flatter rank-frequency distribution?); (3) suffix entropy (do d-onset words have more diverse suffix distributions?); (4) collocational diversity (do different d-onset words follow different onset classes?). Compare to ch-onset (likely content words) and qok-onset (complex content).
+**Expected outcome:** d-onset has the highest positional entropy and widest range of positional functions — consistent with function word class. ch-onset should be more content-word-like (lower positional variation, higher collocational consistency).
+**Cost estimate:** small
+
+---
+
+## H235: Stars Section Catalog Structure — Repeating Template in Stars Paragraphs
+**Priority:** medium
+**Source:** F122: Stars paragraphs have within-para repetition rate 0.476 (highest). F119: stars B has highest -eey rate and distinctive triple-vowel forms. H232.
+**Description:** Examine the 25 stars paragraphs. For each paragraph: (1) compute per-line suffix sequence (what suffix does each word take?); (2) look for a repeating structural template across lines within a paragraph; (3) compare template consistency across different stars paragraphs. Do all stars paragraphs follow a similar "X suffix_seq Y suffix_seq Z" pattern?
+**Expected outcome:** Stars paragraphs show a star-entry template: each "entry" (1-2 lines) has a consistent suffix ordering — possibly "eey/eedy word + -ol/-or phrase + daiin cth-word". The template reuses the same suffix pattern across entries.
+**Cost estimate:** medium
+

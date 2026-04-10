@@ -5,6 +5,14 @@
 
 ---
 
+## F126: Pre-cth Cluster: chor=4.73×, daiin=4.38×, chol=3.40× — A-Suffix Words Precede cth-Nouns; Pre-qok: shedy=3.75×, chedy=2.69× — B-Suffix Words Precede qok; d-Onset Function Class: H(position)=1.424 (2× ch/sh); s-Onset Extreme Topic-Opener (48.5% First)
+**Experiment:** exp_119_bigram_matrix
+**Date:** 2026-04-09
+**Finding:** H233 CONFIRMED: Bigram matrix reveals two syntactic sequence rules: (1) Pre-cth cluster: chor→cth=4.73× (strongest word→onset bigram), daiin→cth=4.38×, chol→cth=3.40×, shol→cth=2.76× — ALL A-paradigm suffixed words (ch/sh-ol/-or/-y; d/ok-aiin) systematically precede cth-onset content words. d-compound forms show even stronger cth-enrichment (dchor=5.5×, dchy=5.8×). (2) Pre-qok cluster: shedy→qok=3.75×, shey→3.02×, chedy→2.69× — B-paradigm -edy/-eedy words precede qok-onset. Emergent syntactic rule: [A-suffix word] → [cth-noun]; [B-suffix word] → [qok-word]. 'or', 'ar', 'al' have lowest collocational entropy (H=1.98-2.23 vs baseline 3.13). H234 CONFIRMED: d-onset is quantitatively a function word class: H(position)=1.424 (ch=0.699, sh=0.675; d is 2× more positionally diverse). d-onset spans all roles: dshedy=93.1% first (topic opener), daiin=20.2%/17.5% first/last (balanced determiner), dam=68.6% last (pure closer). Highest hapax rate (74.4%). s-onset = extreme topic-opener class (H=1.449, 48.5% first-line position). ch/sh = pure content classes (86-87% mid-line). Structural model: s=para-start → d=flexible function → ch/sh=content → cth=A-paradigm noun → qok=B-paradigm noun cluster.
+**Limitation:** The bigram enrichment uses all body tokens regardless of dialect. The pre-cth pattern may be primarily an A-dialect phenomenon (cth- is A-dominant). The pre-qok pattern may be B-dialect. Mixed-dialect analysis may dilute both signals. d-compound forms (dchor, dchy) have small sample sizes (n=23 each) so the 5.5-5.8× enrichment should be verified with larger samples.
+
+---
+
 ## F125: -am/-air Are B-Dominant Suffixes (A/B=0.44/0.32), NOT A-Paradigm; daiin Is A-Dominant (3.5×); After-daiin cth-Onset 4.89× Enriched — daiin Is a Pre-Nominal Determiner Before cth-Nouns
 **Experiment:** exp_118_am_air_daiin
 **Date:** 2026-04-09
