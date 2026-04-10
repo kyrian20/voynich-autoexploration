@@ -13,6 +13,14 @@
 
 ---
 
+## F163: chol=SECOND-ENRICHED (1.87×), LF-DEPLETED (0.30×); chol→cth BIGRAMS FROM SECOND/MID ONLY (0 FROM LF); chol@LF→ch@SECOND (54.5%, ~8× enriched); VERIFIED chol→cth=2.35×, chor→cth=2.22×; CORRECTED cth INTRODUCTION PICTURE
+**Experiment:** exp_156_chol_cth_bigram_positions
+**Date:** 2026-04-10
+**Finding:** H310 CONFIRMED: chol→cth bigrams (n=20) occur at chol@second (55%) or chol@MID (45%), NEVER at chol@LF (0). chol's overall positional profile: LF=0.30× (strongly depleted), second=1.87× (enriched), MID=1.25×. F157's "chol at LF=50%" was wrong — same swapped-slot bug as other exp_150/151/152 inline analyses. chor similar: LF=0.64×, second=2.33×. Corrected construction: [LF-word][chol@second][cth@subsequent-MID/LL] — chol appears as the second word that introduces a cth-word later in the line. H311 CONFIRMED: chol@LF (n=11) → second-pos ch-onset=54.5% (~8× enriched). When chol IS the LF word, the second word is overwhelmingly ch-class (chol, chor, cheol, etc.) — a [chol@LF][ch@second] ch-opening pattern distinct from the chol→cth construction. H312 CONFIRMED: chol→cth=2.35×, chor→cth=2.22× (real bigram enrichments from P-type body text). cth-words after chol: cthol (6), cthy (5), cthor (2) — diverse cth successors.
+**Limitation:** chol@LF n=11 (small; 54.5% ch-onset is directional). chol→cth n=20 (moderate for positional split). The "corrected construction" [LF][chol@second][cth@MID] is inferred from bigram positions — the full 3-gram distribution not yet computed. Daiin's positional context in daiin→cth bigrams also needs verification (H314).
+
+---
+
 ## F162: F157 TYPE 2 [chol/chor@LF→cth@SECOND] RETRACTED (0/26 cases); F159 H302 RETRACTED (cthol@SECOND preceded by qot=6.30×, NOT ch=0×); cthor@SECOND PRECEDED BY d-ONSET (2.25×, daiin 3/11=27.3%); H307/H308/H309 CORRECTED ANALYSES
 **Experiment:** exp_155_cthor_cthol_second_lf_analysis
 **Date:** 2026-04-10

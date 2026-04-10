@@ -3099,6 +3099,7 @@
 
 ## H310: What Is the Actual Positional Context of chol→cth Bigrams? (chol@LF Never Precedes cth — Where Does chol→cth Occur?)
 **Priority:** high
+**Status:** CONFIRMED (exp_156) — chol→cth bigrams: chol@second=55%, chol@MID=45%, chol@LF=0%. chol=second-enriched (1.87×), LF-depleted (0.30×). (F163)
 **Source:** F162: chol/chor at LF never have cth at second (0/26). But chol→cth bigram enrichment is real (F156). Where does chol appear when it precedes a cth-word? Is chol@MID → cth@subsequent MID the actual construction?
 **Description:** (1) Extract all chol→cth bigrams in A P-type body text. (2) For each bigram, record chol's position (LF/second/MID/LL). (3) Compute position distribution — is chol predominantly at MID or second when it precedes cth? (4) Same for chor→cth bigrams. (5) Compare: chol's overall positional distribution vs chol's positional distribution specifically when preceding cth.
 **Expected outcome:** chol→cth bigrams occur with chol at MID position (not LF). This would establish a within-line medial construction [chol@MID → cth@subsequent] as the actual basis of the chol→cth enrichment.
@@ -3109,6 +3110,7 @@
 
 ## H311: After chol@LF, What Specific ch-Words Follow at Second? Is [chol@LF][chol/chor@second] a Reduplication Construction?
 **Priority:** medium
+**Status:** CONFIRMED (exp_156) — chol@LF → ch-onset at second = 54.5% (~8× enriched). Chol self-succession=18.2% (2/11). [chol@LF][ch@second] is the dominant chol-opening construction. (F163)
 **Source:** F162: chol@LF → second-pos = ch-onset 45.5% (5/11 lines), sh 18.2%, d 18.2%. Which specific ch-words follow chol at LF?
 **Description:** (1) List all second-position words after chol@LF. (2) Is chol→chol or chol→chor the dominant pattern? (3) Compute enrichment of specific ch-words at second after chol@LF vs baseline. (4) Is there a [chol@LF][chol@second] reduplication? Such reduplication could indicate a specific determiner/nominal pair construction where chol is both opener and a second-position word.
 **Expected outcome:** chol→chor or chol→chol at second (ch-reduplication), suggesting lines with chol@LF have a ch-word phrase at the front before moving to medial content.
@@ -3119,11 +3121,32 @@
 
 ## H312: Verify chol/chor→cth BIGRAM ENRICHMENT WITH CORRECTED POSITIONAL CODE
 **Priority:** medium
+**Status:** CONFIRMED (exp_156) — chol→cth=2.35×, chor→cth=2.22× (real, corrected corpus). (F163)
 **Source:** F162: chol/chor→cth bigram enrichment was established in F156/exp_149 using inline code that may have had slot-swapping bugs. Verify the bigram enrichment is real (not positional artifact) using corrected parsing.
 **Description:** (1) Re-run chol→cth and chor→cth bigram enrichment analysis with corrected corpus parser (lstrip '<', P-type only). (2) Compute: how many chol→cth and chor→cth bigrams exist? (3) Compare to F156's values (chol→cth n=20, chor→cth n=12). If counts match, enrichment is confirmed real. (4) For each bigram, record positions of both words.
 **Expected outcome:** chol→cth and chor→cth bigrams are real (counts match F156), confirming the enrichment is a real syntactic relationship. The positional context (chol at MID) will be established from H310.
 **Cost estimate:** trivial
 **Prerequisites:** F162
+
+---
+
+## H313: What Is the LF Word When chol Is at Second? (In [LF][chol@second][cth@MID] Construction)
+**Priority:** high
+**Source:** F163: chol→cth bigrams occur at chol@second (55%) — so there's a LF word at i=0 before chol@second. What opens these lines?
+**Description:** (1) Extract all A P-type lines where chol is at second (i=1). (2) What word is at LF (i=0)? (3) Compute onset distribution. Is any onset specifically enriched before chol@second? (4) Specifically: does daiin or another cth-enriched word appear at LF when chol is at second?
+**Expected outcome:** A specific word class opens lines with chol@second. Possibly d-class/daiin (as daiin opens cthor@second lines), or a distinct class from the cthor@second case.
+**Cost estimate:** trivial
+**Prerequisites:** F163
+
+---
+
+## H314: Verify daiin→cth Bigram Positional Context With Corrected Code
+**Priority:** high
+**Source:** F157 described "daiin at MID(61%)" preceding cth-words — but exp_150 had slot-swapping bugs. Need corrected positional analysis of daiin→cth bigrams.
+**Description:** (1) Extract all daiin→cth bigrams in A P-type body text. (2) For each bigram, record daiin's positional slot (LF/second/MID/LL). (3) daiin's overall positional distribution in A. (4) Is daiin predominantly at MID (as F157 claimed) or at second or other positions when preceding cth-words?
+**Expected outcome:** daiin is MID-enriched when preceding cth-words (consistent with "daiin as medial determiner"). If daiin is actually second-enriched, the daiin→cth construction occurs at [LF-word][daiin@second][cth@MID] rather than from deep within the line.
+**Cost estimate:** trivial
+**Prerequisites:** F163
 
 ---
 

@@ -1,5 +1,5 @@
 # Working Model — Voynich Manuscript Cryptanalysis
-**Last updated:** 2026-04-10 (after exp_155)
+**Last updated:** 2026-04-10 (after exp_156)
 **Purpose:** Continuously-updated structured summary of current beliefs about Voynichese.
 **Discipline:** Characterization, not interpretation. Claims require experimental warrant.
 
@@ -236,12 +236,13 @@ These findings have been replicated across independent analyses or confirmed by 
 - daiin→cthol→MID/second (n=6, dominant medial): daiin introduces cthol as medial nominal.
 - chol at LF → cth at second=14.1% (3.11×); 31.2% of chol-lines contain a cth-word.
 
-**F157 TYPE 2 [chol/chor@LF→cth@SECOND] RETRACTED; daiin→cth BIGRAM REAL; chol/chor→cth BIGRAM REAL BUT POSITIONALLY UNLOCATED; dy→sh REAL (F162, exp_155; F157 retracted)**
-- TYPE 2 RETRACTED (exp_155): chol@LF → cth@second = 0/11 (0%), chor@LF → cth@second = 0/15 (0%). chol/chor as line-opener NEVER introduces cth at second. The positional framing was from exp_150's swapped slot labels.
-- daiin→cth bigram is real (3.08×); daiin→cth@LL=36.1% (from multiple exps). daiin is the cth-determiner in A.
-- chol→cth and chor→cth bigrams are real (from F156) but their positional context is unknown — NOT from chol/chor@LF. Re-examining in H310.
-- After chol@LF: second-pos = ch-onset 45.5%, d 18.2%, sh 18.2% (never cth). After chor@LF: sh 20%, ch_e 20%, ch 13.3% (never cth).
-- dy→sh real within-line construction (dy at second/MID, ~19% → sh). HELD.
+**chol=SECOND-ENRICHED (1.87×), LF-DEPLETED (0.30×); chol→cth BIGRAMS FROM SECOND/MID (NOT LF); VERIFIED chol→cth=2.35×, chor→cth=2.22×; F157 POSITIONAL FRAMING RETRACTED (F163, exp_156)**
+- chol: second=1.87×, MID=1.25×, LF=0.30× (NOT a line-opener). chor: second=2.33×, LF=0.64×.
+- chol→cth bigrams (n=20): 55% from chol@second, 45% from chol@MID, 0% from chol@LF. Corrected construction: [LF-word][chol@second][cth@subsequent].
+- chol@LF (n=11): second-pos is ch-onset 54.5% (~8× enriched) — [chol@LF][ch@second] pattern, never cth at second.
+- Verified bigram enrichments: chol→cth=2.35×, chor→cth=2.22× (real).
+- daiin→cth bigram real (3.08×). Daiin→cth positional context still to verify (H314).
+- dy→sh real within-line construction. HELD.
 
 **NO A-PARTICLE INTRODUCES sh/ch_e AT 3×+; sh=SELF-INTRODUCED (1.68×); ch_e=SELF-INTRODUCED (1.98×); cth-ENRICHED PARTICLE CLUSTER (daiin/chol/chor/cthol→cth AT 2.1-3.1×) DEPLETES sh/ch_e; aiin/ol→cth=0.00× BUT →ch_e=1.4-2.0× (F156, exp_149)**
 - sh before-context: self-succession=1.68×; d=0.77×, cth=0.64× (depleted). No particle >2.5×.
