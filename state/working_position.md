@@ -232,7 +232,113 @@ VMS MI is above Timm at lags 10-12, but this is driven by the longest VMS lines 
 
 ---
 
-## 7. RECOMMENDED NEXT DIRECTIONS
+## 7. EVIDENCE HIERARCHY
+
+For each theory verdict, what are the one or two findings it actually rests on? Listed in order of importance: the finding that, if it disappeared, would most change the verdict.
+
+---
+
+### Cipher hypothesis: SIGNIFICANTLY WEAKENED
+
+**#1 (decisive): -am LL enrichment is 6.811× in VMS, ≈1.0× across all 400 Naibbe simulations.**
+
+This is not a marginal miss. The VMS value falls outside the Naibbe distribution with p ≈ 0, across all four protocol conditions (Italian/Latin × protocol A/B). No position-blind cipher mechanism can produce line-final suffix specificity of this magnitude, because a cipher maps plaintext characters to glyph strings without regard to their position in the physical line. For the cipher hypothesis to survive, the proposed cipher would need to know, at encoding time, that the current word is at the end of a line — and then assign that word to the -am suffix class. No existing cipher proposal does this. This finding alone — if reproducible by some other mechanism — would require a fundamentally different cipher architecture than any currently proposed.
+
+**#2 (convergent): Naibbe and Timm both fail on the same positional metrics (-am LL, y-onset LF, d LL, qok LF depletion).**
+
+A single-model failure could be attributed to a flaw in that specific model. Convergent failure across two completely different generation mechanisms (homophonic cipher vs. local copy) at exactly the same four metrics rules out "this cipher in particular is wrong." Both mechanisms are position-blind; both fail at position-sensitive metrics. The convergence implies the failure is about the position-blindness, not the cipher-vs-copy distinction.
+
+---
+
+### Self-citation hypothesis: FALSIFIED AS SOLE MECHANISM
+
+**#1 (theoretically decisive): VMS B-dialect MI at lags 2-7 is BELOW the Timm 95% CI.**
+
+This is a direct test of a necessary implication of self-citation. Any copy-window mechanism MUST generate elevated MI within the window length (WINDOW=50 words ≈ 6 lines ≈ lags 1-50 at the word level). At the within-line lags that should show window effects (2-7), VMS MI is systematically below Timm's. This is the opposite of what self-citation predicts. The finding rules out the specific MI profile that any copy-window mechanism must produce, regardless of parameter choices. (Note: the lags 10-12 ABOVE Timm result is internally ambiguous — see synthesis_audit.md — and should not be given equal weight.)
+
+**#2 (quantitative): Identical adjacent word rate is 4× too high in Timm (0.037) vs VMS (0.009).**
+
+Self-citation's core operation is copying recent words. When the copy window includes the immediately preceding word (the most common case with COPY_PROB=0.85 and a recent window), the mechanism produces word-word exact repetitions far more often than VMS shows. Timm produces 4.1× the VMS rate of adjacent identical words. This is not a parameter-tuning issue — reducing COPY_PROB or increasing MODIFY_PROB suppresses self-succession (which we know exists at 1.24-1.69×), creating a paradox: the mechanism cannot simultaneously produce the right amount of self-succession and the right amount of exact word repetition. The VMS sits in a quantitative zone Timm cannot reach at any parameter setting.
+
+---
+
+### Template-generation hypothesis: FALSIFIED AS SOLE MECHANISM
+
+**#1 (decisive): -am LL suffix specificity — -am is 6.9× enriched at LL while every other common suffix is near-baseline or depleted (exp_174).**
+
+If LL were a generic positional slot filled from the available vocabulary, other common suffixes should show moderate LL enrichment proportional to their frequency and LL compatibility. Instead: -am=6.9×, al=0.91, aiin=0.39, ar=0.48, edy=0.35, ol=0.59, or=0.57. The contrast between -am (strongly preferred) and edy (the most common B-dialect suffix overall, at 18% of words, but depleted at LL to 0.35×) is the sharpest version of this argument. A template that assigns words to LL positions would need to have -am as its exclusive LL-compatible suffix and explicitly exclude the other 99% of common words — which is just another way of saying the template has a grammar rule, not a generic slot.
+
+**#2 (position-control confirmation): Self-succession and qok→ch enrichment survive within-stratum position control at 1.2-1.8× (exp_174).**
+
+Even after controlling for the position transition (pi→pj), onset-class words still disproportionately follow same-onset-class words. A pure template model predicts that controlling for position should eliminate onset-class succession effects (because the template assigns words to slots, and all effects are position-driven). The residual 1.2-1.8× enrichment after position control means onset-class grammar rules operate independently of positional assignment. The template must itself be onset-class-aware — which is functionally a grammar.
+
+---
+
+### Structured-grammar hypothesis: BEST SUPPORTED
+
+**#1 (base case): All four core positional findings survive Bonferroni correction AND fall outside both null model CIs AND replicate in cross-validation.**
+
+The triple convergence — (a) Bonferroni-corrected (p < 10⁻²⁶ to p < 10⁻¹⁶¹), (b) outside Naibbe and Timm CI, (c) passing 80/20 cross-validation — is the strongest evidentiary basis available from this dataset. The -am LL and y-onset LF findings in particular hit all three simultaneously with extreme effect sizes (6.8× and 3.5×). No other theory successfully accounts for these. The structured-grammar hypothesis accounts for them naturally: a grammar rule selects -am words for line-final positions and y/s/t-onset words for line-first positions.
+
+**#2 (internal coherence): The positional enrichments, self-succession patterns, and sequential grammar (qok→ch) form a mutually consistent grammar system that survives independent position control.**
+
+This is not three isolated findings — it is a coherent system. -am words are enriched at LL; d self-succession is concentrated specifically at transitions leading to LL (MID→LL=0.180 vs LF→second=0.021); qok→ch is enriched at mid-line transitions (MID→MID, MID→LL) where both classes appear; y-onset words prefer LF along with the other simple-onset classes (s, t, d). The findings describe a positional grammar where: (a) specific onset/suffix classes occupy specific positions, (b) within those positions, classes co-select each other, and (c) the co-selection rules are consistent with the positional rules. This internal coherence is harder to produce by chance, and is the strongest argument that the pattern is a genuine grammar rather than a collection of independent statistical artifacts.
+
+---
+
+## 8. WHAT WOULD FALSIFY THE STRUCTURED-GRAMMAR VERDICT
+
+The structured-grammar verdict rests on: positional enrichments (-am LL, y-onset LF) are intrinsic to Voynichese structure and require onset-class grammar rules to explain. What experiment, producing what specific result, would weaken this?
+
+---
+
+### Falsifying experiment 1 (most important): A position-sensitive cipher that reproduces all four core metrics simultaneously
+
+**The model**: A cipher with separate encoding tables for line-first (LF), mid-line (MID), and line-final (LL) positions. Specifically: a cipher that maps clause-final morphemes of a specific source language to EVA -am suffix words at LL, and maps clause-initial words beginning with a specific phoneme class to y/s/t-onset EVA words at LF.
+
+**The specific result needed to falsify**: Simulate this cipher on a natural language corpus (candidate: classical Arabic, which has /-um/ indefinite accusative as a clause-final morpheme; or a Semitic language with clause-boundary morphology) and show that it simultaneously reproduces:
+1. -am LL enrichment ≥ 5× (not just direction — magnitude matters)
+2. y-onset LF enrichment ≥ 2×
+3. Onset self-succession 1.2-1.7× (without overproducing to Timm levels of 1.5-2.4×)
+4. qok→ch enrichment 1.2-1.3× at mid-line positions
+
+Why this would matter: It would demonstrate that the positional grammar is a cipher artifact of a position-sensitive encoding applied to a language with the right clause-boundary properties. The structured-grammar verdict would then not be distinguishable from a position-sensitive cipher of the right source language.
+
+Why this is hard: The four metrics are jointly constrained. A position-sensitive cipher producing -am at LL would almost certainly also cause other line-ending words to cluster in specific onset classes, disrupting d LL enrichment (d-onset words also prefer LL, 1.46×). And producing the right self-succession (1.2-1.7×, not 1.5-2.4×) while maintaining positional specificity requires the source language to have exactly the right level of adjacent-word class repetition. No known cipher proposal approaches this simultaneously.
+
+---
+
+### Falsifying experiment 2: Demonstration that -am is a scribal line-ending truncation artifact
+
+**The model**: Scribes in a particular tradition end lines mid-word by taking the available space and writing the character sequence "-am" as a conventional truncation marker. If this is common, the -am LL "enrichment" is not a grammatical preference but a scribal formatting convention.
+
+**The specific result needed to falsify**: Show that -am words at LL are not complete words in their section-level context — specifically, that they occur at LL in positions where the preceding word(s) suggest the line was filled to capacity (ruling out free grammatical placement) and that non-LL -am words have different surface forms (different lengths, different preceding context) that are inconsistent with the LL -am tokens being the same word type.
+
+Why this is hard: The -am LL enrichment is present in both A and B dialects (A: 3.6×, B: 6.9×), across all sections, and cross-validates on 80% holdout data. A scribal truncation explanation would need to operate across both dialect hands, all sections, and remain consistent on random holdout splits. Additionally, the -am enrichment would need to produce exactly the right co-occurrence with d-onset words at LL (d self-succession concentrates at MID→LL transitions — this is independently consistent with grammar). A truncation hypothesis that explains all these correlations simultaneously seems implausible without becoming functionally equivalent to the grammar hypothesis.
+
+---
+
+### Falsifying experiment 3: Cross-quire validation showing positional grammar collapses in specific quires
+
+**The model**: The corpus is organized into physically distinct quires. If the positional grammar findings are scribal habits of one quire's scribe rather than a system-wide property, they should show quire-level heterogeneity.
+
+**The specific result needed to falsify**: A leave-one-quire-out cross-validation in which the -am LL enrichment or y-onset LF enrichment fails to replicate on held-out quires for ≥4 of ~8 quires — specifically the B-dialect quires (quires containing the bio and stars sections). The leave-one-section-out analysis (exp_172) already tested this at section level and found only the leave-cosmo split (n=32 lines) failed. A quire-level LOSO would be stricter. If the positional grammar is scribe-specific (one scribe who wrote most of the B-dialect section), then quire-level LOSO would expose this.
+
+**Why this partially matters**: The cross-validation in exp_172 used section-level splits, which are larger than quire-level splits. A quire-level collapse would not prove the grammar is absent from Voynichese — but it would mean the "grammar" is attributable to one scribe's idiolect rather than a system-wide encoding. That would significantly change the interpretation: the grammar might then be a property of the scribe rather than the script, which would reframe the theory space considerably.
+
+---
+
+### What would NOT falsify structured grammar
+
+- Finding a generative model that reproduces ALL findings without positing grammar: This would weaken the verdict only if the model is mechanistically simpler than "structured grammar." If the model requires position-sensitive encoding rules that are functionally equivalent to grammar rules, it does not falsify the conclusion — it merely relabels it.
+
+- Finding that some findings fail in LOSO: The cross-validation already showed section-level heterogeneity (leave-pharma: 11/19, leave-cosmo: 10/19). Partial LOSO failure is expected for any real structural finding in a heterogeneous corpus. The verdict would require that the CORE positional grammar findings (-am LL, y-onset LF, onset self-succession) specifically fail, not peripheral findings.
+
+- Finding a natural-language source language for the cipher: This would change the theory from "constructed grammar" to "cipher of a language that happens to have these structural properties" — but would not eliminate the conclusion that VMS has structured positional grammar. It would reframe its origin, not deny its existence.
+
+---
+
+## 9. RECOMMENDED NEXT DIRECTIONS
 
 These are possible next steps, not commitments. They are offered for human judgment.
 
