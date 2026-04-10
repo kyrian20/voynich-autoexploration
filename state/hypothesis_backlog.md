@@ -2796,6 +2796,58 @@
 
 ---
 
+## H264: Cosmo Line-Element Template — Does Cosmo Have a Formal Line-Template Analogous to Stars' [OPENER][sh-2nd (2.25×)][-am LAST (8.06×)]?
+**Priority:** high
+**Status:** CONFIRMED (exp_135) — Cosmo template: [s/y/p/t/d OPENER (2.6-4.7×)][sh 2nd (1.75×)][l/r/ol CLOSER][−am(7.87×) or −y/−dy SUFFIX CLOSER]. -am CLOSER is pan-B-section (cosmo=7.87×, stars=7.48×). cth absent from cosmo first (consistent with B-dialect cth depletion). (F142)
+**Source:** F138: Stars has a line-element template [p/s/y/d/t OPENER (5-7×)][sh-2nd (2.25×)][-am LAST (8.06×)]. F140: Cosmo line-first dominated by s(17.7%)+qok(16.9%); line-last =-y(25.5%); cosmo is the most internally cohesive section (0.965). F141: ol self-chains (post-ol=ol 1.89×) in cosmo lines. What is the complete cosmo line-element template?
+**Description:** For cosmo body text: (1) compute line-position onset enrichment (first/second/mid/last) — how enriched is each onset class at each position? (2) compute line-position suffix enrichment (first/mid/last) — what suffix classes cluster at line-start vs line-end in cosmo? (3) compare cosmo enrichments to stars enrichments from F138 — are the same position classes used? (4) identify the cosmo line template analogous to the stars template.
+**Expected outcome:** Cosmo line template: [s or qok OPENER][ol or sh-content MID][ol-chain][oly or -y CLOSER]. The cosmo template should have qok at line-start (16.9% LF from F140), ol self-chaining in the middle, and -y suffix at line-end. The template is distinct from stars but uses the same slot structure.
+**Cost estimate:** small
+**Prerequisites:** F138, F140, F141
+
+---
+
+## H265: Cross-Section Vocabulary Jaccard Matrix — What Is the Full Pairwise Similarity Between All 5 Sections?
+**Priority:** medium
+**Status:** CONFIRMED (exp_135) — Cosmo-stars=closest pair (J=0.1371); herbal-pharma=0.1209; herbal-stars=0.1199. Astro=most isolated (astro-stars=0.0434). 71-word universal vocabulary core dominated by d/ol onsets. Herbal=vocabulary superset (0 absent types when word is in all other 4). (F142)
+**Source:** F140: cosmo-stars Jaccard=0.178; cosmo-herbal=0.134; stars-herbal=0.164. But the full 5×5 matrix (herbal/pharma/stars/cosmo/astro) has not been computed. Which section pairs share the most vocabulary?
+**Description:** Compute pairwise Jaccard similarity (type overlap) for all 5 sections. Also compute overlap with A-dialect only and B-dialect only subcorpora. Do herbal-pharma share more vocabulary than herbal-stars? What is the "vocabulary distance tree" of the manuscript sections?
+**Expected outcome:** Herbal-pharma Jaccard > herbal-stars Jaccard (A-dialect sections share more vocabulary). Stars-cosmo Jaccard > stars-herbal (B-dialect sections share more). A full distance matrix would allow dendrogram-style section clustering.
+**Cost estimate:** trivial
+**Prerequisites:** F140
+
+---
+
+## H266: Is -am a SENTENCE-FINAL (paragraph-final) Marker, Not Just a LINE-FINAL Marker?
+**Priority:** high
+**Source:** F142: -am CLOSER is pan-B-section with ~7.8× line-end enrichment in both cosmo and stars. F138: stars -am=8.06×. The -am pattern may be even stronger at paragraph-final lines.
+**Description:** Identify paragraph-final lines using locus code changes (new paragraph marker). Compute -am enrichment at paragraph-final lines vs all line-final positions vs non-final positions. Compare cosmo and stars. If -am is ~2× more common at paragraph-final than at regular line-final, it is a sentence/paragraph boundary marker, not just a line closer.
+**Expected outcome:** -am is elevated at paragraph-final lines (>10× enrichment vs corpus baseline). This would make -am a discourse-level boundary marker, the strongest structural signal in the manuscript.
+**Cost estimate:** small
+**Prerequisites:** F142, F138
+
+---
+
+## H267: Does the 71-Word Universal Core Constitute a Closed Functional Vocabulary With Distinctive Positional Distribution?
+**Priority:** medium
+**Source:** F142: 71 word types appear in all 5 sections, dominated by d-onset (daiin, dain, dal, dar, dy) and ol/other particles (ol, aiin, ar, or, al). These are likely the manuscript's "function words."
+**Description:** Extract the 71 universal words. Compute their: (1) positional distribution (LF/MID/LL) vs section-exclusive words; (2) onset-class composition vs section-exclusive vocabulary; (3) bigram context (what onset classes precede/follow universal words?). If these 71 words are more positionally variable (can appear at any position) but bigram-context-specific, they are function words in the linguistic sense.
+**Expected outcome:** Universal words have balanced LF/MID/LL distribution (not position-constrained) unlike section-exclusive vocabulary. They appear in diverse bigram contexts, consistent with grammatical function words.
+**Cost estimate:** small
+**Prerequisites:** F142
+
+---
+
+## H268: What Is the Positional Distribution of the 31 Cosmo-Absent Words (chor, sho, cthy, cthol, cheo)?
+**Priority:** medium
+**Source:** F142: 31 word types are in all sections except cosmo, including chor(167), sho(89), cthy(87), cthol(51), cheo(33). All are cth/ch-onset words. Are these concentrated in specific folio ranges suggesting scribe-specific vocabulary?
+**Description:** Extract chor, sho, cthy, cthol, cheo, and the other 26 cosmo-absent words. For each: (1) compute folio-level frequency distribution; (2) check whether they cluster in A-dialect folios specifically; (3) compare their onset profiles to the ch/cth depletion confirmed for B-cosmo (F139). If chor/sho/cthy all concentrate in A-dialect herbal folios, the cosmo absence reflects dialect-level suppression of the A-nominal class (cth/ch).
+**Expected outcome:** chor/sho/cthy/cthol cluster in A-herbal/A-pharma folios. Their absence from cosmo reflects the same B-dialect cth depletion mechanism identified in F139 (B-herbal universally depleted in cth). This would make the cosmo-absent set a near-perfect A-dialect vocabulary marker.
+**Cost estimate:** small
+**Prerequisites:** F142, F139
+
+---
+
 ## H263: Stars-Exclusive ch+eo Vocabulary — Is ch+e+o a Morphological Sub-Class of Stars ch-Onset? What Are cheo/cheody/cheeo's Positional Profiles?
 **Priority:** high
 **Status:** CONFIRMED REVISED (exp_134) — ch+eo has VOWEL-GRADIENT not stars-exclusivity: ch+o=27% stars, ch+eo=40%, ch+eeo=55%, ch+eeeo=100%. Parallels suffix gradient edy→eedy→eeedy (36%→48%→63%). e-vowel extension = stars-specific marker at multiple structural levels. (F141)

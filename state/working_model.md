@@ -1,5 +1,5 @@
 # Working Model — Voynich Manuscript Cryptanalysis
-**Last updated:** 2026-04-09 (after exp_134)
+**Last updated:** 2026-04-09 (after exp_135)
 **Purpose:** Continuously-updated structured summary of current beliefs about Voynichese.
 **Discipline:** Characterization, not interpretation. Claims require experimental warrant.
 
@@ -221,6 +221,17 @@ These findings have been replicated across independent analyses or confirmed by 
 - eee (triple-vowel) words: stars=17.25‰, cosmo=4.40‰ (suppressed). Vowel-length gradient monotonically stars-concentrated (edy→eedy→eeedy: 36%→48%→63%). eee enriched in ok/ol/qo (1.7-1.9×), suppressed in ch/sh (0.37-0.46×).
 - A-dialect section variation: herbal-A=-y dominant (qok=37%, ch=29%); pharma-A=-ol dominant (qok=41%, ok=40%); 8.9% avg diff (3.5× weaker than B's 31%).
 - FOUR-LEVEL suffix hierarchy: Dialect (A/B) → Stem class (Simple-B/Complex-B; A-y/-ol) → Section (B: stars/cosmo/herbal; A: herbal/pharma) → Vowel length (stars triple-vowel extension). Strong evidence for natural language morphology.
+
+**COSMO LINE TEMPLATE = [s/y/p/t/d OPENER (2.6-4.7×)][sh 2nd (1.75×)][l/r/ol CLOSER][-am(7.87×)/-y/-dy SUFFIX CLOSER]; -am IS PAN-B-SECTION CLOSER (COSMO=7.87×, STARS=7.48×); COSMO-STARS=CLOSEST SECTION PAIR (Jaccard=0.1371); 71-WORD UNIVERSAL CORE (daiin/ol/chol dominant); HERBAL=VOCABULARY SUPERSET (F142, exp_135)**
+- Cosmo template: FIRST: p(4.67×), s(4.10×), y(3.78×), t(2.59×), d(1.81×); DEPLETED: ch_e(0.23×), sh(0.47×). SECOND: sh(1.75×). LAST onset: r(2.19×), l(2.16×), ol(1.69×). LAST suffix: -am(7.87×), -dy(2.22×), -y(2.04×).
+- -am CLOSER is pan-B-section: cosmo=7.87×, stars=7.48× (REVISES F138 which implied stars-concentration). -am is a SENTENCE-FINAL MARKER across both major B sections.
+- 5×5 Jaccard matrix: cosmo-stars=0.1371 (highest pair), herbal-pharma=0.1209, herbal-stars=0.1199. Astro=most isolated (astro-stars=0.0434, astro-herbal=0.0461). All pairwise J<0.15 — sections are highly distinct vocabulary communities.
+- Exclusive vocabulary: herbal=2488 types (70.7%), stars=2350 (67.9%), cosmo=1015 (56.7%), pharma=845 (54.4%), astro=132 (38.7%). Astro's low exclusive fraction confirms heterogeneous composition (F140).
+- 71 universal words in all 5 sections: daiin(641), ol(318), chol(290), qokeey(276), chey(258). d-onset and ol dominate the universal core.
+- Herbal=vocabulary superset: 0 words absent from herbal when present in all other 4 sections. Stars nearly a superset (only 5 absent).
+- Absent from cosmo: 31 types including chor, sho, cthy, cthol — all cth/ch forms, consistent with B-dialect cth depletion (F139).
+- B-dialect Jaccard confirms: cosmo-stars=0.1523 (highest B pair), herbal-cosmo=0.1512. B-cosmo vocabulary bridges B-herbal and stars.
+- cth absent from cosmo FIRST position (0.23×) vs stars cth=1.89× at FIRST — same cth depletion in B-cosmo at grammatical level.
 
 **ol-ONSET = MEDIAL PARTICLE/MODIFIER (MID=74.6%, LF=7.7%); ol SELF-CHAINS (pre-ol=ol 1.68×, post-ol=ol 1.89×); STANDALONE "ol"(n=474) + ol+k-stem B-COSMO COMPOUND WORDS; ol = o+l DOUBLE-PREFIX; ch+eo VOWEL-GRADIENT: ch+o=27%STARS→ch+eo=40%→ch+eeo=55%→ch+eeeo=100%; e-VOWEL EXTENSION = STARS MARKER AT ALL STRUCTURAL LEVELS (F141, exp_134)**
 - ol-onset: 1333 tokens, MID=74.6%, LF=7.7% — never a line-opener. Cosmo=2.06×. B=81.5%.
