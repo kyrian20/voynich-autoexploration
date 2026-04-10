@@ -5,6 +5,14 @@
 
 ---
 
+## F159: cthol@SECOND DRIVEN BY ch/sh LINE-OPENERS BROADLY (ch=40%, d=20%); NOT EXCLUSIVELY [chol/chor][cthol]; daiin→cthy→LL CONFIRMED AS DOMINANT cthy-CLOSING CONSTRUCTION (daiin=19% of penultimate pre-cthy-LL, ~5× enriched); H301 SECTION ANALYSIS FAILED (bug: folio_base 'f1r' ≠ section_map key 'f1')
+**Experiment:** exp_152_cthor_section_cthol_second
+**Date:** 2026-04-10
+**Finding:** H302 PARTIALLY CONFIRMED. cthol at second (n=15): ch-onset LF words=40% (chol=20%, chor=13%, other-ch=7%); d-onset (daiin)=20%; sh=13%. Specific chol/chor openers = 33% — not dominant. cthol's second-position enrichment (1.94×) reflects a general feature of ch/sh-opening lines, not exclusively Type 2 [chol/chor][cthol]. BONUS CONFIRMED: daiin is the most common penultimate word before cthy-at-LL (4/21=19%, ~5× enriched vs 3.8% baseline). The [daiin][cthy→LL] line-closing nominal construction is directly confirmed. H301 failed due to section-mapping bug (folio_base 'f1r' ≠ SECTION_MAP key 'f1'); requires fix.
+**Limitation:** cthol@second n=15 (small); cthy@LL n=21 (moderate); daiin-as-penultimate n=4 (small-n confirmation). Section analysis incomplete due to bug.
+
+---
+
 ## F158: 4-WAY cth POSITIONAL PARADIGM CONFIRMED (cthor=LF-OPENER 1.76×; cthol=SECOND 1.94×; cthody/ctheody=MID 1.29-1.68×; cthy=LL-CLOSER 1.39×); daiin→cthy=LINE-CLOSING (5 cases) + daiin→cthol=MEDIAL (6 cases); chol@LF→cth@SECOND=3.11× (31.2% of chol-lines have cth)
 **Experiment:** exp_151_cth_positional_paradigm
 **Date:** 2026-04-10

@@ -3000,6 +3000,7 @@
 
 ## H301: What is cthor's Full Positional Profile in A-Herbal vs A-Pharma? Is cthor's LF=1.76× Concentrated in Herbal?
 **Priority:** medium
+**Status:** FAILED (exp_152) — section-mapping bug: SECTION_MAP used 'f1' keys but folio_base values are 'f1r'/'f1v'. Fix: strip r/v suffix before lookup. H303 is the retry.
 **Source:** F158: cthor is LF-enriched (1.76×) across all A-dialect. cthor was previously noted (F147/F149) to have anomalous positional behavior. Does cthor's LF-enrichment come specifically from A-herbal lines?
 **Description:** (1) Compute cthor positional distribution (LF/second/MID/LL) separately for A-herbal vs A-pharma vs A-other sections. (2) In A-herbal specifically: what is cthor's LF% vs baseline? (3) What is the most common second word after cthor-at-LF? This reveals whether cthor is a line-opening nominal in herbal-specific constructions.
 **Expected outcome:** cthor's LF=1.76× is driven by A-herbal (section where cth-words are concentrated). In A-pharma, cthor may be near-baseline. A-herbal cthor-at-LF is likely followed by cthol or cthy (the second-position/medial cth-words).
@@ -3010,11 +3011,32 @@
 
 ## H302: Is cthol@Second Driven by the Type 2 [Line-Opener][cthol] Construction or Also Appears Second in Other Contexts?
 **Priority:** medium
+**Status:** PARTIALLY CONFIRMED (exp_152). cthol@second (n=15): ch-onset LF=40%, d(daiin)=20%, sh=13%. chol/chor specific=33%. General ch/sh-opening lines account for most cthol@second cases. Not exclusively Type 2. Also: daiin is penultimate before cthy@LL in 4/21=19% (~5× enriched) — confirming [daiin][cthy→LL] construction. (F159)
 **Source:** F158: cthol appears at second position 31.2% (1.94×). This could be driven by the Type 2 [chol/chor at LF][cthol at second] construction, or cthol may independently appear at second in other contexts (e.g., after daiin at LF, or after other line-openers).
 **Description:** For all A lines where cthol is at second position: (1) What word is at LF? Distribution across chol/chor/daiin/other. (2) What fraction of cthol@second come from chol/chor-opening lines vs other contexts? (3) Is cthol@second specifically a Type 2 phenomenon, or does it appear broadly at second across diverse LF words?
 **Expected outcome:** ~30-50% of cthol@second cases come from chol/chor-opening lines (Type 2). The remaining 50-70% come from other line-openers (y+ch, d+ch type), showing cthol is independently enriched at second across diverse contexts.
 **Cost estimate:** trivial
 **Prerequisites:** F158
+
+---
+
+## H303: cthor Section Profile — RETRY WITH CORRECT FOLIO MAPPING (H301 BUG FIX)
+**Priority:** medium
+**Source:** F159: H301 failed due to section_map bug (folio_base 'f1r' ≠ key 'f1'). Fix: `folio_num = int(re.sub(r'[rv]$', '', folio_base[1:]))` to extract numeric folio, then look up section.
+**Description:** Re-run cthor positional profile by section (herbal/pharma/astro/other) in A-dialect with correct folio→section mapping. (1) cthor count per section; (2) positional profile (LF/second/MID/LL) per section; (3) Is cthor's LF=1.76× concentration driven by A-herbal specifically?
+**Expected outcome:** cthor is concentrated in A-herbal (consistent with F147 finding that cthor is an A-herbal specific word with T1>>T3 gradient). cthor's LF=1.76× will be confirmed or refined within A-herbal.
+**Cost estimate:** trivial
+**Prerequisites:** F159
+
+---
+
+## H304: Is [daiin][cthy] A Specific Two-Word Fixed Phrase, or Does daiin Enrich Before ALL cth-Words at LL?
+**Priority:** medium
+**Source:** F159: daiin is penultimate before cthy@LL 4/21=19% (~5× enriched). Is this enrichment specific to cthy, or does daiin also enrich before cthol@LL, cthor@LL, etc.?
+**Description:** (1) For each cth-word at LL, compute penultimate word distribution. (2) Is daiin enriched specifically before cthy@LL or equally before all cth-words@LL? (3) Compute: baseline daiin rate as penultimate word vs daiin rate as penultimate before cthy@LL vs cthol@LL vs cthor@LL. If daiin enriches only before cthy@LL, [daiin][cthy] is a specific fixed phrase. If daiin enriches before all cth@LL equally, daiin→cth@LL is a general construction (daiin introduces line-final cth-words).
+**Expected outcome:** daiin specifically enriches before cthy@LL (not equally before all cth@LL). This would confirm [daiin][cthy] as a two-word fixed phrase (nominal closing construction), analogous to a determined noun phrase where daiin=determiner and cthy=the specific nominal form used at line-ends.
+**Cost estimate:** trivial
+**Prerequisites:** F159
 
 ---
 
