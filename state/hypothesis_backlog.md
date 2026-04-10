@@ -2615,6 +2615,7 @@
 
 ## H245: cth-Onset Vocabulary — Are cth-Words a Closed or Open Noun Class?
 **Priority:** medium
+**Status:** CONFIRMED PARTIAL (exp_126) — cth is a SEMI-CLOSED nominal class: top5=55.4% (vs ch=28.1%, sh=36.8%); herbal+pharma=90% of tokens; A-cth=85 types (71.6% hapax), B-cth=20 types (hybrid forms); A/B Jaccard=0.117; NOT a productive prefix — marks specialized herbal/pharma nominal vocabulary; high hapax at margins indicates large rare plant-name inventory (F133)
 **Source:** F129: cth-onset is the target of the A-dialect NP template (daiin→cth=2.77×, chol→daiin→cth). If cth-words are nouns, they should form a relatively closed class (finite vocabulary). F114: cth- strips to reveal constrained stems. H222 (tested as exp_109): cth-onset hapax rate vs other onset classes?
 **Description:** Characterize the cth-onset vocabulary: (1) how many distinct cth-types are there? (2) what is the hapax rate (types seen only once)? (3) what is the frequency distribution (Zipfian? Geometric? Evidence for open/closed class)? (4) compare to qok-onset (B-paradigm "noun" class). (5) are cth-words section-specific (different cth words in herbal vs pharma vs cosmo)? (6) what is the cth-word type-token ratio vs baseline? A closed class would show low hapax rate, high repetition, small type count. An open class would show high hapax rate, low repetition, Zipfian distribution.
 **Expected outcome:** cth-onset is a semi-closed class (small vocabulary, moderate hapax, strong section specialization) consistent with a proper-noun or plant-name-like lexicon in herbal/pharma sections. This would support the "herbal glossary" interpretation where cth-words name plants.
@@ -2624,6 +2625,7 @@
 
 ## H246: Suffix Sequence Within Lines — Is There a Positional Suffix Grammar?
 **Priority:** medium
+**Status:** CONFIRMED (exp_126) — Within-line suffix grammar confirmed in A-dialect: -or(0.371) < -ol(0.441) < -ey/-aiin(0.45-0.53) < -dy/-al(0.58-0.59) < -am(0.799); -or enriched at 0-20%(1.51×); -dy/-al enriched at 80-100%(1.51×/1.50×); aiin→am=4.62× strongest suffix bigram; -ol before -aiin=54.6% (p<0.01); B-dialect same directionality but flatter; full line grammar = line-level NP template (F133)
 **Source:** F129: Suffix encodes syntactic position (aiin=cth-determiner, ol=pre-d, or=pre-noun). If suffixes encode syntactic position, then WITHIN a line, the suffix sequence should show systematic patterns: e.g., -ol words appear before -aiin words appear before content words. Is there a within-line suffix grammar?
 **Description:** For each line, extract the sequence of suffixes. Compute: (1) suffix bigrams within lines (what suffix follows what suffix? constrained or free?); (2) suffix positional enrichment within lines by line-fraction (0=start, 1=end) rather than absolute position; (3) test whether -ol appears before -aiin within the same line; (4) entropy of suffix at each fractional position. Compare A-dialect and B-dialect. 
 **Expected outcome:** Within A-dialect lines: -ol suffix appears at fraction 0.2-0.4 (modifier position); -aiin appears at 0.3-0.5 (determiner position); cth-onset at 0.4-0.6 (noun position); -y/-dy at 0.7-1.0 (closing position). This would confirm that the within-line suffix sequence is a positional grammar, not random.
@@ -2669,3 +2671,33 @@
 **Description:** Extract all cth-onset tokens in B-dialect text. Characterize: (1) which specific words (cthy, cthor, cthol, etc.); (2) which folios and sections contain them; (3) are they in specific paragraphs or distributed evenly?; (4) do they appear next to A-paradigm words (daiin, chol) or B-paradigm words (shedy, qokeedy)?; (5) are these the same cth-words as in A-dialect or different cth-words?
 **Expected outcome:** B-dialect cth-tokens are: (a) localized to specific folios with mixed A/B dialect content (folio-level misclassification), OR (b) a fixed set of cth-words used formulaically in B-dialect (e.g., as proper names or section headings), OR (c) A-dialect insertions into B-dialect folios. The cth→cth=8.79× self-clustering suggests they cluster in specific passages.
 **Cost estimate:** small
+
+---
+
+## H251: y-Prefix Class Full Characterization — What Are the 1374 y-Prefix Words?
+**Priority:** high
+**Source:** F132: y-prefix was discovered as a new prefix class (1374 tokens, 85.6% stem recovery, A/B ratio=0.76 = balanced). Unlike r- (8.4× B) and p- (3.4× B), y- is nearly dialect-neutral. The y-prefix class appeared in stars line-start analysis (exp_123) and prefix recovery (exp_125). What are y-words? What stems do they attach to? What section/dialect/position profile do they have?
+**Description:** Extract all y-initial words (≥2 chars) from body text. Characterize: (1) top y-words by frequency; (2) y-stripped stem distribution (what onset classes after stripping y?); (3) dialect distribution of y-words (A vs B); (4) section distribution (herbal/cosmo/stars/pharma); (5) positional behavior (line-start vs line-end vs medial); (6) do y-words appear in both A-dialect and B-dialect text or are there separate A-y and B-y vocabularies? Cross-reference with the known "y-initial = line-continuation particle" (F057) and "y-prefix = B-para-start" observations (F130).
+**Expected outcome:** y-prefix shows two sub-types: (a) A-dialect y-words (y+ch/sh stems, appearing as continuation particles within A paragraphs) and (b) B-dialect y-words (y+k/t stems appearing at B-line-starts as formula openers). These may be homophonous y-prefixes with different grammatical functions. If the y-stem recovery is 85.6% for both, the underlying stems should be identifiable.
+**Cost estimate:** small
+**Prerequisites:** F132 (y-prefix identified in prefix taxonomy)
+
+---
+
+## H252: aiin→am Formulaic Construction — Is [daiin][am] a Recurrent A-Dialect Phrase?
+**Priority:** medium
+**Source:** F133: aiin→am suffix bigram = 4.62× (strongest suffix bigram in the corpus; after -aiin words, -am words follow at 4.62×). This could mean: (a) [daiin][dam] is a formulaic phrase closing determiner phrases; (b) [daiin][am] as a particle sequence; (c) any -aiin word is followed by a line-closing am-word at elevated rates.
+**Description:** Test: (1) What are the specific word pairs that generate aiin→am=4.62×? Tabulate top [word_aiin][word_am] bigrams. (2) Is daiin specifically involved or is it any -aiin word? (3) Does [daiin][dam] appear as a fixed phrase? (4) What comes before and after this phrase? (5) How many times does this bigram appear and in which sections/folios?
+**Expected outcome:** [daiin][dam] or [daiin][am] is a small recurrent phrase in A-dialect herbal (consistent with the NP template: [chol][daiin][cthy][dam] = complete A-dialect sentence). If confirmed, this would give us the full 4-word A-dialect sentence template.
+**Cost estimate:** trivial
+**Prerequisites:** F133
+
+---
+
+## H253: Full A-Dialect Line Template — Is [-or/-ol][daiin][cthy][-am] a Canonical 4-Word Sentence?
+**Priority:** high
+**Source:** F133: The within-line suffix grammar reveals [-or/-ol modifier] → [-aiin determiner] → [cth-noun] → [-am closer]. If these four elements constitute the canonical A-dialect line, we should see the 4-gram [chol/chor][daiin][cthy/cthol][dam/am] at enriched rates. F128: The 3-gram [chol][daiin][cth-noun] is confirmed (n=26). Can we extend to the full 4-gram?
+**Description:** Search for 4-grams matching the template [W1=-ol/-or][W2=daiin/okaiin][W3=cth-onset][W4=-am/-dy/-al]. Compute: (1) how many 4-grams match; (2) what are the most common 4-gram instances; (3) what fraction of A-dialect lines contain this template; (4) is the 4-gram significantly enriched vs random onset sequence? Also test: does the -or word come BEFORE the -ol word (consistent with positional order)?
+**Expected outcome:** The full 4-gram [chor][daiin][cthy][dam] appears at enriched rates. This would be the most complete grammatical template recovered from the manuscript: a full 4-word A-dialect clause. Even if only 5-10% of A-dialect lines contain this exact template, that would be structurally significant.
+**Cost estimate:** small
+**Prerequisites:** F128 (3-gram template), F133 (4th element -am identified)

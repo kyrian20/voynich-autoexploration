@@ -1,5 +1,5 @@
 # Working Model — Voynich Manuscript Cryptanalysis
-**Last updated:** 2026-04-09 (after exp_125)
+**Last updated:** 2026-04-09 (after exp_126)
 **Purpose:** Continuously-updated structured summary of current beliefs about Voynichese.
 **Discipline:** Characterization, not interpretation. Claims require experimental warrant.
 
@@ -221,6 +221,14 @@ These findings have been replicated across independent analyses or confirmed by 
 - eee (triple-vowel) words: stars=17.25‰, cosmo=4.40‰ (suppressed). Vowel-length gradient monotonically stars-concentrated (edy→eedy→eeedy: 36%→48%→63%). eee enriched in ok/ol/qo (1.7-1.9×), suppressed in ch/sh (0.37-0.46×).
 - A-dialect section variation: herbal-A=-y dominant (qok=37%, ch=29%); pharma-A=-ol dominant (qok=41%, ok=40%); 8.9% avg diff (3.5× weaker than B's 31%).
 - FOUR-LEVEL suffix hierarchy: Dialect (A/B) → Stem class (Simple-B/Complex-B; A-y/-ol) → Section (B: stars/cosmo/herbal; A: herbal/pharma) → Vowel length (stars triple-vowel extension). Strong evidence for natural language morphology.
+
+**cth = SEMI-CLOSED NOMINAL CLASS (Top5=55.4%, Herbal+Pharma=90%); Within-Line A-DIALECT SUFFIX GRAMMAR: -or(FIRST) → -ol → -aiin(MIDDLE) → -dy/-al → -am(LAST); aiin→am=4.62×; B Flatter (F133, exp_126)**
+- cth top5 concentration=55.4% (vs ch=28.1%, sh=36.8%) — 2× more concentrated; marks specialized herbal/pharma nominal vocabulary (plant names, preparations). NOT a productive prefix.
+- cth section distribution: herbal=71.0% + pharma=18.9% = 90% of tokens — most section-specialized onset class. Essentially absent from cosmo/stars (B-sections).
+- A-cth has 85 types, 398 tokens (71.6% hapax in herbal); B-cth has 20 types, 57 tokens (hybrid forms: cthedy/cthdy). A/B Jaccard=0.117 (distinct vocabularies).
+- Within-line suffix positional order (A-dialect): -or(0.371) < -ol(0.441) < -ey/-aiin(0.45-0.53) < -dy/-al(0.584-0.586) < -am(0.799). Full line grammar = NP template extended: [-or/-ol modifier] → [-aiin determiner] → [cth-noun] → [-dy/-al/-am closer].
+- -or enriched at 0-20%(1.51×); -dy/-al enriched at 80-100%(1.51×/1.50×); aiin→am=4.62× (strongest suffix bigram).
+- -am = universal line-final closer: A mean=0.799, B mean=0.925. B-dialect less positionally structured (same directionality, flatter gradients).
 
 **SEVEN-PREFIX SYSTEM: o-/qo-/l-/r-/p-/y-/cth-; ok-/ot-/qok-/qot-Onset = PREFIXED DERIVED FORMS (NOT Primitive Stems); qo-Prefix k/t-Selective (Not ch/sh); B-cth=Hybrid Words cthedy/cthdy (B_frac=0.917/1.000); B-cth→cth=n=1 Only (F132, exp_125)**
 - ok-onset (okaiin=201) = o-prefix on k-stem; ot-onset (otaiin=137) = o-prefix on t-stem; qok-onset (qokaiin=265) = qo-prefix on k-stem; qot-onset = qo-prefix on t-stem. These are NOT independent onset classes.
