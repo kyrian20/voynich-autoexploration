@@ -2858,6 +2858,26 @@
 
 ---
 
+## H281: Is cthor Positionally Distinct from cthol? (cthor LF=39.4% vs cthol LF=20.4%)
+**Priority:** medium
+**Source:** F148: cthor has LF=39.4% (vs cthol=20.4%) — anomalously LF-present for a cth-word. cthor and cthol are the -or/-ol suffix forms of the same cth-stem. If cthor is a line-opener nominal (different grammatical role from medial cthol), this explains its faster decline in late A-herbal (F147): fewer line-opening constructions in later folios.
+**Description:** (1) Compute bigram context for cthor specifically (what precedes cthor at LF vs MID positions?). (2) Compare cthor vs cthol bigram context at line-first, medial, and line-final positions separately. (3) Is cthor's LF usage followed by a specific grammatical pattern (like cthol-medial is followed by d/ch content words)?
+**Expected outcome:** cthor at LF is a "topic-introducing" nominal (the subject of the botanical description), while cthol at MID is a "content particle." If cthor predominantly appears at LF followed by d-onset words (the typical A-herbal line structure), it marks a different grammatical role.
+**Cost estimate:** small
+**Prerequisites:** F148, F147
+
+---
+
+## H282: Are lchedy and cthol Bigram-Context-Equivalent After Dialect Normalization?
+**Priority:** medium
+**Source:** F148: lchedy and cthol have nearly identical positional profiles but completely different raw bigram contexts (qok/l before lchedy; d/ch before cthol). The difference in raw context reflects different dialect-level baseline frequencies. If we normalize by baseline onset frequencies in each dialect, do lchedy and cthol have similar RELATIVE bigram contexts?
+**Description:** (1) Compute bigram context of cthol (what onsets appear before/after, relative to A-dialect baseline). (2) Compute bigram context of lchedy (what onsets appear before/after, relative to B-dialect baseline). (3) If d-onset before cthol has the same enrichment ratio as qok-onset before lchedy (e.g., both ~1.5× baseline), this confirms positional-grammatical equivalence. If enrichment patterns are different, the positional similarity is coincidental.
+**Expected outcome:** After baseline normalization, both lchedy and cthol show similar enrichment patterns for their respective "preceding content word" onsets — confirming that both serve as medial content words following the dominant content words of their respective dialects.
+**Cost estimate:** small
+**Prerequisites:** F148
+
+---
+
 ## H279: Is cthor Botanically Specific to Early A-Herbal Folios? Why Does cthor Decline 2.5× Faster Than cthol?
 **Priority:** medium
 **Source:** F147: cthor disproportionately declines in A-herbal (T3/T1=0.24 vs cthol T3/T1=0.78). cthor and cthol are parallel nominal forms (-or vs -ol suffix). What explains cthor's extra decline?
@@ -2870,6 +2890,7 @@
 
 ## H280: Is l-Onset (B-Dialect) the Morphological Parallel to cth-Onset (A-Dialect)? Do lch-Words Have the Same Positional Profile as cth-Words?
 **Priority:** high
+**Status:** PARTIALLY CONFIRMED (exp_141) — lchedy↔cthol positional equivalence (MID~67-69%, LF~21%, LL~11%). Both LF-depleted and LL-enriched. But bigram contexts completely different (d/ch before cth; qok/l before lch). cthor anomalously LF-present (39.4%). lk-words more medial than lch or cth (74.5%). (F148)
 **Source:** F147: l is B-dialect parallel to A's cth (both are productive prefix morphemes on distinct stem classes). lchedy (l+ch+edy) parallels cthol (cth+ol). Both are suppressed in cross-dialect sections. If they are true grammatical parallels, lch-words should have similar positional profiles to cth-words in A.
 **Description:** (1) Compute positional distribution (LF/MID/LL) of lch-words (lchedy, lchey, lshedy) in B-dialect sections. (2) Compare to cth-word positional distribution (cthy, cthol, cthey) in A-dialect sections. (3) If lch-words are ~90% MID (like cth-words are ~90% MID in A), this confirms the morphological parallel. (4) Check bigram context: do lch-words appear in similar contexts as cth-words?
 **Expected outcome:** lch-words in B-dialect sections are predominantly medial (70-90% MID), mirroring cth-words in A-dialect. This would establish l-prefix as B's functional equivalent to A's cth-prefix, a key structural parallel between the two dialects.

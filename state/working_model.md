@@ -1,5 +1,5 @@
 # Working Model — Voynich Manuscript Cryptanalysis
-**Last updated:** 2026-04-09 (after exp_140)
+**Last updated:** 2026-04-09 (after exp_141)
 **Purpose:** Continuously-updated structured summary of current beliefs about Voynichese.
 **Discipline:** Characterization, not interpretation. Claims require experimental warrant.
 
@@ -221,6 +221,13 @@ These findings have been replicated across independent analyses or confirmed by 
 - eee (triple-vowel) words: stars=17.25‰, cosmo=4.40‰ (suppressed). Vowel-length gradient monotonically stars-concentrated (edy→eedy→eeedy: 36%→48%→63%). eee enriched in ok/ol/qo (1.7-1.9×), suppressed in ch/sh (0.37-0.46×).
 - A-dialect section variation: herbal-A=-y dominant (qok=37%, ch=29%); pharma-A=-ol dominant (qok=41%, ok=40%); 8.9% avg diff (3.5× weaker than B's 31%).
 - FOUR-LEVEL suffix hierarchy: Dialect (A/B) → Stem class (Simple-B/Complex-B; A-y/-ol) → Section (B: stars/cosmo/herbal; A: herbal/pharma) → Vowel length (stars triple-vowel extension). Strong evidence for natural language morphology.
+
+**lchedy↔cthol POSITIONAL EQUIVALENCE (MID~67-69%, LF~20-22%, LL~11-12%); cth LF=0.14× DEPLETED/LL=1.38× ENRICHED; lk-MOST MEDIAL (74.5%); BIGRAM CONTEXTS COMPLETELY DIFFERENT; cthor LF=39.4% (ANOMALOUS) (F148, exp_141)**
+- lchedy (dominant B l-word) and cthol (dominant A cth-word): nearly identical positional profiles. Structural parallel of A's cth-prefix and B's l-prefix confirmed at word level.
+- cth-words strongly LF-depleted (0.14×) and LL-enriched (1.38×). lch-words moderately LF-depleted (0.81×) and LL-enriched (1.27×).
+- lk-words most purely medial (MID=74.5%, 1.15×, LF=0.33×, LL=0.87×) — different from lch and cth.
+- Bigram contexts completely different: cth surrounded by d/ch (A-grammar); lch surrounded by qok/l (B-grammar).
+- cthor LF=39.4% (anomalously high for cth-word): cthor marks line-opening constructions; may explain cthor-specific decline in late A-herbal (F147).
 
 **A-HERBAL cth VOCABULARY DECLINE MIXED (cthor 0.24×, cthaiin STABLE; l=B-MORPHOLOGICAL PARALLEL to cth: lchedy(102,100%B) DOMINANT; 1120 B vs 59 A l-tokens; loldaiin=A-EXCLUSIVE (exp_139 correction) (F147, exp_140)**
 - cth vocabulary shift: cthor disproportionately declines (T3/T1=0.24 vs overall 0.60). cthaiin completely stable (1.03×). Most cth-words decline proportionally (~0.46). Mechanism: general cth density reduction + cthor-specific botanical content shift.
