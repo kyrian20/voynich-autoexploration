@@ -19,6 +19,8 @@ experiments/exp_NNN_brief_name/
 
 **Write out what you expect to find BEFORE running any code.** This is mandatory. The pre-registration goes in `result.md` under "Expected Outcomes" before the experiment runs. Filling it in after the fact defeats the purpose and is prohibited.
 
+**The Expected Outcomes section must include a sentence of the form: "This experiment is an UNFAIR test of the hypothesis if [condition]"** — listing any implementation detail or parameter choice that could bias the result against the hypothesis being tested (e.g., a modification operation that destroys the feature the hypothesis depends on, a parameter range that excludes the region where the hypothesis would succeed, a corpus filter that removes the signal). If no such condition applies, write "No unfairness conditions identified." The point is to force examination of the exp_180 failure mode — where an implementation detail made the experiment unfair to the hypothesis — before running the experiment, not after.
+
 ## Procedure
 
 ### 1. Pre-register
@@ -50,6 +52,9 @@ if __name__ == "__main__":
 
 ### 3. Execute and capture output
 Run the script. Copy the full stdout into `result.md` under "Raw Output."
+
+### 3b. Audit the draft result
+After filling in the Interpretation and Limitations sections but before finalizing, run the audit_experiment skill (skills/audit_experiment.md) on the draft result.md. This produces a Self-Audit section appended to the result. If the audit identifies a target-awareness issue, feature-destroying implementation, extrapolation beyond the grid, negative-result overreach, or unexpected control behavior, revise the result.md to address it before proceeding to step 4.
 
 ### 4. Complete result.md
 Fill in all remaining sections.

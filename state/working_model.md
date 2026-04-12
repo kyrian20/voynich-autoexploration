@@ -1,6 +1,6 @@
-# Working Model — Voynich Manuscript Cryptanalysis
+# Working Model — Characterization Reference
 **Last updated:** 2026-04-10 (after exp_169)
-**Purpose:** Continuously-updated structured summary of current beliefs about Voynichese.
+**Purpose:** Topically-organized summary of characterization findings (exp_001–169). Use this when designing an experiment that needs context on a specific feature — e.g., "what do we know about qo- prefix?" or "what are the established self-succession values?" For theory discrimination status (which mechanisms survive), see working_position.md. This file is NOT read cover-to-cover during routine loop iterations.
 **Discipline:** Characterization, not interpretation. Claims require experimental warrant.
 
 ---

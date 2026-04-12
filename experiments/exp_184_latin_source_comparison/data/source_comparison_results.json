@@ -1,0 +1,96 @@
+{
+  "results": {
+    "cicero": {
+      "clause_final_rate": 0.3418,
+      "n_latin_words": 34977,
+      "expected_ll_hit_rate": 0.3076,
+      "am_ll": 5.761372,
+      "am_ll_ci": [
+        5.5631,
+        6.0018
+      ],
+      "y_lf": 2.354983,
+      "y_lf_ci": [
+        2.1902,
+        2.5112
+      ],
+      "ss_mean": 0.992633,
+      "ss_mean_ci": [
+        0.9314,
+        1.0593
+      ],
+      "adj_rate": 0.0028074,
+      "adj_rate_ci": [
+        0.00206,
+        0.00365
+      ],
+      "pct_vms_am": 84.6
+    },
+    "virgil": {
+      "clause_final_rate": 0.3412,
+      "n_latin_words": 63811,
+      "expected_ll_hit_rate": 0.307,
+      "am_ll": 5.755507,
+      "am_ll_ci": [
+        5.5577,
+        5.9586
+      ],
+      "y_lf": 1.862437,
+      "y_lf_ci": [
+        1.6558,
+        2.0691
+      ],
+      "ss_mean": 0.996236,
+      "ss_mean_ci": [
+        0.9332,
+        1.0697
+      ],
+      "adj_rate": 0.0028071000000000003,
+      "adj_rate_ci": [
+        0.00208,
+        0.00367
+      ],
+      "pct_vms_am": 84.5
+    },
+    "caesar": {
+      "clause_final_rate": 0.3646,
+      "n_latin_words": 20115,
+      "expected_ll_hit_rate": 0.3281,
+      "am_ll": 5.8555470000000005,
+      "am_ll_ci": [
+        5.6756,
+        6.0875
+      ],
+      "y_lf": 2.093425,
+      "y_lf_ci": [
+        1.9131,
+        2.269
+      ],
+      "ss_mean": 0.997283,
+      "ss_mean_ci": [
+        0.9315,
+        1.0623
+      ],
+      "adj_rate": 0.0028094,
+      "adj_rate_ci": [
+        0.00204,
+        0.00353
+      ],
+      "pct_vms_am": 86.0
+    }
+  },
+  "exp_177_baseline": {
+    "am_ll": 5.756,
+    "y_lf": 2.395,
+    "ss_mean": 1.0,
+    "adj_rate": 0.003
+  },
+  "vms_targets": {
+    "am_ll": 6.811,
+    "y_lf": 3.506,
+    "ss_mean": 1.465,
+    "adj_rate": 0.009
+  },
+  "p_strong": 0.9,
+  "n_sims": 100
+}

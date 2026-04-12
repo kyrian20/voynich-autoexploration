@@ -27,6 +27,8 @@ Every finding entry must include:
 2. **The experiment ID** — always traceable back to the script that produced the result
 3. **The date**
 4. **A brief note on limitations** — one line is fine; the full treatment is in result.md
+5. **Commitment status** — whether this finding has been committed to in a public-facing output per state/committed_claims.md. If it supports or is part of a committed claim, cite the claim ID (e.g., "Supports C005"). If it does not relate to any committed claim, write "Not committed." The purpose is to make the link between internal state and public claims visible in both directions.
+6. **Magnitude context** — for every numeric finding, state whether the number is larger, smaller, or comparable to (a) any published value for the same or similar metric, and (b) the closest prior finding in this project's findings.md. If you cannot find a comparable number, write "No comparable prior value identified." The purpose is to make it harder to report a significant result without noticing it is significant. A finding that is 10× larger than any published value on the same metric is either a breakthrough, an artifact, or a unit error — and the agent should notice which before moving on.
 
 **Template for findings.md:**
 ```markdown
@@ -35,6 +37,8 @@ Every finding entry must include:
 **Date:** YYYY-MM-DD
 **Finding:** [Precise statement of the fact established]
 **Limitation:** [Most important caveat]
+**Commitment status:** [Supports CNNN | Not committed]
+**Magnitude context:** [Larger/smaller/comparable to published value X and prior finding FNNN]
 ```
 
 **Template for failed_approaches.md:**
@@ -46,6 +50,7 @@ Every finding entry must include:
 **Result:** [What the data actually showed]
 **Why ruled out:** [Why this counts as a refutation, not just a negative result]
 **Variants worth trying:** [Any genuinely distinct close variants that remain open, or "none"]
+**Commitment status:** [Supports CNNN | Contradicts CNNN — SEE CONTRADICTION RULE | Not committed]
 ```
 
 **Template for open_questions.md:**
@@ -70,6 +75,23 @@ Use sequential integers within each file. Check the existing highest number and 
 **Every finding, failure, and open question must cite a specific experiment ID.** This is non-negotiable. If you have an insight that wasn't produced by a formal experiment, run a quick script first — even a 5-line script that prints one number counts as an experiment. The point is that the claim is reproducible.
 
 No entry of the form "I noticed that..." or "It seems like..." without an exp_NNN citation. If you can't point to a script that produced the number, you don't have a finding.
+
+### The Contradiction Rule
+
+Before writing to findings.md or failed_approaches.md, check state/committed_claims.md. If the new finding or failure relates to a committed claim, classify it as one of:
+
+**HARD CONTRADICTION — stop the loop.** A re-analysis, replication, or methodological correction of the same experiment(s) cited in the claim's "Supporting experiments" field produces results incompatible with the claim. This means the original measurement or interpretation was wrong. Do NOT write to findings.md or failed_approaches.md. Instead:
+1. Write to open_questions.md with the heading: **"COMMITTED CLAIM AT RISK: [claim ID]"**
+2. State the contradiction: what the committed claim says, what the new result shows, and why they are incompatible.
+3. Stop the loop and alert the human.
+
+**NARROWING — continue with documentation.** A new mechanism, architecture, parameter range, or variant NOT listed in the claim's "Supporting experiments" produces results that restrict the scope of the claim but do not invalidate its original experiments. The old result is still correct for its tested conditions; the claim's scope was too broad. Handle autonomously:
+1. Record the finding in findings.md normally.
+2. Add a "Narrowed by" line to the affected committed claim entry, citing the new experiment and stating how the scope is restricted.
+3. Note in iteration_log.md that a committed claim was narrowed.
+4. Continue the loop.
+
+The distinction: "we re-ran exp_181 and got different numbers" is a hard contradiction. "We tested a different modification operation and it succeeded where exp_181's failed" is a narrowing — the exp_181 result is still correct; the claim just overgeneralized from it.
 
 ## The Utility Rule
 

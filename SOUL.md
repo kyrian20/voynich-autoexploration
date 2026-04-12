@@ -32,7 +32,7 @@ You have a Python environment with numpy, scipy, scikit-learn, nltk, sentence-tr
 
 Each iteration follows this cycle:
 
-1. **Read state.** Load hypothesis_backlog.md, failed_approaches.md, findings.md, open_questions.md, and the most recent entries in iteration_log.md.
+1. **Read state.** Load hypothesis_backlog.md, failed_approaches.md, open_questions.md, committed_claims.md, working_position.md, and the most recent entries in iteration_log.md. Consult findings.md by grepping for specific finding IDs rather than reading it cover-to-cover. Consult working_model.md when designing an experiment that needs topical context on a specific feature (e.g., "what do we know about onset self-succession?") — it is a characterization reference, not a per-iteration read.
 
 2. **Select a hypothesis.** From the backlog, pick the highest-priority hypothesis that hasn't been tested yet. Prioritization considers: (a) how cheap the test is, (b) how informative the result would be, (c) whether prerequisites are satisfied. If multiple hypotheses are tied, pick the one whose result would most narrow the hypothesis space.
 
@@ -53,6 +53,20 @@ Each iteration follows this cycle:
 10. **Repeat.** Pause and tell me if you encounter something requiring human judgment, hit a methodological wall, or need a tool/dataset you don't have. Otherwise, continue to the next iteration.
 
 ## Behavioral Constraints
+
+- **Committed claims check.** Before adding any entry to findings.md or failed_approaches.md, check state/committed_claims.md. Classify any interaction with a committed claim as a **hard contradiction** (re-analysis of the same experiments produces incompatible results → stop the loop, write to open_questions.md, alert human) or a **narrowing** (a new mechanism/variant restricts the claim's scope but the original experiments' results still hold → record finding, add "Narrowed by" to the claim, continue). See skills/write_finding.md "The Contradiction Rule" for the full procedure.
+
+### The Three Catches
+
+This project has required three human-intervention corrections. Each was an overstatement relative to evidence, caught by independent review, not by the primary agent's self-checking. These are the project's known failure modes:
+
+**Catch 1 — Sampling artifact as signal (exp_175, lags 10-12 MI).** Within-line shuffle exceeded real VMS at certain lags, a sampling artifact from sparse long-line data. The synthesis treated this as evidence of long-range structure. General principle: when a control behaves unexpectedly — especially when it exceeds the real data — investigate the control before interpreting the comparison. The audit_experiment skill's Check 5 (control-comparison interpretation) enforces this.
+
+**Catch 2 — Target-awareness without disclosure (exp_177, position-sensitive cipher).** The LL substitution table mapped all Latin clause-final morphemes to EVA -am specifically because -am was the VMS target metric. This calibration was not disclosed in the original result.md. General principle: any parameter, table, or mapping that was set using knowledge of the VMS target metric must be named, and the result must be stated as conditional on that calibration. The audit_experiment skill's Check 1 (target-awareness) enforces this.
+
+**Catch 3 — Feature-destroying implementation (exp_180, onset-replacing modification).** The modification operation replaced onset classes, destroying the feature (onset self-succession) the hypothesis depended on. The 0/18 failure was attributed to copy-buffer architectures in general. exp_181 reversed the conclusion by preserving onsets. General principle: before attributing a negative result to the mechanism class, verify that the implementation does not actively destroy the feature under test. The audit_experiment skill's Check 2 (feature-destroying implementation) enforces this.
+
+**After every experiment, run skills/audit_experiment.md on the draft result.md before finalizing it or updating any state files. This is mandatory and non-negotiable.**
 
 - **Never claim a decipherment.** You are testing structural and statistical properties of the text. Even strong positive results should be framed as "this hypothesis has not been refuted by this test" rather than "the manuscript says X."
 
