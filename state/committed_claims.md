@@ -67,21 +67,35 @@
 ---
 
 ## C007: Onset self-succession ranges from 1.24× to 2.05× and survives position control
-**Claim**: Onset self-succession (the tendency for consecutive words to share an onset class) ranges from 1.24× (qok, B-dialect) to 2.05× (ok, A-dialect) across six class-by-dialect combinations. This self-succession survives position control (within-stratum analysis controlling for line-position effects), with residuals ≥ 1.2× across all tested onset-by-dialect combinations.
-**Supporting experiments**: exp_164, exp_174
+**Original claim (preserved)**: Onset self-succession (the tendency for consecutive words to share an onset class) ranges from 1.24× (qok, B-dialect) to 2.05× (ok, A-dialect) across six class-by-dialect combinations. This self-succession survives position control (within-stratum analysis controlling for line-position effects), with residuals ≥ 1.2× across all tested onset-by-dialect combinations.
+**Supporting experiments (original)**: exp_164, exp_174
 **Public output**: exp_181-revised checkpoint paper (2026-04-10)
-**Last verified**: 2026-04-10
-**Contradiction condition**: A re-analysis showing that position control reduces self-succession residuals to < 1.1× for the majority of onset-by-dialect combinations would contradict this claim. A demonstration that self-succession is an artifact of line-length confounding would invalidate it.
-**Known issue (pending amendment)**: proposed_c007_amendment.md documents three errors: (1) range "1.24–2.05×" is wrong — canonical range is 0.78–3.86× across onset-class-by-dialect combinations; (2) "2.05× (ok, A-dialect)" is a misattribution — exp_164 shows this value is B ot→ot=2.05×, and B l→l=2.13× exceeds the stated maximum; (3) "residuals ≥1.2× for all" fails for B qok/ch/sh. Amendment awaiting human approval.
+**Last verified (original)**: 2026-04-10
+
+**Canonical correction (2026-04-12)**:
+exp_573 (C007 reconciliation) identified three errors in the original claim. All are methodological, not data errors: exp_164/174 used (A) folio-level dialect assignment rather than per-line edy-rate assignment, and (B) the formula E=obs/(total×rate²) rather than the canonical E=obs/(n_sender×mid_rate_target). Together these overstate E-values, especially for A-dialect and for MID-concentrated classes.
+
+*Corrected range*: Under canonical methodology (per-line dialect assignment, MID-baseline formula), the onset self-succession range across class-by-dialect combinations (obs≥10) is **0.78× – 3.86×**, compared to the original "1.24–2.05×." Classes with confirmed (CONF) self-succession in both dialects: y (A:1.88×, B:3.16×), l (A:3.86×, B:2.62×), ot (A:2.23×, B:2.10×), qo (A:1.76×, B:1.82×), qot (A:3.16×, B:1.69×). Classes with flat or depleted self-succession: B qok (1.03× — flat), B ch (0.91×), B sh (0.78×).
+
+*Corrected attribution*: The original upper bound "2.05× (ok, A-dialect)" is a misattribution. In exp_174's own table, A ok = 1.930× and the value 2.047× belongs to B-dialect qo, not A-dialect ok. The canonical A ok = 1.42× (sub-CONF; exp_567). The canonical B qok = 1.03× (flat; exp_565).
+
+*What remains valid*: The position-control finding (exp_174) holds for CONF self-succession classes — onset self-succession survives within-stratum position control for y, l, ot, qo, qot in both dialects. The mechanism evidence (C002: substitution alone gives ss≈1.0) is unaffected and is strengthened by the broader canonical range.
+
+*"Residuals ≥1.2× across all tested combinations" is false*: B qok (1.03×), B ch (0.91×), B sh (0.78×) fall below 1.2× under canonical methodology.
+
+**Reconciling experiments**: exp_565 (B qok=1.03×), exp_567 (A ok=1.42×), exp_573 (full reconciliation and canonical survey)
+**Amendment applied**: 2026-04-12 (from state/proposed_commitments/applied/applied_c007_amendment_2026_04_12.md)
+**Contradiction condition (revised)**: A re-analysis showing that position control reduces self-succession residuals to <1.1× for the majority of CONF self-succession classes (y, l, ot, qo, qot in both dialects) would contradict this claim. A demonstration that B qok or B ch/sh CONF self-succession exists under canonical methodology would require re-expansion of the CONF list.
 
 ---
 
 ## C008: 21-Mechanism Architecture — 19/19 VMS Specificity and Structural Floors
 **Claim**: The 21-mechanism position-aware copy-buffer architecture (exp_314 calibration: CP=0.55, MP=0.90, P_STUTTER=0.006, beta_scale=1.8, p_blind=0.115, r_lf=0.12, r_mid=0.20) achieves 19/19 PASS on the B-dialect 19-metric battery against real VMS B-dialect targets (PASS_TOL=±20%). When the same fixed parameters are applied to shuffled VMS B-dialect, the architecture achieves 10/19 — positional onset-distribution metrics fail because shuffling collapses them to ≈1.0. When a fresh 1024-combination grid search re-optimizes the architecture to match each shuffled corpus's OWN metrics as target, the best achievable pass counts are 16/19 (within-line shuffle) and 14/19 (word-to-line shuffle). The failures are exclusively in the over-generation direction: fixed constants create structural minima for ss_y (≥2.0×), ss_d (≥1.5×), adj_rate (≥0.006), and am_ll (≥1.17×) that exceed any shuffled corpus target for those metrics. The 19/19 on real VMS reflects structural specificity to VMS positional onset distributions and self-succession patterns, not 6-parameter over-fitting.
 **Scope qualification (exp_579, 2026-04-12)**: The 19/19 PASS is calibrated on full B-dialect corpus metrics, which pool four sections (B_herbal ~14%, B_bio ~33%, B_astro ~15%, B_pharma ~39%) with systematically different positional grammar profiles (am_ll ranges from 0.053 in bio to 0.192 in pharma). Section composition explains 97–107% of the document-order metric gradient in B-dialect (exp_576: First half am_ll=5.825 vs Second half 7.147; 23% shift). C008 is a statement about the full-corpus aggregate; individual sections require different parameter values per section and may score differently under section-specific metrics.
-**Supporting experiments**: exp_314, exp_574, exp_575, exp_576, exp_579
+**Pre-registered specificity test (exp_585, 2026-04-13)**: The pre-registered architecture-specificity test (state/preregistration_transliteration_and_specificity_thresholds.md) returned R_6param = 17/12 = 1.417 against the STRONG_SPECIFICITY threshold of R ≥ 1.3. Under matched 6-parameter re-optimization, real Voynich reaches 17/17 applicable battery metrics while Cicero Latin reaches 5/17 and Dante Italian reaches 4/17; inter-shuffle VMS (exp_575) remains the best non-Voynich corpus at 12/17. exp_585 is the canonical run; exp_584 was a methodologically-flawed predecessor (vocabulary collapse from using actual VMS word strings on the copy-buffer modify path, which drove the positive control to 7/17) and is retained only as a record of the correction. The pre-registered STRONG_SPECIFICITY criterion is met under 6-parameter re-optimization.
+**Supporting experiments**: exp_314, exp_574, exp_575, exp_576, exp_579, exp_585
 **Public output**: Proposed for next public-facing output following checkpoint paper (2026-04-10)
-**Last verified**: 2026-04-12
+**Last verified**: 2026-04-13
 **Contradiction condition**: A grid search with adjustable CP, MP, or P_STUTTER achieving ≥19/19 on shuffled corpora with those values held at or below exp_314 levels would contradict the structural floor claims. A finer grid exceeding 16/19 on intra-shuffle would narrow the claim. A re-analysis showing section-composition explains <50% of the document-order gradient would narrow the scope qualification.
 
 ---

@@ -94,3 +94,13 @@ This document is committed to the voynich-cryptanalyst repository at commit [has
 
 Deviations from these thresholds in the final paper — including changes to the threshold values, changes to what counts as replication, or introduction of new post-hoc criteria — must be disclosed explicitly in the paper's methods section with a specific note indicating the deviation, why it was made, and what the pre-registered threshold would have yielded.
 
+## Addendum: Canonical Specificity Experiment (2026-04-13)
+
+The architecture-specificity test described above was run in two stages. exp_584 was the original attempt; exp_585 is a corrected replication of the same pre-registered protocol.
+
+exp_584 contained a methodology issue: the simulation drew MID-position tokens from a vocabulary of actual VMS word strings, which caused vocabulary collapse on the copy-buffer modify path and produced spurious same-word repetition, bringing the VMS positive control down to 7/17 applicable instead of the expected 17/17. The specificity ratio reported in exp_584 was derived by substituting the exp_314 / exp_575 VMS value rather than the script's own positive control, which is not what the pre-registration intended.
+
+exp_585 replaces the vocabulary-lookup step with abstract-token synthesis matching the methodology used in exp_575 (character-level perturbation that preserves the onset class while producing fresh synthetic word strings). Under the corrected simulation the VMS positive control recovers to 19/19 (17/17 applicable), and the canonical specificity ratio is R_6param = 17/12 = 1.417, satisfying the pre-registered STRONG_SPECIFICITY threshold (R ≥ 1.3). Cicero Latin reaches 5/17 applicable and Dante Italian reaches 4/17 under matched re-optimization. exp_585 is therefore the canonical run for the specificity section; exp_584 is retained in the repository as a record of the bug and its correction but should not be cited as the canonical result.
+
+This addendum was committed after both experiments completed. The original pre-registration commit timestamp remains the time anchor for the threshold values themselves, which were not modified. Only this addendum — noting which experiment supplies the canonical numbers — has been added; the specificity thresholds in the "Architecture specificity thresholds" section above stand as originally written.
+
