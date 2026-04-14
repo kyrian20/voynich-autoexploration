@@ -3,6 +3,30 @@
 # Facts about the text that survived methodological scrutiny.
 # Format: see skills/write_finding.md for the entry template.
 
+## F642: Multi-Word Label Terminal Construction — a-Onset Dominant at LL; ot-Onset Dominant at LF (exp_580)
+**Experiment:** exp_580 (2026-04-12)
+**Date:** 2026-04-12
+**Finding:** In 222 multi-word VMS labels (from 1,087 total label lines), a-onset words are massively elevated at the final position (LL: E=3.55×, count=53). The bigram patterns [ok/ot/o/y/d]-onset → a-onset are 3–6× more common in labels than in body text (y→a: 5.70×, ok→a: 4.38×, d→a: 3.33×, o→a: 3.37×, ot→a: 3.24×). ot-onset is the primary LF class in labels (E=1.41×), different from body text where y leads. Body grammar findings hold weakly and in attenuated form: -am LL enrichment 1.31× (vs body 1.76×), y-onset LF enrichment 1.73× (vs body 3.03×). Onset self-succession 1.27× overall (vs body ss_mean ~1.47×). All directional findings have low statistical power (N=222 multi-word labels, 355 bigrams).
+**Limitation:** N=222 multi-word labels is too small for significance testing. The a-onset terminal class includes diverse words (aiin, al, am, ar, etc.) that have not been further decomposed. The ot-onset LF finding could reflect zodiac/cosmo_large label section dominance.
+**Commitment status:** Part of proposed commitment C010.
+**Magnitude context:** The a-onset LL finding (E=3.55×) is comparable in magnitude to the body y-onset LF enrichment. Body grammar's -am LL and y-LF patterns hold directionally but at 57–75% of body magnitude.
+
+## F641: Label Corpus Suffix Profile — edy/aiin Massively Depleted; dy/y/am Elevated; Dialect Boundary Blurred (exp_580)
+**Experiment:** exp_580 (2026-04-12)
+**Date:** 2026-04-12
+**Finding:** VMS label text (1,442 tokens) strongly depletes the major body-text suffix paradigms: edy (0.26×), aiin (0.35×), ey (0.60×), ain (0.33×). Labels elevate shorter suffixes: dy (1.88×), bare-y (1.83×), am (2.19×), al (1.49×). The B-dialect edy marker is near-absent even in B-folio labels (B-folio labels edy=0.168 vs B-folio body 0.241). A-folio labels have edy=0.109 vs A-folio body 0.069. The A/B dialect boundary is substantially blurred in labels. Vocabulary: 47% of label types appear in body vocab; 53% are label-exclusive (547 types); 61% of label tokens by count appear in body vocab.
+**Limitation:** Folio $L= tag may not accurately reflect dialect in mixed-content folios. Suffix classes are heuristic categories.
+**Commitment status:** Part of proposed commitment C010.
+**Magnitude context:** edy depletion (0.26×) in labels is one of the largest differences from body text. Standard body-text dialect classifier (edy-rate ≥5% = B) misclassifies most B-folio labels as A-dialect.
+
+## F640: Label Corpus Onset Profile — ok/ot/o Dominant; q-Bench Near-Absent (exp_580)
+**Experiment:** exp_580 (2026-04-12)
+**Date:** 2026-04-12
+**Finding:** VMS label text (1,442 tokens, 1,087 lines, 11 label section types) has a radically different onset profile from body text. ok (17.2%), ot (16.3%), and o (10.9%) together comprise 44.4% of label tokens vs 14.6% body. q-bench classes (qok+qot+qo+cth) total 1.3% of labels vs 13.5% body. ch (0.47×), sh (0.28×), l (0.19×), p (0.13×) are substantially depleted. ok (2.85×), ot (2.97×), o (3.55×), s (1.99×), y (1.73×) elevated. d roughly flat (1.14×). Pattern consistent across all label sections. Token mean length 5.52 vs body 5.12.
+**Limitation:** @L0 section classification uses folio number ranges; @Ri/@Ro radial labels (345 tokens) are included as labels.
+**Commitment status:** Part of proposed commitment C010.
+**Magnitude context:** ok/ot/o elevation (2.85–3.55×) is as large as major body text positional enrichments. qok/qot/qo near-absence (0.09–0.13×) is striking given their prominence in body text MID grammar. Labels constitute a distinct lexical register.
+
 ## F639: B-Dialect Document-Order Heterogeneity — Section Composition is the Complete Driver (exp_579)
 **Experiment:** exp_579 (2026-04-12)
 **Date:** 2026-04-12

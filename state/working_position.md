@@ -348,7 +348,25 @@ Full synthesis: state/q007_investigation.md.
 
 **Committed claim qualification:** The 19/19 PASS (C008) is a full-corpus average over these heterogeneous sections. Section-level calibration would require different parameters per section. See C008 scope qualification.
 
-### 8.6 Cryptanalyst Phase Closure (2026-04-12)
+### 8.6 exp_584 — Architecture Non-VMS Specificity Test (2026-04-13)
+
+**Pre-registered test of C008 (architecture specificity to VMS structure)**. Three non-VMS corpora: Medieval Latin (Cicero De Officiis, 32K words), Italian (Dante Divina Commedia, 89K words), VMS inter-shuffle (from exp_575). 17/19 applicable metrics (excluding word_len_mean and edy_rate as pre-registered).
+
+**Results (6-param grid, 512 combos):**
+- Latin (Cicero): 8/17 applicable PASS
+- Italian (Dante): 9/17 applicable PASS
+- Inter-shuffle (exp_575): 12/17 applicable PASS
+- VMS (exp_314): 17/17 applicable PASS (used for R numerator)
+
+**Specificity ratio R = 17/12 = 1.417 ≥ 1.3. PRE-REGISTERED CLASSIFICATION: STRONG_SPECIFICITY.**
+
+**Structural failures driving Latin/Italian below VMS:** y_lf (VMS LF distribution biases y-onset → sim always produces y_lf ≈ 3.5×, Latin target ≈ 1.0×), s_lf (same mechanism), global_am_rate (VMS vocabulary has ≈2% am-suffix; Latin target 18% is unreachable), ss_mean/adj_rate/ss_d/ss_y (copy-buffer floors exceed flat targets — same structural argument as exp_575 inter-shuffle).
+
+**Corrected replication (exp_585) confirms:** VMS positive control 19/19 PASS (17/17 applicable). Latin 5/17, Italian 4/17 applicable PASS (even fewer than buggy exp_584's 8/17 and 9/17). R_6param = 17/12 = 1.417 confirmed. Both C008 and exp_585's own VMS applicable give identical R. Q021 RESOLVED.
+
+**C008 status: RETAINED, strengthened by R = 1.417.**
+
+### 8.7 Cryptanalyst Phase Closure (2026-04-12)
 
 **Housekeeping session (2026-04-12) complete.** Three commitments applied: C008 (19/19 specificity + structural floors), C009 (adj_rate structure), and the C003 scope qualification (incorporated within C008). Proposal files moved to state/proposed_commitments/applied/. Commitments audit written (state/commitments_audit_2026_04_12.md). Key audit finding: committed_claims.md C007 has three known errors — amendment in proposed_c007_amendment.md, awaiting separate human approval.
 

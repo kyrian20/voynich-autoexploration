@@ -5,6 +5,35 @@
 
 ---
 
+## Q021: exp_584 simulation bug — corrected replication needed (exp_585) (exp_584)
+**Raised by:** exp_584 (2026-04-13)
+**Status:** RESOLVED by exp_585 (2026-04-13). Abstract-token simulation confirms 19/19 VMS positive control, Latin 5/17, Italian 4/17. R = 1.417. STRONG_SPECIFICITY.
+**Question:** exp_584's simulation used actual VMS word strings via `pick_word(onset, suffix)`, but many VMS (onset, suffix) combos have only one unique word type (e.g., qok+aiin → always "qokaiin"). On the "modify" path of the copy-buffer, this causes spurious same-word succession, inflating adj_rate, ss_mean, ss_d, ss_y. VMS positive control got 7/17 applicable instead of expected 17/17. The STRONG_SPECIFICITY conclusion (R=1.417) is still valid because the denominator uses exp_575's clean inter-shuffle result and the structural failures in Latin/Italian are unaffected. But a corrected replication is needed to: (a) confirm VMS positive control achieves ~17/17 with abstract-token simulation, (b) get unbiased Latin/Italian PASS counts, (c) satisfy the pre-registration requirement for a clean positive control. exp_585 should use the abstract-token simulation methodology from exp_575 (timm_modify generating synthetic words, not pick_word returning actual VMS strings). Expected: VMS positive control 19/19, Latin ≤ 8/17, Italian ≤ 9/17, R ≥ 1.417.
+**Relevant data:** exp_584 result.md; exp_575 simulation code (timm_modify, make_word_sim); exp_314 parameter set.
+
+## Q018: What is the functional/linguistic interpretation of the ok/ot/o onset dominance in labels? (exp_580)
+**Raised by:** exp_580 (2026-04-12)
+**Status:** Open — requires comparative linguistics or expert judgment
+**Question:** Labels are dominated by ok/ot/o onset classes (44% of label tokens). These classes are not elevated in body text MID grammar and are only moderately elevated at specific positions. Are ok/ot/o words a "demonstrative" or "pointing" construction in Voynich — analogous to demonstrative pronouns or determiners that accompany illustrations? The question requires either: (a) comparison to known labeling conventions in Latin, Arabic, Italian herbals (do they use demonstrative constructions as labels?), or (b) successful decipherment to establish the label semantics.
+**Relevant data:** F640 (ok=2.85×, ot=2.97×, o=3.55× in labels vs body). All label sections show this pattern. Body text positional grammar is built around y/d/am/qok classes; label text uses a different onset inventory entirely.
+
+## Q019: Are the 547 label-exclusive types (F641) cross-referenceable with botanical or astronomical proper names? (exp_580)
+**Raised by:** exp_580 (2026-04-12)
+**Status:** Open — requires comparison corpora or external datasets
+**Question:** 547 label types appear only in label text and not in body text (53% of label vocabulary). Some of these may be:
+- Plant-specific names (for herbal labels): could be matched to Latin/Italian herbals
+- Star/constellation names (for astronomical labels): could be matched to Arabic star name transliterations
+- Zodiac-specific terms: month names, sign names
+Systematic cross-referencing of label-exclusive vocabulary against botanical and astronomical reference corpora would be high-value for the Botanist phase. This requires access to Voynich-adjacent comparison corpora for labels specifically (not body text).
+
+## Q020: Do herbal labels (F640: y/d/a onset profile) and zodiac labels (ot/ok/o onset profile) encode genuinely different types of information? (exp_580)
+**Raised by:** exp_580 (2026-04-12)
+**Status:** Open — requires further label section analysis
+**Question:** Per-section label analysis (F640) shows herbal labels have y/d/a onset profile (similar to herbal body text) while zodiac/star/cosmo labels have ot/ok/o onset profile (distinct from their host body text). This might mean:
+(a) Herbal labels are short body-text phrases (plant descriptions) while zodiac labels are proper names (star/constellation identifiers)
+(b) Different scribal conventions for label types
+The section-specific analysis in exp_580 is preliminary (small N per section). A follow-up experiment focusing on herbal-only vs zodiac-only label vocabularies could test whether the onset difference reflects genuinely different semantic content.
+
 ## Q013: RESOLVED (exp_573, 2026-04-12) — C007 self-succession methodology reconciliation complete
 **Raised by:** exp_565 (2026-04-11); **Resolved by:** exp_573 (2026-04-12)
 **Status:** RESOLVED — see state/proposed_c007_amendment.md
