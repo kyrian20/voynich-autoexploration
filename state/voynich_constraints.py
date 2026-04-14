@@ -96,6 +96,23 @@ def tokenize(text: str) -> list[str]:
     return [t for t in re.split(r'[-.\s]+', text.lower())
             if t and len(t) >= 2 and t.isalpha()]
 
+# EVA-basic tokenizer (Session R1 addition)
+# Per transliteration_replication_plan.md §2.2: stricter variant that drops
+# any token containing uncertainty markers or non-EVA characters.
+EVA_BASIC_ALPHABET = frozenset('acdefghiklmnopqrstvxy')
+
+def tokenize_eva_basic(text: str) -> list[str]:
+    """EVA-basic tokenizer — stricter variant of canonical.
+
+    Keeps only tokens whose every character is in the 20-char canonical
+    EVA letter set. This silently drops:
+      - tokens with uncertainty markers ([, ], {, }, ,, !, <, >, :)
+      - tokens with non-EVA letters (b, j, u, w, z and any digit/symbol)
+    The alternative inside [a:b] is NOT taken; the entire token is dropped.
+    """
+    return [t for t in re.split(r'[-.\s]+', text.lower())
+            if t and len(t) >= 2 and all(c in EVA_BASIC_ALPHABET for c in t)]
+
 ONSET_PRIORITY = [
     ('qok',), ('qot',), ('qo',),
     ('cth',), ('sch',), ('ckh',), ('cph',),
@@ -162,7 +179,8 @@ Line = tuple[str, list[str]]   # (section_label, words)
 def load_vms_corpus(path: str,
                      dialect: str = "B",
                      body_only: bool = True,
-                     dialect_method: str = "folio_level") -> list[Line]:
+                     dialect_method: str = "folio_level",
+                     tokenizer=None) -> list[Line]:
     """
     Load the canonical VMS corpus, filter to requested dialect, and tag
     each line with its B-section (or generic section if A).
@@ -174,8 +192,12 @@ def load_vms_corpus(path: str,
         characterization-phase methodology). Drops short lines with
         fewer than 10 tokens per canonical_methodology.md §3.1.
 
+    tokenizer: callable(text) -> list[str]. Defaults to canonical tokenize().
+               Pass tokenize_eva_basic for EVA-basic replication.
+
     Returns list of (section_label, words) tuples.
     """
+    tok = tokenizer if tokenizer is not None else tokenize
     raw_lines: list[tuple[int, list[str]]] = []
     with open(path) as f:
         for line in f:
@@ -197,7 +219,7 @@ def load_vms_corpus(path: str,
             lt = lparts[1].rstrip('>').lstrip('@+*=~&')
             if body_only and not lt.startswith('P'):
                 continue
-            words = tokenize(text)
+            words = tok(text)
             if not words:
                 continue
             raw_lines.append((fnum, words))
