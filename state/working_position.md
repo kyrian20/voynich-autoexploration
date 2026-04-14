@@ -373,3 +373,19 @@ Full synthesis: state/q007_investigation.md.
 **Cryptanalyst loop is at its closure point.** 579 experiments completed. The pending items for human review are: (1) proposed_c007_amendment.md — C007 range and attribution correction. No new experiments are queued. Next phase is Grammar Spec consolidation as directed.
 
 **Canonical committed claim numbering** (committed_claims.md) differs from working_position.md informal numbering: working "C003=19/19 PASS" = committed **C008**. Use committed_claims.md as authoritative.
+
+### 8.8 Transliteration Replication — Section 2 Findings Confirmed (2026-04-13, exp_586–588)
+
+**Pre-registered replication of all 5 Section 2 findings across 3 alternative transliteration systems.** Pre-registration: ≥2/3 systems must RETAIN each finding.
+
+| Finding | EVA-basic (R1) | v101 Claston (R2) | ZL3a (R3) | Overall |
+|---------|---------------|------------------|-----------|---------|
+| F1: Three-layer positional architecture | 18/18 RETAINED | 16/18 RETAINED | 18/18 RETAINED | **RETAINED** |
+| F2: Terminal dialect inversion | RETAINED | RETAINED | RETAINED | **RETAINED** |
+| F3: Bigram cross-dialect invariants | 4/5 RETAINED | 4/5 RETAINED | 4/5 RETAINED | **RETAINED** |
+| F4: A-herbal paragraph chain | 96th/97.5th RETAINED | 77th/86.5th **FAILED** | 97.5th/96.5th RETAINED | **RETAINED** (2/3) |
+| F5: -edy suffix transformation | 20/21 RETAINED | 19/22 RETAINED | 20/21 RETAINED | **RETAINED** |
+
+**ALL 5 FINDINGS RETAINED.** The F4 partial exception (v101 failure) is attributed to low observation counts on the o→sh chain edge (obs=1 in v101's A-herbal corpus vs obs=4 in ZL3b/ZL3a). v101 infrastructure documented in experiments/exp_587_replication_v101/result.md; full cross-session analysis at state/transliteration_replication_final_summary.md.
+
+**Paper implication:** Section 2 characterization findings are transliteration-robust. Draft claim: "All five Section 2 findings replicated in ≥2/3 alternative transliterations; four replicated in all three systems."
