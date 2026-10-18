@@ -1,0 +1,47 @@
+name: Voynich Check
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - master
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar repositorio
+        uses: actions/checkout@v4
+
+      - name: Comprobar archivos de investigación
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import sys
+
+          required = [
+              Path("data/transcriptions/eva_zl3b.txt"),
+              Path("data/transcriptions/eva_it2a.txt"),
+          ]
+
+          failed = False
+          for path in required:
+              if not path.is_file():
+                  print(f"FALTA: {path}")
+                  failed = True
+              else:
+                  text = path.read_text(encoding="utf-8")
+                  print(f"OK: {path} ({len(text)} caracteres)")
+                  if not text.strip():
+                      print(f"ERROR: archivo vacío: {path}")
+                      failed = True
+
+          if failed:
+              sys.exit(1)
+
+          print("Comprobación básica completada.")
+          PY
