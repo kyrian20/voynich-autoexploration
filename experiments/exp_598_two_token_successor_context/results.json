@@ -1,0 +1,1050 @@
+{
+  "experiment": "exp_598_two_token_successor_context",
+  "protocol_version": 1,
+  "primary_forms": [
+    "daiin",
+    "dain",
+    "saiin"
+  ],
+  "rare_pair_threshold": 2,
+  "metric": "Jensen-Shannon divergence between two-token successor-pair distributions; pooled-label permutation preserves group sizes",
+  "notes": [
+    "Rare-pair collapse threshold (pooled frequency <2) predeclared before result inspection.",
+    "Three pairwise tests Holm-adjusted within each transcription.",
+    "ZL3a and ZL3b have similar underlying transcription rows, so agreement is version robustness not independent-sample replication.",
+    "Position/context distribution only; no semantic interpretation.",
+    "Permutation does not stratify by folio and cannot rule out folio/section confounding."
+  ],
+  "versions": [
+    {
+      "transcription": "ZL3b",
+      "source": {
+        "path": "data/transcriptions/eva_zl3b.txt",
+        "bytes": 411671,
+        "sha256": "bf5b6d4ac1e3a51b1847a9c388318d609020441ccd56984c901c32b09beccafc"
+      },
+      "filter": {
+        "currier": "B",
+        "locus": "P0",
+        "minimum_clean_tokens_per_line": 3
+      },
+      "eligible_starter_lines": 169,
+      "starter_counts": {
+        "daiin": 89,
+        "dain": 34,
+        "saiin": 46
+      },
+      "rare_pair_rule": {
+        "minimum pooled frequency to retain pair": 2,
+        "otherwise": "collapse to <RARE_PAIR> + <RARE_PAIR> across all three starter groups"
+      },
+      "two_token_context_summary": {
+        "daiin": {
+          "starter_lines": 89,
+          "unique_raw_pairs": 89,
+          "unique_after_rare_pair_collapse": 1,
+          "rare_pairs_collapsed_lines": 89,
+          "rare_pair_line_fraction": 1.0,
+          "top_raw_two_token_contexts": [
+            {
+              "pair": [
+                "shedy",
+                "qokeedy"
+              ],
+              "count": 1,
+              "proportion": 0.01124
+            },
+            {
+              "pair": [
+                "sheeody",
+                "qokeor"
+              ],
+              "count": 1,
+              "proportion": 0.01124
+            },
+            {
+              "pair": [
+                "chdy",
+                "tedy"
+              ],
+              "count": 1,
+              "proportion": 0.01124
+            },
+            {
+              "pair": [
+                "shckhy",
+                "chekl"
+              ],
+              "count": 1,
+              "proportion": 0.01124
+            },
+            {
+              "pair": [
+                "chor",
+                "okain"
+              ],
+              "count": 1,
+              "proportion": 0.01124
+            },
+            {
+              "pair": [
+                "olkeeo",
+                "lkol"
+              ],
+              "count": 1,
+              "proportion": 0.01124
+            },
+            {
+              "pair": [
+                "shor",
+                "ykal"
+              ],
+              "count": 1,
+              "proportion": 0.01124
+            },
+            {
+              "pair": [
+                "yteeol",
+                "cheody"
+              ],
+              "count": 1,
+              "proportion": 0.01124
+            },
+            {
+              "pair": [
+                "kedair",
+                "okal"
+              ],
+              "count": 1,
+              "proportion": 0.01124
+            },
+            {
+              "pair": [
+                "or",
+                "orol"
+              ],
+              "count": 1,
+              "proportion": 0.01124
+            },
+            {
+              "pair": [
+                "ar",
+                "cheky"
+              ],
+              "count": 1,
+              "proportion": 0.01124
+            },
+            {
+              "pair": [
+                "sheol",
+                "qocthedy"
+              ],
+              "count": 1,
+              "proportion": 0.01124
+            },
+            {
+              "pair": [
+                "shey",
+                "qoteoly"
+              ],
+              "count": 1,
+              "proportion": 0.01124
+            },
+            {
+              "pair": [
+                "shey",
+                "okaiin"
+              ],
+              "count": 1,
+              "proportion": 0.01124
+            },
+            {
+              "pair": [
+                "shckhey",
+                "qokeedy"
+              ],
+              "count": 1,
+              "proportion": 0.01124
+            }
+          ],
+          "top_collapsed_contexts": [
+            {
+              "pair": [
+                "<RARE_PAIR>",
+                "<RARE_PAIR>"
+              ],
+              "count": 89,
+              "proportion": 1.0
+            }
+          ],
+          "entropy_collapsed_bits": -0.0
+        },
+        "dain": {
+          "starter_lines": 34,
+          "unique_raw_pairs": 34,
+          "unique_after_rare_pair_collapse": 2,
+          "rare_pairs_collapsed_lines": 33,
+          "rare_pair_line_fraction": 0.97059,
+          "top_raw_two_token_contexts": [
+            {
+              "pair": [
+                "ockhedy",
+                "otedy"
+              ],
+              "count": 1,
+              "proportion": 0.02941
+            },
+            {
+              "pair": [
+                "cheky",
+                "dar"
+              ],
+              "count": 1,
+              "proportion": 0.02941
+            },
+            {
+              "pair": [
+                "shey",
+                "ly"
+              ],
+              "count": 1,
+              "proportion": 0.02941
+            },
+            {
+              "pair": [
+                "ol",
+                "sheol"
+              ],
+              "count": 1,
+              "proportion": 0.02941
+            },
+            {
+              "pair": [
+                "chkal",
+                "dy"
+              ],
+              "count": 1,
+              "proportion": 0.02941
+            },
+            {
+              "pair": [
+                "chey",
+                "lsh"
+              ],
+              "count": 1,
+              "proportion": 0.02941
+            },
+            {
+              "pair": [
+                "shear",
+                "okedy"
+              ],
+              "count": 1,
+              "proportion": 0.02941
+            },
+            {
+              "pair": [
+                "chckhy",
+                "or"
+              ],
+              "count": 1,
+              "proportion": 0.02941
+            },
+            {
+              "pair": [
+                "chfaiin",
+                "opaly"
+              ],
+              "count": 1,
+              "proportion": 0.02941
+            },
+            {
+              "pair": [
+                "ar",
+                "olshey"
+              ],
+              "count": 1,
+              "proportion": 0.02941
+            },
+            {
+              "pair": [
+                "sheyteedy",
+                "lky"
+              ],
+              "count": 1,
+              "proportion": 0.02941
+            },
+            {
+              "pair": [
+                "chey",
+                "qokeeey"
+              ],
+              "count": 1,
+              "proportion": 0.02941
+            },
+            {
+              "pair": [
+                "sheedy",
+                "oteeody"
+              ],
+              "count": 1,
+              "proportion": 0.02941
+            },
+            {
+              "pair": [
+                "ykaly",
+                "chals"
+              ],
+              "count": 1,
+              "proportion": 0.02941
+            },
+            {
+              "pair": [
+                "shek",
+                "ch"
+              ],
+              "count": 1,
+              "proportion": 0.02941
+            }
+          ],
+          "top_collapsed_contexts": [
+            {
+              "pair": [
+                "<RARE_PAIR>",
+                "<RARE_PAIR>"
+              ],
+              "count": 33,
+              "proportion": 0.97059
+            },
+            {
+              "pair": [
+                "shey",
+                "qokeedy"
+              ],
+              "count": 1,
+              "proportion": 0.02941
+            }
+          ],
+          "entropy_collapsed_bits": 0.19143
+        },
+        "saiin": {
+          "starter_lines": 46,
+          "unique_raw_pairs": 46,
+          "unique_after_rare_pair_collapse": 2,
+          "rare_pairs_collapsed_lines": 45,
+          "rare_pair_line_fraction": 0.97826,
+          "top_raw_two_token_contexts": [
+            {
+              "pair": [
+                "shedy",
+                "eedy"
+              ],
+              "count": 1,
+              "proportion": 0.02174
+            },
+            {
+              "pair": [
+                "ar",
+                "ckheos"
+              ],
+              "count": 1,
+              "proportion": 0.02174
+            },
+            {
+              "pair": [
+                "olcheey",
+                "chdy"
+              ],
+              "count": 1,
+              "proportion": 0.02174
+            },
+            {
+              "pair": [
+                "o",
+                "lchey"
+              ],
+              "count": 1,
+              "proportion": 0.02174
+            },
+            {
+              "pair": [
+                "otain",
+                "chckhy"
+              ],
+              "count": 1,
+              "proportion": 0.02174
+            },
+            {
+              "pair": [
+                "shckhy",
+                "lkeedy"
+              ],
+              "count": 1,
+              "proportion": 0.02174
+            },
+            {
+              "pair": [
+                "olaiin",
+                "oky"
+              ],
+              "count": 1,
+              "proportion": 0.02174
+            },
+            {
+              "pair": [
+                "qol",
+                "shedy"
+              ],
+              "count": 1,
+              "proportion": 0.02174
+            },
+            {
+              "pair": [
+                "sheedy",
+                "qol"
+              ],
+              "count": 1,
+              "proportion": 0.02174
+            },
+            {
+              "pair": [
+                "sheckhy",
+                "cheolchey"
+              ],
+              "count": 1,
+              "proportion": 0.02174
+            },
+            {
+              "pair": [
+                "otaiin",
+                "shckhedy"
+              ],
+              "count": 1,
+              "proportion": 0.02174
+            },
+            {
+              "pair": [
+                "chedy",
+                "shedy"
+              ],
+              "count": 1,
+              "proportion": 0.02174
+            },
+            {
+              "pair": [
+                "cheeol",
+                "qokeedy"
+              ],
+              "count": 1,
+              "proportion": 0.02174
+            },
+            {
+              "pair": [
+                "shedy",
+                "psheedy"
+              ],
+              "count": 1,
+              "proportion": 0.02174
+            },
+            {
+              "pair": [
+                "daiin",
+                "olkeedy"
+              ],
+              "count": 1,
+              "proportion": 0.02174
+            }
+          ],
+          "top_collapsed_contexts": [
+            {
+              "pair": [
+                "<RARE_PAIR>",
+                "<RARE_PAIR>"
+              ],
+              "count": 45,
+              "proportion": 0.97826
+            },
+            {
+              "pair": [
+                "shey",
+                "qokeedy"
+              ],
+              "count": 1,
+              "proportion": 0.02174
+            }
+          ],
+          "entropy_collapsed_bits": 0.1511
+        }
+      },
+      "pairwise_tests": {
+        "daiin_vs_dain": {
+          "n_a": 89,
+          "n_b": 34,
+          "observed_jsd_bits": 0.014864,
+          "null_mean_jsd_bits": 0.00819,
+          "p_upper_tail_plus_one": 0.276545,
+          "permutations": 5000,
+          "seed": 59820261019,
+          "p_holm_three_pair_family": 0.829635
+        },
+        "daiin_vs_saiin": {
+          "n_a": 89,
+          "n_b": 46,
+          "observed_jsd_bits": 0.010956,
+          "null_mean_jsd_bits": 0.00744,
+          "p_upper_tail_plus_one": 0.338732,
+          "permutations": 5000,
+          "seed": 59820261020,
+          "p_holm_three_pair_family": 0.829635
+        },
+        "dain_vs_saiin": {
+          "n_a": 34,
+          "n_b": 46,
+          "observed_jsd_bits": 0.000428,
+          "null_mean_jsd_bits": 0.012444,
+          "p_upper_tail_plus_one": 1.0,
+          "permutations": 5000,
+          "seed": 59820261021,
+          "p_holm_three_pair_family": 1.0
+        }
+      }
+    },
+    {
+      "transcription": "ZL3a",
+      "source": {
+        "path": "data/transcriptions/zl3a.txt",
+        "bytes": 411710,
+        "sha256": "56419297682d338ff1a0a17f5ae251e3ee3e2c5bf05a62db04c5385ef30b36a2"
+      },
+      "filter": {
+        "currier": "B",
+        "locus": "P0",
+        "minimum_clean_tokens_per_line": 3
+      },
+      "eligible_starter_lines": 169,
+      "starter_counts": {
+        "daiin": 89,
+        "dain": 34,
+        "saiin": 46
+      },
+      "rare_pair_rule": {
+        "minimum pooled frequency to retain pair": 2,
+        "otherwise": "collapse to <RARE_PAIR> + <RARE_PAIR> across all three starter groups"
+      },
+      "two_token_context_summary": {
+        "daiin": {
+          "starter_lines": 89,
+          "unique_raw_pairs": 89,
+          "unique_after_rare_pair_collapse": 1,
+          "rare_pairs_collapsed_lines": 89,
+          "rare_pair_line_fraction": 1.0,
+          "top_raw_two_token_contexts": [
+            {
+              "pair": [
+                "shedy",
+                "qokeedy"
+              ],
+              "count": 1,
+              "proportion": 0.01124
+            },
+            {
+              "pair": [
+                "sheeody",
+                "qokeor"
+              ],
+              "count": 1,
+              "proportion": 0.01124
+            },
+            {
+              "pair": [
+                "chdy",
+                "tedy"
+              ],
+              "count": 1,
+              "proportion": 0.01124
+            },
+            {
+              "pair": [
+                "shckhy",
+                "chekl"
+              ],
+              "count": 1,
+              "proportion": 0.01124
+            },
+            {
+              "pair": [
+                "chor",
+                "okain"
+              ],
+              "count": 1,
+              "proportion": 0.01124
+            },
+            {
+              "pair": [
+                "olkeeo",
+                "lkol"
+              ],
+              "count": 1,
+              "proportion": 0.01124
+            },
+            {
+              "pair": [
+                "shor",
+                "ykal"
+              ],
+              "count": 1,
+              "proportion": 0.01124
+            },
+            {
+              "pair": [
+                "yteeol",
+                "cheody"
+              ],
+              "count": 1,
+              "proportion": 0.01124
+            },
+            {
+              "pair": [
+                "kedair",
+                "okal"
+              ],
+              "count": 1,
+              "proportion": 0.01124
+            },
+            {
+              "pair": [
+                "or",
+                "orol"
+              ],
+              "count": 1,
+              "proportion": 0.01124
+            },
+            {
+              "pair": [
+                "ar",
+                "cheky"
+              ],
+              "count": 1,
+              "proportion": 0.01124
+            },
+            {
+              "pair": [
+                "sheol",
+                "qocthedy"
+              ],
+              "count": 1,
+              "proportion": 0.01124
+            },
+            {
+              "pair": [
+                "shey",
+                "qoteoly"
+              ],
+              "count": 1,
+              "proportion": 0.01124
+            },
+            {
+              "pair": [
+                "shey",
+                "okaiin"
+              ],
+              "count": 1,
+              "proportion": 0.01124
+            },
+            {
+              "pair": [
+                "shckhey",
+                "qokeedy"
+              ],
+              "count": 1,
+              "proportion": 0.01124
+            }
+          ],
+          "top_collapsed_contexts": [
+            {
+              "pair": [
+                "<RARE_PAIR>",
+                "<RARE_PAIR>"
+              ],
+              "count": 89,
+              "proportion": 1.0
+            }
+          ],
+          "entropy_collapsed_bits": -0.0
+        },
+        "dain": {
+          "starter_lines": 34,
+          "unique_raw_pairs": 34,
+          "unique_after_rare_pair_collapse": 2,
+          "rare_pairs_collapsed_lines": 33,
+          "rare_pair_line_fraction": 0.97059,
+          "top_raw_two_token_contexts": [
+            {
+              "pair": [
+                "ockhedy",
+                "otedy"
+              ],
+              "count": 1,
+              "proportion": 0.02941
+            },
+            {
+              "pair": [
+                "cheky",
+                "dar"
+              ],
+              "count": 1,
+              "proportion": 0.02941
+            },
+            {
+              "pair": [
+                "shey",
+                "ly"
+              ],
+              "count": 1,
+              "proportion": 0.02941
+            },
+            {
+              "pair": [
+                "ol",
+                "sheol"
+              ],
+              "count": 1,
+              "proportion": 0.02941
+            },
+            {
+              "pair": [
+                "chkal",
+                "dy"
+              ],
+              "count": 1,
+              "proportion": 0.02941
+            },
+            {
+              "pair": [
+                "chey",
+                "lsh"
+              ],
+              "count": 1,
+              "proportion": 0.02941
+            },
+            {
+              "pair": [
+                "shear",
+                "okedy"
+              ],
+              "count": 1,
+              "proportion": 0.02941
+            },
+            {
+              "pair": [
+                "chckhy",
+                "or"
+              ],
+              "count": 1,
+              "proportion": 0.02941
+            },
+            {
+              "pair": [
+                "chfaiin",
+                "opaly"
+              ],
+              "count": 1,
+              "proportion": 0.02941
+            },
+            {
+              "pair": [
+                "ar",
+                "olshey"
+              ],
+              "count": 1,
+              "proportion": 0.02941
+            },
+            {
+              "pair": [
+                "sheyteedy",
+                "lky"
+              ],
+              "count": 1,
+              "proportion": 0.02941
+            },
+            {
+              "pair": [
+                "chey",
+                "qokeeey"
+              ],
+              "count": 1,
+              "proportion": 0.02941
+            },
+            {
+              "pair": [
+                "sheedy",
+                "oteeody"
+              ],
+              "count": 1,
+              "proportion": 0.02941
+            },
+            {
+              "pair": [
+                "ykaly",
+                "chals"
+              ],
+              "count": 1,
+              "proportion": 0.02941
+            },
+            {
+              "pair": [
+                "shek",
+                "ch"
+              ],
+              "count": 1,
+              "proportion": 0.02941
+            }
+          ],
+          "top_collapsed_contexts": [
+            {
+              "pair": [
+                "<RARE_PAIR>",
+                "<RARE_PAIR>"
+              ],
+              "count": 33,
+              "proportion": 0.97059
+            },
+            {
+              "pair": [
+                "shey",
+                "qokeedy"
+              ],
+              "count": 1,
+              "proportion": 0.02941
+            }
+          ],
+          "entropy_collapsed_bits": 0.19143
+        },
+        "saiin": {
+          "starter_lines": 46,
+          "unique_raw_pairs": 46,
+          "unique_after_rare_pair_collapse": 2,
+          "rare_pairs_collapsed_lines": 45,
+          "rare_pair_line_fraction": 0.97826,
+          "top_raw_two_token_contexts": [
+            {
+              "pair": [
+                "shedy",
+                "eedy"
+              ],
+              "count": 1,
+              "proportion": 0.02174
+            },
+            {
+              "pair": [
+                "ar",
+                "ckheos"
+              ],
+              "count": 1,
+              "proportion": 0.02174
+            },
+            {
+              "pair": [
+                "olcheey",
+                "chdy"
+              ],
+              "count": 1,
+              "proportion": 0.02174
+            },
+            {
+              "pair": [
+                "o",
+                "lchey"
+              ],
+              "count": 1,
+              "proportion": 0.02174
+            },
+            {
+              "pair": [
+                "otain",
+                "chckhy"
+              ],
+              "count": 1,
+              "proportion": 0.02174
+            },
+            {
+              "pair": [
+                "shckhy",
+                "lkeedy"
+              ],
+              "count": 1,
+              "proportion": 0.02174
+            },
+            {
+              "pair": [
+                "olaiin",
+                "oky"
+              ],
+              "count": 1,
+              "proportion": 0.02174
+            },
+            {
+              "pair": [
+                "qol",
+                "shedy"
+              ],
+              "count": 1,
+              "proportion": 0.02174
+            },
+            {
+              "pair": [
+                "sheedy",
+                "qol"
+              ],
+              "count": 1,
+              "proportion": 0.02174
+            },
+            {
+              "pair": [
+                "sheckhy",
+                "cheolchey"
+              ],
+              "count": 1,
+              "proportion": 0.02174
+            },
+            {
+              "pair": [
+                "otaiin",
+                "shckhedy"
+              ],
+              "count": 1,
+              "proportion": 0.02174
+            },
+            {
+              "pair": [
+                "chedy",
+                "shedy"
+              ],
+              "count": 1,
+              "proportion": 0.02174
+            },
+            {
+              "pair": [
+                "cheeol",
+                "qokeedy"
+              ],
+              "count": 1,
+              "proportion": 0.02174
+            },
+            {
+              "pair": [
+                "shedy",
+                "psheedy"
+              ],
+              "count": 1,
+              "proportion": 0.02174
+            },
+            {
+              "pair": [
+                "daiin",
+                "olkeedy"
+              ],
+              "count": 1,
+              "proportion": 0.02174
+            }
+          ],
+          "top_collapsed_contexts": [
+            {
+              "pair": [
+                "<RARE_PAIR>",
+                "<RARE_PAIR>"
+              ],
+              "count": 45,
+              "proportion": 0.97826
+            },
+            {
+              "pair": [
+                "shey",
+                "qokeedy"
+              ],
+              "count": 1,
+              "proportion": 0.02174
+            }
+          ],
+          "entropy_collapsed_bits": 0.1511
+        }
+      },
+      "pairwise_tests": {
+        "daiin_vs_dain": {
+          "n_a": 89,
+          "n_b": 34,
+          "observed_jsd_bits": 0.014864,
+          "null_mean_jsd_bits": 0.008234,
+          "p_upper_tail_plus_one": 0.281344,
+          "permutations": 5000,
+          "seed": 59820262019,
+          "p_holm_three_pair_family": 0.844032
+        },
+        "daiin_vs_saiin": {
+          "n_a": 89,
+          "n_b": 46,
+          "observed_jsd_bits": 0.010956,
+          "null_mean_jsd_bits": 0.007451,
+          "p_upper_tail_plus_one": 0.340732,
+          "permutations": 5000,
+          "seed": 59820262020,
+          "p_holm_three_pair_family": 0.844032
+        },
+        "dain_vs_saiin": {
+          "n_a": 34,
+          "n_b": 46,
+          "observed_jsd_bits": 0.000428,
+          "null_mean_jsd_bits": 0.013203,
+          "p_upper_tail_plus_one": 1.0,
+          "permutations": 5000,
+          "seed": 59820262021,
+          "p_holm_three_pair_family": 1.0
+        }
+      }
+    }
+  ],
+  "cross_transcription_comparison": {
+    "daiin": {
+      "ZL3b_lines": 89,
+      "ZL3a_lines": 89,
+      "ZL3b_rare_pair_fraction": 1.0,
+      "ZL3a_rare_pair_fraction": 1.0,
+      "ZL3b_unique_raw_pairs": 89,
+      "ZL3a_unique_raw_pairs": 89
+    },
+    "dain": {
+      "ZL3b_lines": 34,
+      "ZL3a_lines": 34,
+      "ZL3b_rare_pair_fraction": 0.97059,
+      "ZL3a_rare_pair_fraction": 0.97059,
+      "ZL3b_unique_raw_pairs": 34,
+      "ZL3a_unique_raw_pairs": 34
+    },
+    "saiin": {
+      "ZL3b_lines": 46,
+      "ZL3a_lines": 46,
+      "ZL3b_rare_pair_fraction": 0.97826,
+      "ZL3a_rare_pair_fraction": 0.97826,
+      "ZL3b_unique_raw_pairs": 46,
+      "ZL3a_unique_raw_pairs": 46
+    },
+    "daiin_vs_dain": {
+      "ZL3b_jsd": 0.014864,
+      "ZL3a_jsd": 0.014864,
+      "ZL3b_adjusted_p": 0.829635,
+      "ZL3a_adjusted_p": 0.844032
+    },
+    "daiin_vs_saiin": {
+      "ZL3b_jsd": 0.010956,
+      "ZL3a_jsd": 0.010956,
+      "ZL3b_adjusted_p": 0.829635,
+      "ZL3a_adjusted_p": 0.844032
+    },
+    "dain_vs_saiin": {
+      "ZL3b_jsd": 0.000428,
+      "ZL3a_jsd": 0.000428,
+      "ZL3b_adjusted_p": 1.0,
+      "ZL3a_adjusted_p": 1.0
+    }
+  }
+}
