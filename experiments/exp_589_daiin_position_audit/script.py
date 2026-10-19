@@ -17,7 +17,7 @@ def sha256(path):
 
 def clean_words(text):
     text = re.sub(r"<!.*?>", " ", text)
-    text = re.sub(r"<[^>]*>", " ", text).replace("<%>", " ").replace("<$>", " ").replace("<$>", " ")
+    text = re.sub(r"<[^>]*>", " ", text).replace("<%>", " ").replace("<$>", " ")
     text = re.sub(r"\[([^:\]]+):[^\]]*\]", r"\1", text)
     text = re.sub(r"\{[^}]*\}", " ", text)
     text = re.sub(r"@\d+;?", " ", text)
