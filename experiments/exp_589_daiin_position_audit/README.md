@@ -7,7 +7,7 @@ Question: does EVA `daiin` appear at the beginning of body-text lines more often
 - Script: `script.py`; no OpenAI API, credentials, or external downloads required.
 - Output: `results.json`, generated in GitHub Actions.
 - Randomization: within-line token shuffle, 2,000 replicates, fixed seed; separate all/A/B subsets.
-- Output should be treated as conditional on the conservative parser; positions alone do not give semantic interpretation.
+- Treat outcomes as conditional on the conservative parser; positions alone do not provide semantic interpretation.
 
 Motivation sources:
 - https://voynich.world/explore/manuscript?word=daiin
