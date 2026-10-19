@@ -1,6 +1,6 @@
 # Current State — Voynich Cryptanalyst
 
-**Last updated:** 2026-10-19 (exp_589–exp_592 executed; findings saved)
+**Last updated:** 2026-10-19 (exp_589–exp_593 executed; exp_594 queued for paragraph-marker audit)
 
 ## Canonical scientific checkpoint
 The earlier project checkpoint remains exp_588, summarized in `state/transliteration_replication_final_summary.md`. It reports five pre-registered Section 2 characterization findings retained under the ≥2/3 alternative-transliteration rule; F4 retained in EVA-basic and ZL3a but failed in v101 where the o→sh edge had one observation. These are repository-reported findings, not independently rerun as part of exp_589–592.
@@ -41,3 +41,15 @@ Test whether Currier-B P0 line-initial `daiin` is concentrated in folio/paragrap
 - Preserve null/negative findings and avoid duplicating tests without a specific question.
 - Do not spend OpenAI API credits for corpus analyses that reproducible Python can perform.
 - Never infer the meaning of `daiin` from position alone.
+
+
+## exp_593 — IVTFF locator-stratified daiin audit (executed)
+Run: https://github.com/kyrian20/voynich-autoexploration/actions/runs/39257587334  
+Report: `experiments/exp_593_daiin_line_metadata_contrast/result.md`.
+
+Using ZL3b (SHA-256 `bf5b6d4ac1e3a51b1847a9c388318d609020441ccd56984c901c32b09beccafc`), Currier-B P0 lines marked with IVTFF locator `+` show 89 initial `daiin` tokens across 2,245 lines vs 30.634 expected (2.91×; Holm-adjusted Monte Carlo p=0.0004, 5,000 draws). Currier-A P0/+ is near expectation (59 vs 63.988; 0.92×; no significant tail). B/P0/@ is sparse (90 lines, 8 tokens, no initial hits); A/P0/@ has zero initial hits vs 3.772 expected (exploratory lower-tail adjusted p=0.0356). This is a same-corpus stratification, not an independent replication.
+
+**Critical correction:** IVTFF `@`, `+`, and `*` are spatial locator codes, not paragraph-boundary markers. exp_593 did not test paragraph starts despite its original docstring wording. The result report corrects this explicitly. Official reference: https://voynich.nu/software/ivtt/IVTFF_format.pdf.
+
+## Next experiment: exp_594
+Test the actual IVTFF `<%>` paragraph-start comments in raw line content before cleaning. Validate where markers occur and compare first-token `daiin` rates for paragraph-opening vs continuation lines within Currier-B P0, preserving the within-line token-inventory/length null. If marker placement cannot be unambiguously linked to a line, report that limitation and do not substitute locator codes.
