@@ -1,60 +1,38 @@
 # Current State — Voynich Cryptanalyst
 
-**Last updated:** 2026-10-19 (exp_589–exp_599 completed; synthesis and next priorities recorded)
+**Last updated:** 2026-10-19 (exp_589–exp_600 completed; exp_600 source-key parser corrected and results recorded)
 
 ## Canonical status and source of truth
-Read the full synthesis first: `research/synthesis/2026-10-19-daiin-position-synthesis.md`. It separates replicated descriptive findings, annotation-sensitive outcomes, non-significant comparisons, and a methodologically uninformative experiment.
+Read the synthesis at `research/synthesis/2026-10-19-daiin-position-synthesis.md`. It separates robust distribution observations, annotation-sensitive outcomes, non-significant comparisons, and the exp_598 method failure.
 
-The pre-existing project checkpoint remains exp_588, summarized in `state/transliteration_replication_final_summary.md`; it has not been independently rerun in this session. Its reported 21-mechanism generator score of 19/19 is compatibility with a defined metrics battery, not proof of the manuscript's generative mechanism and not decipherment.
+The pre-existing project checkpoint remains exp_588, summarized in `state/transliteration_replication_final_summary.md`; it has not been independently rerun in this session. The reported 21-mechanism generator score of 19/19 is compatibility with a defined metrics battery, not proof of the manuscript's generative mechanism or a decipherment.
 
-## API / automation status
-The paid OpenAI API LLM workflow returned HTTP 429 because no API funds were available, as reported by the maintainer; it was not retried. New corpus experiments are plain Python/GitHub Actions and do not use API credits. Workflow run reports and machine-readable JSONs are kept with each experiment. Some simultaneous output-commits raced, so their artifacts/results were recovered and saved manually where necessary.
+## API / automation
+The separate LLM agent workflow returned HTTP 429 because no OpenAI API funds were available, as reported by the maintainer. It was not retried. Corpus experiments run as standard Python in GitHub Actions without OpenAI API credit. Generated results use 90-day artifacts and are also committed to the repo where possible.
 
-## Main finding from exp_589–599
-A conditional line-initial excess for `daiin` is robust in Currier B, particularly P0 body-locus lines:
-- exp_589: whole-body ~1.51× in both ZL3b and ZL3a; Currier B ~2.75× vs Currier A ~0.88×.
-- exp_591: Currier-B P0 has 89 observed initial `daiin` tokens vs 31.53 expected (2.823×).
-- exp_592: leaving each of 88 represented folios out in turn keeps the ratio 2.651×–2.939×.
-- exp_590: positive effects persist across five coarse folio-number bins. They are heuristic bins, not official section labels.
+## Main positional observations: exp_589–exp_599
+- exp_589: whole-body `daiin` is ~1.51× expected at line start in ZL3a/ZL3b; Currier B ~2.75×, Currier A ~0.88×.
+- exp_590: Currier-B effect is positive across five coarse folio-number ranges (1.62×–4.10×, Holm-adjusted under the chosen null). These ranges are heuristic proxies, not authoritative codicological section labels.
+- exp_591: in Currier-B P0, 89 initial `daiin` vs 31.53 expected (2.823×); P0 carries the dominant signal.
+- exp_592: leave-one-folio-out across 88 represented folios leaves B/P0 enrichment between 2.651× and 2.939×; no single folio explains it.
+- exp_593: B/P0 `+` locator rows show 89 vs 30.634 expected (~2.91×). IVTFF `@`, `+`, `*` are layout/locator codes, not paragraph-open markers.
+- exp_594–595: explicit `<%>` paragraph-start annotation is associated with an initial-token deficit in Currier A; B rows without an explicit start marker show ~3× enrichment. The direction replicates across ZL3a/ZL3b, but absence of `<%>` is not definitive continuation.
+- exp_596: the effect is not unique to `daiin`. In B/P0 `dain` is ~3.17× and `saiin` ~5.02× initial; `aiin`/`chedy` are depleted.
+- exp_597: successor-token distributions after `daiin`, `dain`, and `saiin` were not statistically distinguishable (Holm-adjusted p=1.0).
+- exp_598: explicitly **uninformative due to sparsity**; the rare-pair collapse merged 97.1%–100% of joint contexts into one bucket.
+- exp_599: marginal next-token and second-successor distributions were not significantly different after adjustment; nonsignificance does not prove equivalence.
 
-## Critical controls and caveats
-- exp_593: the signal in B/P0 is concentrated in rows with IVTFF `+` locator (89 vs 30.634 expected, ~2.91×). The official IVTFF spec defines `@`, `+`, and `*` as spatial/layout locators, not paragraph-start labels.
-- exp_594–595: explicit paragraph start marker `<%>` is associated with an initial-token deficit in Currier A; B rows without a start marker show ~3× enrichment. The pattern repeats in ZL3a, but marker absence is not definitive continuation; segmentation is a transcriber decision.
-- exp_596: `daiin` is not unique. In Currier-B P0, `dain` is ~3.17× initial and `saiin` ~5.02×, while `aiin` and `chedy` are depleted. These are distributions of EVA strings, not semantic roles.
-- exp_597: next-token successor distributions after `daiin`, `dain`, `saiin` are not statistically distinguishable under the JSD/permutation test (adjusted p=1.0).
-- exp_598: **uninformative due to sparsity**. The rare-pair collapse merged 97.1%–100% of joint contexts into one bucket, so its null result is not evidence of context equivalence.
-- exp_599: marginal successor distributions at offsets +1 and +2 are also nonsignificant after Holm correction; this does not establish equivalence.
+## exp_600 — ZL3a/ZL3b concordance audit
+Run: https://github.com/kyrian20/voynich-autoexploration/actions/runs/39259781970  
+Report: `experiments/exp_600_transcription_concordance/result.md`; JSON: `results.json`.
 
-## Experiment reports and runs
-- exp_589 — [report](experiments/exp_589_daiin_position_audit/result.md) · [run](https://github.com/kyrian20/voynich-autoexploration/actions/runs/39256111019)
-- exp_590 — [report](experiments/exp_590_daiin_section_stratification/result.md) · [run](https://github.com/kyrian20/voynich-autoexploration/actions/runs/39256487097)
-- exp_591 — [report](experiments/exp_591_daiin_locus_stratification/result.md) · [run](https://github.com/kyrian20/voynich-autoexploration/actions/runs/39256723800)
-- exp_592 — [report](experiments/exp_592_daiin_folio_influence/result.md) · [run](https://github.com/kyrian20/voynich-autoexploration/actions/runs/39256951171)
-- exp_593 — [report](experiments/exp_593_daiin_line_metadata_contrast/result.md) · [run](https://github.com/kyrian20/voynich-autoexploration/actions/runs/39257417694)
-- exp_594 — [report](experiments/exp_594_daiin_explicit_paragraph_markers/result.md) · [run](https://github.com/kyrian20/voynich-autoexploration/actions/runs/39257721036)
-- exp_595 — [report](experiments/exp_595_paragraph_marker_replication/result.md) · [run](https://github.com/kyrian20/voynich-autoexploration/actions/runs/39257978767)
-- exp_596 — [report](experiments/exp_596_daiin_position_controls/result.md) · [run](https://github.com/kyrian20/voynich-autoexploration/actions/runs/39258230375)
-- exp_597 — [report](experiments/exp_597_initial_form_next_token_context/result.md) · [run](https://github.com/kyrian20/voynich-autoexploration/actions/runs/39258573517)
-- exp_598 — [report](experiments/exp_598_two_token_successor_context/result.md) · [run](https://github.com/kyrian20/voynich-autoexploration/actions/runs/39258767759)
-- exp_599 — [report](experiments/exp_599_marginal_successor_positions/result.md) · [run](https://github.com/kyrian20/voynich-autoexploration/actions/runs/39258941188)
+The corrected parser covers 5,385 aligned line IDs, with zero duplicates and zero skipped identifiers; ZL3a has four additional IDs. Of aligned rows, 5,327 (98.92%) have byte-level-equivalent IVTFF payloads and 5,336 (99.09%) have identical cleaned token sequences; 49 rows (0.91%) differ at token level. All matched rows have the same normalized locus and Currier label under this parser, and paragraph-marker flags match. This confirms the two files are closely related alternative transcriptions, **not independent samples**. Four ZL3a-only keys: `f1r.29`, `f1r.30`, `f1r.31`, `f89v2.26`.
 
-## Next work: parser/provenance audit before more hypothesis tests
-1. Cross-check IVTFF line extraction and locus parsing against the official spec with an independently written parser.
-2. Align ZL3a and ZL3b by exact folio/locus; report token-level disagreements so similarity is not misdescribed as independent replication.
-3. Freeze the Currier-B/P0 primary test, run a larger permutation budget, and predeclare section/folio sensitivity choices before inspecting outcomes.
-4. Avoid expanding the number of daiin tests until parser coverage and source alignment are validated.
+## Next work: exp_601 primary-statistic paired sensitivity
+Measure the effect of the exact ZL3a/ZL3b token differences on the primary Currier-B/P0 `daiin` first-position statistic. Report per-version total target count, observed first count, line-inventory expectation, enrichment, and paired aligned-line changes. Also include the exp_596 control tokens, so version-level robustness is measured rather than assumed. This is a sensitivity analysis, not an independent-sample significance test.
 
 ## Research integrity
-- Keep observations, hypotheses, null results, and method failures distinct.
-- Include source-file SHA-256, exact filter/token rules, output JSON, and workflow run with each experiment.
-- Do not promote the 19/19 mechanism fit or positional effects into a decipherment.
+- Keep observations, hypotheses, null results, and method failures separate.
+- Each experiment should include exact filter/token rules, source hashes, JSON output, a report, and workflow URL.
+- The 19/19 mechanism fit and positional effects do not constitute a decipherment.
 - Never infer the meaning of `daiin` from position or local context alone.
-
-## Exp_600 completed — IVTFF structural audit (2026-10-19)
-The independent parser audit passed its workflow: https://github.com/kyrian20/voynich-autoexploration/actions/runs/39259557496
-- ZL3b: 8,510 physical lines; 227 page headers; 5,385 locus rows; 4,130 P-type rows.
-- ZL3a: 8,513 physical lines; 227 page headers; 5,389 locus rows; 4,130 P-type rows.
-- IT2a: 5,444 physical lines; 225 page headers; 5,215 locus rows; 4,118 P-type rows.
-- All three: zero missing page contexts, page/locus mismatches, invalid slot types, unparsed angle-bracket rows, or duplicate locus keys under this parser.
-- This is a lightweight structural check, not certification by the official IVTT validator. Full machine-readable output: experiments/exp_600_ivtff_parser_conformance/results.json.
-- Next priority remains exact ZL3a/ZL3b locus alignment and token disagreement audit, then a pre-registered folio-aware test. No more exploratory daiin variants until these checks are done.
