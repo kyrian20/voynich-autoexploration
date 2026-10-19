@@ -25,6 +25,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+      - name: Compile-check analysis script
+        run: python -m py_compile experiments/exp_589_daiin_position_audit/script.py
       - name: Run reproducible corpus audit (no API)
         run: python experiments/exp_589_daiin_position_audit/script.py --permutations 2000
       - name: Commit generated results
