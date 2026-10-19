@@ -1,0 +1,38 @@
+{
+  "experiment": "exp_604_independent_transcription_replication",
+  "source": {
+    "path": "data/transcriptions/eva_it2a.txt",
+    "bytes": 342104,
+    "sha256": "7f27a8b0feed8f6de0a99900df6bf912dd1d295c38e5f830bac8b41c3f536fb5"
+  },
+  "protocol": {
+    "population": "Currier B, exact P0, >=2 cleaned tokens",
+    "target": "literal cleaned EVA daiin as first token",
+    "null": "one uniformly selected token position per eligible line, preserving line inventory",
+    "bootstrap_resamples": 20000,
+    "permutations": 20000,
+    "seed": 60420261019
+  },
+  "sample": {
+    "eligible_lines": 2324,
+    "folios": 81,
+    "observed_initial_daiin": 84,
+    "inventory_expected": 32.2823273948274,
+    "total_daiin_tokens": 301
+  },
+  "enrichment_ratio": 2.6020428754297105,
+  "folio_cluster_bootstrap_95pct": [
+    1.935426621698515,
+    3.344863200425759
+  ],
+  "permutation": {
+    "null_mean": 32.18125,
+    "p_one_sided_plus_one": 4.999750012499375e-05,
+    "exceedances": 0
+  },
+  "leave_one_folio_out_ratio_range": [
+    2.427034936853567,
+    2.7084509845615488
+  ],
+  "caveat": "IT2a is a different transcription/version, but may share editorial conventions and is not a wholly independent manuscript witness. Positional replication is not decipherment."
+}
