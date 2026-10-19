@@ -1,0 +1,543 @@
+{
+  "experiment": "exp_601_folio_clustered_confirmation",
+  "protocol_version": 1,
+  "status": "confirmatory statistical test of a pre-existing positional observation; not a decipherment test",
+  "preregistered_primary_family": "single primary endpoint: Currier B, P0 body locus, >=2 cleaned EVA tokens; first token exactly daiin",
+  "source": {
+    "path": "data/transcriptions/eva_zl3b.txt",
+    "bytes": 411671,
+    "sha256": "bf5b6d4ac1e3a51b1847a9c388318d609020441ccd56984c901c32b09beccafc"
+  },
+  "parser": {
+    "currier_label": "read from $L=A/B header field",
+    "locus": "remove one leading IVTFF locator then require exact P0",
+    "minimum_clean_tokens": 2,
+    "target": "literal cleaned EVA token daiin"
+  },
+  "sample": {
+    "eligible_lines": 2325,
+    "represented_folios": 81,
+    "daiin_tokens": 295,
+    "observed_line_initial": 88,
+    "line_inventory_expected": 31.279224
+  },
+  "primary_effect": {
+    "enrichment_ratio": 2.813369,
+    "excess_initial_hits": 56.720776,
+    "folio_cluster_bootstrap_ci95_percentile": [
+      2.115596,
+      3.59317
+    ],
+    "bootstrap_replicates": 20000,
+    "bootstrap_seed": 60120261019
+  },
+  "conditional_randomization_test": {
+    "null": "independently choose one uniformly random token position within each eligible line; each line's inventory/length preserved",
+    "observed_count": 88,
+    "null_mean": 31.30515,
+    "p_one_sided_plus_one": 5e-05,
+    "permutations": 20000,
+    "seed": 60120261019,
+    "interpretation": "The p-value tests within-line positional exchangeability; the cluster bootstrap interval describes sensitivity to which folios are sampled. They answer different questions."
+  },
+  "leave_one_folio_out": {
+    "minimum_enrichment": 2.640358,
+    "maximum_enrichment": 2.930637,
+    "all_folios": [
+      {
+        "folio": "f103r",
+        "observed": 86,
+        "expected": 31.007796,
+        "enrichment": 2.773496
+      },
+      {
+        "folio": "f103v",
+        "observed": 81,
+        "expected": 30.411717,
+        "enrichment": 2.663447
+      },
+      {
+        "folio": "f104r",
+        "observed": 85,
+        "expected": 30.897406,
+        "enrichment": 2.75104
+      },
+      {
+        "folio": "f104v",
+        "observed": 87,
+        "expected": 30.85978,
+        "enrichment": 2.819204
+      },
+      {
+        "folio": "f105r",
+        "observed": 87,
+        "expected": 30.750281,
+        "enrichment": 2.829242
+      },
+      {
+        "folio": "f105v",
+        "observed": 86,
+        "expected": 30.000606,
+        "enrichment": 2.866609
+      },
+      {
+        "folio": "f106r",
+        "observed": 88,
+        "expected": 31.104982,
+        "enrichment": 2.829129
+      },
+      {
+        "folio": "f106v",
+        "observed": 86,
+        "expected": 31.102301,
+        "enrichment": 2.765069
+      },
+      {
+        "folio": "f107r",
+        "observed": 86,
+        "expected": 30.942644,
+        "enrichment": 2.779336
+      },
+      {
+        "folio": "f107v",
+        "observed": 86,
+        "expected": 30.934469,
+        "enrichment": 2.78007
+      },
+      {
+        "folio": "f108r",
+        "observed": 88,
+        "expected": 30.810177,
+        "enrichment": 2.856199
+      },
+      {
+        "folio": "f108v",
+        "observed": 80,
+        "expected": 30.298921,
+        "enrichment": 2.640358
+      },
+      {
+        "folio": "f111r",
+        "observed": 84,
+        "expected": 30.41249,
+        "enrichment": 2.762023
+      },
+      {
+        "folio": "f111v",
+        "observed": 87,
+        "expected": 31.014073,
+        "enrichment": 2.805178
+      },
+      {
+        "folio": "f112r",
+        "observed": 88,
+        "expected": 31.279224,
+        "enrichment": 2.813369
+      },
+      {
+        "folio": "f112v",
+        "observed": 86,
+        "expected": 30.652962,
+        "enrichment": 2.805602
+      },
+      {
+        "folio": "f113r",
+        "observed": 86,
+        "expected": 30.845158,
+        "enrichment": 2.78812
+      },
+      {
+        "folio": "f113v",
+        "observed": 84,
+        "expected": 30.702204,
+        "enrichment": 2.73596
+      },
+      {
+        "folio": "f114r",
+        "observed": 87,
+        "expected": 29.983878,
+        "enrichment": 2.901559
+      },
+      {
+        "folio": "f114v",
+        "observed": 88,
+        "expected": 30.693871,
+        "enrichment": 2.867022
+      },
+      {
+        "folio": "f115r",
+        "observed": 86,
+        "expected": 30.71483,
+        "enrichment": 2.79995
+      },
+      {
+        "folio": "f115v",
+        "observed": 88,
+        "expected": 31.279224,
+        "enrichment": 2.813369
+      },
+      {
+        "folio": "f116r",
+        "observed": 86,
+        "expected": 31.021649,
+        "enrichment": 2.772258
+      },
+      {
+        "folio": "f26r",
+        "observed": 87,
+        "expected": 30.988315,
+        "enrichment": 2.80751
+      },
+      {
+        "folio": "f26v",
+        "observed": 88,
+        "expected": 31.279224,
+        "enrichment": 2.813369
+      },
+      {
+        "folio": "f31r",
+        "observed": 87,
+        "expected": 30.495891,
+        "enrichment": 2.852843
+      },
+      {
+        "folio": "f31v",
+        "observed": 88,
+        "expected": 31.095891,
+        "enrichment": 2.829956
+      },
+      {
+        "folio": "f33r",
+        "observed": 88,
+        "expected": 31.068113,
+        "enrichment": 2.832486
+      },
+      {
+        "folio": "f33v",
+        "observed": 88,
+        "expected": 30.99119,
+        "enrichment": 2.839517
+      },
+      {
+        "folio": "f34r",
+        "observed": 88,
+        "expected": 31.002301,
+        "enrichment": 2.838499
+      },
+      {
+        "folio": "f34v",
+        "observed": 87,
+        "expected": 31.095891,
+        "enrichment": 2.797797
+      },
+      {
+        "folio": "f39r",
+        "observed": 87,
+        "expected": 30.915588,
+        "enrichment": 2.814114
+      },
+      {
+        "folio": "f39v",
+        "observed": 87,
+        "expected": 31.188315,
+        "enrichment": 2.789506
+      },
+      {
+        "folio": "f40r",
+        "observed": 88,
+        "expected": 31.188315,
+        "enrichment": 2.82157
+      },
+      {
+        "folio": "f40v",
+        "observed": 88,
+        "expected": 30.553034,
+        "enrichment": 2.880238
+      },
+      {
+        "folio": "f41r",
+        "observed": 88,
+        "expected": 31.179224,
+        "enrichment": 2.822392
+      },
+      {
+        "folio": "f41v",
+        "observed": 87,
+        "expected": 30.89119,
+        "enrichment": 2.816337
+      },
+      {
+        "folio": "f43r",
+        "observed": 88,
+        "expected": 31.021649,
+        "enrichment": 2.836729
+      },
+      {
+        "folio": "f43v",
+        "observed": 88,
+        "expected": 31.168113,
+        "enrichment": 2.823398
+      },
+      {
+        "folio": "f46r",
+        "observed": 87,
+        "expected": 30.750836,
+        "enrichment": 2.829191
+      },
+      {
+        "folio": "f46v",
+        "observed": 88,
+        "expected": 30.899188,
+        "enrichment": 2.847971
+      },
+      {
+        "folio": "f48r",
+        "observed": 87,
+        "expected": 31.179224,
+        "enrichment": 2.79032
+      },
+      {
+        "folio": "f48v",
+        "observed": 88,
+        "expected": 31.279224,
+        "enrichment": 2.813369
+      },
+      {
+        "folio": "f50r",
+        "observed": 88,
+        "expected": 31.179224,
+        "enrichment": 2.822392
+      },
+      {
+        "folio": "f50v",
+        "observed": 87,
+        "expected": 31.079224,
+        "enrichment": 2.799298
+      },
+      {
+        "folio": "f55r",
+        "observed": 87,
+        "expected": 30.811367,
+        "enrichment": 2.823633
+      },
+      {
+        "folio": "f55v",
+        "observed": 87,
+        "expected": 30.732002,
+        "enrichment": 2.830925
+      },
+      {
+        "folio": "f57r",
+        "observed": 88,
+        "expected": 30.845891,
+        "enrichment": 2.852892
+      },
+      {
+        "folio": "f66r",
+        "observed": 86,
+        "expected": 30.563315,
+        "enrichment": 2.813831
+      },
+      {
+        "folio": "f66v",
+        "observed": 88,
+        "expected": 31.063315,
+        "enrichment": 2.832924
+      },
+      {
+        "folio": "f75r",
+        "observed": 88,
+        "expected": 31.279224,
+        "enrichment": 2.813369
+      },
+      {
+        "folio": "f75v",
+        "observed": 88,
+        "expected": 31.104982,
+        "enrichment": 2.829129
+      },
+      {
+        "folio": "f76r",
+        "observed": 88,
+        "expected": 31.195891,
+        "enrichment": 2.820884
+      },
+      {
+        "folio": "f76v",
+        "observed": 86,
+        "expected": 30.436295,
+        "enrichment": 2.825574
+      },
+      {
+        "folio": "f77r",
+        "observed": 83,
+        "expected": 30.584347,
+        "enrichment": 2.713807
+      },
+      {
+        "folio": "f77v",
+        "observed": 86,
+        "expected": 30.35859,
+        "enrichment": 2.832806
+      },
+      {
+        "folio": "f78r",
+        "observed": 87,
+        "expected": 30.436295,
+        "enrichment": 2.858429
+      },
+      {
+        "folio": "f78v",
+        "observed": 88,
+        "expected": 31.079224,
+        "enrichment": 2.831473
+      },
+      {
+        "folio": "f79r",
+        "observed": 87,
+        "expected": 30.943113,
+        "enrichment": 2.811611
+      },
+      {
+        "folio": "f79v",
+        "observed": 88,
+        "expected": 31.279224,
+        "enrichment": 2.813369
+      },
+      {
+        "folio": "f80r",
+        "observed": 88,
+        "expected": 31.104982,
+        "enrichment": 2.829129
+      },
+      {
+        "folio": "f80v",
+        "observed": 88,
+        "expected": 30.929224,
+        "enrichment": 2.845206
+      },
+      {
+        "folio": "f81r",
+        "observed": 88,
+        "expected": 31.168113,
+        "enrichment": 2.823398
+      },
+      {
+        "folio": "f81v",
+        "observed": 88,
+        "expected": 30.262558,
+        "enrichment": 2.907884
+      },
+      {
+        "folio": "f82r",
+        "observed": 87,
+        "expected": 30.618113,
+        "enrichment": 2.841455
+      },
+      {
+        "folio": "f82v",
+        "observed": 87,
+        "expected": 31.154224,
+        "enrichment": 2.792559
+      },
+      {
+        "folio": "f83r",
+        "observed": 88,
+        "expected": 31.068113,
+        "enrichment": 2.832486
+      },
+      {
+        "folio": "f83v",
+        "observed": 86,
+        "expected": 30.911392,
+        "enrichment": 2.782146
+      },
+      {
+        "folio": "f84r",
+        "observed": 88,
+        "expected": 30.821649,
+        "enrichment": 2.855136
+      },
+      {
+        "folio": "f84v",
+        "observed": 88,
+        "expected": 30.027601,
+        "enrichment": 2.930637
+      },
+      {
+        "folio": "f85r1",
+        "observed": 87,
+        "expected": 30.829574,
+        "enrichment": 2.821966
+      },
+      {
+        "folio": "f86v3",
+        "observed": 88,
+        "expected": 31.279224,
+        "enrichment": 2.813369
+      },
+      {
+        "folio": "f86v4",
+        "observed": 87,
+        "expected": 31.112558,
+        "enrichment": 2.796299
+      },
+      {
+        "folio": "f86v5",
+        "observed": 86,
+        "expected": 30.781497,
+        "enrichment": 2.793886
+      },
+      {
+        "folio": "f86v6",
+        "observed": 86,
+        "expected": 30.845891,
+        "enrichment": 2.788054
+      },
+      {
+        "folio": "f94r",
+        "observed": 87,
+        "expected": 31.168113,
+        "enrichment": 2.791314
+      },
+      {
+        "folio": "f94v",
+        "observed": 87,
+        "expected": 30.968113,
+        "enrichment": 2.809341
+      },
+      {
+        "folio": "f95r1",
+        "observed": 87,
+        "expected": 31.029224,
+        "enrichment": 2.803808
+      },
+      {
+        "folio": "f95r2",
+        "observed": 86,
+        "expected": 31.012558,
+        "enrichment": 2.77307
+      },
+      {
+        "folio": "f95v1",
+        "observed": 88,
+        "expected": 31.154224,
+        "enrichment": 2.824657
+      },
+      {
+        "folio": "f95v2",
+        "observed": 87,
+        "expected": 31.168113,
+        "enrichment": 2.791314
+      }
+    ]
+  },
+  "limitations": [
+    "The bootstrap resamples folios equally as clusters; it does not assert folios are identically distributed.",
+    "The randomization null conditions on each observed line's token inventory and length; it does not model all text-generating dependencies.",
+    "ZL3a is a related transcription, not an independent manuscript sample.",
+    "Currier labels and locus parsing are transcription metadata; the audit is not a full official IVTFF validation.",
+    "A positional enrichment is not evidence of a semantic meaning or a decipherment."
+  ],
+  "next_decision_rule": "Treat the positional effect as robust to folio sampling only if the 95% folio-cluster bootstrap interval excludes 1 and leave-one-folio-out ratios remain above 1; report the randomization p-value separately. If criteria disagree, mark inference mixed rather than choosing the favorable test."
+}
