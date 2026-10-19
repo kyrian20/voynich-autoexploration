@@ -1,0 +1,26 @@
+name: Voynich exp609 paired ch-sh vowel test
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'experiments/exp_609_paired_ch_sh_vowel_test/**'
+      - '.github/workflows/voynich-exp609.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run paired folio-level test
+        run: python experiments/exp_609_paired_ch_sh_vowel_test/script.py
+      - name: Commit results
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+users.noreply.github.com"
+          git add experiments/exp_609_paired_ch_sh_vowel_test/results.json experiments/exp_609_paired_ch_sh_vowel_test/result.md
+          git diff --cached --quiet || git commit -m "Record exp609 paired ch-sh vowel test"
+          git push
