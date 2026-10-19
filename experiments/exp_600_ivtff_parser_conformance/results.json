@@ -1,0 +1,476 @@
+{
+  "experiment": "exp_600_ivtff_parser_conformance",
+  "protocol_version": 1,
+  "reference": "IVTFF format version 2.0.2, René Zandbergen, 2025-07-08; https://www.voynich.nu/software/ivtt/IVTFF_format.pdf",
+  "purpose": "Check the raw structural assumptions used by earlier token-position experiments before adding further hypotheses.",
+  "caveats": [
+    "This is an independent lightweight audit, not a full official IVTT validator.",
+    "The parser deliberately reports unparsed constructs instead of silently interpreting them.",
+    "Some IVTFF inline constructs are valid and require format-aware treatment; an anomaly is a review item, not automatically a corrupt file.",
+    "No semantic or decipherment claim is tested."
+  ],
+  "files": [
+    {
+      "label": "ZL3b",
+      "source": {
+        "path": "data/transcriptions/eva_zl3b.txt",
+        "bytes": 411671,
+        "sha256": "bf5b6d4ac1e3a51b1847a9c388318d609020441ccd56984c901c32b09beccafc"
+      },
+      "physical_lines": 8510,
+      "comments": 2898,
+      "page_headers": 0,
+      "unique_pages": 0,
+      "locus_lines": 0,
+      "slash_continuation_lines": 0,
+      "empty_locus_bodies": 0,
+      "first_character_counts": {
+        "#": 2898,
+        "<": 5612
+      },
+      "locus_kind_counts": {},
+      "slot_marker_counts": {},
+      "missing_page_before_locus_line_numbers": [],
+      "missing_page_count": 0,
+      "page_mismatch_examples": [],
+      "page_mismatch_count": 0,
+      "invalid_locus_number_examples": [],
+      "invalid_locus_number_count": 0,
+      "invalid_slot_examples": [],
+      "invalid_slot_count": 0,
+      "unparsed_angle_line_examples": [
+        {
+          "line": 5,
+          "sample": "<f1r>      <! $Q=A $P=A $F=a $B=1 $I=T $L=A $H=1 $C=1 $X=V>"
+        },
+        {
+          "line": 24,
+          "sample": "<f1r.1,@P0>       <%>fachys.ykal.ar.ataiin.shol.shory.[cth:oto]res.y.kor.sholdy<!@254;>"
+        },
+        {
+          "line": 25,
+          "sample": "<f1r.2,+P0>       sory.ckhar.or,y.kair.chtaiin.shar.ase.cthar.cthar,dan"
+        },
+        {
+          "line": 26,
+          "sample": "<f1r.3,+P0>       syaiir.sheky.or.ykaiin.shod.cthoary.cthes.daraiin.sy"
+        },
+        {
+          "line": 27,
+          "sample": "<f1r.4,+P0>       soiin.oteey.oteo[s:r],roloty.cthiar,daiin.okaiin.or.okan"
+        },
+        {
+          "line": 28,
+          "sample": "<f1r.5,+P0>       sair,y.chear.cthaiin.cphar.cfhaiin"
+        },
+        {
+          "line": 29,
+          "sample": "<f1r.6,=Pt>       ydaraishy<$>"
+        },
+        {
+          "line": 31,
+          "sample": "<f1r.7,*P0>       <%><!@252;>odar.{c'y}.shol.cphoy.oydar.sh.s.cfhoaiin.shodary"
+        },
+        {
+          "line": 32,
+          "sample": "<f1r.8,+P0>       yshey.shody.okchoy.otchol.chocthy.os,chy.dain.chor.kos"
+        },
+        {
+          "line": 33,
+          "sample": "<f1r.9,+P0>       daiin.shos.cfhol.shody"
+        },
+        {
+          "line": 34,
+          "sample": "<f1r.10,=Pt>      dain.os.teody<$>"
+        },
+        {
+          "line": 36,
+          "sample": "<f1r.11,*P0>      <%><!@253;>ydain.cphesaiin.ols.cphey.ytain.shoshy.cphodal,es"
+        },
+        {
+          "line": 37,
+          "sample": "<f1r.12,+P0>      oksho.kshoy.otairin.oteol.okan.shodain.sckhey.daiin"
+        },
+        {
+          "line": 38,
+          "sample": "<f1r.13,+P0>      shoy.ckhey.kodaiin.cphy.cphodaiils.cthey.sho.oldain.d"
+        },
+        {
+          "line": 39,
+          "sample": "<f1r.14,+P0>      dain.oiin.chol.odaiin.chodain.chdy.ok[a:o]in.d?n.cthy.kod"
+        },
+        {
+          "line": 40,
+          "sample": "<f1r.15,+P0>      daiin.shckhey.{ck}eo.r.char.shey.kol.chol.chol.kor.chal"
+        },
+        {
+          "line": 41,
+          "sample": "<f1r.16,+P0>      sho.chol.shodan.kshy.kchy.d.or.chodaiin.sho.koeam"
+        },
+        {
+          "line": 42,
+          "sample": "<f1r.17,+P0>      ycho.tchey.chekain.sheo,pshol.dydyd.cthy.dai[{cto}:@194;]y"
+        },
+        {
+          "line": 43,
+          "sample": "<f1r.18,+P0>      yto.shol.she.kodshey.cphealy.dar,ain.dain.ckhyds"
+        },
+        {
+          "line": 44,
+          "sample": "<f1r.19,+P0>      dchar.shcthaiin.okaiir.chey.@192;chy.@130;tol.cthols.dlo{ct}o"
+        },
+        {
+          "line": 45,
+          "sample": "<f1r.20,+P0>      shok.chor.chey.dain.ckhey"
+        },
+        {
+          "line": 46,
+          "sample": "<f1r.21,=Pt>      otol.daiiin<$>"
+        },
+        {
+          "line": 48,
+          "sample": "<f1r.22,*P0>      <%>cpho.shaiin.shokcheey.chol.tshodeesy.shey.pydeey.cha.ro,dar"
+        },
+        {
+          "line": 49,
+          "sample": "<f1r.23,+P0>      ydoin.chol.dain.cthal.dar.shear.kaiin.dar.shey.cthar"
+        },
+        {
+          "line": 50,
+          "sample": "<f1r.24,+P0>      cho.?o.kaiin.shoaiin.okol.daiin.far.cthol.daiin.ctholdar"
+        },
+        {
+          "line": 51,
+          "sample": "<f1r.25,+P0>      ycheey.okeey.oky.daiin.okchey.kokaiin.o?chol.k?dchy.dal"
+        },
+        {
+          "line": 52,
+          "sample": "<f1r.26,+P0>      dcheo.shody.koshey.cthy.ok,chey.keey.keey,dal.chtor"
+        },
+        {
+          "line": 53,
+          "sample": "<f1r.27,+P0>      ?eo?.chol.chok.choty.chotey"
+        },
+        {
+          "line": 54,
+          "sample": "<f1r.28,=Pt>      dchaiin<$>"
+        },
+        {
+          "line": 57,
+          "sample": "<f1v>      <! $Q=A $P=B $F=a $B=1 $I=H $L=A $H=1 $C=1 $X=C>"
+        }
+      ],
+      "unparsed_angle_line_count": 5612,
+      "duplicate_locus_key_examples": [],
+      "duplicate_locus_key_count": 0
+    },
+    {
+      "label": "ZL3a",
+      "source": {
+        "path": "data/transcriptions/zl3a.txt",
+        "bytes": 411710,
+        "sha256": "56419297682d338ff1a0a17f5ae251e3ee3e2c5bf05a62db04c5385ef30b36a2"
+      },
+      "physical_lines": 8513,
+      "comments": 2897,
+      "page_headers": 0,
+      "unique_pages": 0,
+      "locus_lines": 0,
+      "slash_continuation_lines": 0,
+      "empty_locus_bodies": 0,
+      "first_character_counts": {
+        "#": 2897,
+        "<": 5616
+      },
+      "locus_kind_counts": {},
+      "slot_marker_counts": {},
+      "missing_page_before_locus_line_numbers": [],
+      "missing_page_count": 0,
+      "page_mismatch_examples": [],
+      "page_mismatch_count": 0,
+      "invalid_locus_number_examples": [],
+      "invalid_locus_number_count": 0,
+      "invalid_slot_examples": [],
+      "invalid_slot_count": 0,
+      "unparsed_angle_line_examples": [
+        {
+          "line": 5,
+          "sample": "<f1r>      <! $Q=A $P=A $F=a $B=1 $I=T $L=A $H=1 $C=1 $X=V>"
+        },
+        {
+          "line": 25,
+          "sample": "<f1r.1,@P0>       <%>fachys.ykal.ar.ataiin.shol.shory.[cth:oto]res.y.kor.sholdy<!doodle: @254;>"
+        },
+        {
+          "line": 26,
+          "sample": "<f1r.2,+P0>       sory.ckhar.or,y.kair.chtaiin.shar.ase.cthar.cthar,dan"
+        },
+        {
+          "line": 27,
+          "sample": "<f1r.3,+P0>       syaiir.sheky.or.ykaiin.shod.cthoary.cthes.daraiin.sy"
+        },
+        {
+          "line": 28,
+          "sample": "<f1r.4,+P0>       soiin.oteey.oteo[s:r],roloty.cthiar,daiin.okaiin.or.okan"
+        },
+        {
+          "line": 29,
+          "sample": "<f1r.5,+P0>       sair,y.chear.cthaiin.cphar.cfhaiin"
+        },
+        {
+          "line": 30,
+          "sample": "<f1r.6,=Pt>       ydaraishy<$>"
+        },
+        {
+          "line": 32,
+          "sample": "<f1r.7,*P0>       <%><!doodle: @252;>odar.{c'y}.shol.cphoy.oydar.sh.s.cfhoaiin.shodary"
+        },
+        {
+          "line": 33,
+          "sample": "<f1r.8,+P0>       yshey.shody.okchoy.otchol.chocthy.os,chy.dain.chor.kos"
+        },
+        {
+          "line": 34,
+          "sample": "<f1r.9,+P0>       daiin.shos.cfhol.shody"
+        },
+        {
+          "line": 35,
+          "sample": "<f1r.10,=Pt>      dain.os.teody<$>"
+        },
+        {
+          "line": 37,
+          "sample": "<f1r.11,*P0>      <%><!doodle: @253;>ydain.cphesaiin.ols.cphey.ytain.shoshy.cphodal,es"
+        },
+        {
+          "line": 38,
+          "sample": "<f1r.12,+P0>      oksho.kshoy.otairin.oteol.okan.shodain.sckhey.daiin"
+        },
+        {
+          "line": 39,
+          "sample": "<f1r.13,+P0>      shoy.ckhey.kodaiin.cphy.cphodaiils.cthey.sho.oldain.d"
+        },
+        {
+          "line": 40,
+          "sample": "<f1r.14,+P0>      dain.oiin.chol.odaiin.chodain.chdy.ok[a:o]in.d?n.cthy.kod"
+        },
+        {
+          "line": 41,
+          "sample": "<f1r.15,+P0>      daiin.shckhey.{ck}eo.r.char.shey.kol.chol.chol.kor.chal"
+        },
+        {
+          "line": 42,
+          "sample": "<f1r.16,+P0>      sho.chol.shodan.kshy.kchy.d.or.chodaiin.sho.koeam"
+        },
+        {
+          "line": 43,
+          "sample": "<f1r.17,+P0>      ycho.tchey.chekain.sheo,pshol.dydyd.cthy.dai[{cto}:@194;]y"
+        },
+        {
+          "line": 44,
+          "sample": "<f1r.18,+P0>      yto.shol.she.kodshey.cphealy.dar,ain.dain.ckhyds"
+        },
+        {
+          "line": 45,
+          "sample": "<f1r.19,+P0>      dchar.shcthaiin.okaiir.chey.@192;chy.@130;tol.cthols.dlo{ct}o"
+        },
+        {
+          "line": 46,
+          "sample": "<f1r.20,+P0>      shok.chor.chey.dain.ckhey"
+        },
+        {
+          "line": 47,
+          "sample": "<f1r.21,=Pt>      otol.daiiin<$>"
+        },
+        {
+          "line": 49,
+          "sample": "<f1r.22,*P0>      <%>cpho.shaiin.shokcheey.chol.tshodeesy.shey.pydeey.chy.r,o,d"
+        },
+        {
+          "line": 50,
+          "sample": "<f1r.23,+P0>      ??doin.chol.dain.cthal.dar.shear.kaiin.dar.shey.cthar"
+        },
+        {
+          "line": 51,
+          "sample": "<f1r.24,+P0>      cho.?o.kaiin.shoaiin.okol.daiin.far.cthol.daiin.ctholdar"
+        },
+        {
+          "line": 52,
+          "sample": "<f1r.25,+P0>      ycheey.okeey.oky.daiin.okchey.kokaiin.o?chol.k?dchy.dal"
+        },
+        {
+          "line": 53,
+          "sample": "<f1r.26,+P0>      dcheo.shody.koshey.cthy.ok,chey.keey.keey,dal.chtor"
+        },
+        {
+          "line": 54,
+          "sample": "<f1r.27,+P0>      ?eo?.chol.chok.choty.chotey"
+        },
+        {
+          "line": 55,
+          "sample": "<f1r.28,=Pt>      dchaiin<$>"
+        },
+        {
+          "line": 57,
+          "sample": "<f1r.29,@Lx>      d"
+        }
+      ],
+      "unparsed_angle_line_count": 5616,
+      "duplicate_locus_key_examples": [],
+      "duplicate_locus_key_count": 0
+    },
+    {
+      "label": "IT2a",
+      "source": {
+        "path": "data/transcriptions/eva_it2a.txt",
+        "bytes": 342104,
+        "sha256": "7f27a8b0feed8f6de0a99900df6bf912dd1d295c38e5f830bac8b41c3f536fb5"
+      },
+      "physical_lines": 5444,
+      "comments": 4,
+      "page_headers": 0,
+      "unique_pages": 0,
+      "locus_lines": 0,
+      "slash_continuation_lines": 0,
+      "empty_locus_bodies": 0,
+      "first_character_counts": {
+        "#": 4,
+        "<": 5440
+      },
+      "locus_kind_counts": {},
+      "slot_marker_counts": {},
+      "missing_page_before_locus_line_numbers": [],
+      "missing_page_count": 0,
+      "page_mismatch_examples": [],
+      "page_mismatch_count": 0,
+      "invalid_locus_number_examples": [],
+      "invalid_locus_number_count": 0,
+      "invalid_slot_examples": [],
+      "invalid_slot_count": 0,
+      "unparsed_angle_line_examples": [
+        {
+          "line": 5,
+          "sample": "<f1r>      <! $Q=A $P=A $F=a $B=1 $I=T $L=A $H=1 $C=1 $X=V>"
+        },
+        {
+          "line": 6,
+          "sample": "<f1r.1,@P0>       <%>fachys.ykal.ar.ataiin.shol.shory.cthres.y.kor.sholdy"
+        },
+        {
+          "line": 7,
+          "sample": "<f1r.2,+P0>       sory.ckhar.or.y.kair.chtaiin.shar.are.cthar.cthar.dan"
+        },
+        {
+          "line": 8,
+          "sample": "<f1r.3,+P0>       syaiir.sheky.or.ykaiin.shod.cthoary.cthes.daraiin.sa"
+        },
+        {
+          "line": 9,
+          "sample": "<f1r.4,+P0>       ooiin.oteey.oteos.roloty.cth?ar.daiin.otaiin.or.okan"
+        },
+        {
+          "line": 10,
+          "sample": "<f1r.5,+P0>       dair.y.chear.cthaiin.cphar.cfhaiin"
+        },
+        {
+          "line": 11,
+          "sample": "<f1r.6,=Pt>       ydaraishy<$>"
+        },
+        {
+          "line": 12,
+          "sample": "<f1r.7,*P0>       <%>?.odar.o.y.shol.cphoy.oydar.sh.s.cfhoaiin.shodary"
+        },
+        {
+          "line": 13,
+          "sample": "<f1r.8,+P0>       yshey.shody.okchoy.otchol.chocthy.oschy.dain.chor.kos"
+        },
+        {
+          "line": 14,
+          "sample": "<f1r.9,+P0>       daiin.shos.cfhol.shody"
+        },
+        {
+          "line": 15,
+          "sample": "<f1r.10,=Pt>      dain.os.teody<$>"
+        },
+        {
+          "line": 16,
+          "sample": "<f1r.11,*P0>      <%>?.ydain.cphesaiin.ol.s.cphey.ytain.shoshy.cphodales"
+        },
+        {
+          "line": 17,
+          "sample": "<f1r.12,+P0>      oksho.kshoy.otairin.oteol.okan.shodain.sckhey.daiin"
+        },
+        {
+          "line": 18,
+          "sample": "<f1r.13,+P0>      shoy.ckhey.kodaiin.cphy.cphodaiils.cthey.she.oldain.d"
+        },
+        {
+          "line": 19,
+          "sample": "<f1r.14,+P0>      dain.oiin.chol.odaiin.chodain.chdy.okain.dan.cthy.kod"
+        },
+        {
+          "line": 20,
+          "sample": "<f1r.15,+P0>      daiin.shckhey.ckeor.chor.shey.kol.chol.chol.kor.chal"
+        },
+        {
+          "line": 21,
+          "sample": "<f1r.16,+P0>      sho.chol.shodan.kshy.kchy.dor.chodaiin.sho.kchom"
+        },
+        {
+          "line": 22,
+          "sample": "<f1r.17,+P0>      ycho.tchey.chokain.sheo.pshol.dydyd.cthy.daicthy"
+        },
+        {
+          "line": 23,
+          "sample": "<f1r.18,+P0>      yto.shol.she.kodshey.cphealy.dasain.dain.ckhyds"
+        },
+        {
+          "line": 24,
+          "sample": "<f1r.19,+P0>      dchar.shcthaiin.okaiir.chey.rchy.potol.cthols.dlocta"
+        },
+        {
+          "line": 25,
+          "sample": "<f1r.20,+P0>      shok.chor.chey.dain.ckhey"
+        },
+        {
+          "line": 26,
+          "sample": "<f1r.21,=Pt>      otol.daiiin<$>"
+        },
+        {
+          "line": 27,
+          "sample": "<f1r.22,*P0>      <%>cpho.shaiin.shokcheey.chol.tshodeesy.shey.pydeey.chy.ro.d?"
+        },
+        {
+          "line": 28,
+          "sample": "<f1r.23,+P0>      ?doin.chol.dain.cthal.dar.shear.kaiin.dar.shey.cthar"
+        },
+        {
+          "line": 29,
+          "sample": "<f1r.24,+P0>      cho?o.kaiin.shoaiin.okol.daiin.far.cthol.daiin.ctholdar"
+        },
+        {
+          "line": 30,
+          "sample": "<f1r.25,+P0>      ycheey.okay.oky.daiin.okchey.kokaiin.??chol.k??chy.dal"
+        },
+        {
+          "line": 31,
+          "sample": "<f1r.26,+P0>      d?eeo.shody.koshey.cthy.okchey.keey.keey.dal.chtor"
+        },
+        {
+          "line": 32,
+          "sample": "<f1r.27,+P0>      ?eo.chol.chok.choty.chotey"
+        },
+        {
+          "line": 33,
+          "sample": "<f1r.28,=Pt>      dchaiin<$>"
+        },
+        {
+          "line": 34,
+          "sample": "<f1v>      <! $Q=A $P=B $F=a $B=1 $I=H $L=A $H=1 $C=1 $X=C>"
+        }
+      ],
+      "unparsed_angle_line_count": 5440,
+      "duplicate_locus_key_examples": [],
+      "duplicate_locus_key_count": 0
+    }
+  ]
+}\n
