@@ -52,11 +52,11 @@ def permutation_test(lines, target, n_perm, seed):
         return {"eligible_lines": 0, "observed_first": 0, "p_one_sided_plus_one": None}
     rng, null, ge = random.Random(seed), [], 0
     for _ in range(n_perm):
+        # For this statistic, a single uniform position per line has the same
+        # null distribution as a full shuffle, without shuffling every token.
         count = 0
         for line in eligible:
-            shuffled = line[:]
-            rng.shuffle(shuffled)
-            count += shuffled[0] == target
+            count += line[rng.randrange(len(line))] == target
         null.append(count)
         ge += count >= observed
     expected = sum(line.count(target) / len(line) for line in eligible)
