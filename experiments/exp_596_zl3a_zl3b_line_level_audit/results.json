@@ -1,5 +1,5 @@
 {
-  "experiment": "exp_596_zl3a_zl3b_line_level_audit",
+  "experiment": "exp_596_zl3a_zl3b_line_level_annotation_audit",
   "protocol_version": 1,
   "sources": {
     "ZL3a": {
@@ -74,7 +74,7 @@
         "daiin_tokens": 29,
         "first_observed": 0,
         "first_expected": 2.82732,
-        "enrichment": 0
+        "enrichment": 0.0
       },
       "B_no_start": {
         "lines": 2056,
@@ -104,7 +104,7 @@
         "daiin_tokens": 29,
         "first_observed": 0,
         "first_expected": 2.82732,
-        "enrichment": 0
+        "enrichment": 0.0
       },
       "B_no_start": {
         "lines": 2056,
@@ -115,11 +115,822 @@
       }
     }
   },
-  "notes": [
-    "Both files have exactly 4,130 generic P-locus records with one-to-one keys and no duplicate keys.",
-    "There are 24 cleaned token-sequence disagreements, but zero paragraph-marker disagreements and zero changes in whether the first cleaned token is daiin.",
-    "The two versions are closely related and this is a transcription-version audit, not independent external replication.",
-    "The marker-end count here is 740 because this audit includes all P-locus rows; exp_595's 729 count is restricted to rows with at least two cleaned tokens.",
-    "Token sequence differences may reflect transcription details; no semantic claim."
+  "examples": {
+    "token_sequence_disagreements": [
+      {
+        "key": [
+          "f101v",
+          "f101v.22,+P0"
+        ],
+        "ZL3a_tokens": [
+          "kshar",
+          "lol",
+          "keeol",
+          "otal",
+          "or",
+          "ol",
+          "aiin",
+          "okeod",
+          "ey",
+          "dain",
+          "olcheol",
+          "cthey",
+          "qekeoldy",
+          "qocthor",
+          "sheody",
+          "qo",
+          "ey",
+          "odaiin",
+          "shoytolaiin",
+          "dy"
+        ],
+        "ZL3b_tokens": [
+          "ksear",
+          "lol",
+          "keeol",
+          "otal",
+          "or",
+          "ol",
+          "aiin",
+          "okeod",
+          "ey",
+          "dain",
+          "olcheol",
+          "cthey",
+          "qekeoldy",
+          "qocthor",
+          "sheody",
+          "qo",
+          "ey",
+          "odaiin",
+          "shoytolaiin",
+          "dy"
+        ],
+        "ZL3a_line_initial_daiin": false,
+        "ZL3b_line_initial_daiin": false
+      },
+      {
+        "key": [
+          "f101v",
+          "f101v.23,+P0"
+        ],
+        "ZL3a_tokens": [
+          "yaiin",
+          "ol",
+          "olor",
+          "daiin",
+          "okeey",
+          "qok",
+          "ykeol",
+          "daiin",
+          "qockhy",
+          "daiin",
+          "qokeol",
+          "dol",
+          "oraiin",
+          "oldaiin",
+          "keeols",
+          "rch",
+          "qokeeeor",
+          "s",
+          "ydy",
+          "cheor",
+          "okeey",
+          "choldy",
+          "dar"
+        ],
+        "ZL3b_tokens": [
+          "yaiin",
+          "ol",
+          "olor",
+          "daiin",
+          "okeey",
+          "qok",
+          "ykeol",
+          "daiin",
+          "qockhy",
+          "daiin",
+          "qokeol",
+          "dol",
+          "oraiin",
+          "oldaiin",
+          "keeol",
+          "rch",
+          "qokeeeor",
+          "s",
+          "ydy",
+          "cheor",
+          "okeey",
+          "choldy",
+          "dar"
+        ],
+        "ZL3a_line_initial_daiin": false,
+        "ZL3b_line_initial_daiin": false
+      },
+      {
+        "key": [
+          "f102v2",
+          "f102v2.20,+P0"
+        ],
+        "ZL3a_tokens": [
+          "qokeor",
+          "chokeeol",
+          "okeeey",
+          "qokeody",
+          "chockhey",
+          "qokeey",
+          "dol",
+          "ol",
+          "sheeoy",
+          "tody",
+          "cheoch"
+        ],
+        "ZL3b_tokens": [
+          "qokeor",
+          "cho",
+          "keeol",
+          "okeeey",
+          "qokeody",
+          "chockhey",
+          "qokeey",
+          "dol",
+          "ol",
+          "sheeoy",
+          "tody"
+        ],
+        "ZL3a_line_initial_daiin": false,
+        "ZL3b_line_initial_daiin": false
+      },
+      {
+        "key": [
+          "f103v",
+          "f103v.31,+P0"
+        ],
+        "ZL3a_tokens": [
+          "okeey",
+          "l",
+          "chey",
+          "qokeey",
+          "o",
+          "qokeey",
+          "chedy",
+          "q",
+          "y",
+          "daiin",
+          "chckhy",
+          "sar",
+          "olainy"
+        ],
+        "ZL3b_tokens": [
+          "okeey",
+          "l",
+          "chey",
+          "qokeey",
+          "o",
+          "qokeey",
+          "chedy",
+          "qekchy",
+          "daiin",
+          "chckhy",
+          "sar",
+          "olainy"
+        ],
+        "ZL3a_line_initial_daiin": false,
+        "ZL3b_line_initial_daiin": false
+      },
+      {
+        "key": [
+          "f104r",
+          "f104r.30,+P0"
+        ],
+        "ZL3a_tokens": [
+          "okeeo",
+          "l",
+          "keeo",
+          "dain",
+          "lkeodaiin",
+          "qokeeo",
+          "lkechey",
+          "okeody",
+          "otechdy",
+          "opcheof",
+          "qopaiin"
+        ],
+        "ZL3b_tokens": [
+          "okeeo",
+          "l",
+          "keeo",
+          "dain",
+          "lkeodaiin",
+          "qokeeo",
+          "lkeeeey",
+          "okeody",
+          "otechdy",
+          "opcheof",
+          "qopaiin"
+        ],
+        "ZL3a_line_initial_daiin": false,
+        "ZL3b_line_initial_daiin": false
+      },
+      {
+        "key": [
+          "f105r",
+          "f105r.5,+P0"
+        ],
+        "ZL3a_tokens": [
+          "daiin",
+          "yteedy",
+          "yteeeody",
+          "yl",
+          "cheod",
+          "or",
+          "aiirockhy",
+          "otchdy",
+          "otey"
+        ],
+        "ZL3b_tokens": [
+          "daiin",
+          "yteedy",
+          "yteeeody",
+          "yl",
+          "cheod",
+          "or",
+          "aiiroekey",
+          "otchdy",
+          "otey"
+        ],
+        "ZL3a_line_initial_daiin": true,
+        "ZL3b_line_initial_daiin": true
+      },
+      {
+        "key": [
+          "f113r",
+          "f113r.21,+P0"
+        ],
+        "ZL3a_tokens": [
+          "dar",
+          "shol",
+          "shedair",
+          "otchdy",
+          "shokchy",
+          "shaiiin",
+          "shckhey",
+          "lshor",
+          "air",
+          "okeody"
+        ],
+        "ZL3b_tokens": [
+          "oiir",
+          "shol",
+          "shedair",
+          "otchdy",
+          "shokchy",
+          "shaiiin",
+          "shckhey",
+          "lshor",
+          "air",
+          "okeody"
+        ],
+        "ZL3a_line_initial_daiin": false,
+        "ZL3b_line_initial_daiin": false
+      },
+      {
+        "key": [
+          "f115r",
+          "f115r.35,+P0"
+        ],
+        "ZL3a_tokens": [
+          "posheos",
+          "aral",
+          "chaiin",
+          "shkchedy",
+          "otais",
+          "chs",
+          "chpchar",
+          "ar",
+          "al",
+          "odaiin",
+          "chcphy",
+          "dy"
+        ],
+        "ZL3b_tokens": [
+          "posheos",
+          "aral",
+          "chaiin",
+          "shkchedy",
+          "otais",
+          "chsi",
+          "chpchar",
+          "ar",
+          "al",
+          "odaiin",
+          "chcphy",
+          "dy"
+        ],
+        "ZL3a_line_initial_daiin": false,
+        "ZL3b_line_initial_daiin": false
+      },
+      {
+        "key": [
+          "f1r",
+          "f1r.22,*P0"
+        ],
+        "ZL3a_tokens": [
+          "cpho",
+          "shaiin",
+          "shokcheey",
+          "chol",
+          "tshodeesy",
+          "shey",
+          "pydeey",
+          "chy",
+          "r",
+          "o",
+          "d"
+        ],
+        "ZL3b_tokens": [
+          "cpho",
+          "shaiin",
+          "shokcheey",
+          "chol",
+          "tshodeesy",
+          "shey",
+          "pydeey",
+          "cha",
+          "ro",
+          "dar"
+        ],
+        "ZL3a_line_initial_daiin": false,
+        "ZL3b_line_initial_daiin": false
+      },
+      {
+        "key": [
+          "f1r",
+          "f1r.23,+P0"
+        ],
+        "ZL3a_tokens": [
+          "chol",
+          "dain",
+          "cthal",
+          "dar",
+          "shear",
+          "kaiin",
+          "dar",
+          "shey",
+          "cthar"
+        ],
+        "ZL3b_tokens": [
+          "ydoin",
+          "chol",
+          "dain",
+          "cthal",
+          "dar",
+          "shear",
+          "kaiin",
+          "dar",
+          "shey",
+          "cthar"
+        ],
+        "ZL3a_line_initial_daiin": false,
+        "ZL3b_line_initial_daiin": false
+      },
+      {
+        "key": [
+          "f26r",
+          "f26r.2,+P0"
+        ],
+        "ZL3a_tokens": [
+          "dchey",
+          "daiin",
+          "adeeody",
+          "ykecthey",
+          "chedy",
+          "ytedy",
+          "dy",
+          "checthedy",
+          "ls"
+        ],
+        "ZL3b_tokens": [
+          "dchey",
+          "aiin",
+          "adeeody",
+          "ykecthey",
+          "chedy",
+          "ytedy",
+          "dy",
+          "checthedy",
+          "ls"
+        ],
+        "ZL3a_line_initial_daiin": false,
+        "ZL3b_line_initial_daiin": false
+      },
+      {
+        "key": [
+          "f26r",
+          "f26r.7,+P0"
+        ],
+        "ZL3a_tokens": [
+          "peeo",
+          "qokedy",
+          "dar",
+          "sheo",
+          "ypchseds",
+          "s",
+          "aiin",
+          "sha",
+          "p",
+          "chedyfchy",
+          "dalchedy",
+          "sar"
+        ],
+        "ZL3b_tokens": [
+          "pcho",
+          "qokedy",
+          "dar",
+          "sheo",
+          "ypchseds",
+          "s",
+          "aiin",
+          "sha",
+          "p",
+          "chedyfchy",
+          "dalchedy",
+          "sar"
+        ],
+        "ZL3a_line_initial_daiin": false,
+        "ZL3b_line_initial_daiin": false
+      },
+      {
+        "key": [
+          "f41r",
+          "f41r.6,+P0"
+        ],
+        "ZL3a_tokens": [
+          "shedey",
+          "polchedy",
+          "qokeey",
+          "chekedy",
+          "ytey",
+          "chkeeod",
+          "ypchedpy",
+          "shepe",
+          "shedy"
+        ],
+        "ZL3b_tokens": [
+          "shedey",
+          "polchedy",
+          "qokeey",
+          "chekedy",
+          "ytey",
+          "chkeeod",
+          "ypchedpy",
+          "shepy",
+          "shedy"
+        ],
+        "ZL3a_line_initial_daiin": false,
+        "ZL3b_line_initial_daiin": false
+      },
+      {
+        "key": [
+          "f42r",
+          "f42r.20,+P0"
+        ],
+        "ZL3a_tokens": [
+          "shol",
+          "chol",
+          "shoky",
+          "okol",
+          "sho",
+          "chol",
+          "chhol",
+          "chal"
+        ],
+        "ZL3b_tokens": [
+          "shol",
+          "chol",
+          "shoky",
+          "okol",
+          "sho",
+          "chol",
+          "shol",
+          "chal"
+        ],
+        "ZL3a_line_initial_daiin": false,
+        "ZL3b_line_initial_daiin": false
+      },
+      {
+        "key": [
+          "f42v",
+          "f42v.10,+P0"
+        ],
+        "ZL3a_tokens": [
+          "schor",
+          "okchey",
+          "chy",
+          "shol",
+          "olor",
+          "cheaiin",
+          "chy",
+          "tcheen",
+          "d"
+        ],
+        "ZL3b_tokens": [
+          "schor",
+          "okchey",
+          "chy",
+          "shol",
+          "olor",
+          "cheaiin",
+          "chy",
+          "tcheeb",
+          "d"
+        ],
+        "ZL3a_line_initial_daiin": false,
+        "ZL3b_line_initial_daiin": false
+      },
+      {
+        "key": [
+          "f42v",
+          "f42v.14,+P0"
+        ],
+        "ZL3a_tokens": [
+          "qoteey",
+          "chy",
+          "kchy",
+          "cthy",
+          "ees",
+          "choly",
+          "sarar",
+          "ar",
+          "al"
+        ],
+        "ZL3b_tokens": [
+          "qoteey",
+          "chy",
+          "kchy",
+          "cthy",
+          "ees",
+          "choly",
+          "sarar",
+          "aral"
+        ],
+        "ZL3a_line_initial_daiin": false,
+        "ZL3b_line_initial_daiin": false
+      },
+      {
+        "key": [
+          "f66v",
+          "f66v.9,+P0"
+        ],
+        "ZL3a_tokens": [
+          "pody",
+          "sheody",
+          "chpadar",
+          "sheey",
+          "feedly",
+          "cheoseesey",
+          "kchy",
+          "aofchal"
+        ],
+        "ZL3b_tokens": [
+          "pody",
+          "sheody",
+          "chpadar",
+          "sheey",
+          "fchdly",
+          "cheoseesey",
+          "kchy",
+          "qofchal"
+        ],
+        "ZL3a_line_initial_daiin": false,
+        "ZL3b_line_initial_daiin": false
+      },
+      {
+        "key": [
+          "f67r2",
+          "f67r2.43,+Pb"
+        ],
+        "ZL3a_tokens": [
+          "daiin",
+          "aiin",
+          "os",
+          "qsls"
+        ],
+        "ZL3b_tokens": [
+          "daiin",
+          "aiin",
+          "os",
+          "qsg"
+        ],
+        "ZL3a_line_initial_daiin": true,
+        "ZL3b_line_initial_daiin": true
+      },
+      {
+        "key": [
+          "f89r1",
+          "f89r1.9,+P0"
+        ],
+        "ZL3a_tokens": [
+          "yshor",
+          "oiiin",
+          "daiin",
+          "qokeey",
+          "daiin",
+          "ckhol",
+          "qokain",
+          "cheamy"
+        ],
+        "ZL3b_tokens": [
+          "yshor",
+          "s",
+          "oiiin",
+          "daiin",
+          "qokeey",
+          "daiin",
+          "ckhol",
+          "qokain",
+          "cheamy"
+        ],
+        "ZL3a_line_initial_daiin": false,
+        "ZL3b_line_initial_daiin": false
+      },
+      {
+        "key": [
+          "f89v2",
+          "f89v2.10,+P0"
+        ],
+        "ZL3a_tokens": [
+          "dair",
+          "or",
+          "cheol",
+          "chom",
+          "qol",
+          "cheo",
+          "l",
+          "or",
+          "cheo",
+          "daiin",
+          "chkam"
+        ],
+        "ZL3b_tokens": [
+          "dair",
+          "or",
+          "cheol",
+          "chom",
+          "qol",
+          "cheo",
+          "lcho",
+          "l",
+          "or",
+          "cheo",
+          "daiin",
+          "chkam"
+        ],
+        "ZL3a_line_initial_daiin": false,
+        "ZL3b_line_initial_daiin": false
+      },
+      {
+        "key": [
+          "f89v2",
+          "f89v2.7,@P0"
+        ],
+        "ZL3a_tokens": [
+          "kosar",
+          "sheol",
+          "s",
+          "aiin",
+          "koiin",
+          "chtodaiin",
+          "choty",
+          "qofoiin",
+          "dy",
+          "qopdal",
+          "doiir",
+          "ofaiin",
+          "ol",
+          "cfheol",
+          "dam"
+        ],
+        "ZL3b_tokens": [
+          "kosar",
+          "sheol",
+          "s",
+          "aiin",
+          "koiin",
+          "chtodaiin",
+          "pdiin",
+          "choty",
+          "qofoiin",
+          "dy",
+          "qopdal",
+          "doiir",
+          "ofaiin",
+          "ol",
+          "cfheol",
+          "dam"
+        ],
+        "ZL3a_line_initial_daiin": false,
+        "ZL3b_line_initial_daiin": false
+      },
+      {
+        "key": [
+          "f89v2",
+          "f89v2.8,+P0"
+        ],
+        "ZL3a_tokens": [
+          "dain",
+          "ykodaiir",
+          "okor",
+          "chear",
+          "otees",
+          "ckhy",
+          "s",
+          "aiin",
+          "ckhey",
+          "otaiin",
+          "okar",
+          "dain",
+          "okol",
+          "ol",
+          "chor",
+          "dar"
+        ],
+        "ZL3b_tokens": [
+          "dain",
+          "ykodaiir",
+          "okor",
+          "chear",
+          "otees",
+          "eeckhy",
+          "s",
+          "aiin",
+          "ckhey",
+          "otaiin",
+          "okar",
+          "dain",
+          "okol",
+          "ol",
+          "chor",
+          "dar"
+        ],
+        "ZL3a_line_initial_daiin": false,
+        "ZL3b_line_initial_daiin": false
+      },
+      {
+        "key": [
+          "f95r1",
+          "f95r1.1,@P0"
+        ],
+        "ZL3a_tokens": [
+          "kshdor",
+          "chepeedy",
+          "ofaiin",
+          "ol",
+          "oldaiin",
+          "opshol",
+          "qokaiin",
+          "oty",
+          "odain"
+        ],
+        "ZL3b_tokens": [
+          "kshdor",
+          "chepchdy",
+          "ofaiin",
+          "ol",
+          "oldaiin",
+          "opshol",
+          "qokaiin",
+          "oty",
+          "odain"
+        ],
+        "ZL3a_line_initial_daiin": false,
+        "ZL3b_line_initial_daiin": false
+      },
+      {
+        "key": [
+          "fRos",
+          "fRos.145,+Pb"
+        ],
+        "ZL3a_tokens": [
+          "saiir",
+          "shdaiin"
+        ],
+        "ZL3b_tokens": [
+          "saiir",
+          "shodaiin"
+        ],
+        "ZL3a_line_initial_daiin": false,
+        "ZL3b_line_initial_daiin": false
+      }
+    ],
+    "paragraph_marker_disagreements": [],
+    "line_initial_daiin_status_disagreements": [],
+    "dialect_disagreements": []
+  },
+  "interpretation": [
+    "This is a file-to-file audit, not independent external replication: ZL3a and ZL3b are closely related versions.",
+    "Line keys are matched by folio header and complete IVTFF locus ID; unmatched/duplicate keys are reported, not silently merged.",
+    "Tokenizer strips markup and is intended for comparative auditing; source text and hashes are preserved.",
+    "Differences in cleaned tokens do not necessarily mean a substantive manuscript reading differs; punctuation and transcription conventions can contribute."
   ]
 }
