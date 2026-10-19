@@ -1,29 +1,24 @@
 {
   "experiment": "exp_601_primary_statistic_paired_sensitivity",
   "protocol_version": 1,
-  "workflow": "https://github.com/kyrian20/voynich-autoexploration/actions/runs/39260083190",
   "source_files": [
     {
       "path": "data/transcriptions/eva_zl3b.txt",
       "bytes": 411671,
-      "sha256": "bf5b6d4ac1e3a51b1847a9c388318d609020441ccd56984c901c32b09beccafc"
+      "sha256": "bf5b6d4ac1e3a51b1847a9c388318d609020441ccd56984c901c32b09beccafc",
+      "duplicate_keys": 0
     },
     {
       "path": "data/transcriptions/zl3a.txt",
       "bytes": 411710,
-      "sha256": "56419297682d338ff1a0a17f5ae251e3ee3e2c5bf05a62db04c5385ef30b36a2"
+      "sha256": "56419297682d338ff1a0a17f5ae251e3ee3e2c5bf05a62db04c5385ef30b36a2",
+      "duplicate_keys": 0
     }
   ],
-  "filters": {
-    "currier": "B",
+  "filter": {
+    "Currier": "B",
     "normalized_locus": "P0",
     "minimum_clean_tokens_per_line": 2
-  },
-  "paired_alignment": {
-    "matched_eligible_B_P0_lines": 2325,
-    "aligned_B_P0_lines_with_any_clean_token_change": 10,
-    "aligned_B_P0_lines_with_changed_first_token": 2,
-    "note": "two lines' literal first tokens differ, but none changed first-position status for any of the six tested targets"
   },
   "full_version_summaries": {
     "ZL3b": {
@@ -109,63 +104,165 @@
       }
     }
   },
-  "paired_target_comparison": {
-    "daiin": {
-      "token_count_delta_ZL3a_minus_ZL3b": 1,
-      "first_count_delta": 0,
-      "expected_delta": 0.104701,
-      "first_status_flips": 0
+  "paired_alignment": {
+    "common_identifiers": 5385,
+    "matched_eligible_B_P0_lines": 2325,
+    "aligned_B_P0_lines_with_any_clean_token_change": 10,
+    "aligned_B_P0_lines_with_changed_first_token": 2,
+    "changed_B_P0_line_keys": [
+      "f103v.31",
+      "f104r.30",
+      "f105r.5",
+      "f113r.21",
+      "f115r.35",
+      "f26r.2",
+      "f26r.7",
+      "f41r.6",
+      "f66v.9",
+      "f95r1.1"
+    ],
+    "changed_first_token_line_keys": [
+      "f113r.21",
+      "f26r.7"
+    ],
+    "by_target": {
+      "daiin": {
+        "matched_eligible_lines": 2325,
+        "ZL3b_token_count": 295,
+        "ZL3a_token_count": 296,
+        "token_count_delta_ZL3a_minus_ZL3b": 1,
+        "matched_lines_with_token_count_difference": 1,
+        "ZL3b_first_observed": 88,
+        "ZL3a_first_observed": 88,
+        "first_count_delta_ZL3a_minus_ZL3b": 0,
+        "ZL3b_first_expected": 31.279224,
+        "ZL3a_first_expected": 31.383925,
+        "expected_delta_ZL3a_minus_ZL3b": 0.104701,
+        "ZL3b_enrichment": 2.813369,
+        "ZL3a_enrichment": 2.803983,
+        "matched_lines_where_first_position_status_changed": 0,
+        "ZL3b_only_first": 0,
+        "ZL3a_only_first": 0,
+        "examples_first_status_changes": []
+      },
+      "aiin": {
+        "matched_eligible_lines": 2325,
+        "ZL3b_token_count": 355,
+        "ZL3a_token_count": 354,
+        "token_count_delta_ZL3a_minus_ZL3b": -1,
+        "matched_lines_with_token_count_difference": 1,
+        "ZL3b_first_observed": 1,
+        "ZL3a_first_observed": 1,
+        "first_count_delta_ZL3a_minus_ZL3b": 0,
+        "ZL3b_first_expected": 34.198762,
+        "ZL3a_first_expected": 34.087651,
+        "expected_delta_ZL3a_minus_ZL3b": -0.111111,
+        "ZL3b_enrichment": 0.029241,
+        "ZL3a_enrichment": 0.029336,
+        "matched_lines_where_first_position_status_changed": 0,
+        "ZL3b_only_first": 0,
+        "ZL3a_only_first": 0,
+        "examples_first_status_changes": []
+      },
+      "chedy": {
+        "matched_eligible_lines": 2325,
+        "ZL3b_token_count": 479,
+        "ZL3a_token_count": 479,
+        "token_count_delta_ZL3a_minus_ZL3b": 0,
+        "matched_lines_with_token_count_difference": 0,
+        "ZL3b_first_observed": 6,
+        "ZL3a_first_observed": 6,
+        "first_count_delta_ZL3a_minus_ZL3b": 0,
+        "ZL3b_first_expected": 49.337263,
+        "ZL3a_first_expected": 49.330852,
+        "expected_delta_ZL3a_minus_ZL3b": -0.00641,
+        "ZL3b_enrichment": 0.121612,
+        "ZL3a_enrichment": 0.121628,
+        "matched_lines_where_first_position_status_changed": 0,
+        "ZL3b_only_first": 0,
+        "ZL3a_only_first": 0,
+        "examples_first_status_changes": []
+      },
+      "dain": {
+        "matched_eligible_lines": 2325,
+        "ZL3b_token_count": 107,
+        "ZL3a_token_count": 107,
+        "token_count_delta_ZL3a_minus_ZL3b": 0,
+        "matched_lines_with_token_count_difference": 0,
+        "ZL3b_first_observed": 34,
+        "ZL3a_first_observed": 34,
+        "first_count_delta_ZL3a_minus_ZL3b": 0,
+        "ZL3b_first_expected": 10.714287,
+        "ZL3a_first_expected": 10.714287,
+        "expected_delta_ZL3a_minus_ZL3b": 0.0,
+        "ZL3b_enrichment": 3.173333,
+        "ZL3a_enrichment": 3.173333,
+        "matched_lines_where_first_position_status_changed": 0,
+        "ZL3b_only_first": 0,
+        "ZL3a_only_first": 0,
+        "examples_first_status_changes": []
+      },
+      "saiin": {
+        "matched_eligible_lines": 2325,
+        "ZL3b_token_count": 82,
+        "ZL3a_token_count": 82,
+        "token_count_delta_ZL3a_minus_ZL3b": 0,
+        "matched_lines_with_token_count_difference": 0,
+        "ZL3b_first_observed": 46,
+        "ZL3a_first_observed": 46,
+        "first_count_delta_ZL3a_minus_ZL3b": 0,
+        "ZL3b_first_expected": 9.158331,
+        "ZL3a_first_expected": 9.158331,
+        "expected_delta_ZL3a_minus_ZL3b": 0.0,
+        "ZL3b_enrichment": 5.022749,
+        "ZL3a_enrichment": 5.022749,
+        "matched_lines_where_first_position_status_changed": 0,
+        "ZL3b_only_first": 0,
+        "ZL3a_only_first": 0,
+        "examples_first_status_changes": []
+      },
+      "qokaiin": {
+        "matched_eligible_lines": 2325,
+        "ZL3b_token_count": 240,
+        "ZL3a_token_count": 240,
+        "token_count_delta_ZL3a_minus_ZL3b": 0,
+        "matched_lines_with_token_count_difference": 0,
+        "ZL3b_first_observed": 25,
+        "ZL3a_first_observed": 25,
+        "first_count_delta_ZL3a_minus_ZL3b": 0,
+        "ZL3b_first_expected": 26.845879,
+        "ZL3a_first_expected": 26.845879,
+        "expected_delta_ZL3a_minus_ZL3b": 0.0,
+        "ZL3b_enrichment": 0.931242,
+        "ZL3a_enrichment": 0.931242,
+        "matched_lines_where_first_position_status_changed": 0,
+        "ZL3b_only_first": 0,
+        "ZL3a_only_first": 0,
+        "examples_first_status_changes": []
+      }
     },
-    "aiin": {
-      "token_count_delta_ZL3a_minus_ZL3b": -1,
-      "first_count_delta": 0,
-      "expected_delta": -0.111111,
-      "first_status_flips": 0
-    },
-    "chedy": {
-      "token_count_delta_ZL3a_minus_ZL3b": 0,
-      "first_count_delta": 0,
-      "expected_delta": -0.006411,
-      "first_status_flips": 0
-    },
-    "dain": {
-      "token_count_delta_ZL3a_minus_ZL3b": 0,
-      "first_count_delta": 0,
-      "expected_delta": 0,
-      "first_status_flips": 0
-    },
-    "saiin": {
-      "token_count_delta_ZL3a_minus_ZL3b": 0,
-      "first_count_delta": 0,
-      "expected_delta": 0,
-      "first_status_flips": 0
-    },
-    "qokaiin": {
-      "token_count_delta_ZL3a_minus_ZL3b": 0,
-      "first_count_delta": 0,
-      "expected_delta": 0,
-      "first_status_flips": 0
-    }
-  },
-  "unpaired_records": {
-    "ZL3b": {
-      "line_ids": []
-    },
-    "ZL3a": {
-      "line_ids": [
-        "f1r.29",
-        "f1r.30",
-        "f1r.31",
-        "f89v2.26"
-      ],
-      "eligible_B_P0_records": []
+    "unmatched_records": {
+      "ZL3b": {
+        "line_ids": [],
+        "eligible_B_P0_records": []
+      },
+      "ZL3a": {
+        "line_ids": [
+          "f1r.29",
+          "f1r.30",
+          "f1r.31",
+          "f89v2.26"
+        ],
+        "eligible_B_P0_records": []
+      }
     }
   },
   "notes": [
-    "Workflow analysis and artifact upload succeeded; its auto-commit encountered a concurrent-ref race. This JSON was reconstructed from the verified successful Actions artifact.",
-    "This is a paired comparison of alternative transcriptions of the same manuscript, not independent-sample inference.",
-    "The first-position statistic is insensitive to the changed token lines for all six predeclared target forms.",
-    "Conservative operational parser; independent IVTFF parser conformance review remains outstanding.",
+    "This is a paired sensitivity comparison of two transcriptions of the same manuscript, not independent-sample inference.",
+    "The expected first count sums per-line target frequency (target occurrences / line length).",
+    "A line-first status change counts only if the target is first in one version but not the other.",
+    "No significance test is applied to differences between transcription versions.",
+    "Tokenizer/locator parser is the declared operational rule used for this family; independent parser review remains a follow-up.",
     "No semantic or decipherment claim."
   ]
 }
