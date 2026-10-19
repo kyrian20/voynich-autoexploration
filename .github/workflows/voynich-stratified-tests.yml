@@ -1,0 +1,49 @@
+name: Voynich Stratified Corpus Checks
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "experiments/exp_590_daiin_section_stratification/**"
+      - "data/transcriptions/eva_zl3b.txt"
+      - ".github/workflows/voynich-stratified-tests.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: voynich-stratified-tests
+  cancel-in-progress: false
+
+jobs:
+  stratified-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Compile-check
+        run: python -m py_compile experiments/exp_590_daiin_section_stratification/script.py
+      - name: Run section-range stratification (no API)
+        run: python experiments/exp_590_daiin_section_stratification/script.py --permutations 2000
+      - name: Upload stratified results
+        uses: actions/upload-artifact@v4
+        with:
+          name: exp-590-daiin-section-stratification
+          path: experiments/exp_590_daiin_section_stratification/results.json
+          if-no-files-found: error
+          retention-days: 90
+      - name: Commit generated results
+        continue-on-error: true
+        run: |
+          if [ -n "$(git status --porcelain experiments/exp_590_daiin_section_stratification/results.json)" ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add experiments/exp_590_daiin_section_stratification/results.json
+            git commit -m "Record exp_590 stratified daiin results"
+            git push
+          else
+            echo "No changes to results."
+          fi
