@@ -1,0 +1,73 @@
+{
+  "experiment": "exp_607_heldout_bigram_prediction",
+  "preregistered_parameters": {
+    "test_modulo": 5,
+    "alpha": 0.1,
+    "bigram_interpolation_weight": 0.5,
+    "token_pattern": "[a-z]{2,}",
+    "score": "bits per next token, transitions never cross line boundaries"
+  },
+  "scope": "Tests whether previous-token context improves next-token prediction on unseen folios beyond a unigram baseline. Transcriptions are not independent witnesses; this is a structural-language test, not a decipherment.",
+  "sources": [
+    {
+      "label": "ZL3b",
+      "path": "data/transcriptions/eva_zl3b.txt",
+      "sha256": "bf5b6d4ac1e3a51b1847a9c388318d609020441ccd56984c901c32b09beccafc",
+      "split": "deterministic folio SHA256 first-32-bit modulo 5; bucket 0 held out",
+      "train_folios": 152,
+      "test_folios": 32,
+      "train_lines": 3139,
+      "test_lines": 600,
+      "real_sequence": {
+        "tokens_scored": 4620,
+        "unigram_bits_per_token": 10.56074298015216,
+        "bigram_only_bits_per_token": 11.623365667155463,
+        "interpolated_bits_per_token": 10.29395499802842,
+        "gain_vs_unigram_bits_per_token": 0.2667879821237403,
+        "train_vocabulary": 5532,
+        "train_tokens": 25486
+      },
+      "shuffled_train_control": {
+        "tokens_scored": 4620,
+        "unigram_bits_per_token": 10.56074298015216,
+        "bigram_only_bits_per_token": 11.800121842484156,
+        "interpolated_bits_per_token": 10.34986166756867,
+        "gain_vs_unigram_bits_per_token": 0.21088131258349038,
+        "train_vocabulary": 5532,
+        "train_tokens": 25486
+      },
+      "control_gain_vs_unigram": 0.21088131258349038,
+      "real_minus_shuffled_gain": 0.05590666954024989
+    },
+    {
+      "label": "IT2a",
+      "path": "data/transcriptions/eva_it2a.txt",
+      "sha256": "7f27a8b0feed8f6de0a99900df6bf912dd1d295c38e5f830bac8b41c3f536fb5",
+      "split": "deterministic folio SHA256 first-32-bit modulo 5; bucket 0 held out",
+      "train_folios": 151,
+      "test_folios": 32,
+      "train_lines": 3138,
+      "test_lines": 597,
+      "real_sequence": {
+        "tokens_scored": 4613,
+        "unigram_bits_per_token": 10.746327329564673,
+        "bigram_only_bits_per_token": 11.698123061659881,
+        "interpolated_bits_per_token": 10.40536419598816,
+        "gain_vs_unigram_bits_per_token": 0.34096313357651403,
+        "train_vocabulary": 5773,
+        "train_tokens": 25516
+      },
+      "shuffled_train_control": {
+        "tokens_scored": 4613,
+        "unigram_bits_per_token": 10.746327329564673,
+        "bigram_only_bits_per_token": 11.868870313462688,
+        "interpolated_bits_per_token": 10.460346249839054,
+        "gain_vs_unigram_bits_per_token": 0.2859810797256184,
+        "train_vocabulary": 5773,
+        "train_tokens": 25516
+      },
+      "control_gain_vs_unigram": 0.2859810797256184,
+      "real_minus_shuffled_gain": 0.05498205385089561
+    }
+  ]
+}
