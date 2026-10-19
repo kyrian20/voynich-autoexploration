@@ -1,0 +1,4070 @@
+{
+  "experiment": "exp_602_independent_ivtff_parser_audit",
+  "protocol_version": 1,
+  "parser_A": "regex extraction patterned after exp_600 + regex token cleanup",
+  "parser_B": "stateful delimiter parser + character-by-character tokenizer",
+  "filters": {
+    "Currier": "B",
+    "normalized_locus": "P0",
+    "minimum_clean_tokens_per_line": 2,
+    "predeclared_tokens": [
+      "daiin",
+      "aiin",
+      "chedy",
+      "dain",
+      "saiin",
+      "qokaiin"
+    ]
+  },
+  "versions": [
+    {
+      "transcription": "ZL3b",
+      "source": {
+        "path": "data/transcriptions/eva_zl3b.txt",
+        "bytes": 411671,
+        "sha256": "bf5b6d4ac1e3a51b1847a9c388318d609020441ccd56984c901c32b09beccafc"
+      },
+      "parser_A": {
+        "record_count": 5385,
+        "folio_headers": 227,
+        "unparsed": []
+      },
+      "parser_B": {
+        "record_count": 5385,
+        "folio_headers": 227,
+        "unparsed": []
+      },
+      "only_parser_A_ids": [],
+      "only_parser_B_ids": [],
+      "record_key_counts": {
+        "only_A": 0,
+        "only_B": 0,
+        "common": 5385
+      },
+      "mismatch_count_by_field": {
+        "tokens": 1466
+      },
+      "mismatch_examples": [
+        {
+          "id": "f100r.1",
+          "field": "tokens",
+          "parser_A": [
+            "chosaroshol"
+          ],
+          "parser_B": [],
+          "line_A": 6378,
+          "line_B": 6378
+        },
+        {
+          "id": "f100r.10",
+          "field": "tokens",
+          "parser_A": [
+            "dakocth"
+          ],
+          "parser_B": [],
+          "line_A": 6387,
+          "line_B": 6387
+        },
+        {
+          "id": "f100r.11",
+          "field": "tokens",
+          "parser_A": [
+            "sofam"
+          ],
+          "parser_B": [],
+          "line_A": 6388,
+          "line_B": 6388
+        },
+        {
+          "id": "f100r.12",
+          "field": "tokens",
+          "parser_A": [
+            "pcheol",
+            "sheod",
+            "qocpheeckhy",
+            "shodol",
+            "da",
+            "oto",
+            "sheey",
+            "ch",
+            "o",
+            "s"
+          ],
+          "parser_B": [
+            "pcheol",
+            "sheod",
+            "qocpheeckhy",
+            "shodol",
+            "da",
+            "oto",
+            "cho",
+            "?",
+            "os",
+            "sheey",
+            "ch",
+            "o",
+            "s"
+          ],
+          "line_A": 6390,
+          "line_B": 6390
+        },
+        {
+          "id": "f100r.13",
+          "field": "tokens",
+          "parser_A": [
+            "dsheor",
+            "cthey",
+            "qokeey",
+            "oteey",
+            "ykeeodain",
+            "rorarydaiin",
+            "daiin",
+            "deeomchol"
+          ],
+          "parser_B": [
+            "dsheor",
+            "cthey",
+            "qokeey",
+            "oteey",
+            "ykeeodain",
+            "r",
+            "orarydaiin",
+            "daiin",
+            "deeomchol"
+          ],
+          "line_A": 6391,
+          "line_B": 6391
+        },
+        {
+          "id": "f100r.14",
+          "field": "tokens",
+          "parser_A": [
+            "shor",
+            "chkeey",
+            "qoteey",
+            "qokeody",
+            "qoteold",
+            "qokeol",
+            "so",
+            "raiin",
+            "otal",
+            "ykeeeo"
+          ],
+          "parser_B": [
+            "shor",
+            "chkeey",
+            "qoteey",
+            "qokeody",
+            "qoteold",
+            "qokeol",
+            "so",
+            "raiin",
+            "otal",
+            "yk",
+            "eee",
+            "o"
+          ],
+          "line_A": 6392,
+          "line_B": 6392
+        },
+        {
+          "id": "f100r.16",
+          "field": "tokens",
+          "parser_A": [
+            "okeeos"
+          ],
+          "parser_B": [],
+          "line_A": 6396,
+          "line_B": 6396
+        },
+        {
+          "id": "f100r.17",
+          "field": "tokens",
+          "parser_A": [
+            "shockhey"
+          ],
+          "parser_B": [],
+          "line_A": 6397,
+          "line_B": 6397
+        },
+        {
+          "id": "f100r.18",
+          "field": "tokens",
+          "parser_A": [
+            "orol"
+          ],
+          "parser_B": [],
+          "line_A": 6398,
+          "line_B": 6398
+        },
+        {
+          "id": "f100r.19",
+          "field": "tokens",
+          "parser_A": [
+            "olcheom"
+          ],
+          "parser_B": [],
+          "line_A": 6399,
+          "line_B": 6399
+        },
+        {
+          "id": "f100r.2",
+          "field": "tokens",
+          "parser_A": [
+            "sochorcfhy"
+          ],
+          "parser_B": [],
+          "line_A": 6379,
+          "line_B": 6379
+        },
+        {
+          "id": "f100r.20",
+          "field": "tokens",
+          "parser_A": [
+            "oteol"
+          ],
+          "parser_B": [],
+          "line_A": 6400,
+          "line_B": 6400
+        },
+        {
+          "id": "f100r.21",
+          "field": "tokens",
+          "parser_A": [
+            "okols"
+          ],
+          "parser_B": [],
+          "line_A": 6401,
+          "line_B": 6401
+        },
+        {
+          "id": "f100r.3",
+          "field": "tokens",
+          "parser_A": [
+            "otear"
+          ],
+          "parser_B": [],
+          "line_A": 6380,
+          "line_B": 6380
+        },
+        {
+          "id": "f100r.4",
+          "field": "tokens",
+          "parser_A": [
+            "chofary"
+          ],
+          "parser_B": [],
+          "line_A": 6381,
+          "line_B": 6381
+        },
+        {
+          "id": "f100r.5",
+          "field": "tokens",
+          "parser_A": [
+            "sar",
+            "char",
+            "daiindy"
+          ],
+          "parser_B": [],
+          "line_A": 6382,
+          "line_B": 6382
+        },
+        {
+          "id": "f100r.6",
+          "field": "tokens",
+          "parser_A": [
+            "oraro"
+          ],
+          "parser_B": [],
+          "line_A": 6383,
+          "line_B": 6383
+        },
+        {
+          "id": "f100r.7",
+          "field": "tokens",
+          "parser_A": [
+            "chalsain"
+          ],
+          "parser_B": [],
+          "line_A": 6384,
+          "line_B": 6384
+        },
+        {
+          "id": "f100r.8",
+          "field": "tokens",
+          "parser_A": [
+            "soity"
+          ],
+          "parser_B": [],
+          "line_A": 6385,
+          "line_B": 6385
+        },
+        {
+          "id": "f100r.9",
+          "field": "tokens",
+          "parser_A": [
+            "sosam"
+          ],
+          "parser_B": [],
+          "line_A": 6386,
+          "line_B": 6386
+        },
+        {
+          "id": "f100v.1",
+          "field": "tokens",
+          "parser_A": [
+            "tolchd"
+          ],
+          "parser_B": [],
+          "line_A": 6418,
+          "line_B": 6418
+        },
+        {
+          "id": "f100v.10",
+          "field": "tokens",
+          "parser_A": [
+            "okcheor"
+          ],
+          "parser_B": [],
+          "line_A": 6431,
+          "line_B": 6431
+        },
+        {
+          "id": "f100v.11",
+          "field": "tokens",
+          "parser_A": [
+            "ytchol"
+          ],
+          "parser_B": [],
+          "line_A": 6432,
+          "line_B": 6432
+        },
+        {
+          "id": "f100v.12",
+          "field": "tokens",
+          "parser_A": [
+            "dykchal"
+          ],
+          "parser_B": [],
+          "line_A": 6433,
+          "line_B": 6433
+        },
+        {
+          "id": "f100v.13",
+          "field": "tokens",
+          "parser_A": [
+            "chos",
+            "ctharal"
+          ],
+          "parser_B": [],
+          "line_A": 6434,
+          "line_B": 6434
+        },
+        {
+          "id": "f100v.2",
+          "field": "tokens",
+          "parser_A": [
+            "chols"
+          ],
+          "parser_B": [],
+          "line_A": 6419,
+          "line_B": 6419
+        },
+        {
+          "id": "f100v.3",
+          "field": "tokens",
+          "parser_A": [
+            "opchor"
+          ],
+          "parser_B": [],
+          "line_A": 6420,
+          "line_B": 6420
+        },
+        {
+          "id": "f100v.4",
+          "field": "tokens",
+          "parser_A": [
+            "solsy"
+          ],
+          "parser_B": [],
+          "line_A": 6421,
+          "line_B": 6421
+        },
+        {
+          "id": "f100v.5",
+          "field": "tokens",
+          "parser_A": [
+            "soleesos"
+          ],
+          "parser_B": [],
+          "line_A": 6424,
+          "line_B": 6424
+        },
+        {
+          "id": "f100v.6",
+          "field": "tokens",
+          "parser_A": [
+            "ykchochdy"
+          ],
+          "parser_B": [],
+          "line_A": 6425,
+          "line_B": 6425
+        },
+        {
+          "id": "f100v.7",
+          "field": "tokens",
+          "parser_A": [
+            "ykchdy"
+          ],
+          "parser_B": [],
+          "line_A": 6426,
+          "line_B": 6426
+        },
+        {
+          "id": "f100v.8",
+          "field": "tokens",
+          "parser_A": [
+            "dchdy"
+          ],
+          "parser_B": [],
+          "line_A": 6427,
+          "line_B": 6427
+        },
+        {
+          "id": "f100v.9",
+          "field": "tokens",
+          "parser_A": [
+            "dalsy"
+          ],
+          "parser_B": [],
+          "line_A": 6428,
+          "line_B": 6428
+        },
+        {
+          "id": "f101r.5",
+          "field": "tokens",
+          "parser_A": [
+            "daiin",
+            "ctheol",
+            "cheol",
+            "okor",
+            "or",
+            "aiin",
+            "cheol",
+            "cho",
+            "keeodchey",
+            "okol",
+            "okeol",
+            "dor",
+            "chol",
+            "chy",
+            "r",
+            "aiin",
+            "oteol",
+            "or",
+            "aiin",
+            "ol",
+            "chey",
+            "oteeod",
+            "sheol",
+            "okeol",
+            "chosaiin",
+            "sheam"
+          ],
+          "parser_B": [
+            "daiin",
+            "ctheol",
+            "cheol",
+            "okor",
+            "or",
+            "aiin",
+            "cheol",
+            "cho",
+            "keeodchey",
+            "okol",
+            "okeol",
+            "dor",
+            "chol",
+            "ch",
+            "y",
+            "r",
+            "aiin",
+            "oteol",
+            "or",
+            "aiin",
+            "ol",
+            "chey",
+            "oteeod",
+            "sheol",
+            "okeol",
+            "chosaiin",
+            "sheam"
+          ],
+          "line_A": 6459,
+          "line_B": 6459
+        },
+        {
+          "id": "f101r.6",
+          "field": "tokens",
+          "parser_A": [
+            "okeeol",
+            "sho",
+            "shody",
+            "sho",
+            "shol",
+            "okeeeol",
+            "cheas",
+            "sheokeey",
+            "sheeor",
+            "chchy",
+            "chodaiin",
+            "cheeckhey",
+            "teeol",
+            "s",
+            "cheol",
+            "rar",
+            "oeeor"
+          ],
+          "parser_B": [
+            "okeeol",
+            "sho",
+            "shody",
+            "sho",
+            "shol",
+            "okeeeol",
+            "che",
+            "a",
+            "s",
+            "sheokeey",
+            "sheeor",
+            "chchy",
+            "chodaiin",
+            "cheeckhey",
+            "teeol",
+            "s",
+            "cheol",
+            "rar",
+            "oeeor"
+          ],
+          "line_A": 6460,
+          "line_B": 6460
+        },
+        {
+          "id": "f101r.7",
+          "field": "tokens",
+          "parser_A": [
+            "cphoar",
+            "oaiin",
+            "ypcholy",
+            "daiin",
+            "otaiin",
+            "otaiin",
+            "yfolaiin",
+            "cheolain",
+            "ypchey",
+            "ody",
+            "shotey",
+            "odariin",
+            "sheoor",
+            "sheor",
+            "ckheey",
+            "ey",
+            "qokchey",
+            "cholp",
+            "cheol",
+            "dy"
+          ],
+          "parser_B": [
+            "cphoar",
+            "oaiin",
+            "ypcholy",
+            "daiin",
+            "otaiin",
+            "otaiin",
+            "yfolaiin",
+            "cheolain",
+            "ypchey",
+            "ody",
+            "shotey",
+            "odariin",
+            "sheo",
+            "o",
+            "r",
+            "sheor",
+            "ckheey",
+            "ey",
+            "qokchey",
+            "cholp",
+            "cheol",
+            "dy"
+          ],
+          "line_A": 6462,
+          "line_B": 6462
+        },
+        {
+          "id": "f101v.1",
+          "field": "tokens",
+          "parser_A": [
+            "sairaly"
+          ],
+          "parser_B": [
+            "s",
+            "airaly"
+          ],
+          "line_A": 6483,
+          "line_B": 6483
+        },
+        {
+          "id": "f101v.19",
+          "field": "tokens",
+          "parser_A": [
+            "tolchor",
+            "cheopor",
+            "or",
+            "ody",
+            "cphey",
+            "r",
+            "shee",
+            "fol",
+            "s",
+            "oiin",
+            "otsheey",
+            "kcho",
+            "pcholy",
+            "chor",
+            "or",
+            "choror",
+            "sy",
+            "dorar",
+            "okoraiin",
+            "orolodain"
+          ],
+          "parser_B": [
+            "tolchor",
+            "cheopor",
+            "or",
+            "ody",
+            "cphey",
+            "r",
+            "shee",
+            "fol",
+            "s",
+            "oiin",
+            "otsheey",
+            "otch",
+            "y",
+            "kcho",
+            "pcholy",
+            "chor",
+            "or",
+            "choror",
+            "sy",
+            "dorar",
+            "okoraiin",
+            "orolodain"
+          ],
+          "line_A": 6503,
+          "line_B": 6503
+        },
+        {
+          "id": "f101v.20",
+          "field": "tokens",
+          "parser_A": [
+            "or",
+            "aiin",
+            "or",
+            "o",
+            "or",
+            "odam",
+            "chor",
+            "s",
+            "aiin",
+            "okor",
+            "cheeor",
+            "sheeol",
+            "qokol",
+            "qoor",
+            "cheey",
+            "qykeod",
+            "oeeo",
+            "r",
+            "choy",
+            "s",
+            "okeeody",
+            "chodaiin",
+            "cthy",
+            "okody",
+            "dar"
+          ],
+          "parser_B": [
+            "or",
+            "aiin",
+            "or",
+            "o",
+            "or",
+            "odam",
+            "chor",
+            "s",
+            "aiin",
+            "okor",
+            "cheeor",
+            "sheeol",
+            "qokol",
+            "et",
+            "ol",
+            "qoor",
+            "cheey",
+            "qykeod",
+            "oeeo",
+            "r",
+            "choy",
+            "s",
+            "okeeody",
+            "chodaiin",
+            "cthy",
+            "okody",
+            "dar"
+          ],
+          "line_A": 6504,
+          "line_B": 6504
+        },
+        {
+          "id": "f101v.21",
+          "field": "tokens",
+          "parser_A": [
+            "ycheor",
+            "dain",
+            "cheokal",
+            "ody",
+            "cheeods",
+            "oraiin",
+            "qoeey",
+            "cthey",
+            "dain",
+            "dydy"
+          ],
+          "parser_B": [
+            "ycheor",
+            "o",
+            "?",
+            "o",
+            "dain",
+            "cheokal",
+            "ody",
+            "cheeods",
+            "oraiin",
+            "qoeey",
+            "cthey",
+            "eocthy",
+            "dain",
+            "cheod",
+            "dydy"
+          ],
+          "line_A": 6505,
+          "line_B": 6505
+        },
+        {
+          "id": "f101v.22",
+          "field": "tokens",
+          "parser_A": [
+            "ksear",
+            "lol",
+            "keeol",
+            "otal",
+            "or",
+            "ol",
+            "aiin",
+            "okeod",
+            "ey",
+            "dain",
+            "olcheol",
+            "cthey",
+            "qekeoldy",
+            "qocthor",
+            "sheody",
+            "qo",
+            "ey",
+            "odaiin",
+            "shoytolaiin",
+            "dy"
+          ],
+          "parser_B": [
+            "ksear",
+            "lol",
+            "keeol",
+            "otal",
+            "or",
+            "ol",
+            "aiin",
+            "okeod",
+            "ey",
+            "dain",
+            "olcheol",
+            "opcheol",
+            "cthey",
+            "qekeoldy",
+            "qocthor",
+            "sheody",
+            "qo",
+            "ey",
+            "odaiin",
+            "shoytolaiin",
+            "sodaiin",
+            "dy"
+          ],
+          "line_A": 6507,
+          "line_B": 6507
+        },
+        {
+          "id": "f101v.23",
+          "field": "tokens",
+          "parser_A": [
+            "yaiin",
+            "ol",
+            "olor",
+            "daiin",
+            "okeey",
+            "qok",
+            "ykeol",
+            "daiin",
+            "qockhy",
+            "daiin",
+            "qokeol",
+            "dol",
+            "oraiin",
+            "oldaiin",
+            "keeol",
+            "rch",
+            "qokeeeor",
+            "s",
+            "ydy",
+            "cheor",
+            "okeey",
+            "choldy",
+            "dar"
+          ],
+          "parser_B": [
+            "yaiin",
+            "ol",
+            "olor",
+            "daiin",
+            "okeey",
+            "qok",
+            "ykeol",
+            "daiin",
+            "qockhy",
+            "daiin",
+            "olch",
+            "dar",
+            "qokeol",
+            "dol",
+            "oraiin",
+            "oldaiin",
+            "keeol",
+            "rch",
+            "qokeeeor",
+            "s",
+            "ydy",
+            "cheor",
+            "okeey",
+            "choldy",
+            "dar"
+          ],
+          "line_A": 6508,
+          "line_B": 6508
+        },
+        {
+          "id": "f101v.24",
+          "field": "tokens",
+          "parser_A": [
+            "teeeol",
+            "sheol",
+            "qokeor",
+            "ol",
+            "olcho",
+            "r",
+            "chokey",
+            "chor",
+            "ctheey",
+            "cheeody",
+            "cheey",
+            "keo",
+            "cheol",
+            "daiiin",
+            "deeor",
+            "cheedy"
+          ],
+          "parser_B": [
+            "teeeol",
+            "sheol",
+            "qokeor",
+            "ol",
+            "olcho",
+            "r",
+            "chokey",
+            "chor",
+            "ctheey",
+            "daiin",
+            "daiin",
+            "cheeody",
+            "cheey",
+            "keo",
+            "cheol",
+            "daiiin",
+            "deeor",
+            "cheedy"
+          ],
+          "line_A": 6509,
+          "line_B": 6509
+        },
+        {
+          "id": "f101v.25",
+          "field": "tokens",
+          "parser_A": [
+            "daiin",
+            "dair",
+            "yteol",
+            "chor",
+            "qockhol",
+            "daiin",
+            "ckheey",
+            "chey",
+            "kchey",
+            "okeey",
+            "ckheo",
+            "l",
+            "cheody",
+            "kcheol",
+            "daiin",
+            "eteeos",
+            "ctheody",
+            "ctheo",
+            "olchor"
+          ],
+          "parser_B": [
+            "daiin",
+            "dair",
+            "yteol",
+            "chor",
+            "qockhol",
+            "daiin",
+            "ckheey",
+            "chey",
+            "kchey",
+            "da",
+            "oiin",
+            "okeey",
+            "ckheo",
+            "l",
+            "cheody",
+            "kcheol",
+            "daiin",
+            "etee",
+            "o",
+            "s",
+            "ctheody",
+            "ctheo",
+            "ckhosh",
+            "?",
+            "olchor"
+          ],
+          "line_A": 6511,
+          "line_B": 6511
+        },
+        {
+          "id": "f101v.26",
+          "field": "tokens",
+          "parser_A": [
+            "olaiin",
+            "okeol",
+            "cheo",
+            "kol",
+            "ches",
+            "sheey",
+            "qoor",
+            "qokeody",
+            "cheor",
+            "okeo",
+            "cheey",
+            "cthey",
+            "ory",
+            "ctheey",
+            "qokeey",
+            "shol",
+            "ody",
+            "cheol",
+            "oralar",
+            "shey",
+            "qokar",
+            "ary"
+          ],
+          "parser_B": [
+            "olaiin",
+            "okeol",
+            "cheo",
+            "kol",
+            "ches",
+            "sheey",
+            "qoor",
+            "qokeody",
+            "cheor",
+            "okeo",
+            "oiin",
+            "cheey",
+            "cthey",
+            "ory",
+            "ctheey",
+            "qokeey",
+            "shol",
+            "ody",
+            "cheol",
+            "oralar",
+            "shey",
+            "qokar",
+            "ary"
+          ],
+          "line_A": 6512,
+          "line_B": 6512
+        },
+        {
+          "id": "f101v.27",
+          "field": "tokens",
+          "parser_A": [
+            "sal",
+            "chol",
+            "choly",
+            "okeey",
+            "dal",
+            "qol",
+            "shckheol",
+            "chol",
+            "cthear",
+            "keeol",
+            "ol",
+            "chs",
+            "oraiin",
+            "qokeeey",
+            "soiin",
+            "qodaiin",
+            "cheol",
+            "qokeey",
+            "daiin",
+            "cheodam"
+          ],
+          "parser_B": [
+            "sal",
+            "chol",
+            "choly",
+            "okeey",
+            "dal",
+            "qol",
+            "shckheol",
+            "chol",
+            "cthear",
+            "keeol",
+            "cheeo",
+            "ol",
+            "chs",
+            "oraiin",
+            "qokeeey",
+            "soiin",
+            "qodaiin",
+            "cheol",
+            "qokeey",
+            "daiin",
+            "cheodam"
+          ],
+          "line_A": 6513,
+          "line_B": 6513
+        },
+        {
+          "id": "f101v.28",
+          "field": "tokens",
+          "parser_A": [
+            "teol",
+            "cheol",
+            "etchey",
+            "r",
+            "cheol",
+            "cthol",
+            "cholaiin",
+            "chol",
+            "qkar"
+          ],
+          "parser_B": [
+            "teol",
+            "cheol",
+            "etchey",
+            "cheo",
+            "r",
+            "cheol",
+            "cthol",
+            "cholaiin",
+            "chol",
+            "qkar"
+          ],
+          "line_A": 6514,
+          "line_B": 6514
+        },
+        {
+          "id": "f101v.8",
+          "field": "tokens",
+          "parser_A": [
+            "otoly"
+          ],
+          "parser_B": [
+            "ot",
+            "o",
+            "ly"
+          ],
+          "line_A": 6490,
+          "line_B": 6490
+        },
+        {
+          "id": "f102r1.1",
+          "field": "tokens",
+          "parser_A": [
+            "daarod"
+          ],
+          "parser_B": [],
+          "line_A": 6522,
+          "line_B": 6522
+        },
+        {
+          "id": "f102r1.12",
+          "field": "tokens",
+          "parser_A": [
+            "ddardsh"
+          ],
+          "parser_B": [],
+          "line_A": 6535,
+          "line_B": 6535
+        },
+        {
+          "id": "f102r1.2",
+          "field": "tokens",
+          "parser_A": [
+            "otodeeodor"
+          ],
+          "parser_B": [],
+          "line_A": 6523,
+          "line_B": 6523
+        },
+        {
+          "id": "f102r1.4",
+          "field": "tokens",
+          "parser_A": [
+            "dsheody",
+            "okeeoy",
+            "chkeeody",
+            "daraiiin",
+            "ctheoly",
+            "qokcheololain"
+          ],
+          "parser_B": [
+            "dsheody",
+            "okeeoy",
+            "kod",
+            "?",
+            "chkeeody",
+            "daraiiin",
+            "ctheoly",
+            "qokcheololain"
+          ],
+          "line_A": 6525,
+          "line_B": 6525
+        },
+        {
+          "id": "f102r1.7",
+          "field": "tokens",
+          "parser_A": [
+            "okolaly"
+          ],
+          "parser_B": [],
+          "line_A": 6529,
+          "line_B": 6529
+        },
+        {
+          "id": "f102r2.14",
+          "field": "tokens",
+          "parser_A": [],
+          "parser_B": [
+            "oshea",
+            "l"
+          ],
+          "line_A": 6564,
+          "line_B": 6564
+        },
+        {
+          "id": "f102r2.15",
+          "field": "tokens",
+          "parser_A": [],
+          "parser_B": [
+            "so",
+            "dch"
+          ],
+          "line_A": 6565,
+          "line_B": 6565
+        },
+        {
+          "id": "f102r2.21",
+          "field": "tokens",
+          "parser_A": [
+            "koldarod"
+          ],
+          "parser_B": [],
+          "line_A": 6572,
+          "line_B": 6572
+        },
+        {
+          "id": "f102r2.22",
+          "field": "tokens",
+          "parser_A": [
+            "odalydary"
+          ],
+          "parser_B": [],
+          "line_A": 6573,
+          "line_B": 6573
+        },
+        {
+          "id": "f102r2.7",
+          "field": "tokens",
+          "parser_A": [],
+          "parser_B": [
+            "ok",
+            "?",
+            "rolda"
+          ],
+          "line_A": 6555,
+          "line_B": 6555
+        },
+        {
+          "id": "f102r2.9",
+          "field": "tokens",
+          "parser_A": [
+            "dor",
+            "oiin",
+            "okeody",
+            "qokeol",
+            "sheoy",
+            "qoochey",
+            "ckheol",
+            "sheey",
+            "skeekyd"
+          ],
+          "parser_B": [
+            "dor",
+            "oiin",
+            "okeody",
+            "qokeol",
+            "sheoy",
+            "qo",
+            "o",
+            "chey",
+            "ckheol",
+            "sheey",
+            "skeekyd"
+          ],
+          "line_A": 6557,
+          "line_B": 6557
+        },
+        {
+          "id": "f102v1.1",
+          "field": "tokens",
+          "parser_A": [
+            "keoraiiin"
+          ],
+          "parser_B": [],
+          "line_A": 6635,
+          "line_B": 6635
+        },
+        {
+          "id": "f102v1.13",
+          "field": "tokens",
+          "parser_A": [
+            "toiin",
+            "ol",
+            "daiin",
+            "qkol",
+            "cheol",
+            "daiin",
+            "qokar",
+            "oaiin",
+            "cheey",
+            "saiim"
+          ],
+          "parser_B": [
+            "toiin",
+            "ol",
+            "daiin",
+            "qkol",
+            "cheol",
+            "daiin",
+            "qokar",
+            "oaiin",
+            "cheey",
+            "s",
+            "aiim"
+          ],
+          "line_A": 6648,
+          "line_B": 6648
+        },
+        {
+          "id": "f102v1.16",
+          "field": "tokens",
+          "parser_A": [
+            "ypcholdy"
+          ],
+          "parser_B": [],
+          "line_A": 6653,
+          "line_B": 6653
+        },
+        {
+          "id": "f102v1.17",
+          "field": "tokens",
+          "parser_A": [
+            "loralody"
+          ],
+          "parser_B": [],
+          "line_A": 6654,
+          "line_B": 6654
+        },
+        {
+          "id": "f102v1.18",
+          "field": "tokens",
+          "parser_A": [
+            "opchdard"
+          ],
+          "parser_B": [],
+          "line_A": 6655,
+          "line_B": 6655
+        },
+        {
+          "id": "f102v1.19",
+          "field": "tokens",
+          "parser_A": [
+            "foidaiin",
+            "dair",
+            "or",
+            "sheol",
+            "okeeol",
+            "qoteol",
+            "oro",
+            "ey",
+            "olkey"
+          ],
+          "parser_B": [
+            "fo",
+            "i",
+            "daiin",
+            "dair",
+            "or",
+            "sheol",
+            "okeeol",
+            "qoteol",
+            "oro",
+            "ey",
+            "olkey"
+          ],
+          "line_A": 6657,
+          "line_B": 6657
+        },
+        {
+          "id": "f102v1.2",
+          "field": "tokens",
+          "parser_A": [
+            "okeody"
+          ],
+          "parser_B": [],
+          "line_A": 6636,
+          "line_B": 6636
+        },
+        {
+          "id": "f102v1.21",
+          "field": "tokens",
+          "parser_A": [
+            "qoeeody",
+            "ychey",
+            "okeody",
+            "deody",
+            "okody",
+            "cheodaiin",
+            "cheody",
+            "ram"
+          ],
+          "parser_B": [
+            "qoeeody",
+            "ychey",
+            "okeody",
+            "deody",
+            "okody",
+            "cheodaiin",
+            "cheody",
+            "r",
+            "am"
+          ],
+          "line_A": 6659,
+          "line_B": 6659
+        },
+        {
+          "id": "f102v1.22",
+          "field": "tokens",
+          "parser_A": [
+            "ykeeody",
+            "chodaiin",
+            "qokeos",
+            "cheol",
+            "qool",
+            "chsey",
+            "oteody",
+            "okchy"
+          ],
+          "parser_B": [
+            "yk",
+            "ee",
+            "ody",
+            "chodaiin",
+            "qokeos",
+            "cheol",
+            "qool",
+            "chsey",
+            "oteody",
+            "okchy"
+          ],
+          "line_A": 6660,
+          "line_B": 6660
+        },
+        {
+          "id": "f102v1.3",
+          "field": "tokens",
+          "parser_A": [
+            "okeody"
+          ],
+          "parser_B": [],
+          "line_A": 6637,
+          "line_B": 6637
+        },
+        {
+          "id": "f102v1.4",
+          "field": "tokens",
+          "parser_A": [
+            "daiisaly"
+          ],
+          "parser_B": [],
+          "line_A": 6638,
+          "line_B": 6638
+        },
+        {
+          "id": "f102v1.5",
+          "field": "tokens",
+          "parser_A": [
+            "ypary"
+          ],
+          "parser_B": [],
+          "line_A": 6639,
+          "line_B": 6639
+        },
+        {
+          "id": "f102v1.6",
+          "field": "tokens",
+          "parser_A": [
+            "opchyt"
+          ],
+          "parser_B": [],
+          "line_A": 6640,
+          "line_B": 6640
+        },
+        {
+          "id": "f102v1.8",
+          "field": "tokens",
+          "parser_A": [
+            "dairn",
+            "ol",
+            "chey",
+            "ctheol",
+            "qokeor",
+            "os",
+            "aiin",
+            "cheor",
+            "qokey",
+            "choky"
+          ],
+          "parser_B": [
+            "dairn",
+            "ol",
+            "chey",
+            "cth",
+            "eol",
+            "qokeor",
+            "os",
+            "aiin",
+            "cheor",
+            "qokey",
+            "choky"
+          ],
+          "line_A": 6643,
+          "line_B": 6643
+        },
+        {
+          "id": "f102v2.1",
+          "field": "tokens",
+          "parser_A": [
+            "porshols"
+          ],
+          "parser_B": [],
+          "line_A": 6582,
+          "line_B": 6582
+        },
+        {
+          "id": "f102v2.10",
+          "field": "tokens",
+          "parser_A": [
+            "okody"
+          ],
+          "parser_B": [],
+          "line_A": 6591,
+          "line_B": 6591
+        },
+        {
+          "id": "f102v2.11",
+          "field": "tokens",
+          "parser_A": [
+            "cheor"
+          ],
+          "parser_B": [],
+          "line_A": 6592,
+          "line_B": 6592
+        },
+        {
+          "id": "f102v2.12",
+          "field": "tokens",
+          "parser_A": [
+            "okoroeey"
+          ],
+          "parser_B": [],
+          "line_A": 6593,
+          "line_B": 6593
+        },
+        {
+          "id": "f102v2.13",
+          "field": "tokens",
+          "parser_A": [
+            "opchy"
+          ],
+          "parser_B": [],
+          "line_A": 6594,
+          "line_B": 6594
+        },
+        {
+          "id": "f102v2.14",
+          "field": "tokens",
+          "parser_A": [
+            "sarol"
+          ],
+          "parser_B": [],
+          "line_A": 6595,
+          "line_B": 6595
+        },
+        {
+          "id": "f102v2.15",
+          "field": "tokens",
+          "parser_A": [
+            "olrodar"
+          ],
+          "parser_B": [],
+          "line_A": 6596,
+          "line_B": 6596
+        },
+        {
+          "id": "f102v2.17",
+          "field": "tokens",
+          "parser_A": [
+            "podeesho",
+            "oteeos",
+            "sheor",
+            "qoteeo",
+            "ch",
+            "y",
+            "shkeey",
+            "chekeod"
+          ],
+          "parser_B": [
+            "podeesho",
+            "oteeos",
+            "sheor",
+            "qo",
+            "t",
+            "eeo",
+            "ch",
+            "y",
+            "shkeey",
+            "chekeod"
+          ],
+          "line_A": 6599,
+          "line_B": 6599
+        },
+        {
+          "id": "f102v2.2",
+          "field": "tokens",
+          "parser_A": [
+            "soaimy"
+          ],
+          "parser_B": [],
+          "line_A": 6583,
+          "line_B": 6583
+        },
+        {
+          "id": "f102v2.20",
+          "field": "tokens",
+          "parser_A": [
+            "qokeor",
+            "cho",
+            "keeol",
+            "okeeey",
+            "qokeody",
+            "chockhey",
+            "qokeey",
+            "dol",
+            "ol",
+            "sheeoy",
+            "tody"
+          ],
+          "parser_B": [
+            "qokeor",
+            "cho",
+            "keeol",
+            "okeeey",
+            "qokeody",
+            "chockhey",
+            "qokeey",
+            "dol",
+            "ol",
+            "sheeoy",
+            "tody",
+            "cheoc"
+          ],
+          "line_A": 6602,
+          "line_B": 6602
+        },
+        {
+          "id": "f102v2.22",
+          "field": "tokens",
+          "parser_A": [
+            "dain",
+            "or",
+            "aiin",
+            "cheol",
+            "s",
+            "oiir",
+            "chol",
+            "sheey",
+            "qockhy",
+            "ol",
+            "keo",
+            "r",
+            "okeody",
+            "okeor"
+          ],
+          "parser_B": [
+            "dain",
+            "or",
+            "aiin",
+            "cheol",
+            "s",
+            "oiir",
+            "chol",
+            "sheey",
+            "qockhy",
+            "ol",
+            "keo",
+            "r",
+            "okeody",
+            "okeor",
+            "cho"
+          ],
+          "line_A": 6604,
+          "line_B": 6604
+        },
+        {
+          "id": "f102v2.24",
+          "field": "tokens",
+          "parser_A": [
+            "okolky"
+          ],
+          "parser_B": [],
+          "line_A": 6608,
+          "line_B": 6608
+        },
+        {
+          "id": "f102v2.25",
+          "field": "tokens",
+          "parser_A": [
+            "osain"
+          ],
+          "parser_B": [],
+          "line_A": 6609,
+          "line_B": 6609
+        },
+        {
+          "id": "f102v2.26",
+          "field": "tokens",
+          "parser_A": [
+            "aiky"
+          ],
+          "parser_B": [],
+          "line_A": 6610,
+          "line_B": 6610
+        },
+        {
+          "id": "f102v2.27",
+          "field": "tokens",
+          "parser_A": [
+            "okeeoraiin"
+          ],
+          "parser_B": [],
+          "line_A": 6611,
+          "line_B": 6611
+        },
+        {
+          "id": "f102v2.28",
+          "field": "tokens",
+          "parser_A": [
+            "okockhy"
+          ],
+          "parser_B": [],
+          "line_A": 6612,
+          "line_B": 6612
+        },
+        {
+          "id": "f102v2.29",
+          "field": "tokens",
+          "parser_A": [
+            "os"
+          ],
+          "parser_B": [],
+          "line_A": 6613,
+          "line_B": 6613
+        },
+        {
+          "id": "f102v2.3",
+          "field": "tokens",
+          "parser_A": [
+            "oror"
+          ],
+          "parser_B": [],
+          "line_A": 6584,
+          "line_B": 6584
+        },
+        {
+          "id": "f102v2.30",
+          "field": "tokens",
+          "parser_A": [
+            "pydchy",
+            "odiy",
+            "pcheady",
+            "qoekeey",
+            "oteey",
+            "qokeod",
+            "sheey",
+            "opaiin",
+            "deear"
+          ],
+          "parser_B": [
+            "pyd",
+            "ch",
+            "y",
+            "od",
+            "i",
+            "y",
+            "pcheady",
+            "qoekeey",
+            "oteey",
+            "qokeod",
+            "sheey",
+            "opaiin",
+            "deear"
+          ],
+          "line_A": 6615,
+          "line_B": 6615
+        },
+        {
+          "id": "f102v2.33",
+          "field": "tokens",
+          "parser_A": [
+            "qokeor",
+            "sho",
+            "cheor",
+            "o",
+            "s",
+            "al",
+            "chos",
+            "aiiin",
+            "o",
+            "ky",
+            "okaraiin"
+          ],
+          "parser_B": [
+            "qokeor",
+            "sho",
+            "keeeos",
+            "cheor",
+            "o",
+            "s",
+            "al",
+            "chos",
+            "aiiin",
+            "o",
+            "ky",
+            "okaraiin"
+          ],
+          "line_A": 6618,
+          "line_B": 6618
+        },
+        {
+          "id": "f102v2.38",
+          "field": "tokens",
+          "parser_A": [
+            "dar",
+            "cheey",
+            "ckheey",
+            "qokeor",
+            "okey",
+            "chos",
+            "sho",
+            "ykeey",
+            "okeeo",
+            "rain"
+          ],
+          "parser_B": [
+            "dar",
+            "cheey",
+            "ckheey",
+            "qokeor",
+            "okey",
+            "chos",
+            "sho",
+            "ykeey",
+            "okeeo",
+            "ra",
+            "in"
+          ],
+          "line_A": 6623,
+          "line_B": 6623
+        },
+        {
+          "id": "f102v2.4",
+          "field": "tokens",
+          "parser_A": [
+            "chor"
+          ],
+          "parser_B": [],
+          "line_A": 6585,
+          "line_B": 6585
+        },
+        {
+          "id": "f102v2.5",
+          "field": "tokens",
+          "parser_A": [
+            "sachy"
+          ],
+          "parser_B": [],
+          "line_A": 6586,
+          "line_B": 6586
+        },
+        {
+          "id": "f102v2.6",
+          "field": "tokens",
+          "parser_A": [
+            "okeos"
+          ],
+          "parser_B": [],
+          "line_A": 6587,
+          "line_B": 6587
+        },
+        {
+          "id": "f102v2.7",
+          "field": "tokens",
+          "parser_A": [
+            "okol"
+          ],
+          "parser_B": [],
+          "line_A": 6588,
+          "line_B": 6588
+        },
+        {
+          "id": "f102v2.8",
+          "field": "tokens",
+          "parser_A": [
+            "otory"
+          ],
+          "parser_B": [],
+          "line_A": 6589,
+          "line_B": 6589
+        },
+        {
+          "id": "f103r.1",
+          "field": "tokens",
+          "parser_A": [
+            "pchedal",
+            "shdy",
+            "ytechypchy",
+            "otey",
+            "qoteey",
+            "qotal",
+            "shedy",
+            "yshdal",
+            "dain",
+            "okal",
+            "daldy"
+          ],
+          "parser_B": [
+            "pchedal",
+            "shdy",
+            "ytechypchy",
+            "otey",
+            "lshey",
+            "qoteey",
+            "qotal",
+            "shedy",
+            "yshdal",
+            "dain",
+            "okal",
+            "daldy"
+          ],
+          "line_A": 6672,
+          "line_B": 6672
+        }
+      ],
+      "primary_stat_summary_regex": {
+        "body_lines": 2325,
+        "stats": {
+          "daiin": {
+            "lines": 2325,
+            "tokens": 295,
+            "first": 88,
+            "expected_first": 31.279224,
+            "enrichment": 2.813369
+          },
+          "aiin": {
+            "lines": 2325,
+            "tokens": 355,
+            "first": 1,
+            "expected_first": 34.198762,
+            "enrichment": 0.029241
+          },
+          "chedy": {
+            "lines": 2325,
+            "tokens": 479,
+            "first": 6,
+            "expected_first": 49.337263,
+            "enrichment": 0.121612
+          },
+          "dain": {
+            "lines": 2325,
+            "tokens": 107,
+            "first": 34,
+            "expected_first": 10.714287,
+            "enrichment": 3.173333
+          },
+          "saiin": {
+            "lines": 2325,
+            "tokens": 82,
+            "first": 46,
+            "expected_first": 9.158331,
+            "enrichment": 5.022749
+          },
+          "qokaiin": {
+            "lines": 2325,
+            "tokens": 240,
+            "first": 25,
+            "expected_first": 26.845879,
+            "enrichment": 0.931242
+          }
+        }
+      },
+      "primary_stat_summary_scanner": {
+        "body_lines": 2323,
+        "stats": {
+          "daiin": {
+            "lines": 2323,
+            "tokens": 295,
+            "first": 87,
+            "expected_first": 30.443771,
+            "enrichment": 2.857727
+          },
+          "aiin": {
+            "lines": 2323,
+            "tokens": 362,
+            "first": 1,
+            "expected_first": 34.039991,
+            "enrichment": 0.029377
+          },
+          "chedy": {
+            "lines": 2323,
+            "tokens": 477,
+            "first": 6,
+            "expected_first": 48.172055,
+            "enrichment": 0.124554
+          },
+          "dain": {
+            "lines": 2323,
+            "tokens": 105,
+            "first": 34,
+            "expected_first": 10.293021,
+            "enrichment": 3.303209
+          },
+          "saiin": {
+            "lines": 2323,
+            "tokens": 81,
+            "first": 45,
+            "expected_first": 8.953147,
+            "enrichment": 5.026166
+          },
+          "qokaiin": {
+            "lines": 2323,
+            "tokens": 239,
+            "first": 25,
+            "expected_first": 26.151102,
+            "enrichment": 0.955983
+          }
+        }
+      },
+      "primary_stats_identical": false
+    },
+    {
+      "transcription": "ZL3a",
+      "source": {
+        "path": "data/transcriptions/zl3a.txt",
+        "bytes": 411710,
+        "sha256": "56419297682d338ff1a0a17f5ae251e3ee3e2c5bf05a62db04c5385ef30b36a2"
+      },
+      "parser_A": {
+        "record_count": 5389,
+        "folio_headers": 227,
+        "unparsed": []
+      },
+      "parser_B": {
+        "record_count": 5389,
+        "folio_headers": 227,
+        "unparsed": []
+      },
+      "only_parser_A_ids": [],
+      "only_parser_B_ids": [],
+      "record_key_counts": {
+        "only_A": 0,
+        "only_B": 0,
+        "common": 5389
+      },
+      "mismatch_count_by_field": {
+        "tokens": 1472
+      },
+      "mismatch_examples": [
+        {
+          "id": "f100r.1",
+          "field": "tokens",
+          "parser_A": [
+            "chosaroshol"
+          ],
+          "parser_B": [],
+          "line_A": 6381,
+          "line_B": 6381
+        },
+        {
+          "id": "f100r.10",
+          "field": "tokens",
+          "parser_A": [
+            "dakocth"
+          ],
+          "parser_B": [],
+          "line_A": 6390,
+          "line_B": 6390
+        },
+        {
+          "id": "f100r.11",
+          "field": "tokens",
+          "parser_A": [
+            "sofam"
+          ],
+          "parser_B": [],
+          "line_A": 6391,
+          "line_B": 6391
+        },
+        {
+          "id": "f100r.12",
+          "field": "tokens",
+          "parser_A": [
+            "pcheol",
+            "sheod",
+            "qocpheeckhy",
+            "shodol",
+            "da",
+            "oto",
+            "sheey",
+            "ch",
+            "o",
+            "s"
+          ],
+          "parser_B": [
+            "pcheol",
+            "sheod",
+            "qocpheeckhy",
+            "shodol",
+            "da",
+            "oto",
+            "cho",
+            "?",
+            "os",
+            "sheey",
+            "ch",
+            "o",
+            "s"
+          ],
+          "line_A": 6393,
+          "line_B": 6393
+        },
+        {
+          "id": "f100r.13",
+          "field": "tokens",
+          "parser_A": [
+            "dsheor",
+            "cthey",
+            "qokeey",
+            "oteey",
+            "ykeeodain",
+            "rorarydaiin",
+            "daiin",
+            "deeomchol"
+          ],
+          "parser_B": [
+            "dsheor",
+            "cthey",
+            "qokeey",
+            "oteey",
+            "ykeeodain",
+            "r",
+            "orarydaiin",
+            "daiin",
+            "deeomchol"
+          ],
+          "line_A": 6394,
+          "line_B": 6394
+        },
+        {
+          "id": "f100r.14",
+          "field": "tokens",
+          "parser_A": [
+            "shor",
+            "chkeey",
+            "qoteey",
+            "qokeody",
+            "qoteold",
+            "qokeol",
+            "so",
+            "raiin",
+            "otal",
+            "ykeeeo"
+          ],
+          "parser_B": [
+            "shor",
+            "chkeey",
+            "qoteey",
+            "qokeody",
+            "qoteold",
+            "qokeol",
+            "so",
+            "raiin",
+            "otal",
+            "yk",
+            "eee",
+            "o"
+          ],
+          "line_A": 6395,
+          "line_B": 6395
+        },
+        {
+          "id": "f100r.16",
+          "field": "tokens",
+          "parser_A": [
+            "okeeos"
+          ],
+          "parser_B": [],
+          "line_A": 6399,
+          "line_B": 6399
+        },
+        {
+          "id": "f100r.17",
+          "field": "tokens",
+          "parser_A": [
+            "shockhey"
+          ],
+          "parser_B": [],
+          "line_A": 6400,
+          "line_B": 6400
+        },
+        {
+          "id": "f100r.18",
+          "field": "tokens",
+          "parser_A": [
+            "orol"
+          ],
+          "parser_B": [],
+          "line_A": 6401,
+          "line_B": 6401
+        },
+        {
+          "id": "f100r.19",
+          "field": "tokens",
+          "parser_A": [
+            "olcheom"
+          ],
+          "parser_B": [],
+          "line_A": 6402,
+          "line_B": 6402
+        },
+        {
+          "id": "f100r.2",
+          "field": "tokens",
+          "parser_A": [
+            "sochorcfhy"
+          ],
+          "parser_B": [],
+          "line_A": 6382,
+          "line_B": 6382
+        },
+        {
+          "id": "f100r.20",
+          "field": "tokens",
+          "parser_A": [
+            "oteol"
+          ],
+          "parser_B": [],
+          "line_A": 6403,
+          "line_B": 6403
+        },
+        {
+          "id": "f100r.21",
+          "field": "tokens",
+          "parser_A": [
+            "okols"
+          ],
+          "parser_B": [],
+          "line_A": 6404,
+          "line_B": 6404
+        },
+        {
+          "id": "f100r.3",
+          "field": "tokens",
+          "parser_A": [
+            "otear"
+          ],
+          "parser_B": [],
+          "line_A": 6383,
+          "line_B": 6383
+        },
+        {
+          "id": "f100r.4",
+          "field": "tokens",
+          "parser_A": [
+            "chofary"
+          ],
+          "parser_B": [],
+          "line_A": 6384,
+          "line_B": 6384
+        },
+        {
+          "id": "f100r.5",
+          "field": "tokens",
+          "parser_A": [
+            "sar",
+            "char",
+            "daiindy"
+          ],
+          "parser_B": [],
+          "line_A": 6385,
+          "line_B": 6385
+        },
+        {
+          "id": "f100r.6",
+          "field": "tokens",
+          "parser_A": [
+            "oraro"
+          ],
+          "parser_B": [],
+          "line_A": 6386,
+          "line_B": 6386
+        },
+        {
+          "id": "f100r.7",
+          "field": "tokens",
+          "parser_A": [
+            "chalsain"
+          ],
+          "parser_B": [],
+          "line_A": 6387,
+          "line_B": 6387
+        },
+        {
+          "id": "f100r.8",
+          "field": "tokens",
+          "parser_A": [
+            "soity"
+          ],
+          "parser_B": [],
+          "line_A": 6388,
+          "line_B": 6388
+        },
+        {
+          "id": "f100r.9",
+          "field": "tokens",
+          "parser_A": [
+            "sosam"
+          ],
+          "parser_B": [],
+          "line_A": 6389,
+          "line_B": 6389
+        },
+        {
+          "id": "f100v.1",
+          "field": "tokens",
+          "parser_A": [
+            "tolchd"
+          ],
+          "parser_B": [],
+          "line_A": 6421,
+          "line_B": 6421
+        },
+        {
+          "id": "f100v.10",
+          "field": "tokens",
+          "parser_A": [
+            "okcheor"
+          ],
+          "parser_B": [],
+          "line_A": 6434,
+          "line_B": 6434
+        },
+        {
+          "id": "f100v.11",
+          "field": "tokens",
+          "parser_A": [
+            "ytchol"
+          ],
+          "parser_B": [],
+          "line_A": 6435,
+          "line_B": 6435
+        },
+        {
+          "id": "f100v.12",
+          "field": "tokens",
+          "parser_A": [
+            "dykchal"
+          ],
+          "parser_B": [],
+          "line_A": 6436,
+          "line_B": 6436
+        },
+        {
+          "id": "f100v.13",
+          "field": "tokens",
+          "parser_A": [
+            "chos",
+            "ctharal"
+          ],
+          "parser_B": [],
+          "line_A": 6437,
+          "line_B": 6437
+        },
+        {
+          "id": "f100v.2",
+          "field": "tokens",
+          "parser_A": [
+            "chols"
+          ],
+          "parser_B": [],
+          "line_A": 6422,
+          "line_B": 6422
+        },
+        {
+          "id": "f100v.3",
+          "field": "tokens",
+          "parser_A": [
+            "opchor"
+          ],
+          "parser_B": [],
+          "line_A": 6423,
+          "line_B": 6423
+        },
+        {
+          "id": "f100v.4",
+          "field": "tokens",
+          "parser_A": [
+            "solsy"
+          ],
+          "parser_B": [],
+          "line_A": 6424,
+          "line_B": 6424
+        },
+        {
+          "id": "f100v.5",
+          "field": "tokens",
+          "parser_A": [
+            "soleesos"
+          ],
+          "parser_B": [],
+          "line_A": 6427,
+          "line_B": 6427
+        },
+        {
+          "id": "f100v.6",
+          "field": "tokens",
+          "parser_A": [
+            "ykchochdy"
+          ],
+          "parser_B": [],
+          "line_A": 6428,
+          "line_B": 6428
+        },
+        {
+          "id": "f100v.7",
+          "field": "tokens",
+          "parser_A": [
+            "ykchdy"
+          ],
+          "parser_B": [],
+          "line_A": 6429,
+          "line_B": 6429
+        },
+        {
+          "id": "f100v.8",
+          "field": "tokens",
+          "parser_A": [
+            "dchdy"
+          ],
+          "parser_B": [],
+          "line_A": 6430,
+          "line_B": 6430
+        },
+        {
+          "id": "f100v.9",
+          "field": "tokens",
+          "parser_A": [
+            "dalsy"
+          ],
+          "parser_B": [],
+          "line_A": 6431,
+          "line_B": 6431
+        },
+        {
+          "id": "f101r.5",
+          "field": "tokens",
+          "parser_A": [
+            "daiin",
+            "ctheol",
+            "cheol",
+            "okor",
+            "or",
+            "aiin",
+            "cheol",
+            "cho",
+            "keeodchey",
+            "okol",
+            "okeol",
+            "dor",
+            "chol",
+            "chy",
+            "r",
+            "aiin",
+            "oteol",
+            "or",
+            "aiin",
+            "ol",
+            "chey",
+            "oteeod",
+            "sheol",
+            "okeol",
+            "chosaiin",
+            "sheam"
+          ],
+          "parser_B": [
+            "daiin",
+            "ctheol",
+            "cheol",
+            "okor",
+            "or",
+            "aiin",
+            "cheol",
+            "cho",
+            "keeodchey",
+            "okol",
+            "okeol",
+            "dor",
+            "chol",
+            "ch",
+            "y",
+            "r",
+            "aiin",
+            "oteol",
+            "or",
+            "aiin",
+            "ol",
+            "chey",
+            "oteeod",
+            "sheol",
+            "okeol",
+            "chosaiin",
+            "sheam"
+          ],
+          "line_A": 6462,
+          "line_B": 6462
+        },
+        {
+          "id": "f101r.6",
+          "field": "tokens",
+          "parser_A": [
+            "okeeol",
+            "sho",
+            "shody",
+            "sho",
+            "shol",
+            "okeeeol",
+            "cheas",
+            "sheokeey",
+            "sheeor",
+            "chchy",
+            "chodaiin",
+            "cheeckhey",
+            "teeol",
+            "s",
+            "cheol",
+            "rar",
+            "oeeor"
+          ],
+          "parser_B": [
+            "okeeol",
+            "sho",
+            "shody",
+            "sho",
+            "shol",
+            "okeeeol",
+            "che",
+            "a",
+            "s",
+            "sheokeey",
+            "sheeor",
+            "chchy",
+            "chodaiin",
+            "cheeckhey",
+            "teeol",
+            "s",
+            "cheol",
+            "rar",
+            "oeeor"
+          ],
+          "line_A": 6463,
+          "line_B": 6463
+        },
+        {
+          "id": "f101r.7",
+          "field": "tokens",
+          "parser_A": [
+            "cphoar",
+            "oaiin",
+            "ypcholy",
+            "daiin",
+            "otaiin",
+            "otaiin",
+            "yfolaiin",
+            "cheolain",
+            "ypchey",
+            "ody",
+            "shotey",
+            "odariin",
+            "sheoor",
+            "sheor",
+            "ckheey",
+            "ey",
+            "qokchey",
+            "cholp",
+            "cheol",
+            "dy"
+          ],
+          "parser_B": [
+            "cphoar",
+            "oaiin",
+            "ypcholy",
+            "daiin",
+            "otaiin",
+            "otaiin",
+            "yfolaiin",
+            "cheolain",
+            "ypchey",
+            "ody",
+            "shotey",
+            "odariin",
+            "sheo",
+            "o",
+            "r",
+            "sheor",
+            "ckheey",
+            "ey",
+            "qokchey",
+            "cholp",
+            "cheol",
+            "dy"
+          ],
+          "line_A": 6465,
+          "line_B": 6465
+        },
+        {
+          "id": "f101v.1",
+          "field": "tokens",
+          "parser_A": [
+            "sairaly"
+          ],
+          "parser_B": [
+            "s",
+            "airaly"
+          ],
+          "line_A": 6486,
+          "line_B": 6486
+        },
+        {
+          "id": "f101v.19",
+          "field": "tokens",
+          "parser_A": [
+            "tolchor",
+            "cheopor",
+            "or",
+            "ody",
+            "cphey",
+            "r",
+            "shee",
+            "fol",
+            "s",
+            "oiin",
+            "otsheey",
+            "kcho",
+            "pcholy",
+            "chor",
+            "or",
+            "choror",
+            "sy",
+            "dorar",
+            "okoraiin",
+            "orolodain"
+          ],
+          "parser_B": [
+            "tolchor",
+            "cheopor",
+            "or",
+            "ody",
+            "cphey",
+            "r",
+            "shee",
+            "fol",
+            "s",
+            "oiin",
+            "otsheey",
+            "otch",
+            "y",
+            "kcho",
+            "pcholy",
+            "chor",
+            "or",
+            "choror",
+            "sy",
+            "dorar",
+            "okoraiin",
+            "orolodain"
+          ],
+          "line_A": 6506,
+          "line_B": 6506
+        },
+        {
+          "id": "f101v.20",
+          "field": "tokens",
+          "parser_A": [
+            "or",
+            "aiin",
+            "or",
+            "o",
+            "or",
+            "odam",
+            "chor",
+            "s",
+            "aiin",
+            "okor",
+            "cheeor",
+            "sheeol",
+            "qokol",
+            "qoor",
+            "cheey",
+            "qykeod",
+            "oeeo",
+            "r",
+            "choy",
+            "s",
+            "okeeody",
+            "chodaiin",
+            "cthy",
+            "okody",
+            "dar"
+          ],
+          "parser_B": [
+            "or",
+            "aiin",
+            "or",
+            "o",
+            "or",
+            "odam",
+            "chor",
+            "s",
+            "aiin",
+            "okor",
+            "cheeor",
+            "sheeol",
+            "qokol",
+            "et",
+            "ol",
+            "qoor",
+            "cheey",
+            "qykeod",
+            "oeeo",
+            "r",
+            "choy",
+            "s",
+            "okeeody",
+            "chodaiin",
+            "cthy",
+            "okody",
+            "dar"
+          ],
+          "line_A": 6507,
+          "line_B": 6507
+        },
+        {
+          "id": "f101v.21",
+          "field": "tokens",
+          "parser_A": [
+            "ycheor",
+            "dain",
+            "cheokal",
+            "ody",
+            "cheeods",
+            "oraiin",
+            "qoeey",
+            "cthey",
+            "dain",
+            "dydy"
+          ],
+          "parser_B": [
+            "ycheor",
+            "o",
+            "?",
+            "o",
+            "dain",
+            "cheokal",
+            "ody",
+            "cheeods",
+            "oraiin",
+            "qoeey",
+            "cthey",
+            "eocthy",
+            "dain",
+            "cheod",
+            "dydy"
+          ],
+          "line_A": 6508,
+          "line_B": 6508
+        },
+        {
+          "id": "f101v.22",
+          "field": "tokens",
+          "parser_A": [
+            "kshar",
+            "lol",
+            "keeol",
+            "otal",
+            "or",
+            "ol",
+            "aiin",
+            "okeod",
+            "ey",
+            "dain",
+            "olcheol",
+            "cthey",
+            "qekeoldy",
+            "qocthor",
+            "sheody",
+            "qo",
+            "ey",
+            "odaiin",
+            "shoytolaiin",
+            "dy"
+          ],
+          "parser_B": [
+            "kshar",
+            "lol",
+            "keeol",
+            "otal",
+            "or",
+            "ol",
+            "aiin",
+            "okeod",
+            "ey",
+            "dain",
+            "olcheol",
+            "opcheol",
+            "cthey",
+            "qekeoldy",
+            "qocthor",
+            "sheody",
+            "qo",
+            "ey",
+            "odaiin",
+            "shoytolaiin",
+            "sodaiin",
+            "dy"
+          ],
+          "line_A": 6510,
+          "line_B": 6510
+        },
+        {
+          "id": "f101v.23",
+          "field": "tokens",
+          "parser_A": [
+            "yaiin",
+            "ol",
+            "olor",
+            "daiin",
+            "okeey",
+            "qok",
+            "ykeol",
+            "daiin",
+            "qockhy",
+            "daiin",
+            "qokeol",
+            "dol",
+            "oraiin",
+            "oldaiin",
+            "keeols",
+            "rch",
+            "qokeeeor",
+            "s",
+            "ydy",
+            "cheor",
+            "okeey",
+            "choldy",
+            "dar"
+          ],
+          "parser_B": [
+            "yaiin",
+            "ol",
+            "olor",
+            "daiin",
+            "okeey",
+            "qok",
+            "ykeol",
+            "daiin",
+            "qockhy",
+            "daiin",
+            "olch",
+            "dar",
+            "qokeol",
+            "dol",
+            "oraiin",
+            "oldaiin",
+            "keeols",
+            "rch",
+            "qokeeeor",
+            "s",
+            "ydy",
+            "cheor",
+            "okeey",
+            "choldy",
+            "dar"
+          ],
+          "line_A": 6511,
+          "line_B": 6511
+        },
+        {
+          "id": "f101v.24",
+          "field": "tokens",
+          "parser_A": [
+            "teeeol",
+            "sheol",
+            "qokeor",
+            "ol",
+            "olcho",
+            "r",
+            "chokey",
+            "chor",
+            "ctheey",
+            "cheeody",
+            "cheey",
+            "keo",
+            "cheol",
+            "daiiin",
+            "deeor",
+            "cheedy"
+          ],
+          "parser_B": [
+            "teeeol",
+            "sheol",
+            "qokeor",
+            "ol",
+            "olcho",
+            "r",
+            "chokey",
+            "chor",
+            "ctheey",
+            "daiin",
+            "daiin",
+            "cheeody",
+            "cheey",
+            "keo",
+            "cheol",
+            "daiiin",
+            "deeor",
+            "cheedy"
+          ],
+          "line_A": 6512,
+          "line_B": 6512
+        },
+        {
+          "id": "f101v.25",
+          "field": "tokens",
+          "parser_A": [
+            "daiin",
+            "dair",
+            "yteol",
+            "chor",
+            "qockhol",
+            "daiin",
+            "ckheey",
+            "chey",
+            "kchey",
+            "okeey",
+            "ckheo",
+            "l",
+            "cheody",
+            "kcheol",
+            "daiin",
+            "eteeos",
+            "ctheody",
+            "ctheo",
+            "olchor"
+          ],
+          "parser_B": [
+            "daiin",
+            "dair",
+            "yteol",
+            "chor",
+            "qockhol",
+            "daiin",
+            "ckheey",
+            "chey",
+            "kchey",
+            "da",
+            "oiin",
+            "okeey",
+            "ckheo",
+            "l",
+            "cheody",
+            "kcheol",
+            "daiin",
+            "etee",
+            "o",
+            "s",
+            "ctheody",
+            "ctheo",
+            "ckhosh",
+            "?",
+            "olchor"
+          ],
+          "line_A": 6514,
+          "line_B": 6514
+        },
+        {
+          "id": "f101v.26",
+          "field": "tokens",
+          "parser_A": [
+            "olaiin",
+            "okeol",
+            "cheo",
+            "kol",
+            "ches",
+            "sheey",
+            "qoor",
+            "qokeody",
+            "cheor",
+            "okeo",
+            "cheey",
+            "cthey",
+            "ory",
+            "ctheey",
+            "qokeey",
+            "shol",
+            "ody",
+            "cheol",
+            "oralar",
+            "shey",
+            "qokar",
+            "ary"
+          ],
+          "parser_B": [
+            "olaiin",
+            "okeol",
+            "cheo",
+            "kol",
+            "ches",
+            "sheey",
+            "qoor",
+            "qokeody",
+            "cheor",
+            "okeo",
+            "oiin",
+            "cheey",
+            "cthey",
+            "ory",
+            "ctheey",
+            "qokeey",
+            "shol",
+            "ody",
+            "cheol",
+            "oralar",
+            "shey",
+            "qokar",
+            "ary"
+          ],
+          "line_A": 6515,
+          "line_B": 6515
+        },
+        {
+          "id": "f101v.27",
+          "field": "tokens",
+          "parser_A": [
+            "sal",
+            "chol",
+            "choly",
+            "okeey",
+            "dal",
+            "qol",
+            "shckheol",
+            "chol",
+            "cthear",
+            "keeol",
+            "ol",
+            "chs",
+            "oraiin",
+            "qokeeey",
+            "soiin",
+            "qodaiin",
+            "cheol",
+            "qokeey",
+            "daiin",
+            "cheodam"
+          ],
+          "parser_B": [
+            "sal",
+            "chol",
+            "choly",
+            "okeey",
+            "dal",
+            "qol",
+            "shckheol",
+            "chol",
+            "cthear",
+            "keeol",
+            "cheeo",
+            "ol",
+            "chs",
+            "oraiin",
+            "qokeeey",
+            "soiin",
+            "qodaiin",
+            "cheol",
+            "qokeey",
+            "daiin",
+            "cheodam"
+          ],
+          "line_A": 6516,
+          "line_B": 6516
+        },
+        {
+          "id": "f101v.28",
+          "field": "tokens",
+          "parser_A": [
+            "teol",
+            "cheol",
+            "etchey",
+            "r",
+            "cheol",
+            "cthol",
+            "cholaiin",
+            "chol",
+            "qkar"
+          ],
+          "parser_B": [
+            "teol",
+            "cheol",
+            "etchey",
+            "cheo",
+            "r",
+            "cheol",
+            "cthol",
+            "cholaiin",
+            "chol",
+            "qkar"
+          ],
+          "line_A": 6517,
+          "line_B": 6517
+        },
+        {
+          "id": "f101v.8",
+          "field": "tokens",
+          "parser_A": [
+            "otoly"
+          ],
+          "parser_B": [
+            "ot",
+            "o",
+            "ly"
+          ],
+          "line_A": 6493,
+          "line_B": 6493
+        },
+        {
+          "id": "f102r1.1",
+          "field": "tokens",
+          "parser_A": [
+            "daarod"
+          ],
+          "parser_B": [],
+          "line_A": 6525,
+          "line_B": 6525
+        },
+        {
+          "id": "f102r1.12",
+          "field": "tokens",
+          "parser_A": [
+            "ddardsh"
+          ],
+          "parser_B": [],
+          "line_A": 6538,
+          "line_B": 6538
+        },
+        {
+          "id": "f102r1.2",
+          "field": "tokens",
+          "parser_A": [
+            "otodeeodor"
+          ],
+          "parser_B": [],
+          "line_A": 6526,
+          "line_B": 6526
+        },
+        {
+          "id": "f102r1.4",
+          "field": "tokens",
+          "parser_A": [
+            "dsheody",
+            "okeeoy",
+            "chkeeody",
+            "daraiiin",
+            "ctheoly",
+            "qokcheololain"
+          ],
+          "parser_B": [
+            "dsheody",
+            "okeeoy",
+            "kod",
+            "?",
+            "chkeeody",
+            "daraiiin",
+            "ctheoly",
+            "qokcheololain"
+          ],
+          "line_A": 6528,
+          "line_B": 6528
+        },
+        {
+          "id": "f102r1.7",
+          "field": "tokens",
+          "parser_A": [
+            "okolaly"
+          ],
+          "parser_B": [],
+          "line_A": 6532,
+          "line_B": 6532
+        },
+        {
+          "id": "f102r2.15",
+          "field": "tokens",
+          "parser_A": [],
+          "parser_B": [
+            "so",
+            "dch"
+          ],
+          "line_A": 6568,
+          "line_B": 6568
+        },
+        {
+          "id": "f102r2.21",
+          "field": "tokens",
+          "parser_A": [
+            "koldarod"
+          ],
+          "parser_B": [],
+          "line_A": 6575,
+          "line_B": 6575
+        },
+        {
+          "id": "f102r2.22",
+          "field": "tokens",
+          "parser_A": [
+            "odalydary"
+          ],
+          "parser_B": [],
+          "line_A": 6576,
+          "line_B": 6576
+        },
+        {
+          "id": "f102r2.7",
+          "field": "tokens",
+          "parser_A": [],
+          "parser_B": [
+            "ok",
+            "?",
+            "rolda"
+          ],
+          "line_A": 6558,
+          "line_B": 6558
+        },
+        {
+          "id": "f102r2.9",
+          "field": "tokens",
+          "parser_A": [
+            "dor",
+            "oiin",
+            "okeody",
+            "qokeol",
+            "sheoy",
+            "qoochey",
+            "ckheol",
+            "sheey",
+            "skeekyd"
+          ],
+          "parser_B": [
+            "dor",
+            "oiin",
+            "okeody",
+            "qokeol",
+            "sheoy",
+            "qo",
+            "o",
+            "chey",
+            "ckheol",
+            "sheey",
+            "skeekyd"
+          ],
+          "line_A": 6560,
+          "line_B": 6560
+        },
+        {
+          "id": "f102v1.1",
+          "field": "tokens",
+          "parser_A": [
+            "keoraiiin"
+          ],
+          "parser_B": [],
+          "line_A": 6638,
+          "line_B": 6638
+        },
+        {
+          "id": "f102v1.13",
+          "field": "tokens",
+          "parser_A": [
+            "toiin",
+            "ol",
+            "daiin",
+            "qkol",
+            "cheol",
+            "daiin",
+            "qokar",
+            "oaiin",
+            "cheey",
+            "saiim"
+          ],
+          "parser_B": [
+            "toiin",
+            "ol",
+            "daiin",
+            "qkol",
+            "cheol",
+            "daiin",
+            "qokar",
+            "oaiin",
+            "cheey",
+            "s",
+            "aiim"
+          ],
+          "line_A": 6651,
+          "line_B": 6651
+        },
+        {
+          "id": "f102v1.16",
+          "field": "tokens",
+          "parser_A": [
+            "ypcholdy"
+          ],
+          "parser_B": [],
+          "line_A": 6656,
+          "line_B": 6656
+        },
+        {
+          "id": "f102v1.17",
+          "field": "tokens",
+          "parser_A": [
+            "loralody"
+          ],
+          "parser_B": [],
+          "line_A": 6657,
+          "line_B": 6657
+        },
+        {
+          "id": "f102v1.18",
+          "field": "tokens",
+          "parser_A": [
+            "opchdard"
+          ],
+          "parser_B": [],
+          "line_A": 6658,
+          "line_B": 6658
+        },
+        {
+          "id": "f102v1.19",
+          "field": "tokens",
+          "parser_A": [
+            "foidaiin",
+            "dair",
+            "or",
+            "sheol",
+            "okeeol",
+            "qoteol",
+            "oro",
+            "ey",
+            "olkey"
+          ],
+          "parser_B": [
+            "fo",
+            "i",
+            "daiin",
+            "dair",
+            "or",
+            "sheol",
+            "okeeol",
+            "qoteol",
+            "oro",
+            "ey",
+            "olkey"
+          ],
+          "line_A": 6660,
+          "line_B": 6660
+        },
+        {
+          "id": "f102v1.2",
+          "field": "tokens",
+          "parser_A": [
+            "okeody"
+          ],
+          "parser_B": [],
+          "line_A": 6639,
+          "line_B": 6639
+        },
+        {
+          "id": "f102v1.21",
+          "field": "tokens",
+          "parser_A": [
+            "qoeeody",
+            "ychey",
+            "okeody",
+            "deody",
+            "okody",
+            "cheodaiin",
+            "cheody",
+            "ram"
+          ],
+          "parser_B": [
+            "qoeeody",
+            "ychey",
+            "okeody",
+            "deody",
+            "okody",
+            "cheodaiin",
+            "cheody",
+            "r",
+            "am"
+          ],
+          "line_A": 6662,
+          "line_B": 6662
+        },
+        {
+          "id": "f102v1.22",
+          "field": "tokens",
+          "parser_A": [
+            "ykeeody",
+            "chodaiin",
+            "qokeos",
+            "cheol",
+            "qool",
+            "chsey",
+            "oteody",
+            "okchy"
+          ],
+          "parser_B": [
+            "yk",
+            "ee",
+            "ody",
+            "chodaiin",
+            "qokeos",
+            "cheol",
+            "qool",
+            "chsey",
+            "oteody",
+            "okchy"
+          ],
+          "line_A": 6663,
+          "line_B": 6663
+        },
+        {
+          "id": "f102v1.3",
+          "field": "tokens",
+          "parser_A": [
+            "okeody"
+          ],
+          "parser_B": [],
+          "line_A": 6640,
+          "line_B": 6640
+        },
+        {
+          "id": "f102v1.4",
+          "field": "tokens",
+          "parser_A": [
+            "daiisaly"
+          ],
+          "parser_B": [],
+          "line_A": 6641,
+          "line_B": 6641
+        },
+        {
+          "id": "f102v1.5",
+          "field": "tokens",
+          "parser_A": [
+            "ypary"
+          ],
+          "parser_B": [],
+          "line_A": 6642,
+          "line_B": 6642
+        },
+        {
+          "id": "f102v1.6",
+          "field": "tokens",
+          "parser_A": [
+            "opchyt"
+          ],
+          "parser_B": [],
+          "line_A": 6643,
+          "line_B": 6643
+        },
+        {
+          "id": "f102v1.8",
+          "field": "tokens",
+          "parser_A": [
+            "dairn",
+            "ol",
+            "chey",
+            "ctheol",
+            "qokeor",
+            "os",
+            "aiin",
+            "cheor",
+            "qokey",
+            "choky"
+          ],
+          "parser_B": [
+            "dairn",
+            "ol",
+            "chey",
+            "cth",
+            "eol",
+            "qokeor",
+            "os",
+            "aiin",
+            "cheor",
+            "qokey",
+            "choky"
+          ],
+          "line_A": 6646,
+          "line_B": 6646
+        },
+        {
+          "id": "f102v2.1",
+          "field": "tokens",
+          "parser_A": [
+            "porshols"
+          ],
+          "parser_B": [],
+          "line_A": 6585,
+          "line_B": 6585
+        },
+        {
+          "id": "f102v2.10",
+          "field": "tokens",
+          "parser_A": [
+            "okody"
+          ],
+          "parser_B": [],
+          "line_A": 6594,
+          "line_B": 6594
+        },
+        {
+          "id": "f102v2.11",
+          "field": "tokens",
+          "parser_A": [
+            "cheor"
+          ],
+          "parser_B": [],
+          "line_A": 6595,
+          "line_B": 6595
+        },
+        {
+          "id": "f102v2.12",
+          "field": "tokens",
+          "parser_A": [
+            "okoroeey"
+          ],
+          "parser_B": [],
+          "line_A": 6596,
+          "line_B": 6596
+        },
+        {
+          "id": "f102v2.13",
+          "field": "tokens",
+          "parser_A": [
+            "opchy"
+          ],
+          "parser_B": [],
+          "line_A": 6597,
+          "line_B": 6597
+        },
+        {
+          "id": "f102v2.14",
+          "field": "tokens",
+          "parser_A": [
+            "sarol"
+          ],
+          "parser_B": [],
+          "line_A": 6598,
+          "line_B": 6598
+        },
+        {
+          "id": "f102v2.15",
+          "field": "tokens",
+          "parser_A": [
+            "olrodar"
+          ],
+          "parser_B": [],
+          "line_A": 6599,
+          "line_B": 6599
+        },
+        {
+          "id": "f102v2.17",
+          "field": "tokens",
+          "parser_A": [
+            "podeesho",
+            "oteeos",
+            "sheor",
+            "qoteeo",
+            "ch",
+            "y",
+            "shkeey",
+            "chekeod"
+          ],
+          "parser_B": [
+            "podeesho",
+            "oteeos",
+            "sheor",
+            "qo",
+            "t",
+            "eeo",
+            "ch",
+            "y",
+            "shkeey",
+            "chekeod"
+          ],
+          "line_A": 6602,
+          "line_B": 6602
+        },
+        {
+          "id": "f102v2.2",
+          "field": "tokens",
+          "parser_A": [
+            "soaimy"
+          ],
+          "parser_B": [],
+          "line_A": 6586,
+          "line_B": 6586
+        },
+        {
+          "id": "f102v2.22",
+          "field": "tokens",
+          "parser_A": [
+            "dain",
+            "or",
+            "aiin",
+            "cheol",
+            "s",
+            "oiir",
+            "chol",
+            "sheey",
+            "qockhy",
+            "ol",
+            "keo",
+            "r",
+            "okeody",
+            "okeor"
+          ],
+          "parser_B": [
+            "dain",
+            "or",
+            "aiin",
+            "cheol",
+            "s",
+            "oiir",
+            "chol",
+            "sheey",
+            "qockhy",
+            "ol",
+            "keo",
+            "r",
+            "okeody",
+            "okeor",
+            "cho"
+          ],
+          "line_A": 6607,
+          "line_B": 6607
+        },
+        {
+          "id": "f102v2.24",
+          "field": "tokens",
+          "parser_A": [
+            "okolky"
+          ],
+          "parser_B": [],
+          "line_A": 6611,
+          "line_B": 6611
+        },
+        {
+          "id": "f102v2.25",
+          "field": "tokens",
+          "parser_A": [
+            "osain"
+          ],
+          "parser_B": [],
+          "line_A": 6612,
+          "line_B": 6612
+        },
+        {
+          "id": "f102v2.26",
+          "field": "tokens",
+          "parser_A": [
+            "aiky"
+          ],
+          "parser_B": [],
+          "line_A": 6613,
+          "line_B": 6613
+        },
+        {
+          "id": "f102v2.27",
+          "field": "tokens",
+          "parser_A": [
+            "okeeoraiin"
+          ],
+          "parser_B": [],
+          "line_A": 6614,
+          "line_B": 6614
+        },
+        {
+          "id": "f102v2.28",
+          "field": "tokens",
+          "parser_A": [
+            "okockhy"
+          ],
+          "parser_B": [],
+          "line_A": 6615,
+          "line_B": 6615
+        },
+        {
+          "id": "f102v2.29",
+          "field": "tokens",
+          "parser_A": [
+            "os"
+          ],
+          "parser_B": [],
+          "line_A": 6616,
+          "line_B": 6616
+        },
+        {
+          "id": "f102v2.3",
+          "field": "tokens",
+          "parser_A": [
+            "oror"
+          ],
+          "parser_B": [],
+          "line_A": 6587,
+          "line_B": 6587
+        },
+        {
+          "id": "f102v2.30",
+          "field": "tokens",
+          "parser_A": [
+            "pydchy",
+            "odiy",
+            "pcheady",
+            "qoekeey",
+            "oteey",
+            "qokeod",
+            "sheey",
+            "opaiin",
+            "deear"
+          ],
+          "parser_B": [
+            "pyd",
+            "ch",
+            "y",
+            "od",
+            "i",
+            "y",
+            "pcheady",
+            "qoekeey",
+            "oteey",
+            "qokeod",
+            "sheey",
+            "opaiin",
+            "deear"
+          ],
+          "line_A": 6618,
+          "line_B": 6618
+        },
+        {
+          "id": "f102v2.33",
+          "field": "tokens",
+          "parser_A": [
+            "qokeor",
+            "sho",
+            "cheor",
+            "o",
+            "s",
+            "al",
+            "chos",
+            "aiiin",
+            "o",
+            "ky",
+            "okaraiin"
+          ],
+          "parser_B": [
+            "qokeor",
+            "sho",
+            "keeeos",
+            "cheor",
+            "o",
+            "s",
+            "al",
+            "chos",
+            "aiiin",
+            "o",
+            "ky",
+            "okaraiin"
+          ],
+          "line_A": 6621,
+          "line_B": 6621
+        },
+        {
+          "id": "f102v2.38",
+          "field": "tokens",
+          "parser_A": [
+            "dar",
+            "cheey",
+            "ckheey",
+            "qokeor",
+            "okey",
+            "chos",
+            "sho",
+            "ykeey",
+            "okeeo",
+            "rain"
+          ],
+          "parser_B": [
+            "dar",
+            "cheey",
+            "ckheey",
+            "qokeor",
+            "okey",
+            "chos",
+            "sho",
+            "ykeey",
+            "okeeo",
+            "ra",
+            "in"
+          ],
+          "line_A": 6626,
+          "line_B": 6626
+        },
+        {
+          "id": "f102v2.4",
+          "field": "tokens",
+          "parser_A": [
+            "chor"
+          ],
+          "parser_B": [],
+          "line_A": 6588,
+          "line_B": 6588
+        },
+        {
+          "id": "f102v2.5",
+          "field": "tokens",
+          "parser_A": [
+            "sachy"
+          ],
+          "parser_B": [],
+          "line_A": 6589,
+          "line_B": 6589
+        },
+        {
+          "id": "f102v2.6",
+          "field": "tokens",
+          "parser_A": [
+            "okeos"
+          ],
+          "parser_B": [],
+          "line_A": 6590,
+          "line_B": 6590
+        },
+        {
+          "id": "f102v2.7",
+          "field": "tokens",
+          "parser_A": [
+            "okol"
+          ],
+          "parser_B": [],
+          "line_A": 6591,
+          "line_B": 6591
+        },
+        {
+          "id": "f102v2.8",
+          "field": "tokens",
+          "parser_A": [
+            "otory"
+          ],
+          "parser_B": [],
+          "line_A": 6592,
+          "line_B": 6592
+        },
+        {
+          "id": "f103r.1",
+          "field": "tokens",
+          "parser_A": [
+            "pchedal",
+            "shdy",
+            "ytechypchy",
+            "otey",
+            "qoteey",
+            "qotal",
+            "shedy",
+            "yshdal",
+            "dain",
+            "okal",
+            "daldy"
+          ],
+          "parser_B": [
+            "pchedal",
+            "shdy",
+            "ytechypchy",
+            "otey",
+            "lshey",
+            "qoteey",
+            "qotal",
+            "shedy",
+            "yshdal",
+            "dain",
+            "okal",
+            "daldy"
+          ],
+          "line_A": 6675,
+          "line_B": 6675
+        },
+        {
+          "id": "f103r.14",
+          "field": "tokens",
+          "parser_A": [
+            "okain",
+            "shekain",
+            "chedy",
+            "qokeechy",
+            "qoky",
+            "shey",
+            "lol",
+            "s",
+            "aiin",
+            "chey",
+            "eekain",
+            "chcthy",
+            "qoky"
+          ],
+          "parser_B": [
+            "okain",
+            "shekain",
+            "chedy",
+            "qokeechy",
+            "qok",
+            "y",
+            "shey",
+            "lol",
+            "s",
+            "aiin",
+            "chey",
+            "eekain",
+            "chcthy",
+            "qoky"
+          ],
+          "line_A": 6695,
+          "line_B": 6695
+        },
+        {
+          "id": "f103r.15",
+          "field": "tokens",
+          "parser_A": [
+            "qotedy",
+            "qokeey",
+            "shol",
+            "qotey",
+            "shkaiin"
+          ],
+          "parser_B": [
+            "qotedy",
+            "qokeey",
+            "sh",
+            "o",
+            "l",
+            "qotey",
+            "shkaiin"
+          ],
+          "line_A": 6696,
+          "line_B": 6696
+        }
+      ],
+      "primary_stat_summary_regex": {
+        "body_lines": 2325,
+        "stats": {
+          "daiin": {
+            "lines": 2325,
+            "tokens": 296,
+            "first": 88,
+            "expected_first": 31.383925,
+            "enrichment": 2.803983
+          },
+          "aiin": {
+            "lines": 2325,
+            "tokens": 354,
+            "first": 1,
+            "expected_first": 34.087651,
+            "enrichment": 0.029336
+          },
+          "chedy": {
+            "lines": 2325,
+            "tokens": 479,
+            "first": 6,
+            "expected_first": 49.330852,
+            "enrichment": 0.121628
+          },
+          "dain": {
+            "lines": 2325,
+            "tokens": 107,
+            "first": 34,
+            "expected_first": 10.714287,
+            "enrichment": 3.173333
+          },
+          "saiin": {
+            "lines": 2325,
+            "tokens": 82,
+            "first": 46,
+            "expected_first": 9.158331,
+            "enrichment": 5.022749
+          },
+          "qokaiin": {
+            "lines": 2325,
+            "tokens": 240,
+            "first": 25,
+            "expected_first": 26.845879,
+            "enrichment": 0.931242
+          }
+        }
+      },
+      "primary_stat_summary_scanner": {
+        "body_lines": 2323,
+        "stats": {
+          "daiin": {
+            "lines": 2323,
+            "tokens": 295,
+            "first": 87,
+            "expected_first": 30.437361,
+            "enrichment": 2.858329
+          },
+          "aiin": {
+            "lines": 2323,
+            "tokens": 362,
+            "first": 1,
+            "expected_first": 34.028879,
+            "enrichment": 0.029387
+          },
+          "chedy": {
+            "lines": 2323,
+            "tokens": 477,
+            "first": 6,
+            "expected_first": 48.154533,
+            "enrichment": 0.124599
+          },
+          "dain": {
+            "lines": 2323,
+            "tokens": 105,
+            "first": 34,
+            "expected_first": 10.293021,
+            "enrichment": 3.303209
+          },
+          "saiin": {
+            "lines": 2323,
+            "tokens": 81,
+            "first": 45,
+            "expected_first": 8.953147,
+            "enrichment": 5.026166
+          },
+          "qokaiin": {
+            "lines": 2323,
+            "tokens": 239,
+            "first": 25,
+            "expected_first": 26.151102,
+            "enrichment": 0.955983
+          }
+        }
+      },
+      "primary_stats_identical": false
+    }
+  ],
+  "notes": [
+    "Parser agreement establishes implementation consistency only; not an authoritative transcription validation.",
+    "The two implementations intentionally use different parsing approaches.",
+    "Any disagreement should be fixed or adjudicated before additional hypotheses.",
+    "No semantic or decipherment claims."
+  ]
+}
