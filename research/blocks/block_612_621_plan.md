@@ -11,6 +11,6 @@ Experiments 612–615 and 617–618 have been calculated and written up. Experim
 - 618: DONE — unique word-type weighting versus token-frequency sensitivity; see `experiments/exp_618_ch_sh_word_type_sensitivity/`.
 - 619: PARTIAL — adjacent-character context control completed; full multiple-testing and preregistered negative-control audit remains open. See `experiments/exp_619_ch_sh_adjacent_context_control/`.
 - 620: PARTIAL — terminal-digraph handling issue found and corrected; full independent parser/IVTFF edge-case audit remains open. See `experiments/exp_620_parser_audit/partial_audit.md`.
-- 621: consolidated decision report with explicit null results and source hashes.
+- 621: PARTIAL — interim decision report written; final closure awaits full 619 multiple-testing audit and independent 620 parser audit. See experiments/exp_621_interim_ch_sh_decision_report/result.md.
 
 Acceptance rule: no claim of linguistic meaning unless effects survive appropriate clustered inference, controls, and held-out replication. Do not replace failed results with post-hoc variants; record them as failures or inconclusive.
