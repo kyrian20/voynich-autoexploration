@@ -1,0 +1,166 @@
+{
+  "experiment": "exp_606_gap_boundary_lexical_audit",
+  "scope": "Exploratory descriptive comparison only. Surviving-side lexical distributions around six predeclared foliation gaps are compared with adjacent same-Currier-labelled pages. A high boundary distance cannot distinguish missing text from illustration/section/topic changes; transcription annotations and folio ordering are potential confounders.",
+  "gap_edges": [
+    "f11v->f13r",
+    "f58v->f65r",
+    "f73v->f75r",
+    "f90v->f93r",
+    "f96v->f99r",
+    "f108v->f111r"
+  ],
+  "sources": [
+    {
+      "label": "ZL3b",
+      "path": "data/transcriptions/eva_zl3b.txt",
+      "sha256": "bf5b6d4ac1e3a51b1847a9c388318d609020441ccd56984c901c32b09beccafc",
+      "gap_edges": [
+        {
+          "edge": "f11v->f13r",
+          "available": true,
+          "left_tokens": 48,
+          "right_tokens": 69,
+          "left_currier": "B",
+          "right_currier": "B",
+          "same_currier_label": true,
+          "jensen_shannon_bits": 0.6901043684822632,
+          "vocabulary_jaccard": 0.14942528735632185
+        },
+        {
+          "edge": "f58v->f65r",
+          "available": true,
+          "left_tokens": 366,
+          "right_tokens": 3,
+          "left_currier": "H",
+          "right_currier": "H",
+          "same_currier_label": true,
+          "jensen_shannon_bits": 0.9519281691212764,
+          "vocabulary_jaccard": 0.008547008547008548
+        },
+        {
+          "edge": "f73v->f75r",
+          "available": true,
+          "left_tokens": 95,
+          "right_tokens": 411,
+          "left_currier": "L",
+          "right_currier": "M",
+          "same_currier_label": false,
+          "jensen_shannon_bits": 0.8229904777059955,
+          "vocabulary_jaccard": 0.07984790874524715
+        },
+        {
+          "edge": "f90v->f93r",
+          "available": false
+        },
+        {
+          "edge": "f96v->f99r",
+          "available": true,
+          "left_tokens": 55,
+          "right_tokens": 189,
+          "left_currier": "Q",
+          "right_currier": "S",
+          "same_currier_label": false,
+          "jensen_shannon_bits": 0.9129702399678085,
+          "vocabulary_jaccard": 0.031578947368421054
+        },
+        {
+          "edge": "f108v->f111r",
+          "available": true,
+          "left_tokens": 567,
+          "right_tokens": 599,
+          "left_currier": "T",
+          "right_currier": "T",
+          "same_currier_label": true,
+          "jensen_shannon_bits": 0.4712361753883846,
+          "vocabulary_jaccard": 0.18265682656826568
+        }
+      ],
+      "same_currier_adjacent_control_count": 165,
+      "gap_jsd_mean": 0.7698458861331456,
+      "control_jsd_mean": 0.7178992498283642,
+      "gap_jsd_percentile_vs_controls": [
+        0.3878787878787879,
+        1.0,
+        0.7818181818181819,
+        0.9757575757575757,
+        0.03636363636363636
+      ]
+    },
+    {
+      "label": "IT2a",
+      "path": "data/transcriptions/eva_it2a.txt",
+      "sha256": "7f27a8b0feed8f6de0a99900df6bf912dd1d295c38e5f830bac8b41c3f536fb5",
+      "gap_edges": [
+        {
+          "edge": "f11v->f13r",
+          "available": true,
+          "left_tokens": 47,
+          "right_tokens": 71,
+          "left_currier": "B",
+          "right_currier": "B",
+          "same_currier_label": true,
+          "jensen_shannon_bits": 0.678621676204284,
+          "vocabulary_jaccard": 0.13793103448275862
+        },
+        {
+          "edge": "f58v->f65r",
+          "available": true,
+          "left_tokens": 358,
+          "right_tokens": 3,
+          "left_currier": "H",
+          "right_currier": "H",
+          "same_currier_label": true,
+          "jensen_shannon_bits": 0.9599563033224506,
+          "vocabulary_jaccard": 0.00816326530612245
+        },
+        {
+          "edge": "f73v->f75r",
+          "available": true,
+          "left_tokens": 96,
+          "right_tokens": 418,
+          "left_currier": "L",
+          "right_currier": "M",
+          "same_currier_label": false,
+          "jensen_shannon_bits": 0.8458610499545948,
+          "vocabulary_jaccard": 0.06896551724137931
+        },
+        {
+          "edge": "f90v->f93r",
+          "available": false
+        },
+        {
+          "edge": "f96v->f99r",
+          "available": true,
+          "left_tokens": 60,
+          "right_tokens": 194,
+          "left_currier": "Q",
+          "right_currier": "S",
+          "same_currier_label": false,
+          "jensen_shannon_bits": 0.877624894453626,
+          "vocabulary_jaccard": 0.04145077720207254
+        },
+        {
+          "edge": "f108v->f111r",
+          "available": true,
+          "left_tokens": 568,
+          "right_tokens": 606,
+          "left_currier": "T",
+          "right_currier": "T",
+          "same_currier_label": true,
+          "jensen_shannon_bits": 0.46390818871669665,
+          "vocabulary_jaccard": 0.19557195571955718
+        }
+      ],
+      "same_currier_adjacent_control_count": 165,
+      "gap_jsd_mean": 0.7651944225303304,
+      "control_jsd_mean": 0.7281326323061025,
+      "gap_jsd_percentile_vs_controls": [
+        0.3212121212121212,
+        1.0,
+        0.8121212121212121,
+        0.8787878787878788,
+        0.030303030303030304
+      ]
+    }
+  ]
+}
