@@ -1,0 +1,542 @@
+{
+  "experiment": "exp_611_exact_length_position_ch_sh",
+  "method": "Compare ch/sh only within same exact token length and character position of the digraph, on folios containing both contexts in that stratum. Descriptive matching; no inferential p-value; sparse strata and overlapping word types remain confounds.",
+  "datasets": [
+    {
+      "label": "ZL3b",
+      "sha256": "bf5b6d4ac1e3a51b1847a9c388318d609020441ccd56984c901c32b09beccafc",
+      "summary": {
+        "matched_strata": 32,
+        "strata_with_5plus_paired_folios": 25,
+        "total_paired_folio_strata": 1134,
+        "matched_contexts": {
+          "ch_n": 5822,
+          "ch_rate": 0.8461009962212298,
+          "sh_n": 3389,
+          "sh_rate": 0.9043965771614045
+        },
+        "mean_difference_across_paired_folio_strata": -0.06649514804006545,
+        "top_strata": [
+          {
+            "length": 4,
+            "position": 0,
+            "paired_folios": 154,
+            "ch_n": 1262,
+            "ch_rate": 0.881933438985737,
+            "sh_n": 711,
+            "sh_rate": 0.9226441631504922,
+            "mean_paired_folio_diff": -0.07187735286976503
+          },
+          {
+            "length": 5,
+            "position": 0,
+            "paired_folios": 124,
+            "ch_n": 1347,
+            "ch_rate": 0.9116555308092057,
+            "sh_n": 880,
+            "sh_rate": 0.9727272727272728,
+            "mean_paired_folio_diff": -0.06760536245139696
+          },
+          {
+            "length": 6,
+            "position": 0,
+            "paired_folios": 111,
+            "ch_n": 723,
+            "ch_rate": 0.6417704011065007,
+            "sh_n": 398,
+            "sh_rate": 0.7286432160804021,
+            "mean_paired_folio_diff": -0.17413918640698825
+          },
+          {
+            "length": 3,
+            "position": 0,
+            "paired_folios": 101,
+            "ch_n": 247,
+            "ch_rate": 0.8299595141700404,
+            "sh_n": 230,
+            "sh_rate": 0.9347826086956522,
+            "mean_paired_folio_diff": -0.055610561056105616
+          },
+          {
+            "length": 7,
+            "position": 0,
+            "paired_folios": 81,
+            "ch_n": 366,
+            "ch_rate": 0.73224043715847,
+            "sh_n": 213,
+            "sh_rate": 0.8356807511737089,
+            "mean_paired_folio_diff": -0.09175789513480145
+          },
+          {
+            "length": 5,
+            "position": 1,
+            "paired_folios": 78,
+            "ch_n": 295,
+            "ch_rate": 0.8135593220338984,
+            "sh_n": 142,
+            "sh_rate": 0.8943661971830986,
+            "mean_paired_folio_diff": -0.0826246738011444
+          },
+          {
+            "length": 6,
+            "position": 1,
+            "paired_folios": 67,
+            "ch_n": 400,
+            "ch_rate": 0.9525,
+            "sh_n": 189,
+            "sh_rate": 0.9735449735449735,
+            "mean_paired_folio_diff": -0.02038518256692094
+          },
+          {
+            "length": 8,
+            "position": 0,
+            "paired_folios": 63,
+            "ch_n": 218,
+            "ch_rate": 0.8669724770642202,
+            "sh_n": 105,
+            "sh_rate": 0.8857142857142857,
+            "mean_paired_folio_diff": -0.02835074977932121
+          },
+          {
+            "length": 7,
+            "position": 2,
+            "paired_folios": 43,
+            "ch_n": 193,
+            "ch_rate": 0.9585492227979274,
+            "sh_n": 70,
+            "sh_rate": 1.0,
+            "mean_paired_folio_diff": -0.032925859670045715
+          },
+          {
+            "length": 6,
+            "position": 2,
+            "paired_folios": 35,
+            "ch_n": 134,
+            "ch_rate": 0.7313432835820896,
+            "sh_n": 63,
+            "sh_rate": 0.8095238095238095,
+            "mean_paired_folio_diff": -0.0601948051948052
+          },
+          {
+            "length": 7,
+            "position": 1,
+            "paired_folios": 32,
+            "ch_n": 65,
+            "ch_rate": 0.9076923076923077,
+            "sh_n": 56,
+            "sh_rate": 0.9285714285714286,
+            "mean_paired_folio_diff": -0.04427083333333333
+          },
+          {
+            "length": 6,
+            "position": 3,
+            "paired_folios": 31,
+            "ch_n": 78,
+            "ch_rate": 0.9230769230769231,
+            "sh_n": 41,
+            "sh_rate": 0.8780487804878049,
+            "mean_paired_folio_diff": 0.06845878136200717
+          },
+          {
+            "length": 4,
+            "position": 1,
+            "paired_folios": 30,
+            "ch_n": 63,
+            "ch_rate": 0.873015873015873,
+            "sh_n": 38,
+            "sh_rate": 0.9736842105263158,
+            "mean_paired_folio_diff": -0.13055555555555556
+          },
+          {
+            "length": 7,
+            "position": 3,
+            "paired_folios": 27,
+            "ch_n": 78,
+            "ch_rate": 0.5897435897435898,
+            "sh_n": 44,
+            "sh_rate": 0.6590909090909091,
+            "mean_paired_folio_diff": -0.19053497942386832
+          },
+          {
+            "length": 5,
+            "position": 2,
+            "paired_folios": 26,
+            "ch_n": 63,
+            "ch_rate": 0.9365079365079365,
+            "sh_n": 30,
+            "sh_rate": 1.0,
+            "mean_paired_folio_diff": -0.06666666666666667
+          },
+          {
+            "length": 9,
+            "position": 0,
+            "paired_folios": 25,
+            "ch_n": 58,
+            "ch_rate": 0.9310344827586207,
+            "sh_n": 36,
+            "sh_rate": 0.9166666666666666,
+            "mean_paired_folio_diff": -0.004666666666666664
+          },
+          {
+            "length": 8,
+            "position": 3,
+            "paired_folios": 23,
+            "ch_n": 113,
+            "ch_rate": 0.9469026548672567,
+            "sh_n": 45,
+            "sh_rate": 0.9333333333333333,
+            "mean_paired_folio_diff": 0.003623188405797098
+          },
+          {
+            "length": 8,
+            "position": 4,
+            "paired_folios": 13,
+            "ch_n": 23,
+            "ch_rate": 0.782608695652174,
+            "sh_n": 16,
+            "sh_rate": 0.75,
+            "mean_paired_folio_diff": 0.038461538461538464
+          },
+          {
+            "length": 7,
+            "position": 4,
+            "paired_folios": 12,
+            "ch_n": 20,
+            "ch_rate": 0.95,
+            "sh_n": 13,
+            "sh_rate": 0.9230769230769231,
+            "mean_paired_folio_diff": 0.0
+          },
+          {
+            "length": 8,
+            "position": 1,
+            "paired_folios": 12,
+            "ch_n": 17,
+            "ch_rate": 0.7058823529411765,
+            "sh_n": 15,
+            "sh_rate": 0.8666666666666667,
+            "mean_paired_folio_diff": -0.11111111111111112
+          },
+          {
+            "length": 8,
+            "position": 5,
+            "paired_folios": 11,
+            "ch_n": 12,
+            "ch_rate": 0.9166666666666666,
+            "sh_n": 14,
+            "sh_rate": 1.0,
+            "mean_paired_folio_diff": -0.09090909090909091
+          },
+          {
+            "length": 9,
+            "position": 1,
+            "paired_folios": 7,
+            "ch_n": 11,
+            "ch_rate": 1.0,
+            "sh_n": 11,
+            "sh_rate": 1.0,
+            "mean_paired_folio_diff": 0.0
+          },
+          {
+            "length": 9,
+            "position": 3,
+            "paired_folios": 6,
+            "ch_n": 8,
+            "ch_rate": 0.625,
+            "sh_n": 6,
+            "sh_rate": 1.0,
+            "mean_paired_folio_diff": -0.3333333333333333
+          },
+          {
+            "length": 8,
+            "position": 2,
+            "paired_folios": 5,
+            "ch_n": 7,
+            "ch_rate": 1.0,
+            "sh_n": 6,
+            "sh_rate": 0.6666666666666666,
+            "mean_paired_folio_diff": 0.3
+          },
+          {
+            "length": 9,
+            "position": 4,
+            "paired_folios": 5,
+            "ch_n": 8,
+            "ch_rate": 1.0,
+            "sh_n": 5,
+            "sh_rate": 1.0,
+            "mean_paired_folio_diff": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "label": "IT2a",
+      "sha256": "7f27a8b0feed8f6de0a99900df6bf912dd1d295c38e5f830bac8b41c3f536fb5",
+      "summary": {
+        "matched_strata": 31,
+        "strata_with_5plus_paired_folios": 25,
+        "total_paired_folio_strata": 1153,
+        "matched_contexts": {
+          "ch_n": 5941,
+          "ch_rate": 0.838411041912136,
+          "sh_n": 3419,
+          "sh_rate": 0.9005557180462124
+        },
+        "mean_difference_across_paired_folio_strata": -0.07133294669182684,
+        "top_strata": [
+          {
+            "length": 4,
+            "position": 0,
+            "paired_folios": 159,
+            "ch_n": 1258,
+            "ch_rate": 0.8728139904610492,
+            "sh_n": 720,
+            "sh_rate": 0.9180555555555555,
+            "mean_paired_folio_diff": -0.060101775640692544
+          },
+          {
+            "length": 5,
+            "position": 0,
+            "paired_folios": 127,
+            "ch_n": 1349,
+            "ch_rate": 0.9073387694588584,
+            "sh_n": 895,
+            "sh_rate": 0.9675977653631285,
+            "mean_paired_folio_diff": -0.06038750001352926
+          },
+          {
+            "length": 6,
+            "position": 0,
+            "paired_folios": 113,
+            "ch_n": 726,
+            "ch_rate": 0.6391184573002755,
+            "sh_n": 403,
+            "sh_rate": 0.7220843672456576,
+            "mean_paired_folio_diff": -0.1779745652039354
+          },
+          {
+            "length": 7,
+            "position": 0,
+            "paired_folios": 95,
+            "ch_n": 429,
+            "ch_rate": 0.7016317016317016,
+            "sh_n": 236,
+            "sh_rate": 0.8135593220338984,
+            "mean_paired_folio_diff": -0.10462544765176345
+          },
+          {
+            "length": 3,
+            "position": 0,
+            "paired_folios": 83,
+            "ch_n": 188,
+            "ch_rate": 0.8191489361702128,
+            "sh_n": 183,
+            "sh_rate": 0.9453551912568307,
+            "mean_paired_folio_diff": -0.1030120481927711
+          },
+          {
+            "length": 5,
+            "position": 1,
+            "paired_folios": 78,
+            "ch_n": 302,
+            "ch_rate": 0.8112582781456954,
+            "sh_n": 143,
+            "sh_rate": 0.9090909090909091,
+            "mean_paired_folio_diff": -0.09791857003395465
+          },
+          {
+            "length": 8,
+            "position": 0,
+            "paired_folios": 65,
+            "ch_n": 233,
+            "ch_rate": 0.8326180257510729,
+            "sh_n": 110,
+            "sh_rate": 0.9,
+            "mean_paired_folio_diff": -0.07466456620302774
+          },
+          {
+            "length": 6,
+            "position": 1,
+            "paired_folios": 63,
+            "ch_n": 416,
+            "ch_rate": 0.9519230769230769,
+            "sh_n": 201,
+            "sh_rate": 0.9701492537313433,
+            "mean_paired_folio_diff": -0.031757585188957736
+          },
+          {
+            "length": 7,
+            "position": 2,
+            "paired_folios": 46,
+            "ch_n": 210,
+            "ch_rate": 0.9476190476190476,
+            "sh_n": 71,
+            "sh_rate": 1.0,
+            "mean_paired_folio_diff": -0.05769363486754791
+          },
+          {
+            "length": 6,
+            "position": 2,
+            "paired_folios": 39,
+            "ch_n": 155,
+            "ch_rate": 0.7483870967741936,
+            "sh_n": 69,
+            "sh_rate": 0.8260869565217391,
+            "mean_paired_folio_diff": -0.07681300181300181
+          },
+          {
+            "length": 6,
+            "position": 3,
+            "paired_folios": 36,
+            "ch_n": 85,
+            "ch_rate": 0.9411764705882353,
+            "sh_n": 46,
+            "sh_rate": 0.8913043478260869,
+            "mean_paired_folio_diff": 0.07982804232804233
+          },
+          {
+            "length": 7,
+            "position": 1,
+            "paired_folios": 35,
+            "ch_n": 84,
+            "ch_rate": 0.9047619047619048,
+            "sh_n": 60,
+            "sh_rate": 0.9,
+            "mean_paired_folio_diff": 0.014285714285714285
+          },
+          {
+            "length": 5,
+            "position": 2,
+            "paired_folios": 29,
+            "ch_n": 73,
+            "ch_rate": 0.9178082191780822,
+            "sh_n": 33,
+            "sh_rate": 1.0,
+            "mean_paired_folio_diff": -0.12586206896551724
+          },
+          {
+            "length": 4,
+            "position": 1,
+            "paired_folios": 28,
+            "ch_n": 56,
+            "ch_rate": 0.875,
+            "sh_n": 36,
+            "sh_rate": 0.9722222222222222,
+            "mean_paired_folio_diff": -0.12202380952380952
+          },
+          {
+            "length": 7,
+            "position": 3,
+            "paired_folios": 26,
+            "ch_n": 81,
+            "ch_rate": 0.5925925925925926,
+            "sh_n": 43,
+            "sh_rate": 0.6976744186046512,
+            "mean_paired_folio_diff": -0.13701159951159952
+          },
+          {
+            "length": 8,
+            "position": 3,
+            "paired_folios": 25,
+            "ch_n": 118,
+            "ch_rate": 0.940677966101695,
+            "sh_n": 40,
+            "sh_rate": 0.925,
+            "mean_paired_folio_diff": 0.009015873015873015
+          },
+          {
+            "length": 9,
+            "position": 0,
+            "paired_folios": 24,
+            "ch_n": 50,
+            "ch_rate": 0.92,
+            "sh_n": 35,
+            "sh_rate": 0.8857142857142857,
+            "mean_paired_folio_diff": 0.010416666666666666
+          },
+          {
+            "length": 8,
+            "position": 1,
+            "paired_folios": 13,
+            "ch_n": 18,
+            "ch_rate": 0.7777777777777778,
+            "sh_n": 17,
+            "sh_rate": 0.8823529411764706,
+            "mean_paired_folio_diff": -0.11538461538461539
+          },
+          {
+            "length": 8,
+            "position": 4,
+            "paired_folios": 12,
+            "ch_n": 23,
+            "ch_rate": 0.7391304347826086,
+            "sh_n": 12,
+            "sh_rate": 0.5833333333333334,
+            "mean_paired_folio_diff": 0.08333333333333333
+          },
+          {
+            "length": 7,
+            "position": 4,
+            "paired_folios": 11,
+            "ch_n": 21,
+            "ch_rate": 0.9047619047619048,
+            "sh_n": 13,
+            "sh_rate": 0.8461538461538461,
+            "mean_paired_folio_diff": 0.045454545454545456
+          },
+          {
+            "length": 8,
+            "position": 5,
+            "paired_folios": 9,
+            "ch_n": 10,
+            "ch_rate": 1.0,
+            "sh_n": 11,
+            "sh_rate": 1.0,
+            "mean_paired_folio_diff": 0.0
+          },
+          {
+            "length": 9,
+            "position": 1,
+            "paired_folios": 8,
+            "ch_n": 11,
+            "ch_rate": 1.0,
+            "sh_n": 12,
+            "sh_rate": 1.0,
+            "mean_paired_folio_diff": 0.0
+          },
+          {
+            "length": 8,
+            "position": 2,
+            "paired_folios": 6,
+            "ch_n": 11,
+            "ch_rate": 1.0,
+            "sh_n": 7,
+            "sh_rate": 0.7142857142857143,
+            "mean_paired_folio_diff": 0.25
+          },
+          {
+            "length": 9,
+            "position": 3,
+            "paired_folios": 6,
+            "ch_n": 8,
+            "ch_rate": 0.625,
+            "sh_n": 6,
+            "sh_rate": 1.0,
+            "mean_paired_folio_diff": -0.3333333333333333
+          },
+          {
+            "length": 9,
+            "position": 4,
+            "paired_folios": 6,
+            "ch_n": 10,
+            "ch_rate": 1.0,
+            "sh_n": 6,
+            "sh_rate": 1.0,
+            "mean_paired_folio_diff": 0.0
+          }
+        ]
+      }
+    }
+  ]
+}
