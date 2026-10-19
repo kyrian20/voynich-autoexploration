@@ -50,8 +50,14 @@ Report: `experiments/exp_595_paragraph_marker_replication/result.md`.
 
 The same marker coverage was observed in both ZL3b and ZL3a: 4,105 eligible P-locus lines, 728 explicit starts, 729 ends; Currier group counts were identical. The key contrast replicated: Currier-A explicit starts had 1 first `daiin` vs 6.993 expected (adjusted lower-tail p=0.0124 in ZL3b, 0.0076 in ZL3a). Currier-B explicit starts had 0 vs 2.827 expected but this deficit did not survive correction (p=0.0976/0.0984). B lines without an explicit start marker had ~3.0× initial enrichment (97 vs ~32.3 expected; adjusted upper-tail p=0.0004 in both versions). The marker definition remains transcription-dependent; lines lacking a marker are not assumed to be definite continuations.
 
-## Next step: exp_596
-Test whether the `daiin` positional effect is unusually strong relative to the predeclared common-word controls (`aiin`, `chedy`, `dain`, `saiin`, `qokaiin`) in Currier A/B P0 lines, using the same within-line token-inventory/length null and Holm correction across the six terms. This guards against overinterpreting a general positional tendency of common tokens as unique evidence about `daiin`.
+## exp_596 — common-word positional controls (completed)
+Run: https://github.com/kyrian20/voynich-autoexploration/actions/runs/39258230375  
+Report: `experiments/exp_596_daiin_position_controls/result.md`.
+
+In Currier-B P0, initial enrichment is not unique to `daiin`: daiin is 2.823× (89 vs 31.529 expected; Holm-adjusted upper-tail p=0.0012), but `dain` is 3.173× and `saiin` 5.023×, also adjusted p=0.0012. `aiin` and `chedy` are strongly below expectation; `qokaiin` is near expectation. The direction and magnitude replicate almost exactly in ZL3a (daiin ratio 2.813×, dain 3.173×, saiin 5.023×). In Currier-A P0, daiin is below expectation (0.860×) and not significant; aiin is depleted. These findings concern literal EVA token distribution, not shared meaning.
+
+## Next step: exp_597
+Test next-token context after line-initial `daiin`, `dain`, and `saiin` in Currier-B P0, with controls for starting token frequency and within-line token inventory. Use a predeclared top-context list plus full entropy/distribution distances, and report both transcriptions. No semantic interpretation is permitted from context distribution alone.
 
 ## Research integrity guardrails
 - The 21-mechanism copy-buffer hybrid's 19/19 score is fit to a defined metric battery, not proof that it generated the manuscript and not decipherment.
