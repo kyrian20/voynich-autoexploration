@@ -55,11 +55,12 @@ def summary(rows):
 def monte_carlo(rows,n_perm,seed):
     exp=sum(r["words"].count("daiin")/len(r["words"]) for r in rows)
     obs=sum(r["words"][0]=="daiin" for r in rows)
-    rng=random.Random(seed); ge=0; total=0
+    rng=random.Random(seed); ge=0; le=0; total=0
     for _ in range(n_perm):
         x=sum(r["words"][rng.randrange(len(r["words"]))]=="daiin" for r in rows)
-        total+=x; ge+=x>=obs
-    return {"p_one_sided_plus_one":round((ge+1)/(n_perm+1),6),
+        total+=x; ge+=x>=obs; le+=x<=obs
+    return {"p_upper_tail_plus_one":round((ge+1)/(n_perm+1),6),
+            "p_lower_tail_plus_one":round((le+1)/(n_perm+1),6),
             "null_mean":round(total/n_perm,5),"permutations":n_perm,"seed":seed}
 
 def holm(pvalues):
@@ -90,16 +91,21 @@ def main():
           strata[f"Currier{dialect}_P0_modifier_{'none' if mod=='none' else mod}"]=s
     bkeys=[k for k in strata if k.startswith("CurrierB_")]
     akeys=[k for k in strata if k.startswith("CurrierA_")]
-    for k,v in holm({k:strata[k]["p_one_sided_plus_one"] for k in bkeys}).items():
-      strata[k]["p_holm_B_modifier_family"]=v
-    for k,v in holm({k:strata[k]["p_one_sided_plus_one"] for k in akeys}).items():
-      strata[k]["p_holm_A_modifier_family"]=v
+    for k,v in holm({k:strata[k]["p_upper_tail_plus_one"] for k in bkeys}).items():
+      strata[k]["p_holm_B_upper_tail_family"]=v
+    for k,v in holm({k:strata[k]["p_upper_tail_plus_one"] for k in akeys}).items():
+      strata[k]["p_holm_A_upper_tail_family"]=v
+    for k,v in holm({k:strata[k]["p_lower_tail_plus_one"] for k in bkeys}).items():
+      strata[k]["p_holm_B_lower_tail_family"]=v
+    for k,v in holm({k:strata[k]["p_lower_tail_plus_one"] for k in akeys}).items():
+      strata[k]["p_holm_A_lower_tail_family"]=v
     data={"experiment":"exp_593_daiin_line_metadata_contrast","protocol_version":1,
           "source":{"path":"data/transcriptions/eva_zl3b.txt","bytes":CORPUS.stat().st_size,"sha256":sha256(CORPUS)},
           "filters":{"dialects_separate":True,"locus":"P0","minimum_tokens_per_line":2,
                      "modifier_categories":["@","+","*","none"]},
           "total_parsed_lines":len(rows),"primary_strata":strata,
-          "interpretation_note":"Prefix modifiers are treated as transcription metadata categories, not definitive paragraph-opening labels. Results are exploratory and cannot be interpreted semantically.",
+          "interpretation_note":"Locator symbols describe spatial relations in the IVTFF format: @ is always used for the first item on a page; + is generally below the previous item; * is at the start of the line below the previous item at the left margin while the previous item was not. These are not paragraph-start markers. Paragraph boundaries are encoded with dedicated <%> and <$> comments; this script does not test those comments. Results are exploratory and cannot be interpreted semantically.",
+          "format_reference":"https://voynich.nu/software/ivtt/IVTFF_format.pdf, Table 8 and section 6.9; version 2.0.2 dated 2025-07-08",
           "guardrails":["Within-line token-inventory/length expectation.","P-values are Monte Carlo and Holm-adjusted within A/B modifier families.","Do not infer meaning or decipherment."]}
     out=ROOT/"experiments/exp_593_daiin_line_metadata_contrast/results.json"
     out.parent.mkdir(parents=True,exist_ok=True)
