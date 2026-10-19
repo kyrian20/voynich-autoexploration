@@ -58,3 +58,13 @@ Report: `experiments/exp_601_folio_clustered_confirmation/result.md`
 
 ## Next high-value experiment
 Do not add more hand-selected lexical variants. Build a held-out predictive test: freeze train/test folios before analysis, train a minimal positional model on training folios, evaluate predictive log-loss/calibration on untouched folios, and compare with line-inventory-preserving baselines plus negative-control tokens. Report all predeclared outcomes and do not use held-out results to tune the model.
+
+
+## Exp_602 completed — held-out folio prediction (2026-10-19)
+Run: https://github.com/kyrian20/voynich-autoexploration/actions/runs/39260149768
+Output: `experiments/exp_602_heldout_predictive_test/results.json`
+- Deterministic folio-hash split: 1,797 training lines from 60 folios; 528 held-out lines from 21 folios. No folio crosses the split.
+- Primary `daiin`: train-only global line-initial probability = 0.03450. On held-out folios, model mean log loss 0.19917 vs per-line inventory baseline 0.11786; gain (baseline minus model) = -0.08131, folio-cluster 95% interval [-0.11174, -0.05641]. Brier score likewise worse for the global model.
+- Predeclared controls `dain` and `saiin` show the same direction: global-rate model performs worse than the per-line inventory baseline.
+- This is a real negative result for the claim that one global line-initial rate predicts held-out starts better than the conditional inventory baseline. The baseline has access to each test line's token inventory and is an oracle-style conditional null, not a deployable predictor, so the comparison is intentionally stringent and does not disprove the observed positional enrichment.
+- Next step: do not tune this split. Compare predeclared, train-only section/folio-grouped probabilities against a baseline available without target-line token inventory; retain the present result as a failed primary predictive criterion, not as a positive finding.
