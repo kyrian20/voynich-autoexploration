@@ -1,6 +1,6 @@
 # Current State — Voynich Cryptanalyst
 
-**Last updated:** 2026-10-19 (exp_589–exp_600 completed; exp_600 source-key parser corrected and results recorded)
+**Last updated:** 2026-10-19 (exp_589–exp_601 completed; paired sensitivity output recovered and saved)
 
 ## Canonical status and source of truth
 Read the synthesis at `research/synthesis/2026-10-19-daiin-position-synthesis.md`. It separates robust distribution observations, annotation-sensitive outcomes, non-significant comparisons, and the exp_598 method failure.
@@ -33,6 +33,15 @@ Files: `experiments/exp_601_primary_statistic_paired_sensitivity/script.py`, `RE
 
 ## Next work: exp_601 primary-statistic paired sensitivity
 Measure the effect of the exact ZL3a/ZL3b token differences on the primary Currier-B/P0 `daiin` first-position statistic. Report per-version total target count, observed first count, line-inventory expectation, enrichment, and paired aligned-line changes. Also include the exp_596 control tokens, so version-level robustness is measured rather than assumed. This is a sensitivity analysis, not an independent-sample significance test.
+
+## exp_601 — paired primary-statistic sensitivity (completed)
+Run: https://github.com/kyrian20/voynich-autoexploration/actions/runs/39260083190  
+Report: `experiments/exp_601_primary_statistic_paired_sensitivity/result.md`; JSON: `results.json`.
+
+The 2,325 matched eligible B/P0 lines contain 10 lines with cleaned-token differences between ZL3a/ZL3b. Two rows differ in their literal first token, but none changes first-position status for the six predeclared tokens. For `daiin`, total count is 295/296, first count 88/88, expectation 31.279/31.384 and enrichment 2.813×/2.804× (ZL3b/ZL3a). The other five controls' first-position counts are unchanged. The successful Actions artifact was recovered and the output committed manually after a concurrency race in the auto-commit step. This is paired version sensitivity, not independent replication.
+
+## Next work: independent parser/provenance audit
+Cross-check IVTFF header, identifier, locus, locator, Currier label, paragraph markers and token cleanup against the official specification in a separately implemented extractor before developing new lexical hypotheses.
 
 ## Research integrity
 - Keep observations, hypotheses, null results, and method failures separate.
