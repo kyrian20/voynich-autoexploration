@@ -1,0 +1,171 @@
+{
+  "experiment": "exp_601_primary_statistic_paired_sensitivity",
+  "protocol_version": 1,
+  "workflow": "https://github.com/kyrian20/voynich-autoexploration/actions/runs/39260083190",
+  "source_files": [
+    {
+      "path": "data/transcriptions/eva_zl3b.txt",
+      "bytes": 411671,
+      "sha256": "bf5b6d4ac1e3a51b1847a9c388318d609020441ccd56984c901c32b09beccafc"
+    },
+    {
+      "path": "data/transcriptions/zl3a.txt",
+      "bytes": 411710,
+      "sha256": "56419297682d338ff1a0a17f5ae251e3ee3e2c5bf05a62db04c5385ef30b36a2"
+    }
+  ],
+  "filters": {
+    "currier": "B",
+    "normalized_locus": "P0",
+    "minimum_clean_tokens_per_line": 2
+  },
+  "paired_alignment": {
+    "matched_eligible_B_P0_lines": 2325,
+    "aligned_B_P0_lines_with_any_clean_token_change": 10,
+    "aligned_B_P0_lines_with_changed_first_token": 2,
+    "note": "two lines' literal first tokens differ, but none changed first-position status for any of the six tested targets"
+  },
+  "full_version_summaries": {
+    "ZL3b": {
+      "eligible_lines": 2325,
+      "targets": {
+        "daiin": {
+          "token_count": 295,
+          "first_observed": 88,
+          "first_expected": 31.279224,
+          "enrichment": 2.813369
+        },
+        "aiin": {
+          "token_count": 355,
+          "first_observed": 1,
+          "first_expected": 34.198762,
+          "enrichment": 0.029241
+        },
+        "chedy": {
+          "token_count": 479,
+          "first_observed": 6,
+          "first_expected": 49.337263,
+          "enrichment": 0.121612
+        },
+        "dain": {
+          "token_count": 107,
+          "first_observed": 34,
+          "first_expected": 10.714287,
+          "enrichment": 3.173333
+        },
+        "saiin": {
+          "token_count": 82,
+          "first_observed": 46,
+          "first_expected": 9.158331,
+          "enrichment": 5.022749
+        },
+        "qokaiin": {
+          "token_count": 240,
+          "first_observed": 25,
+          "first_expected": 26.845879,
+          "enrichment": 0.931242
+        }
+      }
+    },
+    "ZL3a": {
+      "eligible_lines": 2325,
+      "targets": {
+        "daiin": {
+          "token_count": 296,
+          "first_observed": 88,
+          "first_expected": 31.383925,
+          "enrichment": 2.803983
+        },
+        "aiin": {
+          "token_count": 354,
+          "first_observed": 1,
+          "first_expected": 34.087651,
+          "enrichment": 0.029336
+        },
+        "chedy": {
+          "token_count": 479,
+          "first_observed": 6,
+          "first_expected": 49.330852,
+          "enrichment": 0.121628
+        },
+        "dain": {
+          "token_count": 107,
+          "first_observed": 34,
+          "first_expected": 10.714287,
+          "enrichment": 3.173333
+        },
+        "saiin": {
+          "token_count": 82,
+          "first_observed": 46,
+          "first_expected": 9.158331,
+          "enrichment": 5.022749
+        },
+        "qokaiin": {
+          "token_count": 240,
+          "first_observed": 25,
+          "first_expected": 26.845879,
+          "enrichment": 0.931242
+        }
+      }
+    }
+  },
+  "paired_target_comparison": {
+    "daiin": {
+      "token_count_delta_ZL3a_minus_ZL3b": 1,
+      "first_count_delta": 0,
+      "expected_delta": 0.104701,
+      "first_status_flips": 0
+    },
+    "aiin": {
+      "token_count_delta_ZL3a_minus_ZL3b": -1,
+      "first_count_delta": 0,
+      "expected_delta": -0.111111,
+      "first_status_flips": 0
+    },
+    "chedy": {
+      "token_count_delta_ZL3a_minus_ZL3b": 0,
+      "first_count_delta": 0,
+      "expected_delta": -0.006411,
+      "first_status_flips": 0
+    },
+    "dain": {
+      "token_count_delta_ZL3a_minus_ZL3b": 0,
+      "first_count_delta": 0,
+      "expected_delta": 0,
+      "first_status_flips": 0
+    },
+    "saiin": {
+      "token_count_delta_ZL3a_minus_ZL3b": 0,
+      "first_count_delta": 0,
+      "expected_delta": 0,
+      "first_status_flips": 0
+    },
+    "qokaiin": {
+      "token_count_delta_ZL3a_minus_ZL3b": 0,
+      "first_count_delta": 0,
+      "expected_delta": 0,
+      "first_status_flips": 0
+    }
+  },
+  "unpaired_records": {
+    "ZL3b": {
+      "line_ids": []
+    },
+    "ZL3a": {
+      "line_ids": [
+        "f1r.29",
+        "f1r.30",
+        "f1r.31",
+        "f89v2.26"
+      ],
+      "eligible_B_P0_records": []
+    }
+  },
+  "notes": [
+    "Workflow analysis and artifact upload succeeded; its auto-commit encountered a concurrent-ref race. This JSON was reconstructed from the verified successful Actions artifact.",
+    "This is a paired comparison of alternative transcriptions of the same manuscript, not independent-sample inference.",
+    "The first-position statistic is insensitive to the changed token lines for all six predeclared target forms.",
+    "Conservative operational parser; independent IVTFF parser conformance review remains outstanding.",
+    "No semantic or decipherment claim."
+  ]
+}
