@@ -99,3 +99,12 @@ Se reutilizó el criterio determinista de separación por hash de folio de exp_6
 - El Brier no mejora para ninguno de los tres objetivos.
 
 **Conclusión:** añadir dialecto Currier y bandas de longitud no aporta predicción fuera de muestra demostrable para el inicio de `daiin`; el intervalo agrupado es enteramente negativo. Esto no contradice el enriquecimiento posicional exp_601: la descripción estadística y la capacidad predictiva son preguntas diferentes. No cambiar split ni bins para perseguir un resultado positivo. Siguiente paso útil: auditar sensibilidad a la definición de filas/etiquetas en un análisis de robustez previamente delimitado, o cerrar esta rama predictiva y pasar a evidencia externa independiente; no inferir semántica.
+
+
+## exp_604 — replicación posicional en IT2a
+Workflow completado correctamente: https://github.com/kyrian20/voynich-autoexploration/actions/runs/39261252303
+Reporte: `experiments/exp_604_independent_transcription_replication/result.md`; resultados: `results.json`; script: `script.py`.
+
+Con el protocolo fijado (Currier B, P0 exacto, al menos dos tokens limpios, `daiin` literal como primer token), la transcripción IT2a contiene 2.324 líneas elegibles en 81 folios. Se observan 84 inicios `daiin`, frente a 32,282 esperados según el inventario de cada línea: enriquecimiento 2,602×; bootstrap agrupado por folio 95% [1,935×, 3,345×]; permutación condicional 20.000 veces, p unilateral con corrección +1 = 0,000050. El análisis leave-one-folio-out queda entre 2,427× y 2,708×.
+
+**Conclusión:** el patrón posicional se reproduce en IT2a con el mismo criterio estrecho, así que no depende únicamente de ZL3b. Límite: IT2a es otra transcripción/versionado, no un testigo manuscrito independiente; puede compartir convenciones editoriales. No implica significado de `daiin` ni descifrado.
