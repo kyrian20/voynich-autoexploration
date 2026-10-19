@@ -14,7 +14,7 @@ function parse(raw, vowels = 'aeiouy') {
     for (const token of (body.toLowerCase().match(/[a-z]+/g) || [])) {
       for (let i = 0; i < token.length - 1; i++) {
         const dg = token.slice(i, i + 2);
-        if (dg === 'ch' || dg === 'sh') rows.push({ folio, q: meta.Q || '?', len: token.length, pos: i, dg, vowel: vowels.includes(token[i + 2] || '') });
+        if ((dg === 'ch' || dg === 'sh') && i + 2 < token.length) rows.push({ folio, q: meta.Q || '?', len: token.length, pos: i, dg, vowel: vowels.includes(token[i + 2] || '') });
       }
     }
   }
