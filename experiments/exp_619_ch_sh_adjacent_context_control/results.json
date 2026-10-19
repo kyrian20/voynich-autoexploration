@@ -1,0 +1,86 @@
+{
+  "experiment": "exp_619_ch_sh_adjacent_context_control",
+  "status": "exploratory adjacent-context control; not a preregistered linguistic null",
+  "sources": {
+    "ZL3b": "2a4533ab9bdfa85db9bad602d590978953055df1",
+    "IT2a": "4d6d3f2537b1f507a257529b49c94af7d6e03446"
+  },
+  "results": {
+    "ZL3b": {
+      "dataset": "ZL3b",
+      "filter": "IVTFF $Q=T; matched folio × exact token length × digraph position; positions >0; occurrences have following character",
+      "previous_character_vowel_control": {
+        "pooled": {
+          "ch_n": 737,
+          "ch_rate": 0.14246947082767977,
+          "sh_n": 277,
+          "sh_rate": 0.21660649819494585,
+          "difference_sh_minus_ch": 0.07413702736726607
+        },
+        "matched_cells": 151,
+        "matched_folios": 22,
+        "folio_equal_weight_mean_difference": 0.07644049891164345,
+        "bootstrap_ci95": [
+          -0.018644231737835054,
+          0.17493447322476882
+        ],
+        "within_cell_permutation_p": 0.0831958402079896
+      },
+      "following_character_positive_control": {
+        "pooled": {
+          "ch_n": 737,
+          "ch_rate": 0.8724559023066486,
+          "sh_n": 277,
+          "sh_rate": 0.9350180505415162,
+          "difference_sh_minus_ch": 0.06256214823486761
+        },
+        "matched_cells": 151,
+        "matched_folios": 22,
+        "folio_equal_weight_mean_difference": 0.08097667113981848,
+        "bootstrap_ci95": [
+          0.04637261959825872,
+          0.11563628490500409
+        ],
+        "within_cell_permutation_p": 0.002199890005499725
+      }
+    },
+    "IT2a": {
+      "dataset": "IT2a",
+      "filter": "IVTFF $Q=T; matched folio × exact token length × digraph position; positions >0; occurrences have following character",
+      "previous_character_vowel_control": {
+        "pooled": {
+          "ch_n": 789,
+          "ch_rate": 0.1596958174904943,
+          "sh_n": 286,
+          "sh_rate": 0.24125874125874125,
+          "difference_sh_minus_ch": 0.08156292376824695
+        },
+        "matched_cells": 153,
+        "matched_folios": 22,
+        "folio_equal_weight_mean_difference": 0.07830928420881794,
+        "bootstrap_ci95": [
+          -0.010368470099380949,
+          0.16803593626673827
+        ],
+        "within_cell_permutation_p": 0.018349082545872707
+      },
+      "following_character_positive_control": {
+        "pooled": {
+          "ch_n": 789,
+          "ch_rate": 0.8757921419518377,
+          "sh_n": 286,
+          "sh_rate": 0.9230769230769231,
+          "difference_sh_minus_ch": 0.047284781125085384
+        },
+        "matched_cells": 153,
+        "matched_folios": 22,
+        "folio_equal_weight_mean_difference": 0.04920607877626844,
+        "bootstrap_ci95": [
+          0.008595128467591301,
+          0.08728644191249636
+        ],
+        "within_cell_permutation_p": 0.03534823258837058
+      }
+    }
+  }
+}
