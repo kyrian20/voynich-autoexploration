@@ -1,114 +1,51 @@
 # Current State — Voynich Cryptanalyst
 
-**Last updated:** 2026-10-19 (exp_589–exp_596 completed; exp_597 running)
+**Last updated:** 2026-10-19 (exp_589–exp_599 completed; synthesis and next priorities recorded)
 
-## Canonical scientific checkpoint
-The earlier project checkpoint remains exp_588, summarized in `state/transliteration_replication_final_summary.md`. It reports five pre-registered Section 2 findings retained under the ≥2/3 alternative-transliteration rule; F4 retained in EVA-basic and ZL3a but failed in v101 where the o→sh edge had one observation. These are repository-reported findings, not independently rerun as part of exp_589–594.
+## Canonical status and source of truth
+Read the full synthesis first: `research/synthesis/2026-10-19-daiin-position-synthesis.md`. It separates replicated descriptive findings, annotation-sensitive outcomes, non-significant comparisons, and a methodologically uninformative experiment.
 
-## API and automation status
-The scheduled LLM-report workflow hit HTTP 429 on 2026-10-19 because the OpenAI API has no funds available, as reported by the maintainer; it was not retried. The new corpus-analysis workflows run standard Python in GitHub Actions and require no OpenAI API credit. Their JSON is uploaded as a 90-day artifact; because simultaneous GitHub Actions jobs can race when auto-committing to `master`, the generated outputs were also persisted manually through the GitHub connector when needed.
+The pre-existing project checkpoint remains exp_588, summarized in `state/transliteration_replication_final_summary.md`; it has not been independently rerun in this session. Its reported 21-mechanism generator score of 19/19 is compatibility with a defined metrics battery, not proof of the manuscript's generative mechanism and not decipherment.
 
-## exp_589 — daiin positional audit
-Run: https://github.com/kyrian20/voynich-autoexploration/actions/runs/39256111019  
-Report: `experiments/exp_589_daiin_position_audit/result.md`.
+## API / automation status
+The paid OpenAI API LLM workflow returned HTTP 429 because no API funds were available, as reported by the maintainer; it was not retried. New corpus experiments are plain Python/GitHub Actions and do not use API credits. Workflow run reports and machine-readable JSONs are kept with each experiment. Some simultaneous output-commits raced, so their artifacts/results were recovered and saved manually where necessary.
 
-Across the body, `daiin` is about 1.51× expected at line start in both ZL3b and ZL3a. Currier A is below expectation overall (about 0.88×), whereas Currier B is about 2.75× expected (Monte Carlo p at the 2,000-draw resolution floor 0.0005). The direction replicates between the two checked-in EVA transcription versions under the selected parser.
+## Main finding from exp_589–599
+A conditional line-initial excess for `daiin` is robust in Currier B, particularly P0 body-locus lines:
+- exp_589: whole-body ~1.51× in both ZL3b and ZL3a; Currier B ~2.75× vs Currier A ~0.88×.
+- exp_591: Currier-B P0 has 89 observed initial `daiin` tokens vs 31.53 expected (2.823×).
+- exp_592: leaving each of 88 represented folios out in turn keeps the ratio 2.651×–2.939×.
+- exp_590: positive effects persist across five coarse folio-number bins. They are heuristic bins, not official section labels.
 
-## exp_590 — folio-number-range sensitivity
-Run: https://github.com/kyrian20/voynich-autoexploration/actions/runs/39256487097  
-Report: `experiments/exp_590_daiin_section_stratification/result.md`.
+## Critical controls and caveats
+- exp_593: the signal in B/P0 is concentrated in rows with IVTFF `+` locator (89 vs 30.634 expected, ~2.91×). The official IVTFF spec defines `@`, `+`, and `*` as spatial/layout locators, not paragraph-start labels.
+- exp_594–595: explicit paragraph start marker `<%>` is associated with an initial-token deficit in Currier A; B rows without a start marker show ~3× enrichment. The pattern repeats in ZL3a, but marker absence is not definitive continuation; segmentation is a transcriber decision.
+- exp_596: `daiin` is not unique. In Currier-B P0, `dain` is ~3.17× initial and `saiin` ~5.02×, while `aiin` and `chedy` are depleted. These are distributions of EVA strings, not semantic roles.
+- exp_597: next-token successor distributions after `daiin`, `dain`, `saiin` are not statistically distinguishable under the JSD/permutation test (adjusted p=1.0).
+- exp_598: **uninformative due to sparsity**. The rare-pair collapse merged 97.1%–100% of joint contexts into one bucket, so its null result is not evidence of context equivalence.
+- exp_599: marginal successor distributions at offsets +1 and +2 are also nonsignificant after Holm correction; this does not establish equivalence.
 
-Across five coarse Currier-B folio-number bins, enrichment is positive (1.62×–4.10×); all five one-sided Monte Carlo tests remain below 0.05 after Holm adjustment. Two populated Currier-A bins differ (0.72× for f001–f066, 1.68× for f085–f102). Bins are approximate folio-number proxies, not authoritative codicological section labels.
+## Experiment reports and runs
+- exp_589 — [report](experiments/exp_589_daiin_position_audit/result.md) · [run](https://github.com/kyrian20/voynich-autoexploration/actions/runs/39256111019)
+- exp_590 — [report](experiments/exp_590_daiin_section_stratification/result.md) · [run](https://github.com/kyrian20/voynich-autoexploration/actions/runs/39256487097)
+- exp_591 — [report](experiments/exp_591_daiin_locus_stratification/result.md) · [run](https://github.com/kyrian20/voynich-autoexploration/actions/runs/39256723800)
+- exp_592 — [report](experiments/exp_592_daiin_folio_influence/result.md) · [run](https://github.com/kyrian20/voynich-autoexploration/actions/runs/39256951171)
+- exp_593 — [report](experiments/exp_593_daiin_line_metadata_contrast/result.md) · [run](https://github.com/kyrian20/voynich-autoexploration/actions/runs/39257417694)
+- exp_594 — [report](experiments/exp_594_daiin_explicit_paragraph_markers/result.md) · [run](https://github.com/kyrian20/voynich-autoexploration/actions/runs/39257721036)
+- exp_595 — [report](experiments/exp_595_paragraph_marker_replication/result.md) · [run](https://github.com/kyrian20/voynich-autoexploration/actions/runs/39257978767)
+- exp_596 — [report](experiments/exp_596_daiin_position_controls/result.md) · [run](https://github.com/kyrian20/voynich-autoexploration/actions/runs/39258230375)
+- exp_597 — [report](experiments/exp_597_initial_form_next_token_context/result.md) · [run](https://github.com/kyrian20/voynich-autoexploration/actions/runs/39258573517)
+- exp_598 — [report](experiments/exp_598_two_token_successor_context/result.md) · [run](https://github.com/kyrian20/voynich-autoexploration/actions/runs/39258767759)
+- exp_599 — [report](experiments/exp_599_marginal_successor_positions/result.md) · [run](https://github.com/kyrian20/voynich-autoexploration/actions/runs/39258941188)
 
-## exp_591 — exact IVTFF body-locus sensitivity
-Run: https://github.com/kyrian20/voynich-autoexploration/actions/runs/39256723800  
-Report: `experiments/exp_591_daiin_locus_stratification/result.md`.
+## Next work: parser/provenance audit before more hypothesis tests
+1. Cross-check IVTFF line extraction and locus parsing against the official spec with an independently written parser.
+2. Align ZL3a and ZL3b by exact folio/locus; report token-level disagreements so similarity is not misdescribed as independent replication.
+3. Freeze the Currier-B/P0 primary test, run a larger permutation budget, and predeclare section/folio sensitivity choices before inspecting outcomes.
+4. Avoid expanding the number of daiin tests until parser coverage and source alignment are validated.
 
-The Currier-B result persists in dominant locus P0: 89 initial `daiin` tokens vs 31.53 expected, 2.823×, Holm-adjusted p=0.0015 across eligible B-locus groups. P1 is elevated but sparse; Pb is not significant. Currier-A P0 is below expectation (0.87×, adjusted p=0.902). Locus codes are literal IVTFF categories, not grammar interpretations.
-
-## exp_592 — leave-one-folio-out influence
-Run: https://github.com/kyrian20/voynich-autoexploration/actions/runs/39256951171  
-Report: `experiments/exp_592_daiin_folio_influence/result.md`.
-
-In Currier-B P0, 2,345 lines have 89 observed first-position `daiin` tokens vs 31.529 expected (2.823×). Omitting each of 88 folios in turn leaves enrichment between **2.651× and 2.939×**; omitting f108v has the largest decrease, but the effect persists. This is an influence analysis, not another significance test.
-
-## exp_593 — IVTFF locator categories
-Run: https://github.com/kyrian20/voynich-autoexploration/actions/runs/39257417694  
-Report: `experiments/exp_593_daiin_line_metadata_contrast/result.md`.
-
-The official IVTFF definition clarifies that `@` is used for the first item on a page; `+` generally locates an item below the previous one; `*` marks a line-start locus below a preceding item that was not at the margin. These are spatial locator codes, **not paragraph-opening markers**. In B/P0 rows marked `+`, 89 initial hits vs 30.634 expected give a 2.905× enrichment (Holm-adjusted upper-tail p=0.0004); B/P0 rows marked `@` have 0 vs 0.805 expected and no significant deficit. A/P0 rows marked `@` have 0 vs 3.772 expected, with lower-tail adjusted p=0.0356. Lower-tail and upper-tail results are separately corrected within dialect.
-
-## exp_594 — explicit paragraph-boundary markers
-Run: https://github.com/kyrian20/voynich-autoexploration/actions/runs/39257721036  
-Report: `experiments/exp_594_daiin_explicit_paragraph_markers/result.md`.
-
-IVTFF uses dedicated `<%>` and `<$>` comments for paragraph start/end; the format specification says paragraph segmentation is a transcriber decision. In ZL3b, 4,105 eligible P-locus lines include 728 explicit start markers and 729 end markers. For Currier A, explicitly start-marked rows have a first-position deficit (1 observed vs 6.993 expected; Holm-adjusted lower-tail p=0.0132), while unmarked rows do not show a significant positional deviation. For Currier B, start-marked rows have 0 vs 2.827 expected; lower-tail p=0.0544, adjusted 0.1088 (not significant). B rows without a start marker show 97 vs 32.279 expected (3.005×; adjusted upper-tail p=0.0004). **Caveat:** absence of `<%>` is not treated as definitive continuation because tagging may be incomplete and segmentation varies by transcriber. This finding is annotation-conditioned, not semantic.
-
-## exp_595 — explicit paragraph-marker replication (completed)
-Run: https://github.com/kyrian20/voynich-autoexploration/actions/runs/39257978767  
-Report: `experiments/exp_595_paragraph_marker_replication/result.md`.
-
-The same marker coverage was observed in both ZL3b and ZL3a: 4,105 eligible P-locus lines, 728 explicit starts, 729 ends; Currier group counts were identical. The key contrast replicated: Currier-A explicit starts had 1 first `daiin` vs 6.993 expected (adjusted lower-tail p=0.0124 in ZL3b, 0.0076 in ZL3a). Currier-B explicit starts had 0 vs 2.827 expected but this deficit did not survive correction (p=0.0976/0.0984). B lines without an explicit start marker had ~3.0× initial enrichment (97 vs ~32.3 expected; adjusted upper-tail p=0.0004 in both versions). The marker definition remains transcription-dependent; lines lacking a marker are not assumed to be definite continuations.
-
-## exp_596 — common-word positional controls (completed)
-Run: https://github.com/kyrian20/voynich-autoexploration/actions/runs/39258230375  
-Report: `experiments/exp_596_daiin_position_controls/result.md`.
-
-In Currier-B P0, initial enrichment is not unique to `daiin`: daiin is 2.823× (89 vs 31.529 expected; Holm-adjusted upper-tail p=0.0012), but `dain` is 3.173× and `saiin` 5.023×, also adjusted p=0.0012. `aiin` and `chedy` are strongly below expectation; `qokaiin` is near expectation. The direction and magnitude replicate almost exactly in ZL3a (daiin ratio 2.813×, dain 3.173×, saiin 5.023×). In Currier-A P0, daiin is below expectation (0.860×) and not significant; aiin is depleted. These findings concern literal EVA token distribution, not shared meaning.
-
-## exp_597 — next-token context after daiin/dain/saiin (completed)
-Run: https://github.com/kyrian20/voynich-autoexploration/actions/runs/39258573517  
-Report: `experiments/exp_597_initial_form_next_token_context/result.md`.
-
-For Currier-B P0, 89 `daiin`, 34 `dain`, and 46 `saiin` line starters were compared using the next EVA token. Pairwise Jensen–Shannon divergences were not unusually high under 5,000 pooled-label permutations: raw p=.746, .943, .855; Holm-adjusted p=1.0. The observed divergences matched in ZL3a and ZL3b to six decimals. This is a non-significant result, not proof of equivalence; sample sizes are modest and tokens are sparse. Frequent successors partially overlap (`shey`, `chey`, `ar`, etc.) but no semantics are inferred.
-
-## exp_598 — two-token joint context (completed; inferential result uninformative)
-Run: https://github.com/kyrian20/voynich-autoexploration/actions/runs/39258767759  
-Report: `experiments/exp_598_two_token_successor_context/result.md`.
-
-The predeclared rare-pair collapse rule was too aggressive: 100% of `daiin` contexts, 97.1% of `dain`, and 97.8% of `saiin` contexts collapsed into a single `<RARE_PAIR>` category. The resulting nonsignificant JSD tests cannot establish context equivalence. This is retained as **methodologically uninformative due to sparsity**, not a valid null result about the contexts.
-
-## exp_599 — marginal token contexts at offsets +1 and +2 (completed)
-Run: https://github.com/kyrian20/voynich-autoexploration/actions/runs/39258941188  
-Report: `experiments/exp_599_marginal_successor_positions/result.md`.
-
-Using the same 169 B/P0 lines across both positions (89 `daiin`, 34 `dain`, 46 `saiin` starters; min 3 clean tokens), none of the six pairwise successor-distribution tests at offsets +1 or +2 was significant after Holm correction (all adjusted p=1.0), across both ZL3b and ZL3a. This is a non-significant result, not evidence of equivalence. Context token variety is high and the sample, especially `dain`, is modest.
-
-## Next step: synthesis audit
-Pause adding further daiin-position tests for now. Produce a cross-experiment synthesis (exp_589–599) distinguishing replicated observations, annotation-sensitive outcomes, true null findings, and methodologically uninformative experiments. Identify what new evidence is required before advancing from distributional regularities to any linguistic hypothesis.
-
-## Research integrity guardrails
-- The 21-mechanism copy-buffer hybrid's 19/19 score is fit to a defined metric battery, not proof that it generated the manuscript and not decipherment.
-- Keep hypotheses separate from executed results; include source hashes, code, outputs and workflow URLs.
-- Preserve null/negative results and avoid duplicating tests without a specific question.
-- Do not spend OpenAI API credits for corpus analyses that reproducible Python can perform.
-- Never infer the meaning of `daiin` from position alone.
-
-## exp_595 — cross-transcription paragraph-marker replication (results available)
-Run: https://github.com/kyrian20/voynich-autoexploration/actions/runs/39257978767  
-Report: `experiments/exp_595_paragraph_marker_replication/result.md`.
-
-The explicit-paragraph-marker analysis reproduces almost exactly in ZL3a vs ZL3b. For Currier-B P0 lines without explicit `<%>`, both versions have 97 line-initial `daiin` hits in 2,056 lines: 3.005× expected in ZL3b and 2.995× in ZL3a; Holm-adjusted Monte Carlo p=0.0004 in both (5,000 draws). On explicitly marked B paragraph starts, both have 0/492 initial hits vs 2.827 expected; lower-tail p≈0.049, adjusted ≈0.098 (not significant at 0.05). Currier-A marked starts show 1/236 vs 6.993 expected; lower-tail adjusted p=0.0124 in ZL3b and 0.0076 in ZL3a. Marker counts and patterns match exactly across these files, so this is cross-version robustness, not independent external replication. Unmarked lines are not assumed to be true continuations; IVTFF annotation is transcription-dependent.
-
-## Next block: exp_596–599
-- exp_596: paired ZL3a/ZL3b line-level token and marker disagreement audit.
-- exp_597: predeclared frequency-matched control words for line-initial enrichment, with multiple-testing correction.
-- exp_598: folio-cluster bootstrap for Currier-B no-start-marker enrichment.
-- exp_599: tokenizer/uncertain-reading sensitivity variants.
-
-These analyses should run without OpenAI API credit and should preserve source hashes, scripts, results, and null findings.
-
-## exp_596 — paired ZL3a/ZL3b line-level audit
-Run: https://github.com/kyrian20/voynich-autoexploration/actions/runs/39258473051  
-Report: `experiments/exp_596_zl3a_zl3b_line_level_audit/result.md`.
-
-The two versions align one-to-one on all 4,130 generic P-locus records, with no unmatched or duplicate keys, no dialect-label disagreement, no paragraph-marker disagreement, and no change in line-initial `daiin` status. There are 24 cleaned token-sequence disagreements. This confirms the exp_594/595 positional pattern is not caused by marker or line-key misalignment; it is version-level robustness, not independent replication.
-
-## exp_597 — lexical-control specificity
-Run: https://github.com/kyrian20/voynich-autoexploration/actions/runs/39258527666  
-Status at checkpoint: compile-check passed; Monte Carlo analysis was running. Compares `daiin` with `aiin`, `chedy`, `dain`, `saiin`, and `qokaiin` using 10,000 within-line position draws per token and dialect, with Holm correction for upper-tail tests. Controls are exploratory and not perfectly matched by function or morphology.
-
-## Next steps
-- exp_598: folio-cluster bootstrap for Currier-B/no-start-marker enrichment.
-- exp_599: tokenizer/uncertain-reading sensitivity variants.
-- Consolidate positional findings and limitations into a human-review report before adding further tests.
+## Research integrity
+- Keep observations, hypotheses, null results, and method failures distinct.
+- Include source-file SHA-256, exact filter/token rules, output JSON, and workflow run with each experiment.
+- Do not promote the 19/19 mechanism fit or positional effects into a decipherment.
+- Never infer the meaning of `daiin` from position or local context alone.
