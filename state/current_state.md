@@ -56,8 +56,14 @@ Report: `experiments/exp_596_daiin_position_controls/result.md`.
 
 In Currier-B P0, initial enrichment is not unique to `daiin`: daiin is 2.823× (89 vs 31.529 expected; Holm-adjusted upper-tail p=0.0012), but `dain` is 3.173× and `saiin` 5.023×, also adjusted p=0.0012. `aiin` and `chedy` are strongly below expectation; `qokaiin` is near expectation. The direction and magnitude replicate almost exactly in ZL3a (daiin ratio 2.813×, dain 3.173×, saiin 5.023×). In Currier-A P0, daiin is below expectation (0.860×) and not significant; aiin is depleted. These findings concern literal EVA token distribution, not shared meaning.
 
-## Next step: exp_597
-Test next-token context after line-initial `daiin`, `dain`, and `saiin` in Currier-B P0, with controls for starting token frequency and within-line token inventory. Use a predeclared top-context list plus full entropy/distribution distances, and report both transcriptions. No semantic interpretation is permitted from context distribution alone.
+## exp_597 — next-token context after daiin/dain/saiin (completed)
+Run: https://github.com/kyrian20/voynich-autoexploration/actions/runs/39258573517  
+Report: `experiments/exp_597_initial_form_next_token_context/result.md`.
+
+For Currier-B P0, 89 `daiin`, 34 `dain`, and 46 `saiin` line starters were compared using the next EVA token. Pairwise Jensen–Shannon divergences were not unusually high under 5,000 pooled-label permutations: raw p=.746, .943, .855; Holm-adjusted p=1.0. The observed divergences matched in ZL3a and ZL3b to six decimals. This is a non-significant result, not proof of equivalence; sample sizes are modest and tokens are sparse. Frequent successors partially overlap (`shey`, `chey`, `ar`, etc.) but no semantics are inferred.
+
+## Next step: exp_598
+Use two-token successor windows after line-initial `daiin`, `dain`, and `saiin` in Currier-B P0. Predeclare a rare-pair collapse threshold on the pooled sample, compare pair distributions via Jensen–Shannon divergence and pooled-label permutation with Holm correction, run both ZL3a/ZL3b, and report sample sizes/sensitivity. This extends the immediate-context test while controlling sparse pair overfit; no semantic labels.
 
 ## Research integrity guardrails
 - The 21-mechanism copy-buffer hybrid's 19/19 score is fit to a defined metric battery, not proof that it generated the manuscript and not decipherment.
