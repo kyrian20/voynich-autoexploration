@@ -1,28 +1,34 @@
-# exp_595 — Cross-transcription replication of paragraph-marker pattern
+# exp_595 — Results: explicit paragraph-marker replication
 
-**Run:** https://github.com/kyrian20/voynich-autoexploration/actions/runs/39257978767  
-**Status:** analysis step and Python compile-check succeeded; generated JSON is present in the repository. Final job status was still finishing when checked.  
-**Sources:** ZL3b SHA-256 `bf5b6d4ac1e3a51b1847a9c388318d609020441ccd56984c901c32b09beccafc`; ZL3a SHA-256 `56419297682d338ff1a0a17f5ae251e3ee3e2c5bf05a62db04c5385ef30b36a2`.
+**Execution date:** 2026-10-19  
+**Workflow:** https://github.com/kyrian20/voynich-autoexploration/actions/runs/39257978767  
+**Machine output:** `results.json`
 
-## Main finding
+## Question
+Does the exp_594 paragraph-marker pattern replicate across the two checked-in EVA transcription versions?
 
-The exp_594 pattern reproduces almost exactly in ZL3a under the same parser:
-- Currier B, lines without explicit `<%>`: ZL3b 97 initial `daiin` hits / 2,056 lines, expected 32.279, enrichment **3.005×**; ZL3a 97 / 2,056, expected 32.383, enrichment **2.995×**. In both, 5,000-draw Monte Carlo upper-tail p=0.0002, Holm-adjusted p=0.0004.
-- Currier B, explicit `<%>` lines: 0 first-position hits out of 492 lines in both versions, expected 2.827; lower-tail p≈0.049, Holm-adjusted p≈0.098. This does not meet the adjusted 0.05 threshold.
-- Currier A, explicit `<%>` lines: 1 hit / 236 lines, expected 6.993 in both versions; lower-tail adjusted p=0.0124 (ZL3b) and 0.0076 (ZL3a).
-- Marker counts are identical across the two files (4,105 eligible lines, 728 starts, 729 ends), and nearly all reported values agree. The B no-start enrichment differs by only 0.00972×.
+## Marker coverage
+For both ZL3b and ZL3a, the parser found exactly 4,105 eligible P-locus lines, 728 explicit paragraph-start markers, and 729 paragraph-end markers. The Currier breakdown is also identical: A has 236 explicitly start-marked lines and 1,321 without a start marker; B has 492 start-marked lines and 2,056 without one. The source files have distinct SHA-256 hashes recorded in the JSON; they are not byte-identical files.
 
-## Interpretation
+## Results by transcription
 
-The strongest result is now robust across the two checked-in transcriptions: **Currier-B P0 line-initial `daiin` is strongly overrepresented on lines not explicitly marked with `<%>`**. The zero observed B initial hits on marked paragraph-start lines is suggestive but does not survive Holm correction as a lower-tail test.
+| Currier / category | ZL3b lines | ZL3b initial ratio | ZL3b Holm p | ZL3a lines | ZL3a initial ratio | ZL3a Holm p |
+|---|---:|---:|---:|---:|---:|---:|
+| A / explicit `<%>` | 236 | 0.143× | lower tail 0.0124 | 236 | 0.143× | lower tail 0.0076 |
+| A / no start marker | 1,321 | 0.950× | no significant deviation | 1,321 | 0.949× | no significant deviation |
+| B / explicit `<%>` | 492 | 0.000× | lower tail 0.0976 | 492 | 0.000× | lower tail 0.0984 |
+| B / no start marker | 2,056 | 3.005× | upper tail 0.0004 | 2,056 | 2.995× | upper tail 0.0004 |
 
-This does **not** prove that every unmarked line is a continuation: IVTFF paragraph boundaries are transcription decisions, and absence of a marker may reflect incomplete annotation. Nor does the pattern reveal the word's meaning. The two transcriptions share source lineage/annotation conventions, so this is cross-version robustness rather than fully independent external replication.
+Expected first-token count in ZL3b/ZL3a is identical for the explicitly marked groups: A 6.993, B 2.827. For unmarked rows it differs slightly between versions: A 64.243/64.279 and B 32.279/32.383.
 
-## Next block (exp_596–599)
+## Conclusion
 
-1. **exp_596:** paired line-by-line comparison of ZL3a vs ZL3b on matched line IDs; enumerate every token/marker disagreement in the target groups before interpreting the near-identical aggregate statistics.
-2. **exp_597:** compare line-initial enrichment of `daiin` against frequency-matched control words, with a predeclared control set and Holm correction.
-3. **exp_598:** folio-cluster bootstrap for Currier-B no-start-marker enrichment, resampling folios rather than treating lines as independent.
-4. **exp_599:** sensitivity to tokenizer rules (punctuation, uncertain readings, markup), preserving the same folio set and reporting all variants.
+**Replicated, with the annotation caveat retained.** In both versions, Currier-A lines explicitly marked as paragraph starts have a deficit of initial `daiin` (1 observed vs 6.993 expected; Holm-adjusted lower-tail p=0.0124 in ZL3b and 0.0076 in ZL3a). Currier-B explicitly marked starts have 0 observed vs 2.827 expected, but do not meet the adjusted threshold (p=0.0976 and 0.0984). In Currier B, lines without a start marker show a robust initial excess of about 3× (97 observed vs roughly 32.3 expected; adjusted upper-tail p=0.0004 in both versions).
 
-All four are API-free and should reuse existing corpus assets, hashes and parser rules. Avoid calling any result a decipherment.
+The ratios for the key B/no-marker group differ by only 0.00972 (3.00510× vs 2.99538×). That is a close replication under this same operational parser.
+
+## What this does and does not mean
+The finding concerns explicit paragraph annotation in these transcriptions. The IVTFF spec says `<%>` marks paragraph start and `<$>` marks paragraph end, but also that paragraph segmentation is the transcriber's decision; alternate transcriptions can differ. See [IVTFF specification §6.9](https://voynich.nu/software/ivtt/IVTFF_format.pdf). Absence of `<%>` is therefore called “no start marker”, not definitively “continuation”. These positional effects do not reveal the meaning of `daiin` and do not constitute a decipherment.
+
+## Next test
+Compare `daiin` with predeclared high-frequency controls (`aiin`, `chedy`, `dain`, `saiin`, `qokaiin`) in the same Currier P0 line-position null, adjusting for multiple comparisons. This tests whether the effect is especially strong for `daiin` or part of a broader positional pattern of common tokens.
