@@ -1,0 +1,237 @@
+{
+  "experiment": "exp_595_paragraph_marker_cross_transcription_replication",
+  "protocol_version": 1,
+  "format_reference": "https://voynich.nu/software/ivtt/IVTFF_format.pdf §6.9",
+  "filters": {
+    "generic_locus_type": "P*",
+    "minimum_clean_tokens_per_line": 2,
+    "dialects_separate": true
+  },
+  "versions": [
+    {
+      "transcription": "ZL3b",
+      "source": {
+        "path": "data/transcriptions/eva_zl3b.txt",
+        "bytes": 411671,
+        "sha256": "bf5b6d4ac1e3a51b1847a9c388318d609020441ccd56984c901c32b09beccafc"
+      },
+      "counts": {
+        "eligible_P_lines": 4105,
+        "start_marked_lines": 728,
+        "end_marked_lines": 729,
+        "start_and_end_same_line": 0,
+        "by_dialect": {
+          "A": {
+            "P_lines": 1557,
+            "start_marked": 236,
+            "end_marked": 230,
+            "no_start_marker": 1321
+          },
+          "B": {
+            "P_lines": 2548,
+            "start_marked": 492,
+            "end_marked": 499,
+            "no_start_marker": 2056
+          }
+        }
+      },
+      "tests": {
+        "CurrierA_explicit_start": {
+          "lines": 236,
+          "daiin_tokens": 59,
+          "first_observed": 1,
+          "first_expected": 6.99337,
+          "enrichment": 0.14299,
+          "last_observed": 12,
+          "null_mean": 6.9382,
+          "p_upper_tail_plus_one": 0.9992,
+          "p_lower_tail_plus_one": 0.006199,
+          "permutations": 5000,
+          "seed": 59520261019,
+          "p_holm_upper_A_family": 1.0,
+          "p_holm_lower_A_family": 0.012398
+        },
+        "CurrierA_no_start_marker": {
+          "lines": 1321,
+          "daiin_tokens": 441,
+          "first_observed": 61,
+          "first_expected": 64.24338,
+          "enrichment": 0.94951,
+          "last_observed": 91,
+          "null_mean": 64.326,
+          "p_upper_tail_plus_one": 0.708658,
+          "p_lower_tail_plus_one": 0.339932,
+          "permutations": 5000,
+          "seed": 59520261020,
+          "p_holm_upper_A_family": 1.0,
+          "p_holm_lower_A_family": 0.339932
+        },
+        "CurrierB_explicit_start": {
+          "lines": 492,
+          "daiin_tokens": 29,
+          "first_observed": 0,
+          "first_expected": 2.82732,
+          "enrichment": 0.0,
+          "last_observed": 5,
+          "null_mean": 2.875,
+          "p_upper_tail_plus_one": 1.0,
+          "p_lower_tail_plus_one": 0.04879,
+          "permutations": 5000,
+          "seed": 59520261119,
+          "p_holm_upper_B_family": 1.0,
+          "p_holm_lower_B_family": 0.09758
+        },
+        "CurrierB_no_start_marker": {
+          "lines": 2056,
+          "daiin_tokens": 288,
+          "first_observed": 97,
+          "first_expected": 32.27851,
+          "enrichment": 3.0051,
+          "last_observed": 21,
+          "null_mean": 32.3494,
+          "p_upper_tail_plus_one": 0.0002,
+          "p_lower_tail_plus_one": 1.0,
+          "permutations": 5000,
+          "seed": 59520261120,
+          "p_holm_upper_B_family": 0.0004,
+          "p_holm_lower_B_family": 1.0
+        }
+      }
+    },
+    {
+      "transcription": "ZL3a",
+      "source": {
+        "path": "data/transcriptions/zl3a.txt",
+        "bytes": 411710,
+        "sha256": "56419297682d338ff1a0a17f5ae251e3ee3e2c5bf05a62db04c5385ef30b36a2"
+      },
+      "counts": {
+        "eligible_P_lines": 4105,
+        "start_marked_lines": 728,
+        "end_marked_lines": 729,
+        "start_and_end_same_line": 0,
+        "by_dialect": {
+          "A": {
+            "P_lines": 1557,
+            "start_marked": 236,
+            "end_marked": 230,
+            "no_start_marker": 1321
+          },
+          "B": {
+            "P_lines": 2548,
+            "start_marked": 492,
+            "end_marked": 499,
+            "no_start_marker": 2056
+          }
+        }
+      },
+      "tests": {
+        "CurrierA_explicit_start": {
+          "lines": 236,
+          "daiin_tokens": 59,
+          "first_observed": 1,
+          "first_expected": 6.99337,
+          "enrichment": 0.14299,
+          "last_observed": 12,
+          "null_mean": 7.0448,
+          "p_upper_tail_plus_one": 0.9996,
+          "p_lower_tail_plus_one": 0.003799,
+          "permutations": 5000,
+          "seed": 59520262019,
+          "p_holm_upper_A_family": 1.0,
+          "p_holm_lower_A_family": 0.007598
+        },
+        "CurrierA_no_start_marker": {
+          "lines": 1321,
+          "daiin_tokens": 441,
+          "first_observed": 61,
+          "first_expected": 64.27873,
+          "enrichment": 0.94899,
+          "last_observed": 91,
+          "null_mean": 64.323,
+          "p_upper_tail_plus_one": 0.70106,
+          "p_lower_tail_plus_one": 0.35073,
+          "permutations": 5000,
+          "seed": 59520262020,
+          "p_holm_upper_A_family": 1.0,
+          "p_holm_lower_A_family": 0.35073
+        },
+        "CurrierB_explicit_start": {
+          "lines": 492,
+          "daiin_tokens": 29,
+          "first_observed": 0,
+          "first_expected": 2.82732,
+          "enrichment": 0.0,
+          "last_observed": 5,
+          "null_mean": 2.8202,
+          "p_upper_tail_plus_one": 1.0,
+          "p_lower_tail_plus_one": 0.04919,
+          "permutations": 5000,
+          "seed": 59520262119,
+          "p_holm_upper_B_family": 1.0,
+          "p_holm_lower_B_family": 0.09838
+        },
+        "CurrierB_no_start_marker": {
+          "lines": 2056,
+          "daiin_tokens": 289,
+          "first_observed": 97,
+          "first_expected": 32.38321,
+          "enrichment": 2.99538,
+          "last_observed": 21,
+          "null_mean": 32.3698,
+          "p_upper_tail_plus_one": 0.0002,
+          "p_lower_tail_plus_one": 1.0,
+          "permutations": 5000,
+          "seed": 59520262120,
+          "p_holm_upper_B_family": 0.0004,
+          "p_holm_lower_B_family": 1.0
+        }
+      }
+    }
+  ],
+  "cross_transcription_comparison": {
+    "CurrierA_explicit_start": {
+      "ZL3b_enrichment": 0.14299,
+      "ZL3a_enrichment": 0.14299,
+      "difference_ZL3a_minus_ZL3b": 0.0,
+      "ZL3b_lines": 236,
+      "ZL3a_lines": 236,
+      "ZL3b_explicit_first": 1,
+      "ZL3a_explicit_first": 1
+    },
+    "CurrierA_no_start_marker": {
+      "ZL3b_enrichment": 0.94951,
+      "ZL3a_enrichment": 0.94899,
+      "difference_ZL3a_minus_ZL3b": -0.00052,
+      "ZL3b_lines": 1321,
+      "ZL3a_lines": 1321,
+      "ZL3b_explicit_first": 61,
+      "ZL3a_explicit_first": 61
+    },
+    "CurrierB_explicit_start": {
+      "ZL3b_enrichment": 0.0,
+      "ZL3a_enrichment": 0.0,
+      "difference_ZL3a_minus_ZL3b": 0.0,
+      "ZL3b_lines": 492,
+      "ZL3a_lines": 492,
+      "ZL3b_explicit_first": 0,
+      "ZL3a_explicit_first": 0
+    },
+    "CurrierB_no_start_marker": {
+      "ZL3b_enrichment": 3.0051,
+      "ZL3a_enrichment": 2.99538,
+      "difference_ZL3a_minus_ZL3b": -0.00972,
+      "ZL3b_lines": 2056,
+      "ZL3a_lines": 2056,
+      "ZL3b_explicit_first": 97,
+      "ZL3a_explicit_first": 97
+    }
+  },
+  "notes": [
+    "No-start-marker is not asserted to mean continuation; tagging may be incomplete.",
+    "Paragraph boundaries are transcriber decisions under IVTFF §6.9.",
+    "Comparisons are conditional on the same parser and cleaning rules.",
+    "P-values are Monte Carlo; Holm adjustment is applied to tails within dialect and transcription.",
+    "No semantic/decipherment inference."
+  ]
+}
