@@ -1,0 +1,2115 @@
+{
+  "experiment": "exp_600_transcription_concordance_audit",
+  "protocol_version": 1,
+  "alignment_rule": "match IVTFF text records by exact folio.line identifier before comma; keep locus and locator differences as comparison outcomes",
+  "tokenization_rule": "strip transcriber comments/markup, keep the first [a:b] alternative, remove {uncertain} spans, split on period/comma/whitespace, retain ASCII-letter tokens only",
+  "sources": [
+    {
+      "label": "ZL3b",
+      "path": "data/transcriptions/eva_zl3b.txt",
+      "bytes": 411671,
+      "sha256": "bf5b6d4ac1e3a51b1847a9c388318d609020441ccd56984c901c32b09beccafc",
+      "folio_headers": 184,
+      "line_records": 4197,
+      "unique_line_keys": 4197
+    },
+    {
+      "label": "ZL3a",
+      "path": "data/transcriptions/zl3a.txt",
+      "bytes": 411710,
+      "sha256": "56419297682d338ff1a0a17f5ae251e3ee3e2c5bf05a62db04c5385ef30b36a2",
+      "folio_headers": 184,
+      "line_records": 4200,
+      "unique_line_keys": 4200
+    }
+  ],
+  "coverage": {
+    "ZL3b_unique_line_keys": 4197,
+    "ZL3a_unique_line_keys": 4200,
+    "aligned_keys": 4197,
+    "only_in_ZL3b_count": 0,
+    "only_in_ZL3a_count": 3,
+    "only_in_ZL3b_examples": [],
+    "only_in_ZL3a_examples": [
+      "f1r.29",
+      "f1r.30",
+      "f1r.31"
+    ],
+    "duplicate_keys_ZL3b": [],
+    "duplicate_keys_ZL3a": []
+  },
+  "alignment_summary": {
+    "aligned_keys": 4197,
+    "normalized_locus_equal": 4197,
+    "currier_equal": 4197,
+    "raw_payload_equal": 4173,
+    "clean_token_sequence_equal": 4178,
+    "raw_payload_different": 24,
+    "clean_token_sequence_different": 19
+  },
+  "token_edit_totals_on_differing_lines": {
+    "substitutions_min_count": 22,
+    "insertions": 0,
+    "deletions": 6
+  },
+  "token_different_line_keys": [
+    "f101v.22",
+    "f101v.23",
+    "f103v.31",
+    "f104r.30",
+    "f105r.5",
+    "f113r.21",
+    "f115r.35",
+    "f1r.22",
+    "f1r.23",
+    "f26r.2",
+    "f26r.7",
+    "f41r.6",
+    "f42r.20",
+    "f42v.10",
+    "f42v.14",
+    "f57v.3",
+    "f66v.9",
+    "f69r.5",
+    "f71v.1"
+  ],
+  "by_currier_token_sequence_equal_vs_different": [
+    {
+      "currier": "A",
+      "status": "different",
+      "count": 7
+    },
+    {
+      "currier": "A",
+      "status": "equal",
+      "count": 1566
+    },
+    {
+      "currier": "B",
+      "status": "different",
+      "count": 9
+    },
+    {
+      "currier": "B",
+      "status": "equal",
+      "count": 2412
+    },
+    {
+      "currier": "unknown",
+      "status": "different",
+      "count": 3
+    },
+    {
+      "currier": "unknown",
+      "status": "equal",
+      "count": 200
+    }
+  ],
+  "by_normalized_locus_token_sequence_equal_vs_different": [
+    {
+      "locus": "Cc",
+      "status": "different",
+      "count": 2
+    },
+    {
+      "locus": "Cc",
+      "status": "equal",
+      "count": 18
+    },
+    {
+      "locus": "L0",
+      "status": "different",
+      "count": 1
+    },
+    {
+      "locus": "L0",
+      "status": "equal",
+      "count": 118
+    },
+    {
+      "locus": "Lc",
+      "status": "equal",
+      "count": 14
+    },
+    {
+      "locus": "Lf",
+      "status": "equal",
+      "count": 121
+    },
+    {
+      "locus": "Ln",
+      "status": "equal",
+      "count": 63
+    },
+    {
+      "locus": "Lp",
+      "status": "equal",
+      "count": 3
+    },
+    {
+      "locus": "Lt",
+      "status": "equal",
+      "count": 47
+    },
+    {
+      "locus": "Lx",
+      "status": "equal",
+      "count": 3
+    },
+    {
+      "locus": "Lz",
+      "status": "equal",
+      "count": 90
+    },
+    {
+      "locus": "P0",
+      "status": "different",
+      "count": 16
+    },
+    {
+      "locus": "P0",
+      "status": "equal",
+      "count": 3528
+    },
+    {
+      "locus": "P1",
+      "status": "equal",
+      "count": 58
+    },
+    {
+      "locus": "Pb",
+      "status": "equal",
+      "count": 27
+    },
+    {
+      "locus": "Pc",
+      "status": "equal",
+      "count": 15
+    },
+    {
+      "locus": "Pr",
+      "status": "equal",
+      "count": 9
+    },
+    {
+      "locus": "Pt",
+      "status": "equal",
+      "count": 10
+    },
+    {
+      "locus": "Ri",
+      "status": "equal",
+      "count": 28
+    },
+    {
+      "locus": "Ro",
+      "status": "equal",
+      "count": 26
+    }
+  ],
+  "by_currier_and_locus": [
+    {
+      "currier": "A",
+      "locus": "L0",
+      "status": "equal",
+      "count": 28
+    },
+    {
+      "currier": "A",
+      "locus": "Lc",
+      "status": "equal",
+      "count": 14
+    },
+    {
+      "currier": "A",
+      "locus": "Lf",
+      "status": "equal",
+      "count": 121
+    },
+    {
+      "currier": "A",
+      "locus": "Lp",
+      "status": "equal",
+      "count": 1
+    },
+    {
+      "currier": "A",
+      "locus": "Lx",
+      "status": "equal",
+      "count": 1
+    },
+    {
+      "currier": "A",
+      "locus": "P0",
+      "status": "different",
+      "count": 7
+    },
+    {
+      "currier": "A",
+      "locus": "P0",
+      "status": "equal",
+      "count": 1369
+    },
+    {
+      "currier": "A",
+      "locus": "P1",
+      "status": "equal",
+      "count": 10
+    },
+    {
+      "currier": "A",
+      "locus": "Pc",
+      "status": "equal",
+      "count": 9
+    },
+    {
+      "currier": "A",
+      "locus": "Pr",
+      "status": "equal",
+      "count": 4
+    },
+    {
+      "currier": "A",
+      "locus": "Pt",
+      "status": "equal",
+      "count": 9
+    },
+    {
+      "currier": "B",
+      "locus": "L0",
+      "status": "equal",
+      "count": 64
+    },
+    {
+      "currier": "B",
+      "locus": "Ln",
+      "status": "equal",
+      "count": 63
+    },
+    {
+      "currier": "B",
+      "locus": "Lp",
+      "status": "equal",
+      "count": 1
+    },
+    {
+      "currier": "B",
+      "locus": "Lt",
+      "status": "equal",
+      "count": 47
+    },
+    {
+      "currier": "B",
+      "locus": "Lx",
+      "status": "equal",
+      "count": 1
+    },
+    {
+      "currier": "B",
+      "locus": "P0",
+      "status": "different",
+      "count": 9
+    },
+    {
+      "currier": "B",
+      "locus": "P0",
+      "status": "equal",
+      "count": 2149
+    },
+    {
+      "currier": "B",
+      "locus": "P1",
+      "status": "equal",
+      "count": 48
+    },
+    {
+      "currier": "B",
+      "locus": "Pb",
+      "status": "equal",
+      "count": 27
+    },
+    {
+      "currier": "B",
+      "locus": "Pc",
+      "status": "equal",
+      "count": 6
+    },
+    {
+      "currier": "B",
+      "locus": "Pr",
+      "status": "equal",
+      "count": 5
+    },
+    {
+      "currier": "B",
+      "locus": "Pt",
+      "status": "equal",
+      "count": 1
+    },
+    {
+      "currier": "unknown",
+      "locus": "Cc",
+      "status": "different",
+      "count": 2
+    },
+    {
+      "currier": "unknown",
+      "locus": "Cc",
+      "status": "equal",
+      "count": 18
+    },
+    {
+      "currier": "unknown",
+      "locus": "L0",
+      "status": "different",
+      "count": 1
+    },
+    {
+      "currier": "unknown",
+      "locus": "L0",
+      "status": "equal",
+      "count": 26
+    },
+    {
+      "currier": "unknown",
+      "locus": "Lp",
+      "status": "equal",
+      "count": 1
+    },
+    {
+      "currier": "unknown",
+      "locus": "Lx",
+      "status": "equal",
+      "count": 1
+    },
+    {
+      "currier": "unknown",
+      "locus": "Lz",
+      "status": "equal",
+      "count": 90
+    },
+    {
+      "currier": "unknown",
+      "locus": "P0",
+      "status": "equal",
+      "count": 10
+    },
+    {
+      "currier": "unknown",
+      "locus": "Ri",
+      "status": "equal",
+      "count": 28
+    },
+    {
+      "currier": "unknown",
+      "locus": "Ro",
+      "status": "equal",
+      "count": 26
+    }
+  ],
+  "raw_locus_disagreements": [],
+  "paragraph_marker_disagreements": {},
+  "examples_token_differences": [
+    {
+      "key": "f101v.22",
+      "currier": "A",
+      "locus_ZL3b": "+P0",
+      "locus_ZL3a": "+P0",
+      "locator_ZL3b": "+",
+      "locator_ZL3a": "+",
+      "ZL3b_tokens": [
+        "ksear",
+        "lol",
+        "keeol",
+        "otal",
+        "or",
+        "ol",
+        "aiin",
+        "okeod",
+        "ey",
+        "dain",
+        "olcheol",
+        "cthey",
+        "qekeoldy",
+        "qocthor",
+        "sheody",
+        "qo",
+        "ey",
+        "odaiin",
+        "shoytolaiin",
+        "dy"
+      ],
+      "ZL3a_tokens": [
+        "kshar",
+        "lol",
+        "keeol",
+        "otal",
+        "or",
+        "ol",
+        "aiin",
+        "okeod",
+        "ey",
+        "dain",
+        "olcheol",
+        "cthey",
+        "qekeoldy",
+        "qocthor",
+        "sheody",
+        "qo",
+        "ey",
+        "odaiin",
+        "shoytolaiin",
+        "dy"
+      ],
+      "token_edit_summary": {
+        "substitutions_min_count": 1,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "paragraph_start_ZL3b": true,
+      "paragraph_start_ZL3a": true
+    },
+    {
+      "key": "f101v.23",
+      "currier": "A",
+      "locus_ZL3b": "+P0",
+      "locus_ZL3a": "+P0",
+      "locator_ZL3b": "+",
+      "locator_ZL3a": "+",
+      "ZL3b_tokens": [
+        "yaiin",
+        "ol",
+        "olor",
+        "daiin",
+        "okeey",
+        "qok",
+        "ykeol",
+        "daiin",
+        "qockhy",
+        "daiin",
+        "qokeol",
+        "dol",
+        "oraiin",
+        "oldaiin",
+        "keeol",
+        "rch",
+        "qokeeeor",
+        "s",
+        "ydy",
+        "cheor",
+        "okeey",
+        "choldy",
+        "dar"
+      ],
+      "ZL3a_tokens": [
+        "yaiin",
+        "ol",
+        "olor",
+        "daiin",
+        "okeey",
+        "qok",
+        "ykeol",
+        "daiin",
+        "qockhy",
+        "daiin",
+        "qokeol",
+        "dol",
+        "oraiin",
+        "oldaiin",
+        "keeols",
+        "rch",
+        "qokeeeor",
+        "s",
+        "ydy",
+        "cheor",
+        "okeey",
+        "choldy",
+        "dar"
+      ],
+      "token_edit_summary": {
+        "substitutions_min_count": 1,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "paragraph_start_ZL3b": false,
+      "paragraph_start_ZL3a": false
+    },
+    {
+      "key": "f103v.31",
+      "currier": "B",
+      "locus_ZL3b": "+P0",
+      "locus_ZL3a": "+P0",
+      "locator_ZL3b": "+",
+      "locator_ZL3a": "+",
+      "ZL3b_tokens": [
+        "okeey",
+        "l",
+        "chey",
+        "qokeey",
+        "o",
+        "qokeey",
+        "chedy",
+        "qekchy",
+        "daiin",
+        "chckhy",
+        "sar",
+        "olainy"
+      ],
+      "ZL3a_tokens": [
+        "okeey",
+        "l",
+        "chey",
+        "qokeey",
+        "o",
+        "qokeey",
+        "chedy",
+        "q",
+        "y",
+        "daiin",
+        "chckhy",
+        "sar",
+        "olainy"
+      ],
+      "token_edit_summary": {
+        "substitutions_min_count": 2,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "paragraph_start_ZL3b": false,
+      "paragraph_start_ZL3a": false
+    },
+    {
+      "key": "f104r.30",
+      "currier": "B",
+      "locus_ZL3b": "+P0",
+      "locus_ZL3a": "+P0",
+      "locator_ZL3b": "+",
+      "locator_ZL3a": "+",
+      "ZL3b_tokens": [
+        "okeeo",
+        "l",
+        "keeo",
+        "dain",
+        "lkeodaiin",
+        "qokeeo",
+        "lkeeeey",
+        "okeody",
+        "otechdy",
+        "opcheof",
+        "qopaiin"
+      ],
+      "ZL3a_tokens": [
+        "okeeo",
+        "l",
+        "keeo",
+        "dain",
+        "lkeodaiin",
+        "qokeeo",
+        "lkechey",
+        "okeody",
+        "otechdy",
+        "opcheof",
+        "qopaiin"
+      ],
+      "token_edit_summary": {
+        "substitutions_min_count": 1,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "paragraph_start_ZL3b": true,
+      "paragraph_start_ZL3a": true
+    },
+    {
+      "key": "f105r.5",
+      "currier": "B",
+      "locus_ZL3b": "+P0",
+      "locus_ZL3a": "+P0",
+      "locator_ZL3b": "+",
+      "locator_ZL3a": "+",
+      "ZL3b_tokens": [
+        "daiin",
+        "yteedy",
+        "yteeeody",
+        "yl",
+        "cheod",
+        "or",
+        "aiiroekey",
+        "otchdy",
+        "otey"
+      ],
+      "ZL3a_tokens": [
+        "daiin",
+        "yteedy",
+        "yteeeody",
+        "yl",
+        "cheod",
+        "or",
+        "aiirockhy",
+        "otchdy",
+        "otey"
+      ],
+      "token_edit_summary": {
+        "substitutions_min_count": 1,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "paragraph_start_ZL3b": false,
+      "paragraph_start_ZL3a": false
+    },
+    {
+      "key": "f113r.21",
+      "currier": "B",
+      "locus_ZL3b": "+P0",
+      "locus_ZL3a": "+P0",
+      "locator_ZL3b": "+",
+      "locator_ZL3a": "+",
+      "ZL3b_tokens": [
+        "oiir",
+        "shol",
+        "shedair",
+        "otchdy",
+        "shokchy",
+        "shaiiin",
+        "shckhey",
+        "lshor",
+        "air",
+        "okeody"
+      ],
+      "ZL3a_tokens": [
+        "dar",
+        "shol",
+        "shedair",
+        "otchdy",
+        "shokchy",
+        "shaiiin",
+        "shckhey",
+        "lshor",
+        "air",
+        "okeody"
+      ],
+      "token_edit_summary": {
+        "substitutions_min_count": 1,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "paragraph_start_ZL3b": false,
+      "paragraph_start_ZL3a": false
+    },
+    {
+      "key": "f115r.35",
+      "currier": "B",
+      "locus_ZL3b": "+P0",
+      "locus_ZL3a": "+P0",
+      "locator_ZL3b": "+",
+      "locator_ZL3a": "+",
+      "ZL3b_tokens": [
+        "posheos",
+        "aral",
+        "chaiin",
+        "shkchedy",
+        "otais",
+        "chsi",
+        "chpchar",
+        "ar",
+        "al",
+        "odaiin",
+        "chcphy",
+        "dy"
+      ],
+      "ZL3a_tokens": [
+        "posheos",
+        "aral",
+        "chaiin",
+        "shkchedy",
+        "otais",
+        "chs",
+        "chpchar",
+        "ar",
+        "al",
+        "odaiin",
+        "chcphy",
+        "dy"
+      ],
+      "token_edit_summary": {
+        "substitutions_min_count": 1,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "paragraph_start_ZL3b": true,
+      "paragraph_start_ZL3a": true
+    },
+    {
+      "key": "f1r.22",
+      "currier": "A",
+      "locus_ZL3b": "*P0",
+      "locus_ZL3a": "*P0",
+      "locator_ZL3b": "*",
+      "locator_ZL3a": "*",
+      "ZL3b_tokens": [
+        "cpho",
+        "shaiin",
+        "shokcheey",
+        "chol",
+        "tshodeesy",
+        "shey",
+        "pydeey",
+        "cha",
+        "ro",
+        "dar"
+      ],
+      "ZL3a_tokens": [
+        "cpho",
+        "shaiin",
+        "shokcheey",
+        "chol",
+        "tshodeesy",
+        "shey",
+        "pydeey",
+        "chy",
+        "r",
+        "o",
+        "d"
+      ],
+      "token_edit_summary": {
+        "substitutions_min_count": 4,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "paragraph_start_ZL3b": true,
+      "paragraph_start_ZL3a": true
+    },
+    {
+      "key": "f1r.23",
+      "currier": "A",
+      "locus_ZL3b": "+P0",
+      "locus_ZL3a": "+P0",
+      "locator_ZL3b": "+",
+      "locator_ZL3a": "+",
+      "ZL3b_tokens": [
+        "ydoin",
+        "chol",
+        "dain",
+        "cthal",
+        "dar",
+        "shear",
+        "kaiin",
+        "dar",
+        "shey",
+        "cthar"
+      ],
+      "ZL3a_tokens": [
+        "chol",
+        "dain",
+        "cthal",
+        "dar",
+        "shear",
+        "kaiin",
+        "dar",
+        "shey",
+        "cthar"
+      ],
+      "token_edit_summary": {
+        "substitutions_min_count": 0,
+        "insertions": 0,
+        "deletions": 1
+      },
+      "paragraph_start_ZL3b": false,
+      "paragraph_start_ZL3a": false
+    },
+    {
+      "key": "f26r.2",
+      "currier": "B",
+      "locus_ZL3b": "+P0",
+      "locus_ZL3a": "+P0",
+      "locator_ZL3b": "+",
+      "locator_ZL3a": "+",
+      "ZL3b_tokens": [
+        "dchey",
+        "aiin",
+        "adeeody",
+        "ykecthey",
+        "chedy",
+        "ytedy",
+        "dy",
+        "checthedy",
+        "ls"
+      ],
+      "ZL3a_tokens": [
+        "dchey",
+        "daiin",
+        "adeeody",
+        "ykecthey",
+        "chedy",
+        "ytedy",
+        "dy",
+        "checthedy",
+        "ls"
+      ],
+      "token_edit_summary": {
+        "substitutions_min_count": 1,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "paragraph_start_ZL3b": false,
+      "paragraph_start_ZL3a": false
+    },
+    {
+      "key": "f26r.7",
+      "currier": "B",
+      "locus_ZL3b": "+P0",
+      "locus_ZL3a": "+P0",
+      "locator_ZL3b": "+",
+      "locator_ZL3a": "+",
+      "ZL3b_tokens": [
+        "pcho",
+        "qokedy",
+        "dar",
+        "sheo",
+        "ypchseds",
+        "s",
+        "aiin",
+        "sha",
+        "p",
+        "chedyfchy",
+        "dalchedy",
+        "sar"
+      ],
+      "ZL3a_tokens": [
+        "peeo",
+        "qokedy",
+        "dar",
+        "sheo",
+        "ypchseds",
+        "s",
+        "aiin",
+        "sha",
+        "p",
+        "chedyfchy",
+        "dalchedy",
+        "sar"
+      ],
+      "token_edit_summary": {
+        "substitutions_min_count": 1,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "paragraph_start_ZL3b": true,
+      "paragraph_start_ZL3a": true
+    },
+    {
+      "key": "f41r.6",
+      "currier": "B",
+      "locus_ZL3b": "+P0",
+      "locus_ZL3a": "+P0",
+      "locator_ZL3b": "+",
+      "locator_ZL3a": "+",
+      "ZL3b_tokens": [
+        "shedey",
+        "polchedy",
+        "qokeey",
+        "chekedy",
+        "ytey",
+        "chkeeod",
+        "ypchedpy",
+        "shepy",
+        "shedy"
+      ],
+      "ZL3a_tokens": [
+        "shedey",
+        "polchedy",
+        "qokeey",
+        "chekedy",
+        "ytey",
+        "chkeeod",
+        "ypchedpy",
+        "shepe",
+        "shedy"
+      ],
+      "token_edit_summary": {
+        "substitutions_min_count": 1,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "paragraph_start_ZL3b": true,
+      "paragraph_start_ZL3a": true
+    },
+    {
+      "key": "f42r.20",
+      "currier": "A",
+      "locus_ZL3b": "+P0",
+      "locus_ZL3a": "+P0",
+      "locator_ZL3b": "+",
+      "locator_ZL3a": "+",
+      "ZL3b_tokens": [
+        "shol",
+        "chol",
+        "shoky",
+        "okol",
+        "sho",
+        "chol",
+        "shol",
+        "chal"
+      ],
+      "ZL3a_tokens": [
+        "shol",
+        "chol",
+        "shoky",
+        "okol",
+        "sho",
+        "chol",
+        "chhol",
+        "chal"
+      ],
+      "token_edit_summary": {
+        "substitutions_min_count": 1,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "paragraph_start_ZL3b": false,
+      "paragraph_start_ZL3a": false
+    },
+    {
+      "key": "f42v.10",
+      "currier": "A",
+      "locus_ZL3b": "+P0",
+      "locus_ZL3a": "+P0",
+      "locator_ZL3b": "+",
+      "locator_ZL3a": "+",
+      "ZL3b_tokens": [
+        "schor",
+        "okchey",
+        "chy",
+        "shol",
+        "olor",
+        "cheaiin",
+        "chy",
+        "tcheeb",
+        "d"
+      ],
+      "ZL3a_tokens": [
+        "schor",
+        "okchey",
+        "chy",
+        "shol",
+        "olor",
+        "cheaiin",
+        "chy",
+        "tcheen",
+        "d"
+      ],
+      "token_edit_summary": {
+        "substitutions_min_count": 1,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "paragraph_start_ZL3b": false,
+      "paragraph_start_ZL3a": false
+    },
+    {
+      "key": "f42v.14",
+      "currier": "A",
+      "locus_ZL3b": "+P0",
+      "locus_ZL3a": "+P0",
+      "locator_ZL3b": "+",
+      "locator_ZL3a": "+",
+      "ZL3b_tokens": [
+        "qoteey",
+        "chy",
+        "kchy",
+        "cthy",
+        "ees",
+        "choly",
+        "sarar",
+        "aral"
+      ],
+      "ZL3a_tokens": [
+        "qoteey",
+        "chy",
+        "kchy",
+        "cthy",
+        "ees",
+        "choly",
+        "sarar",
+        "ar",
+        "al"
+      ],
+      "token_edit_summary": {
+        "substitutions_min_count": 2,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "paragraph_start_ZL3b": false,
+      "paragraph_start_ZL3a": false
+    },
+    {
+      "key": "f57v.3",
+      "currier": "unknown",
+      "locus_ZL3b": "+Cc",
+      "locus_ZL3a": "+Cc",
+      "locator_ZL3b": "+",
+      "locator_ZL3a": "+",
+      "ZL3b_tokens": [
+        "o",
+        "l",
+        "d",
+        "r",
+        "v",
+        "x",
+        "k",
+        "m",
+        "f",
+        "v",
+        "t",
+        "r",
+        "y",
+        "i",
+        "o",
+        "l",
+        "d",
+        "r",
+        "v",
+        "x",
+        "k",
+        "m",
+        "f",
+        "v",
+        "t",
+        "r",
+        "y",
+        "c",
+        "o",
+        "l",
+        "d",
+        "r",
+        "v",
+        "x",
+        "k",
+        "m",
+        "p",
+        "v",
+        "t",
+        "r",
+        "y",
+        "c",
+        "o",
+        "l",
+        "d",
+        "r",
+        "v",
+        "x",
+        "k",
+        "m",
+        "p",
+        "v",
+        "t",
+        "r",
+        "y",
+        "c"
+      ],
+      "ZL3a_tokens": [
+        "o",
+        "l",
+        "d",
+        "r",
+        "v",
+        "x",
+        "k",
+        "m",
+        "f",
+        "t",
+        "r",
+        "y",
+        "i",
+        "o",
+        "l",
+        "d",
+        "r",
+        "v",
+        "x",
+        "k",
+        "m",
+        "f",
+        "t",
+        "r",
+        "y",
+        "c",
+        "o",
+        "l",
+        "d",
+        "r",
+        "v",
+        "x",
+        "k",
+        "m",
+        "p",
+        "t",
+        "r",
+        "y",
+        "c",
+        "o",
+        "l",
+        "d",
+        "r",
+        "v",
+        "x",
+        "k",
+        "m",
+        "p",
+        "t",
+        "r",
+        "y",
+        "c"
+      ],
+      "token_edit_summary": {
+        "substitutions_min_count": 0,
+        "insertions": 0,
+        "deletions": 4
+      },
+      "paragraph_start_ZL3b": false,
+      "paragraph_start_ZL3a": false
+    },
+    {
+      "key": "f66v.9",
+      "currier": "B",
+      "locus_ZL3b": "+P0",
+      "locus_ZL3a": "+P0",
+      "locator_ZL3b": "+",
+      "locator_ZL3a": "+",
+      "ZL3b_tokens": [
+        "pody",
+        "sheody",
+        "chpadar",
+        "sheey",
+        "fchdly",
+        "cheoseesey",
+        "kchy",
+        "qofchal"
+      ],
+      "ZL3a_tokens": [
+        "pody",
+        "sheody",
+        "chpadar",
+        "sheey",
+        "feedly",
+        "cheoseesey",
+        "kchy",
+        "aofchal"
+      ],
+      "token_edit_summary": {
+        "substitutions_min_count": 2,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "paragraph_start_ZL3b": true,
+      "paragraph_start_ZL3a": true
+    },
+    {
+      "key": "f69r.5",
+      "currier": "unknown",
+      "locus_ZL3b": "@L0",
+      "locus_ZL3a": "@L0",
+      "locator_ZL3b": "@",
+      "locator_ZL3a": "@",
+      "ZL3b_tokens": [
+        "oteos",
+        "chop",
+        "otaike"
+      ],
+      "ZL3a_tokens": [
+        "oteos",
+        "chop",
+        "otaeke"
+      ],
+      "token_edit_summary": {
+        "substitutions_min_count": 1,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "paragraph_start_ZL3b": false,
+      "paragraph_start_ZL3a": false
+    },
+    {
+      "key": "f71v.1",
+      "currier": "unknown",
+      "locus_ZL3b": "@Cc",
+      "locus_ZL3a": "@Cc",
+      "locator_ZL3b": "@",
+      "locator_ZL3a": "@",
+      "ZL3b_tokens": [
+        "osheo",
+        "parar",
+        "oteeodaiin",
+        "she",
+        "ateey",
+        "daiin",
+        "oteokeey",
+        "dal",
+        "al",
+        "oteey",
+        "teey",
+        "dy",
+        "otchy",
+        "keey",
+        "sheeo",
+        "ochey",
+        "otcheodal",
+        "sheealody",
+        "cheol",
+        "otar",
+        "okam",
+        "oteodar",
+        "chpchy",
+        "ar",
+        "al",
+        "aiin",
+        "oteoshar",
+        "okeodaly",
+        "oteey",
+        "teeey",
+        "oteey",
+        "keor",
+        "or",
+        "arol",
+        "cheols",
+        "okaikaly"
+      ],
+      "ZL3a_tokens": [
+        "osheo",
+        "parar",
+        "oteeodaiin",
+        "she",
+        "ateey",
+        "daiin",
+        "oteokeey",
+        "dal",
+        "al",
+        "oteey",
+        "teey",
+        "dy",
+        "otchy",
+        "keey",
+        "sheeo",
+        "ochey",
+        "sheealody",
+        "cheol",
+        "otar",
+        "okam",
+        "oteodar",
+        "chpchy",
+        "ar",
+        "al",
+        "aiin",
+        "oteoshar",
+        "okeodaly",
+        "oteey",
+        "teeey",
+        "oteey",
+        "keor",
+        "or",
+        "arol",
+        "cheols",
+        "okaikaly"
+      ],
+      "token_edit_summary": {
+        "substitutions_min_count": 0,
+        "insertions": 0,
+        "deletions": 1
+      },
+      "paragraph_start_ZL3b": false,
+      "paragraph_start_ZL3a": false
+    }
+  ],
+  "per_file_locus_counts": {
+    "ZL3b": [
+      {
+        "currier": "A",
+        "locus": "L0",
+        "locator": "*",
+        "count": 26
+      },
+      {
+        "currier": "A",
+        "locus": "L0",
+        "locator": "@",
+        "count": 2
+      },
+      {
+        "currier": "A",
+        "locus": "Lc",
+        "locator": "@",
+        "count": 14
+      },
+      {
+        "currier": "A",
+        "locus": "Lf",
+        "locator": "+",
+        "count": 1
+      },
+      {
+        "currier": "A",
+        "locus": "Lf",
+        "locator": "@",
+        "count": 120
+      },
+      {
+        "currier": "A",
+        "locus": "Lp",
+        "locator": "@",
+        "count": 1
+      },
+      {
+        "currier": "A",
+        "locus": "Lx",
+        "locator": "@",
+        "count": 1
+      },
+      {
+        "currier": "A",
+        "locus": "P0",
+        "locator": "*",
+        "count": 8
+      },
+      {
+        "currier": "A",
+        "locus": "P0",
+        "locator": "+",
+        "count": 1230
+      },
+      {
+        "currier": "A",
+        "locus": "P0",
+        "locator": "=",
+        "count": 27
+      },
+      {
+        "currier": "A",
+        "locus": "P0",
+        "locator": "@",
+        "count": 111
+      },
+      {
+        "currier": "A",
+        "locus": "P1",
+        "locator": "+",
+        "count": 10
+      },
+      {
+        "currier": "A",
+        "locus": "Pc",
+        "locator": "+",
+        "count": 9
+      },
+      {
+        "currier": "A",
+        "locus": "Pr",
+        "locator": "+",
+        "count": 4
+      },
+      {
+        "currier": "A",
+        "locus": "Pt",
+        "locator": "=",
+        "count": 9
+      },
+      {
+        "currier": "B",
+        "locus": "L0",
+        "locator": "*",
+        "count": 9
+      },
+      {
+        "currier": "B",
+        "locus": "L0",
+        "locator": "+",
+        "count": 48
+      },
+      {
+        "currier": "B",
+        "locus": "L0",
+        "locator": "=",
+        "count": 4
+      },
+      {
+        "currier": "B",
+        "locus": "L0",
+        "locator": "@",
+        "count": 2
+      },
+      {
+        "currier": "B",
+        "locus": "L0",
+        "locator": "~",
+        "count": 1
+      },
+      {
+        "currier": "B",
+        "locus": "Ln",
+        "locator": "*",
+        "count": 1
+      },
+      {
+        "currier": "B",
+        "locus": "Ln",
+        "locator": "+",
+        "count": 13
+      },
+      {
+        "currier": "B",
+        "locus": "Ln",
+        "locator": "=",
+        "count": 15
+      },
+      {
+        "currier": "B",
+        "locus": "Ln",
+        "locator": "@",
+        "count": 30
+      },
+      {
+        "currier": "B",
+        "locus": "Ln",
+        "locator": "~",
+        "count": 4
+      },
+      {
+        "currier": "B",
+        "locus": "Lp",
+        "locator": "@",
+        "count": 1
+      },
+      {
+        "currier": "B",
+        "locus": "Lt",
+        "locator": "*",
+        "count": 1
+      },
+      {
+        "currier": "B",
+        "locus": "Lt",
+        "locator": "+",
+        "count": 6
+      },
+      {
+        "currier": "B",
+        "locus": "Lt",
+        "locator": "=",
+        "count": 8
+      },
+      {
+        "currier": "B",
+        "locus": "Lt",
+        "locator": "@",
+        "count": 27
+      },
+      {
+        "currier": "B",
+        "locus": "Lt",
+        "locator": "~",
+        "count": 5
+      },
+      {
+        "currier": "B",
+        "locus": "Lx",
+        "locator": "@",
+        "count": 1
+      },
+      {
+        "currier": "B",
+        "locus": "P0",
+        "locator": "*",
+        "count": 9
+      },
+      {
+        "currier": "B",
+        "locus": "P0",
+        "locator": "+",
+        "count": 2066
+      },
+      {
+        "currier": "B",
+        "locus": "P0",
+        "locator": "=",
+        "count": 9
+      },
+      {
+        "currier": "B",
+        "locus": "P0",
+        "locator": "@",
+        "count": 74
+      },
+      {
+        "currier": "B",
+        "locus": "P1",
+        "locator": "+",
+        "count": 44
+      },
+      {
+        "currier": "B",
+        "locus": "P1",
+        "locator": "@",
+        "count": 4
+      },
+      {
+        "currier": "B",
+        "locus": "Pb",
+        "locator": "+",
+        "count": 22
+      },
+      {
+        "currier": "B",
+        "locus": "Pb",
+        "locator": "@",
+        "count": 5
+      },
+      {
+        "currier": "B",
+        "locus": "Pc",
+        "locator": "+",
+        "count": 6
+      },
+      {
+        "currier": "B",
+        "locus": "Pr",
+        "locator": "+",
+        "count": 5
+      },
+      {
+        "currier": "B",
+        "locus": "Pt",
+        "locator": "=",
+        "count": 1
+      },
+      {
+        "currier": "unknown",
+        "locus": "Cc",
+        "locator": "+",
+        "count": 3
+      },
+      {
+        "currier": "unknown",
+        "locus": "Cc",
+        "locator": "@",
+        "count": 17
+      },
+      {
+        "currier": "unknown",
+        "locus": "L0",
+        "locator": "&",
+        "count": 15
+      },
+      {
+        "currier": "unknown",
+        "locus": "L0",
+        "locator": "@",
+        "count": 12
+      },
+      {
+        "currier": "unknown",
+        "locus": "Lp",
+        "locator": "@",
+        "count": 1
+      },
+      {
+        "currier": "unknown",
+        "locus": "Lx",
+        "locator": "@",
+        "count": 1
+      },
+      {
+        "currier": "unknown",
+        "locus": "Lz",
+        "locator": "&",
+        "count": 80
+      },
+      {
+        "currier": "unknown",
+        "locus": "Lz",
+        "locator": "@",
+        "count": 10
+      },
+      {
+        "currier": "unknown",
+        "locus": "P0",
+        "locator": "+",
+        "count": 8
+      },
+      {
+        "currier": "unknown",
+        "locus": "P0",
+        "locator": "@",
+        "count": 2
+      },
+      {
+        "currier": "unknown",
+        "locus": "Ri",
+        "locator": "@",
+        "count": 28
+      },
+      {
+        "currier": "unknown",
+        "locus": "Ro",
+        "locator": "@",
+        "count": 26
+      }
+    ],
+    "ZL3a": [
+      {
+        "currier": "A",
+        "locus": "L0",
+        "locator": "*",
+        "count": 26
+      },
+      {
+        "currier": "A",
+        "locus": "L0",
+        "locator": "@",
+        "count": 2
+      },
+      {
+        "currier": "A",
+        "locus": "Lc",
+        "locator": "@",
+        "count": 14
+      },
+      {
+        "currier": "A",
+        "locus": "Lf",
+        "locator": "+",
+        "count": 1
+      },
+      {
+        "currier": "A",
+        "locus": "Lf",
+        "locator": "@",
+        "count": 120
+      },
+      {
+        "currier": "A",
+        "locus": "Lp",
+        "locator": "@",
+        "count": 1
+      },
+      {
+        "currier": "A",
+        "locus": "Lx",
+        "locator": "+",
+        "count": 1
+      },
+      {
+        "currier": "A",
+        "locus": "Lx",
+        "locator": "@",
+        "count": 3
+      },
+      {
+        "currier": "A",
+        "locus": "P0",
+        "locator": "*",
+        "count": 8
+      },
+      {
+        "currier": "A",
+        "locus": "P0",
+        "locator": "+",
+        "count": 1230
+      },
+      {
+        "currier": "A",
+        "locus": "P0",
+        "locator": "=",
+        "count": 27
+      },
+      {
+        "currier": "A",
+        "locus": "P0",
+        "locator": "@",
+        "count": 111
+      },
+      {
+        "currier": "A",
+        "locus": "P1",
+        "locator": "+",
+        "count": 10
+      },
+      {
+        "currier": "A",
+        "locus": "Pc",
+        "locator": "+",
+        "count": 9
+      },
+      {
+        "currier": "A",
+        "locus": "Pr",
+        "locator": "+",
+        "count": 4
+      },
+      {
+        "currier": "A",
+        "locus": "Pt",
+        "locator": "=",
+        "count": 9
+      },
+      {
+        "currier": "B",
+        "locus": "L0",
+        "locator": "*",
+        "count": 9
+      },
+      {
+        "currier": "B",
+        "locus": "L0",
+        "locator": "+",
+        "count": 48
+      },
+      {
+        "currier": "B",
+        "locus": "L0",
+        "locator": "=",
+        "count": 4
+      },
+      {
+        "currier": "B",
+        "locus": "L0",
+        "locator": "@",
+        "count": 2
+      },
+      {
+        "currier": "B",
+        "locus": "L0",
+        "locator": "~",
+        "count": 1
+      },
+      {
+        "currier": "B",
+        "locus": "Ln",
+        "locator": "*",
+        "count": 1
+      },
+      {
+        "currier": "B",
+        "locus": "Ln",
+        "locator": "+",
+        "count": 13
+      },
+      {
+        "currier": "B",
+        "locus": "Ln",
+        "locator": "=",
+        "count": 15
+      },
+      {
+        "currier": "B",
+        "locus": "Ln",
+        "locator": "@",
+        "count": 30
+      },
+      {
+        "currier": "B",
+        "locus": "Ln",
+        "locator": "~",
+        "count": 4
+      },
+      {
+        "currier": "B",
+        "locus": "Lp",
+        "locator": "@",
+        "count": 1
+      },
+      {
+        "currier": "B",
+        "locus": "Lt",
+        "locator": "*",
+        "count": 1
+      },
+      {
+        "currier": "B",
+        "locus": "Lt",
+        "locator": "+",
+        "count": 6
+      },
+      {
+        "currier": "B",
+        "locus": "Lt",
+        "locator": "=",
+        "count": 8
+      },
+      {
+        "currier": "B",
+        "locus": "Lt",
+        "locator": "@",
+        "count": 27
+      },
+      {
+        "currier": "B",
+        "locus": "Lt",
+        "locator": "~",
+        "count": 5
+      },
+      {
+        "currier": "B",
+        "locus": "Lx",
+        "locator": "@",
+        "count": 1
+      },
+      {
+        "currier": "B",
+        "locus": "P0",
+        "locator": "*",
+        "count": 9
+      },
+      {
+        "currier": "B",
+        "locus": "P0",
+        "locator": "+",
+        "count": 2066
+      },
+      {
+        "currier": "B",
+        "locus": "P0",
+        "locator": "=",
+        "count": 9
+      },
+      {
+        "currier": "B",
+        "locus": "P0",
+        "locator": "@",
+        "count": 74
+      },
+      {
+        "currier": "B",
+        "locus": "P1",
+        "locator": "+",
+        "count": 44
+      },
+      {
+        "currier": "B",
+        "locus": "P1",
+        "locator": "@",
+        "count": 4
+      },
+      {
+        "currier": "B",
+        "locus": "Pb",
+        "locator": "+",
+        "count": 22
+      },
+      {
+        "currier": "B",
+        "locus": "Pb",
+        "locator": "@",
+        "count": 5
+      },
+      {
+        "currier": "B",
+        "locus": "Pc",
+        "locator": "+",
+        "count": 6
+      },
+      {
+        "currier": "B",
+        "locus": "Pr",
+        "locator": "+",
+        "count": 5
+      },
+      {
+        "currier": "B",
+        "locus": "Pt",
+        "locator": "=",
+        "count": 1
+      },
+      {
+        "currier": "unknown",
+        "locus": "Cc",
+        "locator": "+",
+        "count": 3
+      },
+      {
+        "currier": "unknown",
+        "locus": "Cc",
+        "locator": "@",
+        "count": 17
+      },
+      {
+        "currier": "unknown",
+        "locus": "L0",
+        "locator": "&",
+        "count": 15
+      },
+      {
+        "currier": "unknown",
+        "locus": "L0",
+        "locator": "@",
+        "count": 12
+      },
+      {
+        "currier": "unknown",
+        "locus": "Lp",
+        "locator": "@",
+        "count": 1
+      },
+      {
+        "currier": "unknown",
+        "locus": "Lx",
+        "locator": "@",
+        "count": 1
+      },
+      {
+        "currier": "unknown",
+        "locus": "Lz",
+        "locator": "&",
+        "count": 80
+      },
+      {
+        "currier": "unknown",
+        "locus": "Lz",
+        "locator": "@",
+        "count": 10
+      },
+      {
+        "currier": "unknown",
+        "locus": "P0",
+        "locator": "+",
+        "count": 8
+      },
+      {
+        "currier": "unknown",
+        "locus": "P0",
+        "locator": "@",
+        "count": 2
+      },
+      {
+        "currier": "unknown",
+        "locus": "Ri",
+        "locator": "@",
+        "count": 28
+      },
+      {
+        "currier": "unknown",
+        "locus": "Ro",
+        "locator": "@",
+        "count": 26
+      }
+    ]
+  },
+  "per_file_marker_counts": {
+    "ZL3b": [
+      {
+        "currier": "A",
+        "start": false,
+        "end": false,
+        "count": 1159
+      },
+      {
+        "currier": "A",
+        "start": false,
+        "end": true,
+        "count": 207
+      },
+      {
+        "currier": "A",
+        "start": true,
+        "end": false,
+        "count": 207
+      },
+      {
+        "currier": "B",
+        "start": false,
+        "end": false,
+        "count": 1547
+      },
+      {
+        "currier": "B",
+        "start": false,
+        "end": true,
+        "count": 437
+      },
+      {
+        "currier": "B",
+        "start": true,
+        "end": false,
+        "count": 437
+      },
+      {
+        "currier": "unknown",
+        "start": false,
+        "end": false,
+        "count": 197
+      },
+      {
+        "currier": "unknown",
+        "start": false,
+        "end": true,
+        "count": 3
+      },
+      {
+        "currier": "unknown",
+        "start": true,
+        "end": false,
+        "count": 3
+      }
+    ],
+    "ZL3a": [
+      {
+        "currier": "A",
+        "start": false,
+        "end": false,
+        "count": 1162
+      },
+      {
+        "currier": "A",
+        "start": false,
+        "end": true,
+        "count": 207
+      },
+      {
+        "currier": "A",
+        "start": true,
+        "end": false,
+        "count": 207
+      },
+      {
+        "currier": "B",
+        "start": false,
+        "end": false,
+        "count": 1547
+      },
+      {
+        "currier": "B",
+        "start": false,
+        "end": true,
+        "count": 437
+      },
+      {
+        "currier": "B",
+        "start": true,
+        "end": false,
+        "count": 437
+      },
+      {
+        "currier": "unknown",
+        "start": false,
+        "end": false,
+        "count": 197
+      },
+      {
+        "currier": "unknown",
+        "start": false,
+        "end": true,
+        "count": 3
+      },
+      {
+        "currier": "unknown",
+        "start": true,
+        "end": false,
+        "count": 3
+      }
+    ]
+  },
+  "notes": [
+    "This is a provenance/concordance audit, not an independent decipherment test.",
+    "Exact source-line equality is stricter than cleaned-token equality; comments and alternate-reading notation can differ while cleaned tokens agree.",
+    "Tokenization is intentionally conservative and must be treated as an operational comparison rule, not the definitive interpretation of every IVTFF convention.",
+    "ZL3a and ZL3b are alternative transcriptions of the same manuscript, not independent samples.",
+    "All unmatched/duplicate keys and disagreements are reported; no silent pooling is performed."
+  ]
+}
