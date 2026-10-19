@@ -24,3 +24,5 @@ jobs:
           git add experiments/exp_610_length_stratified_ch_sh_audit/results.json experiments/exp_610_length_stratified_ch_sh_audit/result.md
           git diff --cached --quiet || git commit -m "Record exp610 length-stratified ch-sh audit"
           git push
+
+# Re-run audit after counter initialization fix.
