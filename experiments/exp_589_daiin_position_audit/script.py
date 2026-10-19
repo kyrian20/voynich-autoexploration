@@ -42,7 +42,7 @@ def parse(path):
         words = clean_words(body)
         if not words: continue
         rows.append({"folio": folio, "currier": currier, "locus": locus, "words": words,
-                     "is_body": bool(re.match(r"^[+*]?P", locus))})
+                     "is_body": bool(re.match(r"^[+*@]?P", locus))})
     return rows
 
 def permutation_test(lines, target, n_perm, seed):
