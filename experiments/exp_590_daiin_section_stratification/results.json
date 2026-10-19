@@ -31,7 +31,8 @@
       "null_mean": 58.258,
       "p_one_sided_plus_one": 0.995502,
       "permutations": 2000,
-      "seed": 59020261019
+      "seed": 59020261019,
+      "p_holm_secondary_currier_A_family": 0.995502
     },
     "f001_f066_CurrierB": {
       "lines": 347,
@@ -44,7 +45,8 @@
       "null_mean": 8.0335,
       "p_one_sided_plus_one": 0.048476,
       "permutations": 2000,
-      "seed": 59020261020
+      "seed": 59020261020,
+      "p_holm_primary_currier_B_family": 0.048476
     },
     "f067_f073_CurrierB": {
       "lines": 84,
@@ -57,7 +59,8 @@
       "null_mean": 1.994,
       "p_one_sided_plus_one": 0.004498,
       "permutations": 2000,
-      "seed": 59020261030
+      "seed": 59020261030,
+      "p_holm_primary_currier_B_family": 0.013494
     },
     "f074_f084_CurrierB": {
       "lines": 771,
@@ -70,7 +73,8 @@
       "null_mean": 9.6465,
       "p_one_sided_plus_one": 0.017491,
       "permutations": 2000,
-      "seed": 59020261040
+      "seed": 59020261040,
+      "p_holm_primary_currier_B_family": 0.034982
     },
     "f085_f102_CurrierA": {
       "lines": 358,
@@ -83,7 +87,8 @@
       "null_mean": 11.194,
       "p_one_sided_plus_one": 0.015492,
       "permutations": 2000,
-      "seed": 59020261049
+      "seed": 59020261049,
+      "p_holm_secondary_currier_A_family": 0.030984
     },
     "f085_f102_CurrierB": {
       "lines": 242,
@@ -96,7 +101,8 @@
       "null_mean": 3.5235,
       "p_one_sided_plus_one": 0.0005,
       "permutations": 2000,
-      "seed": 59020261050
+      "seed": 59020261050,
+      "p_holm_primary_currier_B_family": 0.0025
     },
     "f103_f116_CurrierB": {
       "lines": 1083,
@@ -109,7 +115,8 @@
       "null_mean": 11.745,
       "p_one_sided_plus_one": 0.0005,
       "permutations": 2000,
-      "seed": 59020261060
+      "seed": 59020261060,
+      "p_holm_primary_currier_B_family": 0.0025
     },
     "unknown_CurrierB": {
       "lines": 11,
@@ -126,6 +133,7 @@
     "This is a sensitivity analysis of exp_589, not an independent transcription replication.",
     "Within-line position draws preserve each line's token composition and length.",
     "Monte Carlo p-values at 0.0005 are resolution-limited with 2,000 replicates.",
+    "Primary Currier-B folio-range p-values are Holm-adjusted across five strata; Currier-A is a separately adjusted secondary family.",
     "Section bin labels are heuristic folio-number ranges; do not interpret them as scholarly section adjudications.",
     "Do not infer semantics or decipherment from positional distributions."
   ]
