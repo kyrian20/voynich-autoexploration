@@ -1,0 +1,85 @@
+{
+  "experiment": "exp_609_paired_ch_sh_vowel_test",
+  "question": "Do per-folio vowel rates after ch and sh differ, and do they co-vary, in the two available EVA transcriptions?",
+  "method": {
+    "vowels": [
+      "a",
+      "e",
+      "i",
+      "o",
+      "u",
+      "y"
+    ],
+    "count": "within-word ch/sh occurrences with a following character",
+    "paired": "only folios with at least one context for both digraphs",
+    "bootstrap_replicates": 20000,
+    "sign_flip_permutations": 20000,
+    "seed": 6092026,
+    "unit": "folio",
+    "transcription_caveat": "ZL3b and IT2a are related transcriptions, not independent manuscript witnesses."
+  },
+  "datasets": [
+    {
+      "label": "ZL3b",
+      "sha256": "bf5b6d4ac1e3a51b1847a9c388318d609020441ccd56984c901c32b09beccafc",
+      "totals": {
+        "ch": {
+          "n": 9288,
+          "vowel": 7868,
+          "e": 4322,
+          "a": 446
+        },
+        "sh": {
+          "n": 3783,
+          "vowel": 3422,
+          "e": 2224,
+          "a": 127
+        }
+      },
+      "summary": {
+        "folios_paired": 181,
+        "mean_folio_ch_vowel_rate": 0.8581502440396331,
+        "mean_folio_sh_vowel_rate": 0.9205549316370872,
+        "mean_paired_difference_ch_minus_sh": -0.062404687597454093,
+        "bootstrap_folio_resample_95pct_ci": [
+          -0.07807659062562528,
+          -0.0467715704375914
+        ],
+        "paired_sign_flip_permutation_p_two_sided": 4.999750012499375e-05,
+        "pearson_correlation_folio_ch_sh_vowel_rates": 0.5039316407185089,
+        "warning": "Unweighted folio-level descriptive analysis; not Parisel's template-conditioned model. Shared template/section effects and transcription dependence remain."
+      }
+    },
+    {
+      "label": "IT2a",
+      "sha256": "7f27a8b0feed8f6de0a99900df6bf912dd1d295c38e5f830bac8b41c3f536fb5",
+      "totals": {
+        "ch": {
+          "n": 9433,
+          "vowel": 7945,
+          "e": 4324,
+          "a": 448
+        },
+        "sh": {
+          "n": 3825,
+          "vowel": 3440,
+          "e": 2229,
+          "a": 122
+        }
+      },
+      "summary": {
+        "folios_paired": 182,
+        "mean_folio_ch_vowel_rate": 0.8520815883323611,
+        "mean_folio_sh_vowel_rate": 0.9069759236549252,
+        "mean_paired_difference_ch_minus_sh": -0.05489433532256397,
+        "bootstrap_folio_resample_95pct_ci": [
+          -0.07338408555917515,
+          -0.035321545136600414
+        ],
+        "paired_sign_flip_permutation_p_two_sided": 4.999750012499375e-05,
+        "pearson_correlation_folio_ch_sh_vowel_rates": 0.4143319889614427,
+        "warning": "Unweighted folio-level descriptive analysis; not Parisel's template-conditioned model. Shared template/section effects and transcription dependence remain."
+      }
+    }
+  ]
+}
