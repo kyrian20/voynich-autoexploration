@@ -31,12 +31,12 @@ The parser was broadened after the first pass to include compound folio identifi
 
 | Measure across 5,385 aligned records | Count | Share |
 |---|---:|---:|
-| Raw IVTFF payload exactly equal | 5,327 | 98.92% |
-| Raw payload differs | 58 | 1.08% |
+| Trimmed raw body-payload string exactly equal | 5,327 | 98.92% |
+| Trimmed body-payload string differs | 58 | 1.08% |
 | Cleaned token sequence exactly equal | 5,336 | 99.09% |
 | Cleaned token sequence differs | 49 | 0.91% |
 
-The 49 token-sequence differences break down by Currier metadata: 13 A, 22 B, and 14 records where the header does not supply Currier A/B. By normalized locus, 22 differences fall in P0, 18 in Cc, four in L0, two in Pb, and one each in Lc, Ri, and Ro.
+The 49 cleaned-token-sequence differences break down by Currier metadata: 13 A, 22 B, and 14 records where the header does not supply Currier A/B. By normalized locus, 22 differences fall in P0, 18 in Cc, four in L0, two in Pb, and one each in Lc, Ri, and Ro.
 
 Sequence alignment across the 49 differing rows counted a minimum of 127 substitution edits, two insertions, and 20 deletions. These are token-level alignment edit counts, not claims that every edit is an independent manuscript error.
 
