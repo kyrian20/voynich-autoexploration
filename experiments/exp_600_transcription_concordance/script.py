@@ -26,7 +26,7 @@ def clean_words(text):
     return [w.lower() for w in re.split(r"[.\s,]+",text) if re.fullmatch(r"[A-Za-z]+",w)]
 
 def parse(path,label):
-    records={};duplicates=[];header_count=0;folio="unknown";currier="unknown"
+    records={};duplicates=[];invalid_identifiers=[];header_count=0;folio="unknown";currier="unknown"
     marker_counts=collections.Counter();locus_counts=collections.Counter()
     line_count=0
     for line_no,raw in enumerate(path.read_text(encoding="latin-1").splitlines(),1):
@@ -45,7 +45,10 @@ def parse(path,label):
         ident,raw_locus=meta.split(",",1)
         ident=ident.strip();raw_locus=raw_locus.strip()
         # Identifier (folio + line ordinal) is the cross-version alignment key.
-        if not re.match(r"^f\d+[rv]\.\d+[a-z]?$",ident):
+        # IVTFF line identifiers can include suffixes beyond a simple ordinal.
+        # Accept any non-empty text suffix after the folio + dot; record exceptions.
+        if not re.match(r"^f\d+[rv]\..+$",ident):
+            invalid_identifiers.append({"identifier":ident,"source_line_number":line_no})
             continue
         line_count+=1
         locus=re.sub(r"^[+*@=~&!/]+","",raw_locus)
@@ -67,6 +70,7 @@ def parse(path,label):
     return {"label":label,"path":str(path.relative_to(ROOT)),"bytes":path.stat().st_size,
             "sha256":sha256(path),"folio_headers":header_count,"line_records":line_count,
             "unique_line_keys":len(records),"records":records,"duplicates":duplicates,
+            "invalid_identifiers":invalid_identifiers,
             "locus_counts":[{"currier":k[0],"locus":k[1],"locator":k[2],"count":v}
                             for k,v in sorted(locus_counts.items())],
             "marker_counts":[{"currier":k[0],"start":k[1],"end":k[2],"count":v}
@@ -138,7 +142,11 @@ def main():
         "ZL3b_unique_line_keys":len(akeys),"ZL3a_unique_line_keys":len(bkeys),
         "aligned_keys":len(common),"only_in_ZL3b_count":len(only_a),"only_in_ZL3a_count":len(only_b),
         "only_in_ZL3b_examples":only_a[:args.examples],"only_in_ZL3a_examples":only_b[:args.examples],
-        "duplicate_keys_ZL3b":a["duplicates"],"duplicate_keys_ZL3a":b["duplicates"]},
+        "duplicate_keys_ZL3b":a["duplicates"],"duplicate_keys_ZL3a":b["duplicates"],
+        "invalid_identifier_count_ZL3b":len(a["invalid_identifiers"]),
+        "invalid_identifier_count_ZL3a":len(b["invalid_identifiers"]),
+        "invalid_identifier_examples_ZL3b":a["invalid_identifiers"][:args.examples],
+        "invalid_identifier_examples_ZL3a":b["invalid_identifiers"][:args.examples]},
       "alignment_summary":dict(summary),
       "token_edit_totals_on_differing_lines":dict(token_edits),
       "token_different_line_keys":token_diff_lines,
