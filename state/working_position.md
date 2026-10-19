@@ -1,3 +1,7 @@
+> **Archived checkpoint warning — 2026-10-19:** this document is a historical snapshot dated 2026-04-12 and ends at exp_579/574. It is retained for provenance and should not be read as the current status. The current canonical checkpoint is [state/current_state.md](current_state.md); the cross-experiment synthesis for exp_589–599 is [research/synthesis/2026-10-19-daiin-position-synthesis.md](../research/synthesis/2026-10-19-daiin-position-synthesis.md). Do not restart from the experiment number in this archived file without checking those newer records.
+
+---
+
 # Working Position — Voynich Manuscript Cryptanalysis
 **Date**: 2026-04-12 (through exp_579 — Cryptanalyst phase closure COMPLETE)
 **Archive**: state/archive/working_position_2026_04_11.md (through exp_524, 1388 lines)
