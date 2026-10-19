@@ -1,0 +1,144 @@
+{
+  "experiment": "exp_591_daiin_locus_stratification",
+  "protocol_version": 1,
+  "source": {
+    "path": "data/transcriptions/eva_zl3b.txt",
+    "bytes": 411671,
+    "sha256": "bf5b6d4ac1e3a51b1847a9c388318d609020441ccd56984c901c32b09beccafc"
+  },
+  "parser": {
+    "body_locus_regex": "^[+*@]?P",
+    "minimum_words_per_line": 2,
+    "locus_codes_kept_verbatim_after_prefix_removal": [
+      "P0",
+      "P1",
+      "Pb",
+      "Pc",
+      "Pr"
+    ]
+  },
+  "all_body_lines_ge2_tokens": 4062,
+  "locus_token_counts": {
+    "P0": 3846,
+    "P1": 72,
+    "Pb": 116,
+    "Pc": 16,
+    "Pr": 12
+  },
+  "strata": {
+    "A_P0": {
+      "lines": 1501,
+      "daiin_tokens": 485,
+      "first_observed": 59,
+      "first_expected": 67.851,
+      "first_enrichment": 0.86955,
+      "last_observed": 101,
+      "last_expected_under_exchangeability": 67.851,
+      "null_mean": 67.9735,
+      "p_one_sided_plus_one": 0.902049,
+      "permutations": 2000,
+      "seed": 59120261019,
+      "p_holm_secondary_currier_A_locus_family": 0.902049
+    },
+    "B_P0": {
+      "lines": 2345,
+      "daiin_tokens": 298,
+      "first_observed": 89,
+      "first_expected": 31.5292,
+      "first_enrichment": 2.82278,
+      "last_observed": 23,
+      "last_expected_under_exchangeability": 31.5292,
+      "null_mean": 31.338,
+      "p_one_sided_plus_one": 0.0005,
+      "permutations": 2000,
+      "seed": 59120261020,
+      "p_holm_primary_currier_B_locus_family": 0.0015
+    },
+    "A_P1": {
+      "lines": 10,
+      "daiin_tokens": 4,
+      "first_observed": 1,
+      "first_expected": 0.9833,
+      "first_enrichment": 1.01695,
+      "last_observed": 0,
+      "last_expected_under_exchangeability": 0.9833,
+      "status": "descriptive_only_fewer_than_50_lines"
+    },
+    "B_P1": {
+      "lines": 62,
+      "daiin_tokens": 7,
+      "first_observed": 4,
+      "first_expected": 1.1083,
+      "first_enrichment": 3.60902,
+      "last_observed": 1,
+      "last_expected_under_exchangeability": 1.1083,
+      "null_mean": 1.0775,
+      "p_one_sided_plus_one": 0.012494,
+      "permutations": 2000,
+      "seed": 59120261030,
+      "p_holm_primary_currier_B_locus_family": 0.024988
+    },
+    "B_Pb": {
+      "lines": 116,
+      "daiin_tokens": 12,
+      "first_observed": 4,
+      "first_expected": 2.4683,
+      "first_enrichment": 1.62057,
+      "last_observed": 2,
+      "last_expected_under_exchangeability": 2.4683,
+      "null_mean": 2.465,
+      "p_one_sided_plus_one": 0.210395,
+      "permutations": 2000,
+      "seed": 59120261040,
+      "p_holm_primary_currier_B_locus_family": 0.210395
+    },
+    "A_Pc": {
+      "lines": 8,
+      "daiin_tokens": 0,
+      "first_observed": 0,
+      "first_expected": 0.0,
+      "first_enrichment": null,
+      "last_observed": 0,
+      "last_expected_under_exchangeability": 0.0,
+      "status": "descriptive_only_fewer_than_50_lines"
+    },
+    "B_Pc": {
+      "lines": 8,
+      "daiin_tokens": 0,
+      "first_observed": 0,
+      "first_expected": 0.0,
+      "first_enrichment": null,
+      "last_observed": 0,
+      "last_expected_under_exchangeability": 0.0,
+      "status": "descriptive_only_fewer_than_50_lines"
+    },
+    "A_Pr": {
+      "lines": 5,
+      "daiin_tokens": 1,
+      "first_observed": 1,
+      "first_expected": 0.5,
+      "first_enrichment": 2.0,
+      "last_observed": 0,
+      "last_expected_under_exchangeability": 0.5,
+      "status": "descriptive_only_fewer_than_50_lines"
+    },
+    "B_Pr": {
+      "lines": 7,
+      "daiin_tokens": 0,
+      "first_observed": 0,
+      "first_expected": 0.0,
+      "first_enrichment": null,
+      "last_observed": 0,
+      "last_expected_under_exchangeability": 0.0,
+      "status": "descriptive_only_fewer_than_50_lines"
+    }
+  },
+  "notes": [
+    "Follow-up sensitivity analysis of exp_589; ZL3b only, not an independent transcription replication.",
+    "Primary family: eligible Currier-B locus subtypes, Holm-adjusted among all B strata with at least 50 lines.",
+    "Currier-A locus subtypes form a separately adjusted secondary family.",
+    "Locus codes are reported verbatim; no grammatical interpretation is assigned.",
+    "Monte Carlo p=0.0005 is the resolution floor for 2,000 replicates.",
+    "This is a position-only analysis and does not decipher the manuscript."
+  ]
+}
