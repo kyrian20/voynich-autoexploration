@@ -1,6 +1,21 @@
 # Current State — Voynich Cryptanalyst
-**Last updated**: 2026-04-13 (through exp_588 — Transliteration replication R3 tiebreaker)
 
-After 585 experiments, the pre-registered architecture specificity test is complete (exp_584 + exp_585 corrected replication). The 21-mechanism architecture achieves R_6param = 17/12 = 1.417 ≥ 1.3. PRE-REGISTERED CLASSIFICATION: STRONG_SPECIFICITY. C008 retained and strengthened. exp_585 (abstract-token simulation) confirms VMS positive control 19/19, Latin 5/17, Italian 4/17 applicable PASS. Key structural floors logically argued: y/s/d LF bias baked into VMS onset_lf distribution, global_am_rate gap (VMS ≈2% am-suffix vs Latin 17%), adj_rate below P_STUTTER floor, am_ll below VMS LL-suffix floor, ss_mean/ss_y below copy-buffer succession floor. The loop is paused. Next phase: Grammar Spec consolidation as directed.
+**Last updated:** 2026-10-19 (repository audit + exp_589 implementation added; execution pending)
 
-**2026-04-13 (exp_586–588) — Transliteration replication complete.** All 5 pre-registered Section 2 findings (F1: three-layer positional architecture, F2: terminal dialect inversion, F3: bigram invariants, F4: A-herbal paragraph chain, F5: edy suffix transformation) were replicated under three alternative transliteration systems: EVA-basic (exp_586, ALL_RETAINED), v101 Claston (exp_587, PARTIAL — F4 failed due to o→sh obs=1 power issue), ZL3a (exp_588, ALL_RETAINED as tiebreaker). Final verdict: ALL 5 FINDINGS RETAINED (pre-registered ≥2/3 criterion satisfied for all). F4 tiebreaker: 2/3 RETAINED (97.5th/96.5th pct in ZL3a vs 77th/86.5th in v101 — power/sparsity issue confirmed). Full summary: state/transliteration_replication_final_summary.md. Draft paper language for Section 2 robustness claim proposed therein.
+## Canonical research checkpoint
+The latest pre-existing scientific checkpoint remains **exp_588**, summarized in `state/transliteration_replication_final_summary.md` and earlier content of this file. The 2026-04-13 checkpoint reports all five pre-registered Section 2 findings retained under the registered ≥2/3 transliteration criterion; F4 retained in EVA-basic and ZL3a but failed in v101 where the o→sh edge count was one. Treat this as a repository-reported result until independently rerun.
+
+## Operational status
+The scheduled LLM report workflow needs OpenAI API billing and hit HTTP 429 on 2026-10-19. No LLM workflow retry was initiated. New corpus experiments are separated from that workflow so they can run with standard GitHub Actions and Python without OpenAI API credits.
+
+## New experiment exp_589
+A deterministic test has been added to examine whether body-text token `daiin` is overrepresented at line-initial position when expected counts are conditioned on each line's own token composition and length. It applies 2,000 within-line permutations, separately for ZL3b and ZL3a and for Currier A/B subsets, and records SHA-256 source-file hashes.
+
+**Status: code and workflow committed; results not yet generated or reviewed.** No outcome is currently claimed. Results are conditional on the parser's conservative tokenization, and positional bias cannot establish meaning or decipherment.
+
+## Guardrails
+- Never label a hypothesis or proposed experiment as validated.
+- Do not infer the generative architecture is the manuscript's actual authoring mechanism or a decipherment.
+- Do not overwrite older experiment records; append new, traceable experiment IDs.
+- Do not call the paid OpenAI API for these corpus analyses.
+- Next step: review the GitHub Actions result from `.github/workflows/voynich-corpus-experiments.yml`, validate counts/hashes/parser coverage, then decide whether to retain or reject the positional-affinity hypothesis.
