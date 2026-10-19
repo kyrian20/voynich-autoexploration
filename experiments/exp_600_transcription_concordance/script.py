@@ -49,7 +49,7 @@ def parse(path,label):
         # Identifier (folio + line ordinal) is the cross-version alignment key.
         # IVTFF line identifiers can include suffixes beyond a simple ordinal.
         # Accept any non-empty text suffix after the folio + dot; record exceptions.
-        if not re.match(r"^f\d+[rv]\w*\..+$",ident):
+        if not re.match(r"^f[^.]+\..+$",ident):
             invalid_identifiers.append({"identifier":ident,"source_line_number":line_no})
             continue
         line_count+=1
