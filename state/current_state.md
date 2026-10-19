@@ -14,6 +14,15 @@
 - Open work: exp_616 section/folio-group holdout; exp_619 preregistered negative-control/multiple-testing audit; finish exp_620 independent parser audit; exp_621 synthesis. These are not marked complete.
 - Interpretation: these are conditional distributional observations, not semantic decoding, phonetic proof, or evidence of translation. ZL3b and IT2a are alternative transcriptions of the same manuscript, not independent manuscript samples.
 
+
+
+## Latest session addendum — 2026-10-19 (experiments 612–621)
+
+Experiments 612–615 and 617–618 are saved; 616 and 619–621 are partial. The ch/sh next-character vowel contrast remains positive in the matched IVTFF $Q=T subset, including bootstrap, conditional permutation, narrower vowel inventory, high-support cells, and unique-word-type weighting. However, exp619's preceding-character control has a contrast of similar or larger magnitude (+7.41 pp ZL3b, +8.16 pp IT2a), with folio-bootstrap intervals including zero. This is a meaningful warning that broad token-template/local-context effects may account for the apparent next-character contrast. Do not claim the effect is specific to following characters or supports decipherment.
+
+The terminal-digraph parser inconsistency in follow-up scripts was corrected; the corrected ZL3b counts match exp612. Exp620 remains partial pending a genuinely independent parser and full IVTFF edge-case tests. Exp616 used heuristic numeric folio blocks, not verified manuscript sections. Exp619 is one exploratory adjacent-context control, not a complete multiple-testing audit. Interim synthesis: experiments/exp_621_interim_ch_sh_decision_report/result.md. Remaining work: authoritative section holdout, preregistered control family/multiple-testing review, independent parser, then final closure.
+
+
 ## Canonical status and source of truth
 Read the synthesis at `research/synthesis/2026-10-19-daiin-position-synthesis.md`. It separates robust distribution observations, annotation-sensitive outcomes, non-significant comparisons, and the exp_598 method failure.
 
