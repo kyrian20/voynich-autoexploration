@@ -1,0 +1,502 @@
+{
+  "experiment": "exp_596_daiin_vs_common_word_position_controls",
+  "protocol_version": 1,
+  "targets": [
+    "daiin",
+    "aiin",
+    "chedy",
+    "dain",
+    "saiin",
+    "qokaiin"
+  ],
+  "primary_target": "daiin",
+  "filters": {
+    "locus": "P0",
+    "Currier_A_B_separate": true,
+    "minimum_clean_tokens_per_line": 2
+  },
+  "null": "Choose one uniformly random token position independently in every line, preserving each line's token inventory and length.",
+  "versions": [
+    {
+      "transcription": "ZL3b",
+      "source": {
+        "path": "data/transcriptions/eva_zl3b.txt",
+        "bytes": 411671,
+        "sha256": "bf5b6d4ac1e3a51b1847a9c388318d609020441ccd56984c901c32b09beccafc"
+      },
+      "eligible_P0_lines": 3882,
+      "by_dialect": {
+        "A": {
+          "daiin": {
+            "lines": 1528,
+            "token_count": 495,
+            "first_observed": 60,
+            "first_expected": 69.75341,
+            "enrichment": 0.86017,
+            "null_mean": 69.7722,
+            "p_upper_tail_plus_one": 0.914017,
+            "p_lower_tail_plus_one": 0.108578,
+            "permutations": 5000,
+            "seed": 59620261019,
+            "p_holm_upper_family": 1.0,
+            "p_holm_lower_family": 0.54289
+          },
+          "aiin": {
+            "lines": 1528,
+            "token_count": 90,
+            "first_observed": 1,
+            "first_expected": 10.08586,
+            "enrichment": 0.09915,
+            "null_mean": 10.0786,
+            "p_upper_tail_plus_one": 1.0,
+            "p_lower_tail_plus_one": 0.0006,
+            "permutations": 5000,
+            "seed": 59620261019,
+            "p_holm_upper_family": 1.0,
+            "p_holm_lower_family": 0.0036
+          },
+          "chedy": {
+            "lines": 1528,
+            "token_count": 2,
+            "first_observed": 0,
+            "first_expected": 0.25397,
+            "enrichment": 0.0,
+            "null_mean": 0.2508,
+            "p_upper_tail_plus_one": 1.0,
+            "p_lower_tail_plus_one": 0.764247,
+            "permutations": 5000,
+            "seed": 59620261019,
+            "p_holm_upper_family": 1.0,
+            "p_holm_lower_family": 1.0
+          },
+          "dain": {
+            "lines": 1528,
+            "token_count": 97,
+            "first_observed": 13,
+            "first_expected": 13.79486,
+            "enrichment": 0.94238,
+            "null_mean": 13.7256,
+            "p_upper_tail_plus_one": 0.630474,
+            "p_lower_tail_plus_one": 0.483503,
+            "permutations": 5000,
+            "seed": 59620261019,
+            "p_holm_upper_family": 1.0,
+            "p_holm_lower_family": 1.0
+          },
+          "saiin": {
+            "lines": 1528,
+            "token_count": 36,
+            "first_observed": 8,
+            "first_expected": 6.07551,
+            "enrichment": 1.31676,
+            "null_mean": 6.0728,
+            "p_upper_tail_plus_one": 0.24815,
+            "p_lower_tail_plus_one": 0.876425,
+            "permutations": 5000,
+            "seed": 59620261019,
+            "p_holm_upper_family": 1.0,
+            "p_holm_lower_family": 1.0
+          },
+          "qokaiin": {
+            "lines": 1528,
+            "token_count": 22,
+            "first_observed": 4,
+            "first_expected": 2.56392,
+            "enrichment": 1.56011,
+            "null_mean": 2.5922,
+            "p_upper_tail_plus_one": 0.256149,
+            "p_lower_tail_plus_one": 0.890222,
+            "permutations": 5000,
+            "seed": 59620261019,
+            "p_holm_upper_family": 1.0,
+            "p_holm_lower_family": 1.0
+          }
+        },
+        "B": {
+          "daiin": {
+            "lines": 2354,
+            "token_count": 298,
+            "first_observed": 89,
+            "first_expected": 31.52922,
+            "enrichment": 2.82278,
+            "null_mean": 31.5306,
+            "p_upper_tail_plus_one": 0.0002,
+            "p_lower_tail_plus_one": 1.0,
+            "permutations": 5000,
+            "seed": 59620261119,
+            "p_holm_upper_family": 0.0012,
+            "p_holm_lower_family": 1.0
+          },
+          "aiin": {
+            "lines": 2354,
+            "token_count": 359,
+            "first_observed": 1,
+            "first_expected": 34.58124,
+            "enrichment": 0.02892,
+            "null_mean": 34.5866,
+            "p_upper_tail_plus_one": 1.0,
+            "p_lower_tail_plus_one": 0.0002,
+            "permutations": 5000,
+            "seed": 59620261119,
+            "p_holm_upper_family": 1.0,
+            "p_holm_lower_family": 0.0012
+          },
+          "chedy": {
+            "lines": 2354,
+            "token_count": 479,
+            "first_observed": 6,
+            "first_expected": 49.33726,
+            "enrichment": 0.12161,
+            "null_mean": 49.3094,
+            "p_upper_tail_plus_one": 1.0,
+            "p_lower_tail_plus_one": 0.0002,
+            "permutations": 5000,
+            "seed": 59620261119,
+            "p_holm_upper_family": 1.0,
+            "p_holm_lower_family": 0.0012
+          },
+          "dain": {
+            "lines": 2354,
+            "token_count": 107,
+            "first_observed": 34,
+            "first_expected": 10.71429,
+            "enrichment": 3.17333,
+            "null_mean": 10.762,
+            "p_upper_tail_plus_one": 0.0002,
+            "p_lower_tail_plus_one": 1.0,
+            "permutations": 5000,
+            "seed": 59620261119,
+            "p_holm_upper_family": 0.0012,
+            "p_holm_lower_family": 1.0
+          },
+          "saiin": {
+            "lines": 2354,
+            "token_count": 82,
+            "first_observed": 46,
+            "first_expected": 9.15833,
+            "enrichment": 5.02275,
+            "null_mean": 9.2332,
+            "p_upper_tail_plus_one": 0.0002,
+            "p_lower_tail_plus_one": 1.0,
+            "permutations": 5000,
+            "seed": 59620261119,
+            "p_holm_upper_family": 0.0012,
+            "p_holm_lower_family": 1.0
+          },
+          "qokaiin": {
+            "lines": 2354,
+            "token_count": 240,
+            "first_observed": 25,
+            "first_expected": 26.84588,
+            "enrichment": 0.93124,
+            "null_mean": 26.9136,
+            "p_upper_tail_plus_one": 0.682464,
+            "p_lower_tail_plus_one": 0.39992,
+            "permutations": 5000,
+            "seed": 59620261119,
+            "p_holm_upper_family": 1.0,
+            "p_holm_lower_family": 1.0
+          }
+        }
+      }
+    },
+    {
+      "transcription": "ZL3a",
+      "source": {
+        "path": "data/transcriptions/zl3a.txt",
+        "bytes": 411710,
+        "sha256": "56419297682d338ff1a0a17f5ae251e3ee3e2c5bf05a62db04c5385ef30b36a2"
+      },
+      "eligible_P0_lines": 3882,
+      "by_dialect": {
+        "A": {
+          "daiin": {
+            "lines": 1528,
+            "token_count": 495,
+            "first_observed": 60,
+            "first_expected": 69.78877,
+            "enrichment": 0.85974,
+            "null_mean": 69.7258,
+            "p_upper_tail_plus_one": 0.918216,
+            "p_lower_tail_plus_one": 0.105779,
+            "permutations": 5000,
+            "seed": 59620262019,
+            "p_holm_upper_family": 1.0,
+            "p_holm_lower_family": 0.528895
+          },
+          "aiin": {
+            "lines": 1528,
+            "token_count": 90,
+            "first_observed": 1,
+            "first_expected": 10.09003,
+            "enrichment": 0.09911,
+            "null_mean": 10.0778,
+            "p_upper_tail_plus_one": 1.0,
+            "p_lower_tail_plus_one": 0.0004,
+            "permutations": 5000,
+            "seed": 59620262019,
+            "p_holm_upper_family": 1.0,
+            "p_holm_lower_family": 0.0024
+          },
+          "chedy": {
+            "lines": 1528,
+            "token_count": 2,
+            "first_observed": 0,
+            "first_expected": 0.25397,
+            "enrichment": 0.0,
+            "null_mean": 0.2542,
+            "p_upper_tail_plus_one": 1.0,
+            "p_lower_tail_plus_one": 0.762248,
+            "permutations": 5000,
+            "seed": 59620262019,
+            "p_holm_upper_family": 1.0,
+            "p_holm_lower_family": 1.0
+          },
+          "dain": {
+            "lines": 1528,
+            "token_count": 97,
+            "first_observed": 13,
+            "first_expected": 13.80597,
+            "enrichment": 0.94162,
+            "null_mean": 13.8098,
+            "p_upper_tail_plus_one": 0.645671,
+            "p_lower_tail_plus_one": 0.472306,
+            "permutations": 5000,
+            "seed": 59620262019,
+            "p_holm_upper_family": 1.0,
+            "p_holm_lower_family": 1.0
+          },
+          "saiin": {
+            "lines": 1528,
+            "token_count": 36,
+            "first_observed": 8,
+            "first_expected": 6.07551,
+            "enrichment": 1.31676,
+            "null_mean": 6.079,
+            "p_upper_tail_plus_one": 0.236353,
+            "p_lower_tail_plus_one": 0.875825,
+            "permutations": 5000,
+            "seed": 59620262019,
+            "p_holm_upper_family": 1.0,
+            "p_holm_lower_family": 1.0
+          },
+          "qokaiin": {
+            "lines": 1528,
+            "token_count": 22,
+            "first_observed": 4,
+            "first_expected": 2.56392,
+            "enrichment": 1.56011,
+            "null_mean": 2.553,
+            "p_upper_tail_plus_one": 0.25095,
+            "p_lower_tail_plus_one": 0.896021,
+            "permutations": 5000,
+            "seed": 59620262019,
+            "p_holm_upper_family": 1.0,
+            "p_holm_lower_family": 1.0
+          }
+        },
+        "B": {
+          "daiin": {
+            "lines": 2354,
+            "token_count": 299,
+            "first_observed": 89,
+            "first_expected": 31.63393,
+            "enrichment": 2.81344,
+            "null_mean": 31.7788,
+            "p_upper_tail_plus_one": 0.0002,
+            "p_lower_tail_plus_one": 1.0,
+            "permutations": 5000,
+            "seed": 59620262119,
+            "p_holm_upper_family": 0.0012,
+            "p_holm_lower_family": 1.0
+          },
+          "aiin": {
+            "lines": 2354,
+            "token_count": 358,
+            "first_observed": 1,
+            "first_expected": 34.47013,
+            "enrichment": 0.02901,
+            "null_mean": 34.5792,
+            "p_upper_tail_plus_one": 1.0,
+            "p_lower_tail_plus_one": 0.0002,
+            "permutations": 5000,
+            "seed": 59620262119,
+            "p_holm_upper_family": 1.0,
+            "p_holm_lower_family": 0.0012
+          },
+          "chedy": {
+            "lines": 2354,
+            "token_count": 479,
+            "first_observed": 6,
+            "first_expected": 49.33085,
+            "enrichment": 0.12163,
+            "null_mean": 49.3568,
+            "p_upper_tail_plus_one": 1.0,
+            "p_lower_tail_plus_one": 0.0002,
+            "permutations": 5000,
+            "seed": 59620262119,
+            "p_holm_upper_family": 1.0,
+            "p_holm_lower_family": 0.0012
+          },
+          "dain": {
+            "lines": 2354,
+            "token_count": 107,
+            "first_observed": 34,
+            "first_expected": 10.71429,
+            "enrichment": 3.17333,
+            "null_mean": 10.7074,
+            "p_upper_tail_plus_one": 0.0002,
+            "p_lower_tail_plus_one": 1.0,
+            "permutations": 5000,
+            "seed": 59620262119,
+            "p_holm_upper_family": 0.0012,
+            "p_holm_lower_family": 1.0
+          },
+          "saiin": {
+            "lines": 2354,
+            "token_count": 82,
+            "first_observed": 46,
+            "first_expected": 9.15833,
+            "enrichment": 5.02275,
+            "null_mean": 9.144,
+            "p_upper_tail_plus_one": 0.0002,
+            "p_lower_tail_plus_one": 1.0,
+            "permutations": 5000,
+            "seed": 59620262119,
+            "p_holm_upper_family": 0.0012,
+            "p_holm_lower_family": 1.0
+          },
+          "qokaiin": {
+            "lines": 2354,
+            "token_count": 240,
+            "first_observed": 25,
+            "first_expected": 26.84588,
+            "enrichment": 0.93124,
+            "null_mean": 26.934,
+            "p_upper_tail_plus_one": 0.696661,
+            "p_lower_tail_plus_one": 0.388322,
+            "permutations": 5000,
+            "seed": 59620262119,
+            "p_holm_upper_family": 1.0,
+            "p_holm_lower_family": 1.0
+          }
+        }
+      }
+    }
+  ],
+  "cross_transcription_comparison": {
+    "A_daiin": {
+      "ZL3b_enrichment": 0.86017,
+      "ZL3a_enrichment": 0.85974,
+      "difference": -0.00043,
+      "ZL3b_first": 60,
+      "ZL3a_first": 60,
+      "ZL3b_holm_upper": 1.0,
+      "ZL3a_holm_upper": 1.0
+    },
+    "A_aiin": {
+      "ZL3b_enrichment": 0.09915,
+      "ZL3a_enrichment": 0.09911,
+      "difference": -4e-05,
+      "ZL3b_first": 1,
+      "ZL3a_first": 1,
+      "ZL3b_holm_upper": 1.0,
+      "ZL3a_holm_upper": 1.0
+    },
+    "A_chedy": {
+      "ZL3b_enrichment": 0.0,
+      "ZL3a_enrichment": 0.0,
+      "difference": 0.0,
+      "ZL3b_first": 0,
+      "ZL3a_first": 0,
+      "ZL3b_holm_upper": 1.0,
+      "ZL3a_holm_upper": 1.0
+    },
+    "A_dain": {
+      "ZL3b_enrichment": 0.94238,
+      "ZL3a_enrichment": 0.94162,
+      "difference": -0.00076,
+      "ZL3b_first": 13,
+      "ZL3a_first": 13,
+      "ZL3b_holm_upper": 1.0,
+      "ZL3a_holm_upper": 1.0
+    },
+    "A_saiin": {
+      "ZL3b_enrichment": 1.31676,
+      "ZL3a_enrichment": 1.31676,
+      "difference": 0.0,
+      "ZL3b_first": 8,
+      "ZL3a_first": 8,
+      "ZL3b_holm_upper": 1.0,
+      "ZL3a_holm_upper": 1.0
+    },
+    "A_qokaiin": {
+      "ZL3b_enrichment": 1.56011,
+      "ZL3a_enrichment": 1.56011,
+      "difference": 0.0,
+      "ZL3b_first": 4,
+      "ZL3a_first": 4,
+      "ZL3b_holm_upper": 1.0,
+      "ZL3a_holm_upper": 1.0
+    },
+    "B_daiin": {
+      "ZL3b_enrichment": 2.82278,
+      "ZL3a_enrichment": 2.81344,
+      "difference": -0.00934,
+      "ZL3b_first": 89,
+      "ZL3a_first": 89,
+      "ZL3b_holm_upper": 0.0012,
+      "ZL3a_holm_upper": 0.0012
+    },
+    "B_aiin": {
+      "ZL3b_enrichment": 0.02892,
+      "ZL3a_enrichment": 0.02901,
+      "difference": 9e-05,
+      "ZL3b_first": 1,
+      "ZL3a_first": 1,
+      "ZL3b_holm_upper": 1.0,
+      "ZL3a_holm_upper": 1.0
+    },
+    "B_chedy": {
+      "ZL3b_enrichment": 0.12161,
+      "ZL3a_enrichment": 0.12163,
+      "difference": 2e-05,
+      "ZL3b_first": 6,
+      "ZL3a_first": 6,
+      "ZL3b_holm_upper": 1.0,
+      "ZL3a_holm_upper": 1.0
+    },
+    "B_dain": {
+      "ZL3b_enrichment": 3.17333,
+      "ZL3a_enrichment": 3.17333,
+      "difference": 0.0,
+      "ZL3b_first": 34,
+      "ZL3a_first": 34,
+      "ZL3b_holm_upper": 0.0012,
+      "ZL3a_holm_upper": 0.0012
+    },
+    "B_saiin": {
+      "ZL3b_enrichment": 5.02275,
+      "ZL3a_enrichment": 5.02275,
+      "difference": 0.0,
+      "ZL3b_first": 46,
+      "ZL3a_first": 46,
+      "ZL3b_holm_upper": 0.0012,
+      "ZL3a_holm_upper": 0.0012
+    },
+    "B_qokaiin": {
+      "ZL3b_enrichment": 0.93124,
+      "ZL3a_enrichment": 0.93124,
+      "difference": 0.0,
+      "ZL3b_first": 25,
+      "ZL3a_first": 25,
+      "ZL3b_holm_upper": 1.0,
+      "ZL3a_holm_upper": 1.0
+    }
+  },
+  "notes": [
+    "Control list frozen from prior exp_589 script; not selected after seeing results.",
+    "Holm correction applied across six targets separately for each transcription/dialect/tail family.",
+    "This test concerns word placement, not semantic identity or decipherment."
+  ]
+}
