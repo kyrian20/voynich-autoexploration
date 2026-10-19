@@ -1,7 +1,7 @@
 # Synthesis — exp_589–exp_599: EVA `daiin` positional/context audit
 
 **Date:** 2026-10-19  
-**Scope:** the 11 experiments added after the repository's earlier exp_588 checkpoint.  
+**Scope:** exp_589–exp_600, the experiments added after the repository's earlier exp_588 checkpoint.  
 **Canonical status:** exploratory corpus-distribution research only; no decipherment or semantic claims.
 
 ## Executive assessment
@@ -90,6 +90,17 @@ Report: [exp_599 result](../../experiments/exp_599_marginal_successor_positions/
 - With the same 169 B/P0 starter lines, none of six pairwise tests (three starter pairs at each of two offsets) was significant after Holm correction in either file.
 - The correct interpretation is “no distinguishable difference was detected under this test,” not “the contexts are equivalent.”
 
+### D. The two transcription files are highly concordant
+
+**10. ZL3a/ZL3b line-level concordance — exp_600**  
+Run: https://github.com/kyrian20/voynich-autoexploration/actions/runs/39259781970  
+Report: [exp_600 result](../../experiments/exp_600_transcription_concordance/result.md)
+
+- The corrected parser aligns 5,385 line records by exact IVTFF identifier, with no duplicate or skipped IDs; four IDs appear only in ZL3a.
+- Of aligned lines, 5,336 (99.09%) have identical cleaned token sequences; 49 (0.91%) differ. All matched records have the same normalized locus/Currier label under this parser, and paragraph marker flags match.
+- This explains the near-identical statistics in prior analyses. ZL3a/ZL3b agreement is version robustness on closely related transcriptions, not replication across independent corpora.
+- The next necessary check is to measure how these exact 49 differing rows affect the primary counts directly.
+
 ## Overall status of the hypothesis
 
 | Claim | Status | Reason |
@@ -111,7 +122,8 @@ Report: [exp_599 result](../../experiments/exp_599_marginal_successor_positions/
 
 ## Recommended next work (priority order)
 
-1. **Parser and provenance audit before more token hypotheses.** Inspect line headers and body-locus rules against the official IVTFF format, compare parser outputs with a separately written parser, report excluded/retained line counts by folio/section/locus, and validate the Currier A/B labels. Do not rerun the entire experiment family unchanged just to add more IDs.
+1. **Paired primary-statistic sensitivity (exp_601).** Quantify how the 49 differing aligned rows and four ZL3a-only rows affect `daiin`/control-token totals, first-token counts, expected counts and enrichment in B/P0. Treat the transcriptions as paired versions, not independent samples.
+2. **Independent parser and provenance audit.** Inspect line headers and body-locus rules against the official IVTFF format, compare parser outputs with a separately written parser, report retained/excluded line counts by folio/locus and validate Currier A/B labels. Do not rerun the whole family unchanged just to add more experiment IDs.
 2. **Independent transcription concordance.** Align ZL3a and ZL3b by exact folio/locus, count token-level disagreements, and identify whether the apparent “replication” uses almost entirely shared token readings. Treat differences as paired transcription variants, not independent observations.
 3. **Confirmatory, preregistered test.** Freeze the primary hypothesis (Currier-B P0 initial enrichment), exact parser, primary statistics, and folio/section strata. Use a larger Monte Carlo count and report all outcomes plus sensitivity rules.
 4. Only after those checks, consider new contextual analyses. Any linguistic hypothesis must have explicit predictions and negative controls, not just post-hoc interpretation of frequent strings.
