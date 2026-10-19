@@ -1,0 +1,1237 @@
+{
+  "experiment": "exp_599_marginal_successor_positions",
+  "protocol_version": 1,
+  "starter_forms": [
+    "daiin",
+    "dain",
+    "saiin"
+  ],
+  "positions": {
+    "offset_1": "token immediately after starter",
+    "offset_2": "second token after starter"
+  },
+  "metric": "Jensen-Shannon divergence between marginal token distributions; pooled-label permutation preserves group sizes",
+  "notes": [
+    "All 6 comparisons (3 starter pairs x 2 token offsets) Holm-adjusted together within each transcription.",
+    "No joint bigram collapse; each offset is analyzed as a marginal distribution.",
+    "P-values are Monte Carlo estimates, and nonsignificance is not equivalence.",
+    "Successor strings are literal EVA tokens; no semantic interpretation.",
+    "Permutation does not stratify by folio/section; local sequence differences are descriptive statistical properties only."
+  ],
+  "versions": [
+    {
+      "transcription": "ZL3b",
+      "source": {
+        "path": "data/transcriptions/eva_zl3b.txt",
+        "bytes": 411671,
+        "sha256": "bf5b6d4ac1e3a51b1847a9c388318d609020441ccd56984c901c32b09beccafc"
+      },
+      "filters": {
+        "currier": "B",
+        "locus": "P0",
+        "minimum_clean_tokens_per_line": 3,
+        "same_lines_for_offset_1_and_offset_2": true
+      },
+      "eligible_starter_lines": 169,
+      "starter_counts": {
+        "daiin": 89,
+        "dain": 34,
+        "saiin": 46
+      },
+      "marginal_successor_distributions": {
+        "offset_1_daiin": {
+          "offset": 1,
+          "starter": "daiin",
+          "n": 89,
+          "unique_successors": 67,
+          "entropy_bits": 5.87153,
+          "top_successors": [
+            {
+              "token": "shey",
+              "count": 6,
+              "proportion": 0.06742
+            },
+            {
+              "token": "chey",
+              "count": 4,
+              "proportion": 0.04494
+            },
+            {
+              "token": "sheol",
+              "count": 3,
+              "proportion": 0.03371
+            },
+            {
+              "token": "chedy",
+              "count": 3,
+              "proportion": 0.03371
+            },
+            {
+              "token": "shody",
+              "count": 3,
+              "proportion": 0.03371
+            },
+            {
+              "token": "shedy",
+              "count": 2,
+              "proportion": 0.02247
+            },
+            {
+              "token": "shckhy",
+              "count": 2,
+              "proportion": 0.02247
+            },
+            {
+              "token": "or",
+              "count": 2,
+              "proportion": 0.02247
+            },
+            {
+              "token": "ar",
+              "count": 2,
+              "proportion": 0.02247
+            },
+            {
+              "token": "cheol",
+              "count": 2,
+              "proportion": 0.02247
+            },
+            {
+              "token": "ol",
+              "count": 2,
+              "proportion": 0.02247
+            },
+            {
+              "token": "cheey",
+              "count": 2,
+              "proportion": 0.02247
+            },
+            {
+              "token": "al",
+              "count": 2,
+              "proportion": 0.02247
+            },
+            {
+              "token": "sheeody",
+              "count": 1,
+              "proportion": 0.01124
+            },
+            {
+              "token": "chdy",
+              "count": 1,
+              "proportion": 0.01124
+            }
+          ]
+        },
+        "offset_1_dain": {
+          "offset": 1,
+          "starter": "dain",
+          "n": 34,
+          "unique_successors": 28,
+          "entropy_bits": 4.6757,
+          "top_successors": [
+            {
+              "token": "chey",
+              "count": 4,
+              "proportion": 0.11765
+            },
+            {
+              "token": "cheky",
+              "count": 2,
+              "proportion": 0.05882
+            },
+            {
+              "token": "shey",
+              "count": 2,
+              "proportion": 0.05882
+            },
+            {
+              "token": "ar",
+              "count": 2,
+              "proportion": 0.05882
+            },
+            {
+              "token": "ockhedy",
+              "count": 1,
+              "proportion": 0.02941
+            },
+            {
+              "token": "ol",
+              "count": 1,
+              "proportion": 0.02941
+            },
+            {
+              "token": "chkal",
+              "count": 1,
+              "proportion": 0.02941
+            },
+            {
+              "token": "shear",
+              "count": 1,
+              "proportion": 0.02941
+            },
+            {
+              "token": "chckhy",
+              "count": 1,
+              "proportion": 0.02941
+            },
+            {
+              "token": "chfaiin",
+              "count": 1,
+              "proportion": 0.02941
+            },
+            {
+              "token": "sheyteedy",
+              "count": 1,
+              "proportion": 0.02941
+            },
+            {
+              "token": "sheedy",
+              "count": 1,
+              "proportion": 0.02941
+            },
+            {
+              "token": "ykaly",
+              "count": 1,
+              "proportion": 0.02941
+            },
+            {
+              "token": "shek",
+              "count": 1,
+              "proportion": 0.02941
+            },
+            {
+              "token": "eey",
+              "count": 1,
+              "proportion": 0.02941
+            }
+          ]
+        },
+        "offset_1_saiin": {
+          "offset": 1,
+          "starter": "saiin",
+          "n": 46,
+          "unique_successors": 39,
+          "entropy_bits": 5.17574,
+          "top_successors": [
+            {
+              "token": "shey",
+              "count": 4,
+              "proportion": 0.08696
+            },
+            {
+              "token": "shedy",
+              "count": 2,
+              "proportion": 0.04348
+            },
+            {
+              "token": "or",
+              "count": 2,
+              "proportion": 0.04348
+            },
+            {
+              "token": "al",
+              "count": 2,
+              "proportion": 0.04348
+            },
+            {
+              "token": "ol",
+              "count": 2,
+              "proportion": 0.04348
+            },
+            {
+              "token": "ar",
+              "count": 1,
+              "proportion": 0.02174
+            },
+            {
+              "token": "olcheey",
+              "count": 1,
+              "proportion": 0.02174
+            },
+            {
+              "token": "o",
+              "count": 1,
+              "proportion": 0.02174
+            },
+            {
+              "token": "otain",
+              "count": 1,
+              "proportion": 0.02174
+            },
+            {
+              "token": "shckhy",
+              "count": 1,
+              "proportion": 0.02174
+            },
+            {
+              "token": "olaiin",
+              "count": 1,
+              "proportion": 0.02174
+            },
+            {
+              "token": "qol",
+              "count": 1,
+              "proportion": 0.02174
+            },
+            {
+              "token": "sheedy",
+              "count": 1,
+              "proportion": 0.02174
+            },
+            {
+              "token": "sheckhy",
+              "count": 1,
+              "proportion": 0.02174
+            },
+            {
+              "token": "otaiin",
+              "count": 1,
+              "proportion": 0.02174
+            }
+          ]
+        },
+        "offset_2_daiin": {
+          "offset": 2,
+          "starter": "daiin",
+          "n": 89,
+          "unique_successors": 74,
+          "entropy_bits": 6.09074,
+          "top_successors": [
+            {
+              "token": "qokeedy",
+              "count": 4,
+              "proportion": 0.04494
+            },
+            {
+              "token": "okaiin",
+              "count": 3,
+              "proportion": 0.03371
+            },
+            {
+              "token": "qokedy",
+              "count": 3,
+              "proportion": 0.03371
+            },
+            {
+              "token": "l",
+              "count": 3,
+              "proportion": 0.03371
+            },
+            {
+              "token": "lshey",
+              "count": 2,
+              "proportion": 0.02247
+            },
+            {
+              "token": "qotal",
+              "count": 2,
+              "proportion": 0.02247
+            },
+            {
+              "token": "chdy",
+              "count": 2,
+              "proportion": 0.02247
+            },
+            {
+              "token": "lchedy",
+              "count": 2,
+              "proportion": 0.02247
+            },
+            {
+              "token": "chol",
+              "count": 2,
+              "proportion": 0.02247
+            },
+            {
+              "token": "ol",
+              "count": 2,
+              "proportion": 0.02247
+            },
+            {
+              "token": "qokeor",
+              "count": 1,
+              "proportion": 0.01124
+            },
+            {
+              "token": "tedy",
+              "count": 1,
+              "proportion": 0.01124
+            },
+            {
+              "token": "chekl",
+              "count": 1,
+              "proportion": 0.01124
+            },
+            {
+              "token": "okain",
+              "count": 1,
+              "proportion": 0.01124
+            },
+            {
+              "token": "lkol",
+              "count": 1,
+              "proportion": 0.01124
+            }
+          ]
+        },
+        "offset_2_dain": {
+          "offset": 2,
+          "starter": "dain",
+          "n": 34,
+          "unique_successors": 33,
+          "entropy_bits": 5.02864,
+          "top_successors": [
+            {
+              "token": "qokeedy",
+              "count": 2,
+              "proportion": 0.05882
+            },
+            {
+              "token": "otedy",
+              "count": 1,
+              "proportion": 0.02941
+            },
+            {
+              "token": "dar",
+              "count": 1,
+              "proportion": 0.02941
+            },
+            {
+              "token": "ly",
+              "count": 1,
+              "proportion": 0.02941
+            },
+            {
+              "token": "sheol",
+              "count": 1,
+              "proportion": 0.02941
+            },
+            {
+              "token": "dy",
+              "count": 1,
+              "proportion": 0.02941
+            },
+            {
+              "token": "lsh",
+              "count": 1,
+              "proportion": 0.02941
+            },
+            {
+              "token": "okedy",
+              "count": 1,
+              "proportion": 0.02941
+            },
+            {
+              "token": "or",
+              "count": 1,
+              "proportion": 0.02941
+            },
+            {
+              "token": "opaly",
+              "count": 1,
+              "proportion": 0.02941
+            },
+            {
+              "token": "olshey",
+              "count": 1,
+              "proportion": 0.02941
+            },
+            {
+              "token": "lky",
+              "count": 1,
+              "proportion": 0.02941
+            },
+            {
+              "token": "qokeeey",
+              "count": 1,
+              "proportion": 0.02941
+            },
+            {
+              "token": "oteeody",
+              "count": 1,
+              "proportion": 0.02941
+            },
+            {
+              "token": "chals",
+              "count": 1,
+              "proportion": 0.02941
+            }
+          ]
+        },
+        "offset_2_saiin": {
+          "offset": 2,
+          "starter": "saiin",
+          "n": 46,
+          "unique_successors": 41,
+          "entropy_bits": 5.26269,
+          "top_successors": [
+            {
+              "token": "qokeedy",
+              "count": 4,
+              "proportion": 0.08696
+            },
+            {
+              "token": "shedy",
+              "count": 2,
+              "proportion": 0.04348
+            },
+            {
+              "token": "qokeey",
+              "count": 2,
+              "proportion": 0.04348
+            },
+            {
+              "token": "eedy",
+              "count": 1,
+              "proportion": 0.02174
+            },
+            {
+              "token": "ckheos",
+              "count": 1,
+              "proportion": 0.02174
+            },
+            {
+              "token": "chdy",
+              "count": 1,
+              "proportion": 0.02174
+            },
+            {
+              "token": "lchey",
+              "count": 1,
+              "proportion": 0.02174
+            },
+            {
+              "token": "chckhy",
+              "count": 1,
+              "proportion": 0.02174
+            },
+            {
+              "token": "lkeedy",
+              "count": 1,
+              "proportion": 0.02174
+            },
+            {
+              "token": "oky",
+              "count": 1,
+              "proportion": 0.02174
+            },
+            {
+              "token": "qol",
+              "count": 1,
+              "proportion": 0.02174
+            },
+            {
+              "token": "cheolchey",
+              "count": 1,
+              "proportion": 0.02174
+            },
+            {
+              "token": "shckhedy",
+              "count": 1,
+              "proportion": 0.02174
+            },
+            {
+              "token": "psheedy",
+              "count": 1,
+              "proportion": 0.02174
+            },
+            {
+              "token": "olkeedy",
+              "count": 1,
+              "proportion": 0.02174
+            }
+          ]
+        }
+      },
+      "pairwise_tests": {
+        "offset_1_daiin_vs_dain": {
+          "n_a": 89,
+          "n_b": 34,
+          "observed_jsd_bits": 0.681564,
+          "null_mean_jsd_bits": 0.709812,
+          "p_upper_tail_plus_one": 0.732853,
+          "permutations": 5000,
+          "seed": 59920261119,
+          "p_holm_six_test_family": 1.0
+        },
+        "offset_1_daiin_vs_saiin": {
+          "n_a": 89,
+          "n_b": 46,
+          "observed_jsd_bits": 0.632397,
+          "null_mean_jsd_bits": 0.690038,
+          "p_upper_tail_plus_one": 0.946411,
+          "permutations": 5000,
+          "seed": 59920261120,
+          "p_holm_six_test_family": 1.0
+        },
+        "offset_1_dain_vs_saiin": {
+          "n_a": 34,
+          "n_b": 46,
+          "observed_jsd_bits": 0.654953,
+          "null_mean_jsd_bits": 0.705791,
+          "p_upper_tail_plus_one": 0.864627,
+          "permutations": 5000,
+          "seed": 59920261121,
+          "p_holm_six_test_family": 1.0
+        },
+        "offset_2_daiin_vs_dain": {
+          "n_a": 89,
+          "n_b": 34,
+          "observed_jsd_bits": 0.814263,
+          "null_mean_jsd_bits": 0.828261,
+          "p_upper_tail_plus_one": 0.643271,
+          "permutations": 5000,
+          "seed": 59920261219,
+          "p_holm_six_test_family": 1.0
+        },
+        "offset_2_daiin_vs_saiin": {
+          "n_a": 89,
+          "n_b": 46,
+          "observed_jsd_bits": 0.767902,
+          "null_mean_jsd_bits": 0.777176,
+          "p_upper_tail_plus_one": 0.60208,
+          "permutations": 5000,
+          "seed": 59920261220,
+          "p_holm_six_test_family": 1.0
+        },
+        "offset_2_dain_vs_saiin": {
+          "n_a": 34,
+          "n_b": 46,
+          "observed_jsd_bits": 0.843303,
+          "null_mean_jsd_bits": 0.871579,
+          "p_upper_tail_plus_one": 0.842232,
+          "permutations": 5000,
+          "seed": 59920261221,
+          "p_holm_six_test_family": 1.0
+        }
+      }
+    },
+    {
+      "transcription": "ZL3a",
+      "source": {
+        "path": "data/transcriptions/zl3a.txt",
+        "bytes": 411710,
+        "sha256": "56419297682d338ff1a0a17f5ae251e3ee3e2c5bf05a62db04c5385ef30b36a2"
+      },
+      "filters": {
+        "currier": "B",
+        "locus": "P0",
+        "minimum_clean_tokens_per_line": 3,
+        "same_lines_for_offset_1_and_offset_2": true
+      },
+      "eligible_starter_lines": 169,
+      "starter_counts": {
+        "daiin": 89,
+        "dain": 34,
+        "saiin": 46
+      },
+      "marginal_successor_distributions": {
+        "offset_1_daiin": {
+          "offset": 1,
+          "starter": "daiin",
+          "n": 89,
+          "unique_successors": 67,
+          "entropy_bits": 5.87153,
+          "top_successors": [
+            {
+              "token": "shey",
+              "count": 6,
+              "proportion": 0.06742
+            },
+            {
+              "token": "chey",
+              "count": 4,
+              "proportion": 0.04494
+            },
+            {
+              "token": "sheol",
+              "count": 3,
+              "proportion": 0.03371
+            },
+            {
+              "token": "chedy",
+              "count": 3,
+              "proportion": 0.03371
+            },
+            {
+              "token": "shody",
+              "count": 3,
+              "proportion": 0.03371
+            },
+            {
+              "token": "shedy",
+              "count": 2,
+              "proportion": 0.02247
+            },
+            {
+              "token": "shckhy",
+              "count": 2,
+              "proportion": 0.02247
+            },
+            {
+              "token": "or",
+              "count": 2,
+              "proportion": 0.02247
+            },
+            {
+              "token": "ar",
+              "count": 2,
+              "proportion": 0.02247
+            },
+            {
+              "token": "cheol",
+              "count": 2,
+              "proportion": 0.02247
+            },
+            {
+              "token": "ol",
+              "count": 2,
+              "proportion": 0.02247
+            },
+            {
+              "token": "cheey",
+              "count": 2,
+              "proportion": 0.02247
+            },
+            {
+              "token": "al",
+              "count": 2,
+              "proportion": 0.02247
+            },
+            {
+              "token": "sheeody",
+              "count": 1,
+              "proportion": 0.01124
+            },
+            {
+              "token": "chdy",
+              "count": 1,
+              "proportion": 0.01124
+            }
+          ]
+        },
+        "offset_1_dain": {
+          "offset": 1,
+          "starter": "dain",
+          "n": 34,
+          "unique_successors": 28,
+          "entropy_bits": 4.6757,
+          "top_successors": [
+            {
+              "token": "chey",
+              "count": 4,
+              "proportion": 0.11765
+            },
+            {
+              "token": "cheky",
+              "count": 2,
+              "proportion": 0.05882
+            },
+            {
+              "token": "shey",
+              "count": 2,
+              "proportion": 0.05882
+            },
+            {
+              "token": "ar",
+              "count": 2,
+              "proportion": 0.05882
+            },
+            {
+              "token": "ockhedy",
+              "count": 1,
+              "proportion": 0.02941
+            },
+            {
+              "token": "ol",
+              "count": 1,
+              "proportion": 0.02941
+            },
+            {
+              "token": "chkal",
+              "count": 1,
+              "proportion": 0.02941
+            },
+            {
+              "token": "shear",
+              "count": 1,
+              "proportion": 0.02941
+            },
+            {
+              "token": "chckhy",
+              "count": 1,
+              "proportion": 0.02941
+            },
+            {
+              "token": "chfaiin",
+              "count": 1,
+              "proportion": 0.02941
+            },
+            {
+              "token": "sheyteedy",
+              "count": 1,
+              "proportion": 0.02941
+            },
+            {
+              "token": "sheedy",
+              "count": 1,
+              "proportion": 0.02941
+            },
+            {
+              "token": "ykaly",
+              "count": 1,
+              "proportion": 0.02941
+            },
+            {
+              "token": "shek",
+              "count": 1,
+              "proportion": 0.02941
+            },
+            {
+              "token": "eey",
+              "count": 1,
+              "proportion": 0.02941
+            }
+          ]
+        },
+        "offset_1_saiin": {
+          "offset": 1,
+          "starter": "saiin",
+          "n": 46,
+          "unique_successors": 39,
+          "entropy_bits": 5.17574,
+          "top_successors": [
+            {
+              "token": "shey",
+              "count": 4,
+              "proportion": 0.08696
+            },
+            {
+              "token": "shedy",
+              "count": 2,
+              "proportion": 0.04348
+            },
+            {
+              "token": "or",
+              "count": 2,
+              "proportion": 0.04348
+            },
+            {
+              "token": "al",
+              "count": 2,
+              "proportion": 0.04348
+            },
+            {
+              "token": "ol",
+              "count": 2,
+              "proportion": 0.04348
+            },
+            {
+              "token": "ar",
+              "count": 1,
+              "proportion": 0.02174
+            },
+            {
+              "token": "olcheey",
+              "count": 1,
+              "proportion": 0.02174
+            },
+            {
+              "token": "o",
+              "count": 1,
+              "proportion": 0.02174
+            },
+            {
+              "token": "otain",
+              "count": 1,
+              "proportion": 0.02174
+            },
+            {
+              "token": "shckhy",
+              "count": 1,
+              "proportion": 0.02174
+            },
+            {
+              "token": "olaiin",
+              "count": 1,
+              "proportion": 0.02174
+            },
+            {
+              "token": "qol",
+              "count": 1,
+              "proportion": 0.02174
+            },
+            {
+              "token": "sheedy",
+              "count": 1,
+              "proportion": 0.02174
+            },
+            {
+              "token": "sheckhy",
+              "count": 1,
+              "proportion": 0.02174
+            },
+            {
+              "token": "otaiin",
+              "count": 1,
+              "proportion": 0.02174
+            }
+          ]
+        },
+        "offset_2_daiin": {
+          "offset": 2,
+          "starter": "daiin",
+          "n": 89,
+          "unique_successors": 74,
+          "entropy_bits": 6.09074,
+          "top_successors": [
+            {
+              "token": "qokeedy",
+              "count": 4,
+              "proportion": 0.04494
+            },
+            {
+              "token": "okaiin",
+              "count": 3,
+              "proportion": 0.03371
+            },
+            {
+              "token": "qokedy",
+              "count": 3,
+              "proportion": 0.03371
+            },
+            {
+              "token": "l",
+              "count": 3,
+              "proportion": 0.03371
+            },
+            {
+              "token": "lshey",
+              "count": 2,
+              "proportion": 0.02247
+            },
+            {
+              "token": "qotal",
+              "count": 2,
+              "proportion": 0.02247
+            },
+            {
+              "token": "chdy",
+              "count": 2,
+              "proportion": 0.02247
+            },
+            {
+              "token": "lchedy",
+              "count": 2,
+              "proportion": 0.02247
+            },
+            {
+              "token": "chol",
+              "count": 2,
+              "proportion": 0.02247
+            },
+            {
+              "token": "ol",
+              "count": 2,
+              "proportion": 0.02247
+            },
+            {
+              "token": "qokeor",
+              "count": 1,
+              "proportion": 0.01124
+            },
+            {
+              "token": "tedy",
+              "count": 1,
+              "proportion": 0.01124
+            },
+            {
+              "token": "chekl",
+              "count": 1,
+              "proportion": 0.01124
+            },
+            {
+              "token": "okain",
+              "count": 1,
+              "proportion": 0.01124
+            },
+            {
+              "token": "lkol",
+              "count": 1,
+              "proportion": 0.01124
+            }
+          ]
+        },
+        "offset_2_dain": {
+          "offset": 2,
+          "starter": "dain",
+          "n": 34,
+          "unique_successors": 33,
+          "entropy_bits": 5.02864,
+          "top_successors": [
+            {
+              "token": "qokeedy",
+              "count": 2,
+              "proportion": 0.05882
+            },
+            {
+              "token": "otedy",
+              "count": 1,
+              "proportion": 0.02941
+            },
+            {
+              "token": "dar",
+              "count": 1,
+              "proportion": 0.02941
+            },
+            {
+              "token": "ly",
+              "count": 1,
+              "proportion": 0.02941
+            },
+            {
+              "token": "sheol",
+              "count": 1,
+              "proportion": 0.02941
+            },
+            {
+              "token": "dy",
+              "count": 1,
+              "proportion": 0.02941
+            },
+            {
+              "token": "lsh",
+              "count": 1,
+              "proportion": 0.02941
+            },
+            {
+              "token": "okedy",
+              "count": 1,
+              "proportion": 0.02941
+            },
+            {
+              "token": "or",
+              "count": 1,
+              "proportion": 0.02941
+            },
+            {
+              "token": "opaly",
+              "count": 1,
+              "proportion": 0.02941
+            },
+            {
+              "token": "olshey",
+              "count": 1,
+              "proportion": 0.02941
+            },
+            {
+              "token": "lky",
+              "count": 1,
+              "proportion": 0.02941
+            },
+            {
+              "token": "qokeeey",
+              "count": 1,
+              "proportion": 0.02941
+            },
+            {
+              "token": "oteeody",
+              "count": 1,
+              "proportion": 0.02941
+            },
+            {
+              "token": "chals",
+              "count": 1,
+              "proportion": 0.02941
+            }
+          ]
+        },
+        "offset_2_saiin": {
+          "offset": 2,
+          "starter": "saiin",
+          "n": 46,
+          "unique_successors": 41,
+          "entropy_bits": 5.26269,
+          "top_successors": [
+            {
+              "token": "qokeedy",
+              "count": 4,
+              "proportion": 0.08696
+            },
+            {
+              "token": "shedy",
+              "count": 2,
+              "proportion": 0.04348
+            },
+            {
+              "token": "qokeey",
+              "count": 2,
+              "proportion": 0.04348
+            },
+            {
+              "token": "eedy",
+              "count": 1,
+              "proportion": 0.02174
+            },
+            {
+              "token": "ckheos",
+              "count": 1,
+              "proportion": 0.02174
+            },
+            {
+              "token": "chdy",
+              "count": 1,
+              "proportion": 0.02174
+            },
+            {
+              "token": "lchey",
+              "count": 1,
+              "proportion": 0.02174
+            },
+            {
+              "token": "chckhy",
+              "count": 1,
+              "proportion": 0.02174
+            },
+            {
+              "token": "lkeedy",
+              "count": 1,
+              "proportion": 0.02174
+            },
+            {
+              "token": "oky",
+              "count": 1,
+              "proportion": 0.02174
+            },
+            {
+              "token": "qol",
+              "count": 1,
+              "proportion": 0.02174
+            },
+            {
+              "token": "cheolchey",
+              "count": 1,
+              "proportion": 0.02174
+            },
+            {
+              "token": "shckhedy",
+              "count": 1,
+              "proportion": 0.02174
+            },
+            {
+              "token": "psheedy",
+              "count": 1,
+              "proportion": 0.02174
+            },
+            {
+              "token": "olkeedy",
+              "count": 1,
+              "proportion": 0.02174
+            }
+          ]
+        }
+      },
+      "pairwise_tests": {
+        "offset_1_daiin_vs_dain": {
+          "n_a": 89,
+          "n_b": 34,
+          "observed_jsd_bits": 0.681564,
+          "null_mean_jsd_bits": 0.710819,
+          "p_upper_tail_plus_one": 0.746251,
+          "permutations": 5000,
+          "seed": 59920262119,
+          "p_holm_six_test_family": 1.0
+        },
+        "offset_1_daiin_vs_saiin": {
+          "n_a": 89,
+          "n_b": 46,
+          "observed_jsd_bits": 0.632397,
+          "null_mean_jsd_bits": 0.6909,
+          "p_upper_tail_plus_one": 0.943811,
+          "permutations": 5000,
+          "seed": 59920262120,
+          "p_holm_six_test_family": 1.0
+        },
+        "offset_1_dain_vs_saiin": {
+          "n_a": 34,
+          "n_b": 46,
+          "observed_jsd_bits": 0.654953,
+          "null_mean_jsd_bits": 0.704375,
+          "p_upper_tail_plus_one": 0.84783,
+          "permutations": 5000,
+          "seed": 59920262121,
+          "p_holm_six_test_family": 1.0
+        },
+        "offset_2_daiin_vs_dain": {
+          "n_a": 89,
+          "n_b": 34,
+          "observed_jsd_bits": 0.814263,
+          "null_mean_jsd_bits": 0.828787,
+          "p_upper_tail_plus_one": 0.644471,
+          "permutations": 5000,
+          "seed": 59920262219,
+          "p_holm_six_test_family": 1.0
+        },
+        "offset_2_daiin_vs_saiin": {
+          "n_a": 89,
+          "n_b": 46,
+          "observed_jsd_bits": 0.767902,
+          "null_mean_jsd_bits": 0.777218,
+          "p_upper_tail_plus_one": 0.594281,
+          "permutations": 5000,
+          "seed": 59920262220,
+          "p_holm_six_test_family": 1.0
+        },
+        "offset_2_dain_vs_saiin": {
+          "n_a": 34,
+          "n_b": 46,
+          "observed_jsd_bits": 0.843303,
+          "null_mean_jsd_bits": 0.87176,
+          "p_upper_tail_plus_one": 0.828234,
+          "permutations": 5000,
+          "seed": 59920262221,
+          "p_holm_six_test_family": 1.0
+        }
+      }
+    }
+  ],
+  "cross_transcription_comparison": {
+    "offset_1_daiin_vs_dain": {
+      "ZL3b_jsd": 0.681564,
+      "ZL3a_jsd": 0.681564,
+      "ZL3b_adjusted_p": 1.0,
+      "ZL3a_adjusted_p": 1.0
+    },
+    "offset_1_daiin_vs_saiin": {
+      "ZL3b_jsd": 0.632397,
+      "ZL3a_jsd": 0.632397,
+      "ZL3b_adjusted_p": 1.0,
+      "ZL3a_adjusted_p": 1.0
+    },
+    "offset_1_dain_vs_saiin": {
+      "ZL3b_jsd": 0.654953,
+      "ZL3a_jsd": 0.654953,
+      "ZL3b_adjusted_p": 1.0,
+      "ZL3a_adjusted_p": 1.0
+    },
+    "offset_2_daiin_vs_dain": {
+      "ZL3b_jsd": 0.814263,
+      "ZL3a_jsd": 0.814263,
+      "ZL3b_adjusted_p": 1.0,
+      "ZL3a_adjusted_p": 1.0
+    },
+    "offset_2_daiin_vs_saiin": {
+      "ZL3b_jsd": 0.767902,
+      "ZL3a_jsd": 0.767902,
+      "ZL3b_adjusted_p": 1.0,
+      "ZL3a_adjusted_p": 1.0
+    },
+    "offset_2_dain_vs_saiin": {
+      "ZL3b_jsd": 0.843303,
+      "ZL3a_jsd": 0.843303,
+      "ZL3b_adjusted_p": 1.0,
+      "ZL3a_adjusted_p": 1.0
+    }
+  }
+}
