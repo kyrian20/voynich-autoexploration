@@ -1,0 +1,26 @@
+name: Voynich exp610 length-stratified ch-sh audit
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'experiments/exp_610_length_stratified_ch_sh_audit/**'
+      - '.github/workflows/voynich-exp610.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run length-stratified audit
+        run: python experiments/exp_610_length_stratified_ch_sh_audit/script.py
+      - name: Commit results
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+users.noreply.github.com"
+          git add experiments/exp_610_length_stratified_ch_sh_audit/results.json experiments/exp_610_length_stratified_ch_sh_audit/result.md
+          git diff --cached --quiet || git commit -m "Record exp610 length-stratified ch-sh audit"
+          git push
