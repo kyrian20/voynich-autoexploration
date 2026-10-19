@@ -36,3 +36,25 @@ Measure the effect of the exact ZL3a/ZL3b token differences on the primary Curri
 - Each experiment should include exact filter/token rules, source hashes, JSON output, a report, and workflow URL.
 - The 19/19 mechanism fit and positional effects do not constitute a decipherment.
 - Never infer the meaning of `daiin` from position or local context alone.
+
+
+## Exp_600 transcription concordance — completed
+Run: https://github.com/kyrian20/voynich-autoexploration/actions/runs/39259522070
+Machine-readable output: `experiments/exp_600_transcription_concordance/results.json`
+- Exact folio.line alignment found 5,225 shared keys; ZL3a has four additional keys and ZL3b none unmatched. No duplicate keys.
+- Clean token sequences match on 5,188 aligned lines and differ on 37; 46 raw payloads differ. Within the aligned lines, Currier labels match and normalized loci match.
+- These versions are highly similar alternate transcriptions, not independent replications. Invalid-identifier flags largely concern special folio labels such as fRos and must be interpreted as format-specific cases, not silently dropped.
+- This concordance output is a separate experiment from the lightweight IVTFF structural audit also numbered exp_600; paths distinguish them.
+
+## Exp_601 completed — folio-clustered confirmation
+Run: https://github.com/kyrian20/voynich-autoexploration/actions/runs/39259869279
+Report: `experiments/exp_601_folio_clustered_confirmation/result.md`
+- Frozen primary endpoint: Currier B, P0, at least 2 cleaned tokens, first token exactly `daiin`; ZL3b source SHA-256 recorded in results.
+- 2,325 eligible lines across 81 folios; 88 observed initial hits vs line-inventory expectation 31.2792; enrichment 2.8134×.
+- 20,000 folio-cluster bootstrap replicates give percentile 95% interval 2.1156–3.5932×, wholly above 1.
+- 20,000 conditional within-line randomizations give one-sided p=0.00005; this tests uniform positional exchangeability conditional on each line's inventory and length, a distinct question from the cluster bootstrap.
+- Leave-one-folio-out enrichment range 2.6404–2.9306×. The preregistered robustness rule is met for this operational parser/filter.
+- Conclusion remains narrow: a robust positional excess under this test, not a semantic/grammatical inference or decipherment.
+
+## Next high-value experiment
+Do not add more hand-selected lexical variants. Build a held-out predictive test: freeze train/test folios before analysis, train a minimal positional model on training folios, evaluate predictive log-loss/calibration on untouched folios, and compare with line-inventory-preserving baselines plus negative-control tokens. Report all predeclared outcomes and do not use held-out results to tune the model.
