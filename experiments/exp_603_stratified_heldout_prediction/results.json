@@ -1,0 +1,181 @@
+{
+  "experiment": "exp_603",
+  "seed_split": "same folio hash rule as exp_602",
+  "bins": [
+    {
+      "min": 2,
+      "max_exclusive": 5,
+      "name": "2-4"
+    },
+    {
+      "min": 5,
+      "max_exclusive": 8,
+      "name": "5-7"
+    },
+    {
+      "min": 8,
+      "max_exclusive": 1000000000,
+      "name": "8+"
+    }
+  ],
+  "smoothing": "Beta(1,1), applied to each training stratum",
+  "train_lines": 2928,
+  "test_lines": 919,
+  "train_folios": 148,
+  "test_folios": 47,
+  "targets": {
+    "daiin": {
+      "train_global_probability": 0.0378839590443686,
+      "test_initial_hits": 37,
+      "test_folios": 47,
+      "global_log_loss": 0.16884923126986856,
+      "stratified_log_loss": 0.1715764699025292,
+      "log_loss_gain_global_minus_stratified": -0.0027272386326606364,
+      "folio_cluster_bootstrap_95pct": [
+        -0.005202390408939914,
+        -0.00013502973615269105
+      ],
+      "brier_gain_global_minus_stratified": -0.00020345350857682554,
+      "strata": {
+        "A:2-4": {
+          "n": 66,
+          "hits": 3,
+          "global_log_loss": 0.18564781497889943,
+          "stratified_log_loss": 0.19010699908070597
+        },
+        "A:5-7": {
+          "n": 125,
+          "hits": 4,
+          "global_log_loss": 0.14212764417065735,
+          "stratified_log_loss": 0.14163347679701274
+        },
+        "A:8+": {
+          "n": 200,
+          "hits": 4,
+          "global_log_loss": 0.10331235669303598,
+          "stratified_log_loss": 0.10771843579151988
+        },
+        "B:2-4": {
+          "n": 14,
+          "hits": 0,
+          "global_log_loss": 0.03862021089700043,
+          "stratified_log_loss": 0.041385216162854364
+        },
+        "B:5-7": {
+          "n": 54,
+          "hits": 5,
+          "global_log_loss": 0.3381208858786466,
+          "stratified_log_loss": 0.3630404210753148
+        },
+        "B:8+": {
+          "n": 460,
+          "hits": 21,
+          "global_log_loss": 0.18628706543142945,
+          "stratified_log_loss": 0.18630492691047867
+        }
+      }
+    },
+    "dain": {
+      "train_global_probability": 0.012627986348122866,
+      "test_initial_hits": 11,
+      "test_folios": 47,
+      "global_log_loss": 0.06488516016408677,
+      "stratified_log_loss": 0.06471196308673935,
+      "log_loss_gain_global_minus_stratified": 0.00017319707734741855,
+      "folio_cluster_bootstrap_95pct": [
+        -0.001160483366041254,
+        0.0018899017188252717
+      ],
+      "brier_gain_global_minus_stratified": -1.029796879140373e-05,
+      "strata": {
+        "A:2-4": {
+          "n": 66,
+          "hits": 1,
+          "global_log_loss": 0.07875584237334021,
+          "stratified_log_loss": 0.07958411278726807
+        },
+        "A:5-7": {
+          "n": 125,
+          "hits": 0,
+          "global_log_loss": 0.012708397034977928,
+          "stratified_log_loss": 0.014084739881738972
+        },
+        "A:8+": {
+          "n": 200,
+          "hits": 0,
+          "global_log_loss": 0.012708397034977927,
+          "stratified_log_loss": 0.009624713374209557
+        },
+        "B:2-4": {
+          "n": 14,
+          "hits": 0,
+          "global_log_loss": 0.012708397034977928,
+          "stratified_log_loss": 0.041385216162854364
+        },
+        "B:5-7": {
+          "n": 54,
+          "hits": 1,
+          "global_log_loss": 0.09343305244853184,
+          "stratified_log_loss": 0.09221808728933743
+        },
+        "B:8+": {
+          "n": 460,
+          "hits": 9,
+          "global_log_loss": 0.09799575036321097,
+          "stratified_log_loss": 0.09776747333215283
+        }
+      }
+    },
+    "saiin": {
+      "train_global_probability": 0.016040955631399317,
+      "test_initial_hits": 8,
+      "test_folios": 47,
+      "global_log_loss": 0.05200507702497057,
+      "stratified_log_loss": 0.05109124837233051,
+      "log_loss_gain_global_minus_stratified": 0.0009138286526400567,
+      "folio_cluster_bootstrap_95pct": [
+        -0.001514756241538752,
+        0.0036111821309554857
+      ],
+      "brier_gain_global_minus_stratified": -1.5086283755982713e-05,
+      "strata": {
+        "A:2-4": {
+          "n": 66,
+          "hits": 0,
+          "global_log_loss": 0.016171004372710778,
+          "stratified_log_loss": 0.021739986636405875
+        },
+        "A:5-7": {
+          "n": 125,
+          "hits": 0,
+          "global_log_loss": 0.016171004372710778,
+          "stratified_log_loss": 0.0023337233462202116
+        },
+        "A:8+": {
+          "n": 200,
+          "hits": 1,
+          "global_log_loss": 0.036753199852352494,
+          "stratified_log_loss": 0.032817738184581204
+        },
+        "B:2-4": {
+          "n": 14,
+          "hits": 1,
+          "global_log_loss": 0.3102023683675924,
+          "stratified_log_loss": 0.2833646126492651
+        },
+        "B:5-7": {
+          "n": 54,
+          "hits": 1,
+          "global_log_loss": 0.09240135800101344,
+          "stratified_log_loss": 0.09221808728933743
+        },
+        "B:8+": {
+          "n": 460,
+          "hits": 5,
+          "global_log_loss": 0.06091490758932321,
+          "stratified_log_loss": 0.06459972563100272
+        }
+      }
+    }
+  }
+}
