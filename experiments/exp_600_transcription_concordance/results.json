@@ -10,8 +10,8 @@
       "bytes": 411671,
       "sha256": "bf5b6d4ac1e3a51b1847a9c388318d609020441ccd56984c901c32b09beccafc",
       "folio_headers": 227,
-      "line_records": 5225,
-      "unique_line_keys": 5225
+      "line_records": 5385,
+      "unique_line_keys": 5385
     },
     {
       "label": "ZL3a",
@@ -19,14 +19,14 @@
       "bytes": 411710,
       "sha256": "56419297682d338ff1a0a17f5ae251e3ee3e2c5bf05a62db04c5385ef30b36a2",
       "folio_headers": 227,
-      "line_records": 5229,
-      "unique_line_keys": 5229
+      "line_records": 5389,
+      "unique_line_keys": 5389
     }
   ],
   "coverage": {
-    "ZL3b_unique_line_keys": 5225,
-    "ZL3a_unique_line_keys": 5229,
-    "aligned_keys": 5225,
+    "ZL3b_unique_line_keys": 5385,
+    "ZL3a_unique_line_keys": 5389,
+    "aligned_keys": 5385,
     "only_in_ZL3b_count": 0,
     "only_in_ZL3a_count": 4,
     "only_in_ZL3b_examples": [],
@@ -38,346 +38,24 @@
     ],
     "duplicate_keys_ZL3b": [],
     "duplicate_keys_ZL3a": [],
-    "invalid_identifier_count_ZL3b": 160,
-    "invalid_identifier_count_ZL3a": 160,
-    "invalid_identifier_examples_ZL3b": [
-      {
-        "identifier": "fRos.1",
-        "source_line_number": 5262
-      },
-      {
-        "identifier": "fRos.2",
-        "source_line_number": 5263
-      },
-      {
-        "identifier": "fRos.3",
-        "source_line_number": 5265
-      },
-      {
-        "identifier": "fRos.4",
-        "source_line_number": 5266
-      },
-      {
-        "identifier": "fRos.5",
-        "source_line_number": 5267
-      },
-      {
-        "identifier": "fRos.6",
-        "source_line_number": 5268
-      },
-      {
-        "identifier": "fRos.7",
-        "source_line_number": 5269
-      },
-      {
-        "identifier": "fRos.8",
-        "source_line_number": 5270
-      },
-      {
-        "identifier": "fRos.9",
-        "source_line_number": 5271
-      },
-      {
-        "identifier": "fRos.10",
-        "source_line_number": 5272
-      },
-      {
-        "identifier": "fRos.11",
-        "source_line_number": 5273
-      },
-      {
-        "identifier": "fRos.12",
-        "source_line_number": 5275
-      },
-      {
-        "identifier": "fRos.13",
-        "source_line_number": 5276
-      },
-      {
-        "identifier": "fRos.14",
-        "source_line_number": 5277
-      },
-      {
-        "identifier": "fRos.15",
-        "source_line_number": 5278
-      },
-      {
-        "identifier": "fRos.16",
-        "source_line_number": 5279
-      },
-      {
-        "identifier": "fRos.17",
-        "source_line_number": 5280
-      },
-      {
-        "identifier": "fRos.18",
-        "source_line_number": 5282
-      },
-      {
-        "identifier": "fRos.19",
-        "source_line_number": 5283
-      },
-      {
-        "identifier": "fRos.20",
-        "source_line_number": 5285
-      },
-      {
-        "identifier": "fRos.21",
-        "source_line_number": 5286
-      },
-      {
-        "identifier": "fRos.22",
-        "source_line_number": 5287
-      },
-      {
-        "identifier": "fRos.23",
-        "source_line_number": 5288
-      },
-      {
-        "identifier": "fRos.24",
-        "source_line_number": 5289
-      },
-      {
-        "identifier": "fRos.25",
-        "source_line_number": 5290
-      },
-      {
-        "identifier": "fRos.26",
-        "source_line_number": 5291
-      },
-      {
-        "identifier": "fRos.27",
-        "source_line_number": 5292
-      },
-      {
-        "identifier": "fRos.28",
-        "source_line_number": 5293
-      },
-      {
-        "identifier": "fRos.29",
-        "source_line_number": 5294
-      },
-      {
-        "identifier": "fRos.30",
-        "source_line_number": 5295
-      },
-      {
-        "identifier": "fRos.31",
-        "source_line_number": 5296
-      },
-      {
-        "identifier": "fRos.32",
-        "source_line_number": 5297
-      },
-      {
-        "identifier": "fRos.33",
-        "source_line_number": 5298
-      },
-      {
-        "identifier": "fRos.34",
-        "source_line_number": 5299
-      },
-      {
-        "identifier": "fRos.35",
-        "source_line_number": 5301
-      },
-      {
-        "identifier": "fRos.36",
-        "source_line_number": 5302
-      },
-      {
-        "identifier": "fRos.37",
-        "source_line_number": 5304
-      },
-      {
-        "identifier": "fRos.38",
-        "source_line_number": 5305
-      },
-      {
-        "identifier": "fRos.39",
-        "source_line_number": 5307
-      },
-      {
-        "identifier": "fRos.40",
-        "source_line_number": 5308
-      }
-    ],
-    "invalid_identifier_examples_ZL3a": [
-      {
-        "identifier": "fRos.1",
-        "source_line_number": 5264
-      },
-      {
-        "identifier": "fRos.2",
-        "source_line_number": 5265
-      },
-      {
-        "identifier": "fRos.3",
-        "source_line_number": 5267
-      },
-      {
-        "identifier": "fRos.4",
-        "source_line_number": 5268
-      },
-      {
-        "identifier": "fRos.5",
-        "source_line_number": 5269
-      },
-      {
-        "identifier": "fRos.6",
-        "source_line_number": 5270
-      },
-      {
-        "identifier": "fRos.7",
-        "source_line_number": 5271
-      },
-      {
-        "identifier": "fRos.8",
-        "source_line_number": 5272
-      },
-      {
-        "identifier": "fRos.9",
-        "source_line_number": 5273
-      },
-      {
-        "identifier": "fRos.10",
-        "source_line_number": 5274
-      },
-      {
-        "identifier": "fRos.11",
-        "source_line_number": 5275
-      },
-      {
-        "identifier": "fRos.12",
-        "source_line_number": 5277
-      },
-      {
-        "identifier": "fRos.13",
-        "source_line_number": 5278
-      },
-      {
-        "identifier": "fRos.14",
-        "source_line_number": 5279
-      },
-      {
-        "identifier": "fRos.15",
-        "source_line_number": 5280
-      },
-      {
-        "identifier": "fRos.16",
-        "source_line_number": 5281
-      },
-      {
-        "identifier": "fRos.17",
-        "source_line_number": 5282
-      },
-      {
-        "identifier": "fRos.18",
-        "source_line_number": 5284
-      },
-      {
-        "identifier": "fRos.19",
-        "source_line_number": 5285
-      },
-      {
-        "identifier": "fRos.20",
-        "source_line_number": 5287
-      },
-      {
-        "identifier": "fRos.21",
-        "source_line_number": 5288
-      },
-      {
-        "identifier": "fRos.22",
-        "source_line_number": 5289
-      },
-      {
-        "identifier": "fRos.23",
-        "source_line_number": 5290
-      },
-      {
-        "identifier": "fRos.24",
-        "source_line_number": 5291
-      },
-      {
-        "identifier": "fRos.25",
-        "source_line_number": 5292
-      },
-      {
-        "identifier": "fRos.26",
-        "source_line_number": 5293
-      },
-      {
-        "identifier": "fRos.27",
-        "source_line_number": 5294
-      },
-      {
-        "identifier": "fRos.28",
-        "source_line_number": 5295
-      },
-      {
-        "identifier": "fRos.29",
-        "source_line_number": 5296
-      },
-      {
-        "identifier": "fRos.30",
-        "source_line_number": 5297
-      },
-      {
-        "identifier": "fRos.31",
-        "source_line_number": 5298
-      },
-      {
-        "identifier": "fRos.32",
-        "source_line_number": 5299
-      },
-      {
-        "identifier": "fRos.33",
-        "source_line_number": 5300
-      },
-      {
-        "identifier": "fRos.34",
-        "source_line_number": 5301
-      },
-      {
-        "identifier": "fRos.35",
-        "source_line_number": 5303
-      },
-      {
-        "identifier": "fRos.36",
-        "source_line_number": 5304
-      },
-      {
-        "identifier": "fRos.37",
-        "source_line_number": 5306
-      },
-      {
-        "identifier": "fRos.38",
-        "source_line_number": 5307
-      },
-      {
-        "identifier": "fRos.39",
-        "source_line_number": 5309
-      },
-      {
-        "identifier": "fRos.40",
-        "source_line_number": 5310
-      }
-    ]
+    "invalid_identifier_count_ZL3b": 0,
+    "invalid_identifier_count_ZL3a": 0,
+    "invalid_identifier_examples_ZL3b": [],
+    "invalid_identifier_examples_ZL3a": []
   },
   "alignment_summary": {
-    "aligned_keys": 5225,
-    "normalized_locus_equal": 5225,
-    "currier_equal": 5225,
-    "raw_payload_equal": 5179,
-    "clean_token_sequence_equal": 5188,
-    "raw_payload_different": 46,
-    "clean_token_sequence_different": 37
+    "aligned_keys": 5385,
+    "normalized_locus_equal": 5385,
+    "currier_equal": 5385,
+    "raw_payload_equal": 5327,
+    "clean_token_sequence_equal": 5336,
+    "raw_payload_different": 58,
+    "clean_token_sequence_different": 49
   },
   "token_edit_totals_on_differing_lines": {
-    "substitutions_min_count": 75,
+    "substitutions_min_count": 127,
     "insertions": 2,
-    "deletions": 13
+    "deletions": 20
   },
   "token_different_line_keys": [
     "f101v.22",
@@ -416,7 +94,19 @@
     "f89v2.10",
     "f89v2.7",
     "f89v2.8",
-    "f95r1.1"
+    "f95r1.1",
+    "fRos.133",
+    "fRos.145",
+    "fRos.156",
+    "fRos.159",
+    "fRos.2",
+    "fRos.20",
+    "fRos.35",
+    "fRos.36",
+    "fRos.47",
+    "fRos.62",
+    "fRos.64",
+    "fRos.87"
   ],
   "by_currier_token_sequence_equal_vs_different": [
     {
@@ -432,12 +122,12 @@
     {
       "currier": "B",
       "status": "different",
-      "count": 10
+      "count": 22
     },
     {
       "currier": "B",
       "status": "equal",
-      "count": 2639
+      "count": 2787
     },
     {
       "currier": "unknown",
@@ -452,24 +142,29 @@
   ],
   "by_normalized_locus_token_sequence_equal_vs_different": [
     {
-      "locus": "Cc",
-      "status": "different",
-      "count": 10
-    },
-    {
-      "locus": "Cc",
+      "locus": "Ca",
       "status": "equal",
-      "count": 62
-    },
-    {
-      "locus": "L0",
-      "status": "different",
       "count": 1
     },
     {
+      "locus": "Cc",
+      "status": "different",
+      "count": 18
+    },
+    {
+      "locus": "Cc",
+      "status": "equal",
+      "count": 65
+    },
+    {
+      "locus": "L0",
+      "status": "different",
+      "count": 4
+    },
+    {
       "locus": "L0",
       "status": "equal",
-      "count": 159
+      "count": 293
     },
     {
       "locus": "La",
@@ -539,12 +234,12 @@
     {
       "locus": "Pb",
       "status": "different",
-      "count": 1
+      "count": 2
     },
     {
       "locus": "Pb",
       "status": "equal",
-      "count": 122
+      "count": 132
     },
     {
       "locus": "Pc",
@@ -657,15 +352,33 @@
     },
     {
       "currier": "B",
+      "locus": "Ca",
+      "status": "equal",
+      "count": 1
+    },
+    {
+      "currier": "B",
+      "locus": "Cc",
+      "status": "different",
+      "count": 8
+    },
+    {
+      "currier": "B",
       "locus": "Cc",
       "status": "equal",
-      "count": 6
+      "count": 9
+    },
+    {
+      "currier": "B",
+      "locus": "L0",
+      "status": "different",
+      "count": 3
     },
     {
       "currier": "B",
       "locus": "L0",
       "status": "equal",
-      "count": 64
+      "count": 198
     },
     {
       "currier": "B",
@@ -712,8 +425,14 @@
     {
       "currier": "B",
       "locus": "Pb",
+      "status": "different",
+      "count": 1
+    },
+    {
+      "currier": "B",
+      "locus": "Pb",
       "status": "equal",
-      "count": 77
+      "count": 87
     },
     {
       "currier": "B",
@@ -2817,6 +2536,123 @@
       },
       "paragraph_start_ZL3b": true,
       "paragraph_start_ZL3a": true
+    },
+    {
+      "key": "fRos.133",
+      "currier": "B",
+      "locus_ZL3b": "@Cc",
+      "locus_ZL3a": "@Cc",
+      "locator_ZL3b": "@",
+      "locator_ZL3a": "@",
+      "ZL3b_tokens": [
+        "ok",
+        "ar",
+        "ar",
+        "okary",
+        "otodeed",
+        "odar",
+        "chekaiin",
+        "oees",
+        "oiin",
+        "okees",
+        "oiir",
+        "odaiin",
+        "okalol",
+        "aiiin",
+        "okal",
+        "ol",
+        "otar",
+        "chchdam",
+        "chetey",
+        "otodches",
+        "oteesey",
+        "chckhy",
+        "otody",
+        "otal",
+        "chedal",
+        "opal",
+        "olkar",
+        "okedaiin",
+        "oror"
+      ],
+      "ZL3a_tokens": [
+        "akchrar",
+        "okary",
+        "otodag",
+        "chekaiin",
+        "oees",
+        "aiin",
+        "okees",
+        "oiir",
+        "odaiin",
+        "okalol",
+        "aiiin",
+        "okalol",
+        "otar",
+        "chchdam",
+        "chetey",
+        "otodchch",
+        "oteesey",
+        "eeckhy",
+        "otody",
+        "otal",
+        "chedal",
+        "opal",
+        "olkar",
+        "okedaiin",
+        "oror"
+      ],
+      "token_edit_summary": {
+        "substitutions_min_count": 10,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "paragraph_start_ZL3b": false,
+      "paragraph_start_ZL3a": false
+    },
+    {
+      "key": "fRos.145",
+      "currier": "B",
+      "locus_ZL3b": "+Pb",
+      "locus_ZL3a": "+Pb",
+      "locator_ZL3b": "+",
+      "locator_ZL3a": "+",
+      "ZL3b_tokens": [
+        "saiir",
+        "shodaiin"
+      ],
+      "ZL3a_tokens": [
+        "saiir",
+        "shdaiin"
+      ],
+      "token_edit_summary": {
+        "substitutions_min_count": 1,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "paragraph_start_ZL3b": false,
+      "paragraph_start_ZL3a": false
+    },
+    {
+      "key": "fRos.156",
+      "currier": "B",
+      "locus_ZL3b": "+L0",
+      "locus_ZL3a": "+L0",
+      "locator_ZL3b": "+",
+      "locator_ZL3a": "+",
+      "ZL3b_tokens": [
+        "opchdy"
+      ],
+      "ZL3a_tokens": [
+        "opeedy"
+      ],
+      "token_edit_summary": {
+        "substitutions_min_count": 1,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "paragraph_start_ZL3b": false,
+      "paragraph_start_ZL3a": false
     }
   ],
   "per_file_locus_counts": {
@@ -2919,9 +2755,21 @@
       },
       {
         "currier": "B",
+        "locus": "Ca",
+        "locator": "+",
+        "count": 1
+      },
+      {
+        "currier": "B",
+        "locus": "Cc",
+        "locator": "=",
+        "count": 1
+      },
+      {
+        "currier": "B",
         "locus": "Cc",
         "locator": "@",
-        "count": 6
+        "count": 16
       },
       {
         "currier": "B",
@@ -2933,19 +2781,25 @@
         "currier": "B",
         "locus": "L0",
         "locator": "+",
-        "count": 48
+        "count": 67
+      },
+      {
+        "currier": "B",
+        "locus": "L0",
+        "locator": "/",
+        "count": 1
       },
       {
         "currier": "B",
         "locus": "L0",
         "locator": "=",
-        "count": 4
+        "count": 5
       },
       {
         "currier": "B",
         "locus": "L0",
         "locator": "@",
-        "count": 2
+        "count": 118
       },
       {
         "currier": "B",
@@ -3064,14 +2918,20 @@
       {
         "currier": "B",
         "locus": "Pb",
+        "locator": "*",
+        "count": 1
+      },
+      {
+        "currier": "B",
+        "locus": "Pb",
         "locator": "+",
-        "count": 64
+        "count": 70
       },
       {
         "currier": "B",
         "locus": "Pb",
         "locator": "@",
-        "count": 13
+        "count": 17
       },
       {
         "currier": "B",
@@ -3347,9 +3207,21 @@
       },
       {
         "currier": "B",
+        "locus": "Ca",
+        "locator": "+",
+        "count": 1
+      },
+      {
+        "currier": "B",
+        "locus": "Cc",
+        "locator": "=",
+        "count": 1
+      },
+      {
+        "currier": "B",
         "locus": "Cc",
         "locator": "@",
-        "count": 6
+        "count": 16
       },
       {
         "currier": "B",
@@ -3361,19 +3233,25 @@
         "currier": "B",
         "locus": "L0",
         "locator": "+",
-        "count": 48
+        "count": 67
+      },
+      {
+        "currier": "B",
+        "locus": "L0",
+        "locator": "/",
+        "count": 1
       },
       {
         "currier": "B",
         "locus": "L0",
         "locator": "=",
-        "count": 4
+        "count": 5
       },
       {
         "currier": "B",
         "locus": "L0",
         "locator": "@",
-        "count": 2
+        "count": 118
       },
       {
         "currier": "B",
@@ -3492,14 +3370,20 @@
       {
         "currier": "B",
         "locus": "Pb",
+        "locator": "*",
+        "count": 1
+      },
+      {
+        "currier": "B",
+        "locus": "Pb",
         "locator": "+",
-        "count": 64
+        "count": 70
       },
       {
         "currier": "B",
         "locus": "Pb",
         "locator": "@",
-        "count": 13
+        "count": 17
       },
       {
         "currier": "B",
@@ -3695,13 +3579,13 @@
         "currier": "B",
         "start": false,
         "end": false,
-        "count": 1707
+        "count": 1863
       },
       {
         "currier": "B",
         "start": false,
         "end": true,
-        "count": 475
+        "count": 479
       },
       {
         "currier": "B",
@@ -3751,13 +3635,13 @@
         "currier": "B",
         "start": false,
         "end": false,
-        "count": 1707
+        "count": 1863
       },
       {
         "currier": "B",
         "start": false,
         "end": true,
-        "count": 475
+        "count": 479
       },
       {
         "currier": "B",
