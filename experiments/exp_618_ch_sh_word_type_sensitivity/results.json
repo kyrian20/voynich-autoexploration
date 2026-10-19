@@ -1,0 +1,389 @@
+{
+  "experiment": "exp_618_ch_sh_word_type_sensitivity",
+  "status": "computed in session; word-type weighting sensitivity",
+  "sources": {
+    "ZL3b": {
+      "path": "data/transcriptions/eva_zl3b.txt",
+      "blob_sha": "2a4533ab9bdfa85db9bad602d590978953055df1"
+    },
+    "IT2a": {
+      "path": "data/transcriptions/eva_it2a.txt",
+      "blob_sha": "4d6d3f2537b1f507a257529b49c94af7d6e03446"
+    }
+  },
+  "method": "Within IVTFF $Q=T, match cells by folio × exact token length × digraph position. For each cell, count each distinct token type once for ch and once for sh, then compare next-character vowel rate. Bootstrap resamples folios (20,000 replicates).",
+  "results": {
+    "ZL3b": {
+      "dataset": "ZL3b",
+      "filter": "IVTFF $Q=T",
+      "unit": "unique token type per folio × exact token length × digraph position × digraph class; a type is counted once within a cell, regardless of token frequency",
+      "matched_cells": 280,
+      "matched_folios": 23,
+      "pooled_unique_type_counts": {
+        "ch_types": 1526,
+        "ch_vowel_rate": 0.8047182175622543,
+        "sh_types": 747,
+        "sh_vowel_rate": 0.8781793842034806,
+        "difference_sh_minus_ch": 0.07346116664122637
+      },
+      "folio_equal_weight_mean_difference": 0.09128760584001464,
+      "bootstrap": {
+        "replicates": 20000,
+        "seed": 618,
+        "ci95_percentile": [
+          0.04395645584246819,
+          0.132284261000734
+        ]
+      },
+      "per_folio": [
+        {
+          "folio": "f103r",
+          "ch_types": 61,
+          "sh_types": 64,
+          "difference_sh_minus_ch": -0.08606557377049184,
+          "matched_cells": 16
+        },
+        {
+          "folio": "f103v",
+          "ch_types": 47,
+          "sh_types": 43,
+          "difference_sh_minus_ch": 0.07323107372587823,
+          "matched_cells": 15
+        },
+        {
+          "folio": "f104r",
+          "ch_types": 78,
+          "sh_types": 29,
+          "difference_sh_minus_ch": 0.114500442086649,
+          "matched_cells": 13
+        },
+        {
+          "folio": "f104v",
+          "ch_types": 73,
+          "sh_types": 24,
+          "difference_sh_minus_ch": 0.1917808219178082,
+          "matched_cells": 11
+        },
+        {
+          "folio": "f105r",
+          "ch_types": 35,
+          "sh_types": 18,
+          "difference_sh_minus_ch": 0.031746031746031744,
+          "matched_cells": 10
+        },
+        {
+          "folio": "f105v",
+          "ch_types": 43,
+          "sh_types": 18,
+          "difference_sh_minus_ch": 0.20025839793281652,
+          "matched_cells": 10
+        },
+        {
+          "folio": "f106r",
+          "ch_types": 102,
+          "sh_types": 47,
+          "difference_sh_minus_ch": 0.10450563204005014,
+          "matched_cells": 17
+        },
+        {
+          "folio": "f106v",
+          "ch_types": 88,
+          "sh_types": 63,
+          "difference_sh_minus_ch": -0.05627705627705637,
+          "matched_cells": 17
+        },
+        {
+          "folio": "f107r",
+          "ch_types": 59,
+          "sh_types": 24,
+          "difference_sh_minus_ch": 0.19562146892655374,
+          "matched_cells": 11
+        },
+        {
+          "folio": "f107v",
+          "ch_types": 38,
+          "sh_types": 12,
+          "difference_sh_minus_ch": 0.23684210526315785,
+          "matched_cells": 8
+        },
+        {
+          "folio": "f108r",
+          "ch_types": 49,
+          "sh_types": 17,
+          "difference_sh_minus_ch": 0.06842737094837936,
+          "matched_cells": 8
+        },
+        {
+          "folio": "f108v",
+          "ch_types": 63,
+          "sh_types": 42,
+          "difference_sh_minus_ch": 0.0714285714285714,
+          "matched_cells": 17
+        },
+        {
+          "folio": "f111r",
+          "ch_types": 81,
+          "sh_types": 54,
+          "difference_sh_minus_ch": 0.08641975308641969,
+          "matched_cells": 16
+        },
+        {
+          "folio": "f111v",
+          "ch_types": 90,
+          "sh_types": 48,
+          "difference_sh_minus_ch": 0.1499999999999999,
+          "matched_cells": 16
+        },
+        {
+          "folio": "f112r",
+          "ch_types": 40,
+          "sh_types": 15,
+          "difference_sh_minus_ch": -0.25,
+          "matched_cells": 7
+        },
+        {
+          "folio": "f112v",
+          "ch_types": 45,
+          "sh_types": 14,
+          "difference_sh_minus_ch": 0.19523809523809532,
+          "matched_cells": 6
+        },
+        {
+          "folio": "f113r",
+          "ch_types": 122,
+          "sh_types": 56,
+          "difference_sh_minus_ch": 0.011416861826697877,
+          "matched_cells": 16
+        },
+        {
+          "folio": "f113v",
+          "ch_types": 65,
+          "sh_types": 26,
+          "difference_sh_minus_ch": 0.06153846153846154,
+          "matched_cells": 15
+        },
+        {
+          "folio": "f114r",
+          "ch_types": 56,
+          "sh_types": 12,
+          "difference_sh_minus_ch": 0.1607142857142857,
+          "matched_cells": 6
+        },
+        {
+          "folio": "f114v",
+          "ch_types": 57,
+          "sh_types": 22,
+          "difference_sh_minus_ch": 0.10207336523125998,
+          "matched_cells": 11
+        },
+        {
+          "folio": "f115r",
+          "ch_types": 113,
+          "sh_types": 28,
+          "difference_sh_minus_ch": 0.11441213653603033,
+          "matched_cells": 15
+        },
+        {
+          "folio": "f115v",
+          "ch_types": 82,
+          "sh_types": 32,
+          "difference_sh_minus_ch": 0.19359756097560976,
+          "matched_cells": 10
+        },
+        {
+          "folio": "f116r",
+          "ch_types": 39,
+          "sh_types": 39,
+          "difference_sh_minus_ch": 0.1282051282051282,
+          "matched_cells": 9
+        }
+      ]
+    },
+    "IT2a": {
+      "dataset": "IT2a",
+      "filter": "IVTFF $Q=T",
+      "unit": "unique token type per folio × exact token length × digraph position × digraph class; a type is counted once within a cell, regardless of token frequency",
+      "matched_cells": 283,
+      "matched_folios": 23,
+      "pooled_unique_type_counts": {
+        "ch_types": 1587,
+        "ch_vowel_rate": 0.8008821676118463,
+        "sh_types": 756,
+        "sh_vowel_rate": 0.8716931216931217,
+        "difference_sh_minus_ch": 0.07081095408127547
+      },
+      "folio_equal_weight_mean_difference": 0.08773297248770195,
+      "bootstrap": {
+        "replicates": 20000,
+        "seed": 618,
+        "ci95_percentile": [
+          0.04315111655405374,
+          0.12790998937581116
+        ]
+      },
+      "per_folio": [
+        {
+          "folio": "f103r",
+          "ch_types": 68,
+          "sh_types": 62,
+          "difference_sh_minus_ch": -0.03320683111954459,
+          "matched_cells": 15
+        },
+        {
+          "folio": "f103v",
+          "ch_types": 48,
+          "sh_types": 45,
+          "difference_sh_minus_ch": 0.07500000000000007,
+          "matched_cells": 14
+        },
+        {
+          "folio": "f104r",
+          "ch_types": 79,
+          "sh_types": 33,
+          "difference_sh_minus_ch": 0.09397775220560034,
+          "matched_cells": 14
+        },
+        {
+          "folio": "f104v",
+          "ch_types": 78,
+          "sh_types": 23,
+          "difference_sh_minus_ch": 0.16666666666666663,
+          "matched_cells": 11
+        },
+        {
+          "folio": "f105r",
+          "ch_types": 41,
+          "sh_types": 20,
+          "difference_sh_minus_ch": 0.07073170731707323,
+          "matched_cells": 12
+        },
+        {
+          "folio": "f105v",
+          "ch_types": 44,
+          "sh_types": 19,
+          "difference_sh_minus_ch": 0.19019138755980858,
+          "matched_cells": 11
+        },
+        {
+          "folio": "f106r",
+          "ch_types": 97,
+          "sh_types": 47,
+          "difference_sh_minus_ch": 0.10177670541785488,
+          "matched_cells": 16
+        },
+        {
+          "folio": "f106v",
+          "ch_types": 88,
+          "sh_types": 62,
+          "difference_sh_minus_ch": -0.07624633431085048,
+          "matched_cells": 17
+        },
+        {
+          "folio": "f107r",
+          "ch_types": 62,
+          "sh_types": 26,
+          "difference_sh_minus_ch": 0.1873449131513648,
+          "matched_cells": 12
+        },
+        {
+          "folio": "f107v",
+          "ch_types": 40,
+          "sh_types": 13,
+          "difference_sh_minus_ch": 0.22499999999999998,
+          "matched_cells": 8
+        },
+        {
+          "folio": "f108r",
+          "ch_types": 48,
+          "sh_types": 19,
+          "difference_sh_minus_ch": -0.013157894736842146,
+          "matched_cells": 9
+        },
+        {
+          "folio": "f108v",
+          "ch_types": 61,
+          "sh_types": 43,
+          "difference_sh_minus_ch": 0.058711399161265665,
+          "matched_cells": 15
+        },
+        {
+          "folio": "f111r",
+          "ch_types": 85,
+          "sh_types": 53,
+          "difference_sh_minus_ch": 0.06792452830188678,
+          "matched_cells": 16
+        },
+        {
+          "folio": "f111v",
+          "ch_types": 90,
+          "sh_types": 47,
+          "difference_sh_minus_ch": 0.14822695035460987,
+          "matched_cells": 15
+        },
+        {
+          "folio": "f112r",
+          "ch_types": 39,
+          "sh_types": 16,
+          "difference_sh_minus_ch": -0.22115384615384615,
+          "matched_cells": 7
+        },
+        {
+          "folio": "f112v",
+          "ch_types": 46,
+          "sh_types": 14,
+          "difference_sh_minus_ch": 0.18944099378881996,
+          "matched_cells": 6
+        },
+        {
+          "folio": "f113r",
+          "ch_types": 134,
+          "sh_types": 54,
+          "difference_sh_minus_ch": 0.004975124378109541,
+          "matched_cells": 17
+        },
+        {
+          "folio": "f113v",
+          "ch_types": 67,
+          "sh_types": 26,
+          "difference_sh_minus_ch": 0.11710677382319179,
+          "matched_cells": 14
+        },
+        {
+          "folio": "f114r",
+          "ch_types": 60,
+          "sh_types": 12,
+          "difference_sh_minus_ch": 0.23333333333333328,
+          "matched_cells": 7
+        },
+        {
+          "folio": "f114v",
+          "ch_types": 62,
+          "sh_types": 22,
+          "difference_sh_minus_ch": 0.1026392961876833,
+          "matched_cells": 11
+        },
+        {
+          "folio": "f115r",
+          "ch_types": 115,
+          "sh_types": 28,
+          "difference_sh_minus_ch": 0.06677018633540377,
+          "matched_cells": 14
+        },
+        {
+          "folio": "f115v",
+          "ch_types": 90,
+          "sh_types": 32,
+          "difference_sh_minus_ch": 0.15069444444444446,
+          "matched_cells": 11
+        },
+        {
+          "folio": "f116r",
+          "ch_types": 45,
+          "sh_types": 40,
+          "difference_sh_minus_ch": 0.11111111111111116,
+          "matched_cells": 11
+        }
+      ]
+    }
+  }
+}
