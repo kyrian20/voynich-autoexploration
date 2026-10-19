@@ -24,14 +24,14 @@
       "daiin_tokens": 32,
       "first_observed": 0,
       "first_expected": 3.77233,
-      "enrichment": 0.0,
+      "enrichment": 0,
       "last_observed": 5,
-      "p_upper_tail_plus_one": 1.0,
+      "p_upper_tail_plus_one": 1,
       "p_lower_tail_plus_one": 0.017796,
       "null_mean": 3.7688,
       "permutations": 5000,
       "seed": 59320261019,
-      "p_holm_A_upper_tail_family": 1.0,
+      "p_holm_A_upper_tail_family": 1,
       "p_holm_A_lower_tail_family": 0.035592
     },
     "CurrierA_P0_modifier_+": {
@@ -46,7 +46,7 @@
       "null_mean": 64.1036,
       "permutations": 5000,
       "seed": 59320261020,
-      "p_holm_A_upper_tail_family": 1.0,
+      "p_holm_A_upper_tail_family": 1,
       "p_holm_A_lower_tail_family": 0.263947
     },
     "CurrierB_P0_modifier_@": {
@@ -54,14 +54,14 @@
       "daiin_tokens": 8,
       "first_observed": 0,
       "first_expected": 0.8047,
-      "enrichment": 0.0,
+      "enrichment": 0,
       "last_observed": 3,
-      "p_upper_tail_plus_one": 1.0,
+      "p_upper_tail_plus_one": 1,
       "p_lower_tail_plus_one": 0.411118,
       "null_mean": 0.8036,
       "permutations": 5000,
       "seed": 59320261021,
-      "p_holm_B_upper_tail_family": 1.0,
+      "p_holm_B_upper_tail_family": 1,
       "p_holm_B_lower_tail_family": 0.822236
     },
     "CurrierB_P0_modifier_+": {
@@ -72,16 +72,16 @@
       "enrichment": 2.90531,
       "last_observed": 20,
       "p_upper_tail_plus_one": 0.0002,
-      "p_lower_tail_plus_one": 1.0,
+      "p_lower_tail_plus_one": 1,
       "null_mean": 30.711,
       "permutations": 5000,
       "seed": 59320261022,
       "p_holm_B_upper_tail_family": 0.0004,
-      "p_holm_B_lower_tail_family": 1.0
+      "p_holm_B_lower_tail_family": 1
     }
   },
-  "interpretation_note": "Locator symbols describe spatial relations in the IVTFF format: @ is always used for the first item on a page; + is generally below the previous item; * is at the start of the line below the previous item at the left margin while the previous item was not. These are not paragraph-start markers. Paragraph boundaries are encoded with dedicated <%> and <$> comments; this script does not test those comments. Results are exploratory and cannot be interpreted semantically.",
-  "format_reference": "https://voynich.nu/software/ivtt/IVTFF_format.pdf, Table 8 and section 6.9; version 2.0.2 dated 2025-07-08",
+  "interpretation_note": "Official IVTFF locator symbols describe page/layout relations: @ is always used for the first item on a page; + usually marks a locus below the previous item; * indicates a locus at the start of a lower line at the left margin when the previous item was not. They do not denote paragraph start/continuation. Paragraph boundaries are separate <%> / <$> comments (IVTFF v2.0.2, Table 8 and §6.9). This experiment analyzes locator classes only.",
+  "format_reference": "https://voynich.nu/software/ivtt/IVTFF_format.pdf (Table 8 and section 6.9; issue 2.0.2, 2025-07-08)",
   "guardrails": [
     "Within-line token-inventory/length expectation.",
     "P-values are Monte Carlo and Holm-adjusted within A/B modifier families.",
