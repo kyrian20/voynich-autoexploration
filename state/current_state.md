@@ -1,6 +1,6 @@
 # Current State — Voynich Cryptanalyst
 
-**Last updated:** 2026-10-19 (exp_589–exp_595 completed; cross-transcription result saved)
+**Last updated:** 2026-10-19 (exp_589–exp_596 completed; exp_597 running)
 
 ## Canonical scientific checkpoint
 The earlier project checkpoint remains exp_588, summarized in `state/transliteration_replication_final_summary.md`. It reports five pre-registered Section 2 findings retained under the ≥2/3 alternative-transliteration rule; F4 retained in EVA-basic and ZL3a but failed in v101 where the o→sh edge had one observation. These are repository-reported findings, not independently rerun as part of exp_589–594.
@@ -79,3 +79,18 @@ The explicit-paragraph-marker analysis reproduces almost exactly in ZL3a vs ZL3b
 - exp_599: tokenizer/uncertain-reading sensitivity variants.
 
 These analyses should run without OpenAI API credit and should preserve source hashes, scripts, results, and null findings.
+
+## exp_596 — paired ZL3a/ZL3b line-level audit
+Run: https://github.com/kyrian20/voynich-autoexploration/actions/runs/39258473051  
+Report: `experiments/exp_596_zl3a_zl3b_line_level_audit/result.md`.
+
+The two versions align one-to-one on all 4,130 generic P-locus records, with no unmatched or duplicate keys, no dialect-label disagreement, no paragraph-marker disagreement, and no change in line-initial `daiin` status. There are 24 cleaned token-sequence disagreements. This confirms the exp_594/595 positional pattern is not caused by marker or line-key misalignment; it is version-level robustness, not independent replication.
+
+## exp_597 — lexical-control specificity
+Run: https://github.com/kyrian20/voynich-autoexploration/actions/runs/39258527666  
+Status at checkpoint: compile-check passed; Monte Carlo analysis was running. Compares `daiin` with `aiin`, `chedy`, `dain`, `saiin`, and `qokaiin` using 10,000 within-line position draws per token and dialect, with Holm correction for upper-tail tests. Controls are exploratory and not perfectly matched by function or morphology.
+
+## Next steps
+- exp_598: folio-cluster bootstrap for Currier-B/no-start-marker enrichment.
+- exp_599: tokenizer/uncertain-reading sensitivity variants.
+- Consolidate positional findings and limitations into a human-review report before adding further tests.
