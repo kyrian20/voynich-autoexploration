@@ -32,7 +32,9 @@ def parse(path,label):
     for line_no,raw in enumerate(path.read_text(encoding="latin-1").splitlines(),1):
         line=raw.strip()
         if not line or line.startswith("#"):continue
-        hm=re.match(r"^<(f\d+[rv])>\s*(.*)$",line)
+        # Folio headers can carry compound identifiers such as <f67r1>, not
+        # only simple <f1r>/<f1v> identifiers.
+        hm=re.match(r"^<(f[^>]+)>\s*(.*)$",line)
         if hm and "," not in hm.group(1):
             folio=hm.group(1);header_count+=1
             lm=re.search(r"\$L=([AB])",hm.group(2))
@@ -137,7 +139,7 @@ def main():
       "experiment":"exp_600_transcription_concordance_audit","protocol_version":1,
       "alignment_rule":"match IVTFF text records by exact folio.line identifier before comma; keep locus and locator differences as comparison outcomes",
       "tokenization_rule":"strip transcriber comments/markup, keep the first [a:b] alternative, remove {uncertain} spans, split on period/comma/whitespace, retain ASCII-letter tokens only",
-      "sources":[{k:v for k,v in p.items() if k not in ("records","duplicates","locus_counts","marker_counts")} for p in parsed],
+      "sources":[{k:v for k,v in p.items() if k not in ("records","duplicates","locus_counts","marker_counts","invalid_identifiers")} for p in parsed],
       "coverage":{
         "ZL3b_unique_line_keys":len(akeys),"ZL3a_unique_line_keys":len(bkeys),
         "aligned_keys":len(common),"only_in_ZL3b_count":len(only_a),"only_in_ZL3a_count":len(only_b),
