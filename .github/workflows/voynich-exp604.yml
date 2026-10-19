@@ -1,0 +1,26 @@
+name: Voynich exp604 independent transcription replication
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'experiments/exp_604_independent_transcription_replication/**'
+      - '.github/workflows/voynich-exp604.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  exp604:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run fixed-protocol IT2a replication
+        run: python experiments/exp_604_independent_transcription_replication/script.py
+      - name: Commit results
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add experiments/exp_604_independent_transcription_replication/results.json experiments/exp_604_independent_transcription_replication/result.md
+          git diff --cached --quiet || git commit -m "Record exp604 IT2a replication results"
+          git push
