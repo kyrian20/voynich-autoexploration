@@ -1,6 +1,18 @@
 # Current State — Voynich Cryptanalyst
 
-**Last updated:** 2026-10-19 (exp_589–exp_601 results saved; exp_602 independent parser audit added)
+**Last updated:** 2026-10-19 (exp_612–exp_618 analyses saved; exp_620 parser audit partial)
+
+
+
+## Latest session update — 2026-10-19 (experiments 612–620)
+
+- exp_612: descriptive ch/sh next-character vowel-rate comparison in IVTFF $Q=T, matched by folio × exact token length × digraph position; result documented in `experiments/exp_612_ch_sh_currier_stratification/`.
+- exp_613–615: folio-cluster bootstrap, within-cell conditional permutation, and vowel-inventory sensitivity saved with standalone Node scripts in `experiments/exp_613_615_ch_sh_inference_sensitivity/`. Corrected parser excludes terminal ch/sh occurrences lacking a following character. ZL3b: ch 83.63%, sh 89.15%, pooled difference +5.52 percentage points; IT2a: ch 83.03%, sh 88.91%, difference +5.88 points. Folio-bootstrap 95% CIs for equal-weight mean differences are above zero in both sources; conditional permutation has zero exceedances in 20,000 draws (plus-one p=0.00005, Monte Carlo floor).
+- exp_617: high-support cells requiring at least 3 or 5 occurrences of each digraph retain a positive pooled contrast in both transcriptions; report/script in `experiments/exp_617_ch_sh_high_support/`.
+- exp_618: distinct word-type weighting still gives a positive contrast in both sources; report/script in `experiments/exp_618_ch_sh_word_type_sensitivity/`.
+- exp_620 parser audit is PARTIAL only: a terminal-digraph counting inconsistency was found and corrected in 613–617, but an independent parser and full IVTFF edge-case audit remain outstanding. See `experiments/exp_620_parser_audit/partial_audit.md`.
+- Open work: exp_616 section/folio-group holdout; exp_619 preregistered negative-control/multiple-testing audit; finish exp_620 independent parser audit; exp_621 synthesis. These are not marked complete.
+- Interpretation: these are conditional distributional observations, not semantic decoding, phonetic proof, or evidence of translation. ZL3b and IT2a are alternative transcriptions of the same manuscript, not independent manuscript samples.
 
 ## Canonical status and source of truth
 Read the synthesis at `research/synthesis/2026-10-19-daiin-position-synthesis.md`. It separates robust distribution observations, annotation-sensitive outcomes, non-significant comparisons, and the exp_598 method failure.
