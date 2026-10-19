@@ -10,7 +10,7 @@ TOK=re.compile(r"[a-z]{2,}")
 V=set("aeiouy"); SEED=6102026; B=20000; P=20000
 def binlen(n): return "2-4" if n<=4 else ("5-7" if n<=7 else "8+")
 def load(label,rel):
- p=ROOT/rel; agg=defaultdict(lambda:defaultdict(lambda:Counter()))
+ p=ROOT/rel; agg=defaultdict(lambda:defaultdict(lambda:defaultdict(Counter)))
  for line in p.read_text(encoding="latin-1").splitlines():
   m=ROW.match(line.strip())
   if not m: continue
