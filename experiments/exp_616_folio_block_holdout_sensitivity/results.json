@@ -1,0 +1,267 @@
+{
+  "experiment": "exp_616_folio_block_holdout_sensitivity",
+  "status": "exploratory partial substitute for section holdout; ranges are numeric folio blocks, not verified codicological sections",
+  "method": "For each transcription, select matched Q=T cells (folio × token length × digraph position, both ch and sh; terminal digraphs excluded), then recompute pooled rates after removing each heuristic numeric folio block.",
+  "groups": [
+    {
+      "name": "103–106",
+      "folios": [
+        103,
+        104,
+        105,
+        106
+      ]
+    },
+    {
+      "name": "107–108",
+      "folios": [
+        107,
+        108
+      ]
+    },
+    {
+      "name": "111–113",
+      "folios": [
+        111,
+        112,
+        113
+      ]
+    },
+    {
+      "name": "114–116",
+      "folios": [
+        114,
+        115,
+        116
+      ]
+    }
+  ],
+  "sources": {
+    "ZL3b": "2a4533ab9bdfa85db9bad602d590978953055df1",
+    "IT2a": "4d6d3f2537b1f507a257529b49c94af7d6e03446"
+  },
+  "results": {
+    "ZL3b": {
+      "all": {
+        "cells": 280,
+        "folios": 23,
+        "ch_n": 2340,
+        "ch_rate": 0.8363247863247864,
+        "sh_n": 1051,
+        "sh_rate": 0.8915318744053282,
+        "difference_sh_minus_ch": 0.055207088080541866
+      },
+      "leave_out": [
+        {
+          "block": "103–106",
+          "removed": {
+            "cells": 171,
+            "folios": 15,
+            "ch_n": 1580,
+            "ch_rate": 0.8373417721518988,
+            "sh_n": 612,
+            "sh_rate": 0.9084967320261438,
+            "difference_sh_minus_ch": 0.07115495987424503
+          }
+        },
+        {
+          "block": "107–108",
+          "removed": {
+            "cells": 236,
+            "folios": 19,
+            "ch_n": 1981,
+            "ch_rate": 0.8359414437152953,
+            "sh_n": 910,
+            "sh_rate": 0.8802197802197802,
+            "difference_sh_minus_ch": 0.04427833650448487
+          }
+        },
+        {
+          "block": "111–113",
+          "removed": {
+            "cells": 204,
+            "folios": 17,
+            "ch_n": 1669,
+            "ch_rate": 0.8316357100059916,
+            "sh_n": 774,
+            "sh_rate": 0.8927648578811369,
+            "difference_sh_minus_ch": 0.06112914787514534
+          }
+        },
+        {
+          "block": "114–116",
+          "removed": {
+            "cells": 229,
+            "folios": 18,
+            "ch_n": 1790,
+            "ch_rate": 0.8402234636871508,
+            "sh_n": 857,
+            "sh_rate": 0.8903150525087514,
+            "difference_sh_minus_ch": 0.050091588821600586
+          }
+        }
+      ],
+      "group_contributions": [
+        {
+          "block": "103–106",
+          "summary": {
+            "cells": 109,
+            "folios": 8,
+            "ch_n": 760,
+            "ch_rate": 0.8342105263157895,
+            "sh_n": 439,
+            "sh_rate": 0.8678815489749431,
+            "difference_sh_minus_ch": 0.03367102265915356
+          }
+        },
+        {
+          "block": "107–108",
+          "summary": {
+            "cells": 44,
+            "folios": 4,
+            "ch_n": 359,
+            "ch_rate": 0.8384401114206128,
+            "sh_n": 141,
+            "sh_rate": 0.9645390070921985,
+            "difference_sh_minus_ch": 0.12609889567158572
+          }
+        },
+        {
+          "block": "111–113",
+          "summary": {
+            "cells": 76,
+            "folios": 6,
+            "ch_n": 671,
+            "ch_rate": 0.8479880774962743,
+            "sh_n": 277,
+            "sh_rate": 0.8880866425992779,
+            "difference_sh_minus_ch": 0.04009856510300369
+          }
+        },
+        {
+          "block": "114–116",
+          "summary": {
+            "cells": 51,
+            "folios": 5,
+            "ch_n": 550,
+            "ch_rate": 0.8236363636363636,
+            "sh_n": 194,
+            "sh_rate": 0.8969072164948454,
+            "difference_sh_minus_ch": 0.07327085285848178
+          }
+        }
+      ]
+    },
+    "IT2a": {
+      "all": {
+        "cells": 283,
+        "folios": 23,
+        "ch_n": 2387,
+        "ch_rate": 0.8303309593632174,
+        "sh_n": 1064,
+        "sh_rate": 0.8890977443609023,
+        "difference_sh_minus_ch": 0.05876678499768484
+      },
+      "leave_out": [
+        {
+          "block": "103–106",
+          "removed": {
+            "cells": 173,
+            "folios": 15,
+            "ch_n": 1614,
+            "ch_rate": 0.8296158612143743,
+            "sh_n": 620,
+            "sh_rate": 0.9032258064516129,
+            "difference_sh_minus_ch": 0.07360994523723863
+          }
+        },
+        {
+          "block": "107–108",
+          "removed": {
+            "cells": 239,
+            "folios": 19,
+            "ch_n": 2031,
+            "ch_rate": 0.8286558345642541,
+            "sh_n": 916,
+            "sh_rate": 0.87882096069869,
+            "difference_sh_minus_ch": 0.05016512613443591
+          }
+        },
+        {
+          "block": "111–113",
+          "removed": {
+            "cells": 208,
+            "folios": 17,
+            "ch_n": 1691,
+            "ch_rate": 0.8279124778237729,
+            "sh_n": 790,
+            "sh_rate": 0.8886075949367088,
+            "difference_sh_minus_ch": 0.06069511711293596
+          }
+        },
+        {
+          "block": "114–116",
+          "removed": {
+            "cells": 229,
+            "folios": 18,
+            "ch_n": 1825,
+            "ch_rate": 0.8350684931506849,
+            "sh_n": 866,
+            "sh_rate": 0.8903002309468823,
+            "difference_sh_minus_ch": 0.05523173779619739
+          }
+        }
+      ],
+      "group_contributions": [
+        {
+          "block": "103–106",
+          "summary": {
+            "cells": 110,
+            "folios": 8,
+            "ch_n": 773,
+            "ch_rate": 0.8318240620957309,
+            "sh_n": 444,
+            "sh_rate": 0.8693693693693694,
+            "difference_sh_minus_ch": 0.03754530727363847
+          }
+        },
+        {
+          "block": "107–108",
+          "summary": {
+            "cells": 44,
+            "folios": 4,
+            "ch_n": 356,
+            "ch_rate": 0.8398876404494382,
+            "sh_n": 148,
+            "sh_rate": 0.9527027027027027,
+            "difference_sh_minus_ch": 0.11281506225326454
+          }
+        },
+        {
+          "block": "111–113",
+          "summary": {
+            "cells": 75,
+            "folios": 6,
+            "ch_n": 696,
+            "ch_rate": 0.8362068965517241,
+            "sh_n": 274,
+            "sh_rate": 0.8905109489051095,
+            "difference_sh_minus_ch": 0.054304052353385424
+          }
+        },
+        {
+          "block": "114–116",
+          "summary": {
+            "cells": 54,
+            "folios": 5,
+            "ch_n": 562,
+            "ch_rate": 0.8149466192170819,
+            "sh_n": 198,
+            "sh_rate": 0.8838383838383839,
+            "difference_sh_minus_ch": 0.06889176462130198
+          }
+        }
+      ]
+    }
+  }
+}
