@@ -72,8 +72,9 @@ def pair_test(a,b,n_perm,seed):
     pooled=list(a)+list(b);na=len(a)
     rng=random.Random(seed);ge=0;sumjsd=0.0
     for _ in range(n_perm):
-        rng.shuffle(pooled)
-        value=jsd_bits(pooled[:na],pooled[na:])
+        shuffled=pooled[:]
+        rng.shuffle(shuffled)
+        value=jsd_bits(shuffled[:na],shuffled[na:])
         sumjsd+=value
         ge+=value>=observed-1e-12
     return {"n_a":len(a),"n_b":len(b),"observed_jsd_bits":round(observed,6),
