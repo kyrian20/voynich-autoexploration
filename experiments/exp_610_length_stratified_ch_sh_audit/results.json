@@ -1,0 +1,70 @@
+{
+  "experiment": "exp_610_length_stratified_ch_sh_audit",
+  "method": {
+    "length_bins": "2-4, 5-7, 8+ EVA letters",
+    "outcome": "vowel among next characters after ch/sh inside a token",
+    "limitations": "Descriptive stratification only; no template-conditioned model, no Currier/hand adjustment, and transcriptions are related."
+  },
+  "datasets": [
+    {
+      "label": "ZL3b",
+      "sha256": "bf5b6d4ac1e3a51b1847a9c388318d609020441ccd56984c901c32b09beccafc",
+      "summary_by_length": {
+        "2-4": {
+          "ch_n": 1880,
+          "ch_vowel_rate": 0.8718085106382979,
+          "sh_n": 1050,
+          "sh_vowel_rate": 0.9285714285714286,
+          "paired_folios": 168,
+          "mean_paired_difference": -0.07473415366618043
+        },
+        "5-7": {
+          "ch_n": 5936,
+          "ch_vowel_rate": 0.8318733153638814,
+          "sh_n": 2273,
+          "sh_vowel_rate": 0.8966124065112187,
+          "paired_folios": 174,
+          "mean_paired_difference": -0.06492871694385985
+        },
+        "8+": {
+          "ch_n": 1472,
+          "ch_vowel_rate": 0.8770380434782609,
+          "sh_n": 460,
+          "sh_vowel_rate": 0.8891304347826087,
+          "paired_folios": 121,
+          "mean_paired_difference": -0.015726143510511846
+        }
+      }
+    },
+    {
+      "label": "IT2a",
+      "sha256": "7f27a8b0feed8f6de0a99900df6bf912dd1d295c38e5f830bac8b41c3f536fb5",
+      "summary_by_length": {
+        "2-4": {
+          "ch_n": 1764,
+          "ch_vowel_rate": 0.8616780045351474,
+          "sh_n": 1035,
+          "sh_vowel_rate": 0.9256038647342996,
+          "paired_folios": 170,
+          "mean_paired_difference": -0.07344397535581694
+        },
+        "5-7": {
+          "ch_n": 6153,
+          "ch_vowel_rate": 0.828538924102064,
+          "sh_n": 2348,
+          "sh_vowel_rate": 0.8909710391822828,
+          "paired_folios": 176,
+          "mean_paired_difference": -0.05094320115222255
+        },
+        "8+": {
+          "ch_n": 1516,
+          "ch_vowel_rate": 0.8753298153034301,
+          "sh_n": 442,
+          "sh_vowel_rate": 0.8823529411764706,
+          "paired_folios": 113,
+          "mean_paired_difference": -0.007452067271299998
+        }
+      }
+    }
+  ]
+}
