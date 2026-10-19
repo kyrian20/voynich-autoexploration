@@ -1,0 +1,47 @@
+name: Voynich Lexical Control Checks
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "experiments/exp_597_daiin_frequency_control_words/**"
+      - "data/transcriptions/eva_zl3b.txt"
+      - ".github/workflows/voynich-lexical-controls.yml"
+
+permissions:
+  contents: write
+concurrency:
+  group: voynich-lexical-controls
+  cancel-in-progress: false
+jobs:
+  lexical-controls:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Compile-check
+        run: python -m py_compile experiments/exp_597_daiin_frequency_control_words/script.py
+      - name: Run lexical controls (no API)
+        run: python experiments/exp_597_daiin_frequency_control_words/script.py --permutations 10000
+      - name: Upload results
+        uses: actions/upload-artifact@v4
+        with:
+          name: exp-597-daiin-lexical-controls
+          path: experiments/exp_597_daiin_frequency_control_words/results.json
+          if-no-files-found: error
+          retention-days: 90
+      - name: Commit generated results
+        continue-on-error: true
+        run: |
+          if [ -n "$(git status --porcelain experiments/exp_597_daiin_frequency_control_words/results.json)" ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add experiments/exp_597_daiin_frequency_control_words/results.json
+            git commit -m "Record exp_597 lexical control results"
+            git push
+          else
+            echo "No changes to results."
+          fi
