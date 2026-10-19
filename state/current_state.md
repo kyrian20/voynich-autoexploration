@@ -108,3 +108,13 @@ Reporte: `experiments/exp_604_independent_transcription_replication/result.md`; 
 Con el protocolo fijado (Currier B, P0 exacto, al menos dos tokens limpios, `daiin` literal como primer token), la transcripción IT2a contiene 2.324 líneas elegibles en 81 folios. Se observan 84 inicios `daiin`, frente a 32,282 esperados según el inventario de cada línea: enriquecimiento 2,602×; bootstrap agrupado por folio 95% [1,935×, 3,345×]; permutación condicional 20.000 veces, p unilateral con corrección +1 = 0,000050. El análisis leave-one-folio-out queda entre 2,427× y 2,708×.
 
 **Conclusión:** el patrón posicional se reproduce en IT2a con el mismo criterio estrecho, así que no depende únicamente de ZL3b. Límite: IT2a es otra transcripción/versionado, no un testigo manuscrito independiente; puede compartir convenciones editoriales. No implica significado de `daiin` ni descifrado.
+
+
+## exp_606 — lexical boundary audit around known foliation gaps (completed)
+Run: https://github.com/kyrian20/voynich-autoexploration/actions/runs/39267834416
+Report: `experiments/exp_606_gap_boundary_lexical_audit/result.md`; JSON: `experiments/exp_606_gap_boundary_lexical_audit/results.json`.
+
+Compared six predeclared transitions around known foliation gaps against adjacent surviving pages with the same Currier label, using simple cleaned-token Jensen–Shannon divergence and vocabulary overlap. Five transitions were measurable in each transcription; f90v→f93r was unavailable. Mean divergence at the five measured gap edges was 0.770 bits (ZL3b) and 0.765 (IT2a), versus 0.718 and 0.728 for 165 same-label adjacent controls. This is only a weak descriptive elevation, driven partly by f58v→f65r, whose right side yields just three tokens in this simple parser; two edges also cross Currier labels. One gap edge had lower divergence than 97% of controls. The result is mixed, sensitive to text volume and section boundaries, and **does not support a claim of additional missing pages**. Token cleanup is not a validated EVA parser; the experiment is exploratory, with no inferential p-value. Physical image/codicological verification is needed for any claim about missing leaves.
+
+## Next research direction
+Avoid further repetition of the same `daiin` positional statistic and avoid treating text discontinuity as evidence of lost pages. Prioritize a higher-value linguistic test: evaluate whether the manuscript's token sequences exhibit stable local transition structure beyond frequency and Currier class, with predeclared train/test splits by folio and negative controls. Report failures as well as positive results.
