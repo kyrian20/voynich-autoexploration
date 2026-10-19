@@ -14,7 +14,7 @@
     ],
     "folio_range_min_n": 5,
     "analysis": "descriptive; no tuned classifier or significance claim",
-    "limitation": "Simple proxy, not a reproduction of Parisel's template-conditioned Beta-Binomial mixture. Transcriptions are related; metadata/token cleanup may be imperfect."
+    "limitation": "Simple proxy, not a reproduction of Parisel's template-conditioned Beta-Binomial mixture. Transcriptions are related; Currier labels are intentionally not inferred; token cleanup may be imperfect."
   },
   "datasets": [
     {
@@ -25,23 +25,23 @@
         {
           "folio": "f100r",
           "currier": null,
-          "word_count": 109,
-          "n": 55,
+          "word_count": 118,
+          "n": 56,
           "next_counts": {
             "a": 2,
             "c": 1,
             "e": 21,
-            "k": 1,
+            "k": 2,
             "o": 30
           },
-          "vowel_rate": 0.9636363636363636,
-          "e_rate": 0.38181818181818183,
-          "a_rate": 0.03636363636363636,
+          "vowel_rate": 0.9464285714285714,
+          "e_rate": 0.375,
+          "a_rate": 0.03571428571428571,
           "ch_counts": {
             "a": 2,
             "c": 1,
             "e": 13,
-            "k": 1,
+            "k": 2,
             "o": 21
           },
           "sh_counts": {
@@ -52,7 +52,7 @@
         {
           "folio": "f100v",
           "currier": null,
-          "word_count": 91,
+          "word_count": 92,
           "n": 47,
           "next_counts": {
             "a": 1,
@@ -80,8 +80,8 @@
         },
         {
           "folio": "f101r",
-          "currier": "A",
-          "word_count": 217,
+          "currier": null,
+          "word_count": 221,
           "n": 92,
           "next_counts": {
             "a": 2,
@@ -115,8 +115,8 @@
         },
         {
           "folio": "f101v",
-          "currier": "A",
-          "word_count": 210,
+          "currier": null,
+          "word_count": 214,
           "n": 60,
           "next_counts": {
             "c": 1,
@@ -140,14 +140,14 @@
         },
         {
           "folio": "f103r",
-          "currier": "A",
-          "word_count": 526,
-          "n": 228,
+          "currier": null,
+          "word_count": 535,
+          "n": 229,
           "next_counts": {
             "a": 9,
             "c": 19,
             "d": 16,
-            "e": 143,
+            "e": 144,
             "k": 3,
             "o": 16,
             "p": 1,
@@ -155,14 +155,14 @@
             "t": 1,
             "y": 18
           },
-          "vowel_rate": 0.8157894736842105,
-          "e_rate": 0.6271929824561403,
-          "a_rate": 0.039473684210526314,
+          "vowel_rate": 0.8165938864628821,
+          "e_rate": 0.62882096069869,
+          "a_rate": 0.039301310043668124,
           "ch_counts": {
             "a": 7,
             "c": 7,
             "d": 7,
-            "e": 68,
+            "e": 69,
             "o": 7,
             "p": 1,
             "s": 1,
@@ -182,8 +182,8 @@
         },
         {
           "folio": "f103v",
-          "currier": "A",
-          "word_count": 441,
+          "currier": null,
+          "word_count": 448,
           "n": 184,
           "next_counts": {
             "a": 14,
@@ -220,8 +220,8 @@
         },
         {
           "folio": "f104r",
-          "currier": "A",
-          "word_count": 434,
+          "currier": null,
+          "word_count": 440,
           "n": 183,
           "next_counts": {
             "a": 10,
@@ -258,8 +258,8 @@
         },
         {
           "folio": "f104v",
-          "currier": "A",
-          "word_count": 461,
+          "currier": null,
+          "word_count": 470,
           "n": 244,
           "next_counts": {
             "a": 4,
@@ -292,8 +292,8 @@
         },
         {
           "folio": "f105r",
-          "currier": "A",
-          "word_count": 373,
+          "currier": null,
+          "word_count": 378,
           "n": 101,
           "next_counts": {
             "c": 2,
@@ -328,8 +328,8 @@
         },
         {
           "folio": "f105v",
-          "currier": "A",
-          "word_count": 386,
+          "currier": null,
+          "word_count": 389,
           "n": 113,
           "next_counts": {
             "c": 2,
@@ -366,8 +366,8 @@
         },
         {
           "folio": "f106r",
-          "currier": "A",
-          "word_count": 430,
+          "currier": null,
+          "word_count": 435,
           "n": 220,
           "next_counts": {
             "a": 8,
@@ -407,8 +407,8 @@
         },
         {
           "folio": "f106v",
-          "currier": "A",
-          "word_count": 445,
+          "currier": null,
+          "word_count": 447,
           "n": 213,
           "next_counts": {
             "a": 13,
@@ -449,14 +449,14 @@
         },
         {
           "folio": "f107r",
-          "currier": "A",
-          "word_count": 474,
-          "n": 167,
+          "currier": null,
+          "word_count": 483,
+          "n": 168,
           "next_counts": {
             "a": 12,
             "c": 2,
             "d": 8,
-            "e": 99,
+            "e": 100,
             "k": 6,
             "l": 3,
             "o": 24,
@@ -464,14 +464,14 @@
             "t": 3,
             "y": 9
           },
-          "vowel_rate": 0.8622754491017964,
-          "e_rate": 0.592814371257485,
-          "a_rate": 0.0718562874251497,
+          "vowel_rate": 0.8630952380952381,
+          "e_rate": 0.5952380952380952,
+          "a_rate": 0.07142857142857142,
           "ch_counts": {
             "a": 9,
             "c": 2,
             "d": 8,
-            "e": 76,
+            "e": 77,
             "k": 6,
             "l": 2,
             "o": 20,
@@ -490,7 +490,7 @@
         {
           "folio": "f107v",
           "currier": null,
-          "word_count": 449,
+          "word_count": 453,
           "n": 121,
           "next_counts": {
             "a": 6,
@@ -524,14 +524,14 @@
         },
         {
           "folio": "f108r",
-          "currier": "A",
-          "word_count": 485,
-          "n": 163,
+          "currier": null,
+          "word_count": 493,
+          "n": 164,
           "next_counts": {
             "a": 7,
             "c": 5,
             "d": 22,
-            "e": 91,
+            "e": 92,
             "k": 3,
             "l": 2,
             "o": 21,
@@ -539,14 +539,14 @@
             "t": 1,
             "y": 9
           },
-          "vowel_rate": 0.7852760736196319,
-          "e_rate": 0.558282208588957,
-          "a_rate": 0.04294478527607362,
+          "vowel_rate": 0.7865853658536586,
+          "e_rate": 0.5609756097560976,
+          "a_rate": 0.042682926829268296,
           "ch_counts": {
             "a": 7,
             "c": 4,
             "d": 22,
-            "e": 79,
+            "e": 80,
             "k": 1,
             "l": 2,
             "o": 13,
@@ -564,8 +564,8 @@
         },
         {
           "folio": "f108v",
-          "currier": "A",
-          "word_count": 567,
+          "currier": null,
+          "word_count": 575,
           "n": 192,
           "next_counts": {
             "a": 7,
@@ -603,8 +603,8 @@
         },
         {
           "folio": "f10r",
-          "currier": "A",
-          "word_count": 90,
+          "currier": null,
+          "word_count": 92,
           "n": 43,
           "next_counts": {
             "a": 5,
@@ -633,7 +633,7 @@
         {
           "folio": "f10v",
           "currier": null,
-          "word_count": 57,
+          "word_count": 58,
           "n": 23,
           "next_counts": {
             "c": 3,
@@ -658,8 +658,8 @@
         },
         {
           "folio": "f111r",
-          "currier": "A",
-          "word_count": 599,
+          "currier": null,
+          "word_count": 608,
           "n": 242,
           "next_counts": {
             "a": 11,
@@ -701,8 +701,8 @@
         },
         {
           "folio": "f111v",
-          "currier": "A",
-          "word_count": 544,
+          "currier": null,
+          "word_count": 549,
           "n": 238,
           "next_counts": {
             "a": 23,
@@ -739,8 +739,8 @@
         },
         {
           "folio": "f112r",
-          "currier": "A",
-          "word_count": 390,
+          "currier": null,
+          "word_count": 395,
           "n": 103,
           "next_counts": {
             "a": 5,
@@ -778,8 +778,8 @@
         },
         {
           "folio": "f112v",
-          "currier": "A",
-          "word_count": 411,
+          "currier": null,
+          "word_count": 418,
           "n": 146,
           "next_counts": {
             "a": 9,
@@ -816,8 +816,8 @@
         },
         {
           "folio": "f113r",
-          "currier": "A",
-          "word_count": 514,
+          "currier": null,
+          "word_count": 521,
           "n": 294,
           "next_counts": {
             "a": 14,
@@ -863,8 +863,8 @@
         },
         {
           "folio": "f113v",
-          "currier": "A",
-          "word_count": 489,
+          "currier": null,
+          "word_count": 494,
           "n": 146,
           "next_counts": {
             "a": 5,
@@ -902,8 +902,8 @@
         },
         {
           "folio": "f114r",
-          "currier": "A",
-          "word_count": 450,
+          "currier": null,
+          "word_count": 458,
           "n": 171,
           "next_counts": {
             "a": 3,
@@ -938,8 +938,8 @@
         },
         {
           "folio": "f114v",
-          "currier": "A",
-          "word_count": 363,
+          "currier": null,
+          "word_count": 367,
           "n": 170,
           "next_counts": {
             "a": 1,
@@ -970,8 +970,8 @@
         },
         {
           "folio": "f115r",
-          "currier": "A",
-          "word_count": 449,
+          "currier": null,
+          "word_count": 451,
           "n": 251,
           "next_counts": {
             "a": 6,
@@ -1013,7 +1013,7 @@
         {
           "folio": "f115v",
           "currier": null,
-          "word_count": 403,
+          "word_count": 408,
           "n": 219,
           "next_counts": {
             "a": 7,
@@ -1053,8 +1053,8 @@
         },
         {
           "folio": "f116r",
-          "currier": "A",
-          "word_count": 532,
+          "currier": null,
+          "word_count": 536,
           "n": 192,
           "next_counts": {
             "a": 11,
@@ -1096,7 +1096,7 @@
         {
           "folio": "f116v",
           "currier": null,
-          "word_count": 2,
+          "word_count": 8,
           "n": 1,
           "next_counts": {
             "e": 1
@@ -1111,7 +1111,7 @@
         },
         {
           "folio": "f11r",
-          "currier": "A",
+          "currier": null,
           "word_count": 49,
           "n": 26,
           "next_counts": {
@@ -1139,7 +1139,7 @@
         {
           "folio": "f11v",
           "currier": null,
-          "word_count": 48,
+          "word_count": 49,
           "n": 24,
           "next_counts": {
             "c": 3,
@@ -1166,26 +1166,27 @@
         },
         {
           "folio": "f13r",
-          "currier": "A",
-          "word_count": 69,
-          "n": 48,
+          "currier": null,
+          "word_count": 72,
+          "n": 49,
           "next_counts": {
             "a": 2,
             "c": 1,
             "e": 2,
             "g": 1,
-            "k": 1,
+            "k": 2,
             "o": 19,
             "y": 22
           },
-          "vowel_rate": 0.9375,
-          "e_rate": 0.041666666666666664,
-          "a_rate": 0.041666666666666664,
+          "vowel_rate": 0.9183673469387755,
+          "e_rate": 0.04081632653061224,
+          "a_rate": 0.04081632653061224,
           "ch_counts": {
             "a": 1,
             "c": 1,
             "e": 1,
             "g": 1,
+            "k": 1,
             "o": 14,
             "y": 18
           },
@@ -1199,8 +1200,8 @@
         },
         {
           "folio": "f13v",
-          "currier": "A",
-          "word_count": 61,
+          "currier": null,
+          "word_count": 64,
           "n": 26,
           "next_counts": {
             "e": 2,
@@ -1224,7 +1225,7 @@
         },
         {
           "folio": "f14r",
-          "currier": "A",
+          "currier": null,
           "word_count": 74,
           "n": 38,
           "next_counts": {
@@ -1253,7 +1254,7 @@
         {
           "folio": "f14v",
           "currier": null,
-          "word_count": 70,
+          "word_count": 71,
           "n": 36,
           "next_counts": {
             "c": 3,
@@ -1278,7 +1279,7 @@
         {
           "folio": "f15r",
           "currier": null,
-          "word_count": 90,
+          "word_count": 92,
           "n": 42,
           "next_counts": {
             "a": 4,
@@ -1313,7 +1314,7 @@
         {
           "folio": "f15v",
           "currier": null,
-          "word_count": 66,
+          "word_count": 69,
           "n": 31,
           "next_counts": {
             "a": 1,
@@ -1338,7 +1339,7 @@
         {
           "folio": "f16r",
           "currier": null,
-          "word_count": 82,
+          "word_count": 86,
           "n": 39,
           "next_counts": {
             "a": 1,
@@ -1369,8 +1370,8 @@
         },
         {
           "folio": "f16v",
-          "currier": "A",
-          "word_count": 71,
+          "currier": null,
+          "word_count": 75,
           "n": 47,
           "next_counts": {
             "a": 1,
@@ -1403,7 +1404,7 @@
         },
         {
           "folio": "f17r",
-          "currier": "A",
+          "currier": null,
           "word_count": 76,
           "n": 42,
           "next_counts": {
@@ -1431,8 +1432,8 @@
         },
         {
           "folio": "f17v",
-          "currier": "A",
-          "word_count": 132,
+          "currier": null,
+          "word_count": 134,
           "n": 54,
           "next_counts": {
             "a": 2,
@@ -1462,8 +1463,8 @@
         },
         {
           "folio": "f18r",
-          "currier": "A",
-          "word_count": 82,
+          "currier": null,
+          "word_count": 85,
           "n": 42,
           "next_counts": {
             "a": 8,
@@ -1491,8 +1492,8 @@
         },
         {
           "folio": "f18v",
-          "currier": "A",
-          "word_count": 66,
+          "currier": null,
+          "word_count": 69,
           "n": 29,
           "next_counts": {
             "a": 1,
@@ -1519,7 +1520,7 @@
         {
           "folio": "f19r",
           "currier": null,
-          "word_count": 74,
+          "word_count": 75,
           "n": 41,
           "next_counts": {
             "a": 1,
@@ -1547,7 +1548,7 @@
         },
         {
           "folio": "f19v",
-          "currier": "A",
+          "currier": null,
           "word_count": 74,
           "n": 33,
           "next_counts": {
@@ -1577,8 +1578,8 @@
         },
         {
           "folio": "f1r",
-          "currier": "A",
-          "word_count": 206,
+          "currier": null,
+          "word_count": 211,
           "n": 85,
           "next_counts": {
             "a": 7,
@@ -1611,7 +1612,7 @@
         {
           "folio": "f1v",
           "currier": null,
-          "word_count": 88,
+          "word_count": 92,
           "n": 43,
           "next_counts": {
             "a": 2,
@@ -1640,8 +1641,8 @@
         },
         {
           "folio": "f20r",
-          "currier": "A",
-          "word_count": 87,
+          "currier": null,
+          "word_count": 88,
           "n": 63,
           "next_counts": {
             "a": 3,
@@ -1666,7 +1667,7 @@
         {
           "folio": "f20v",
           "currier": null,
-          "word_count": 82,
+          "word_count": 86,
           "n": 51,
           "next_counts": {
             "a": 2,
@@ -1696,7 +1697,7 @@
         },
         {
           "folio": "f21r",
-          "currier": "A",
+          "currier": null,
           "word_count": 97,
           "n": 52,
           "next_counts": {
@@ -1756,8 +1757,8 @@
         },
         {
           "folio": "f22r",
-          "currier": "A",
-          "word_count": 105,
+          "currier": null,
+          "word_count": 111,
           "n": 41,
           "next_counts": {
             "a": 3,
@@ -1816,8 +1817,8 @@
         },
         {
           "folio": "f23r",
-          "currier": "A",
-          "word_count": 99,
+          "currier": null,
+          "word_count": 101,
           "n": 36,
           "next_counts": {
             "a": 6,
@@ -1848,7 +1849,7 @@
         {
           "folio": "f23v",
           "currier": null,
-          "word_count": 89,
+          "word_count": 90,
           "n": 31,
           "next_counts": {
             "a": 3,
@@ -1879,7 +1880,7 @@
         {
           "folio": "f24r",
           "currier": null,
-          "word_count": 102,
+          "word_count": 104,
           "n": 31,
           "next_counts": {
             "a": 5,
@@ -1908,8 +1909,8 @@
         },
         {
           "folio": "f24v",
-          "currier": "A",
-          "word_count": 81,
+          "currier": null,
+          "word_count": 90,
           "n": 37,
           "next_counts": {
             "a": 2,
@@ -1938,8 +1939,8 @@
         },
         {
           "folio": "f25r",
-          "currier": "A",
-          "word_count": 45,
+          "currier": null,
+          "word_count": 46,
           "n": 27,
           "next_counts": {
             "a": 7,
@@ -1972,7 +1973,7 @@
         {
           "folio": "f25v",
           "currier": null,
-          "word_count": 54,
+          "word_count": 56,
           "n": 26,
           "next_counts": {
             "a": 2,
@@ -2002,7 +2003,7 @@
         {
           "folio": "f26r",
           "currier": null,
-          "word_count": 82,
+          "word_count": 83,
           "n": 35,
           "next_counts": {
             "a": 1,
@@ -2034,8 +2035,8 @@
         },
         {
           "folio": "f26v",
-          "currier": "A",
-          "word_count": 88,
+          "currier": null,
+          "word_count": 91,
           "n": 39,
           "next_counts": {
             "d": 5,
@@ -2065,7 +2066,7 @@
         {
           "folio": "f27r",
           "currier": null,
-          "word_count": 89,
+          "word_count": 93,
           "n": 55,
           "next_counts": {
             "a": 5,
@@ -2093,7 +2094,7 @@
         {
           "folio": "f27v",
           "currier": null,
-          "word_count": 60,
+          "word_count": 62,
           "n": 53,
           "next_counts": {
             "a": 1,
@@ -2132,7 +2133,7 @@
         {
           "folio": "f28r",
           "currier": null,
-          "word_count": 66,
+          "word_count": 67,
           "n": 40,
           "next_counts": {
             "a": 3,
@@ -2160,7 +2161,7 @@
         {
           "folio": "f28v",
           "currier": null,
-          "word_count": 64,
+          "word_count": 65,
           "n": 42,
           "next_counts": {
             "a": 2,
@@ -2191,8 +2192,8 @@
         },
         {
           "folio": "f29r",
-          "currier": "A",
-          "word_count": 62,
+          "currier": null,
+          "word_count": 63,
           "n": 45,
           "next_counts": {
             "a": 1,
@@ -2220,7 +2221,7 @@
         {
           "folio": "f29v",
           "currier": null,
-          "word_count": 88,
+          "word_count": 93,
           "n": 57,
           "next_counts": {
             "a": 4,
@@ -2252,8 +2253,8 @@
         },
         {
           "folio": "f2r",
-          "currier": "A",
-          "word_count": 100,
+          "currier": null,
+          "word_count": 101,
           "n": 40,
           "next_counts": {
             "a": 8,
@@ -2285,7 +2286,7 @@
         {
           "folio": "f2v",
           "currier": null,
-          "word_count": 59,
+          "word_count": 62,
           "n": 43,
           "next_counts": {
             "a": 1,
@@ -2318,7 +2319,7 @@
         {
           "folio": "f30r",
           "currier": null,
-          "word_count": 96,
+          "word_count": 98,
           "n": 69,
           "next_counts": {
             "a": 6,
@@ -2353,8 +2354,8 @@
         },
         {
           "folio": "f30v",
-          "currier": "A",
-          "word_count": 63,
+          "currier": null,
+          "word_count": 65,
           "n": 42,
           "next_counts": {
             "e": 12,
@@ -2381,7 +2382,7 @@
         },
         {
           "folio": "f31r",
-          "currier": "A",
+          "currier": null,
           "word_count": 98,
           "n": 39,
           "next_counts": {
@@ -2407,8 +2408,8 @@
         },
         {
           "folio": "f31v",
-          "currier": "A",
-          "word_count": 105,
+          "currier": null,
+          "word_count": 108,
           "n": 36,
           "next_counts": {
             "e": 30,
@@ -2429,7 +2430,7 @@
         },
         {
           "folio": "f32r",
-          "currier": "A",
+          "currier": null,
           "word_count": 75,
           "n": 36,
           "next_counts": {
@@ -2457,7 +2458,7 @@
         },
         {
           "folio": "f32v",
-          "currier": "A",
+          "currier": null,
           "word_count": 80,
           "n": 41,
           "next_counts": {
@@ -2489,8 +2490,8 @@
         },
         {
           "folio": "f33r",
-          "currier": "A",
-          "word_count": 73,
+          "currier": null,
+          "word_count": 74,
           "n": 25,
           "next_counts": {
             "d": 7,
@@ -2517,8 +2518,8 @@
         },
         {
           "folio": "f33v",
-          "currier": "A",
-          "word_count": 111,
+          "currier": null,
+          "word_count": 113,
           "n": 32,
           "next_counts": {
             "a": 1,
@@ -2550,8 +2551,8 @@
         },
         {
           "folio": "f34r",
-          "currier": "A",
-          "word_count": 142,
+          "currier": null,
+          "word_count": 146,
           "n": 55,
           "next_counts": {
             "a": 1,
@@ -2584,8 +2585,8 @@
         },
         {
           "folio": "f34v",
-          "currier": "A",
-          "word_count": 115,
+          "currier": null,
+          "word_count": 117,
           "n": 63,
           "next_counts": {
             "a": 2,
@@ -2620,7 +2621,7 @@
         {
           "folio": "f35r",
           "currier": null,
-          "word_count": 87,
+          "word_count": 89,
           "n": 47,
           "next_counts": {
             "a": 13,
@@ -2650,7 +2651,7 @@
         {
           "folio": "f35v",
           "currier": null,
-          "word_count": 82,
+          "word_count": 83,
           "n": 54,
           "next_counts": {
             "a": 3,
@@ -2705,8 +2706,8 @@
         },
         {
           "folio": "f36v",
-          "currier": "A",
-          "word_count": 69,
+          "currier": null,
+          "word_count": 71,
           "n": 26,
           "next_counts": {
             "a": 4,
@@ -2738,8 +2739,8 @@
         },
         {
           "folio": "f37r",
-          "currier": "A",
-          "word_count": 76,
+          "currier": null,
+          "word_count": 77,
           "n": 31,
           "next_counts": {
             "a": 1,
@@ -2767,7 +2768,7 @@
         {
           "folio": "f37v",
           "currier": null,
-          "word_count": 87,
+          "word_count": 90,
           "n": 30,
           "next_counts": {
             "c": 1,
@@ -2819,7 +2820,7 @@
         },
         {
           "folio": "f38v",
-          "currier": "A",
+          "currier": null,
           "word_count": 58,
           "n": 18,
           "next_counts": {
@@ -2846,8 +2847,8 @@
         },
         {
           "folio": "f39r",
-          "currier": "A",
-          "word_count": 151,
+          "currier": null,
+          "word_count": 163,
           "n": 69,
           "next_counts": {
             "c": 6,
@@ -2882,7 +2883,7 @@
         {
           "folio": "f39v",
           "currier": null,
-          "word_count": 140,
+          "word_count": 143,
           "n": 40,
           "next_counts": {
             "c": 1,
@@ -2943,7 +2944,7 @@
         },
         {
           "folio": "f3v",
-          "currier": "A",
+          "currier": null,
           "word_count": 79,
           "n": 40,
           "next_counts": {
@@ -2974,7 +2975,7 @@
         },
         {
           "folio": "f40r",
-          "currier": "A",
+          "currier": null,
           "word_count": 100,
           "n": 23,
           "next_counts": {
@@ -3002,8 +3003,8 @@
         },
         {
           "folio": "f40v",
-          "currier": "A",
-          "word_count": 97,
+          "currier": null,
+          "word_count": 99,
           "n": 30,
           "next_counts": {
             "c": 2,
@@ -3031,8 +3032,8 @@
         },
         {
           "folio": "f41r",
-          "currier": "A",
-          "word_count": 94,
+          "currier": null,
+          "word_count": 102,
           "n": 48,
           "next_counts": {
             "c": 2,
@@ -3062,7 +3063,7 @@
         },
         {
           "folio": "f41v",
-          "currier": "A",
+          "currier": null,
           "word_count": 68,
           "n": 20,
           "next_counts": {
@@ -3085,8 +3086,8 @@
         },
         {
           "folio": "f42r",
-          "currier": "A",
-          "word_count": 132,
+          "currier": null,
+          "word_count": 140,
           "n": 91,
           "next_counts": {
             "a": 12,
@@ -3118,8 +3119,8 @@
         },
         {
           "folio": "f42v",
-          "currier": "A",
-          "word_count": 105,
+          "currier": null,
+          "word_count": 109,
           "n": 63,
           "next_counts": {
             "a": 3,
@@ -3150,8 +3151,8 @@
         },
         {
           "folio": "f43r",
-          "currier": "A",
-          "word_count": 153,
+          "currier": null,
+          "word_count": 156,
           "n": 57,
           "next_counts": {
             "c": 2,
@@ -3183,8 +3184,8 @@
         },
         {
           "folio": "f43v",
-          "currier": "A",
-          "word_count": 150,
+          "currier": null,
+          "word_count": 155,
           "n": 58,
           "next_counts": {
             "c": 3,
@@ -3217,7 +3218,7 @@
         {
           "folio": "f44r",
           "currier": null,
-          "word_count": 70,
+          "word_count": 74,
           "n": 43,
           "next_counts": {
             "a": 1,
@@ -3277,7 +3278,7 @@
         {
           "folio": "f45r",
           "currier": null,
-          "word_count": 85,
+          "word_count": 87,
           "n": 30,
           "next_counts": {
             "a": 12,
@@ -3305,8 +3306,8 @@
         },
         {
           "folio": "f45v",
-          "currier": "A",
-          "word_count": 82,
+          "currier": null,
+          "word_count": 85,
           "n": 38,
           "next_counts": {
             "a": 2,
@@ -3337,8 +3338,8 @@
         },
         {
           "folio": "f46r",
-          "currier": "A",
-          "word_count": 156,
+          "currier": null,
+          "word_count": 162,
           "n": 89,
           "next_counts": {
             "c": 6,
@@ -3371,8 +3372,8 @@
         },
         {
           "folio": "f46v",
-          "currier": "A",
-          "word_count": 108,
+          "currier": null,
+          "word_count": 111,
           "n": 45,
           "next_counts": {
             "a": 2,
@@ -3404,7 +3405,7 @@
         {
           "folio": "f47r",
           "currier": null,
-          "word_count": 77,
+          "word_count": 78,
           "n": 50,
           "next_counts": {
             "a": 5,
@@ -3433,8 +3434,8 @@
         },
         {
           "folio": "f47v",
-          "currier": "A",
-          "word_count": 84,
+          "currier": null,
+          "word_count": 87,
           "n": 58,
           "next_counts": {
             "a": 2,
@@ -3521,8 +3522,8 @@
         },
         {
           "folio": "f49r",
-          "currier": "A",
-          "word_count": 110,
+          "currier": null,
+          "word_count": 114,
           "n": 83,
           "next_counts": {
             "a": 1,
@@ -3554,7 +3555,7 @@
         {
           "folio": "f49v",
           "currier": null,
-          "word_count": 137,
+          "word_count": 140,
           "n": 112,
           "next_counts": {
             "a": 6,
@@ -3586,7 +3587,7 @@
         },
         {
           "folio": "f4r",
-          "currier": "A",
+          "currier": null,
           "word_count": 63,
           "n": 37,
           "next_counts": {
@@ -3618,7 +3619,7 @@
         {
           "folio": "f4v",
           "currier": null,
-          "word_count": 80,
+          "word_count": 83,
           "n": 52,
           "next_counts": {
             "a": 4,
@@ -3650,24 +3651,24 @@
         },
         {
           "folio": "f50r",
-          "currier": "A",
-          "word_count": 94,
-          "n": 32,
+          "currier": null,
+          "word_count": 98,
+          "n": 33,
           "next_counts": {
             "c": 2,
             "d": 10,
-            "e": 14,
+            "e": 15,
             "k": 2,
             "o": 3,
             "y": 1
           },
-          "vowel_rate": 0.5625,
-          "e_rate": 0.4375,
+          "vowel_rate": 0.5757575757575758,
+          "e_rate": 0.45454545454545453,
           "a_rate": 0.0,
           "ch_counts": {
             "c": 2,
             "d": 10,
-            "e": 8,
+            "e": 9,
             "k": 2,
             "o": 1,
             "y": 1
@@ -3679,8 +3680,8 @@
         },
         {
           "folio": "f50v",
-          "currier": "A",
-          "word_count": 96,
+          "currier": null,
+          "word_count": 99,
           "n": 37,
           "next_counts": {
             "c": 4,
@@ -3710,8 +3711,8 @@
         },
         {
           "folio": "f51r",
-          "currier": "A",
-          "word_count": 87,
+          "currier": null,
+          "word_count": 93,
           "n": 28,
           "next_counts": {
             "e": 11,
@@ -3733,8 +3734,8 @@
         },
         {
           "folio": "f51v",
-          "currier": "A",
-          "word_count": 79,
+          "currier": null,
+          "word_count": 82,
           "n": 28,
           "next_counts": {
             "a": 1,
@@ -3760,8 +3761,8 @@
         },
         {
           "folio": "f52r",
-          "currier": "A",
-          "word_count": 66,
+          "currier": null,
+          "word_count": 70,
           "n": 26,
           "next_counts": {
             "a": 4,
@@ -3790,7 +3791,7 @@
         },
         {
           "folio": "f52v",
-          "currier": "A",
+          "currier": null,
           "word_count": 75,
           "n": 27,
           "next_counts": {
@@ -3820,8 +3821,8 @@
         },
         {
           "folio": "f53r",
-          "currier": "A",
-          "word_count": 55,
+          "currier": null,
+          "word_count": 60,
           "n": 20,
           "next_counts": {
             "a": 1,
@@ -3849,8 +3850,8 @@
         },
         {
           "folio": "f53v",
-          "currier": "A",
-          "word_count": 71,
+          "currier": null,
+          "word_count": 72,
           "n": 36,
           "next_counts": {
             "c": 1,
@@ -3876,8 +3877,8 @@
         },
         {
           "folio": "f54r",
-          "currier": "A",
-          "word_count": 102,
+          "currier": null,
+          "word_count": 103,
           "n": 39,
           "next_counts": {
             "a": 1,
@@ -3902,7 +3903,7 @@
         {
           "folio": "f54v",
           "currier": null,
-          "word_count": 86,
+          "word_count": 91,
           "n": 24,
           "next_counts": {
             "a": 2,
@@ -3930,8 +3931,8 @@
         },
         {
           "folio": "f55r",
-          "currier": "A",
-          "word_count": 119,
+          "currier": null,
+          "word_count": 125,
           "n": 36,
           "next_counts": {
             "a": 3,
@@ -3965,8 +3966,8 @@
         },
         {
           "folio": "f55v",
-          "currier": "A",
-          "word_count": 103,
+          "currier": null,
+          "word_count": 106,
           "n": 22,
           "next_counts": {
             "a": 2,
@@ -3991,7 +3992,7 @@
         },
         {
           "folio": "f56r",
-          "currier": "A",
+          "currier": null,
           "word_count": 97,
           "n": 78,
           "next_counts": {
@@ -4024,8 +4025,8 @@
         },
         {
           "folio": "f56v",
-          "currier": "A",
-          "word_count": 85,
+          "currier": null,
+          "word_count": 88,
           "n": 63,
           "next_counts": {
             "a": 1,
@@ -4050,8 +4051,8 @@
         },
         {
           "folio": "f57r",
-          "currier": "A",
-          "word_count": 84,
+          "currier": null,
+          "word_count": 91,
           "n": 41,
           "next_counts": {
             "c": 1,
@@ -4079,23 +4080,23 @@
         },
         {
           "folio": "f57v",
-          "currier": "A",
-          "word_count": 73,
-          "n": 10,
+          "currier": null,
+          "word_count": 76,
+          "n": 11,
           "next_counts": {
             "c": 1,
             "d": 1,
-            "e": 5,
+            "e": 6,
             "k": 1,
             "o": 1,
             "y": 1
           },
-          "vowel_rate": 0.7,
-          "e_rate": 0.5,
+          "vowel_rate": 0.7272727272727273,
+          "e_rate": 0.5454545454545454,
           "a_rate": 0.0,
           "ch_counts": {
             "c": 1,
-            "e": 2,
+            "e": 3,
             "o": 1,
             "y": 1
           },
@@ -4107,8 +4108,8 @@
         },
         {
           "folio": "f58r",
-          "currier": "A",
-          "word_count": 368,
+          "currier": null,
+          "word_count": 375,
           "n": 159,
           "next_counts": {
             "a": 34,
@@ -4143,27 +4144,29 @@
         },
         {
           "folio": "f58v",
-          "currier": "A",
-          "word_count": 366,
-          "n": 88,
+          "currier": null,
+          "word_count": 378,
+          "n": 89,
           "next_counts": {
             "a": 8,
             "c": 1,
             "e": 41,
             "g": 1,
+            "h": 1,
             "k": 1,
             "o": 31,
             "s": 2,
             "y": 3
           },
-          "vowel_rate": 0.9431818181818182,
-          "e_rate": 0.4659090909090909,
-          "a_rate": 0.09090909090909091,
+          "vowel_rate": 0.9325842696629213,
+          "e_rate": 0.4606741573033708,
+          "a_rate": 0.0898876404494382,
           "ch_counts": {
             "a": 6,
             "c": 1,
             "e": 24,
             "g": 1,
+            "h": 1,
             "k": 1,
             "o": 21,
             "s": 2,
@@ -4178,7 +4181,7 @@
         },
         {
           "folio": "f5r",
-          "currier": "A",
+          "currier": null,
           "word_count": 53,
           "n": 30,
           "next_counts": {
@@ -4227,8 +4230,8 @@
         },
         {
           "folio": "f65v",
-          "currier": "A",
-          "word_count": 43,
+          "currier": null,
+          "word_count": 47,
           "n": 20,
           "next_counts": {
             "c": 2,
@@ -4253,8 +4256,8 @@
         },
         {
           "folio": "f66r",
-          "currier": "A",
-          "word_count": 310,
+          "currier": null,
+          "word_count": 314,
           "n": 144,
           "next_counts": {
             "a": 2,
@@ -4293,26 +4296,28 @@
         {
           "folio": "f66v",
           "currier": null,
-          "word_count": 116,
-          "n": 54,
+          "word_count": 124,
+          "n": 56,
           "next_counts": {
             "a": 2,
             "c": 4,
             "d": 6,
-            "e": 30,
+            "e": 31,
+            "h": 1,
             "k": 1,
             "o": 8,
             "p": 1,
             "y": 2
           },
-          "vowel_rate": 0.7777777777777778,
-          "e_rate": 0.5555555555555556,
-          "a_rate": 0.037037037037037035,
+          "vowel_rate": 0.7678571428571429,
+          "e_rate": 0.5535714285714286,
+          "a_rate": 0.03571428571428571,
           "ch_counts": {
             "a": 1,
             "c": 3,
             "d": 5,
-            "e": 15,
+            "e": 16,
+            "h": 1,
             "k": 1,
             "o": 7,
             "p": 1,
@@ -4329,7 +4334,7 @@
         },
         {
           "folio": "f69r",
-          "currier": "A",
+          "currier": null,
           "word_count": 151,
           "n": 52,
           "next_counts": {
@@ -4363,7 +4368,7 @@
         },
         {
           "folio": "f69v",
-          "currier": "A",
+          "currier": null,
           "word_count": 129,
           "n": 36,
           "next_counts": {
@@ -4391,8 +4396,8 @@
         },
         {
           "folio": "f6r",
-          "currier": "A",
-          "word_count": 80,
+          "currier": null,
+          "word_count": 82,
           "n": 36,
           "next_counts": {
             "a": 5,
@@ -4418,8 +4423,8 @@
         },
         {
           "folio": "f6v",
-          "currier": "A",
-          "word_count": 104,
+          "currier": null,
+          "word_count": 110,
           "n": 53,
           "next_counts": {
             "a": 7,
@@ -4448,8 +4453,8 @@
         },
         {
           "folio": "f71r",
-          "currier": "A",
-          "word_count": 87,
+          "currier": null,
+          "word_count": 90,
           "n": 23,
           "next_counts": {
             "a": 3,
@@ -4482,8 +4487,8 @@
         },
         {
           "folio": "f71v",
-          "currier": "A",
-          "word_count": 101,
+          "currier": null,
+          "word_count": 103,
           "n": 35,
           "next_counts": {
             "a": 3,
@@ -4522,8 +4527,8 @@
         },
         {
           "folio": "f73r",
-          "currier": "A",
-          "word_count": 95,
+          "currier": null,
+          "word_count": 100,
           "n": 38,
           "next_counts": {
             "d": 2,
@@ -4575,28 +4580,30 @@
         },
         {
           "folio": "f75r",
-          "currier": "A",
-          "word_count": 411,
-          "n": 138,
+          "currier": null,
+          "word_count": 414,
+          "n": 139,
           "next_counts": {
             "a": 4,
             "c": 9,
             "d": 5,
             "e": 104,
+            "h": 1,
             "k": 2,
             "o": 3,
             "s": 1,
             "t": 2,
             "y": 8
           },
-          "vowel_rate": 0.8623188405797102,
-          "e_rate": 0.7536231884057971,
-          "a_rate": 0.028985507246376812,
+          "vowel_rate": 0.8561151079136691,
+          "e_rate": 0.7482014388489209,
+          "a_rate": 0.02877697841726619,
           "ch_counts": {
             "a": 2,
             "c": 7,
             "d": 4,
             "e": 43,
+            "h": 1,
             "k": 2,
             "s": 1,
             "t": 1,
@@ -4614,8 +4621,8 @@
         },
         {
           "folio": "f75v",
-          "currier": "A",
-          "word_count": 347,
+          "currier": null,
+          "word_count": 348,
           "n": 111,
           "next_counts": {
             "a": 1,
@@ -4649,7 +4656,7 @@
         },
         {
           "folio": "f76r",
-          "currier": "A",
+          "currier": null,
           "word_count": 546,
           "n": 241,
           "next_counts": {
@@ -4688,8 +4695,8 @@
         },
         {
           "folio": "f76v",
-          "currier": "A",
-          "word_count": 389,
+          "currier": null,
+          "word_count": 390,
           "n": 178,
           "next_counts": {
             "a": 3,
@@ -4728,8 +4735,8 @@
         },
         {
           "folio": "f77r",
-          "currier": "A",
-          "word_count": 324,
+          "currier": null,
+          "word_count": 326,
           "n": 128,
           "next_counts": {
             "a": 1,
@@ -4766,8 +4773,8 @@
         },
         {
           "folio": "f77v",
-          "currier": "A",
-          "word_count": 331,
+          "currier": null,
+          "word_count": 333,
           "n": 139,
           "next_counts": {
             "a": 3,
@@ -4803,8 +4810,8 @@
         },
         {
           "folio": "f78r",
-          "currier": "A",
-          "word_count": 287,
+          "currier": null,
+          "word_count": 291,
           "n": 77,
           "next_counts": {
             "a": 1,
@@ -4840,7 +4847,7 @@
         {
           "folio": "f78v",
           "currier": null,
-          "word_count": 287,
+          "word_count": 292,
           "n": 100,
           "next_counts": {
             "a": 1,
@@ -4875,8 +4882,8 @@
         },
         {
           "folio": "f79r",
-          "currier": "A",
-          "word_count": 371,
+          "currier": null,
+          "word_count": 377,
           "n": 175,
           "next_counts": {
             "a": 5,
@@ -4909,8 +4916,8 @@
         },
         {
           "folio": "f79v",
-          "currier": "A",
-          "word_count": 350,
+          "currier": null,
+          "word_count": 351,
           "n": 97,
           "next_counts": {
             "a": 2,
@@ -4976,7 +4983,7 @@
         {
           "folio": "f7v",
           "currier": null,
-          "word_count": 73,
+          "word_count": 74,
           "n": 41,
           "next_counts": {
             "e": 10,
@@ -5001,8 +5008,8 @@
         },
         {
           "folio": "f80r",
-          "currier": "A",
-          "word_count": 431,
+          "currier": null,
+          "word_count": 436,
           "n": 156,
           "next_counts": {
             "a": 1,
@@ -5040,8 +5047,8 @@
         },
         {
           "folio": "f80v",
-          "currier": "A",
-          "word_count": 369,
+          "currier": null,
+          "word_count": 375,
           "n": 129,
           "next_counts": {
             "a": 4,
@@ -5077,7 +5084,7 @@
         {
           "folio": "f81r",
           "currier": null,
-          "word_count": 205,
+          "word_count": 207,
           "n": 77,
           "next_counts": {
             "c": 4,
@@ -5107,8 +5114,8 @@
         },
         {
           "folio": "f81v",
-          "currier": "A",
-          "word_count": 253,
+          "currier": null,
+          "word_count": 257,
           "n": 90,
           "next_counts": {
             "a": 1,
@@ -5145,26 +5152,28 @@
         },
         {
           "folio": "f82r",
-          "currier": "A",
-          "word_count": 286,
-          "n": 115,
+          "currier": null,
+          "word_count": 293,
+          "n": 116,
           "next_counts": {
             "a": 1,
             "c": 5,
             "d": 2,
             "e": 99,
+            "h": 1,
             "k": 2,
             "o": 3,
             "y": 3
           },
-          "vowel_rate": 0.9217391304347826,
-          "e_rate": 0.8608695652173913,
-          "a_rate": 0.008695652173913044,
+          "vowel_rate": 0.9137931034482759,
+          "e_rate": 0.853448275862069,
+          "a_rate": 0.008620689655172414,
           "ch_counts": {
             "a": 1,
             "c": 3,
             "d": 2,
             "e": 66,
+            "h": 1,
             "k": 2,
             "o": 2,
             "y": 2
@@ -5178,8 +5187,8 @@
         },
         {
           "folio": "f82v",
-          "currier": "A",
-          "word_count": 309,
+          "currier": null,
+          "word_count": 310,
           "n": 119,
           "next_counts": {
             "a": 4,
@@ -5216,7 +5225,7 @@
         {
           "folio": "f83r",
           "currier": null,
-          "word_count": 341,
+          "word_count": 345,
           "n": 164,
           "next_counts": {
             "a": 1,
@@ -5257,7 +5266,7 @@
         {
           "folio": "f83v",
           "currier": null,
-          "word_count": 259,
+          "word_count": 262,
           "n": 114,
           "next_counts": {
             "a": 4,
@@ -5292,8 +5301,8 @@
         },
         {
           "folio": "f84r",
-          "currier": "A",
-          "word_count": 357,
+          "currier": null,
+          "word_count": 363,
           "n": 122,
           "next_counts": {
             "c": 22,
@@ -5328,7 +5337,7 @@
         {
           "folio": "f84v",
           "currier": null,
-          "word_count": 333,
+          "word_count": 338,
           "n": 98,
           "next_counts": {
             "a": 1,
@@ -5365,7 +5374,7 @@
         {
           "folio": "f87r",
           "currier": null,
-          "word_count": 98,
+          "word_count": 100,
           "n": 44,
           "next_counts": {
             "c": 1,
@@ -5395,7 +5404,7 @@
         {
           "folio": "f87v",
           "currier": null,
-          "word_count": 86,
+          "word_count": 90,
           "n": 31,
           "next_counts": {
             "e": 22,
@@ -5418,7 +5427,7 @@
         {
           "folio": "f88r",
           "currier": null,
-          "word_count": 146,
+          "word_count": 148,
           "n": 60,
           "next_counts": {
             "c": 1,
@@ -5443,8 +5452,8 @@
         },
         {
           "folio": "f88v",
-          "currier": "A",
-          "word_count": 143,
+          "currier": null,
+          "word_count": 147,
           "n": 56,
           "next_counts": {
             "a": 1,
@@ -5475,8 +5484,8 @@
         },
         {
           "folio": "f8r",
-          "currier": "A",
-          "word_count": 147,
+          "currier": null,
+          "word_count": 156,
           "n": 90,
           "next_counts": {
             "a": 7,
@@ -5511,7 +5520,7 @@
         {
           "folio": "f8v",
           "currier": null,
-          "word_count": 117,
+          "word_count": 119,
           "n": 71,
           "next_counts": {
             "a": 12,
@@ -5542,7 +5551,7 @@
         {
           "folio": "f93r",
           "currier": null,
-          "word_count": 137,
+          "word_count": 138,
           "n": 84,
           "next_counts": {
             "a": 2,
@@ -5577,7 +5586,7 @@
         {
           "folio": "f93v",
           "currier": null,
-          "word_count": 86,
+          "word_count": 88,
           "n": 42,
           "next_counts": {
             "d": 2,
@@ -5607,7 +5616,7 @@
         {
           "folio": "f94r",
           "currier": null,
-          "word_count": 78,
+          "word_count": 79,
           "n": 26,
           "next_counts": {
             "c": 1,
@@ -5637,7 +5646,7 @@
         {
           "folio": "f94v",
           "currier": null,
-          "word_count": 95,
+          "word_count": 96,
           "n": 37,
           "next_counts": {
             "a": 3,
@@ -5667,7 +5676,7 @@
         {
           "folio": "f96r",
           "currier": null,
-          "word_count": 81,
+          "word_count": 85,
           "n": 43,
           "next_counts": {
             "e": 14,
@@ -5692,7 +5701,7 @@
         {
           "folio": "f96v",
           "currier": null,
-          "word_count": 55,
+          "word_count": 58,
           "n": 20,
           "next_counts": {
             "a": 1,
@@ -5715,8 +5724,8 @@
         },
         {
           "folio": "f99r",
-          "currier": "A",
-          "word_count": 189,
+          "currier": null,
+          "word_count": 193,
           "n": 53,
           "next_counts": {
             "a": 1,
@@ -5748,7 +5757,7 @@
         {
           "folio": "f99v",
           "currier": null,
-          "word_count": 175,
+          "word_count": 178,
           "n": 30,
           "next_counts": {
             "e": 10,
@@ -5772,7 +5781,7 @@
         {
           "folio": "f9r",
           "currier": null,
-          "word_count": 81,
+          "word_count": 82,
           "n": 39,
           "next_counts": {
             "a": 4,
@@ -5804,7 +5813,7 @@
         {
           "folio": "f9v",
           "currier": null,
-          "word_count": 84,
+          "word_count": 87,
           "n": 32,
           "next_counts": {
             "e": 2,
@@ -5835,12 +5844,12 @@
         "a": 573,
         "c": 518,
         "d": 783,
-        "e": 6546,
+        "e": 6552,
         "f": 7,
         "g": 6,
-        "h": 1,
+        "h": 5,
         "i": 3,
-        "k": 184,
+        "k": 186,
         "l": 62,
         "o": 3081,
         "p": 26,
@@ -9932,7 +9941,7 @@
         },
         {
           "folio": "f57v",
-          "currier": "A",
+          "currier": null,
           "word_count": 76,
           "n": 16,
           "next_counts": {
@@ -11735,17 +11744,17 @@
       "folios_with_context": 183,
       "aggregate": {
         "folios": 183,
-        "occurrences": 13071,
+        "occurrences": 13083,
         "next_counts": {
           "a": 573,
           "c": 518,
           "d": 783,
-          "e": 6546,
+          "e": 6552,
           "f": 7,
           "g": 6,
-          "h": 1,
+          "h": 5,
           "i": 3,
-          "k": 184,
+          "k": 186,
           "l": 62,
           "o": 3081,
           "p": 26,
@@ -11755,49 +11764,15 @@
           "x": 4,
           "y": 1087
         },
-        "vowel_rate": 0.8637441664754035,
-        "e_rate": 0.5008033050263944,
-        "a_rate": 0.043837502868946526
+        "vowel_rate": 0.8634105327524269,
+        "e_rate": 0.5008025682182986,
+        "a_rate": 0.04379729419857831
       },
-      "by_currier": {
-        "A": {
-          "folios": 117,
-          "occurrences": 9750,
-          "next_counts": {
-            "a": 413,
-            "c": 413,
-            "d": 638,
-            "e": 5322,
-            "f": 5,
-            "g": 5,
-            "h": 1,
-            "k": 131,
-            "l": 43,
-            "o": 1900,
-            "p": 22,
-            "r": 11,
-            "s": 65,
-            "t": 64,
-            "x": 4,
-            "y": 713
-          },
-          "vowel_rate": 0.8562051282051282,
-          "e_rate": 0.5458461538461539,
-          "a_rate": 0.04235897435897436
-        },
-        "B": {
-          "folios": 0,
-          "occurrences": 0,
-          "next_counts": {},
-          "vowel_rate": null,
-          "e_rate": null,
-          "a_rate": null
-        }
-      },
+      "currier_breakdown": "omitted; no validated label parser",
       "folios_n_ge_5": 182,
       "e_rate_range_n_ge_5": [
         0.0,
-        0.8608695652173913
+        0.853448275862069
       ]
     },
     {
@@ -11832,32 +11807,7 @@
         "e_rate": 0.4942676120078443,
         "a_rate": 0.0429929099411676
       },
-      "by_currier": {
-        "A": {
-          "folios": 1,
-          "occurrences": 16,
-          "next_counts": {
-            "c": 1,
-            "d": 1,
-            "e": 6,
-            "k": 1,
-            "o": 5,
-            "t": 1,
-            "y": 1
-          },
-          "vowel_rate": 0.75,
-          "e_rate": 0.375,
-          "a_rate": 0.0
-        },
-        "B": {
-          "folios": 0,
-          "occurrences": 0,
-          "next_counts": {},
-          "vowel_rate": null,
-          "e_rate": null,
-          "a_rate": null
-        }
-      },
+      "currier_breakdown": "omitted; no validated label parser",
       "folios_n_ge_5": 182,
       "e_rate_range_n_ge_5": [
         0.0,
