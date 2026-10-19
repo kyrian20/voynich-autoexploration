@@ -1,0 +1,103 @@
+{
+  "experiment": "exp_594_daiin_explicit_paragraph_markers",
+  "protocol_version": 1,
+  "source": {
+    "path": "data/transcriptions/eva_zl3b.txt",
+    "bytes": 411671,
+    "sha256": "bf5b6d4ac1e3a51b1847a9c388318d609020441ccd56984c901c32b09beccafc"
+  },
+  "format_reference": "https://voynich.nu/software/ivtt/IVTFF_format.pdf, §6.9; paragraph starts use <%> at beginning of line, ends use <$> at end. IVTFF says boundaries are decided by the transcriber.",
+  "filters": {
+    "generic_locus_type": "P*",
+    "minimum_clean_tokens_per_line": 2,
+    "dialects_separate": true
+  },
+  "counts": {
+    "body_lines": 4105,
+    "paragraph_start_marked_lines": 728,
+    "paragraph_end_marked_lines": 729,
+    "both_markers_same_line": 0,
+    "by_dialect_and_marker": {
+      "A": {
+        "P_locus_lines": 1557,
+        "explicit_start": 236,
+        "explicit_end": 230,
+        "no_start_marker": 1321
+      },
+      "B": {
+        "P_locus_lines": 2548,
+        "explicit_start": 492,
+        "explicit_end": 499,
+        "no_start_marker": 2056
+      }
+    }
+  },
+  "tests": {
+    "CurrierA_explicit_paragraph_start": {
+      "lines": 236,
+      "daiin_tokens": 59,
+      "first_observed": 1,
+      "first_expected": 6.99337,
+      "enrichment": 0.14299,
+      "last_observed": 12,
+      "null_mean": 6.9608,
+      "p_upper_tail_plus_one": 0.999,
+      "p_lower_tail_plus_one": 0.006599,
+      "permutations": 5000,
+      "seed": 59420261019,
+      "p_holm_upper_A_family": 1,
+      "p_holm_lower_A_family": 0.013198
+    },
+    "CurrierA_no_start_marker": {
+      "lines": 1321,
+      "daiin_tokens": 441,
+      "first_observed": 61,
+      "first_expected": 64.24338,
+      "enrichment": 0.94951,
+      "last_observed": 91,
+      "null_mean": 64.2628,
+      "p_upper_tail_plus_one": 0.69886,
+      "p_lower_tail_plus_one": 0.35113,
+      "permutations": 5000,
+      "seed": 59420261020,
+      "p_holm_upper_A_family": 1,
+      "p_holm_lower_A_family": 0.35113
+    },
+    "CurrierB_explicit_paragraph_start": {
+      "lines": 492,
+      "daiin_tokens": 29,
+      "first_observed": 0,
+      "first_expected": 2.82732,
+      "enrichment": 0,
+      "last_observed": 5,
+      "null_mean": 2.82,
+      "p_upper_tail_plus_one": 1,
+      "p_lower_tail_plus_one": 0.054389,
+      "permutations": 5000,
+      "seed": 59420261119,
+      "p_holm_upper_B_family": 1,
+      "p_holm_lower_B_family": 0.108778
+    },
+    "CurrierB_no_start_marker": {
+      "lines": 2056,
+      "daiin_tokens": 288,
+      "first_observed": 97,
+      "first_expected": 32.27851,
+      "enrichment": 3.0051,
+      "last_observed": 21,
+      "null_mean": 32.18,
+      "p_upper_tail_plus_one": 0.0002,
+      "p_lower_tail_plus_one": 1,
+      "permutations": 5000,
+      "seed": 59420261120,
+      "p_holm_upper_B_family": 0.0004,
+      "p_holm_lower_B_family": 1
+    }
+  },
+  "notes": [
+    "A line without <%> is called no_start_marker, not definitively a continuation: paragraph segmentation is a transcriber decision and tagging may be incomplete.",
+    "Expected first count preserves each eligible line's token inventory and length.",
+    "P-values are Monte Carlo with separately Holm-adjusted upper/lower tails within dialect.",
+    "This tests explicit transcription markers, not manuscript semantics."
+  ]
+}
