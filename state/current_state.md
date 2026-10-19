@@ -28,6 +28,9 @@ Report: `experiments/exp_600_transcription_concordance/result.md`; JSON: `result
 
 The corrected parser covers 5,385 aligned line IDs, with zero duplicates and zero skipped identifiers; ZL3a has four additional IDs. Of aligned rows, 5,327 (98.92%) have identical trimmed raw body-payload strings and 5,336 (99.09%) have identical cleaned token sequences; 49 rows (0.91%) differ at token level. All matched rows have the same normalized locus and Currier label under this parser, and paragraph-marker flags match. This confirms the two files are closely related alternative transcriptions, **not independent samples**. Four ZL3a-only keys: `f1r.29`, `f1r.30`, `f1r.31`, `f89v2.26`.
 
+## exp_601 — paired primary-statistic sensitivity (implementation present; results pending verification)
+Files: `experiments/exp_601_primary_statistic_paired_sensitivity/script.py`, `README.md`; workflow: `.github/workflows/voynich-paired-sensitivity.yml`. The run must be inspected and its JSON/report committed before its findings are promoted to the synthesis.
+
 ## Next work: exp_601 primary-statistic paired sensitivity
 Measure the effect of the exact ZL3a/ZL3b token differences on the primary Currier-B/P0 `daiin` first-position statistic. Report per-version total target count, observed first count, line-inventory expectation, enrichment, and paired aligned-line changes. Also include the exp_596 control tokens, so version-level robustness is measured rather than assumed. This is a sensitivity analysis, not an independent-sample significance test.
 
