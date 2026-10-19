@@ -1,0 +1,78 @@
+{
+  "experiment": "exp_602_heldout_predictive_test",
+  "protocol_version": 1,
+  "source_sha256": "bf5b6d4ac1e3a51b1847a9c388318d609020441ccd56984c901c32b09beccafc",
+  "source_bytes": 411671,
+  "split": "test iff first 8 hex digits of SHA256('voynich-exp602:'+folio), as integer, modulo 5 == 0; folios never split",
+  "train_lines": 1797,
+  "test_lines": 528,
+  "train_folios": 60,
+  "test_folios": 21,
+  "population": "Currier B, exact P0, >=2 cleaned tokens",
+  "model": "train-only global probability of target at line start",
+  "baseline": "target token count / line length on each test line; conditional uniform-position null, not deployable prediction",
+  "primary_target": "daiin",
+  "predeclared_controls": [
+    "dain",
+    "saiin"
+  ],
+  "results": {
+    "daiin": {
+      "test_lines": 528,
+      "test_folios": 21,
+      "test_initial_hits": 26,
+      "train_initial_probability": 0.03450194769059544,
+      "mean_log_loss_model": 0.19916864893050418,
+      "mean_log_loss_inventory_baseline": 0.11786281610999409,
+      "log_loss_gain": -0.08130583282051008,
+      "mean_brier_model": 0.04703488954612833,
+      "mean_brier_inventory_baseline": 0.039070555323293295,
+      "brier_gain": -0.007964334222835039,
+      "folio_cluster_bootstrap_95_ci_gain": [
+        -0.1117408805359948,
+        -0.056407594230124904
+      ],
+      "bootstrap_probability_gain_positive": 0.0
+    },
+    "dain": {
+      "test_lines": 528,
+      "test_folios": 21,
+      "test_initial_hits": 10,
+      "train_initial_probability": 0.01335559265442404,
+      "mean_log_loss_model": 0.09492994577992447,
+      "mean_log_loss_inventory_baseline": 0.04638749378143098,
+      "log_loss_gain": -0.0485424519984935,
+      "mean_brier_model": 0.018611872133392535,
+      "mean_brier_inventory_baseline": 0.015371641955782639,
+      "brier_gain": -0.0032402301776098953,
+      "folio_cluster_bootstrap_95_ci_gain": [
+        -0.07802585017059799,
+        -0.020536112261868345
+      ],
+      "bootstrap_probability_gain_positive": 0.0
+    },
+    "saiin": {
+      "test_lines": 528,
+      "test_folios": 21,
+      "test_initial_hits": 7,
+      "train_initial_probability": 0.021702838063439065,
+      "mean_log_loss_model": 0.0724315680551189,
+      "mean_log_loss_inventory_baseline": 0.027576858442290637,
+      "log_loss_gain": -0.04485470961282826,
+      "mean_brier_model": 0.013153134898022532,
+      "mean_brier_inventory_baseline": 0.009887791936823239,
+      "brier_gain": -0.003265342961199293,
+      "folio_cluster_bootstrap_95_ci_gain": [
+        -0.061056555011114275,
+        -0.029674656318821987
+      ],
+      "bootstrap_probability_gain_positive": 0.0
+    }
+  },
+  "decision_rule": "Primary predictive improvement is demonstrated only if daiin log-loss gain is positive and its folio-cluster 95% interval is wholly above zero.",
+  "limitations": [
+    "Positional test only; no semantic inference.",
+    "Inventory baseline uses held-out line inventory intentionally.",
+    "ZL3a/ZL3b are related transcriptions, not independent samples."
+  ]
+}
