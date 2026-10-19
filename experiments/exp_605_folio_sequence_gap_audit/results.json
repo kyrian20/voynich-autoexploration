@@ -1,0 +1,154 @@
+{
+  "experiment": "exp_605_folio_sequence_gap_audit",
+  "scope": "Compare folio-number/page-side headers in bundled transcriptions with a predeclared commonly cited list of 14 missing folios. This cannot detect leaves lost before numbering, and missing sides may have different explanations.",
+  "known_list": [
+    12,
+    59,
+    60,
+    61,
+    62,
+    63,
+    64,
+    74,
+    91,
+    92,
+    97,
+    98,
+    109,
+    110
+  ],
+  "sources": [
+    {
+      "label": "ZL3b",
+      "path": "data/transcriptions/eva_zl3b.txt",
+      "sha256": "bf5b6d4ac1e3a51b1847a9c388318d609020441ccd56984c901c32b09beccafc",
+      "physical_lines": 8510,
+      "page_headers": 184,
+      "unique_folio_numbers": 92,
+      "min_folio_number": 1,
+      "max_folio_number": 116,
+      "missing_numbers_from_known_14_list": [
+        12,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        74,
+        91,
+        92,
+        97,
+        98,
+        109,
+        110
+      ],
+      "known_missing_numbers_unexpectedly_present": [],
+      "folios_with_only_one_side_header": [],
+      "header_examples": [
+        [
+          "f1r",
+          5
+        ],
+        [
+          "f1v",
+          57
+        ],
+        [
+          "f2r",
+          79
+        ],
+        [
+          "f2v",
+          104
+        ],
+        [
+          "f3r",
+          122
+        ],
+        [
+          "f3v",
+          154
+        ],
+        [
+          "f4r",
+          178
+        ],
+        [
+          "f4v",
+          201
+        ]
+      ]
+    },
+    {
+      "label": "IT2a",
+      "path": "data/transcriptions/eva_it2a.txt",
+      "sha256": "7f27a8b0feed8f6de0a99900df6bf912dd1d295c38e5f830bac8b41c3f536fb5",
+      "physical_lines": 5444,
+      "page_headers": 183,
+      "unique_folio_numbers": 92,
+      "min_folio_number": 1,
+      "max_folio_number": 116,
+      "missing_numbers_from_known_14_list": [
+        12,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        74,
+        91,
+        92,
+        97,
+        98,
+        109,
+        110
+      ],
+      "known_missing_numbers_unexpectedly_present": [],
+      "folios_with_only_one_side_header": [
+        {
+          "folio": 116,
+          "observed_sides": [
+            "r"
+          ],
+          "missing_side_candidate": "v"
+        }
+      ],
+      "header_examples": [
+        [
+          "f1r",
+          5
+        ],
+        [
+          "f1v",
+          34
+        ],
+        [
+          "f2r",
+          45
+        ],
+        [
+          "f2v",
+          59
+        ],
+        [
+          "f3r",
+          68
+        ],
+        [
+          "f3v",
+          89
+        ],
+        [
+          "f4r",
+          104
+        ],
+        [
+          "f4v",
+          118
+        ]
+      ]
+    }
+  ]
+}
