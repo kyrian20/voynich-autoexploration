@@ -1,6 +1,6 @@
 # Current State — Voynich Cryptanalyst
 
-**Last updated:** 2026-10-19 (exp_589–exp_601 completed; paired sensitivity output recovered and saved)
+**Last updated:** 2026-10-19 (exp_589–exp_601 results saved; exp_602 independent parser audit added)
 
 ## Canonical status and source of truth
 Read the synthesis at `research/synthesis/2026-10-19-daiin-position-synthesis.md`. It separates robust distribution observations, annotation-sensitive outcomes, non-significant comparisons, and the exp_598 method failure.
@@ -42,6 +42,11 @@ The 2,325 matched eligible B/P0 lines contain 10 lines with cleaned-token differ
 
 ## Next work: independent parser/provenance audit
 Cross-check IVTFF header, identifier, locus, locator, Currier label, paragraph markers and token cleanup against the official specification in a separately implemented extractor before developing new lexical hypotheses.
+
+## exp_602 — independent parser audit (implementation added; run/results to verify)
+Files: `experiments/exp_602_independent_ivtff_parser_audit/script.py`, `README.md`; workflow: `.github/workflows/voynich-independent-parser-audit.yml`.
+
+Two differently implemented extraction/tokenization paths are compared on ZL3a and ZL3b. The audit checks line keys, folio/Currier state, raw and normalized locus, body text, token sequences, paragraph marker flags, and the six primary/control token statistics. It is an implementation-consistency check, not proof that either parser is authoritative. Do not claim parser agreement until the new run's JSON has been verified.
 
 ## Research integrity
 - Keep observations, hypotheses, null results, and method failures separate.
