@@ -1,0 +1,40 @@
+{
+  "experiment": "exp_612_ch_sh_currier_stratification",
+  "status": "descriptive; computed from repository transcription files; not inferential",
+  "method": "Compare next-character vowel rate after ch/sh only within matched folio × exact token length × digraph-position cells, then stratify by IVTFF $Q and $I.",
+  "sources": {
+    "ZL3b": {
+      "path": "data/transcriptions/eva_zl3b.txt",
+      "sha256": "bf5b6d4ac1e3a51b1847a9c388318d609020441ccd56984c901c32b09beccafc"
+    },
+    "IT2a": {
+      "path": "data/transcriptions/eva_it2a.txt",
+      "sha256": "7f27a8b0feed8f6de0a99900df6bf912dd1d295c38e5f830bac8b41c3f536fb5"
+    }
+  },
+  "main_comparison": {
+    "ZL3b_Q_T": {
+      "ch_n": 2340,
+      "ch_vowel_rate": 0.8363247863,
+      "sh_n": 1051,
+      "sh_vowel_rate": 0.8915318744,
+      "matched_folio_strata": 280,
+      "difference_sh_minus_ch": 0.0552070881
+    },
+    "IT2a_Q_T": {
+      "ch_n": 2387,
+      "ch_vowel_rate": 0.8303309594,
+      "sh_n": 1064,
+      "sh_vowel_rate": 0.8890977444,
+      "matched_folio_strata": 283,
+      "difference_sh_minus_ch": 0.058766785
+    }
+  },
+  "interpretation": "Descriptive contrast persists in the largest Q=T stratum across both transcriptions; it varies across other Q labels. No p-value, causal claim, or decoding claim.",
+  "limitations": [
+    "Repeated word types are not independently controlled",
+    "No folio-clustered bootstrap/permutation yet",
+    "IVTFF $I labels are not assumed to be scribal hands",
+    "Sparse strata are unstable"
+  ]
+}
