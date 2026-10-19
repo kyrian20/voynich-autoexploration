@@ -93,8 +93,27 @@ def main():
             group = [r for r in rows if r["range"] == range_name and r["currier"] == currier]
             if group:
                 strata[key] = analyze(group, args.permutations, args.seed + ri*10 + ci)
-    # Exact locus subtypes are descriptive, so the main inference remains the
-    # preregistered daiin test within the section-range strata.
+    # Holm correction for the predeclared primary family: all eligible Currier-B
+    # folio-range strata. Currier-A ranges are secondary and corrected separately.
+    def holm_adjust(pvalues):
+        ordered = sorted(pvalues.items(), key=lambda item: item[1])
+        adjusted, running = {}, 0.0
+        m = len(ordered)
+        for rank, (key, pvalue) in enumerate(ordered):
+            running = max(running, min(1.0, (m-rank) * pvalue))
+            adjusted[key] = round(running, 6)
+        return adjusted
+
+    b_p = {k: v["p_one_sided_plus_one"] for k, v in strata.items()
+           if k.endswith("_CurrierB") and "p_one_sided_plus_one" in v}
+    a_p = {k: v["p_one_sided_plus_one"] for k, v in strata.items()
+           if k.endswith("_CurrierA") and "p_one_sided_plus_one" in v}
+    for key, value in holm_adjust(b_p).items():
+        strata[key]["p_holm_primary_currier_B_family"] = value
+    for key, value in holm_adjust(a_p).items():
+        strata[key]["p_holm_secondary_currier_A_family"] = value
+
+    # Exact locus subtypes are descriptive; section bins are coarse proxies.
     locus_counts = collections.Counter(r["locus"] for r in rows)
     data = {"experiment": "exp_590_daiin_section_stratification", "protocol_version": 1,
             "source": {"path": "data/transcriptions/eva_zl3b.txt", "bytes": CORPUS.stat().st_size, "sha256": digest(CORPUS)},
@@ -106,6 +125,7 @@ def main():
             "notes": ["This is a sensitivity analysis of exp_589, not an independent transcription replication.",
                       "Within-line position draws preserve each line's token composition and length.",
                       "Monte Carlo p-values at 0.0005 are resolution-limited with 2,000 replicates.",
+                      "Primary Currier-B folio-range p-values are Holm-adjusted across five strata; Currier-A is a separately adjusted secondary family.",
                       "Section bin labels are heuristic folio-number ranges; do not interpret them as scholarly section adjudications.",
                       "Do not infer semantics or decipherment from positional distributions."]}
     out = ROOT / "experiments/exp_590_daiin_section_stratification/results.json"
