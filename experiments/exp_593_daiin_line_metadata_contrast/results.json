@@ -1,0 +1,81 @@
+{
+  "experiment": "exp_593_daiin_line_metadata_contrast",
+  "protocol_version": 1,
+  "source": {
+    "path": "data/transcriptions/eva_zl3b.txt",
+    "bytes": 411671,
+    "sha256": "bf5b6d4ac1e3a51b1847a9c388318d609020441ccd56984c901c32b09beccafc"
+  },
+  "filters": {
+    "dialects_separate": true,
+    "locus": "P0",
+    "minimum_tokens_per_line": 2,
+    "modifier_categories": [
+      "@",
+      "+",
+      "*",
+      "none"
+    ]
+  },
+  "total_parsed_lines": 4062,
+  "primary_strata": {
+    "CurrierA_P0_modifier_@": {
+      "lines": 134,
+      "daiin_tokens": 32,
+      "first_observed": 0,
+      "first_expected": 3.77233,
+      "enrichment": 0.0,
+      "last_observed": 5,
+      "p_one_sided_plus_one": 1.0,
+      "null_mean": 3.7688,
+      "permutations": 5000,
+      "seed": 59320261019,
+      "p_holm_A_modifier_family": 1.0
+    },
+    "CurrierA_P0_modifier_+": {
+      "lines": 1359,
+      "daiin_tokens": 452,
+      "first_observed": 59,
+      "first_expected": 63.98779,
+      "enrichment": 0.92205,
+      "last_observed": 96,
+      "p_one_sided_plus_one": 0.781044,
+      "null_mean": 64.1036,
+      "permutations": 5000,
+      "seed": 59320261020,
+      "p_holm_A_modifier_family": 1.0
+    },
+    "CurrierB_P0_modifier_@": {
+      "lines": 90,
+      "daiin_tokens": 8,
+      "first_observed": 0,
+      "first_expected": 0.8047,
+      "enrichment": 0.0,
+      "last_observed": 3,
+      "p_one_sided_plus_one": 1.0,
+      "null_mean": 0.8036,
+      "permutations": 5000,
+      "seed": 59320261021,
+      "p_holm_B_modifier_family": 1.0
+    },
+    "CurrierB_P0_modifier_+": {
+      "lines": 2245,
+      "daiin_tokens": 289,
+      "first_observed": 89,
+      "first_expected": 30.63361,
+      "enrichment": 2.90531,
+      "last_observed": 20,
+      "p_one_sided_plus_one": 0.0002,
+      "null_mean": 30.711,
+      "permutations": 5000,
+      "seed": 59320261022,
+      "p_holm_B_modifier_family": 0.0004
+    }
+  },
+  "interpretation_note": "Prefix modifiers are treated as transcription metadata categories, not definitive paragraph-opening labels. Results are exploratory and cannot be interpreted semantically.",
+  "guardrails": [
+    "Within-line token-inventory/length expectation.",
+    "P-values are Monte Carlo and Holm-adjusted within A/B modifier families.",
+    "Do not infer meaning or decipherment."
+  ]
+}
