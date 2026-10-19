@@ -8,9 +8,8 @@ ROOT=Path(__file__).resolve().parents[2]
 FILES=[("ZL3b",ROOT/"data/transcriptions/eva_zl3b.txt"),
        ("ZL3a",ROOT/"data/transcriptions/zl3a.txt"),
        ("IT2a",ROOT/"data/transcriptions/eva_it2a.txt")]
-PAGE_RE=re.compile(r"^<(f[^.>]+)>\\s*(.*)$")
-LOCUS_RE=re.compile(r"^<(?P<page>f[^.>]+)\\.(?P<number>\\d+),(?P<slot>[^>]+)>\\s*(?P<body>.*)$")
-PAGE_VALID=re.compile(r"^f(?:\\d+[rv](?:[a-z])?|\\d+[rv]\\d*|[a-z0-9]+)$",re.I)
+PAGE_RE=re.compile(r"^<(f[^.>]+)>\s*(.*)$")
+LOCUS_RE=re.compile(r"^<(?P<page>f[^.>]+)\.(?P<number>\d+),(?P<slot>[^>]+)>\s*(?P<body>.*)$")
 MARKERS="@+*=~&!/"
 KINDS=set("PLCR")
 
@@ -31,16 +30,16 @@ def inspect(path,label):
         first_char[raw[0]]+=1
         if raw.startswith("#"):
             comments+=1
-            if raw.startswith("#=IVTFF") and i==1: pass
             continue
         if raw.startswith("/"):
             slash_continuations+=1
             continue
-        pm=PAGE_RE.match(raw.strip())
+        stripped=raw.strip()
+        pm=PAGE_RE.match(stripped)
         if pm and "." not in pm.group(1):
             page=pm.group(1); pages.add(page); header_count+=1
             continue
-        lm=LOCUS_RE.match(raw.strip())
+        lm=LOCUS_RE.match(stripped)
         if lm:
             locus_count+=1
             p,num,slot,body=lm.group("page","number","slot","body")
@@ -56,7 +55,6 @@ def inspect(path,label):
             locus_keys[(p,num,slot)]+=1
             if not body.strip(): body_empty+=1
             continue
-        # Lines beginning with '<' should be a page header or locus; other characters may be continuation/data.
         if raw.startswith("<"):
             malformed_locus.append({"line":i,"sample":raw[:120]})
     duplicate_keys=[{"page":k[0],"number":k[1],"slot":k[2],"count":v}
@@ -78,7 +76,7 @@ def main():
     results=[]
     for label,path in FILES:
         if path.exists(): results.append(inspect(path,label))
-    out={"experiment":"exp_600_ivtff_parser_conformance","protocol_version":1,
+    out={"experiment":"exp_600_ivtff_parser_conformance","protocol_version":2,
       "reference":"IVTFF format version 2.0.2, René Zandbergen, 2025-07-08; https://www.voynich.nu/software/ivtt/IVTFF_format.pdf",
       "purpose":"Check the raw structural assumptions used by earlier token-position experiments before adding further hypotheses.",
       "caveats":["This is an independent lightweight audit, not a full official IVTT validator.",
@@ -87,6 +85,6 @@ def main():
       "No semantic or decipherment claim is tested."],"files":results}
     dest=ROOT/"experiments/exp_600_ivtff_parser_conformance/results.json"
     dest.parent.mkdir(parents=True,exist_ok=True)
-    dest.write_text(json.dumps(out,indent=2,ensure_ascii=False)+"\\n",encoding="utf-8")
+    dest.write_text(json.dumps(out,indent=2,ensure_ascii=False)+"\n",encoding="utf-8")
     print(json.dumps({"output":str(dest.relative_to(ROOT)),"files":[{"label":r["label"],"lines":r["physical_lines"],"pages":r["unique_pages"],"loci":r["locus_lines"],"page_mismatch":r["page_mismatch_count"],"bad_slots":r["invalid_slot_count"],"unparsed_angle":r["unparsed_angle_line_count"],"duplicates":r["duplicate_locus_key_count"]} for r in results]},indent=2))
 if __name__=="__main__": main()
