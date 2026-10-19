@@ -1,0 +1,50 @@
+name: Voynich Line-Level Transcription Audit
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "experiments/exp_596_zl3a_zl3b_line_level_audit/**"
+      - "data/transcriptions/eva_zl3b.txt"
+      - "data/transcriptions/zl3a.txt"
+      - ".github/workflows/voynich-line-level-audit.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: voynich-line-level-audit
+  cancel-in-progress: false
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Compile-check
+        run: python -m py_compile experiments/exp_596_zl3a_zl3b_line_level_audit/script.py
+      - name: Run paired audit (no API)
+        run: python experiments/exp_596_zl3a_zl3b_line_level_audit/script.py
+      - name: Upload audit results
+        uses: actions/upload-artifact@v4
+        with:
+          name: exp-596-line-level-transcription-audit
+          path: experiments/exp_596_zl3a_zl3b_line_level_audit/results.json
+          if-no-files-found: error
+          retention-days: 90
+      - name: Commit generated results
+        continue-on-error: true
+        run: |
+          if [ -n "$(git status --porcelain experiments/exp_596_zl3a_zl3b_line_level_audit/results.json)" ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add experiments/exp_596_zl3a_zl3b_line_level_audit/results.json
+            git commit -m "Record exp_596 line-level audit results"
+            git push
+          else
+            echo "No changes to results."
+          fi
