@@ -6,7 +6,7 @@ Experiments 612–615 and 617–618 have been calculated and written up. Experim
 - 613: DONE — folio-clustered bootstrap confidence interval and leave-one-folio-out sensitivity; see `experiments/exp_613_615_ch_sh_inference_sensitivity/`.
 - 614: DONE — conditional within-cell label permutation preserving matched-cell ch/sh counts; see `experiments/exp_613_615_ch_sh_inference_sensitivity/`.
 - 615: DONE — sensitivity to vowel inventory (`aeiouy` versus `aeiou`); see `experiments/exp_613_615_ch_sh_inference_sensitivity/`.
-- 616: leave-one-section/folio-group-out stability.
+- 616: PARTIAL — exploratory leave-one-numeric-folio-block-out sensitivity; authoritative section holdout remains open. See `experiments/exp_616_folio_block_holdout_sensitivity/`.
 - 617: DONE — high-support matched-cell sensitivity at minimum 3 and 5 occurrences of each digraph per cell; see `experiments/exp_617_ch_sh_high_support/`.
 - 618: DONE — unique word-type weighting versus token-frequency sensitivity; see `experiments/exp_618_ch_sh_word_type_sensitivity/`.
 - 619: multiple-testing and negative-control audit.
