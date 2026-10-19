@@ -1,0 +1,132 @@
+{
+  "experiment": "exp_590_daiin_section_stratification",
+  "protocol_version": 1,
+  "source": {
+    "path": "data/transcriptions/eva_zl3b.txt",
+    "bytes": 411671,
+    "sha256": "bf5b6d4ac1e3a51b1847a9c388318d609020441ccd56984c901c32b09beccafc"
+  },
+  "parser": {
+    "body_locus_regex": "^[+*@]?P",
+    "min_words_per_line": 2,
+    "range_bins_are_coarse_proxies_not_definitive_sections": true
+  },
+  "total_body_lines_ge2_tokens": 4062,
+  "locus_counts": {
+    "P0": 3846,
+    "P1": 72,
+    "Pb": 116,
+    "Pc": 16,
+    "Pr": 12
+  },
+  "strata": {
+    "f001_f066_CurrierA": {
+      "lines": 1166,
+      "daiin_tokens": 377,
+      "first_observed": 42,
+      "first_expected": 57.9924,
+      "first_enrichment": 0.72423,
+      "last_observed": 88,
+      "last_expected_under_exchangeability": 57.9924,
+      "null_mean": 58.258,
+      "p_one_sided_plus_one": 0.995502,
+      "permutations": 2000,
+      "seed": 59020261019
+    },
+    "f001_f066_CurrierB": {
+      "lines": 347,
+      "daiin_tokens": 71,
+      "first_observed": 13,
+      "first_expected": 8.034,
+      "first_enrichment": 1.61812,
+      "last_observed": 6,
+      "last_expected_under_exchangeability": 8.034,
+      "null_mean": 8.0335,
+      "p_one_sided_plus_one": 0.048476,
+      "permutations": 2000,
+      "seed": 59020261020
+    },
+    "f067_f073_CurrierB": {
+      "lines": 84,
+      "daiin_tokens": 11,
+      "first_observed": 6,
+      "first_expected": 1.9917,
+      "first_enrichment": 3.01255,
+      "last_observed": 0,
+      "last_expected_under_exchangeability": 1.9917,
+      "null_mean": 1.994,
+      "p_one_sided_plus_one": 0.004498,
+      "permutations": 2000,
+      "seed": 59020261030
+    },
+    "f074_f084_CurrierB": {
+      "lines": 771,
+      "daiin_tokens": 82,
+      "first_observed": 17,
+      "first_expected": 9.5547,
+      "first_enrichment": 1.77924,
+      "last_observed": 8,
+      "last_expected_under_exchangeability": 9.5547,
+      "null_mean": 9.6465,
+      "p_one_sided_plus_one": 0.017491,
+      "permutations": 2000,
+      "seed": 59020261040
+    },
+    "f085_f102_CurrierA": {
+      "lines": 358,
+      "daiin_tokens": 113,
+      "first_observed": 19,
+      "first_expected": 11.3419,
+      "first_enrichment": 1.6752,
+      "last_observed": 13,
+      "last_expected_under_exchangeability": 11.3419,
+      "null_mean": 11.194,
+      "p_one_sided_plus_one": 0.015492,
+      "permutations": 2000,
+      "seed": 59020261049
+    },
+    "f085_f102_CurrierB": {
+      "lines": 242,
+      "daiin_tokens": 32,
+      "first_observed": 13,
+      "first_expected": 3.4906,
+      "first_enrichment": 3.72424,
+      "last_observed": 5,
+      "last_expected_under_exchangeability": 3.4906,
+      "null_mean": 3.5235,
+      "p_one_sided_plus_one": 0.0005,
+      "permutations": 2000,
+      "seed": 59020261050
+    },
+    "f103_f116_CurrierB": {
+      "lines": 1083,
+      "daiin_tokens": 120,
+      "first_observed": 48,
+      "first_expected": 11.7015,
+      "first_enrichment": 4.10203,
+      "last_observed": 6,
+      "last_expected_under_exchangeability": 11.7015,
+      "null_mean": 11.745,
+      "p_one_sided_plus_one": 0.0005,
+      "permutations": 2000,
+      "seed": 59020261060
+    },
+    "unknown_CurrierB": {
+      "lines": 11,
+      "daiin_tokens": 1,
+      "first_observed": 0,
+      "first_expected": 0.3333,
+      "first_enrichment": 0.0,
+      "last_observed": 1,
+      "last_expected_under_exchangeability": 0.3333,
+      "permutation_status": "descriptive_only_fewer_than_50_lines"
+    }
+  },
+  "notes": [
+    "This is a sensitivity analysis of exp_589, not an independent transcription replication.",
+    "Within-line position draws preserve each line's token composition and length.",
+    "Monte Carlo p-values at 0.0005 are resolution-limited with 2,000 replicates.",
+    "Section bin labels are heuristic folio-number ranges; do not interpret them as scholarly section adjudications.",
+    "Do not infer semantics or decipherment from positional distributions."
+  ]
+}
