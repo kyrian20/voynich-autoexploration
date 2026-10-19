@@ -49,3 +49,12 @@ A conditional line-initial excess for `daiin` is robust in Currier B, particular
 - Include source-file SHA-256, exact filter/token rules, output JSON, and workflow run with each experiment.
 - Do not promote the 19/19 mechanism fit or positional effects into a decipherment.
 - Never infer the meaning of `daiin` from position or local context alone.
+
+## Exp_600 completed — IVTFF structural audit (2026-10-19)
+The independent parser audit passed its workflow: https://github.com/kyrian20/voynich-autoexploration/actions/runs/39259557496
+- ZL3b: 8,510 physical lines; 227 page headers; 5,385 locus rows; 4,130 P-type rows.
+- ZL3a: 8,513 physical lines; 227 page headers; 5,389 locus rows; 4,130 P-type rows.
+- IT2a: 5,444 physical lines; 225 page headers; 5,215 locus rows; 4,118 P-type rows.
+- All three: zero missing page contexts, page/locus mismatches, invalid slot types, unparsed angle-bracket rows, or duplicate locus keys under this parser.
+- This is a lightweight structural check, not certification by the official IVTT validator. Full machine-readable output: experiments/exp_600_ivtff_parser_conformance/results.json.
+- Next priority remains exact ZL3a/ZL3b locus alignment and token disagreement audit, then a pre-registered folio-aware test. No more exploratory daiin variants until these checks are done.
