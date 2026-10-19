@@ -3,7 +3,7 @@
 **Goal:** quantify how independent (or closely aligned) the two EVA transcription files are for line-level analyses. Prior experiment reports treat agreement between versions as robustness; it must not be described as independent-sample replication.
 
 ## Matching and extraction
-- Match text records by exact IVTFF identifier before the comma (e.g. `f1r.22`).
+- Match text records by exact IVTFF identifier before the comma (e.g. `f1r.22` and compound identifiers such as `f67r1.3`). Folio headers can themselves use compound identifiers (e.g. `<f67r1>`), which must update the active folio/Currier metadata.
 - Preserve raw locus/locator codes for comparison; do not discard a locus mismatch.
 - Record Currier A/B from the folio header `$L=` field.
 - Compare raw payload equality and cleaned token-sequence equality separately.
