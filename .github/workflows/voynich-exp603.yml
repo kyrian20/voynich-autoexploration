@@ -1,0 +1,26 @@
+name: Voynich exp603 stratified held-out prediction
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'experiments/exp_603_stratified_heldout_prediction/**'
+      - '.github/workflows/voynich-exp603.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  exp603:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run fixed-split evaluation
+        run: python experiments/exp_603_stratified_heldout_prediction/script.py
+      - name: Commit results
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add experiments/exp_603_stratified_heldout_prediction/results.json experiments/exp_603_stratified_heldout_prediction/result.md
+          git diff --cached --quiet || git commit -m "Record exp603 held-out stratified prediction results"
+          git push
