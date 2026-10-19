@@ -71,3 +71,17 @@ Output: `experiments/exp_602_heldout_predictive_test/results.json`
 - Predeclared controls `dain` and `saiin` show the same direction: global-rate model performs worse than the per-line inventory baseline.
 - This is a real negative result for the claim that one global line-initial rate predicts held-out starts better than the conditional inventory baseline. The baseline has access to each test line's token inventory and is an oracle-style conditional null, not a deployable predictor, so the comparison is intentionally stringent and does not disprove the observed positional enrichment.
 - Next step: do not tune this split. Compare predeclared, train-only section/folio-grouped probabilities against a baseline available without target-line token inventory; retain the present result as a failed primary predictive criterion, not as a positive finding.
+
+
+## exp_603 — predicción estratificada fuera de muestra
+Workflow: https://github.com/kyrian20/voynich-autoexploration/actions/runs/39260612200
+Reporte: `experiments/exp_603_stratified_heldout_prediction/result.md`; datos: `results.json`.
+
+Se reutilizó el criterio determinista de separación por hash de folio de exp_602, ahora con filas P0 de Currier A y B (ZL3b; al menos dos tokens limpios): entrenamiento 2.928 líneas/148 folios y test 919 líneas/47 folios. Comparación fijada antes de evaluar: probabilidad global estimada solo en train frente a tasa Beta(1,1) suavizada por estratos Currier A/B × longitud fija (2–4, 5–7, 8+ tokens). Los folios del test no se usan para ajustar tasas.
+
+- `daiin`: log loss global 0,168849; estratificado 0,171576; ganancia global−estratificado −0,002727, IC bootstrap por folio 95% [−0,005202, −0,000135]. El modelo estratificado empeora modestamente en test.
+- Control `dain`: ganancia +0,000173, IC [−0,001160, +0,001890]; inconcluso.
+- Control `saiin`: ganancia +0,000914, IC [−0,001515, +0,003611]; inconcluso.
+- El Brier no mejora para ninguno de los tres objetivos.
+
+**Conclusión:** añadir dialecto Currier y bandas de longitud no aporta predicción fuera de muestra demostrable para el inicio de `daiin`; el intervalo agrupado es enteramente negativo. Esto no contradice el enriquecimiento posicional exp_601: la descripción estadística y la capacidad predictiva son preguntas diferentes. No cambiar split ni bins para perseguir un resultado positivo. Siguiente paso útil: auditar sensibilidad a la definición de filas/etiquetas en un análisis de robustez previamente delimitado, o cerrar esta rama predictiva y pasar a evidencia externa independiente; no inferir semántica.
