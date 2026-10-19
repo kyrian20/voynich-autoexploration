@@ -1,0 +1,125 @@
+{
+  "experiment": "exp_596_zl3a_zl3b_line_level_audit",
+  "protocol_version": 1,
+  "sources": {
+    "ZL3a": {
+      "path": "data/transcriptions/zl3a.txt",
+      "bytes": 411710,
+      "sha256": "56419297682d338ff1a0a17f5ae251e3ee3e2c5bf05a62db04c5385ef30b36a2"
+    },
+    "ZL3b": {
+      "path": "data/transcriptions/eva_zl3b.txt",
+      "bytes": 411671,
+      "sha256": "bf5b6d4ac1e3a51b1847a9c388318d609020441ccd56984c901c32b09beccafc"
+    }
+  },
+  "matching": {
+    "key": "(folio header, complete IVTFF locus identifier)",
+    "ZL3a_rows": 4130,
+    "ZL3b_rows": 4130,
+    "common_keys": 4130,
+    "only_ZL3a": 0,
+    "only_ZL3b": 0,
+    "duplicate_keys_ZL3a": 0,
+    "duplicate_keys_ZL3b": 0,
+    "dialect_disagreements": 0,
+    "token_sequence_disagreements": 24,
+    "paragraph_marker_disagreements": 0,
+    "line_initial_daiin_status_disagreements": 0
+  },
+  "summary": {
+    "ZL3a_markers": {
+      "rows": 4130,
+      "start": 728,
+      "end": 740,
+      "dialect_start": {
+        "A": 236,
+        "B": 492
+      },
+      "dialect_end": {
+        "A": 236,
+        "B": 504
+      }
+    },
+    "ZL3b_markers": {
+      "rows": 4130,
+      "start": 728,
+      "end": 740,
+      "dialect_start": {
+        "A": 236,
+        "B": 492
+      },
+      "dialect_end": {
+        "A": 236,
+        "B": 504
+      }
+    },
+    "ZL3a_daiin": {
+      "A_start": {
+        "lines": 236,
+        "daiin_tokens": 59,
+        "first_observed": 1,
+        "first_expected": 6.99337,
+        "enrichment": 0.14299
+      },
+      "A_no_start": {
+        "lines": 1321,
+        "daiin_tokens": 441,
+        "first_observed": 61,
+        "first_expected": 64.27873,
+        "enrichment": 0.94899
+      },
+      "B_start": {
+        "lines": 492,
+        "daiin_tokens": 29,
+        "first_observed": 0,
+        "first_expected": 2.82732,
+        "enrichment": 0
+      },
+      "B_no_start": {
+        "lines": 2056,
+        "daiin_tokens": 289,
+        "first_observed": 97,
+        "first_expected": 32.38321,
+        "enrichment": 2.99538
+      }
+    },
+    "ZL3b_daiin": {
+      "A_start": {
+        "lines": 236,
+        "daiin_tokens": 59,
+        "first_observed": 1,
+        "first_expected": 6.99337,
+        "enrichment": 0.14299
+      },
+      "A_no_start": {
+        "lines": 1321,
+        "daiin_tokens": 441,
+        "first_observed": 61,
+        "first_expected": 64.24338,
+        "enrichment": 0.94951
+      },
+      "B_start": {
+        "lines": 492,
+        "daiin_tokens": 29,
+        "first_observed": 0,
+        "first_expected": 2.82732,
+        "enrichment": 0
+      },
+      "B_no_start": {
+        "lines": 2056,
+        "daiin_tokens": 288,
+        "first_observed": 97,
+        "first_expected": 32.27851,
+        "enrichment": 3.0051
+      }
+    }
+  },
+  "notes": [
+    "Both files have exactly 4,130 generic P-locus records with one-to-one keys and no duplicate keys.",
+    "There are 24 cleaned token-sequence disagreements, but zero paragraph-marker disagreements and zero changes in whether the first cleaned token is daiin.",
+    "The two versions are closely related and this is a transcription-version audit, not independent external replication.",
+    "The marker-end count here is 740 because this audit includes all P-locus rows; exp_595's 729 count is restricted to rows with at least two cleaned tokens.",
+    "Token sequence differences may reflect transcription details; no semantic claim."
+  ]
+}
