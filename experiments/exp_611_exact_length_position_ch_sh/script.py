@@ -9,7 +9,7 @@ ROW=re.compile(r"^<(f\d+[rv])\.\d+,[^>]*>\s*(.*)$")
 TOK=re.compile(r"[a-z]{2,}")
 V=set("aeiouy")
 def load(label,rel):
- p=ROOT/rel; by=defaultdict(lambda:defaultdict(Counter))
+ p=ROOT/rel; by=defaultdict(lambda:defaultdict(lambda:defaultdict(Counter)))
  for line in p.read_text(encoding="latin-1").splitlines():
   m=ROW.match(line.strip())
   if not m: continue
