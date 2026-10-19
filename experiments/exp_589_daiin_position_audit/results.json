@@ -1,0 +1,130 @@
+{
+  "experiment": "exp_589_daiin_position_audit",
+  "protocol_version": 1,
+  "notes": [
+    "Exploratory positional audit; no semantic claim.",
+    "Within-line permutations preserve line composition and length.",
+    "The single preregistered target is daiin; controls are descriptive.",
+    "Parser and cleanup rules define the operational corpus."
+  ],
+  "results": [
+    {
+      "transcription": "ZL3b",
+      "path": "data/transcriptions/eva_zl3b.txt",
+      "file_bytes": 411671,
+      "sha256": "bf5b6d4ac1e3a51b1847a9c388318d609020441ccd56984c901c32b09beccafc",
+      "parsed_line_records": 5354,
+      "body_lines": 4084,
+      "body_tokens": 34860,
+      "daiin_tokens_body": 807,
+      "daiin_rate_per_10000_tokens": 231.4974,
+      "control_counts_body": {
+        "aiin": 467,
+        "chedy": 487,
+        "dain": 205,
+        "saiin": 122,
+        "qokaiin": 263
+      },
+      "position_tests": {
+        "body_all": {
+          "eligible_lines": 4062,
+          "eligible_tokens": 34838,
+          "observed_first": 158,
+          "observed_last": 127,
+          "target_tokens_in_eligible_lines": 807,
+          "expected_first_under_exchangeability": 104.4402,
+          "null_mean_simulated": 104.4755,
+          "enrichment_observed_vs_expected": 1.51283,
+          "p_one_sided_plus_one": 0.0005,
+          "permutations": 2000,
+          "seed": 58920261019
+        },
+        "body_currier_A": {
+          "eligible_lines": 1524,
+          "eligible_tokens": 11217,
+          "observed_first": 61,
+          "observed_last": 101,
+          "target_tokens_in_eligible_lines": 490,
+          "expected_first_under_exchangeability": 69.3344,
+          "null_mean_simulated": 69.4185,
+          "enrichment_observed_vs_expected": 0.87979,
+          "p_one_sided_plus_one": 0.895052,
+          "permutations": 2000,
+          "seed": 58920261020
+        },
+        "body_currier_B": {
+          "eligible_lines": 2538,
+          "eligible_tokens": 23621,
+          "observed_first": 97,
+          "observed_last": 26,
+          "target_tokens_in_eligible_lines": 317,
+          "expected_first_under_exchangeability": 35.1058,
+          "null_mean_simulated": 35.0625,
+          "enrichment_observed_vs_expected": 2.76307,
+          "p_one_sided_plus_one": 0.0005,
+          "permutations": 2000,
+          "seed": 58920261021
+        }
+      }
+    },
+    {
+      "transcription": "ZL3a",
+      "path": "data/transcriptions/zl3a.txt",
+      "file_bytes": 411710,
+      "sha256": "56419297682d338ff1a0a17f5ae251e3ee3e2c5bf05a62db04c5385ef30b36a2",
+      "parsed_line_records": 5358,
+      "body_lines": 4084,
+      "body_tokens": 34859,
+      "daiin_tokens_body": 808,
+      "daiin_rate_per_10000_tokens": 231.7909,
+      "control_counts_body": {
+        "aiin": 466,
+        "chedy": 487,
+        "dain": 205,
+        "saiin": 122,
+        "qokaiin": 263
+      },
+      "position_tests": {
+        "body_all": {
+          "eligible_lines": 4062,
+          "eligible_tokens": 34837,
+          "observed_first": 158,
+          "observed_last": 127,
+          "target_tokens_in_eligible_lines": 808,
+          "expected_first_under_exchangeability": 104.5802,
+          "null_mean_simulated": 104.4075,
+          "enrichment_observed_vs_expected": 1.5108,
+          "p_one_sided_plus_one": 0.0005,
+          "permutations": 2000,
+          "seed": 58920261119
+        },
+        "body_currier_A": {
+          "eligible_lines": 1524,
+          "eligible_tokens": 11215,
+          "observed_first": 61,
+          "observed_last": 101,
+          "target_tokens_in_eligible_lines": 490,
+          "expected_first_under_exchangeability": 69.3697,
+          "null_mean_simulated": 69.3925,
+          "enrichment_observed_vs_expected": 0.87935,
+          "p_one_sided_plus_one": 0.889055,
+          "permutations": 2000,
+          "seed": 58920261120
+        },
+        "body_currier_B": {
+          "eligible_lines": 2538,
+          "eligible_tokens": 23622,
+          "observed_first": 97,
+          "observed_last": 26,
+          "target_tokens_in_eligible_lines": 318,
+          "expected_first_under_exchangeability": 35.2105,
+          "null_mean_simulated": 35.004,
+          "enrichment_observed_vs_expected": 2.75486,
+          "p_one_sided_plus_one": 0.0005,
+          "permutations": 2000,
+          "seed": 58920261121
+        }
+      }
+    }
+  ]
+}
