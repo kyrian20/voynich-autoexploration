@@ -1,6 +1,6 @@
 # Current State — Voynich Cryptanalyst
 
-**Last updated:** 2026-10-19 (exp_589–exp_594 completed; outputs and protocol caveats saved)
+**Last updated:** 2026-10-19 (exp_589–exp_595 completed; cross-transcription result saved)
 
 ## Canonical scientific checkpoint
 The earlier project checkpoint remains exp_588, summarized in `state/transliteration_replication_final_summary.md`. It reports five pre-registered Section 2 findings retained under the ≥2/3 alternative-transliteration rule; F4 retained in EVA-basic and ZL3a but failed in v101 where the o→sh edge had one observation. These are repository-reported findings, not independently rerun as part of exp_589–594.
@@ -53,3 +53,17 @@ Replicate the explicit `<%>`/`<$>` paragraph-marker analysis in ZL3a using the e
 - Preserve null/negative results and avoid duplicating tests without a specific question.
 - Do not spend OpenAI API credits for corpus analyses that reproducible Python can perform.
 - Never infer the meaning of `daiin` from position alone.
+
+## exp_595 — cross-transcription paragraph-marker replication (results available)
+Run: https://github.com/kyrian20/voynich-autoexploration/actions/runs/39257978767  
+Report: `experiments/exp_595_paragraph_marker_replication/result.md`.
+
+The explicit-paragraph-marker analysis reproduces almost exactly in ZL3a vs ZL3b. For Currier-B P0 lines without explicit `<%>`, both versions have 97 line-initial `daiin` hits in 2,056 lines: 3.005× expected in ZL3b and 2.995× in ZL3a; Holm-adjusted Monte Carlo p=0.0004 in both (5,000 draws). On explicitly marked B paragraph starts, both have 0/492 initial hits vs 2.827 expected; lower-tail p≈0.049, adjusted ≈0.098 (not significant at 0.05). Currier-A marked starts show 1/236 vs 6.993 expected; lower-tail adjusted p=0.0124 in ZL3b and 0.0076 in ZL3a. Marker counts and patterns match exactly across these files, so this is cross-version robustness, not independent external replication. Unmarked lines are not assumed to be true continuations; IVTFF annotation is transcription-dependent.
+
+## Next block: exp_596–599
+- exp_596: paired ZL3a/ZL3b line-level token and marker disagreement audit.
+- exp_597: predeclared frequency-matched control words for line-initial enrichment, with multiple-testing correction.
+- exp_598: folio-cluster bootstrap for Currier-B no-start-marker enrichment.
+- exp_599: tokenizer/uncertain-reading sensitivity variants.
+
+These analyses should run without OpenAI API credit and should preserve source hashes, scripts, results, and null findings.
