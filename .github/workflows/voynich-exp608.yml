@@ -1,0 +1,26 @@
+name: Voynich exp608 ch-sh following-character audit
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'experiments/exp_608_ch_sh_following_character_audit/**'
+      - '.github/workflows/voynich-exp608.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Audit ch/sh following characters by folio
+        run: python experiments/exp_608_ch_sh_following_character_audit/script.py
+      - name: Commit results
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+users.noreply.github.com"
+          git add experiments/exp_608_ch_sh_following_character_audit/results.json experiments/exp_608_ch_sh_following_character_audit/result.md
+          git diff --cached --quiet || git commit -m "Record exp608 ch-sh following-character audit"
+          git push
