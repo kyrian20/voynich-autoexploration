@@ -96,7 +96,7 @@ def main():
       strata[k]["p_holm_A_modifier_family"]=v
     data={"experiment":"exp_593_daiin_line_metadata_contrast","protocol_version":1,
           "source":{"path":"data/transcriptions/eva_zl3b.txt","bytes":CORPUS.stat().st_size,"sha256":sha256(CORPUS)},
-          "filters":{"Currier A/B separate","locus":"P0","minimum_tokens_per_line":2,
+          "filters":{"dialects_separate":true,"locus":"P0","minimum_tokens_per_line":2,
                      "modifier_categories":["@","+","*","none"]},
           "total_parsed_lines":len(rows),"primary_strata":strata,
           "interpretation_note":"Prefix modifiers are treated as transcription metadata categories, not definitive paragraph-opening labels. Results are exploratory and cannot be interpreted semantically.",
