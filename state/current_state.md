@@ -44,8 +44,14 @@ Report: `experiments/exp_594_daiin_explicit_paragraph_markers/result.md`.
 
 IVTFF uses dedicated `<%>` and `<$>` comments for paragraph start/end; the format specification says paragraph segmentation is a transcriber decision. In ZL3b, 4,105 eligible P-locus lines include 728 explicit start markers and 729 end markers. For Currier A, explicitly start-marked rows have a first-position deficit (1 observed vs 6.993 expected; Holm-adjusted lower-tail p=0.0132), while unmarked rows do not show a significant positional deviation. For Currier B, start-marked rows have 0 vs 2.827 expected; lower-tail p=0.0544, adjusted 0.1088 (not significant). B rows without a start marker show 97 vs 32.279 expected (3.005×; adjusted upper-tail p=0.0004). **Caveat:** absence of `<%>` is not treated as definitive continuation because tagging may be incomplete and segmentation varies by transcriber. This finding is annotation-conditioned, not semantic.
 
-## Next step: exp_595
-Replicate the explicit `<%>`/`<$>` paragraph-marker analysis in ZL3a using the exact same counting rules. Compare marker coverage and section/locus counts before pooling anything. If the markers do not correspond between ZL3a and ZL3b, report that mismatch rather than claiming replication. Preserve null results. This cross-transcription replication matters more than extending the number of tests on ZL3b alone.
+## exp_595 — explicit paragraph-marker replication (completed)
+Run: https://github.com/kyrian20/voynich-autoexploration/actions/runs/39257978767  
+Report: `experiments/exp_595_paragraph_marker_replication/result.md`.
+
+The same marker coverage was observed in both ZL3b and ZL3a: 4,105 eligible P-locus lines, 728 explicit starts, 729 ends; Currier group counts were identical. The key contrast replicated: Currier-A explicit starts had 1 first `daiin` vs 6.993 expected (adjusted lower-tail p=0.0124 in ZL3b, 0.0076 in ZL3a). Currier-B explicit starts had 0 vs 2.827 expected but this deficit did not survive correction (p=0.0976/0.0984). B lines without an explicit start marker had ~3.0× initial enrichment (97 vs ~32.3 expected; adjusted upper-tail p=0.0004 in both versions). The marker definition remains transcription-dependent; lines lacking a marker are not assumed to be definite continuations.
+
+## Next step: exp_596
+Test whether the `daiin` positional effect is unusually strong relative to the predeclared common-word controls (`aiin`, `chedy`, `dain`, `saiin`, `qokaiin`) in Currier A/B P0 lines, using the same within-line token-inventory/length null and Holm correction across the six terms. This guards against overinterpreting a general positional tendency of common tokens as unique evidence about `daiin`.
 
 ## Research integrity guardrails
 - The 21-mechanism copy-buffer hybrid's 19/19 score is fit to a defined metric battery, not proof that it generated the manuscript and not decipherment.
