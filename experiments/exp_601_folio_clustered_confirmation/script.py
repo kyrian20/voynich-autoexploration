@@ -106,7 +106,7 @@ def main():
       "status":"confirmatory statistical test of a pre-existing positional observation; not a decipherment test",
       "preregistered_primary_family":FAMILY,
       "source":{"path":"data/transcriptions/eva_zl3b.txt","bytes":CORPUS.stat().st_size,"sha256":digest(CORPUS)},
-      "parser":{"folio Currier label read from $L=A/B header field","locus":"remove one leading IVTFF locator then require exact P0","minimum_clean_tokens":2,"target":"literal cleaned EVA token daiin"},
+      "parser":{"currier_label":"read from $L=A/B header field","locus":"remove one leading IVTFF locator then require exact P0","minimum_clean_tokens":2,"target":"literal cleaned EVA token daiin"},
       "sample":{"eligible_lines":len(rows),"represented_folios":len(folios),"daiin_tokens":target,
                 "observed_line_initial":observed,"line_inventory_expected":round(expected,6)},
       "primary_effect":{"enrichment_ratio":round(ratio,6),"excess_initial_hits":round(observed-expected,6),
