@@ -62,8 +62,20 @@ Report: `experiments/exp_597_initial_form_next_token_context/result.md`.
 
 For Currier-B P0, 89 `daiin`, 34 `dain`, and 46 `saiin` line starters were compared using the next EVA token. Pairwise Jensen–Shannon divergences were not unusually high under 5,000 pooled-label permutations: raw p=.746, .943, .855; Holm-adjusted p=1.0. The observed divergences matched in ZL3a and ZL3b to six decimals. This is a non-significant result, not proof of equivalence; sample sizes are modest and tokens are sparse. Frequent successors partially overlap (`shey`, `chey`, `ar`, etc.) but no semantics are inferred.
 
-## Next step: exp_598
-Use two-token successor windows after line-initial `daiin`, `dain`, and `saiin` in Currier-B P0. Predeclare a rare-pair collapse threshold on the pooled sample, compare pair distributions via Jensen–Shannon divergence and pooled-label permutation with Holm correction, run both ZL3a/ZL3b, and report sample sizes/sensitivity. This extends the immediate-context test while controlling sparse pair overfit; no semantic labels.
+## exp_598 — two-token joint context (completed; inferential result uninformative)
+Run: https://github.com/kyrian20/voynich-autoexploration/actions/runs/39258767759  
+Report: `experiments/exp_598_two_token_successor_context/result.md`.
+
+The predeclared rare-pair collapse rule was too aggressive: 100% of `daiin` contexts, 97.1% of `dain`, and 97.8% of `saiin` contexts collapsed into a single `<RARE_PAIR>` category. The resulting nonsignificant JSD tests cannot establish context equivalence. This is retained as **methodologically uninformative due to sparsity**, not a valid null result about the contexts.
+
+## exp_599 — marginal token contexts at offsets +1 and +2 (completed)
+Run: https://github.com/kyrian20/voynich-autoexploration/actions/runs/39258941188  
+Report: `experiments/exp_599_marginal_successor_positions/result.md`.
+
+Using the same 169 B/P0 lines across both positions (89 `daiin`, 34 `dain`, 46 `saiin` starters; min 3 clean tokens), none of the six pairwise successor-distribution tests at offsets +1 or +2 was significant after Holm correction (all adjusted p=1.0), across both ZL3b and ZL3a. This is a non-significant result, not evidence of equivalence. Context token variety is high and the sample, especially `dain`, is modest.
+
+## Next step: synthesis audit
+Pause adding further daiin-position tests for now. Produce a cross-experiment synthesis (exp_589–599) distinguishing replicated observations, annotation-sensitive outcomes, true null findings, and methodologically uninformative experiments. Identify what new evidence is required before advancing from distributional regularities to any linguistic hypothesis.
 
 ## Research integrity guardrails
 - The 21-mechanism copy-buffer hybrid's 19/19 score is fit to a defined metric battery, not proof that it generated the manuscript and not decipherment.
