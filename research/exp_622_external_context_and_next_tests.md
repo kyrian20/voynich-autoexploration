@@ -54,3 +54,7 @@ Do not create another near-duplicate ch/sh interaction test. The next defensible
 6. test transcription sensitivity (ZL3b and IT2a) without treating the files as independent samples.
 
 Until those checks are implemented, do not report a predictive result.
+
+## Additional gate discovered during 2026-10-20 review
+
+The existing `experiments/exp_602_independent_ivtff_parser_audit/results.json` has identical record IDs but substantial token-list disagreement: 1,466 rows for ZL3b and 1,472 for ZL3a. Thus this is not yet a successful tokenization-conformance audit. Also, EXP-602's held-out test predicts line-initial token positions in Currier B/P0; it is not a held-out Currier A/B classifier. See [EXP-624 parser disagreement and prediction gate](exp_624_parser_disagreement_and_prediction_gate.md). The Currier A/B prediction study remains unrun until tokenization policy and $L metadata handling are validated.
