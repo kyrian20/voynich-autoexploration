@@ -2,6 +2,11 @@ name: Voynich Autonomous Research
 
 on:
   workflow_dispatch:
+  push:
+    paths:
+      - ".github/workflows/voynich-agent.yml"
+      - "scripts/exp590_daiin_position.py"
+      - "data/transcriptions/eva_zl3b.txt"
   schedule:
     - cron: "0 8 * * *"
 
