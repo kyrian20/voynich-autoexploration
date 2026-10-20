@@ -6,7 +6,6 @@ on:
     paths:
       - ".github/workflows/voynich-agent.yml"
       - "scripts/exp590_daiin_position.py"
-      - "scripts/exp591_daiin_variants.py"
       - "scripts/exp593_daiin_variants.py"
       - "data/transcriptions/eva_zl3b.txt"
   schedule:
