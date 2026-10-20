@@ -24,6 +24,7 @@ def tokens_regex(body):
     text=re.sub(r"<!.*?>"," ",body)
     text=re.sub(r"<[^>]*>"," ",text).replace("<$>"," ").replace("<%>"," ")
     text=re.sub(r"\[([^:\]]*):[^\]]*\]",r"\1",text)
+    text=re.sub(r"\[([^\]]*)\]",r"\1",text)
     text=re.sub(r"\{[^}]*\}"," ",text)
     text=re.sub(r"@\d+;?"," ",text)
     return [x.lower() for x in re.split(r"[.\s,]+",text) if re.fullmatch(r"[A-Za-z]+",x)]
@@ -199,7 +200,7 @@ def compare(path,label):
 
 def main():
     versions=[compare(path,label) for label,path in FILES if path.exists()]
-    data={"experiment":"exp_602_independent_ivtff_parser_audit","protocol_version":6,
+    data={"experiment":"exp_602_independent_ivtff_parser_audit","protocol_version":7,
       "parser_A":"regex extraction patterned after exp_600 + regex token cleanup",
       "parser_B":"stateful delimiter parser with inline first-alternative splicing; IVTFF <!…> comments end at >",
       "filters":{"Currier":"B","normalized_locus":"P0","minimum_clean_tokens_per_line":2,
@@ -208,9 +209,9 @@ def main():
       "notes":["Parser agreement establishes implementation consistency only; not an authoritative transcription validation.",
                "The two implementations intentionally use different parsing approaches.",
                "Any disagreement should be fixed or adjudicated before additional hypotheses.",
-               "Protocol v2 fixed Parser B incorrectly searching for ?> rather than the IVTFF comment terminator >. Protocol v3 spliced the primary bracket alternative into the surrounding lexical unit. Protocol v4 attempted to normalize brace spans and @number markers inside alternatives, but an escaping error prevented the regexes from matching. Protocol v5 fixes the regex escaping. Protocol v6 allows an empty first bracket alternative, matching the documented primary-alternative policy for forms such as [:y]; earlier result files remain preserved.",
+               "Protocol v2 fixed Parser B incorrectly searching for ?> rather than the IVTFF comment terminator >. Protocol v3 spliced the primary bracket alternative into the surrounding lexical unit. Protocol v4 attempted to normalize brace spans and @number markers inside alternatives, but an escaping error prevented the regexes from matching. Protocol v5 fixes the regex escaping. Protocol v6 allows an empty first bracket alternative. Protocol v7 also treats a bracket without a colon as one primary uncertain reading inserted inline; malformed unmatched brackets remain excluded. Earlier result files remain preserved.",
                "No semantic or decipherment claims."]}
-    out=ROOT/"experiments/exp_602_independent_ivtff_parser_audit/results_v6.json"
+    out=ROOT/"experiments/exp_602_independent_ivtff_parser_audit/results_v7.json"
     out.parent.mkdir(parents=True,exist_ok=True)
     out.write_text(json.dumps(data,indent=2,ensure_ascii=False)+"\n",encoding="utf-8")
     print(json.dumps({"output":str(out.relative_to(ROOT)),"versions":[{"transcription":v["transcription"],
