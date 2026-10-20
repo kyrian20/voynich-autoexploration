@@ -35,6 +35,13 @@ def check_tokenizers() -> None:
     assert tokens_regex(embedded) == ["ykeeeo", "rorarydaiin"], tokens_regex(embedded)
     assert tokens_scanner(embedded) == ["ykeeeo", "rorarydaiin"], tokens_scanner(embedded)
 
+    # The first alternative may itself contain IVTFF annotations that are
+    # normalized after bracket expansion (braces and @number markers).
+    annotated = "qote[{ci}:a]r qok[{oh}:ch]or [@152;:d]ar dai[{cto}:@194;]y"
+    expected_annotated = ["qote", "r", "qok", "or", "ar", "dai", "y"]
+    assert tokens_regex(annotated) == expected_annotated, tokens_regex(annotated)
+    assert tokens_scanner(annotated) == expected_annotated, tokens_scanner(annotated)
+
 
 def main() -> None:
     # $L wins even when $Q contradicts it; $Q means quire, not Currier language.
