@@ -11,6 +11,16 @@ A review of the existing EXP-602 artifacts found that the independent parser aud
 - Example disagreements include Parser A extracting a token from an IVTFF square-bracket alternative while Parser B preserves the entire bracket payload as one item; other differences split letter sequences differently around transcription conventions. These need format-aware adjudication against IVTFF 2.0.2, not a majority vote between parsers.
 - `experiments/exp_602_heldout_predictive_test` is a held-out **line-initial token-position** test in Currier B/P0. It is not the proposed held-out Currier A-vs-B classifier and must not be counted as one.
 
+## Update after correcting a confirmed parser defect — 20-10-2026
+
+The archived protocol-v1 audit was preserved at `experiments/exp_602_independent_ivtff_parser_audit/archive/results_pre_terminator_fix_2026-10-20.json`. Review of the parser source found that Parser B searched for `?>` to terminate an IVTFF `<!…>` comment, while the format uses the closing `>`. That caused Parser B to consume the remainder of ordinary lines and inflated the disagreement count.
+
+Protocol v2 corrects the terminator and writes to a separate file, `experiments/exp_602_independent_ivtff_parser_audit/results_v2.json`. The regenerated structural keys still match, but token disagreements remain:
+- ZL3b: **792** token-list disagreements (down from 1,466 in protocol v1).
+- ZL3a: **805** token-list disagreements (down from 1,472 in protocol v1).
+
+This is a material parser bug fix, **not** tokenization conformance. Remaining examples include embedded uncertain alternatives such as `cho[?:ch]os`, where the parsers differ in whether they retain the uncertain payload and how they tokenize the surrounding characters. These cases require an explicit IVTFF policy and hand-authored fixtures. Keep protocol-v1 counts as historical evidence; do not describe the remaining disagreements as resolved.
+
 ## Decision
 Do not start the new Currier A/B prediction experiment yet. First resolve the tokenizer disagreement with a small, explicit fixture suite and a written tokenization policy. Keep the original parser audit results immutable as a record of the discrepancy; do not overwrite them to make the audit appear successful.
 
