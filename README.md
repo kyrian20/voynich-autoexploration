@@ -48,7 +48,7 @@ Repositorio de trabajo: `kyrian20/voynich-autoexploration` (rama `master`).
 
 1. **EXP-622 / EXP-623 (`ch/sh`)**: replicación entre transcripciones de una interacción contextual concreta. El efecto no fue significativo y cambió de signo entre transcripciones; no respalda la hipótesis de especificidad contextual probada. Las transcripciones son variantes del mismo manuscrito, no muestras independientes.
 2. **EXP-602 (predicción held-out)**: prueba de posición inicial de token en líneas Currier B/P0; no es un clasificador Currier A frente a B.
-3. **Auditoría de parser**: se observaron 1.466 desacuerdos de listas de tokens en ZL3b y 1.472 en ZL3a. Coincidencia de identificadores de registros no equivale a conformidad de tokens.
+3. **Auditoría de parser**: el protocolo v1 registró 1.466 desacuerdos de listas de tokens en ZL3b y 1.472 en ZL3a. Tras corregir un defecto del terminador de comentarios IVTFF en el protocolo v2, quedan 792 en ZL3b y 805 en ZL3a. Coincidencia de identificadores de registros no equivale a conformidad de tokens; la predicción Currier A/B sigue bloqueada.
 4. **EXP-593**: se detectó una asignación incorrecta de clase mediante `$Q` en una versión previa; Currier A/B debe salir de `$L=A/B`. Los resultados antiguos por clase se conservan por trazabilidad y no deben usarse como válidos hasta una repetición verificada.
 5. **EXP-589 y otros análisis de `daiin`**: hay resultados de enriquecimiento/posición y controles de nulo; consultar informes y scripts exactos antes de resumirlos como evidencia. La posición estructural no equivale a traducción.
 
