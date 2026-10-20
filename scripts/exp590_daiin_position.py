@@ -8,6 +8,11 @@ import random
 import re
 from datetime import datetime, timezone
 from pathlib import Path
+import sys
+
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT))
+from scripts.audit_ivtff_metadata import parse_currier_language
 
 SOURCE = Path("data/transcriptions/eva_zl3b.txt")
 OUT = Path("research/experiments")
@@ -26,7 +31,9 @@ def load_lines(path: Path):
     for row in text.splitlines():
         m = FOLIO_HEADER.match(row)
         if m:
-            q = re.search(r"\$Q=([AB])(?:\s|$)", m.group(2))
+            lang = parse_currier_language(m.group(2))
+            if lang:
+                folio_currier[m.group(1)] = lang
             if q:
                 folio_currier[m.group(1)] = q.group(1)
     parsed = []
@@ -120,7 +127,7 @@ def main():
             "EVA transcription and tokenization choices affect counts.",
             "Only exact token daiin is tested; variants such as dain are excluded.",
             "Line-initial permutation test conditions on each line's token multiset.",
-            "Currier classification is read from folio headers where available; unknowns remain unknown.",
+            "Currier classification is read only from the IVTFF $L page variable; unknowns remain unknown.",
             "This is descriptive statistical analysis, not a translation or decipherment."
         ],
     }
