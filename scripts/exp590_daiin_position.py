@@ -130,7 +130,7 @@ def main():
         ],
     }
     OUT.mkdir(parents=True, exist_ok=True)
-    (OUT / f"{date}-exp590.json").write_text(json.dumps(result, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    (OUT / f"{date}-exp590-corrected-L-metadata.json").write_text(json.dumps(result, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     p = perm["empirical_one_sided_p"]
     report = f"""# EXP-590 — Posición inicial de daiin
 
@@ -171,7 +171,7 @@ La hipótesis nula permuta el orden de los tokens dentro de cada línea, conserv
 - Esto es una línea base exploratoria reproducible, no una traducción ni una afirmación de desciframiento.
 - Datos completos y hash de entrada están en el JSON de este experimento.
 """
-    (OUT / f"{date}-exp590.md").write_text(report, encoding="utf-8")
+    (OUT / f"{date}-exp590-corrected-L-metadata.md").write_text(report, encoding="utf-8")
     print(json.dumps({"experiment": "EXP-590", "date_utc": date, "lines": metrics["lines"],
                       "tokens": metrics["tokens"], "daiin": metrics["target_occurrences"],
                       "initial": metrics["line_initial_occurrences"], "p": p,
