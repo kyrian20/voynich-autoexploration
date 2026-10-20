@@ -20,6 +20,23 @@ Estado: inventario parcial; no equivale a una auditoría completa de los más de
 | EXP-590 | GitHub: scripts/exp590_daiin_position.py y resultados JSON/MD del 20-10-2026 | El script original usaba $Q para clase Currier; el script se corrigió para usar $L. Resultados antiguos por clase siguen pendientes de regeneración/verificación | Alias GH-EXP-590-OLD-Q; conservar el output histórico y marcar las tablas por clase como INVALID_FOR_CLAIM hasta repetición |
 | EXP-593 | GitHub: scripts/exp593_daiin_variants.py y JSON/MD | Se corrigió extracción de clase a $L; el registro advierte que hay conflictos históricos de numeración y que debe verificarse la ejecución CI | Mantener ID con advertencia; no reasignar hasta revisar el índice histórico completo |
 
+## Colisiones de numeración entre GitHub y Biblioteca
+
+Los IDs `EXP-NNN` **no son globalmente únicos entre las dos superficies**. La Biblioteca contiene una serie histórica centrada en análisis zodiacales (aprox. EXP-590–624), mientras que GitHub reutiliza parte de esa numeración para otros experimentos. Hasta que se haga el cotejo completo, referirse a cada elemento con prefijo `GH-` o `LIB-` y un alias descriptivo. No renombrar ni borrar los originales.
+
+| ID | GitHub (GH) | Biblioteca (LIB) | Estado |
+|---|---|---|---|
+| EXP-590 | Posición de `daiin` y metadatos Currier | Auditoría de modelos externos | Colisión confirmada |
+| EXP-593 | Variantes/posición de `daiin` | Denominadores zodiacales y reconciliación zodiacal | Colisión confirmada |
+| EXP-600 | Conformidad del parser IVTFF; concordancia de transcripciones | Comparación zodiacal ZL3b–IT2a | Colisión confirmada |
+| EXP-601 | Confirmación agrupada por folio; sensibilidad pareada | Comparación de 299 etiquetas RF1b/ZL3b/IT2a | Colisión confirmada |
+| EXP-602 | Predicción held-out; auditoría independiente de parser | Heterogeneidad de inicios por signo | Colisión confirmada |
+| EXP-622 | Interacción contextual ch/sh | Control de orden zodiacal | Colisión confirmada |
+| EXP-623 | Replicación ch/sh en IT2a | Dos análisis distintos de orden de palabras (extremos de locus / permutación de palabras interiores) | Colisión confirmada |
+| EXP-624 | Gate de discrepancia de parser y bloqueo de predicción A/B | Auditoría de metadatos y control posicional, con scripts/resultados separados | Colisión confirmada |
+
+Los IDs intermedios de la serie `LIB-EXP-591` a `LIB-EXP-621` también deben tratarse como posibles colisiones de namespace hasta cotejar sus títulos con los experimentos GitHub correspondientes. La tabla anterior enumera los conflictos que ya se han confirmado por título/alcance, no pretende ser una reconciliación completa de toda la serie.
+
 ## Colisiones de ID dentro de carpetas GitHub
 
 El inventario de árbol identificó estas colisiones adicionales. Los alias de abajo son **alias de registro solamente**; las rutas originales no se han renombrado y no deben fusionarse.
