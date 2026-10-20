@@ -49,6 +49,22 @@ def check_tokenizers() -> None:
     assert tokens_regex(empty_primary) == expected_empty_primary, tokens_regex(empty_primary)
     assert tokens_scanner(empty_primary) == expected_empty_primary, tokens_scanner(empty_primary)
 
+    # A bracket without alternatives is one primary uncertain reading and is
+    # spliced inline. An unmatched bracket is conservatively excluded.
+    single_reading = "pre[uncertain]post"
+    assert tokens_regex(single_reading) == ["preuncertainpost"], tokens_regex(single_reading)
+    assert tokens_scanner(single_reading) == ["preuncertainpost"], tokens_scanner(single_reading)
+    malformed = "prefix[unfinished"
+    assert tokens_regex(malformed) == [], tokens_regex(malformed)
+    assert tokens_scanner(malformed) == [], tokens_scanner(malformed)
+
+    # Paragraph markers and drawing interruptions are structural separators,
+    # not lexical characters.
+    marked = "<%>alpha.beta<->gamma<~>delta<$>"
+    expected_marked = ["alpha", "beta", "gamma", "delta"]
+    assert tokens_regex(marked) == expected_marked, tokens_regex(marked)
+    assert tokens_scanner(marked) == expected_marked, tokens_scanner(marked)
+
 
 def main() -> None:
     # $L wins even when $Q contradicts it; $Q means quire, not Currier language.
