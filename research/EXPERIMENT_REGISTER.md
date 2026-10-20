@@ -19,6 +19,11 @@ Los identificadores EXP son unicos. Las fases, los experimentos y las ejecucione
 - `daiiin`: 19 ocurrencias; p ajustado 1,000.
 - **Incidencia detectada el 20-10-2026:** la versión inicial del script extraía la clase desde `$Q` (quire) en vez de `$L` (lengua Currier). Los resultados A/B y la cifra de 607 desconocidos del JSON EXP-590 original no son fiables. El script EXP-593 ya corregido genera A=440, B=278 y unknown=8 para `daiin` (726 ocurrencias totales), usando `$L`; este resultado de archivo es correcto en cuanto a su regla de metadatos, pero la ejecución de Actions debe confirmarse antes de declarar CI verificada. El nulo permuta tokens dentro de cada línea y la señal posicional no demuestra traducción.
 
+## Auditoría estructural del repositorio (20-10-2026)
+- Inventario recursivo de GitHub: 2.085 rutas, 624 carpetas `experiments/exp_NNN_*`, 617 IDs únicos y 7 grupos de colisión de carpeta (177, 594, 596, 597, 600, 601, 602); el detalle y las limitaciones están en [auditoría de inventario](repository_inventory_audit_2026-10-20.md).
+- Se identificaron 31 workflows y 62 carpetas que requieren clasificación porque no contienen a la vez un script y un resultado reconocibles. No se etiquetan automáticamente como defectos.
+- No asignar IDs nuevos hasta reconciliar el registro y el archivo maestro histórico.
+
 ## Auditoria tecnica (20-10-2026)
 - Corregido `scripts/exp593_daiin_variants.py`: la clase Currier ahora se extrae de `$L=A/B`, no de `$Q`.
 - Añadido `scripts/audit_ivtff_metadata.py`, sin identificador EXP, para validar que la transcripcion contiene ambas clases y contar cabeceras clasificadas.
