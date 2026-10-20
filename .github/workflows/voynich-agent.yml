@@ -33,6 +33,9 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Audit IVTFF Currier language metadata
+        run: python scripts/audit_ivtff_metadata.py
+
       - name: Validate transcription and run reproducible EXP-590
         run: python scripts/exp590_daiin_position.py
 
