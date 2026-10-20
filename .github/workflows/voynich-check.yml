@@ -70,5 +70,8 @@ jobs:
           print("Sintaxis Python correcta.")
           PY
 
+      - name: Probar regresiones de metadatos IVTFF
+        run: python tests/test_ivtff_metadata.py
+
       - name: Validar metadatos Currier desde IVTFF
         run: python scripts/audit_ivtff_metadata.py
