@@ -7,6 +7,7 @@ on:
       - ".github/workflows/voynich-agent.yml"
       - "scripts/exp590_daiin_position.py"
       - "scripts/exp591_daiin_variants.py"
+      - "scripts/exp593_daiin_variants.py"
       - "data/transcriptions/eva_zl3b.txt"
   schedule:
     - cron: "0 8 * * *"
@@ -36,8 +37,8 @@ jobs:
       - name: Validate transcription and run reproducible EXP-590
         run: python scripts/exp590_daiin_position.py
 
-      - name: Run EXP-591 variant scan with multiple-testing correction
-        run: python scripts/exp591_daiin_variants.py
+      - name: Run EXP-593 variant scan with multiple-testing correction
+        run: python scripts/exp593_daiin_variants.py
 
       - name: Commit experiment report and machine-readable results
         run: |
@@ -45,7 +46,7 @@ jobs:
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
             git add research/experiments/
-            git commit -m "Record reproducible EXP-590 daiin positional test"
+            git commit -m "Record reproducible Voynich experiment outputs"
             git push
           else
             echo "No experiment output changes to commit."
