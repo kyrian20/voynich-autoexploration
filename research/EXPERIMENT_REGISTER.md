@@ -11,7 +11,7 @@ Los identificadores EXP son unicos. Las fases, los experimentos y las ejecucione
 - EXP-592: existe un analisis max-T previo (commits 70db96a y a74cff7).
 - EXP-593: script canonico scripts/exp593_daiin_variants.py; ejecucion completada y resultados guardados en research/experiments/2026-10-20-exp593.md y .json. Fuente SHA-256: bf5b6d4ac1e3a51b1847a9c388318d609020441ccd56984c901c32b09beccafc. El identificador aun debe cotejarse con el indice historico completo.
 
-## Resultado validado de EXP-593
+## EXP-593 — salida anterior y reproducción pendiente tras unificación del parser
 - 4.188 lineas parseadas y 32.732 tokens.
 - 5.000 permutaciones con semilla 20261021.
 - `daiin`: 726 ocurrencias, 133 inicios de linea; p empirico y ajustado reportado 0,000200.
@@ -23,6 +23,8 @@ Los identificadores EXP son unicos. Las fases, los experimentos y las ejecucione
 - Inventario recursivo de GitHub: 2.085 rutas, 624 carpetas `experiments/exp_NNN_*`, 617 IDs únicos y 7 grupos de colisión de carpeta (177, 594, 596, 597, 600, 601, 602); el detalle y las limitaciones están en [auditoría de inventario](repository_inventory_audit_2026-10-20.md).
 - Se identificaron 31 workflows y 62 carpetas que requieren clasificación porque no contienen a la vez un script y un resultado reconocibles. No se etiquetan automáticamente como defectos.
 - No asignar IDs nuevos hasta reconciliar el registro y el archivo maestro histórico.
+
+La salida `2026-10-20-exp593.json` registra la ejecución anterior. El 20-10-2026 se unificó el lector de metadatos con `parse_currier_language` para aceptar consistentemente `$L=A/B` antes de `>` y se configuraron rutas nuevas `2026-10-20-exp593-corrected-L-metadata.json/.md`; esa reproducción debe terminar y compararse antes de etiquetar la salida nueva como `REPRODUCED`. La salida anterior no se sobrescribe.
 
 ## Auditoria tecnica (20-10-2026)
 - Corregido `scripts/exp593_daiin_variants.py`: la clase Currier ahora se extrae de `$L=A/B`, no de `$Q`.
