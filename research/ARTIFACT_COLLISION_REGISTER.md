@@ -22,7 +22,7 @@ Estado: inventario parcial; no equivale a una auditoría completa de los más de
 
 ## Parser y corpus
 
-- La auditoría histórica de protocolo v1 registra 1.466 desacuerdos de listas de tokens para ZL3b y 1.472 para ZL3a. Tras corregir el terminador de comentarios IVTFF en protocolo v2, el recuento actualizado es 792 para ZL3b y 805 para ZL3a. El protocolo v1 se conserva en `experiments/exp_602_independent_ivtff_parser_audit/archive/results_pre_terminator_fix_2026-10-20.json`; la salida v2 está en `experiments/exp_602_independent_ivtff_parser_audit/results_v2.json`. La discrepancia sigue abierta.
+- La auditoría de protocolo v1 registró 1.466 desacuerdos de listas de tokens para ZL3b y 1.472 para ZL3a. Los recuentos posteriores fueron 792/805 (v2), 36/37 (v3/v4) y 3/3 (v5). El protocolo v6 informa **cero desacuerdos de campos o listas de tokens** para ZL3b (5.385 registros) y ZL3a (5.389 registros), tras fijar el tratamiento de comentarios, alternativas embebidas, anotaciones internas y alternativas primarias vacías. Todos los JSON de versiones se conservan por separado; v1 está archivado en `experiments/exp_602_independent_ivtff_parser_audit/archive/results_pre_terminator_fix_2026-10-20.json` y v6 está en `experiments/exp_602_independent_ivtff_parser_audit/results_v6.json`. Esto acredita acuerdo entre las dos implementaciones bajo la política actual, no certificación completa de IVTFF 2.0.2.
 - Los conteos anteriores deben conservarse como evidencia histórica de discrepancia, no como una medida de que un parser concreto sea correcto.
 - ZL3a, ZL3b e IT2a son transcripciones alternativas del mismo manuscrito y no deben contarse como réplicas independientes.
 
