@@ -21,19 +21,19 @@
       "initial_fraction": 0.18319559228650137,
       "by_currier": {
         "A": {
-          "occurrences": 57,
-          "line_initial": 9,
-          "line_final": 13
+          "occurrences": 440,
+          "line_initial": 50,
+          "line_final": 97
         },
         "B": {
-          "occurrences": 62,
-          "line_initial": 7,
-          "line_final": 14
+          "occurrences": 278,
+          "line_initial": 80,
+          "line_final": 21
         },
         "unknown": {
-          "occurrences": 607,
-          "line_initial": 117,
-          "line_final": 91
+          "occurrences": 8,
+          "line_initial": 3,
+          "line_final": 0
         }
       }
     },
@@ -44,19 +44,19 @@
       "initial_fraction": 0.22727272727272727,
       "by_currier": {
         "A": {
-          "occurrences": 19,
-          "line_initial": 4,
-          "line_final": 4
+          "occurrences": 92,
+          "line_initial": 11,
+          "line_final": 19
         },
         "B": {
-          "occurrences": 12,
-          "line_initial": 2,
-          "line_final": 2
+          "occurrences": 106,
+          "line_initial": 34,
+          "line_final": 7
         },
         "unknown": {
-          "occurrences": 167,
-          "line_initial": 39,
-          "line_final": 20
+          "occurrences": 0,
+          "line_initial": 0,
+          "line_final": 0
         }
       }
     },
@@ -67,19 +67,19 @@
       "initial_fraction": 0.10526315789473684,
       "by_currier": {
         "A": {
-          "occurrences": 2,
+          "occurrences": 11,
           "line_initial": 0,
-          "line_final": 1
+          "line_final": 5
         },
         "B": {
-          "occurrences": 1,
-          "line_initial": 0,
-          "line_final": 1
+          "occurrences": 8,
+          "line_initial": 2,
+          "line_final": 0
         },
         "unknown": {
-          "occurrences": 16,
-          "line_initial": 2,
-          "line_final": 3
+          "occurrences": 0,
+          "line_initial": 0,
+          "line_final": 0
         }
       }
     }
