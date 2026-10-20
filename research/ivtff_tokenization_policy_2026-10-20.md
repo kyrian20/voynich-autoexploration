@@ -26,6 +26,14 @@ Relevant sections:
 
 A concrete implementation defect was found in the independent stateful parser: it searched for `?>` instead of the IVTFF `>` terminator for `<!…>` free-text comments. Protocol v2 fixes that defect and preserves the protocol-v1 JSON in the archive. The new run reduces token-list disagreements to 792 for ZL3b and 805 for ZL3a, but does not resolve them. In particular, uncertain alternatives embedded within a word (for example `cho[?:ch]os`) need a documented primary and sensitivity policy. Until fixtures cover these cases and both implementations have been adjudicated against IVTFF 2.0.2, token-sensitive analyses remain blocked.
 
+## Latest parser audit result — protocol v6
+
+The current cross-implementation audit is `experiments/exp_602_independent_ivtff_parser_audit/results_v6.json`. After fixing the comment terminator, splicing bracket alternatives inline, applying brace/@number normalization inside the chosen alternative, and allowing an empty first alternative, both parsers agree on all token lists in the two audited sources:
+- ZL3b: 5,385 common records; zero field disagreements.
+- ZL3a: 5,389 common records; zero field disagreements.
+
+The earlier counts (1,466/1,472 in v1; 792/805 in v2; 36/37 in v3/v4; 3/3 in v5) are historical snapshots and remain preserved. Zero disagreements means the two implementations agree under this normalization contract; it is not by itself certification against every clause of IVTFF 2.0.2. Complete the full fixture matrix before using this parser for confirmatory prediction.
+
 ## Proposed normalization contract
 
 Every parser should produce two layers, not one destructive token list:
