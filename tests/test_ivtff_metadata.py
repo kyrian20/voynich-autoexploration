@@ -53,7 +53,7 @@ def main() -> None:
     assert rows[0]["currier"] == "B", rows[0]
     assert rows[1]["currier"] == "unknown", rows[1]
 
-    print("IVTFF metadata regression tests passed (9 checks).")
+    print("IVTFF metadata regression tests passed (10 checks).")
 
 
 if __name__ == "__main__":
