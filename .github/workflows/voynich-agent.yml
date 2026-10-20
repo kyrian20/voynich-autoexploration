@@ -58,10 +58,19 @@ jobs:
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
             git add research/experiments/
             git commit -m "Record reproducible Voynich experiment outputs"
-            # Another workflow or a concurrent run may have advanced master.
-            # Rebase our generated artifacts on the latest branch before pushing.
-            git pull --rebase origin "${GITHUB_REF_NAME:-master}"
-            git push
+            # Multiple repository workflows can write to master concurrently.
+            # Rebase and retry on a non-fast-forward race; never force-push.
+            for attempt in 1 2 3 4 5; do
+              git pull --rebase origin "${GITHUB_REF_NAME:-master}"
+              if git push; then
+                echo "Generated artifacts pushed successfully (attempt ${attempt})."
+                exit 0
+              fi
+              echo "Push race on attempt ${attempt}; retrying after rebase."
+              sleep $((attempt * 2))
+            done
+            echo "Could not push generated artifacts after 5 attempts."
+            exit 1
           else
             echo "No experiment output changes to commit."
           fi
