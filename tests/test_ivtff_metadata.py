@@ -29,6 +29,12 @@ def check_tokenizers() -> None:
     assert tokens_regex(body) == expected, tokens_regex(body)
     assert tokens_scanner(body) == expected, tokens_scanner(body)
 
+    # A bracketed alternative embedded in a word is spliced inline under the
+    # primary-first-alternative policy; it must not become a separate token.
+    embedded = "yk[eee:ech]o.[r:s]orarydaiin.cho[?:ch]os"
+    assert tokens_regex(embedded) == ["ykeeeo", "rorarydaiin"], tokens_regex(embedded)
+    assert tokens_scanner(embedded) == ["ykeeeo", "rorarydaiin"], tokens_scanner(embedded)
+
 
 def main() -> None:
     # $L wins even when $Q contradicts it; $Q means quire, not Currier language.
