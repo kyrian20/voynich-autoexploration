@@ -91,8 +91,16 @@ def tokens_scanner(body):
                 continue
             inner = body[i + 1:j]
             # Primary policy: use the first alternative in place, not as a new token.
+            # Apply the same later normalization steps as Parser A to annotations
+            # inside that alternative: brace spans and @number markers become spaces.
             alternative = inner.split(":", 1)[0]
-            word.extend(alternative)
+            alternative = re.sub(r"\\{[^}]*\\}", " ", alternative)
+            alternative = re.sub(r"@\\d+;?", " ", alternative)
+            for alt_char in alternative:
+                if alt_char.isspace() or alt_char in ".,": 
+                    flush_word()
+                else:
+                    word.append(alt_char)
             i = j + 1
             continue
         if ch == "{":
@@ -191,7 +199,7 @@ def compare(path,label):
 
 def main():
     versions=[compare(path,label) for label,path in FILES if path.exists()]
-    data={"experiment":"exp_602_independent_ivtff_parser_audit","protocol_version":3,
+    data={"experiment":"exp_602_independent_ivtff_parser_audit","protocol_version":4,
       "parser_A":"regex extraction patterned after exp_600 + regex token cleanup",
       "parser_B":"stateful delimiter parser with inline first-alternative splicing; IVTFF <!…> comments end at >",
       "filters":{"Currier":"B","normalized_locus":"P0","minimum_clean_tokens_per_line":2,
@@ -200,9 +208,9 @@ def main():
       "notes":["Parser agreement establishes implementation consistency only; not an authoritative transcription validation.",
                "The two implementations intentionally use different parsing approaches.",
                "Any disagreement should be fixed or adjudicated before additional hypotheses.",
-               "Protocol v2 fixed Parser B incorrectly searching for ?> rather than the IVTFF comment terminator >. Protocol v3 also splices the primary bracket alternative into the surrounding lexical unit; earlier result files remain preserved.",
+               "Protocol v2 fixed Parser B incorrectly searching for ?> rather than the IVTFF comment terminator >. Protocol v3 spliced the primary bracket alternative into the surrounding lexical unit. Protocol v4 also normalizes brace spans and @number markers inside that alternative; earlier result files remain preserved.",
                "No semantic or decipherment claims."]}
-    out=ROOT/"experiments/exp_602_independent_ivtff_parser_audit/results_v3.json"
+    out=ROOT/"experiments/exp_602_independent_ivtff_parser_audit/results_v4.json"
     out.parent.mkdir(parents=True,exist_ok=True)
     out.write_text(json.dumps(data,indent=2,ensure_ascii=False)+"\n",encoding="utf-8")
     print(json.dumps({"output":str(out.relative_to(ROOT)),"versions":[{"transcription":v["transcription"],
