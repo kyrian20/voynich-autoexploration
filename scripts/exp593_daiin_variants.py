@@ -19,8 +19,8 @@ def parse():
     for row in text.splitlines():
         m = HEADER.match(row)
         if m:
-            q = re.search(r"\$Q\s*=\s*([AB])(?:\s|$)", m.group(2))
-            if q: classes[m.group(1)] = q.group(1)
+            lang = re.search(r"\$L\s*=\s*([AB])(?:\s|$)", m.group(2))
+            if lang: classes[m.group(1)] = lang.group(1)
     lines = []
     for row in text.splitlines():
         m = LINE.match(row)
