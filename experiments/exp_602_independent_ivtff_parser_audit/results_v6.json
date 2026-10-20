@@ -1,0 +1,272 @@
+{
+  "experiment": "exp_602_independent_ivtff_parser_audit",
+  "protocol_version": 6,
+  "parser_A": "regex extraction patterned after exp_600 + regex token cleanup",
+  "parser_B": "stateful delimiter parser with inline first-alternative splicing; IVTFF <!…> comments end at >",
+  "filters": {
+    "Currier": "B",
+    "normalized_locus": "P0",
+    "minimum_clean_tokens_per_line": 2,
+    "predeclared_tokens": [
+      "daiin",
+      "aiin",
+      "chedy",
+      "dain",
+      "saiin",
+      "qokaiin"
+    ]
+  },
+  "versions": [
+    {
+      "transcription": "ZL3b",
+      "source": {
+        "path": "data/transcriptions/eva_zl3b.txt",
+        "bytes": 411671,
+        "sha256": "bf5b6d4ac1e3a51b1847a9c388318d609020441ccd56984c901c32b09beccafc"
+      },
+      "parser_A": {
+        "record_count": 5385,
+        "folio_headers": 227,
+        "unparsed": []
+      },
+      "parser_B": {
+        "record_count": 5385,
+        "folio_headers": 227,
+        "unparsed": []
+      },
+      "only_parser_A_ids": [],
+      "only_parser_B_ids": [],
+      "record_key_counts": {
+        "only_A": 0,
+        "only_B": 0,
+        "common": 5385
+      },
+      "mismatch_count_by_field": {},
+      "mismatch_examples": [],
+      "primary_stat_summary_regex": {
+        "body_lines": 2325,
+        "stats": {
+          "daiin": {
+            "lines": 2325,
+            "tokens": 295,
+            "first": 88,
+            "expected_first": 31.279224,
+            "enrichment": 2.813369
+          },
+          "aiin": {
+            "lines": 2325,
+            "tokens": 355,
+            "first": 1,
+            "expected_first": 34.198762,
+            "enrichment": 0.029241
+          },
+          "chedy": {
+            "lines": 2325,
+            "tokens": 479,
+            "first": 6,
+            "expected_first": 49.337263,
+            "enrichment": 0.121612
+          },
+          "dain": {
+            "lines": 2325,
+            "tokens": 107,
+            "first": 34,
+            "expected_first": 10.714287,
+            "enrichment": 3.173333
+          },
+          "saiin": {
+            "lines": 2325,
+            "tokens": 82,
+            "first": 46,
+            "expected_first": 9.158331,
+            "enrichment": 5.022749
+          },
+          "qokaiin": {
+            "lines": 2325,
+            "tokens": 240,
+            "first": 25,
+            "expected_first": 26.845879,
+            "enrichment": 0.931242
+          }
+        }
+      },
+      "primary_stat_summary_scanner": {
+        "body_lines": 2325,
+        "stats": {
+          "daiin": {
+            "lines": 2325,
+            "tokens": 295,
+            "first": 88,
+            "expected_first": 31.279224,
+            "enrichment": 2.813369
+          },
+          "aiin": {
+            "lines": 2325,
+            "tokens": 355,
+            "first": 1,
+            "expected_first": 34.198762,
+            "enrichment": 0.029241
+          },
+          "chedy": {
+            "lines": 2325,
+            "tokens": 479,
+            "first": 6,
+            "expected_first": 49.337263,
+            "enrichment": 0.121612
+          },
+          "dain": {
+            "lines": 2325,
+            "tokens": 107,
+            "first": 34,
+            "expected_first": 10.714287,
+            "enrichment": 3.173333
+          },
+          "saiin": {
+            "lines": 2325,
+            "tokens": 82,
+            "first": 46,
+            "expected_first": 9.158331,
+            "enrichment": 5.022749
+          },
+          "qokaiin": {
+            "lines": 2325,
+            "tokens": 240,
+            "first": 25,
+            "expected_first": 26.845879,
+            "enrichment": 0.931242
+          }
+        }
+      },
+      "primary_stats_identical": true
+    },
+    {
+      "transcription": "ZL3a",
+      "source": {
+        "path": "data/transcriptions/zl3a.txt",
+        "bytes": 411710,
+        "sha256": "56419297682d338ff1a0a17f5ae251e3ee3e2c5bf05a62db04c5385ef30b36a2"
+      },
+      "parser_A": {
+        "record_count": 5389,
+        "folio_headers": 227,
+        "unparsed": []
+      },
+      "parser_B": {
+        "record_count": 5389,
+        "folio_headers": 227,
+        "unparsed": []
+      },
+      "only_parser_A_ids": [],
+      "only_parser_B_ids": [],
+      "record_key_counts": {
+        "only_A": 0,
+        "only_B": 0,
+        "common": 5389
+      },
+      "mismatch_count_by_field": {},
+      "mismatch_examples": [],
+      "primary_stat_summary_regex": {
+        "body_lines": 2325,
+        "stats": {
+          "daiin": {
+            "lines": 2325,
+            "tokens": 296,
+            "first": 88,
+            "expected_first": 31.383925,
+            "enrichment": 2.803983
+          },
+          "aiin": {
+            "lines": 2325,
+            "tokens": 354,
+            "first": 1,
+            "expected_first": 34.087651,
+            "enrichment": 0.029336
+          },
+          "chedy": {
+            "lines": 2325,
+            "tokens": 479,
+            "first": 6,
+            "expected_first": 49.330852,
+            "enrichment": 0.121628
+          },
+          "dain": {
+            "lines": 2325,
+            "tokens": 107,
+            "first": 34,
+            "expected_first": 10.714287,
+            "enrichment": 3.173333
+          },
+          "saiin": {
+            "lines": 2325,
+            "tokens": 82,
+            "first": 46,
+            "expected_first": 9.158331,
+            "enrichment": 5.022749
+          },
+          "qokaiin": {
+            "lines": 2325,
+            "tokens": 240,
+            "first": 25,
+            "expected_first": 26.845879,
+            "enrichment": 0.931242
+          }
+        }
+      },
+      "primary_stat_summary_scanner": {
+        "body_lines": 2325,
+        "stats": {
+          "daiin": {
+            "lines": 2325,
+            "tokens": 296,
+            "first": 88,
+            "expected_first": 31.383925,
+            "enrichment": 2.803983
+          },
+          "aiin": {
+            "lines": 2325,
+            "tokens": 354,
+            "first": 1,
+            "expected_first": 34.087651,
+            "enrichment": 0.029336
+          },
+          "chedy": {
+            "lines": 2325,
+            "tokens": 479,
+            "first": 6,
+            "expected_first": 49.330852,
+            "enrichment": 0.121628
+          },
+          "dain": {
+            "lines": 2325,
+            "tokens": 107,
+            "first": 34,
+            "expected_first": 10.714287,
+            "enrichment": 3.173333
+          },
+          "saiin": {
+            "lines": 2325,
+            "tokens": 82,
+            "first": 46,
+            "expected_first": 9.158331,
+            "enrichment": 5.022749
+          },
+          "qokaiin": {
+            "lines": 2325,
+            "tokens": 240,
+            "first": 25,
+            "expected_first": 26.845879,
+            "enrichment": 0.931242
+          }
+        }
+      },
+      "primary_stats_identical": true
+    }
+  ],
+  "notes": [
+    "Parser agreement establishes implementation consistency only; not an authoritative transcription validation.",
+    "The two implementations intentionally use different parsing approaches.",
+    "Any disagreement should be fixed or adjudicated before additional hypotheses.",
+    "Protocol v2 fixed Parser B incorrectly searching for ?> rather than the IVTFF comment terminator >. Protocol v3 spliced the primary bracket alternative into the surrounding lexical unit. Protocol v4 attempted to normalize brace spans and @number markers inside alternatives, but an escaping error prevented the regexes from matching. Protocol v5 fixes the regex escaping. Protocol v6 allows an empty first bracket alternative, matching the documented primary-alternative policy for forms such as [:y]; earlier result files remain preserved.",
+    "No semantic or decipherment claims."
+  ]
+}
