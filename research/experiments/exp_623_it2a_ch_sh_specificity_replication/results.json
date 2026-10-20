@@ -1,0 +1,31 @@
+{
+  "experiment": 623,
+  "title": "IT2a replication of ch/sh following-vs-preceding vowel specificity interaction",
+  "source": "data/transcriptions/eva_it2a.txt",
+  "source_sha256": "7f27a8b0feed8f6de0a99900df6bf912dd1d295c38e5f830bac8b41c3f536fb5",
+  "parser": "IVTFF text rows; strip angle, square-bracket and brace annotations; alphabetic tokenization; only ch/sh occurrences with both adjacent characters",
+  "vowels": [
+    "a",
+    "e",
+    "i",
+    "o",
+    "u",
+    "y"
+  ],
+  "occurrences_with_two_neighbors": 5374,
+  "matched_strata": 485,
+  "folios_in_matched_strata": 149,
+  "mean_matched_stratum_next_sh_minus_ch": 0.0449850567194412,
+  "mean_matched_stratum_prev_sh_minus_ch": 0.054094567247993566,
+  "interaction_next_minus_prev": -0.009109510528552373,
+  "permutation_replicates": 10000,
+  "two_sided_permutation_p": 0.69003099690031,
+  "permutation_exceedances": 6900,
+  "interpretation": "A positive interaction would support greater ch/sh separation after than before the digraph under this matched-cell null; a null result would weaken outcome-specific claims. This is exploratory and not a decipherment result.",
+  "limitations": [
+    "ZL3b is one transcription, not an independent manuscript.",
+    "The parser is deliberately simple and needs independent parser conformance testing.",
+    "Matching by observed token length and position does not eliminate all lexical-template confounding.",
+    "This test was motivated by earlier exploratory results and is not preregistered."
+  ]
+}
