@@ -1,10 +1,10 @@
-
 name: Voynich Autonomous Research
 
 on:
   workflow_dispatch:
   schedule:
     - cron: "0 8 * * *"
+
 permissions:
   contents: write
 
@@ -19,80 +19,25 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          persist-credentials: true
 
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
 
-      - name: Run bounded research agent
-        env:
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          OPENAI_MODEL: gpt-4.1-mini
+      - name: Validate transcription and run reproducible EXP-590
+        run: python scripts/exp590_daiin_position.py
+
+      - name: Commit experiment report and machine-readable results
         run: |
-          python - <<'PY'
-          import json, os, urllib.request, datetime
-          from pathlib import Path
-
-          key = os.environ.get("OPENAI_API_KEY")
-          if not key:
-              raise SystemExit("Missing OPENAI_API_KEY repository secret")
-
-          prompt = """
-          You are a cautious research assistant studying the Voynich manuscript.
-          Produce a concise research report in Spanish.
-          Separate established facts, hypotheses, and speculation.
-          Do not claim the manuscript has been deciphered.
-          Propose three testable hypotheses and reproducible tests.
-          Include possible falsification criteria and sources to verify.
-          Never invent citations or experimental results.
-          """
-
-          payload = {
-              "model": os.environ["OPENAI_MODEL"],
-              "messages": [
-                  {"role": "system", "content": prompt},
-                  {"role": "user", "content":
-                   "Prepare a new, evidence-conscious research report. "
-                   "Avoid claiming you have read files not supplied in this request."}
-              ],
-              "temperature": 0.2,
-              "max_tokens": 1800
-          }
-
-          request = urllib.request.Request(
-              "https://api.openai.com/v1/chat/completions",
-              data=json.dumps(payload).encode(),
-              headers={
-                  "Authorization": "Bearer " + key,
-                  "Content-Type": "application/json"
-              },
-              method="POST"
-          )
-
-          with urllib.request.urlopen(request, timeout=90) as response:
-              result = json.load(response)
-
-          report = result["choices"][0]["message"]["content"]
-          date = datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%d")
-          output = Path("research/agent-reports")
-          output.mkdir(parents=True, exist_ok=True)
-          (output / f"{date}.md").write_text(
-              "# Informe automatizado de investigación Voynich\n\n"
-              f"Fecha UTC: {date}\n\n{report}\n",
-              encoding="utf-8"
-          )
-          print("Research report generated.")
-          PY
-
-      - name: Commit research report
-        run: |
-          if [ -n "$(git status --porcelain research/agent-reports)" ]; then
+          if [ -n "$(git status --porcelain research/experiments)" ]; then
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add research/agent-reports/
-            git commit -m "Add automated Voynich research report"
+            git add research/experiments/
+            git commit -m "Record reproducible EXP-590 daiin positional test"
             git push
           else
-            echo "No report changes to commit."
+            echo "No experiment output changes to commit."
           fi
