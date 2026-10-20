@@ -45,6 +45,16 @@ El 20-10-2026, una ejecución de `Voynich Check` falló en la prueba de regresi�
 5. Completar inventario espejo de la Biblioteca con hashes de contenido y commits de GitHub; no asumir equivalencia por nombre.
 6. No asignar nuevos IDs EXP hasta reconciliar el registro histórico y las colisiones confirmadas.
 
+## Instantánea de la Biblioteca ChatGPT
+
+La lista recursiva de `/Investigación Voynich/` devolvió **499 elementos** en 3 páginas (sin advertencias de listado). En los nombres:
+- **153** contienen `exp`/ `EXP`; **138** contienen IDs con patrón aproximado EXP-590 a EXP-639.
+- **20** son DOCX de archivo.
+- No se encontraron nombres de archivo exactamente duplicados en esta instantánea; sí existen familias/versiones distintas que pueden parecer duplicados, como `Informe_Voynich_v68...` y `Informe_Voynich_v68...(1).md`, y múltiples registros maestros acumulativos.
+- El índice `/Investigación Voynich/00_INDICE_Y_ESTADO.md` se actualizó y verificó el 20-10-2026 a las 20:30 UTC.
+
+Estos recuentos describen nombres y metadatos de la Biblioteca, no la validez científica ni la equivalencia de contenido. **Todavía no se han comparado los hashes de los 499 elementos contra GitHub**, y muchos artefactos antiguos de la Biblioteca no tienen un equivalente directo en GitHub. No deben fusionarse por similitud nominal.
+
 ## Incidente real de concurrencia y mitigación parcial
 
 El run autónomo 39490460729 ejecutó los cuatro análisis, pero falló al hacer push porque otra escritura movió `master` entre el rebase y el push (`cannot lock ref ... expected ...`). Se añadió reintento de rebase/push sin `force-push` a `voynich-agent.yml` y al workflow del parser independiente. Esta mitigación cubre esos dos flujos; los otros workflows con escritura aún requieren revisión de reintentos, permisos y concurrencia.
