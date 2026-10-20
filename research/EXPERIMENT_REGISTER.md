@@ -31,3 +31,6 @@ Recuperar el archivo maestro historico y enumerar todos los scripts, informes y 
 ## Conflicto con exportaciones de la Biblioteca ChatGPT
 - Dos informes guardados en `/Investigación Voynich/` usan `EXP-623` para controles de orden de palabras; en este repositorio, `EXP-623` es la sensibilidad de la interacción ch/sh en IT2a. Son sistemas de numeración incompatibles. No fusionar, sobrescribir ni reasignar estos archivos sin un inventario de sus scripts y resultados asociados.
 - La discrepancia entre parsers de EXP-602 sigue abierta: 1.466 diferencias de listas de tokens en ZL3b y 1.472 en ZL3a. El arreglo de metadatos `$L` no resuelve la tokenización.
+
+## Errata enlazada
+- EXP-590: consultar [errata de clasificación Currier](experiments/2026-10-20-exp590-erratum.md). El artefacto histórico se conserva; las tablas por clase requieren regeneración con el script corregido.
