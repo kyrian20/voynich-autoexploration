@@ -22,6 +22,7 @@ Repositorio de trabajo: `kyrian20/voynich-autoexploration` (rama `master`).
 - [`research/external_research_scan_2026-10-20.md`](research/external_research_scan_2026-10-20.md): exploración externa reciente.
 - [`research/exp_625_external_methods_integration_plan.md`](research/exp_625_external_methods_integration_plan.md): cómo convertir métodos externos en pruebas nuestras.
 - [`research/exp_624_parser_disagreement_and_prediction_gate.md`](research/exp_624_parser_disagreement_and_prediction_gate.md): bloqueo actual de tokenización y etiquetas Currier.
+- [`research/ivtff_tokenization_policy_2026-10-20.md`](research/ivtff_tokenization_policy_2026-10-20.md): reglas del formato oficial y fixtures exigidos antes de reabrir la predicción A/B.
 - [`research/exp_622_external_context_and_next_tests.md`](research/exp_622_external_context_and_next_tests.md): contexto externo y siguientes pruebas.
 - [`research/EXTERNAL_RESEARCH_REVIEW.md`](research/EXTERNAL_RESEARCH_REVIEW.md) y [`research/EXTERNAL_KNOWLEDGE_LOG_2026-10-20.md`](research/EXTERNAL_KNOWLEDGE_LOG_2026-10-20.md): comparación y registro de literatura externa.
 
