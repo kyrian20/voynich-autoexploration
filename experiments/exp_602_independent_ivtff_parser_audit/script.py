@@ -51,35 +51,76 @@ def parser_a(path):
 # Parser B: stateful line scanner. It locates delimiters directly, then tokenizes
 # by consuming markup/alternatives with a different implementation.
 def tokens_scanner(body):
-    i=0;n=len(body);kept=[]
-    while i<n:
-        ch=body[i]
-        if ch.isspace() or ch in ".,": i+=1;continue
-        if body.startswith("<!",i):
+    """Tokenize after inline normalization; bracket alternatives splice into the word."""
+    i = 0
+    n = len(body)
+    word = []
+    kept = []
+
+    def flush_word():
+        if not word:
+            return
+        token = "".join(word)
+        if token.isascii() and token.isalpha():
+            kept.append(token.lower())
+        word.clear()
+
+    while i < n:
+        ch = body[i]
+        if ch.isspace() or ch in ".,": 
+            flush_word()
+            i += 1
+            continue
+        if body.startswith("<!", i):
             # IVTFF free-text comments terminate at the next closing angle bracket.
-            # Searching for "?>" swallowed the remainder of ordinary lines.
-            j=body.find(">",i+2);i=n if j<0 else j+1;continue
-        if ch=="<":
-            j=body.find(">",i+1);i=n if j<0 else j+1;continue
-        if ch=="[":
-            j=body.find("]",i+1)
-            if j<0:i+=1;continue
-            inner=body[i+1:j]
-            kept.append(inner.split(":",1)[0])
-            i=j+1;continue
-        if ch=="{":
-            j=body.find("}",i+1);i=n if j<0 else j+1;continue
-        if ch=="@":
-            j=i+1
-            while j<n and body[j].isdigit():j+=1
-            if j>i+1:
-                if j<n and body[j]==";":j+=1
-                i=j;continue
+            flush_word()
+            j = body.find(">", i + 2)
+            i = n if j < 0 else j + 1
+            continue
+        if ch == "<":
+            flush_word()
+            j = body.find(">", i + 1)
+            i = n if j < 0 else j + 1
+            continue
+        if ch == "[":
+            j = body.find("]", i + 1)
+            if j < 0:
+                # Malformed uncertain reading: invalidate the current lexical unit.
+                word.append("?")
+                i += 1
+                continue
+            inner = body[i + 1:j]
+            # Primary policy: use the first alternative in place, not as a new token.
+            alternative = inner.split(":", 1)[0]
+            word.extend(alternative)
+            i = j + 1
+            continue
+        if ch == "{":
+            # Match the declared primary parser policy: omit brace-delimited material.
+            flush_word()
+            j = body.find("}", i + 1)
+            i = n if j < 0 else j + 1
+            continue
+        if ch == "@":
+            flush_word()
+            j = i + 1
+            while j < n and body[j].isdigit():
+                j += 1
+            if j > i + 1:
+                if j < n and body[j] == ";":
+                    j += 1
+                i = j
+                continue
         if ch.isalpha() and ch.isascii():
-            j=i+1
-            while j<n and body[j].isalpha() and body[j].isascii():j+=1
-            kept.append(body[i:j].lower());i=j;continue
-        i+=1
+            word.append(ch)
+            i += 1
+            continue
+        # Any other character makes the current lexical unit non-EVA; keep it
+        # in the buffer so the whole unit is conservatively excluded at flush.
+        word.append(ch)
+        i += 1
+
+    flush_word()
     return kept
 
 def parser_b(path):
@@ -150,18 +191,18 @@ def compare(path,label):
 
 def main():
     versions=[compare(path,label) for label,path in FILES if path.exists()]
-    data={"experiment":"exp_602_independent_ivtff_parser_audit","protocol_version":2,
+    data={"experiment":"exp_602_independent_ivtff_parser_audit","protocol_version":3,
       "parser_A":"regex extraction patterned after exp_600 + regex token cleanup",
-      "parser_B":"stateful delimiter parser + character-by-character tokenizer; IVTFF <!…> comments end at >",
+      "parser_B":"stateful delimiter parser with inline first-alternative splicing; IVTFF <!…> comments end at >",
       "filters":{"Currier":"B","normalized_locus":"P0","minimum_clean_tokens_per_line":2,
                  "predeclared_tokens":list(TARGETS)},
       "versions":versions,
       "notes":["Parser agreement establishes implementation consistency only; not an authoritative transcription validation.",
                "The two implementations intentionally use different parsing approaches.",
                "Any disagreement should be fixed or adjudicated before additional hypotheses.",
-               "Protocol v2 fixes Parser B incorrectly searching for ?> rather than the IVTFF comment terminator >; historical protocol-v1 results are archived separately.",
+               "Protocol v2 fixed Parser B incorrectly searching for ?> rather than the IVTFF comment terminator >. Protocol v3 also splices the primary bracket alternative into the surrounding lexical unit; earlier result files remain preserved.",
                "No semantic or decipherment claims."]}
-    out=ROOT/"experiments/exp_602_independent_ivtff_parser_audit/results_v2.json"
+    out=ROOT/"experiments/exp_602_independent_ivtff_parser_audit/results_v3.json"
     out.parent.mkdir(parents=True,exist_ok=True)
     out.write_text(json.dumps(data,indent=2,ensure_ascii=False)+"\n",encoding="utf-8")
     print(json.dumps({"output":str(out.relative_to(ROOT)),"versions":[{"transcription":v["transcription"],
