@@ -32,7 +32,7 @@ Estas colisiones son de nombre/ID, no prueba automática de que los análisis se
 
 ## Hallazgos de automatización
 
-Hay **31 workflows**. El conjunto incluye un workflow autónomo que ejecuta EXP-590, EXP-593, EXP-622 y EXP-623, además de workflows específicos para otras pruebas. La cantidad de workflows no es por sí misma un defecto, pero exige auditar disparadores, concurrencia, escrituras de resultados y colisiones de artefactos antes de permitir que múltiples workflows modifiquen las mismas rutas.
+Hay **31 workflows**. Una primera inspección de los pasos de ejecución detectó que **30 tienen un mecanismo de escritura/push de resultados**; `Voynich Check` es el workflow de solo lectura. El conjunto incluye un workflow autónomo que ejecuta EXP-590, EXP-593, EXP-622 y EXP-623, además de workflows específicos para otras pruebas. La cantidad de workflows no es por sí misma un defecto, pero los grupos de concurrencia por workflow no serializan necesariamente escrituras de workflows diferentes.
 
 El 20-10-2026, una ejecución de `Voynich Check` falló en la prueba de regresión porque `scripts/exp590_daiin_position.py` conservaba una referencia a la variable `q` ya no definida. Se eliminó esa referencia. La ejecución siguiente de `Voynich Check` para el commit `27f4cd98de28d8b0c1965e0a06582e295ff612d0` completó con éxito las comprobaciones de existencia del corpus, sintaxis Python, pruebas de metadatos y auditoría de `$L`. Las modificaciones posteriores requieren su propia comprobación CI.
 
@@ -44,6 +44,10 @@ El 20-10-2026, una ejecución de `Voynich Check` falló en la prueba de regresi�
 4. Resolver las discrepancias de tokenización ZL3b/ZL3a con fixtures derivados de IVTFF 2.0.2.
 5. Completar inventario espejo de la Biblioteca con hashes de contenido y commits de GitHub; no asumir equivalencia por nombre.
 6. No asignar nuevos IDs EXP hasta reconciliar el registro histórico y las colisiones confirmadas.
+
+## Incidente real de concurrencia y mitigación parcial
+
+El run autónomo 39490460729 ejecutó los cuatro análisis, pero falló al hacer push porque otra escritura movió `master` entre el rebase y el push (`cannot lock ref ... expected ...`). Se añadió reintento de rebase/push sin `force-push` a `voynich-agent.yml` y al workflow del parser independiente. Esta mitigación cubre esos dos flujos; los otros workflows con escritura aún requieren revisión de reintentos, permisos y concurrencia.
 
 ## Límites
 
