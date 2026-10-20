@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""EXP-591: positional scan of daiin variants with max-statistic correction."""
+"""ARCHIVED-DUPLICATE-EXP-591: positional scan of daiin variants with max-statistic correction."""
 from __future__ import annotations
 import collections, hashlib, json, random, re
 from datetime import datetime, timezone
@@ -70,7 +70,7 @@ def main():
       "limitations":["Variant family is exploratory, not exhaustive.","EVA tokenization excludes uncertain bracketed readings and punctuation.",
       "This test concerns position only, not semantics or decipherment.","Currier classes are reported only where explicitly present in folio headers."]}
     OUT.mkdir(parents=True,exist_ok=True)
-    (OUT/f"{date}-exp591.json").write_text(json.dumps(result,indent=2,ensure_ascii=False)+"\n",encoding="utf-8")
+    (OUT/f"{date}-archived_duplicate_exp591.json").write_text(json.dumps(result,indent=2,ensure_ascii=False)+"\n",encoding="utf-8")
     report=f"# EXP-591 — Familia de variantes de daiin y corrección por comparaciones múltiples\n\n- Fecha UTC: {date}\n- SHA-256: {result['source_sha256']}\n- Líneas: {len(lines):,}\n- Tokens: {result['tokens']:,}\n- Permutaciones: {N_PERM:,}\n- Semilla: {SEED}\n\n| Token | Ocurrencias | Inicio | Final | p empírico | p ajustado max-stat |\n|---|---:|---:|---:|---:|---:|\n"
     for w in VARIANTS:
         o=obs[w]; t=tests[w]
