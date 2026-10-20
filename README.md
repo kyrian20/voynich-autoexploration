@@ -11,6 +11,7 @@ Repositorio de trabajo: `kyrian20/voynich-autoexploration` (rama `master`).
 - [`SOUL.md`](SOUL.md): objetivo, principios y ciclo de investigación.
 - [`CLAUDE.md`](CLAUDE.md): instrucciones operativas y documentos de estado.
 - [`research/EXPERIMENT_REGISTER.md`](research/EXPERIMENT_REGISTER.md): registro de numeración y conflictos conocidos. Consultar antes de asignar cualquier ID nuevo.
+- [`research/RESEARCH_INTEGRITY_STANDARD.md`](research/RESEARCH_INTEGRITY_STANDARD.md): norma obligatoria de estados, trazabilidad, controles y publicación.
 - [`state/canonical_methodology.md`](state/canonical_methodology.md): metodología histórica canónica. Puede reflejar convenciones antiguas; contrastar con auditorías recientes.
 - [`state/current_state.md`](state/current_state.md): estado operativo histórico, consultar antes de cambiar decisiones.
 - [`state/working_position.md`](state/working_position.md): síntesis de hipótesis y discriminación teórica.
@@ -69,3 +70,7 @@ Repositorio de trabajo: `kyrian20/voynich-autoexploration` (rama `master`).
 ## Regla de evidencia
 
 Cada conclusión debe apuntar a script, corpus/transcripción, hash, unidad de análisis, división de evaluación, baseline, nulo/control, semilla y resultado. Las hipótesis externas se registran como hipótesis hasta que se repliquen independientemente. No se afirma desciframiento sin recuperación semántica verificable.
+
+## Criterio de calidad institucional
+
+El repositorio todavía no se declara completamente limpio: persisten la discrepancia de tokenización, colisiones de IDs entre GitHub y la Biblioteca, y ejecuciones CI cuya confirmación debe comprobarse. La norma de integridad define el orden de cierre. No se borrarán datos históricos ni se publicarán como validados resultados afectados por defectos conocidos.
