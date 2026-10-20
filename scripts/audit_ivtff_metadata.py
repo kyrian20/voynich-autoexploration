@@ -9,6 +9,11 @@ HEADER = re.compile(r"^<f(\d+[rv])>\s*(.*)$")
 LANGUAGE = re.compile(r"\$L\s*=\s*([AB])(?:\s|$)")
 QUIRE = re.compile(r"\$Q\s*=\s*([AB])(?:\s|$)")
 
+def parse_currier_language(metadata: str) -> str | None:
+    """Return Currier language only from IVTFF $L=A/B; never infer it from $Q or $I."""
+    match = LANGUAGE.search(metadata)
+    return match.group(1) if match else None
+
 def main() -> None:
     raw = SOURCE.read_bytes()
     text = raw.decode("utf-8-sig")
@@ -19,9 +24,9 @@ def main() -> None:
         if not m:
             continue
         folio, metadata = m.groups()
-        lang = LANGUAGE.search(metadata)
+        lang = parse_currier_language(metadata)
         if lang:
-            pages[folio] = lang.group(1)
+            pages[folio] = lang
         q = QUIRE.search(metadata)
         if q and not lang:
             q_as_language.append(folio)
