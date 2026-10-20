@@ -4,6 +4,10 @@ from __future__ import annotations
 import collections, hashlib, json, random, re
 from datetime import datetime, timezone
 from pathlib import Path
+import sys
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT))
+from scripts.audit_ivtff_metadata import parse_currier_language
 SOURCE = Path("data/transcriptions/eva_zl3b.txt")
 OUT = Path("research/experiments")
 N_PERM, SEED = 5000, 20261021
@@ -19,8 +23,8 @@ def parse():
     for row in text.splitlines():
         m = HEADER.match(row)
         if m:
-            lang = re.search(r"\$L\s*=\s*([AB])(?:\s|$)", m.group(2))
-            if lang: classes[m.group(1)] = lang.group(1)
+            lang = parse_currier_language(m.group(2))
+            if lang: classes[m.group(1)] = lang
     lines = []
     for row in text.splitlines():
         m = LINE.match(row)
@@ -70,7 +74,7 @@ def main():
       "limitations":["Variant family is exploratory, not exhaustive.","EVA tokenization excludes uncertain bracketed readings and punctuation.",
       "This test concerns position only, not semantics or decipherment.","Currier classes are reported only where explicitly present in folio headers."]}
     OUT.mkdir(parents=True,exist_ok=True)
-    (OUT/f"{date}-exp593.json").write_text(json.dumps(result,indent=2,ensure_ascii=False)+"\n",encoding="utf-8")
+    (OUT/f"{date}-exp593-corrected-L-metadata.json").write_text(json.dumps(result,indent=2,ensure_ascii=False)+"\n",encoding="utf-8")
     report=f"# EXP-593 — Familia de variantes de daiin y corrección por comparaciones múltiples\n\n- Fecha UTC: {date}\n- SHA-256: {result['source_sha256']}\n- Líneas: {len(lines):,}\n- Tokens: {result['tokens']:,}\n- Permutaciones: {N_PERM:,}\n- Semilla: {SEED}\n\n| Token | Ocurrencias | Inicio | Final | p empírico | p ajustado max-stat |\n|---|---:|---:|---:|---:|---:|\n"
     for w in VARIANTS:
         o=obs[w]; t=tests[w]
@@ -81,6 +85,6 @@ def main():
         for c,v in obs[w]["by_currier"].items(): report+=f"| {c} | {v['occurrences']} | {v['line_initial']} | {v['line_final']} |\n"
         report+="\n"
     report+="## Interpretación y límites\n\nUn p ajustado bajo apoyaría una preferencia posicional frente a este modelo nulo, pero no implica traducción. La prueba conserva los tokens por línea, no la estructura sintáctica; el modelo nulo puede ser demasiado simple. La clasificación Currier depende de las cabeceras disponibles. Resultados completos en el JSON asociado.\n"
-    (OUT/f"{date}-exp593.md").write_text(report,encoding="utf-8")
+    (OUT/f"{date}-exp593-corrected-L-metadata.md").write_text(report,encoding="utf-8")
     print(json.dumps({"experiment":"EXP-593","lines":len(lines),"tokens":result["tokens"],"tests":tests},indent=2))
 if __name__=="__main__": main()
