@@ -6,8 +6,8 @@ from pathlib import Path
 
 SOURCE = Path("data/transcriptions/eva_zl3b.txt")
 HEADER = re.compile(r"^<f(\d+[rv])>\s*(.*)$")
-LANGUAGE = re.compile(r"\$L\s*=\s*([AB])(?:\s|$)")
-QUIRE = re.compile(r"\$Q\s*=\s*([AB])(?:\s|$)")
+LANGUAGE = re.compile(r"\$L\s*=\s*([AB])(?=\s|>|$)")
+QUIRE = re.compile(r"\$Q\s*=\s*([AB])(?=\s|>|$)")
 
 def parse_currier_language(metadata: str) -> str | None:
     """Return Currier language only from IVTFF $L=A/B; never infer it from $Q or $I."""
