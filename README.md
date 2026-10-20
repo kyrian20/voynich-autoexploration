@@ -59,7 +59,7 @@ Repositorio de trabajo: `kyrian20/voynich-autoexploration` (rama `master`).
 
 ## Deuda técnica conocida
 
-- El árbol incluye una ruta accidental anidada `.github/workflows/.github/workflows/voynich-check.yml`, además del workflow correcto `.github/workflows/voynich-check.yml`. No borrar hasta verificar historial y referencias, pero evitar seguir usándola.
+- Se eliminó la ruta accidental anidada `.github/workflows/.github/workflows/voynich-check.yml` (el historial Git conserva el archivo). El workflow canónico `.github/workflows/voynich-check.yml` ahora comprueba los archivos de transcripción, la sintaxis de todos los scripts Python y los metadatos Currier `$L`.
 - Hay workflows específicos para múltiples EXP, lo que dificulta mantenerlos; evaluar consolidación después de confirmar que sus triggers y artefactos no se pierden.
 - Hay conflicto de numeración alrededor de EXP-590/591/592 documentado en el registro. No renumerar silenciosamente los artefactos históricos.
 - El workflow de validación parece exigir `README.md`; este archivo restablece ese requisito.
