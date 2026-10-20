@@ -37,7 +37,7 @@ Recuperar el archivo maestro historico y enumerar todos los scripts, informes y 
 
 ## Conflicto con exportaciones de la Biblioteca ChatGPT
 - Dos informes guardados en `/Investigación Voynich/` usan `EXP-623` para controles de orden de palabras; en este repositorio, `EXP-623` es la sensibilidad de la interacción ch/sh en IT2a. Son sistemas de numeración incompatibles. No fusionar, sobrescribir ni reasignar estos archivos sin un inventario de sus scripts y resultados asociados.
-- El protocolo v6 de EXP-602 registra cero diferencias entre parsers para ZL3b (5.385 registros) y ZL3a (5.389). Se corrigieron el terminador de comentarios IVTFF, el empalme de alternativas y las anotaciones internas; los resultados de v1–v5 siguen preservados. El acuerdo es bajo la política de normalización documentada, no una certificación completa de IVTFF. La predicción A/B permanece bloqueada hasta completar fixtures y validación independiente de `$L`.
+- El protocolo v7 de EXP-602 registra cero diferencias entre parsers para ZL3b (5.385 registros) y ZL3a (5.389). Se corrigieron el terminador de comentarios IVTFF, el empalme de alternativas y las anotaciones internas; los resultados de v1–v6 siguen preservados; v7 es la versión actual. El acuerdo es bajo la política de normalización documentada, no una certificación completa de IVTFF. La predicción A/B permanece bloqueada hasta completar fixtures y validación independiente de `$L`.
 
 ## Errata enlazada
 - EXP-590: consultar [errata de clasificación Currier](experiments/2026-10-20-exp590-erratum.md). El artefacto histórico se conserva; las tablas por clase requieren regeneración con el script corregido.
