@@ -21,8 +21,19 @@ Protocol v2 corrects the terminator and writes to a separate file, `experiments/
 
 This is a material parser bug fix, **not** tokenization conformance. Remaining examples include embedded uncertain alternatives such as `cho[?:ch]os`, where the parsers differ in whether they retain the uncertain payload and how they tokenize the surrounding characters. These cases require an explicit IVTFF policy and hand-authored fixtures. Keep protocol-v1 counts as historical evidence; do not describe the remaining disagreements as resolved.
 
+## Update after protocol v6 — 20-10-2026
+
+Protocol v5 exposed only three remaining token-list disagreements in each transcription. Inspection of the source lines showed all three were forms such as `okaiin[:y]`: the first alternative is empty, but Parser A's bracket regex required at least one character before the colon. Protocol v6 changed that requirement from one-or-more to zero-or-more and added a fixture for empty primary alternatives.
+
+The completed protocol-v6 run is archived at `experiments/exp_602_independent_ivtff_parser_audit/results_v6.json`. It reports:
+- ZL3b: 5,385 common records; **0 field disagreements**, including token lists.
+- ZL3a: 5,389 common records; **0 field disagreements**, including token lists.
+- The predeclared summary statistics also match between the two implementations.
+
+This closes the observed cross-implementation token-list disagreement for these two source files **under the documented primary-first-alternative normalization policy**. It does not prove full IVTFF conformance: the two parsers were deliberately brought into agreement on reviewed cases, and the fixture suite still needs broader coverage for continuations, malformed markup, uncertain readings without alternatives, all locus types, and other IVTFF constructs. Preserve protocol-v1 through v5 outputs as the history of how the defects were found and corrected.
+
 ## Decision
-Do not start the new Currier A/B prediction experiment yet. First resolve the tokenizer disagreement with a small, explicit fixture suite and a written tokenization policy. Keep the original parser audit results immutable as a record of the discrepancy; do not overwrite them to make the audit appear successful.
+Do not start the new Currier A/B prediction experiment yet. The cross-implementation disagreement is now zero under protocol v6, but complete the remaining fixture suite and independently validate $L labels before prediction. Keep all protocol-version results immutable as a record of the discrepancy and corrections.
 
 ## Required parser fixtures
 1. Ordinary EVA tokens separated by whitespace, period, and comma.
