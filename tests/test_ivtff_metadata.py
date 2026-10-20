@@ -42,6 +42,13 @@ def check_tokenizers() -> None:
     assert tokens_regex(annotated) == expected_annotated, tokens_regex(annotated)
     assert tokens_scanner(annotated) == expected_annotated, tokens_scanner(annotated)
 
+    # Empty first alternatives are meaningful: [:y] selects the empty primary
+    # reading rather than invalidating the surrounding token.
+    empty_primary = "okaiin[:y] otold[:y] chockh[:y]"
+    expected_empty_primary = ["okaiin", "otold", "chockh"]
+    assert tokens_regex(empty_primary) == expected_empty_primary, tokens_regex(empty_primary)
+    assert tokens_scanner(empty_primary) == expected_empty_primary, tokens_scanner(empty_primary)
+
 
 def main() -> None:
     # $L wins even when $Q contradicts it; $Q means quire, not Currier language.
