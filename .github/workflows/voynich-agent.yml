@@ -8,6 +8,8 @@ on:
       - "scripts/exp590_daiin_position.py"
       - "scripts/exp593_daiin_variants.py"
       - "scripts/exp622_ch_sh_specificity.py"
+      - "scripts/exp623_it2a_ch_sh_specificity.py"
+      - "data/transcriptions/eva_it2a.txt"
       - "data/transcriptions/eva_zl3b.txt"
   schedule:
     - cron: "0 8 * * *"
@@ -45,6 +47,9 @@ jobs:
 
       - name: Run EXP-622 ch/sh context-specificity interaction
         run: python scripts/exp622_ch_sh_specificity.py
+
+      - name: Run EXP-623 IT2a transcription sensitivity replication
+        run: python scripts/exp623_it2a_ch_sh_specificity.py
 
       - name: Commit experiment report and machine-readable results
         run: |
