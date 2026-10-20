@@ -12,11 +12,22 @@ sys.path.insert(0, str(ROOT))
 
 from scripts.audit_ivtff_metadata import HEADER, parse_currier_language
 from scripts.exp590_daiin_position import load_lines
+from experiments.exp_602_independent_ivtff_parser_audit.script import tokens_regex, tokens_scanner
 
 
 def check(metadata: str, expected: str | None) -> None:
     actual = parse_currier_language(metadata)
     assert actual == expected, f"{metadata!r}: expected {expected!r}, got {actual!r}"
+
+
+def check_tokenizers() -> None:
+    # IVTFF free-text comments terminate at ">", not the nonstandard "?>".
+    # This regression catches the old Parser B behavior that swallowed the
+    # remainder of a line after encountering a normal <! ... > comment.
+    body = "alpha <! $Q=A $L=B> beta <@X=y> gamma {ch} [daiin:dain] @12; omega"
+    expected = ["alpha", "beta", "gamma", "daiin", "omega"]
+    assert tokens_regex(body) == expected, tokens_regex(body)
+    assert tokens_scanner(body) == expected, tokens_scanner(body)
 
 
 def main() -> None:
@@ -53,7 +64,8 @@ def main() -> None:
     assert rows[0]["currier"] == "B", rows[0]
     assert rows[1]["currier"] == "unknown", rows[1]
 
-    print("IVTFF metadata regression tests passed (10 checks).")
+    check_tokenizers()
+    print("IVTFF metadata and tokenizer regression tests passed.")
 
 
 if __name__ == "__main__":
