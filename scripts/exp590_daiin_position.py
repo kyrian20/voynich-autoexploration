@@ -34,8 +34,6 @@ def load_lines(path: Path):
             lang = parse_currier_language(m.group(2))
             if lang:
                 folio_currier[m.group(1)] = lang
-            if q:
-                folio_currier[m.group(1)] = q.group(1)
     parsed = []
     for row in text.splitlines():
         m = TEXT_LINE.match(row)
