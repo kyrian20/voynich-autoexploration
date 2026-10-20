@@ -12,6 +12,7 @@ Repositorio de trabajo: `kyrian20/voynich-autoexploration` (rama `master`).
 - [`CLAUDE.md`](CLAUDE.md): instrucciones operativas y documentos de estado.
 - [`research/EXPERIMENT_REGISTER.md`](research/EXPERIMENT_REGISTER.md): registro de numeración y conflictos conocidos. Consultar antes de asignar cualquier ID nuevo.
 - [`research/RESEARCH_INTEGRITY_STANDARD.md`](research/RESEARCH_INTEGRITY_STANDARD.md): norma obligatoria de estados, trazabilidad, controles y publicación.
+- [`research/ARTIFACT_COLLISION_REGISTER.md`](research/ARTIFACT_COLLISION_REGISTER.md): colisiones confirmadas entre IDs de GitHub y la Biblioteca, con alias sin borrar originales.
 - [`state/canonical_methodology.md`](state/canonical_methodology.md): metodología histórica canónica. Puede reflejar convenciones antiguas; contrastar con auditorías recientes.
 - [`state/current_state.md`](state/current_state.md): estado operativo histórico, consultar antes de cambiar decisiones.
 - [`state/working_position.md`](state/working_position.md): síntesis de hipótesis y discriminación teórica.
