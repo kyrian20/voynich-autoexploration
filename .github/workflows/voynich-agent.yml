@@ -7,6 +7,7 @@ on:
       - ".github/workflows/voynich-agent.yml"
       - "scripts/exp590_daiin_position.py"
       - "scripts/exp593_daiin_variants.py"
+      - "scripts/exp622_ch_sh_specificity.py"
       - "data/transcriptions/eva_zl3b.txt"
   schedule:
     - cron: "0 8 * * *"
@@ -41,6 +42,9 @@ jobs:
 
       - name: Run EXP-593 variant scan with multiple-testing correction
         run: python scripts/exp593_daiin_variants.py
+
+      - name: Run EXP-622 ch/sh context-specificity interaction
+        run: python scripts/exp622_ch_sh_specificity.py
 
       - name: Commit experiment report and machine-readable results
         run: |
