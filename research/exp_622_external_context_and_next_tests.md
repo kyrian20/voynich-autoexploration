@@ -58,3 +58,7 @@ Until those checks are implemented, do not report a predictive result.
 ## Additional gate discovered during 2026-10-20 review
 
 The existing `experiments/exp_602_independent_ivtff_parser_audit/results.json` has identical record IDs but substantial token-list disagreement: 1,466 rows for ZL3b and 1,472 for ZL3a. Thus this is not yet a successful tokenization-conformance audit. Also, EXP-602's held-out test predicts line-initial token positions in Currier B/P0; it is not a held-out Currier A/B classifier. See [EXP-624 parser disagreement and prediction gate](exp_624_parser_disagreement_and_prediction_gate.md). The Currier A/B prediction study remains unrun until tokenization policy and $L metadata handling are validated.
+
+## Broader external research scan (2026-10-20)
+
+A wider scan identified additional computational and historical-comparator projects, including Dominik's protected-holdout morphology study, Epilectrik's rival-generator/negative-control programme, Pantani's route-based toolkit, VoynichDuctus image-based palaeography, Honeycutt's operational page-architecture hypothesis, and Timm's critique of the five-scribe model. These are leads to audit, not validated findings. The source-by-source summary and proposed replication priorities are recorded in [external_research_scan_2026-10-20.md](external_research_scan_2026-10-20.md). Parisel remains tracked here; its exact model should be independently reproduced only after our tokenizer and Currier-$L$ metadata checks pass.
