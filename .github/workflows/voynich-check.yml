@@ -17,6 +17,11 @@ jobs:
       - name: Descargar repositorio
         uses: actions/checkout@v4
 
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
       - name: Comprobar archivos de investigación
         run: |
           python - <<'PY'
@@ -27,21 +32,43 @@ jobs:
               Path("data/transcriptions/eva_zl3b.txt"),
               Path("data/transcriptions/eva_it2a.txt"),
           ]
-
           failed = False
           for path in required:
               if not path.is_file():
                   print(f"FALTA: {path}")
                   failed = True
-              else:
-                  text = path.read_text(encoding="utf-8")
-                  print(f"OK: {path} ({len(text)} caracteres)")
-                  if not text.strip():
-                      print(f"ERROR: archivo vacío: {path}")
-                      failed = True
-
+                  continue
+              text = path.read_text(encoding="utf-8")
+              print(f"OK: {path} ({len(text)} caracteres)")
+              if not text.strip():
+                  print(f"ERROR: archivo vacío: {path}")
+                  failed = True
           if failed:
               sys.exit(1)
-
-          print("Comprobación básica completada.")
           PY
+
+      - name: Validar sintaxis de todos los scripts Python
+        run: |
+          python - <<'PY'
+          import ast
+          from pathlib import Path
+
+          files = [
+              p for p in Path(".").rglob("*.py")
+              if not any(part in {".git", ".venv", "venv"} for part in p.parts)
+          ]
+          errors = []
+          for path in files:
+              try:
+                  ast.parse(path.read_text(encoding="utf-8"), filename=str(path))
+              except (SyntaxError, UnicodeDecodeError) as exc:
+                  errors.append(f"{path}: {exc}")
+          print(f"Scripts Python comprobados: {len(files)}")
+          if errors:
+              print("\n".join(errors))
+              raise SystemExit(1)
+          print("Sintaxis Python correcta.")
+          PY
+
+      - name: Validar metadatos Currier desde IVTFF
+        run: python scripts/audit_ivtff_metadata.py
