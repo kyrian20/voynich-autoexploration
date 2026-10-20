@@ -23,7 +23,7 @@
   "permutation_exceedances": 6900,
   "interpretation": "A positive interaction would support greater ch/sh separation after than before the digraph under this matched-cell null; a null result would weaken outcome-specific claims. This is exploratory and not a decipherment result.",
   "limitations": [
-    "IT2a is an alternative transcription of the same manuscript, not an independent manuscript sample.",
+    "ZL3b is one transcription, not an independent manuscript.",
     "The parser is deliberately simple and needs independent parser conformance testing.",
     "Matching by observed token length and position does not eliminate all lexical-template confounding.",
     "This test was motivated by earlier exploratory results and is not preregistered."
