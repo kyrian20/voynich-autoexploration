@@ -28,3 +28,29 @@ This does not support the claim that the observed ch/sh separation is specifical
 1. EXP-623 runs the same specificity interaction on IT2a as a transcription-sensitivity check; ZL3b and IT2a are alternative transcriptions of the same manuscript, not independent manuscript samples.
 2. If the sign and scale are interpretable across transcriptions, implement a separate, preregistered folio-held-out test of whether the ch/sh post-digraph feature predicts verified Currier $L labels beyond baseline rates, hand, section, and word-template/position controls.
 3. Preserve null and adverse results; do not infer phonetic values, semantic content, or decipherment from these distributional statistics.
+
+
+## EXP-623 result and decision update (2026-10-20)
+
+GitHub Actions completed successfully for commit `119598765165c0b795d21500d89053ad24bdb024`: [run 39486630716](https://github.com/kyrian20/voynich-autoexploration/actions/runs/39486630716).
+
+EXP-623 uses IT2a, SHA-256 `7f27a8b0feed8f6de0a99900df6bf912dd1d295c38e5f830bac8b41c3f536fb5`:
+- 5,374 occurrences with two neighbors; 485 matched strata; 149 folios.
+- Following-character contrast (sh−ch): +4.50 percentage points.
+- Preceding-character contrast (sh−ch): +5.41 percentage points.
+- Interaction (following minus preceding): −0.91 percentage points.
+- Two-sided within-stratum permutation p=0.69003 (10,000 replicates).
+
+EXP-622 (ZL3b) gave +0.53 pp, p=0.82342. The interaction changes sign across transcription files and is non-significant in both. This is a transcription-sensitivity check, not an independent replication on another manuscript. The evidence does **not** support a claim that the ch/sh contrast is specific to the following character. Keep the broader descriptive ch/sh contrast separate from any claim about its mechanism.
+
+## Decision for next work
+
+Do not create another near-duplicate ch/sh interaction test. The next defensible step is a new, explicitly preregistered held-out Currier A/B prediction study only after:
+1. verify $L labels from folio headers, never substitute $Q (quire) or $I;
+2. independently audit parsing against IVTFF fixtures and edge cases;
+3. freeze a small feature set and controls before scoring;
+4. split by folio (preferably externally grounded sections where source boundaries are documented), keeping all tokens from a folio in one partition;
+5. compare against a majority-class baseline and simple metadata-only baseline, report balanced accuracy, confusion matrix, and uncertainty;
+6. test transcription sensitivity (ZL3b and IT2a) without treating the files as independent samples.
+
+Until those checks are implemented, do not report a predictive result.
