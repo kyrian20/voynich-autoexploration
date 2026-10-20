@@ -22,6 +22,10 @@ Relevant sections:
 5. A slash at the start/end of a line is a continuation marker, not a Voynichese character. Continuation lines require explicit handling.
 6. A full comment line starts with #. Locus identifiers and page headers are structural metadata, not text tokens.
 
+## Audit update — 20 October 2026
+
+A concrete implementation defect was found in the independent stateful parser: it searched for `?>` instead of the IVTFF `>` terminator for `<!…>` free-text comments. Protocol v2 fixes that defect and preserves the protocol-v1 JSON in the archive. The new run reduces token-list disagreements to 792 for ZL3b and 805 for ZL3a, but does not resolve them. In particular, uncertain alternatives embedded within a word (for example `cho[?:ch]os`) need a documented primary and sensitivity policy. Until fixtures cover these cases and both implementations have been adjudicated against IVTFF 2.0.2, token-sensitive analyses remain blocked.
+
 ## Proposed normalization contract
 
 Every parser should produce two layers, not one destructive token list:
