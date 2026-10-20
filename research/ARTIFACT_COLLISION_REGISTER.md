@@ -22,9 +22,13 @@ Estado: inventario parcial; no equivale a una auditoría completa de los más de
 
 ## Parser y corpus
 
-- La auditoría histórica registra 1.466 desacuerdos de listas de tokens para ZL3b y 1.472 para ZL3a entre dos parsers.
+- La auditoría histórica de protocolo v1 registra 1.466 desacuerdos de listas de tokens para ZL3b y 1.472 para ZL3a. Tras corregir el terminador de comentarios IVTFF en protocolo v2, el recuento actualizado es 792 para ZL3b y 805 para ZL3a. El protocolo v1 se conserva en `experiments/exp_602_independent_ivtff_parser_audit/archive/results_pre_terminator_fix_2026-10-20.json`; la salida v2 está en `experiments/exp_602_independent_ivtff_parser_audit/results_v2.json`. La discrepancia sigue abierta.
 - Los conteos anteriores deben conservarse como evidencia histórica de discrepancia, no como una medida de que un parser concreto sea correcto.
 - ZL3a, ZL3b e IT2a son transcripciones alternativas del mismo manuscrito y no deben contarse como réplicas independientes.
+
+## Inventario estructural actualizado
+
+La auditoría de árbol del 20-10-2026 cuenta 2.085 rutas, 624 carpetas `experiments/exp_NNN_*`, 617 IDs únicos, siete grupos de colisión de IDs de carpeta y 31 workflows. El informe [repository inventory audit](repository_inventory_audit_2026-10-20.md) detalla los grupos y evita etiquetar automáticamente como defectuosas las carpetas históricas sin script o salida convencional.
 
 ## Próxima auditoría de colisiones
 
