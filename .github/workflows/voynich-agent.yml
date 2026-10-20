@@ -6,6 +6,7 @@ on:
     paths:
       - ".github/workflows/voynich-agent.yml"
       - "scripts/exp590_daiin_position.py"
+      - "scripts/exp591_daiin_variants.py"
       - "data/transcriptions/eva_zl3b.txt"
   schedule:
     - cron: "0 8 * * *"
@@ -34,6 +35,9 @@ jobs:
 
       - name: Validate transcription and run reproducible EXP-590
         run: python scripts/exp590_daiin_position.py
+
+      - name: Run EXP-591 variant scan with multiple-testing correction
+        run: python scripts/exp591_daiin_variants.py
 
       - name: Commit experiment report and machine-readable results
         run: |
