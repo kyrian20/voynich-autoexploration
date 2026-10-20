@@ -11,7 +11,7 @@ Los identificadores EXP son unicos. Las fases, los experimentos y las ejecucione
 - EXP-592: existe un analisis max-T previo (commits 70db96a y a74cff7).
 - EXP-593: script canonico scripts/exp593_daiin_variants.py; ejecucion completada y resultados guardados en research/experiments/2026-10-20-exp593.md y .json. Fuente SHA-256: bf5b6d4ac1e3a51b1847a9c388318d609020441ccd56984c901c32b09beccafc. El identificador aun debe cotejarse con el indice historico completo.
 
-## EXP-593 — salida anterior y reproducción pendiente tras unificación del parser
+## EXP-593 — reproducción con parser común completada; interpretación token-sensible bloqueada
 - 4.188 lineas parseadas y 32.732 tokens.
 - 5.000 permutaciones con semilla 20261021.
 - `daiin`: 726 ocurrencias, 133 inicios de linea; p empirico y ajustado reportado 0,000200.
@@ -24,7 +24,7 @@ Los identificadores EXP son unicos. Las fases, los experimentos y las ejecucione
 - Se identificaron 31 workflows y 62 carpetas que requieren clasificación porque no contienen a la vez un script y un resultado reconocibles. No se etiquetan automáticamente como defectos.
 - No asignar IDs nuevos hasta reconciliar el registro y el archivo maestro histórico.
 
-La salida `2026-10-20-exp593.json` registra la ejecución anterior. El 20-10-2026 se unificó el lector de metadatos con `parse_currier_language` para aceptar consistentemente `$L=A/B` antes de `>` y se configuraron rutas nuevas `2026-10-20-exp593-corrected-L-metadata.json/.md`; esa reproducción debe terminar y compararse antes de etiquetar la salida nueva como `REPRODUCED`. La salida anterior no se sobrescribe.
+La salida anterior `2026-10-20-exp593.json` se conserva y está duplicada byte a byte por contenido en `2026-10-20-exp593-corrected-L-metadata.json` (mismo SHA de blob `8379ff62e98f86212937426d2e3cda119efd2d9a`); el informe corregido se guarda como `2026-10-20-exp593-corrected-L-metadata.md`. GitHub Actions run [39491327187](https://github.com/kyrian20/voynich-autoexploration/actions/runs/39491327187) completó las cuatro ejecuciones y la escritura de artefactos con el parser compartido. El resultado se considera `REPRODUCED` bajo el parser común, pero no `VALIDATED`; las afirmaciones sensibles a tokenización siguen `BLOCKED` hasta completar la conformidad IVTFF.
 
 ## Auditoria tecnica (20-10-2026)
 - Corregido `scripts/exp593_daiin_variants.py`: la clase Currier ahora se extrae de `$L=A/B`, no de `$Q`.
