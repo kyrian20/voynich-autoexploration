@@ -17,7 +17,13 @@ Los identificadores EXP son unicos. Las fases, los experimentos y las ejecucione
 - `daiin`: 726 ocurrencias, 133 inicios de linea; p empirico y ajustado reportado 0,000200.
 - `dain`: 198 ocurrencias; p ajustado 1,000.
 - `daiiin`: 19 ocurrencias; p ajustado 1,000.
-- Advertencia: 607 de las 726 ocurrencias de `daiin` quedaron con clase Currier desconocida. No interpretar la comparacion A/B como concluyente. El nulo permuta tokens dentro de cada linea y la señal posicional no demuestra traduccion.
+- **Incidencia detectada el 20-10-2026:** la version inicial del script extraia la clase desde `$Q` (quire) en vez de `$L` (lengua Currier). Por tanto, las tablas A/B y la cifra de 607 desconocidos del JSON original NO son fiables. Se conserva el artefacto antiguo para trazabilidad; el script se corrigio para usar `$L` y la repeticion del experimento queda pendiente de una ejecucion Actions verificada. No usar los resultados antiguos para conclusiones por clase. El nulo permuta tokens dentro de cada linea y la señal posicional no demuestra traduccion.
+
+## Auditoria tecnica (20-10-2026)
+- Corregido `scripts/exp593_daiin_variants.py`: la clase Currier ahora se extrae de `$L=A/B`, no de `$Q`.
+- Añadido `scripts/audit_ivtff_metadata.py`, sin identificador EXP, para validar que la transcripcion contiene ambas clases y contar cabeceras clasificadas.
+- El workflow ejecuta esta auditoria antes de los experimentos. La nueva salida de EXP-593 debe sustituir/actualizar los artefactos con los resultados corregidos al ejecutarse Actions; hasta entonces, los resultados publicados arriba solo describen la ejecucion inicial y sus estadisticas globales deben volver a verificarse.
+- Fuente del formato: IVTFF define `$L` como lengua Currier y `$Q` como cuaderno/quire.
 
 ## Siguiente accion
 Recuperar el archivo maestro historico y enumerar todos los scripts, informes y JSON EXP-* antes de asignar nuevos numeros. El ultimo identificador libre no esta confirmado todavia.
