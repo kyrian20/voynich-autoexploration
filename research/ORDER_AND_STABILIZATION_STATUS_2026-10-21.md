@@ -46,4 +46,4 @@ No declarar el proyecto “limpio” hasta tener: (a) CI verde confirmado por UR
 
 ## 5. Próxima acción única
 
-**Verificar el run de GitHub Actions iniciado por el commit de diagnóstico.** No iniciar experimentos ni hacer más cambios de código hasta conocer ese resultado.
+**Auditar los workflows restantes con escritura a master y cotejar hashes de EXP-590/593.** El run 39491327187 completó con éxito los cuatro análisis y publicó resultados corregidos; el run 39490460729 documenta una carrera de push anterior. La captura de Voynich Check también aparece verde, pero sin run ID/SHA. No iniciar EXP nuevos ni renumerar hasta completar el inventario y la auditoría de concurrencia.
