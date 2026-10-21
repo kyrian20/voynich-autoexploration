@@ -9,7 +9,7 @@ Estado global: **EN AUDITORÍA**. No iniciar experimentos nuevos ni asignar nuev
 - El error mostrado por una ejecución anterior fue `NameError: name 'q' is not defined`, durante `load_lines(path)` llamado por la prueba de metadatos.
 - En la versión actual inspeccionada de `scripts/exp590_daiin_position.py`, `load_lines` no contiene esa referencia a `q`; la clasificación se lee mediante `parse_currier_language` y el campo IVTFF `$L`.
 - Se publicó un cambio de diagnóstico en `tests/test_ivtff_metadata.py` para imprimir la ruta absoluta del módulo EXP-590 realmente importado. Commit: `2c5418ff3d68111525bd04f769f8e5ee0a0ab039`.
-- **No se ha verificado todavía una ejecución verde posterior a ese commit.** No declarar el incidente cerrado hasta comprobar el run y sus logs.
+- El usuario ha aportado una captura posterior donde `Voynich Check` aparece como **Completado en 8 s**, con checks verdes en `Set up job`, descarga del repositorio, configuración de Python, comprobación de archivos, sintaxis, regresiones de metadatos y validación de metadatos Currier. Esto confirma visualmente que ese run terminó correctamente en los pasos mostrados. La captura no expone URL/ID ni SHA del run, y la consulta de estado de commit no devuelve checks; por tanto, aún no se puede asociar inequívocamente el run a un SHA concreto ni cerrar la trazabilidad de CI.
 
 ## 2. Bloqueos científicos y de archivo que siguen abiertos
 
