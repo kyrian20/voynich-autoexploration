@@ -44,6 +44,12 @@ Solo después de cerrar P0 y documentar un inventario reconciliado. Consultar el
 
 No declarar el proyecto “limpio” hasta tener: (a) CI verde confirmado por URL/ID, (b) registro EXP reconciliado, (c) colisiones con aliases y referencias documentadas, (d) outputs críticos reproducidos y con hashes, (e) workflows de escritura revisados, y (f) inventario GitHub/Biblioteca cotejado o con diferencias explícitamente pendientes.
 
+## Verificación CI de la corrección max-T — 21-10-2026 03:47 UTC
+
+- `Voynich Check` para el commit `4af3632956da17a898121d29f2edf653fe476fe3`: **success**, run [39540440576](https://github.com/kyrian20/voynich-autoexploration/actions/runs/39540440576).
+- Workflow autónomo: run [39540440693](https://github.com/kyrian20/voynich-autoexploration/actions/runs/39540440693), SHA `4af3632956da17a898121d29f2edf653fe476fe3`. En la última consulta, auditoría IVTFF y EXP-590 habían terminado correctamente; EXP-593 seguía ejecutándose y EXP-622/623 y la publicación de resultados estaban pendientes.
+- Por tanto, la sintaxis/regresión está verde, pero el recálculo estadístico y la publicación del JSON/MD corregidos **todavía no están confirmados**. No declarar reproducido el nuevo max-T hasta que el run autónomo concluya con éxito y se inspeccionen los artefactos.
+
 ## 6. Hallazgo nuevo — EXP-593 max-T (21-10-2026)
 
 La revisión estadística detectó que el ajuste anterior usaba el máximo de recuentos brutos de `daiin`, `dain` y `daiiin`, aunque sus frecuencias base difieren mucho. Esto invalida los antiguos p ajustados para inferencia, aunque no los recuentos observados ni los p empíricos no ajustados.
