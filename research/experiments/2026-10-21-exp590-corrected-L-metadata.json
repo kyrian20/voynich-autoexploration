@@ -1,0 +1,54 @@
+{
+  "experiment": "EXP-590",
+  "title": "daiin line-initial positional baseline",
+  "date_utc": "2026-10-21",
+  "source": "data/transcriptions/eva_zl3b.txt",
+  "source_sha256": "bf5b6d4ac1e3a51b1847a9c388318d609020441ccd56984c901c32b09beccafc",
+  "tokenization": "lowercase ASCII alphabetic runs after removing IVTFF tags, braces and square-bracket annotations",
+  "target": "daiin",
+  "metrics": {
+    "tokens": 32732,
+    "lines": 4188,
+    "target_occurrences": 726,
+    "line_initial_occurrences": 133,
+    "line_final_occurrences": 118,
+    "initial_rate_per_target_occurrence": 0.18319559228650137,
+    "final_rate_per_target_occurrence": 0.162534435261708,
+    "currier": {
+      "A": {
+        "target_occurrences": 440,
+        "line_initial_lines": 50,
+        "line_final_lines": 97,
+        "lines": 1567
+      },
+      "B": {
+        "target_occurrences": 278,
+        "line_initial_lines": 80,
+        "line_final_lines": 21,
+        "lines": 2418
+      },
+      "unknown": {
+        "target_occurrences": 8,
+        "line_initial_lines": 3,
+        "line_final_lines": 0,
+        "lines": 203
+      }
+    }
+  },
+  "permutation_test": {
+    "permutations": 5000,
+    "seed": 20261020,
+    "null_mean_initial_lines": 94.6282,
+    "null_sd_initial_lines": 8.625471857237725,
+    "empirical_one_sided_p": 0.0001999600079984003,
+    "null_ge_observed": 0,
+    "interpretation": "Exploratory positional test; not a decipherment claim."
+  },
+  "limitations": [
+    "EVA transcription and tokenization choices affect counts.",
+    "Only exact token daiin is tested; variants such as dain are excluded.",
+    "Line-initial permutation test conditions on each line's token multiset.",
+    "Currier classification is read only from the IVTFF $L page variable; unknowns remain unknown.",
+    "This is descriptive statistical analysis, not a translation or decipherment."
+  ]
+}
