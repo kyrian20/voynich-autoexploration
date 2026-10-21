@@ -1,6 +1,6 @@
 # Registro de numeracion de experimentos
 
-Actualizado: 2026-10-20.
+Actualizado: 2026-10-21.
 
 ## Regla
 Los identificadores EXP son unicos. Las fases, los experimentos y las ejecuciones de Actions son series distintas. Un reintento no crea un EXP nuevo. No borrar resultados antiguos: registrar conflictos y conservar los artefactos.
@@ -44,3 +44,19 @@ Recuperar el archivo maestro historico y enumerar todos los scripts, informes y 
 
 ## Errata enlazada
 - EXP-590: consultar [errata de clasificación Currier](experiments/2026-10-20-exp590-erratum.md). El artefacto histórico se conserva; las tablas por clase requieren regeneración con el script corregido.
+
+
+## EXP-604–611 — bloque de reproducción y controles (21-10-2026)
+
+La síntesis crítica de resultados, hashes de fuentes, criterios de interpretación y limitaciones está en [RESULTS_SYNTHESIS_EXP604-611_2026-10-21.md](RESULTS_SYNTHESIS_EXP604-611_2026-10-21.md). Los artefactos `results.json` y `result.md` de cada experimento siguen siendo las fuentes primarias.
+
+- **EXP-604:** el enriquecimiento posicional de `daiin` en IT2a se reproduce bajo el nulo predeclarado; estado `REPRODUCED`, no evidencia de desciframiento.
+- **EXP-605:** las cabeceras coinciden con la lista predeclarada de números de folio ausentes; auditoría de transcripción, no prueba de codicología física. `f116v` requiere cotejo en IT2a.
+- **EXP-606:** se detectó un error de metadatos en la primera versión: el script etiquetaba `$Q` (quire/cuaderno) como Currier. Se corrigió para usar `$L=A/B` mediante `parse_currier_language`. Los resultados anteriores quedan **INVALID_FOR_CLAIM** para comparaciones condicionadas por Currier y no deben citarse; la ejecución corregida aún debe pasar antes de interpretar.
+- **EXP-607:** señal de predicción de siguiente token en folios retenidos, pero la mejora frente al control de orden barajado es pequeña; resultado estructural exploratorio, no traducción.
+- **EXP-608:** auditoría descriptiva de caracteres siguientes a `ch/sh`; no reproduce el modelo condicionado por plantilla de Parisel.
+- **EXP-609:** diferencia pareada descriptiva en tasa vocálica después de `ch` frente a `sh`, repetida en dos transcripciones relacionadas; no son testigos independientes.
+- **EXP-610:** el contraste `ch/sh` se reduce en tokens largos, indicando que la longitud explica parte de la diferencia bruta.
+- **EXP-611:** la diferencia descriptiva persiste en estratos emparejados por longitud exacta y posición; no se calculó p-valor y quedan posibles confusores.
+
+Los workflows EXP-604–611 incluyen ahora publicación con fetch/rebase y hasta cinco intentos de push, sin force-push. Los runs correctos de EXP-604, 605, 607, 608, 609, 610 y 611 constan en la síntesis. No confundir fallos intermedios de YAML durante la reparación con resultados científicos; esos runs fallidos se conservan en el historial. EXP-606 se mantiene pendiente hasta que la nueva ejecución genere y verifique sus artefactos.
