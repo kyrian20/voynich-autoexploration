@@ -11,6 +11,7 @@ Repositorio de trabajo: `kyrian20/voynich-autoexploration` (rama `master`).
 - [`SOUL.md`](SOUL.md): objetivo, principios y ciclo de investigación.
 - [`CLAUDE.md`](CLAUDE.md): instrucciones operativas y documentos de estado.
 - [`research/EXPERIMENT_REGISTER.md`](research/EXPERIMENT_REGISTER.md): registro de numeración y conflictos conocidos. Consultar antes de asignar cualquier ID nuevo.
+- [`research/ORDER_AND_STABILIZATION_STATUS_2026-10-21.md`](research/ORDER_AND_STABILIZATION_STATUS_2026-10-21.md): estado operativo actual, bloqueos y orden obligatorio antes de reanudar experimentos.
 - [`research/repository_inventory_audit_2026-10-20.md`](research/repository_inventory_audit_2026-10-20.md): inventario estructural de 2.085 rutas, colisiones de ID y workflows; no equivale a auditoría científica completa.
 - [`research/RESEARCH_INTEGRITY_STANDARD.md`](research/RESEARCH_INTEGRITY_STANDARD.md): norma obligatoria de estados, trazabilidad, controles y publicación.
 - [`research/ARTIFACT_COLLISION_REGISTER.md`](research/ARTIFACT_COLLISION_REGISTER.md): colisiones confirmadas entre IDs de GitHub y la Biblioteca, con alias sin borrar originales.
