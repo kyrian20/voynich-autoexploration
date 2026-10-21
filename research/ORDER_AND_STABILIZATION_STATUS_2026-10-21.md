@@ -62,3 +62,12 @@ La revisión estadística detectó que el ajuste anterior usaba el máximo de re
 ## 5. Próxima acción única
 
 **Auditar los workflows restantes con escritura a master y cotejar hashes de EXP-590/593.** El run 39491327187 completó con éxito los cuatro análisis y publicó resultados corregidos; el run 39490460729 documenta una carrera de push anterior. La captura de Voynich Check también aparece verde, pero sin run ID/SHA. No iniciar EXP nuevos ni renumerar hasta completar el inventario y la auditoría de concurrencia.
+
+
+## Verificación adicional — 21-10-2026 08:32 UTC
+
+- El workflow programado **Voynich Autonomous Research** terminó con conclusión `success`: [run 39569620268](https://github.com/kyrian20/voynich-autoexploration/actions/runs/39569620268). El mismo run confirmó como exitosos los pasos de auditoría IVTFF, EXP-590, EXP-593, EXP-622, EXP-623 y la publicación de artefactos.
+- EXP-593 regenerado con metadatos Currier tomados de `$L`: `daiin` 726 casos (A=440, B=278, unknown=8), `dain` 198 y `daiiin` 19. La corrección de múltiples comparaciones usa estadísticos estandarizados por variante; los resultados siguen siendo evidencia posicional exploratoria, no desciframiento.
+- EXP-622 (ZL3b) y EXP-623 (IT2a) prueban si el contraste ch/sh es mayor después del dígrafo que antes. EXP-622: interacción +0,53 puntos porcentuales, p=0,823; EXP-623: interacción −0,91 puntos, p=0,690. Ninguno respalda una especificidad posterior al dígrafo; el resultado reduce la confianza en interpretaciones fonéticas fuertes de ese contraste.
+- Se corrigió una errata de copia en el texto de EXP-623: el informe identificaba IT2a como fuente, pero la limitación final decía por error que el experimento usaba ZL3b. Se corrigieron tanto el Markdown como el JSON; no cambian los datos numéricos.
+- **Estado global continúa EN AUDITORÍA.** El éxito de este workflow no cierra las colisiones de IDs, la reconciliación con la Biblioteca, la auditoría de concurrencia ni la conformidad completa IVTFF. No asignar nuevos IDs ni sobrescribir resultados históricos hasta cerrar esos bloqueos.
