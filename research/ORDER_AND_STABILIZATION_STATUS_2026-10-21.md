@@ -47,8 +47,8 @@ No declarar el proyecto “limpio” hasta tener: (a) CI verde confirmado por UR
 ## Verificación CI de la corrección max-T — 21-10-2026 03:47 UTC
 
 - `Voynich Check` para el commit `4af3632956da17a898121d29f2edf653fe476fe3`: **success**, run [39540440576](https://github.com/kyrian20/voynich-autoexploration/actions/runs/39540440576).
-- Workflow autónomo: run [39540440693](https://github.com/kyrian20/voynich-autoexploration/actions/runs/39540440693), SHA `4af3632956da17a898121d29f2edf653fe476fe3`. En la última consulta, auditoría IVTFF y EXP-590 habían terminado correctamente; EXP-593 seguía ejecutándose y EXP-622/623 y la publicación de resultados estaban pendientes.
-- Por tanto, la sintaxis/regresión está verde, pero el recálculo estadístico y la publicación del JSON/MD corregidos **todavía no están confirmados**. No declarar reproducido el nuevo max-T hasta que el run autónomo concluya con éxito y se inspeccionen los artefactos.
+- Workflow autónomo: run [39540440693](https://github.com/kyrian20/voynich-autoexploration/actions/runs/39540440693), SHA `4af3632956da17a898121d29f2edf653fe476fe3`. En la consulta del 21-10-2026 a las 03:48:50 UTC, la auditoría IVTFF, EXP-590, EXP-593 y EXP-622 habían terminado correctamente; EXP-623 seguía ejecutándose y la publicación de resultados estaba pendiente.
+- La API de Actions aún mostraba el run en curso y cero artefactos publicados. La etapa de EXP-593 terminó con éxito, pero el nuevo JSON/MD y sus valores ajustados **todavía no están confirmados como publicados**. No declarar la reproducción completa hasta que el workflow concluya y se inspeccionen los archivos versionados.
 
 ## 6. Hallazgo nuevo — EXP-593 max-T (21-10-2026)
 
