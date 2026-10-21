@@ -27,6 +27,19 @@ Commits finales de corrección de indentación de los workflows: [EXP-604](https
 - [EXP-603](https://github.com/kyrian20/voynich-autoexploration/commit/0dc539e7e1ce3bc9f637e560868cf64fcdac3c23)
 - [Agente autónomo](https://github.com/kyrian20/voynich-autoexploration/commit/7802eb9fa03d45bd1854fa88535336c1aade4144)
 
+## Segunda pasada: restantes 19 workflows escritores
+
+Se revisaron los otros 19 workflows con escritura a `master` y se endurecieron todos:
+- Once workflows que hacían `git push` directo ahora hacen fetch explícito, rebase controlado y hasta cinco intentos de publicación.
+- Siete workflows que hacían `git pull --rebase` seguido de un único push ahora usan el mismo bucle de reintentos con parada visible ante conflicto.
+- El workflow de auditoría independiente del parser conservó el bucle de reintentos, pero se cambió a fetch/rebase explícito.
+- Se eliminó `continue-on-error: true` de los pasos de publicación que lo tenían; los errores de push ya no quedan ocultos por ese mecanismo.
+- Se endureció también `voynich-corpus-experiments.yml`, que antes hacía un push directo y permitía que fallase silenciosamente.
+
+**Verificación final del texto:** se volvieron a leer los 31 YAML desde GitHub. Los 30 workflows escritores tienen lógica de reintento/publicación controlada; el único workflow de solo lectura es `voynich-check.yml`. En los 31 archivos inspeccionados no queda `continue-on-error: true`. Los grupos de concurrencia siguen siendo en su mayoría específicos de cada workflow; no se unificaron indiscriminadamente porque eso podría sustituir ejecuciones pendientes. Los reintentos protegen contra rechazos non-fast-forward, mientras que los conflictos reales detienen el job.
+
+Runs comprobados tras los cambios: los workflows reparados que ya terminaron registran conclusión `success`; en particular, el run de `voynich-corpus-experiments.yml` [39674538335](https://github.com/kyrian20/voynich-autoexploration/actions/runs/39674538335) terminó en verde y sus pasos de análisis, artefacto y commit fueron correctos. Las correcciones iniciales de indentación de EXP-604–611 generaron runs fallidos antes de ejecutar; esos fallos intermedios se conservan en el historial, y los runs finales corregidos de los ocho experimentos terminaron en verde.
+
 ## Riesgos y siguientes acciones
 
 1. Revisar individualmente la estrategia de publicación de los otros workflows escritores; no cambiar grupos a ciegas ni ocultar ejecuciones fallidas.
@@ -36,4 +49,4 @@ Commits finales de corrección de indentación de los workflows: [EXP-604](https
 
 ## Estado
 
-**PARCIAL, con mejora verificada.** Inventario de 31 workflows completado; EXP-603 y EXP-604–611 tienen defensas de publicación mejoradas y los ocho runs finales EXP-604–611 están en verde. Sigue pendiente auditar los otros workflows escritores y continuar la auditoría científica.
+**PARCIAL, con mejora verificada.** Inventario de los 31 workflows completado; los 30 escritores tienen reintentos controlados y los errores de publicación ya no se silencian con `continue-on-error`. Los runs finales de EXP-604–611 y los runs de los workflows reparados inspeccionados están en verde. Sigue pendiente una auditoría científica completa de todos los experimentos y la revisión de colisiones del registro histórico.
