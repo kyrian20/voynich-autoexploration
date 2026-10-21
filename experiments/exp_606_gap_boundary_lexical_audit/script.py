@@ -3,9 +3,11 @@
 import hashlib, json, math, re
 from collections import Counter
 from pathlib import Path
-from scripts.audit_ivtff_metadata import parse_currier_language
+import sys
 
 ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(ROOT))
+from scripts.audit_ivtff_metadata import parse_currier_language
 FILES = [("ZL3b", "data/transcriptions/eva_zl3b.txt"),
          ("IT2a", "data/transcriptions/eva_it2a.txt")]
 # Candidate adjacent surviving sides around the predeclared gaps.
