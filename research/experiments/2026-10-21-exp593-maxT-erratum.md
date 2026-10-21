@@ -15,10 +15,10 @@ En el commit `4af3632956da17a898121d29f2edf653fe476fe3`:
 - se conserva el p empírico no ajustado como dato separado;
 - se actualiza la descripción del modelo nulo en el JSON/MD generado.
 
-No se han borrado ni sobrescrito los resultados históricos ya versionados. La ejecución CI posterior debe regenerar un artefacto nuevo con fecha actual y verificar que el nuevo bloque max-T pasa. Hasta entonces, los p ajustados corregidos permanecen **PENDIENTES DE REPRODUCCIÓN**.
+No se han borrado ni sobrescrito los resultados históricos ya versionados. La reproducción posterior quedó confirmada en GitHub Actions run [39569620268](https://github.com/kyrian20/voynich-autoexploration/actions/runs/39569620268), conclusión `success`. El log contiene `null_sd_initial` y `observed_standardized_statistic`; los p ajustados corregidos son 0,000400 para `daiin`, 0,000400 para `dain` y 0,988602 para `daiiin`. Estado: **REPRODUCIDO, NO VALIDADO COMO DESCIFRAMIENTO**.
 
 ## Alcance e interpretación
 La corrección solo arregla el procedimiento de ajuste por comparaciones múltiples. No convierte el resultado en evidencia de significado o desciframiento. El nulo sigue permutando tokens dentro de cada línea y la familia de variantes sigue siendo exploratoria; las decisiones de tokenización y la conformidad IVTFF deben evaluarse por separado.
 
-## Próxima comprobación
-Confirmar el run de `Voynich Autonomous Research` disparado por el commit indicado. Verificar en logs que EXP-593 finaliza, que los artefactos nuevos contienen `null_sd_initial` y `observed_standardized_statistic`, y que el push termina sin force-push.
+## Comprobación completada
+El run [39569620268](https://github.com/kyrian20/voynich-autoexploration/actions/runs/39569620268) finalizó correctamente. El log confirma los campos estandarizados y que no había cambios pendientes en los artefactos generados respecto a los ficheros versionados (`No experiment output changes to commit`). La reproducción estadística está cerrada; la validación IVTFF y la interpretación lingüística siguen abiertas.
