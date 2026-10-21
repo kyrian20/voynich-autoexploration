@@ -23,4 +23,18 @@ jobs:
           git config user.email "41898282+users.noreply.github.com"
           git add experiments/exp_611_exact_length_position_ch_sh/results.json experiments/exp_611_exact_length_position_ch_sh/result.md
           git diff --cached --quiet || git commit -m "Record exp611 exact length-position matching"
-          git push
+for attempt in 1 2 3 4 5; do
+            git fetch origin master:refs/remotes/origin/master
+            if ! git rebase origin/master; then
+              git rebase --abort || true
+              echo "Rebase conflict; refusing to overwrite results." >&2
+              exit 1
+            fi
+            if git push origin HEAD:master; then
+              exit 0
+            fi
+            echo "Push race on attempt $attempt; retrying after refresh."
+            sleep "$((attempt * 2))"
+          done
+          echo "Push failed after five attempts." >&2
+          exit 1
