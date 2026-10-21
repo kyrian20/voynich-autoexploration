@@ -36,7 +36,6 @@ jobs:
           if-no-files-found: error
           retention-days: 90
       - name: Commit generated results
-        continue-on-error: true
         run: |
           if [ -n "$(git status --porcelain experiments/exp_593_daiin_line_metadata_contrast/results.json)" ]; then
             git config user.name "github-actions[bot]"
