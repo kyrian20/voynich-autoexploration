@@ -17,8 +17,9 @@ on:
 permissions:
   contents: write
 
+# Shared group with exp603: serializes these two master-writing workflows.
 concurrency:
-  group: voynich-research
+  group: voynich-master-writes
   cancel-in-progress: false
 
 jobs:
