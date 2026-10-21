@@ -44,6 +44,15 @@ Solo después de cerrar P0 y documentar un inventario reconciliado. Consultar el
 
 No declarar el proyecto “limpio” hasta tener: (a) CI verde confirmado por URL/ID, (b) registro EXP reconciliado, (c) colisiones con aliases y referencias documentadas, (d) outputs críticos reproducidos y con hashes, (e) workflows de escritura revisados, y (f) inventario GitHub/Biblioteca cotejado o con diferencias explícitamente pendientes.
 
+## 6. Hallazgo nuevo — EXP-593 max-T (21-10-2026)
+
+La revisión estadística detectó que el ajuste anterior usaba el máximo de recuentos brutos de `daiin`, `dain` y `daiiin`, aunque sus frecuencias base difieren mucho. Esto invalida los antiguos p ajustados para inferencia, aunque no los recuentos observados ni los p empíricos no ajustados.
+
+- Corregido el script en commit `4af3632956da17a898121d29f2edf653fe476fe3`: ajuste max-T mediante estadísticas estandarizadas por variante.
+- Errata añadida: `research/experiments/2026-10-21-exp593-maxT-erratum.md`.
+- Registro EXP actualizado en commit `7a8f1948481427537af71baf99736e715b5c7234`.
+- **Pendiente:** verificar el workflow disparado por el cambio y confirmar que los nuevos artefactos se generaron y publicaron. No usar los p ajustados antiguos.
+
 ## 5. Próxima acción única
 
 **Auditar los workflows restantes con escritura a master y cotejar hashes de EXP-590/593.** El run 39491327187 completó con éxito los cuatro análisis y publicó resultados corregidos; el run 39490460729 documenta una carrera de push anterior. La captura de Voynich Check también aparece verde, pero sin run ID/SHA. No iniciar EXP nuevos ni renumerar hasta completar el inventario y la auditoría de concurrencia.
