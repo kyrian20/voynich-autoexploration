@@ -50,7 +50,7 @@ def main():
         obs[w]={"occurrences":occ,"line_initial":ini,"line_final":fin,
                 "initial_fraction":ini/occ if occ else None,
                 "by_currier":{k:{"occurrences":v[0],"line_initial":v[1],"line_final":v[2]} for k,v in sorted(by.items())}}
-    rng=random.Random(SEED); null={w:[] for w in VARIANTS}; max_null=[]
+    rng=random.Random(SEED); null={w:[] for w in VARIANTS}
     for _ in range(N_PERM):
         counts={w:0 for w in VARIANTS}
         for row in lines:
@@ -58,19 +58,31 @@ def main():
             if t:
                 for w in VARIANTS: counts[w]+=int(t[0]==w)
         for w in VARIANTS: null[w].append(counts[w])
-        max_null.append(max(counts.values()))
+    # Max-T correction must compare standardized statistics. Taking the maximum
+    # of raw counts is invalid here because the three variants have very different
+    # base frequencies; the most common variant would dominate every comparison.
+    null_mean={w:sum(null[w])/N_PERM for w in VARIANTS}
+    null_sd={w:(sum((x-null_mean[w])**2 for x in null[w])/N_PERM)**0.5 for w in VARIANTS}
+    def zscore(w, value):
+        return (value-null_mean[w])/null_sd[w] if null_sd[w] else 0.0
+    max_null_z=[
+        max(zscore(w, null[w][i]) for w in VARIANTS)
+        for i in range(N_PERM)
+    ]
     tests={}
     for w in VARIANTS:
         observed=obs[w]["line_initial"]
-        tests[w]={"null_mean_initial":sum(null[w])/N_PERM,
+        tests[w]={"null_mean_initial":null_mean[w],
+                  "null_sd_initial":null_sd[w],
+                  "observed_standardized_statistic":zscore(w, observed),
                   "empirical_p":(sum(x>=observed for x in null[w])+1)/(N_PERM+1),
-                  "max_stat_adjusted_p":(sum(x>=observed for x in max_null)+1)/(N_PERM+1)}
+                  "max_stat_adjusted_p":(sum(x>=zscore(w, observed) for x in max_null_z)+1)/(N_PERM+1)}
     date=datetime.now(timezone.utc).strftime("%Y-%m-%d")
     result={"experiment":"EXP-593","title":"daiiin-family variants with max-statistic correction","date_utc":date,
       "source":str(SOURCE),"source_sha256":hashlib.sha256(raw).hexdigest(),
       "lines":len(lines),"tokens":sum(len(x["tokens"]) for x in lines),
       "variants":list(VARIANTS),"permutations":N_PERM,"seed":SEED,"observed":obs,"tests":tests,
-      "null_model":"Shuffle token order independently within each line; preserves each line token multiset. Family-wise adjustment uses maximum initial-line count across the three prespecified variants per permutation.",
+      "null_model":"Shuffle token order independently within each line; preserves each line token multiset. Family-wise max-T adjustment uses the maximum standardized statistic across the three prespecified variants per permutation; each variant is standardized against its own permutation null because baseline frequencies differ.",
       "limitations":["Variant family is exploratory, not exhaustive.","EVA tokenization excludes uncertain bracketed readings and punctuation.",
       "This test concerns position only, not semantics or decipherment.","Currier classes are reported only where explicitly present in folio headers."]}
     OUT.mkdir(parents=True,exist_ok=True)
