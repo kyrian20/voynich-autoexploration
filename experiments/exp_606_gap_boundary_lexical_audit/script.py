@@ -3,6 +3,7 @@
 import hashlib, json, math, re
 from collections import Counter
 from pathlib import Path
+from scripts.audit_ivtff_metadata import parse_currier_language
 
 ROOT = Path(__file__).resolve().parents[2]
 FILES = [("ZL3b", "data/transcriptions/eva_zl3b.txt"),
@@ -29,15 +30,21 @@ def parse(label, rel):
     pages = {}
     current = None
     for line in path.read_text(encoding="latin-1").splitlines():
-        h = re.match(r"^<(f\d+[rv])>.*?\$Q=([^ ]+).*?\$P=([^ ]+)", line.strip())
+        h = re.match(r"^<(f\d+[rv])>.*$", line.strip())
         if h:
             current = h.group(1)
-            pages.setdefault(current, {"tokens": [], "q": h.group(2), "p": h.group(3)})
+            metadata = line.strip()
+            quire_match = re.search(r"\$Q\s*=\s*([^ ]+)", metadata)
+            pages.setdefault(current, {
+                "tokens": [],
+                "currier": parse_currier_language(metadata),
+                "quire": quire_match.group(1) if quire_match else None,
+            })
             continue
         row = re.match(r"^<(f\d+[rv])\.\d+,[^>]*>\s*(.*)$", line.strip())
         if row:
             folio, body = row.groups()
-            pages.setdefault(folio, {"tokens": [], "q": None, "p": None})
+            pages.setdefault(folio, {"tokens": [], "currier": None, "quire": None})
             # Drop IVTFF annotations, then retain EVA-like alphabetic tokens.
             body = re.sub(r"<[^>]*>|\{[^}]*\}|\[[^]]*\]|<->|\$[^ ]*", " ", body)
             pages[folio]["tokens"].extend(TOKEN.findall(body.lower()))
@@ -54,14 +61,14 @@ def main():
                 gap.append({"edge":f"{left}->{right}","available":False}); continue
             gap.append({"edge":f"{left}->{right}","available":True,
                 "left_tokens":len(a["tokens"]),"right_tokens":len(b["tokens"]),
-                "left_currier":a["q"],"right_currier":b["q"],
-                "same_currier_label":a["q"]==b["q"],
+                "left_currier":a["currier"],"right_currier":b["currier"],
+                "same_currier_label":a["currier"]==b["currier"],
                 "jensen_shannon_bits":jsd(a["tokens"],b["tokens"]),
                 "vocabulary_jaccard":len(set(a["tokens"])&set(b["tokens"]))/max(1,len(set(a["tokens"])|set(b["tokens"])))})
         controls=[]
         ordered=list(pages.items())
         for (fa,a),(fb,b) in zip(ordered,ordered[1:]):
-            if a["q"]==b["q"] and len(a["tokens"])>=10 and len(b["tokens"])>=10:
+            if a["currier"] is not None and a["currier"]==b["currier"] and len(a["tokens"])>=10 and len(b["tokens"])>=10:
                 d=jsd(a["tokens"],b["tokens"])
                 if d is not None: controls.append({"edge":f"{fa}->{fb}","jensen_shannon_bits":d,
                     "vocabulary_jaccard":len(set(a["tokens"])&set(b["tokens"]))/max(1,len(set(a["tokens"])|set(b["tokens"])))})
