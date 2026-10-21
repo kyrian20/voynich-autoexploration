@@ -12,6 +12,8 @@ Los identificadores EXP son unicos. Las fases, los experimentos y las ejecucione
 - EXP-593: script canonico scripts/exp593_daiin_variants.py; ejecucion completada y resultados guardados en research/experiments/2026-10-20-exp593.md y .json. Fuente SHA-256: bf5b6d4ac1e3a51b1847a9c388318d609020441ccd56984c901c32b09beccafc. El identificador aun debe cotejarse con el indice historico completo.
 
 ## EXP-593 — reproducción con parser común completada; interpretación token-sensible bloqueada
+> **Errata estadística añadida el 21-10-2026:** el ajuste max-T anterior comparaba recuentos brutos entre variantes con frecuencias base muy diferentes. Los antiguos p ajustados son inválidos para inferencia. El script fue corregido para usar estadísticos estandarizados por variante en el commit `4af3632956da17a898121d29f2edf653fe476fe3`. Véase [errata max-T](experiments/2026-10-21-exp593-maxT-erratum.md). La nueva ejecución y los p ajustados corregidos siguen pendientes de verificación.
+
 - 4.188 lineas parseadas y 32.732 tokens.
 - 5.000 permutaciones con semilla 20261021.
 - `daiin`: 726 ocurrencias, 133 inicios de linea; p empirico y ajustado reportado 0,000200.
