@@ -1,0 +1,49 @@
+# Estado de orden y estabilización — 2026-10-21
+
+Estado global: **EN AUDITORÍA**. No iniciar experimentos nuevos ni asignar nuevos IDs EXP hasta cerrar los bloqueos P0/P1 y reconciliar GitHub con la Biblioteca.
+
+## 1. Cambios comprobados en este ciclo
+
+- Repositorio: `kyrian20/voynich-autoexploration`, rama `master`.
+- El workflow `.github/workflows/voynich-check.yml` comprueba que existan dos transcripciones, analiza la sintaxis de los scripts Python, ejecuta `tests/test_ivtff_metadata.py` y después `scripts/audit_ivtff_metadata.py`.
+- El error mostrado por una ejecución anterior fue `NameError: name 'q' is not defined`, durante `load_lines(path)` llamado por la prueba de metadatos.
+- En la versión actual inspeccionada de `scripts/exp590_daiin_position.py`, `load_lines` no contiene esa referencia a `q`; la clasificación se lee mediante `parse_currier_language` y el campo IVTFF `$L`.
+- Se publicó un cambio de diagnóstico en `tests/test_ivtff_metadata.py` para imprimir la ruta absoluta del módulo EXP-590 realmente importado. Commit: `2c5418ff3d68111525bd04f769f8e5ee0a0ab039`.
+- **No se ha verificado todavía una ejecución verde posterior a ese commit.** No declarar el incidente cerrado hasta comprobar el run y sus logs.
+
+## 2. Bloqueos científicos y de archivo que siguen abiertos
+
+1. **Numeración:** `research/EXPERIMENT_REGISTER.md` indica colisiones y un último ID libre no confirmado. No asignar ni renumerar EXP todavía.
+2. **Colisiones de carpetas:** la auditoría estructural detectó colisiones para IDs 177, 594, 596, 597, 600, 601 y 602. Conservar originales; resolver referencias y aliases en el registro, no fusionar por nombre.
+3. **GitHub frente a Biblioteca:** existen conflictos de numeración entre EXP-623 de GitHub y documentos de orden de palabras de la Biblioteca. Los nombres similares no demuestran equivalencia. La instantánea anterior de la Biblioteca tenía 499 elementos; aún no se han cotejado todos los hashes de contenido contra GitHub.
+4. **EXP-590 / EXP-593:** las versiones antiguas que usaron `$Q` para clasificar Currier son inválidas para afirmaciones por clase. Conservarlas como históricas; usar `$L=A/B` y regenerar artefactos, verificando los hashes y el run de Actions.
+5. **IVTFF:** el protocolo de tokenización v7 registró acuerdo entre dos parsers para ZL3b/ZL3a bajo una política de normalización específica, pero esto no certifica conformidad completa IVTFF. La predicción A/B sigue bloqueada hasta completar fixtures y validación independiente.
+6. **Workflows:** hay 31 workflows según la auditoría previa; los grupos de concurrencia y las escrituras simultáneas siguen siendo un riesgo no auditado por completo. No hacer push forzado ni borrar outputs.
+
+## 3. Orden de trabajo obligatorio
+
+### P0 — CI y causa raíz
+- Comprobar la ejecución de `Voynich Check` que corresponde al commit `2c5418ff3d68111525bd04f769f8e5ee0a0ab039`.
+- Si falla, capturar la ruta completa y línea exacta del traceback; corregir el archivo realmente ejecutado, no una copia supuesta.
+- Verificar que las pruebas de regresión y la auditoría `$L` pasan en el mismo run.
+
+### P1 — Canonicalización de inventario
+- Mantener como fuentes de orientación `research/EXPERIMENT_REGISTER.md`, `research/ARTIFACT_COLLISION_REGISTER.md` y `research/repository_inventory_audit_2026-10-20.md`.
+- Inventariar script, resultado, JSON, hashes, commit y estado de cada artefacto crítico.
+- Clasificar las 62 carpetas que no tienen pareja script+resultado reconocible; no asumir que son defectos.
+- Comparar GitHub y Biblioteca mediante hashes reales antes de fusionar, renombrar o sobrescribir.
+
+### P2 — Reproducibilidad
+- Regenerar los resultados de EXP-590/593 con metadatos `$L` corregidos, sin sobrescribir los outputs históricos; registrar nuevas rutas versionadas y hashes.
+- Resolver fixtures IVTFF con ejemplos documentados y salidas esperadas antes de desbloquear experimentos sensibles al parser.
+
+### P3 — Reanudar investigación
+Solo después de cerrar P0 y documentar un inventario reconciliado. Consultar el registro y el backlog, evitar repetir pruebas ya realizadas y usar IDs nuevos únicamente tras una búsqueda completa.
+
+## 4. Criterios para declarar “ordenado”
+
+No declarar el proyecto “limpio” hasta tener: (a) CI verde confirmado por URL/ID, (b) registro EXP reconciliado, (c) colisiones con aliases y referencias documentadas, (d) outputs críticos reproducidos y con hashes, (e) workflows de escritura revisados, y (f) inventario GitHub/Biblioteca cotejado o con diferencias explícitamente pendientes.
+
+## 5. Próxima acción única
+
+**Verificar el run de GitHub Actions iniciado por el commit de diagnóstico.** No iniciar experimentos ni hacer más cambios de código hasta conocer ese resultado.
