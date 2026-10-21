@@ -23,7 +23,7 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add experiments/exp_604_independent_transcription_replication/results.json experiments/exp_604_independent_transcription_replication/result.md
           git diff --cached --quiet || git commit -m "Record exp604 IT2a replication results"
-for attempt in 1 2 3 4 5; do
+          for attempt in 1 2 3 4 5; do
             git fetch origin master:refs/remotes/origin/master
             if ! git rebase origin/master; then
               git rebase --abort || true
