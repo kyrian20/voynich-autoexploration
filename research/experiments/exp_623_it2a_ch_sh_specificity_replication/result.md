@@ -16,6 +16,6 @@ Source: `data/transcriptions/eva_it2a.txt` (SHA-256 `7f27a8b0feed8f6de0a99900df6
 - Two-sided permutation p: 0.69003 (6900 exceedances / 10,000)
 
 ## Interpretation and limits
-This is a transcription-sensitivity replication of the diagnostic specificity test motivated by EXP-619, where the preceding-character control was not uniformly smaller than the primary contrast. A positive interaction supports a larger contrast after than before the digraph under this null; a non-positive or uncertain result does not support an outcome-specific claim. This remains exploratory, not a phonetic, semantic, language-identification, or decipherment result. ZL3b and IT2a are alternative transcriptions of the same manuscript; this experiment uses IT2a only. The simple parser and the conditioning strategy leave possible lexical-template confounding.
+This is a transcription-sensitivity replication of the diagnostic specificity test motivated by EXP-619, where the preceding-character control was not uniformly smaller than the primary contrast. A positive interaction supports a larger contrast after than before the digraph under this null; a non-positive or uncertain result does not support an outcome-specific claim. This remains exploratory, not a phonetic, semantic, language-identification, or decipherment result. ZL3b and IT2a are alternative transcriptions of the same manuscript; this experiment uses ZL3b only. The simple parser and the conditioning strategy leave possible lexical-template confounding.
 
 See `results.json` for machine-readable details.
