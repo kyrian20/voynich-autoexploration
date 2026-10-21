@@ -37,7 +37,6 @@ jobs:
           if-no-files-found: error
           retention-days: 90
       - name: Commit generated results
-        continue-on-error: true
         run: |
           if [ -n "$(git status --porcelain experiments/exp_602_independent_ivtff_parser_audit/results_v7.json)" ]; then
             git config user.name "github-actions[bot]"
@@ -46,7 +45,12 @@ jobs:
             git commit -m "Record exp_602 parser audit protocol v7"
             # Other workflows also write results to master; retry non-fast-forward races.
             for attempt in 1 2 3 4 5; do
-              git pull --rebase origin master
+              git fetch origin master:refs/remotes/origin/master
+              if ! git rebase origin/master; then
+                git rebase --abort || true
+                echo "Rebase conflict; refusing to overwrite results." >&2
+                exit 1
+              fi
               if git push; then
                 echo "Parser audit result pushed (attempt ${attempt})."
                 exit 0
