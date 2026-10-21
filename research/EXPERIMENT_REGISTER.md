@@ -11,15 +11,16 @@ Los identificadores EXP son unicos. Las fases, los experimentos y las ejecucione
 - EXP-592: existe un analisis max-T previo (commits 70db96a y a74cff7).
 - EXP-593: script canonico scripts/exp593_daiin_variants.py; ejecucion completada y resultados guardados en research/experiments/2026-10-20-exp593.md y .json. Fuente SHA-256: bf5b6d4ac1e3a51b1847a9c388318d609020441ccd56984c901c32b09beccafc. El identificador aun debe cotejarse con el indice historico completo.
 
-## EXP-593 — reproducción con parser común completada; interpretación token-sensible bloqueada
-> **Errata estadística añadida el 21-10-2026:** el ajuste max-T anterior comparaba recuentos brutos entre variantes con frecuencias base muy diferentes. Los antiguos p ajustados son inválidos para inferencia. El script fue corregido para usar estadísticos estandarizados por variante en el commit `4af3632956da17a898121d29f2edf653fe476fe3`. Véase [errata max-T](experiments/2026-10-21-exp593-maxT-erratum.md). La nueva ejecución y los p ajustados corregidos siguen pendientes de verificación.
+## EXP-593 — reproducción corregida con ajuste max-T estandarizado
 
-- 4.188 lineas parseadas y 32.732 tokens.
-- 5.000 permutaciones con semilla 20261021.
-- `daiin`: 726 ocurrencias, 133 inicios de linea; p empirico y ajustado reportado 0,000200.
-- `dain`: 198 ocurrencias; p ajustado 1,000.
-- `daiiin`: 19 ocurrencias; p ajustado 1,000.
-- **Incidencia detectada el 20-10-2026:** la versión inicial del script extraía la clase desde `$Q` (quire) en vez de `$L` (lengua Currier). Los resultados A/B y la cifra de 607 desconocidos del JSON EXP-590 original no son fiables. El script EXP-593 ya corregido genera A=440, B=278 y unknown=8 para `daiin` (726 ocurrencias totales), usando `$L`; este resultado de archivo es correcto en cuanto a su regla de metadatos, pero la ejecución de Actions debe confirmarse antes de declarar CI verificada. El nulo permuta tokens dentro de cada línea y la señal posicional no demuestra traducción.
+**Estado:** REPRODUCIDO en GitHub Actions; no VALIDADO como hipótesis lingüística ni resultado de desciframiento.
+
+- Run de reproducción: [39569620268](https://github.com/kyrian20/voynich-autoexploration/actions/runs/39569620268), conclusión `success`; el log contiene `observed_standardized_statistic`, `null_sd_initial` y los p ajustados corregidos.
+- Fuente: `data/transcriptions/eva_zl3b.txt`, SHA-256 `bf5b6d4ac1e3a51b1847a9c388318d609020441ccd56984c901c32b09beccafc`; 4.188 líneas, 32.732 tokens; 5.000 permutaciones; semilla 20261021.
+- Resultados corregidos: `daiin` 726 ocurrencias (133 inicios, 118 finales; A=440, B=278, unknown=8), p empírico 0,000200 y p max-stat estandarizado 0,000400; `dain` 198 (45 inicios, 26 finales), p empírico 0,000200 y p ajustado 0,000400; `daiiin` 19 (2 inicios, 5 finales), p empírico 0,814637 y p ajustado 0,988602.
+- El JSON corregido de 21-10-2026 contiene los campos de estandarización esperados y coincide con los valores visibles en el log del run. Blob SHA del JSON: `a4b7ae7810baf6895010aba8abbfe0cc6369ad06`; informe Markdown: `b11f9c18df6afde5015e8a58705be1ad41ef500a`.
+- Los p ajustados históricos del procedimiento anterior quedan inválidos para inferencia; se conservan sin borrar. El ajuste corregido soluciona la comparación entre variantes, pero el nulo sigue permutando tokens dentro de cada línea y no prueba significado ni traducción.
+- La clase Currier se extrae de `$L=A/B`, no de `$Q`. Las afirmaciones sensibles a tokenización permanecen limitadas por la conformidad IVTFF aún incompleta.
 
 ## Auditoría estructural del repositorio (20-10-2026)
 - Inventario recursivo de GitHub: 2.085 rutas, 624 carpetas `experiments/exp_NNN_*`, 617 IDs únicos y 7 grupos de colisión de carpeta (177, 594, 596, 597, 600, 601, 602); el detalle y las limitaciones están en [auditoría de inventario](repository_inventory_audit_2026-10-20.md).
