@@ -64,7 +64,7 @@ def main():
             gap.append({"edge":f"{left}->{right}","available":True,
                 "left_tokens":len(a["tokens"]),"right_tokens":len(b["tokens"]),
                 "left_currier":a["currier"],"right_currier":b["currier"],
-                "same_currier_label":a["currier"]==b["currier"],
+                "same_currier_label":a["currier"] is not None and a["currier"]==b["currier"],
                 "jensen_shannon_bits":jsd(a["tokens"],b["tokens"]),
                 "vocabulary_jaccard":len(set(a["tokens"])&set(b["tokens"]))/max(1,len(set(a["tokens"])|set(b["tokens"])))})
         controls=[]
@@ -74,9 +74,9 @@ def main():
                 d=jsd(a["tokens"],b["tokens"])
                 if d is not None: controls.append({"edge":f"{fa}->{fb}","jensen_shannon_bits":d,
                     "vocabulary_jaccard":len(set(a["tokens"])&set(b["tokens"]))/max(1,len(set(a["tokens"])|set(b["tokens"])))})
-        vals=[x["jensen_shannon_bits"] for x in gap if x.get("available") and x["jensen_shannon_bits"] is not None]
+        vals=[x["jensen_shannon_bits"] for x in gap if x.get("available") and x.get("same_currier_label") and x["jensen_shannon_bits"] is not None]
         cv=[x["jensen_shannon_bits"] for x in controls]
-        data.update({"gap_edges":gap,"same_currier_adjacent_control_count":len(cv),
+        data.update({"gap_edges":gap,"same_currier_gap_count":len(vals),"same_currier_adjacent_control_count":len(cv),
           "gap_jsd_mean":sum(vals)/len(vals) if vals else None,
           "control_jsd_mean":sum(cv)/len(cv) if cv else None,
           "gap_jsd_percentile_vs_controls":[sum(v<=x for v in cv)/len(cv) for x in vals] if cv else []})
@@ -89,12 +89,12 @@ def main():
     lines=["# exp_606 — Lexical boundary audit around known foliation gaps","","Exploratory descriptive test; not physical codicology and not a test for unnumbered missing leaves.","",
       "Method: compare cleaned token distributions on six predeclared surviving-page transitions with adjacent page transitions sharing the same Currier label. Report Jensen–Shannon divergence (bits; higher means more different) and vocabulary Jaccard overlap (higher means more overlap). Token extraction is deliberately simple and must not be treated as a validated EVA linguistic parser."]
     for x in outputs:
-      lines += ["",f"## {x['label']}","",f"- Source SHA-256: {x['sha256']}",f"- Mean gap-edge JSD: {x['gap_jsd_mean']}",f"- Mean same-label adjacent control JSD ({x['same_currier_adjacent_control_count']} transitions): {x['control_jsd_mean']}"]
+      lines += ["",f"## {x['label']}","",f"- Source SHA-256: {x['sha256']}",f"- Mean gap-edge JSD (only same non-null Currier label; {x['same_currier_gap_count']} eligible edges): {x['gap_jsd_mean']}",f"- Mean same-label adjacent control JSD ({x['same_currier_adjacent_control_count']} transitions): {x['control_jsd_mean']}"]
       for e in x["gap_edges"]:
         lines.append(f"- {e['edge']}: "+(f"JSD={e['jensen_shannon_bits']:.4f}; Jaccard={e['vocabulary_jaccard']:.4f}; Currier labels {e['left_currier']} → {e['right_currier']}" if e.get("available") else "not available in this transcription"))
       if x["gap_jsd_percentile_vs_controls"]:
         lines.append("- Gap-edge JSD control percentiles: "+", ".join(f"{v:.3f}" for v in x["gap_jsd_percentile_vs_controls"]))
-    lines += ["","## Interpretation limits","","Six transitions are a tiny, selected sample. The controls are only adjacent surviving pages with matching Currier labels, not matched for illustration type, scribal hand, text length, or exact section. Missing leaves may interrupt content, but unusually high or low lexical distance cannot establish that additional pages were lost. The simple token cleanup may include some annotation artefacts. No p-value or causal claim is made."]
+    lines += ["","## Interpretation limits","","Six transitions are a tiny, selected sample. Only gap edges whose two sides both have the same non-null Currier $L label enter the mean and control-percentile comparison; edges with missing/different labels remain descriptive only. Controls are adjacent surviving pages with matching Currier labels, not matched for illustration type, scribal hand, text length, or exact section. Missing leaves may interrupt content, but lexical distance cannot establish that additional pages were lost. The simple token cleanup may include annotation artefacts. No p-value or causal claim is made."]
     (d/"result.md").write_text("\n".join(lines)+"\n",encoding="utf-8")
     print(json.dumps(out,indent=2))
 if __name__=="__main__": main()
