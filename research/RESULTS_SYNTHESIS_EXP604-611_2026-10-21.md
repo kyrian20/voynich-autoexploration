@@ -35,8 +35,10 @@ La primera edición del bloque de reintentos tuvo un error de indentación YAML;
 ### EXP-606 — Distancia léxica en límites de lagunas
 
 - **Error detectado y corregido:** el script anterior leía `$Q` como si fuese la etiqueta Currier; IVTFF usa `$L=A/B` para Currier y `$Q` para cuaderno. Los resultados antiguos de EXP-606 no deben citarse como comparación por Currier.
-- Se cambió el script para reutilizar `parse_currier_language` de `scripts/audit_ivtff_metadata.py`. El run nuevo debe terminar y los resultados deben releerse antes de interpretar este experimento.
-- Aunque el análisis corregido encuentre diferencias grandes, solo hay seis transiciones seleccionadas y la distancia léxica no puede distinguir pérdida de texto de cambios de sección, ilustración, tema, mano o longitud.
+- Se cambió el script para reutilizar `parse_currier_language` de `scripts/audit_ivtff_metadata.py`, que lee `$L=A/B`, nunca `$Q`. También se corrigió el resumen para comparar solo los tres bordes disponibles cuyas dos caras tienen la misma etiqueta Currier no nula.
+- Run corregido: [39673786598](https://github.com/kyrian20/voynich-autoexploration/actions/runs/39673786598), `success`; el paso de commit terminó correctamente.
+- ZL3b: media JSD de los 3 bordes elegibles **0,6914 bits**, frente a **0,7019** en 147 transiciones de control de misma clase. IT2a: **0,6734**, frente a **0,7107** en 147 controles. Los otros dos bordes disponibles no tienen la misma clase Currier a ambos lados y quedan fuera de esta comparación; `f90v→f93r` no está disponible en las transcripciones.
+- **Lectura prudente:** no aparece una distancia léxica media mayor en los bordes de lagunas que en los controles emparejados por Currier. La muestra es de solo tres bordes elegibles, no está emparejada por ilustración, mano, longitud ni tema, y no permite concluir nada firme sobre pérdida de hojas.
 
 ### EXP-607 — Predicción de siguiente token en folios retenidos
 
