@@ -75,13 +75,12 @@
           "vocabulary_jaccard": 0.18265682656826568
         }
       ],
+      "same_currier_gap_count": 3,
       "same_currier_adjacent_control_count": 147,
-      "gap_jsd_mean": 0.7698458861331456,
+      "gap_jsd_mean": 0.691436927946152,
       "control_jsd_mean": 0.7019357140814954,
       "gap_jsd_percentile_vs_controls": [
         0.4217687074829932,
-        1.0,
-        0.8571428571428571,
         0.9727891156462585,
         0.04081632653061224
       ]
@@ -151,13 +150,12 @@
           "vocabulary_jaccard": 0.19557195571955718
         }
       ],
+      "same_currier_gap_count": 3,
       "same_currier_adjacent_control_count": 147,
-      "gap_jsd_mean": 0.7651944225303304,
+      "gap_jsd_mean": 0.6733849197915355,
       "control_jsd_mean": 0.7106775382841305,
       "gap_jsd_percentile_vs_controls": [
         0.36054421768707484,
-        1.0,
-        0.8843537414965986,
         0.9455782312925171,
         0.034013605442176874
       ]
