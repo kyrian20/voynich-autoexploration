@@ -23,7 +23,7 @@ jobs:
           git config user.email "41898282+users.noreply.github.com"
           git add experiments/exp_607_heldout_bigram_prediction/results.json experiments/exp_607_heldout_bigram_prediction/result.md
           git diff --cached --quiet || git commit -m "Record exp607 held-out bigram prediction"
-for attempt in 1 2 3 4 5; do
+          for attempt in 1 2 3 4 5; do
             git fetch origin master:refs/remotes/origin/master
             if ! git rebase origin/master; then
               git rebase --abort || true
