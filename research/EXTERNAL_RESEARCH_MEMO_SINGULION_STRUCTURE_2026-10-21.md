@@ -18,6 +18,15 @@ En su tabla de promedios globales, los autores informan:
 
 El patrón del Voynich difiere de los dos manuscritos de texto conocido: la similitud entre páginas conjoint supera a la de páginas facing. Los autores interpretan esta diferencia como compatible con un orden actual incorrecto. También ensayan una posible reordenación de bifolios en las secciones balneológica (folios 75–84) y estrellas marginales (folios 103–116).
 
+## Secuencias candidatas publicadas que conviene congelar
+
+Los autores enumeran estos máximos al reordenar bifolios en el espacio LSA de su transcripción:
+- Balneológico, orden actual: facing medio 0,461; máximo 0,517 (+12,1%). Secuencia de bifolios: `77|82, 78|81, 75|84, 76|83, 79|80`.
+- Estrellas marginales, orden actual: 0,438; máximo 0,526 (+20,0%). Secuencia: `105|114, 104|115, 106|113, 107|112, 108|111, 103|116`.
+- Segunda secuencia balneológica: 0,494 (+7,1% sobre el orden actual), `76|83, 77|82, 79|80, 75|84, 78|81`.
+
+Estas secuencias se guardan como predicciones publicadas, no como orden confirmado.
+
 ## Qué no debemos dar por demostrado
 
 - La LSA mide similitud distribucional en este corpus; en un texto no descifrado, la similitud no puede llamarse “semántica” con seguridad.
@@ -39,7 +48,7 @@ No crear un nuevo identificador hasta reconciliar el registro histórico de expe
 - **Congelación del método:** documentar corpus y SHA-256; recrear segmentación por página/tipo de texto; registrar reglas de limpieza y stopwords; fijar TF-IDF, dimensión reducida y similitud coseno antes de comparar secuencias.
 - **Unidad codicológica:** mantener separadas las relaciones confoliate, conjoint y facing. No tratar páginas de un mismo bifolio como observaciones independientes.
 - **Comparación primaria:** orden actual vs secuencia publicada/derivada por autores, por sección, con score global y scores por bifolio; conservar la secuencia original en el registro.
-- **Nulo:** permutar el orden de bifolios dentro de cada sección al menos 10.000 veces, sin romper las relaciones físicas confoliate/conjoint; reportar la posición percentil de la secuencia propuesta, tamaño del efecto y estabilidad por transcripción.
+- **Nulo y selección:** enumerar las 120 permutaciones de la sección balneológica y las 720 de estrellas (el espacio completo es manejable), calcular la distribución completa de scores y registrar el rango del orden actual y de cada secuencia publicada. No presentar el máximo seleccionado como si fuera una comparación no seleccionada; reportar cuántas permutaciones superan al orden actual, cuántas están dentro de una tolerancia del máximo y si el máximo es único. Bootstrap por bloques/documentos para evaluar estabilidad del score, sin romper los pares físicos.
 - **Controles negativos:** (a) el orden actual; (b) secuencias aleatorias; (c) los manuscritos de texto conocido, si sus transcripciones y colaciones se pueden obtener legalmente y documentar.
 - **Replicación:** repetir exactamente el protocolo en ZL3b e IT2a, sin tratarlas como testigos independientes; informar si el resultado depende de una transcripción.
 - **Criterio de rechazo:** no apoyar la secuencia propuesta si no supera el nulo restringido, si el efecto desaparece en la segunda transcripción o si la mejora depende de decisiones de limpieza ajustadas después de mirar los resultados.
