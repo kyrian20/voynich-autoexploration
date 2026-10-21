@@ -84,6 +84,10 @@ def main() -> None:
     check("<! $L=C>", None)
     check("<! $L=A>", "A")
 
+    # Report the exact loader file used by this run to diagnose stale-checkout mismatches.
+    import scripts.exp590_daiin_position as exp590_module
+    print(f"EXP-590 loader under test: {Path(exp590_module.__file__).resolve()}")
+
     # Exercise the real EXP-590 loader: $L overrides a contradictory $Q,
     # and a page without $L remains unknown rather than inheriting $Q.
     fixture = (
