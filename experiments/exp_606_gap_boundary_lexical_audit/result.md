@@ -8,27 +8,27 @@ Method: compare cleaned token distributions on six predeclared surviving-page tr
 
 - Source SHA-256: bf5b6d4ac1e3a51b1847a9c388318d609020441ccd56984c901c32b09beccafc
 - Mean gap-edge JSD: 0.7698458861331456
-- Mean same-label adjacent control JSD (165 transitions): 0.7178992498283642
-- f11v->f13r: JSD=0.6901; Jaccard=0.1494; Currier labels B → B
-- f58v->f65r: JSD=0.9519; Jaccard=0.0085; Currier labels H → H
-- f73v->f75r: JSD=0.8230; Jaccard=0.0798; Currier labels L → M
+- Mean same-label adjacent control JSD (147 transitions): 0.7019357140814954
+- f11v->f13r: JSD=0.6901; Jaccard=0.1494; Currier labels A → A
+- f58v->f65r: JSD=0.9519; Jaccard=0.0085; Currier labels A → None
+- f73v->f75r: JSD=0.8230; Jaccard=0.0798; Currier labels None → B
 - f90v->f93r: not available in this transcription
-- f96v->f99r: JSD=0.9130; Jaccard=0.0316; Currier labels Q → S
-- f108v->f111r: JSD=0.4712; Jaccard=0.1827; Currier labels T → T
-- Gap-edge JSD control percentiles: 0.388, 1.000, 0.782, 0.976, 0.036
+- f96v->f99r: JSD=0.9130; Jaccard=0.0316; Currier labels A → A
+- f108v->f111r: JSD=0.4712; Jaccard=0.1827; Currier labels B → B
+- Gap-edge JSD control percentiles: 0.422, 1.000, 0.857, 0.973, 0.041
 
 ## IT2a
 
 - Source SHA-256: 7f27a8b0feed8f6de0a99900df6bf912dd1d295c38e5f830bac8b41c3f536fb5
 - Mean gap-edge JSD: 0.7651944225303304
-- Mean same-label adjacent control JSD (165 transitions): 0.7281326323061025
-- f11v->f13r: JSD=0.6786; Jaccard=0.1379; Currier labels B → B
-- f58v->f65r: JSD=0.9600; Jaccard=0.0082; Currier labels H → H
-- f73v->f75r: JSD=0.8459; Jaccard=0.0690; Currier labels L → M
+- Mean same-label adjacent control JSD (147 transitions): 0.7106775382841305
+- f11v->f13r: JSD=0.6786; Jaccard=0.1379; Currier labels A → A
+- f58v->f65r: JSD=0.9600; Jaccard=0.0082; Currier labels A → None
+- f73v->f75r: JSD=0.8459; Jaccard=0.0690; Currier labels None → B
 - f90v->f93r: not available in this transcription
-- f96v->f99r: JSD=0.8776; Jaccard=0.0415; Currier labels Q → S
-- f108v->f111r: JSD=0.4639; Jaccard=0.1956; Currier labels T → T
-- Gap-edge JSD control percentiles: 0.321, 1.000, 0.812, 0.879, 0.030
+- f96v->f99r: JSD=0.8776; Jaccard=0.0415; Currier labels A → A
+- f108v->f111r: JSD=0.4639; Jaccard=0.1956; Currier labels B → B
+- Gap-edge JSD control percentiles: 0.361, 1.000, 0.884, 0.946, 0.034
 
 ## Interpretation limits
 
