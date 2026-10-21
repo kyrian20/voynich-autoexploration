@@ -29,6 +29,9 @@ Los identificadores EXP son unicos. Las fases, los experimentos y las ejecucione
 
 La salida anterior `2026-10-20-exp593.json` se conserva y está duplicada byte a byte por contenido en `2026-10-20-exp593-corrected-L-metadata.json` (mismo SHA de blob `8379ff62e98f86212937426d2e3cda119efd2d9a`); el informe corregido se guarda como `2026-10-20-exp593-corrected-L-metadata.md`. GitHub Actions run [39491327187](https://github.com/kyrian20/voynich-autoexploration/actions/runs/39491327187) completó las cuatro ejecuciones y la escritura de artefactos con el parser compartido. El resultado se considera `REPRODUCED` bajo el parser común, pero no `VALIDATED`; las afirmaciones sensibles a tokenización siguen `BLOCKED` hasta completar la conformidad IVTFF.
 
+## Literatura externa prioritaria (21-10-2026)
+- Añadida [nota sobre la hipótesis de singuliones y protocolo de réplica](EXTERNAL_RESEARCH_MEMO_SINGULION_STRUCTURE_2026-10-21.md), basada en Layfield y Fagin Davis, *Digital Medievalist* 19 (2026), DOI 10.4000/16k0a. El artículo propone que la estructura física actual podría no reflejar el orden original de los bifolios. Se registra como hipótesis publicada, no como hecho probado por nuestro análisis. El protocolo propuesto no tiene ID EXP hasta reconciliar el registro histórico.
+
 ## Auditoria tecnica (20-10-2026)
 - Corregido `scripts/exp593_daiin_variants.py`: la clase Currier ahora se extrae de `$L=A/B`, no de `$Q`.
 - Añadido `scripts/audit_ivtff_metadata.py`, sin identificador EXP, para validar que la transcripcion contiene ambas clases y contar cabeceras clasificadas.
