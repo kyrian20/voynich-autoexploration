@@ -1,0 +1,122 @@
+{
+  "experiment": "exp_594_daiin_paragraph_start",
+  "protocol_version": 1,
+  "source": {
+    "path": "data/transcriptions/eva_zl3b.txt",
+    "bytes": 411671,
+    "sha256": "bf5b6d4ac1e3a51b1847a9c388318d609020441ccd56984c901c32b09beccafc"
+  },
+  "format_reference": "https://voynich.nu/software/ivtt/IVTFF_format.pdf (section 6.9; <%> starts a paragraph, <$> ends one)",
+  "filters": {
+    "locus": "P0",
+    "minimum_clean_tokens_per_line": 2,
+    "currier_classes_separate": true
+  },
+  "total_parsed_P0_lines": 3846,
+  "paragraph_marker_lines": 698,
+  "strata": {
+    "CurrierA_paragraph_opening": {
+      "lines": 232,
+      "daiin_tokens": 58,
+      "first_observed": 1,
+      "first_expected": 6.743368,
+      "enrichment": 0.148294,
+      "last_observed": 12,
+      "upper_tail": {
+        "tail": "upper",
+        "p_plus_one": 0.9999,
+        "null_mean": 6.7314,
+        "permutations": 10000,
+        "seed": 59420261020
+      },
+      "lower_tail": {
+        "tail": "lower",
+        "p_plus_one": 0.005299,
+        "null_mean": 6.7314,
+        "permutations": 10000,
+        "seed": 59420261020
+      }
+    },
+    "CurrierA_continuation": {
+      "lines": 1269,
+      "daiin_tokens": 427,
+      "first_observed": 58,
+      "first_expected": 61.107666,
+      "enrichment": 0.949144,
+      "last_observed": 89,
+      "upper_tail": {
+        "tail": "upper",
+        "p_plus_one": 0.689631,
+        "null_mean": 61.1306,
+        "permutations": 10000,
+        "seed": 59420261120
+      },
+      "lower_tail": {
+        "tail": "lower",
+        "p_plus_one": 0.367863,
+        "null_mean": 61.1306,
+        "permutations": 10000,
+        "seed": 59420261120
+      }
+    },
+    "CurrierB_paragraph_opening": {
+      "lines": 466,
+      "daiin_tokens": 29,
+      "first_observed": 0,
+      "first_expected": 2.827317,
+      "enrichment": 0.0,
+      "last_observed": 5,
+      "upper_tail": {
+        "tail": "upper",
+        "p_plus_one": 1.0,
+        "null_mean": 2.8063,
+        "permutations": 10000,
+        "seed": 59420261030
+      },
+      "lower_tail": {
+        "tail": "lower",
+        "p_plus_one": 0.047395,
+        "null_mean": 2.8063,
+        "permutations": 10000,
+        "seed": 59420261030
+      }
+    },
+    "CurrierB_continuation": {
+      "lines": 1879,
+      "daiin_tokens": 269,
+      "first_observed": 89,
+      "first_expected": 28.701907,
+      "enrichment": 3.100839,
+      "last_observed": 18,
+      "upper_tail": {
+        "tail": "upper",
+        "p_plus_one": 0.0001,
+        "null_mean": 28.7269,
+        "permutations": 10000,
+        "seed": 59420261130
+      },
+      "lower_tail": {
+        "tail": "lower",
+        "p_plus_one": 1.0,
+        "null_mean": 28.7269,
+        "permutations": 10000,
+        "seed": 59420261130
+      }
+    }
+  },
+  "currier_B_direct_rate_difference": {
+    "paragraph_opening_minus_continuation": -0.04736562,
+    "paragraph_opening_lines": 466,
+    "continuation_lines": 1879,
+    "p_upper_plus_one": 1.0,
+    "p_lower_plus_one": 0.0001,
+    "permutations": 10000,
+    "seed": 59420261613
+  },
+  "guardrails": [
+    "Paragraph opener is assigned only by literal <%> in raw body, not @/+/* locator symbols.",
+    "Within-stratum expected counts preserve line token inventory and length.",
+    "Direct rate-difference permutation is descriptive conditional on observed first-token indicators; it is not a decipherment.",
+    "Single transcript ZL3b; no semantic inference."
+  ]
+}
