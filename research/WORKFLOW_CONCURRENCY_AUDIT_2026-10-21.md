@@ -40,3 +40,24 @@ Límite: la concurrencia de GitHub Actions con el mismo grupo no serializa autom
 1. Revisar los restantes workflows con `git push` o escrituras a `master`; buscar especialmente los que carecen de `concurrency` o reintento seguro.
 2. Cotejar hashes y referencias de los artefactos EXP-590/593.
 3. Completar el inventario GitHub/Biblioteca y clasificar las 62 carpetas de triage.
+
+
+## Auditoría completa de los 31 workflows — 21-10-2026
+
+Se revisaron los 31 ficheros YAML de `.github/workflows/` en `master`, incluidos triggers, permisos, grupos de concurrencia y comandos de commit/push.
+
+### Resultado cuantitativo
+
+- **31 workflows en total:** 1 workflow de comprobación de solo lectura y **30 workflows que pueden escribir resultados en `master`**.
+- **9/30** workflows de escritura no declaran `concurrency`: `voynich-exp603.yml` a `voynich-exp611.yml`. Tampoco implementan rebase/reintento en su paso de push.
+- **21/30** sí declaran `concurrency`, pero sus grupos son específicos de cada workflow; por tanto, no se bloquean mutuamente y no evitan carreras entre workflows distintos.
+- Solo **9/30** incluyen un bucle explícito de rebase/push con reintentos: `voynich-agent.yml`, `voynich-folio-clustered-confirmation.yml`, `voynich-heldout-prediction.yml`, `voynich-independent-parser-audit.yml`, `voynich-initial-context.yml`, `voynich-marginal-successors.yml`, `voynich-paired-sensitivity.yml`, `voynich-transcription-concordance.yml` y `voynich-two-token-context.yml`.
+- **21/30** no incluyen reintento seguro: `voynich-corpus-experiments.yml`, `voynich-exp603.yml`–`voynich-exp611.yml`, `voynich-folio-influence.yml`, `voynich-lexical-controls.yml`, `voynich-line-level-audit.yml`, `voynich-line-metadata-tests.yml`, `voynich-locus-tests.yml`, `voynich-paragraph-marker-audit.yml`, `voynich-paragraph-marker-tests.yml`, `voynich-paragraph-replication.yml`, `voynich-parser-conformance.yml`, `voynich-position-controls.yml` y `voynich-stratified-tests.yml`.
+- `voynich-corpus-experiments.yml` marca `continue-on-error: true` en el paso de publicación; eso puede dejar una ejecución global en verde aunque falle la escritura de resultados.
+
+### Conclusión operativa
+
+La causa de riesgo no es solo la falta de `concurrency`: los grupos diferentes permiten que dos workflows distintos escriban simultáneamente. El fallo histórico `cannot lock ref 'refs/heads/master'` es coherente con este diseño. No se hizo force-push ni se borró ningún resultado durante esta auditoría.
+
+**No se declaran los riesgos de concurrencia resueltos.** La siguiente corrección técnica debe estandarizar el mecanismo de escritura en los 30 workflows: rebase sobre la referencia remota, reintento limitado y fallo explícito si se agotan los intentos; conservar los artefactos y no ocultar errores de push. Antes de aplicar cambios masivos, probar la plantilla en un workflow piloto y verificar el run.
+
