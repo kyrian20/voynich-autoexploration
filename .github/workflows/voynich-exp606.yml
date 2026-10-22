@@ -12,7 +12,7 @@ on:
 
 # Serialize all workflows that write results to master.
 concurrency:
-  group: voynich-master-writes
+  group: voynich-exp606
   cancel-in-progress: false
 
 permissions:
