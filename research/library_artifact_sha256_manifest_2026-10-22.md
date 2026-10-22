@@ -30,3 +30,13 @@ These reports use different null models and must remain separate from GitHub `ex
 2. Trace every EXP-623 Library JSON to its generating script and input corpus hashes.
 3. Continue the IVTFF independent-parser/edge-case audit and preserve all historical files.
 4. Do not allocate a new experiment ID or promote any result to validated until these provenance checks are complete.
+
+
+## EXP-623 report/JSON/script association review — 2026-10-22
+
+A content-level read of the JSON metadata, reports, and script docstrings resolves the *intended method pairing*, but not exact execution provenance:
+
+- `LIB-ORDER-2026-10-19-A` (all-token permutation, report `Informe_Voynich_exp623_Control_orden_palabras_2026-10-19.md`) aligns with `exp623_resultados_2026-10-19.json` and the method described by `exp623_shuffle_holdout.py`: the JSON says 20 splits × 50 shuffles and the null permutes all tokens inside each held-out locus. The report says the pilot was exploratory and the Python script was not run in GitHub Actions.
+- `LIB-ORDER-2026-10-19-B` (interior-only shuffle preserving first and last, report `Informe_Voynich_exp623_control_orden_2026-10-19.md`) aligns with `exp623_order_null_summary.json` and the method described by `exp623_order_null.py`: the JSON says 10 folio splits × 39 nulls and preserves endpoints. Its JSON explicitly says the Python implementation was not yet run in GitHub Actions; results came from a JavaScript pilot.
+- This pairing is supported by protocol/method fields and script descriptions, **not** by a verified rerun of those exact Python files. Keep execution status as exploratory/unreproduced until the source scripts are executed against the recorded corpus versions and the outputs are compared.
+- Both JSON files record upstream transcription blob IDs `2a4533ab9bdfa85db9bad602d590978953055df1` (ZL3b) and `4d6d3f2537b1f507a257529b49c94af7d6e03446` (IT2a). These are Git blob identifiers, not SHA-256 hashes of the Library report/script files.
