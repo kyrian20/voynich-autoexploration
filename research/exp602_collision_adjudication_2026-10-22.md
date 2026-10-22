@@ -55,3 +55,12 @@ The baseline conditions on each held-out line's token inventory, so it is a diag
 - Held-out prediction directory: `experiments/exp_602_heldout_predictive_test/`
 - Repository register: `research/EXPERIMENT_REGISTER.md`
 - Next-test protocol: `research/next_decisive_test_plan_2026-10-22.md`
+
+
+## Commit-chronology evidence checked on 2026-10-22
+
+The first commit returned by the GitHub path-history API for each README is:
+- held-out prediction README: `11fb4d937727acab34eb06fed00bfa1bb7d7d358`, authored 2026-10-19 13:25:59 UTC;
+- parser-audit README: `a46027cec31127c9fd8d165ad71ab0a123879aa2`, authored 2026-10-19 13:31:15 UTC.
+
+This establishes that the held-out README appeared in the observed history about five minutes before the parser-audit README. It does **not** establish which experiment was intended to own the global number: other files, pre-existing history, and references may precede those README commits. Therefore the path-qualified aliases remain in force; no canonical EXP number is assigned.
