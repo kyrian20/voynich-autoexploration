@@ -4,7 +4,9 @@ on:
   workflow_dispatch:
   push:
     paths:
-      - 'experiments/exp_611_exact_length_position_ch_sh/**'
+      - 'experiments/exp_611_exact_length_position_ch_sh/script.py'
+      - 'data/transcriptions/eva_zl3b.txt'
+      - 'data/transcriptions/eva_it2a.txt'
       - '.github/workflows/voynich-exp611.yml'
 
 permissions:
