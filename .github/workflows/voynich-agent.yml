@@ -19,7 +19,7 @@ permissions:
 
 # Shared group with exp603: serializes these two master-writing workflows.
 concurrency:
-  group: voynich-master-writes
+  group: voynich-agent
   cancel-in-progress: false
 
 jobs:
