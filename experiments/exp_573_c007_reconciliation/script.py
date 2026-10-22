@@ -168,121 +168,126 @@ def ss_canonical_formula(lines, onset_fn, onsets):
         results[onset] = {'obs': obs, 'exp': exp, 'E': e}
     return results
 
-# ─── RUN ANALYSIS ───────────────────────────────────────────────────────────
-
-FOCUS = ['qok', 'ok', 'ch', 'qo', 'ot']
-
-print("=" * 70)
-print("exp_573: C007 RECONCILIATION")
-print("=" * 70)
-
-A_folio, B_folio = parse_folio_level(CORPUS)
-A_canon, B_canon = parse_canonical(CORPUS)
-
-print(f"\nCorpus sizes:")
-print(f"  A all (folio-level): {len(A_folio)} lines, {sum(len(ws) for _,ws in A_folio)} words")
-print(f"  A herbal_a (canonical per-line): {len(A_canon)} lines, {sum(len(ws) for _,ws in A_canon)} words")
-print(f"  B all (folio-level): {len(B_folio)} lines, {sum(len(ws) for _,ws in B_folio)} words")
-print(f"  B all (canonical per-line): {len(B_canon)} lines, {sum(len(ws) for _,ws in B_canon)} words")
-
-# ─── MAIN COMPARISON TABLE ──────────────────────────────────────────────────
-
-conditions = [
-    ("A: Old formula + folio-level dialect",
-     A_folio, ss_old_formula, get_onset_old),
-    ("A: Canonical formula + folio-level dialect (hybrid)",
-     A_folio, ss_canonical_formula, get_onset_old),
-    ("A: Canonical formula + per-line dialect (canonical)",
-     A_canon, ss_canonical_formula, get_onset_can),
-    ("B: Old formula + folio-level dialect",
-     B_folio, ss_old_formula, get_onset_old),
-    ("B: Canonical formula + folio-level dialect (hybrid)",
-     B_folio, ss_canonical_formula, get_onset_old),
-    ("B: Canonical formula + per-line dialect (canonical)",
-     B_canon, ss_canonical_formula, get_onset_can),
-]
-
-print(f"\n{'Condition':<47}", end="")
-for o in FOCUS:
-    print(f" {o:>8}", end="")
-print()
-print("-" * 47 + "-" * (9 * len(FOCUS)))
-
-for label, lines, formula_fn, onset_fn in conditions:
-    res = formula_fn(lines, onset_fn, FOCUS)
-    print(f"{label:<47}", end="")
+def main() -> None:
+    # ─── RUN ANALYSIS ───────────────────────────────────────────────────────────
+    
+    FOCUS = ['qok', 'ok', 'ch', 'qo', 'ot']
+    
+    print("=" * 70)
+    print("exp_573: C007 RECONCILIATION")
+    print("=" * 70)
+    
+    A_folio, B_folio = parse_folio_level(CORPUS)
+    A_canon, B_canon = parse_canonical(CORPUS)
+    
+    print(f"\nCorpus sizes:")
+    print(f"  A all (folio-level): {len(A_folio)} lines, {sum(len(ws) for _,ws in A_folio)} words")
+    print(f"  A herbal_a (canonical per-line): {len(A_canon)} lines, {sum(len(ws) for _,ws in A_canon)} words")
+    print(f"  B all (folio-level): {len(B_folio)} lines, {sum(len(ws) for _,ws in B_folio)} words")
+    print(f"  B all (canonical per-line): {len(B_canon)} lines, {sum(len(ws) for _,ws in B_canon)} words")
+    
+    # ─── MAIN COMPARISON TABLE ──────────────────────────────────────────────────
+    
+    conditions = [
+        ("A: Old formula + folio-level dialect",
+         A_folio, ss_old_formula, get_onset_old),
+        ("A: Canonical formula + folio-level dialect (hybrid)",
+         A_folio, ss_canonical_formula, get_onset_old),
+        ("A: Canonical formula + per-line dialect (canonical)",
+         A_canon, ss_canonical_formula, get_onset_can),
+        ("B: Old formula + folio-level dialect",
+         B_folio, ss_old_formula, get_onset_old),
+        ("B: Canonical formula + folio-level dialect (hybrid)",
+         B_folio, ss_canonical_formula, get_onset_old),
+        ("B: Canonical formula + per-line dialect (canonical)",
+         B_canon, ss_canonical_formula, get_onset_can),
+    ]
+    
+    print(f"\n{'Condition':<47}", end="")
     for o in FOCUS:
-        e = res.get(o, {}).get('E', float('nan'))
-        print(f" {e:>8.3f}", end="")
+        print(f" {o:>8}", end="")
     print()
-
-# ─── C007 REFERENCE VALUES FROM exp_174 ────────────────────────────────────
-
-print("\n" + "=" * 70)
-print("C007 REFERENCE (exp_174 table):")
-print("  Unconditional: qok A=1.623/B=1.239, ok A=1.930/B=1.462, ch A=1.427/B=1.694, qo A=1.305/B=2.047")
-print("  Position-ctrl: qok A=1.594/B=1.203, ok A=1.822/B=1.362, ch A=1.334/B=1.503, qo A=1.269/B=1.990")
-print("\nC007 CLAIM: 'ranges from 1.24× (qok, B-dialect) to 2.05× (ok, A-dialect)'")
-print("  1.24× ← B qok unconditional (1.239×) ✓")
-print("  2.05× ← MISATTRIBUTION: exp_174's max is B qo=2.047× (NOT A ok=1.930×)")
-print("  The claim '(ok, A-dialect)' for the upper bound is INCORRECT per exp_174's own table")
-
-# ─── EFFECT DECOMPOSITION ───────────────────────────────────────────────────
-
-print("\n" + "=" * 70)
-print("EFFECT DECOMPOSITION — A-dialect ok self-succession:")
-r1 = ss_old_formula(A_folio, get_onset_old, ['ok'])['ok']
-r2 = ss_canonical_formula(A_folio, get_onset_old, ['ok'])['ok']
-r3 = ss_canonical_formula(A_canon, get_onset_can, ['ok'])['ok']
-print(f"  Old formula + folio dialect: E={r1['E']:.3f}× (obs={r1['obs']}, exp={r1['exp']:.1f})")
-print(f"  Canonical formula + folio dialect: E={r2['E']:.3f}× (Δ={r2['E']-r1['E']:+.3f})")
-print(f"  Canonical formula + per-line dialect (canonical): E={r3['E']:.3f}× (Δ from old={r3['E']-r1['E']:+.3f})")
-print(f"  exp_567 reported: 1.42×  ← our canonical matches: {r3['E']:.3f}×")
-
-print("\nEFFECT DECOMPOSITION — B-dialect qok self-succession:")
-r1 = ss_old_formula(B_folio, get_onset_old, ['qok'])['qok']
-r2 = ss_canonical_formula(B_folio, get_onset_old, ['qok'])['qok']
-r3 = ss_canonical_formula(B_canon, get_onset_can, ['qok'])['qok']
-print(f"  Old formula + folio dialect: E={r1['E']:.3f}× (obs={r1['obs']}, exp={r1['exp']:.1f})")
-print(f"  Canonical formula + folio dialect: E={r2['E']:.3f}× (Δ={r2['E']-r1['E']:+.3f})")
-print(f"  Canonical formula + per-line dialect (canonical): E={r3['E']:.3f}× (Δ from old={r3['E']-r1['E']:+.3f})")
-print(f"  exp_565 reported: 1.03×  ← our canonical matches: {r3['E']:.3f}×")
-
-# ─── FULL CANONICAL SURVEY ──────────────────────────────────────────────────
-
-print("\n" + "=" * 70)
-print("CANONICAL SELF-SUCCESSION SURVEY (all major onset classes):")
-FULL_SET = ['qok','qot','qo','cth','ch','sh','ok','ot','ol','d','s','y','k','t','l','r']
-
-for dialect_label, lines in [("A herbal_a", A_canon), ("B all", B_canon)]:
-    print(f"\n{dialect_label} (canonical per-line, canonical formula):")
-    mid_counts = Counter()
-    total_mid = 0
-    for _, ws in lines:
-        L = len(ws)
-        for i in range(1, L-1):
-            mid_counts[get_onset_can(ws[i])] += 1
-            total_mid += 1
-    rows = []
-    for onset in FULL_SET:
-        obs = 0
-        n_sender = 0
+    print("-" * 47 + "-" * (9 * len(FOCUS)))
+    
+    for label, lines, formula_fn, onset_fn in conditions:
+        res = formula_fn(lines, onset_fn, FOCUS)
+        print(f"{label:<47}", end="")
+        for o in FOCUS:
+            e = res.get(o, {}).get('E', float('nan'))
+            print(f" {e:>8.3f}", end="")
+        print()
+    
+    # ─── C007 REFERENCE VALUES FROM exp_174 ────────────────────────────────────
+    
+    print("\n" + "=" * 70)
+    print("C007 REFERENCE (exp_174 table):")
+    print("  Unconditional: qok A=1.623/B=1.239, ok A=1.930/B=1.462, ch A=1.427/B=1.694, qo A=1.305/B=2.047")
+    print("  Position-ctrl: qok A=1.594/B=1.203, ok A=1.822/B=1.362, ch A=1.334/B=1.503, qo A=1.269/B=1.990")
+    print("\nC007 CLAIM: 'ranges from 1.24× (qok, B-dialect) to 2.05× (ok, A-dialect)'")
+    print("  1.24× ← B qok unconditional (1.239×) ✓")
+    print("  2.05× ← MISATTRIBUTION: exp_174's max is B qo=2.047× (NOT A ok=1.930×)")
+    print("  The claim '(ok, A-dialect)' for the upper bound is INCORRECT per exp_174's own table")
+    
+    # ─── EFFECT DECOMPOSITION ───────────────────────────────────────────────────
+    
+    print("\n" + "=" * 70)
+    print("EFFECT DECOMPOSITION — A-dialect ok self-succession:")
+    r1 = ss_old_formula(A_folio, get_onset_old, ['ok'])['ok']
+    r2 = ss_canonical_formula(A_folio, get_onset_old, ['ok'])['ok']
+    r3 = ss_canonical_formula(A_canon, get_onset_can, ['ok'])['ok']
+    print(f"  Old formula + folio dialect: E={r1['E']:.3f}× (obs={r1['obs']}, exp={r1['exp']:.1f})")
+    print(f"  Canonical formula + folio dialect: E={r2['E']:.3f}× (Δ={r2['E']-r1['E']:+.3f})")
+    print(f"  Canonical formula + per-line dialect (canonical): E={r3['E']:.3f}× (Δ from old={r3['E']-r1['E']:+.3f})")
+    print(f"  exp_567 reported: 1.42×  ← our canonical matches: {r3['E']:.3f}×")
+    
+    print("\nEFFECT DECOMPOSITION — B-dialect qok self-succession:")
+    r1 = ss_old_formula(B_folio, get_onset_old, ['qok'])['qok']
+    r2 = ss_canonical_formula(B_folio, get_onset_old, ['qok'])['qok']
+    r3 = ss_canonical_formula(B_canon, get_onset_can, ['qok'])['qok']
+    print(f"  Old formula + folio dialect: E={r1['E']:.3f}× (obs={r1['obs']}, exp={r1['exp']:.1f})")
+    print(f"  Canonical formula + folio dialect: E={r2['E']:.3f}× (Δ={r2['E']-r1['E']:+.3f})")
+    print(f"  Canonical formula + per-line dialect (canonical): E={r3['E']:.3f}× (Δ from old={r3['E']-r1['E']:+.3f})")
+    print(f"  exp_565 reported: 1.03×  ← our canonical matches: {r3['E']:.3f}×")
+    
+    # ─── FULL CANONICAL SURVEY ──────────────────────────────────────────────────
+    
+    print("\n" + "=" * 70)
+    print("CANONICAL SELF-SUCCESSION SURVEY (all major onset classes):")
+    FULL_SET = ['qok','qot','qo','cth','ch','sh','ok','ot','ol','d','s','y','k','t','l','r']
+    
+    for dialect_label, lines in [("A herbal_a", A_canon), ("B all", B_canon)]:
+        print(f"\n{dialect_label} (canonical per-line, canonical formula):")
+        mid_counts = Counter()
+        total_mid = 0
         for _, ws in lines:
-            for i in range(len(ws)-1):
-                if get_onset_can(ws[i]) == onset:
-                    n_sender += 1
-                    if get_onset_can(ws[i+1]) == onset:
-                        obs += 1
-        mid_rate = mid_counts.get(onset, 0) / total_mid if total_mid > 0 else 0
-        exp = n_sender * mid_rate
-        e = obs / exp if exp > 0 else float('inf')
-        flag = 'CONF' if e >= 1.5 and obs >= 10 else ('sub-CONF' if e >= 1.5 and obs >= 5 else ('DEPL' if e < 0.7 and obs >= 3 else ''))
-        rows.append((onset, obs, exp, e, flag))
-        print(f"  {onset:>4}: obs={obs:>4}, exp={exp:>6.1f}, E={e:>6.3f}× {flag}")
-    valid = [(o, e) for o, obs, exp, e, flag in rows if obs >= 10]
-    if valid:
-        mn = min(e for _,e in valid)
-        mx = max(e for _,e in valid)
-        print(f"  Range (obs≥10): {mn:.3f}× – {mx:.3f}×")
+            L = len(ws)
+            for i in range(1, L-1):
+                mid_counts[get_onset_can(ws[i])] += 1
+                total_mid += 1
+        rows = []
+        for onset in FULL_SET:
+            obs = 0
+            n_sender = 0
+            for _, ws in lines:
+                for i in range(len(ws)-1):
+                    if get_onset_can(ws[i]) == onset:
+                        n_sender += 1
+                        if get_onset_can(ws[i+1]) == onset:
+                            obs += 1
+            mid_rate = mid_counts.get(onset, 0) / total_mid if total_mid > 0 else 0
+            exp = n_sender * mid_rate
+            e = obs / exp if exp > 0 else float('inf')
+            flag = 'CONF' if e >= 1.5 and obs >= 10 else ('sub-CONF' if e >= 1.5 and obs >= 5 else ('DEPL' if e < 0.7 and obs >= 3 else ''))
+            rows.append((onset, obs, exp, e, flag))
+            print(f"  {onset:>4}: obs={obs:>4}, exp={exp:>6.1f}, E={e:>6.3f}× {flag}")
+        valid = [(o, e) for o, obs, exp, e, flag in rows if obs >= 10]
+        if valid:
+            mn = min(e for _,e in valid)
+            mx = max(e for _,e in valid)
+            print(f"  Range (obs≥10): {mn:.3f}× – {mx:.3f}×")
+    
+    print("\nDone.")
 
-print("\nDone.")
+
+if __name__ == "__main__":
+    main()
