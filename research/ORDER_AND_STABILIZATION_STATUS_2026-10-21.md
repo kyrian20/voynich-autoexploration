@@ -112,3 +112,28 @@ Al escribir esta actualización, varias ejecuciones de `Voynich Check` y algunas
 - Resultado del run: `completed / success`. Se verificaron los siete pasos principales: checkout, configuración de Python, existencia de corpus, sintaxis de scripts, regresiones IVTFF, auditoría de metadatos Currier y cierre del job; todos aparecen como `success`.
 - Alcance: esto confirma que el workflow de comprobación pasó en ese SHA concreto. **No** demuestra que los 30 workflows que escriben resultados estén todos verdes ni cierra la auditoría de concurrencia, el parser IVTFF completo o el cotejo GitHub/Biblioteca.
 - No se han borrado ni renombrado artefactos ni se ha asignado un nuevo ID EXP en esta actualización.
+
+
+## Auditoría estática de workflows de escritura — 2026-10-22 06:55 UTC
+
+### Inventario inspeccionado
+
+Se inspeccionaron los 32 archivos YAML presentes en `.github/workflows/` en `master`. La clasificación estática observada es:
+
+- **30 workflows con `contents: write`**: los 30 tienen un bloque `concurrency`, `cancel-in-progress: false`, un grupo propio por workflow, una operación de rebase/refresco antes de publicar, un bucle de reintentos acotado (cinco intentos en los ejemplos contrastados) y comandos `git add` dirigidos a rutas de resultados concretas.
+- **2 workflows de solo lectura**: `exp623-reproduction.yml` y `voynich-check.yml`; ambos declaran `contents: read` y no publican resultados al repositorio.
+- Se inspeccionaron explícitamente las secciones de publicación de `voynich-agent.yml` y `voynich-exp604.yml`: el agente limita `git add` a `research/experiments/`; EXP-604 añade solo sus dos archivos de resultado y aborta si el rebase presenta conflicto, en lugar de forzar la publicación.
+
+### Interpretación y límites
+
+Los grupos de concurrencia son **por workflow**, no un único bloqueo global compartido por los 30 escritores. Por ello no serializan entre sí las ejecuciones de workflows distintos: la protección frente a carreras entre escritores depende del rebase, los reintentos acotados y el rechazo de conflictos. Esta arquitectura no debe describirse como exclusión mutua global.
+
+La inspección fue estática y de cobertura de patrones; no demuestra que los 30 workflows hayan ejecutado correctamente en el estado actual, que todos los casos de conflicto estén cubiertos ni que los artefactos resultantes sean científicamente válidos. Se requiere confirmar los runs reales y revisar por separado cualquier conflicto de rebase y los cambios concurrentes sobre rutas compartidas.
+
+### CI observado durante esta revisión
+
+- **Voynich Check #528**, run [39736658830](https://github.com/kyrian20/voynich-autoexploration/actions/runs/39736658830), commit `9ff40c4ca3dbbc8da9158703ad8606936d76e01b`: `completed / success`.
+- **Voynich Check #527**, run [39736645734](https://github.com/kyrian20/voynich-autoexploration/actions/runs/39736645734), commit `e8b9cae8f70d7b4ec5622ddf1d3f58146f417ad5`: `completed / success`.
+- **Voynich Autonomous Research #26**, run [39736658859](https://github.com/kyrian20/voynich-autoexploration/actions/runs/39736658859), commit `9ff40c4ca3dbbc8da9158703ad8606936d76e01b`: seguía `in_progress` en la consulta de las 06:52 UTC; no se declara aprobado hasta comprobar su conclusión.
+
+No se ha creado ningún EXP, no se han renumerado experimentos ni se han eliminado o renombrado históricos en esta auditoría.
