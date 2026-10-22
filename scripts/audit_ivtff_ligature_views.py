@@ -17,7 +17,7 @@ SOURCES = [
     ("ZL3a", ROOT / "data/transcriptions/zl3a.txt"),
     ("IT2a", ROOT / "data/transcriptions/eva_it2a.txt"),
 ]
-TEXT_LINE = re.compile(r"^<f(\d+[rv])\.(\d+),[^>]*>\s*(.*)$")
+TEXT_LINE = re.compile(r"^<f(\d+[rv]\d*)\.(\d+),[^>]*>\s*(.*)$")
 TAG_RE = re.compile(r"<[^>]*>")
 BRACE_RE = re.compile(r"\{[^{}]*\}")
 TOKEN_RE = re.compile(r"[a-z]+")
