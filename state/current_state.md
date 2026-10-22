@@ -256,3 +256,11 @@ Two workflows that commit generated results to `master` used separate GitHub Act
 
 - Rechecked the latest Actions runs after the manifest and collision-register updates. Voynich Check runs for the manifest, register, and current state commits all completed successfully: [39727674234](https://github.com/kyrian20/voynich-autoexploration/actions/runs/39727674234), [39727710207](https://github.com/kyrian20/voynich-autoexploration/actions/runs/39727710207), [39727746074](https://github.com/kyrian20/voynich-autoexploration/actions/runs/39727746074), [39727755678](https://github.com/kyrian20/voynich-autoexploration/actions/runs/39727755678), [39727764037](https://github.com/kyrian20/voynich-autoexploration/actions/runs/39727764037). Each was observed with conclusion `success`.
 - These checks validate the repository's configured checks for those commits; they do not execute the two Library EXP-623 Python pilot scripts, establish complete byte-for-byte Library/GitHub reconciliation, or certify scientific conclusions. The current state commit will trigger another check and must be checked separately.
+
+
+## EXP-623 source identity verification — 2026-10-22
+
+- Checked the two source transcription blob IDs recorded in the Library pilot JSON against the live `master` Git tree. Both match exactly: ZL3b `2a4533ab9bdfa85db9bad602d590978953055df1` (411,671 bytes), IT2a `4d6d3f2537b1f507a257529b49c94af7d6e03446` (342,104 bytes).
+- This closes source-file identity for those pilot metadata records, but not output provenance: the saved Python scripts still need to be executed against those exact source blobs and their fresh JSON outputs compared with the JavaScript pilot results.
+- The two analyses have different declared filters (all matching locus records vs P0-only paragraph-body loci), different sample sizes, and different null constructions. Treat them as separate exploratory analyses, not as direct replications. Details are in `research/library_artifact_sha256_manifest_2026-10-22.md`.
+- No original results were overwritten and no new experiment ID was allocated. Check the workflow triggered by this state update before claiming the current HEAD has passed CI.
