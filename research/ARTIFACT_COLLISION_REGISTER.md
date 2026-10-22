@@ -137,3 +137,37 @@ Together with the previously confirmed EXP-590, EXP-593 and EXP-623 cross-surfac
 - Seven duplicated GitHub experiment-folder IDs remain historical collisions: 177, 594, 596, 597, 600, 601 and 602.
 - The selected SHA-256 manifest covers ten Library files only. Full file-by-file content hashing and GitHub counterpart pairing remains outstanding.
 - No file has been renamed, merged, deleted, or overwritten. No new EXP ID has been allocated.
+
+
+## Segunda pasada de triage semántico — 2026-10-22
+
+Se revisaron títulos de informes de la Biblioteca y los protocolos/resultados de GitHub para los IDs restantes 603–613 y 616–621. La comparación es semántica por pregunta y método; **no** demuestra igualdad ni falsedad de los datos. Los IDs que no aparecen en esta tabla no se dan por reconciliados.
+
+| ID compartido | Tema Biblioteca | Tema GitHub | Clasificación / acción |
+|---|---|---|---|
+| EXP-603 | Transiciones de inicios entre etiquetas | Predicción estratificada held-out de daiin usando clase Currier y longitud | Preguntas distintas; mantener alias separados |
+| EXP-604 | Tendencia posicional de inicios | Replicación de daiin en IT2a | Preguntas/diseños distintos; mantener separados |
+| EXP-605 | Longitud de párrafos Herbal frente a Recetas | Auditoría de secuencia y huecos de foliación en cabeceras | Preguntas distintas; no cruzar resultados |
+| EXP-606 | Control por folio | Auditoría léxica en límites alrededor de huecos de foliación | Preguntas distintas; mantener separados |
+| EXP-607 | Control de sección Currier B | Predicción del siguiente token en folios reservados | Preguntas distintas; mantener separados |
+| EXP-608 | Auditoría del parser | Auditoría descriptiva del carácter posterior a ch/sh | Preguntas distintas; mantener separados |
+| EXP-609 | Auditoría de estructura | Prueba pareada por folio de vocal tras ch/sh | Preguntas distintas; mantener separados |
+| EXP-610 | Robustez por cara | Auditoría ch/sh estratificada por longitud de palabra | Preguntas distintas; mantener separados |
+| EXP-611 | Longitud de líneas | Emparejamiento exacto por longitud y posición de ch/sh | Preguntas distintas; mantener separados |
+| EXP-612 | Diversidad de vocabulario | Estratificación descriptiva ch/sh por etiquetas IVTFF | Preguntas distintas; mantener separados |
+| EXP-613 | Adyacencia | Sensibilidad inferencial corregida ch/sh (bloque 613–615) | Preguntas distintas; mantener separados |
+| EXP-616 | Reutilización de bigramas | Sensibilidad por bloques de folios reservados para ch/sh | Preguntas distintas; mantener separados |
+| EXP-617 | Bigramas entre caras | Sensibilidad de celdas emparejadas ch/sh con soporte alto | Preguntas distintas; mantener separados |
+| EXP-618 | Validación de caras reservadas | Sensibilidad de tipos léxicos frente a frecuencias de tokens | Preguntas distintas; mantener separados |
+| EXP-619 | Sensibilidad al tamaño de muestra | Control de contexto adyacente anterior para contraste ch/sh | Preguntas distintas; mantener separados |
+| EXP-620 | Predicción de bigramas / validación predictiva | Auditoría del parser IVTFF | Preguntas distintas; mantener separados |
+| EXP-621 | Repetición de particiones | Informe provisional de decisión sobre contraste ch/sh | Preguntas distintas; mantener separados |
+
+### Resultado de esta pasada y límites
+
+- Los 17 números de la tabla son **mismatches semánticos de alta confianza por título y protocolo**, no colisiones de bytes ni veredictos sobre validez científica.
+- Para EXP-613, la ruta de GitHub agrupa explícitamente los análisis 613–615 en un solo directorio; no se debe inventar una correspondencia uno-a-uno con cada archivo de Biblioteca.
+- GitHub EXP-620 no contiene un result.md en la ruta esperada; su árbol muestra partial_audit.md. Esto se registra como diferencia estructural y no como fallo de resultado sin revisar el workflow.
+- Los experimentos GitHub 608–621 forman una secuencia relacionada sobre el contexto de ch/sh, pero los tests de sensibilidad no equivalen a réplicas independientes. La síntesis de EXP-621 declara expresamente pendientes el holdout por sección, la revisión completa de multiplicidad y la auditoría independiente del parser.
+- La suma acumulada de mismatches semánticos identificados en el registro pasa de 11 a 28. La revisión de los restantes solapamientos, las comparaciones de hashes de contenido y la trazabilidad exacta script→JSON→informe siguen pendientes.
+- No se han renombrado, fusionado, borrado ni sobrescrito archivos históricos; no se ha asignado ningún EXP ID nuevo.
