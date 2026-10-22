@@ -12,7 +12,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: voynich-master-writes
+  group: voynich-line-metadata-tests
   cancel-in-progress: false
 
 jobs:
