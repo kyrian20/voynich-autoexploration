@@ -79,3 +79,11 @@ El árbol recursivo completo de GitHub confirma 7 colisiones de IDs en carpetas 
 - Se detectó una diferencia de cobertura independiente: el patrón de EXP-590 no reconoce IDs como `f67r1.5` o `fRos.23`. Su salida histórica se reproduce exactamente (ZL3b: 4.188 líneas con tokens, 32.732 tokens, 726 `daiin`, 133 líneas iniciales); la vista amplia recoge 5.385 registros de texto. No sobrescribir EXP-590. Antes de regenerar resultados, validar la gramática oficial de IDs IVTFF y decidir explícitamente el universo de registros.
 - Nuevos scripts/tests: `scripts/audit_ivtff_brace_spans.py`, `scripts/audit_ivtff_ligature_views.py`, `tests/test_ivtff_ligature_views.py`. La auditoría de ligaduras y cobertura pasa por el workflow [run 563](https://github.com/kyrian20/voynich-autoexploration/actions/runs/39738683050).
 - Próxima acción: validar los identificadores de línea contra la especificación IVTFF y añadir una comparación de cobertura con EXP-602. Mantener todos los EXP históricos sin cambios hasta que esa adjudicación esté documentada.
+
+
+## Revisión de evidencia predictiva y siguiente prueba (22-10-2026)
+
+- Se inspeccionó el artefacto `experiments/exp_602_heldout_predictive_test/`. Su criterio predeclarado de mejora predictiva para `daiin` **no se cumplió**: ganancia de log-loss −0,08131; IC bootstrap por folio del 95 % [−0,11174; −0,05641]. El baseline condicional al inventario de tokens de cada línea reservada gana, aunque es un control diagnóstico exigente y no un predictor desplegable.
+- El ID EXP-602 colisiona con `exp_602_independent_ivtff_parser_audit`; no adjudicar todavía qué artefacto retiene el ID canónico ni renombrar carpetas sin rastrear referencias y hashes.
+- Plan de siguiente prueba, sin asignar EXP nuevo: [`next_decisive_test_plan_2026-10-22.md`](next_decisive_test_plan_2026-10-22.md). Define cobertura IVTFF congelada, división por folio sin fugas, baseline entrenable, métrica/regla de éxito previa y controles negativos.
+- No presentar el resultado actual como desciframiento. La próxima prueba solo contará como avance positivo si supera un baseline justo en folios no vistos; un resultado negativo se conserva y no se usa para ajustar repetidamente sobre el mismo conjunto reservado.
