@@ -11,7 +11,7 @@ IDENTIFIED METHODOLOGY DIFFERENCES between exp_164/174 and canonical:
   (B) BIGRAM FORMULA: exp_174 uses E=obs/(total_bigrams×rate²);
       canonical uses E=obs/(n_sender×mid_rate_target)
   (C) WORD PARSING: exp_174 uses text.split('.') with any-lowercase filter;
-      canonical uses re.split('[-.\s]', text) + all-lowercase + len≥2
+      canonical uses re.split('[-.\\s]', text) + all-lowercase + len≥2
   (D) ONSET TAXONOMY: exp_174 has 'ch_e' class (che/chi prefix), no ckh/cph/sch;
       canonical has ckh/cph/sch, no ch_e
   (E) CORPUS SCOPE: exp_174 A includes ALL A-dialect folios;
