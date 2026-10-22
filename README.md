@@ -2,7 +2,7 @@
 
 Repositorio de trabajo: `kyrian20/voynich-autoexploration` (rama `master`).
 
-La [batería común lenguaje/cifrado/generación](experiments/common_battery_2026_10_22/result.md) conserva EXP-170 y publica protocolo, tokens y resultados nuevos. Su primaria no discrimina barajados; no valida una teoría del manuscrito.
+La [batería común lenguaje/cifrado/generación](experiments/common_battery_2026_10_22/result.md) conserva EXP-170 y publica protocolo y resultados nuevos; los tokens archivados siguen pendientes de autorización y recuperación (véase PUBLICACION.md del experimento). Su primaria no discrimina barajados; no valida una teoría del manuscrito.
 
 ## Estado operativo actual — 22 octubre 2026
 
