@@ -6,13 +6,17 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
-from scripts.audit_ivtff_ligature_views import tokenize_views, summarize_lines, TEXT_LINE
+from scripts.audit_ivtff_ligature_views import tokenize_views, summarize_lines, TEXT_LINE, legacy_parser_coverage
 
 
 def main() -> None:
     # Some valid folio-line IDs include a subdivision digit (e.g. f67r1.5).
     assert TEXT_LINE.match("<f1r.1,@P0> daiin"), "basic IVTFF line ID not parsed"
     assert TEXT_LINE.match("<f67r1.5,@Cc> daiin"), "subdivided folio line ID not parsed"
+    assert TEXT_LINE.match("<fRos.23,@L0> daiin"), "Rosetta folio line ID not parsed"
+    legacy = legacy_parser_coverage("<f1r.1,@P0> daiin\\n<f67r1.5,@Cc> daiin\\n<fRos.23,@L0> daiin")
+    assert legacy["nonempty_token_lines"] == 1, legacy
+    assert legacy["tokens"] == 1, legacy
 
     views = tokenize_views("dai{ch}in daiin {y'}")
     assert views["historical"] == ["dai", "in", "daiin"], views
