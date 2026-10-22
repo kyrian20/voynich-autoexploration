@@ -1,3 +1,5 @@
+> **Sensibilidad de referencia — 22-10-2026:** [tablas marginal y condicional de EXP259 reproducidas](../research/maintenance/2026-10-22-reference-sensitivity/REPORT.md). Sus cifras corresponden a una entrada bilingüe de 26 letras observadas, no al control latino de 23 letras descrito. Se conserva el original y se cuantifica sensibilidad a César sin atribución causal ni nueva inferencia sobre el manuscrito.
+
 > **Auditoría de lectores — 22-10-2026:** [96 lectores históricos de Cicero reproducidos de forma aislada](../research/maintenance/2026-10-22-loader-audit/REPORT.md), seis secuencias de entrada distintas y cuatro casos revisados estáticamente. Los filtros dejan pasar material editorial; EXP259/260 cargan ambos idiomas. Esto no reproduce ni invalida en bloque las simulaciones históricas.
 
 > **Actualización pública — 22-10-2026:** el bloque inicialmente privado de orden residual está integrado en [una reproducción conjunta](../research/analysis/2026-10-22-residual-order/README.md). La revisión de identidad de corpus es canónica en `research/CORPUS_IDENTITY_REVIEW.json`. Esto no resuelve automáticamente sus 103 referencias históricas ni la conformidad IVTFF.

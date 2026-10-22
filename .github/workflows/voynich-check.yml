@@ -42,6 +42,11 @@ jobs:
           python tests/test_historical_latin_loaders.py
           python scripts/audit_historical_latin_loaders.py --check research/maintenance/2026-10-22-loader-audit/results.json
 
+      - name: Reproducir sensibilidad de entropía de referencia
+        run: |
+          python tests/test_reference_entropy_sensitivity.py
+          python scripts/audit_reference_entropy_sensitivity.py --check research/maintenance/2026-10-22-reference-sensitivity/results.json
+
       - name: Comprobar archivos de investigación
         run: |
           python - <<'PY'

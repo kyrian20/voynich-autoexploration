@@ -1,0 +1,297 @@
+{
+  "source_commit": "96609813191caff5478ced3f5f7d4a90ed701fe7",
+  "historical_script_sha256": "c8cc27ed64ea35a06bd90885bd26ec38a1cc3be25c4e2aaf6b451ff7279dd5f7",
+  "archived_report_sha256": "a4a2f0599bbae908a1e5d77edf5eae0047c35f0f1683fd9a07c5b5955140b8b1",
+  "archive_marginal_discrepancies": [],
+  "archive_conditional_discrepancies": [],
+  "tokenization": "EXP259 ASCII [a-zA-Z]+ lowercase, token weighted, 12 absolute character positions",
+  "implementation_agreement_tolerance_bits": 1e-12,
+  "sources": [
+    {
+      "label": "historical_bilingual_diagnostic",
+      "path": "data/reference_corpora/latin/cicero_de_officiis_latin.txt",
+      "sha256": "3a33a076d3dda42673ec7ab0331ae7e58fc150e7e92751c0adf6d1db7297b670",
+      "selected_text_sha256": "3a33a076d3dda42673ec7ab0331ae7e58fc150e7e92751c0adf6d1db7297b670",
+      "token_count": 112081,
+      "token_sequence_sha256": "cddae504839681c9f5757082d2a00fee255e154351e32126c07c510c98c8f3b5",
+      "alphabet": "abcdefghijklmnopqrstuvwxyz",
+      "profile": [
+        {
+          "position": 0,
+          "n": 112081,
+          "marginal_bits": 4.23601093780791,
+          "conditional_bits": null
+        },
+        {
+          "position": 1,
+          "n": 107590,
+          "marginal_bits": 3.814643422914317,
+          "conditional_bits": 2.438411650011585
+        },
+        {
+          "position": 2,
+          "n": 87754,
+          "marginal_bits": 4.119243919094822,
+          "conditional_bits": 3.230304833468258
+        },
+        {
+          "position": 3,
+          "n": 66812,
+          "marginal_bits": 3.99431221812769,
+          "conditional_bits": 3.224397011387602
+        },
+        {
+          "position": 4,
+          "n": 51005,
+          "marginal_bits": 3.96731977165907,
+          "conditional_bits": 3.1938522896521446
+        },
+        {
+          "position": 5,
+          "n": 39030,
+          "marginal_bits": 3.929845966821486,
+          "conditional_bits": 3.148782333241588
+        },
+        {
+          "position": 6,
+          "n": 28604,
+          "marginal_bits": 3.8596387352512216,
+          "conditional_bits": 3.028588849088567
+        },
+        {
+          "position": 7,
+          "n": 19567,
+          "marginal_bits": 3.8825294335542715,
+          "conditional_bits": 2.900651067076195
+        },
+        {
+          "position": 8,
+          "n": 12741,
+          "marginal_bits": 3.810312614659075,
+          "conditional_bits": 2.607118065055943
+        },
+        {
+          "position": 9,
+          "n": 7425,
+          "marginal_bits": 3.814946738727504,
+          "conditional_bits": 2.487344537462367
+        },
+        {
+          "position": 10,
+          "n": 3725,
+          "marginal_bits": 3.7911143676299166,
+          "conditional_bits": 2.4253605356358325
+        },
+        {
+          "position": 11,
+          "n": 1852,
+          "marginal_bits": 3.625108526017468,
+          "conditional_bits": 2.207339094876704
+        }
+      ]
+    },
+    {
+      "label": "latin_caesar_full_file",
+      "path": "data/reference_corpora/latin/caesar_de_bello_gallico_latin.txt",
+      "sha256": "026e9c30e84e2418936db5784c1857c30780066df0ae724c959846aac75b1e33",
+      "selected_text_sha256": "a1809686085569f3ab4720b3afcb43c99f460113ec36384c6cb9b214c1822477",
+      "token_count": 23626,
+      "token_sequence_sha256": "cdd1a4448f04805ef7b9bdc2cdb83410510f4fe409c24c1ba553b8747de21c62",
+      "alphabet": "abcdefghijklmnopqrstuvwxyz",
+      "profile": [
+        {
+          "position": 0,
+          "n": 23626,
+          "marginal_bits": 4.17900411962127,
+          "conditional_bits": null
+        },
+        {
+          "position": 1,
+          "n": 23274,
+          "marginal_bits": 3.7410565360388603,
+          "conditional_bits": 2.362302695170554
+        },
+        {
+          "position": 2,
+          "n": 20020,
+          "marginal_bits": 4.148586769114363,
+          "conditional_bits": 3.252105050036686
+        },
+        {
+          "position": 3,
+          "n": 17485,
+          "marginal_bits": 3.8319146113659417,
+          "conditional_bits": 2.8818993346384545
+        },
+        {
+          "position": 4,
+          "n": 14999,
+          "marginal_bits": 3.8122772456583736,
+          "conditional_bits": 2.904739780652216
+        },
+        {
+          "position": 5,
+          "n": 12298,
+          "marginal_bits": 3.7535026072947804,
+          "conditional_bits": 2.8507349881731368
+        },
+        {
+          "position": 6,
+          "n": 9512,
+          "marginal_bits": 3.6471480049089298,
+          "conditional_bits": 2.7619634375638213
+        },
+        {
+          "position": 7,
+          "n": 6698,
+          "marginal_bits": 3.679359837008758,
+          "conditional_bits": 2.5227621142271173
+        },
+        {
+          "position": 8,
+          "n": 4696,
+          "marginal_bits": 3.6880383127250775,
+          "conditional_bits": 2.489825053144858
+        },
+        {
+          "position": 9,
+          "n": 2930,
+          "marginal_bits": 3.5515572972087623,
+          "conditional_bits": 2.2814616188624637
+        },
+        {
+          "position": 10,
+          "n": 1606,
+          "marginal_bits": 3.3960142594308578,
+          "conditional_bits": 2.0912724212084246
+        },
+        {
+          "position": 11,
+          "n": 813,
+          "marginal_bits": 3.3601802772895595,
+          "conditional_bits": 1.9982833926317543
+        }
+      ]
+    },
+    {
+      "label": "latin_caesar_declared_body",
+      "path": "data/reference_corpora/latin/caesar_de_bello_gallico_latin.txt",
+      "sha256": "026e9c30e84e2418936db5784c1857c30780066df0ae724c959846aac75b1e33",
+      "selected_text_sha256": "91749c84d0d14c3591cb4e51fbc2190e1425c2973cc238466ccdb3285649d328",
+      "token_count": 20516,
+      "token_sequence_sha256": "429a46215054f6e09e2998348ff070c9ea0991be2c9a05b138de372faf379160",
+      "alphabet": "abcdefghiklmnopqrstuvxy",
+      "profile": [
+        {
+          "position": 0,
+          "n": 20516,
+          "marginal_bits": 4.090587692491546,
+          "conditional_bits": null
+        },
+        {
+          "position": 1,
+          "n": 20301,
+          "marginal_bits": 3.6543101001769225,
+          "conditional_bits": 2.2539471356339424
+        },
+        {
+          "position": 2,
+          "n": 17640,
+          "marginal_bits": 4.107848743226548,
+          "conditional_bits": 3.1885665850500367
+        },
+        {
+          "position": 3,
+          "n": 15685,
+          "marginal_bits": 3.7258790454362476,
+          "conditional_bits": 2.77061149871691
+        },
+        {
+          "position": 4,
+          "n": 13582,
+          "marginal_bits": 3.7803891198851094,
+          "conditional_bits": 2.8545533938066234
+        },
+        {
+          "position": 5,
+          "n": 11130,
+          "marginal_bits": 3.68550254484428,
+          "conditional_bits": 2.7626958750452655
+        },
+        {
+          "position": 6,
+          "n": 8603,
+          "marginal_bits": 3.6183764714873536,
+          "conditional_bits": 2.709691593741088
+        },
+        {
+          "position": 7,
+          "n": 6077,
+          "marginal_bits": 3.611011634229264,
+          "conditional_bits": 2.4509421176453925
+        },
+        {
+          "position": 8,
+          "n": 4185,
+          "marginal_bits": 3.544251293031026,
+          "conditional_bits": 2.342769150597273
+        },
+        {
+          "position": 9,
+          "n": 2670,
+          "marginal_bits": 3.4365858460359906,
+          "conditional_bits": 2.1788002329968124
+        },
+        {
+          "position": 10,
+          "n": 1512,
+          "marginal_bits": 3.3209683817420457,
+          "conditional_bits": 1.9962327470885104
+        },
+        {
+          "position": 11,
+          "n": 760,
+          "marginal_bits": 3.258933536101009,
+          "conditional_bits": 1.8852095899005015
+        }
+      ]
+    }
+  ],
+  "contrasts": [
+    {
+      "comparison": "latin_caesar_full_file minus historical_bilingual_diagnostic",
+      "marginal_bits": [
+        -0.05700681818663966,
+        -0.07358688687545678,
+        0.029342850019541622,
+        -0.1623976067617483,
+        -0.15504252600069623,
+        -0.17634335952670543,
+        -0.21249073034229182,
+        -0.20316959654551336,
+        -0.12227430193399735,
+        -0.26338944151874166,
+        -0.39510010819905883,
+        -0.2649282487279083
+      ]
+    },
+    {
+      "comparison": "latin_caesar_declared_body minus historical_bilingual_diagnostic",
+      "marginal_bits": [
+        -0.14542324531636375,
+        -0.16033332273739465,
+        -0.011395175868273988,
+        -0.2684331726914424,
+        -0.1869306517739604,
+        -0.24434342197720582,
+        -0.24126226376386795,
+        -0.2715177993250073,
+        -0.26606132162804874,
+        -0.3783608926915134,
+        -0.47014598588787093,
+        -0.3661749899164586
+      ]
+    }
+  ],
+  "scope": "Reference sensitivity only. Bilingual input is diagnostic, excluded from new monolingual baselines. No manuscript parser, simulation or semantic validation."
+}

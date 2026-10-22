@@ -565,3 +565,5 @@
 2026-10-22 | Sin EXP nuevo: integración pública autorizada del bloque privado de orden residual; fuentes canónicas sin duplicados crudos, revisión de identidad de corpus, runner conjunto V1/V2 y reproducción en Voynich Check. Las cifras científicas permanecen idénticas al paquete original; corpus históricos pendientes de adjudicar. Ruta: research/analysis/2026-10-22-residual-order/.
 
 2026-10-22 — Auditoría de entradas históricas, sin EXP nuevo: 100 referencias Cicero; 96 lectores aislados reproducidos, seis secuencias, cuatro casos pendientes. Se preservan corpus y resultados. Informe: research/maintenance/2026-10-22-loader-audit/REPORT.md.
+
+2026-10-22 — Sensibilidad de referencia EXP259: 12 filas marginales y 11 condicionales históricas reproducidas; alfabeto observado 26, frente a 23 declarado; tres vistas cuantificadas y dos implementaciones concordantes. Sin nuevo EXP ni reinterpretación del manuscrito.

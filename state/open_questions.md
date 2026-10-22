@@ -1,3 +1,7 @@
+## Referencia de EXP259 — 22-10-2026
+
+[Diagnóstico reproducido](../research/maintenance/2026-10-22-reference-sensitivity/REPORT.md): ambas tablas de referencia coinciden con el archivo bilingüe; el inventario observado tiene 26 letras y no las 23 descritas. Quedan pendientes el control monolingüe de la misma obra y la conformidad del parser del manuscrito. No se han alterado compromisos ni tablas originales.
+
 ## Revisión de entradas bilingües — 2026-10-22
 
 La [auditoría de lectores](../research/maintenance/2026-10-22-loader-audit/REPORT.md) reproduce 96 funciones aisladas. EXP259/260 tokenizan el Cicero bilingüe sin separar idiomas; los filtros de otros scripts conservan material editorial e índices. Queda por medir el efecto sobre resultados y afirmaciones históricas y reproducir los consumidores revisados solo estáticamente. No se han reproducido las simulaciones ni modificado compromisos; no se afirma una contradicción numérica con sus salidas.
