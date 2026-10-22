@@ -136,3 +136,7 @@ Se añadió un análisis de sensibilidad descriptivo por folio sin asignar un nu
 ## Seguimiento sin ID nuevo — sensibilidad del lector, 22-10-2026
 
 [Informe y decisión](READER_SENSITIVITY_DECISION_2026-10-22.md). Rejilla descriptiva de 128 normalizaciones, bootstrap pareado del directorio completo `experiments/exp_601_folio_clustered_confirmation/` y sensibilidad del modelo `experiments/exp_607_heldout_bigram_prediction/`. No confundir el primer directorio con `experiments/exp_601_primary_statistic_paired_sensitivity/`. Los tres análisis conservan fuentes y resultados originales, y no ocupan otro número EXP.
+
+## BC-2026-10-22 — batería común, sin EXP numérico
+
+Ruta inequívoca: `experiments/common_battery_2026_10_22`; protocolo previo y comparación nueva. Estado **NEGATIVE** para discriminación de la primaria: también acepta permutaciones. 21 brazos, 201 evaluaciones; corpus latino/italiano de identidad documentada, inglés explícito, Naibbe fijado, copia propia y controles. Originales históricos intactos; tres alertas de umbral C001 pendientes de adjudicación en open_questions. [Informe y autoauditoría](../experiments/common_battery_2026_10_22/result.md). No duplicar auditor PR #2 ni asignar EXP mientras el cotejo con Biblioteca no sea completo.

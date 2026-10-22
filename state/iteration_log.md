@@ -567,3 +567,5 @@
 2026-10-22 — Auditoría de entradas históricas, sin EXP nuevo: 100 referencias Cicero; 96 lectores aislados reproducidos, seis secuencias, cuatro casos pendientes. Se preservan corpus y resultados. Informe: research/maintenance/2026-10-22-loader-audit/REPORT.md.
 
 2026-10-22 — Sensibilidad de referencia EXP259: 12 filas marginales y 11 condicionales históricas reproducidas; alfabeto observado 26, frente a 23 declarado; tres vistas cuantificadas y dos implementaciones concordantes. Sin nuevo EXP ni reinterpretación del manuscrito.
+
+- 2026-10-22 — BC-2026-10-22 (`experiments/common_battery_2026_10_22`): 21 brazos/201 evaluaciones con tokens y hashes; perfil primario no discrimina permutaciones, tres alertas C001 con soporte documentado; autoauditoría realizada y adjudicación pendiente, sin modificar resultados históricos.

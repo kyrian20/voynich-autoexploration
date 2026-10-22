@@ -269,3 +269,6 @@ jobs:
 
       - name: Auditar cobertura estructural de identificadores IVTFF
         run: python scripts/audit_ivtff_page_locus_ids.py
+
+      - name: Verificar contratos y archivo de batería común (no valida ciencia)
+        run: python tests/test_common_battery.py

@@ -1,0 +1,322 @@
+[
+  {
+    "brazo": "permutado_ZL3b_join",
+    "semilla": 17001,
+    "metrica": "am_ll",
+    "razon": 1.711764705882353,
+    "soporte": 30,
+    "finales_o_iniciales": 6,
+    "esperado_aleatorio": 3.5051546391752577,
+    "diagnostico": "Razón discreta en muestra finita; soporte/expectativa explícitos. No p confirmatorio ni evidencia mecanística."
+  },
+  {
+    "brazo": "permutado_IT2a_split",
+    "semilla": 17002,
+    "metrica": "am_ll",
+    "razon": 2.1051470588235293,
+    "soporte": 30,
+    "finales_o_iniciales": 7,
+    "esperado_aleatorio": 3.32518337408313,
+    "diagnostico": "Razón discreta en muestra finita; soporte/expectativa explícitos. No p confirmatorio ni evidencia mecanística."
+  },
+  {
+    "brazo": "generador_iid",
+    "semilla": 17003,
+    "metrica": "am_ll",
+    "razon": 4.573529411764706,
+    "soporte": 2,
+    "finales_o_iniciales": 1,
+    "esperado_aleatorio": 0.21864951768488747,
+    "diagnostico": "Razón discreta en muestra finita; soporte/expectativa explícitos. No p confirmatorio ni evidencia mecanística."
+  },
+  {
+    "brazo": "VMS_permutado",
+    "semilla": 17003,
+    "metrica": "am_ll",
+    "razon": 0.30490196078431375,
+    "soporte": 30,
+    "finales_o_iniciales": 1,
+    "esperado_aleatorio": 3.279742765273312,
+    "diagnostico": "Razón discreta en muestra finita; soporte/expectativa explícitos. No p confirmatorio ni evidencia mecanística."
+  },
+  {
+    "brazo": "permutado_ZL3b_join",
+    "semilla": 17003,
+    "metrica": "am_ll",
+    "razon": 0.5705882352941176,
+    "soporte": 30,
+    "finales_o_iniciales": 2,
+    "esperado_aleatorio": 3.5051546391752577,
+    "diagnostico": "Razón discreta en muestra finita; soporte/expectativa explícitos. No p confirmatorio ni evidencia mecanística."
+  },
+  {
+    "brazo": "VMS_permutado",
+    "semilla": 17004,
+    "metrica": "am_ll",
+    "razon": 1.8294117647058825,
+    "soporte": 30,
+    "finales_o_iniciales": 6,
+    "esperado_aleatorio": 3.279742765273312,
+    "diagnostico": "Razón discreta en muestra finita; soporte/expectativa explícitos. No p confirmatorio ni evidencia mecanística."
+  },
+  {
+    "brazo": "VMS_permutado",
+    "semilla": 17004,
+    "metrica": "y_lf",
+    "razon": 1.6209977661950854,
+    "soporte": 79,
+    "finales_o_iniciales": 14,
+    "esperado_aleatorio": 8.636655948553054,
+    "diagnostico": "Razón discreta en muestra finita; soporte/expectativa explícitos. No p confirmatorio ni evidencia mecanística."
+  },
+  {
+    "brazo": "VMS_permutado",
+    "semilla": 17005,
+    "metrica": "am_ll",
+    "razon": 0.30490196078431375,
+    "soporte": 30,
+    "finales_o_iniciales": 1,
+    "esperado_aleatorio": 3.279742765273312,
+    "diagnostico": "Razón discreta en muestra finita; soporte/expectativa explícitos. No p confirmatorio ni evidencia mecanística."
+  },
+  {
+    "brazo": "permutado_IT2a_split",
+    "semilla": 17005,
+    "metrica": "y_lf",
+    "razon": 0.508285004142502,
+    "soporte": 71,
+    "finales_o_iniciales": 4,
+    "esperado_aleatorio": 7.86960065199674,
+    "diagnostico": "Razón discreta en muestra finita; soporte/expectativa explícitos. No p confirmatorio ni evidencia mecanística."
+  },
+  {
+    "brazo": "permutado_IT2a_split",
+    "semilla": 17006,
+    "metrica": "y_lf",
+    "razon": 1.6519262634631315,
+    "soporte": 71,
+    "finales_o_iniciales": 13,
+    "esperado_aleatorio": 7.86960065199674,
+    "diagnostico": "Razón discreta en muestra finita; soporte/expectativa explícitos. No p confirmatorio ni evidencia mecanística."
+  },
+  {
+    "brazo": "VMS_permutado",
+    "semilla": 17007,
+    "metrica": "am_ll",
+    "razon": 0.6098039215686275,
+    "soporte": 30,
+    "finales_o_iniciales": 2,
+    "esperado_aleatorio": 3.279742765273312,
+    "diagnostico": "Razón discreta en muestra finita; soporte/expectativa explícitos. No p confirmatorio ni evidencia mecanística."
+  },
+  {
+    "brazo": "permutado_ZL3b_join",
+    "semilla": 17007,
+    "metrica": "am_ll",
+    "razon": 1.711764705882353,
+    "soporte": 30,
+    "finales_o_iniciales": 6,
+    "esperado_aleatorio": 3.5051546391752577,
+    "diagnostico": "Razón discreta en muestra finita; soporte/expectativa explícitos. No p confirmatorio ni evidencia mecanística."
+  },
+  {
+    "brazo": "permutado_IT2a_split",
+    "semilla": 17007,
+    "metrica": "am_ll",
+    "razon": 0.30073529411764705,
+    "soporte": 30,
+    "finales_o_iniciales": 1,
+    "esperado_aleatorio": 3.32518337408313,
+    "diagnostico": "Razón discreta en muestra finita; soporte/expectativa explícitos. No p confirmatorio ni evidencia mecanística."
+  },
+  {
+    "brazo": "VMS_permutado",
+    "semilla": 17008,
+    "metrica": "am_ll",
+    "razon": 0.30490196078431375,
+    "soporte": 30,
+    "finales_o_iniciales": 1,
+    "esperado_aleatorio": 3.279742765273312,
+    "diagnostico": "Razón discreta en muestra finita; soporte/expectativa explícitos. No p confirmatorio ni evidencia mecanística."
+  },
+  {
+    "brazo": "permutado_ZL3b_join",
+    "semilla": 17008,
+    "metrica": "am_ll",
+    "razon": 0.5705882352941176,
+    "soporte": 30,
+    "finales_o_iniciales": 2,
+    "esperado_aleatorio": 3.5051546391752577,
+    "diagnostico": "Razón discreta en muestra finita; soporte/expectativa explícitos. No p confirmatorio ni evidencia mecanística."
+  },
+  {
+    "brazo": "permutado_ZL3b_join",
+    "semilla": 17008,
+    "metrica": "y_lf",
+    "razon": 0.48218724109362054,
+    "soporte": 71,
+    "finales_o_iniciales": 4,
+    "esperado_aleatorio": 8.29553264604811,
+    "diagnostico": "Razón discreta en muestra finita; soporte/expectativa explícitos. No p confirmatorio ni evidencia mecanística."
+  },
+  {
+    "brazo": "permutado_IT2a_split",
+    "semilla": 17008,
+    "metrica": "am_ll",
+    "razon": 2.1051470588235293,
+    "soporte": 30,
+    "finales_o_iniciales": 7,
+    "esperado_aleatorio": 3.32518337408313,
+    "diagnostico": "Razón discreta en muestra finita; soporte/expectativa explícitos. No p confirmatorio ni evidencia mecanística."
+  },
+  {
+    "brazo": "VMS_permutado",
+    "semilla": 17010,
+    "metrica": "am_ll",
+    "razon": 2.134313725490196,
+    "soporte": 30,
+    "finales_o_iniciales": 7,
+    "esperado_aleatorio": 3.279742765273312,
+    "diagnostico": "Razón discreta en muestra finita; soporte/expectativa explícitos. No p confirmatorio ni evidencia mecanística."
+  },
+  {
+    "brazo": "VMS_permutado",
+    "semilla": 17010,
+    "metrica": "y_lf",
+    "razon": 1.736783320923306,
+    "soporte": 79,
+    "finales_o_iniciales": 15,
+    "esperado_aleatorio": 8.636655948553054,
+    "diagnostico": "Razón discreta en muestra finita; soporte/expectativa explícitos. No p confirmatorio ni evidencia mecanística."
+  },
+  {
+    "brazo": "permutado_IT2a_split",
+    "semilla": 17010,
+    "metrica": "am_ll",
+    "razon": 1.8044117647058824,
+    "soporte": 30,
+    "finales_o_iniciales": 6,
+    "esperado_aleatorio": 3.32518337408313,
+    "diagnostico": "Razón discreta en muestra finita; soporte/expectativa explícitos. No p confirmatorio ni evidencia mecanística."
+  },
+  {
+    "brazo": "VMS_permutado",
+    "semilla": 17011,
+    "metrica": "y_lf",
+    "razon": 1.5052122114668651,
+    "soporte": 79,
+    "finales_o_iniciales": 13,
+    "esperado_aleatorio": 8.636655948553054,
+    "diagnostico": "Razón discreta en muestra finita; soporte/expectativa explícitos. No p confirmatorio ni evidencia mecanística."
+  },
+  {
+    "brazo": "permutado_ZL3b_join",
+    "semilla": 17011,
+    "metrica": "am_ll",
+    "razon": 0.5705882352941176,
+    "soporte": 30,
+    "finales_o_iniciales": 2,
+    "esperado_aleatorio": 3.5051546391752577,
+    "diagnostico": "Razón discreta en muestra finita; soporte/expectativa explícitos. No p confirmatorio ni evidencia mecanística."
+  },
+  {
+    "brazo": "permutado_ZL3b_join",
+    "semilla": 17011,
+    "metrica": "y_lf",
+    "razon": 1.5671085335542667,
+    "soporte": 71,
+    "finales_o_iniciales": 13,
+    "esperado_aleatorio": 8.29553264604811,
+    "diagnostico": "Razón discreta en muestra finita; soporte/expectativa explícitos. No p confirmatorio ni evidencia mecanística."
+  },
+  {
+    "brazo": "permutado_IT2a_split",
+    "semilla": 17011,
+    "metrica": "am_ll",
+    "razon": 0.6014705882352941,
+    "soporte": 30,
+    "finales_o_iniciales": 2,
+    "esperado_aleatorio": 3.32518337408313,
+    "diagnostico": "Razón discreta en muestra finita; soporte/expectativa explícitos. No p confirmatorio ni evidencia mecanística."
+  },
+  {
+    "brazo": "generador_iid",
+    "semilla": 17012,
+    "metrica": "am_ll",
+    "razon": 4.573529411764706,
+    "soporte": 2,
+    "finales_o_iniciales": 1,
+    "esperado_aleatorio": 0.21864951768488747,
+    "diagnostico": "Razón discreta en muestra finita; soporte/expectativa explícitos. No p confirmatorio ni evidencia mecanística."
+  },
+  {
+    "brazo": "VMS_permutado",
+    "semilla": 17013,
+    "metrica": "y_lf",
+    "razon": 1.6209977661950854,
+    "soporte": 79,
+    "finales_o_iniciales": 14,
+    "esperado_aleatorio": 8.636655948553054,
+    "diagnostico": "Razón discreta en muestra finita; soporte/expectativa explícitos. No p confirmatorio ni evidencia mecanística."
+  },
+  {
+    "brazo": "permutado_ZL3b_join",
+    "semilla": 17013,
+    "metrica": "am_ll",
+    "razon": 0.2852941176470588,
+    "soporte": 30,
+    "finales_o_iniciales": 1,
+    "esperado_aleatorio": 3.5051546391752577,
+    "diagnostico": "Razón discreta en muestra finita; soporte/expectativa explícitos. No p confirmatorio ni evidencia mecanística."
+  },
+  {
+    "brazo": "VMS_permutado",
+    "semilla": 17014,
+    "metrica": "y_lf",
+    "razon": 1.5052122114668651,
+    "soporte": 79,
+    "finales_o_iniciales": 13,
+    "esperado_aleatorio": 8.636655948553054,
+    "diagnostico": "Razón discreta en muestra finita; soporte/expectativa explícitos. No p confirmatorio ni evidencia mecanística."
+  },
+  {
+    "brazo": "permutado_ZL3b_join",
+    "semilla": 17014,
+    "metrica": "am_ll",
+    "razon": 0.5705882352941176,
+    "soporte": 30,
+    "finales_o_iniciales": 2,
+    "esperado_aleatorio": 3.5051546391752577,
+    "diagnostico": "Razón discreta en muestra finita; soporte/expectativa explícitos. No p confirmatorio ni evidencia mecanística."
+  },
+  {
+    "brazo": "permutado_ZL3b_join",
+    "semilla": 17014,
+    "metrica": "y_lf",
+    "razon": 1.5671085335542667,
+    "soporte": 71,
+    "finales_o_iniciales": 13,
+    "esperado_aleatorio": 8.29553264604811,
+    "diagnostico": "Razón discreta en muestra finita; soporte/expectativa explícitos. No p confirmatorio ni evidencia mecanística."
+  },
+  {
+    "brazo": "generador_iid",
+    "semilla": 17016,
+    "metrica": "y_lf",
+    "razon": 1.5295081967213116,
+    "soporte": 305,
+    "finales_o_iniciales": 51,
+    "esperado_aleatorio": 33.344051446945336,
+    "diagnostico": "Razón discreta en muestra finita; soporte/expectativa explícitos. No p confirmatorio ni evidencia mecanística."
+  },
+  {
+    "brazo": "VMS_permutado",
+    "semilla": 17016,
+    "metrica": "am_ll",
+    "razon": 0.6098039215686275,
+    "soporte": 30,
+    "finales_o_iniciales": 2,
+    "esperado_aleatorio": 3.279742765273312,
+    "diagnostico": "Razón discreta en muestra finita; soporte/expectativa explícitos. No p confirmatorio ni evidencia mecanística."
+  }
+]

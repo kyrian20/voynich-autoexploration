@@ -2,6 +2,8 @@
 
 Repositorio de trabajo: `kyrian20/voynich-autoexploration` (rama `master`).
 
+La [batería común lenguaje/cifrado/generación](experiments/common_battery_2026_10_22/result.md) conserva EXP-170 y publica protocolo, tokens y resultados nuevos. Su primaria no discrimina barajados; no valida una teoría del manuscrito.
+
 ## Estado operativo actual — 22 octubre 2026
 
 **Cuatro lectores restantes reproducidos:** [selección efectiva de EXP-267/288/001/170 y defecto de coordenadas de EXP-001](research/maintenance/2026-10-22-remaining-readers/REPORT.md). Coincidencia de secuencias, hashes y seis controles en CI; las entradas bilingües o inglesas siguen excluidas como bases monolingües latinas. No valida los experimentos completos.
