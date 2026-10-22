@@ -1,8 +1,11 @@
 #!/usr/bin/env python3
 """Regression test for EXP-590 coverage of valid IVTFF page identifiers."""
 from pathlib import Path
+import sys
 import tempfile
 
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT))
 from scripts.exp590_daiin_position import load_lines
 
 
