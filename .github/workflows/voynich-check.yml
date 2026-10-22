@@ -75,3 +75,6 @@ jobs:
 
       - name: Validar metadatos Currier desde IVTFF
         run: python scripts/audit_ivtff_metadata.py
+
+      - name: Inventariar spans entre llaves sin alterar resultados
+        run: python scripts/audit_ivtff_brace_spans.py
