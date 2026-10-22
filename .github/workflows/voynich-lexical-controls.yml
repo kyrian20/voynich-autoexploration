@@ -11,7 +11,7 @@ on:
 permissions:
   contents: write
 concurrency:
-  group: voynich-lexical-controls
+  group: voynich-master-writes
   cancel-in-progress: false
 jobs:
   lexical-controls:
