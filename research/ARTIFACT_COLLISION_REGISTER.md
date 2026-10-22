@@ -133,7 +133,7 @@ Together with the previously confirmed EXP-590, EXP-593 and EXP-623 cross-surfac
 
 ### Remaining triage
 
-- The full overlap set contains 34 IDs; 23 other overlapping groups still need title/protocol review before classification.
+- En el checkpoint inicial quedaban 23 grupos por revisar. Las pasadas posteriores completan el triage semántico de los 34 IDs compartidos; esto no sustituye el cotejo binario de archivos ni la trazabilidad de cada resultado.
 - Seven duplicated GitHub experiment-folder IDs remain historical collisions: 177, 594, 596, 597, 600, 601 and 602.
 - The selected SHA-256 manifest covers ten Library files only. Full file-by-file content hashing and GitHub counterpart pairing remains outstanding.
 - No file has been renamed, merged, deleted, or overwritten. No new EXP ID has been allocated.
@@ -171,3 +171,21 @@ Se revisaron títulos de informes de la Biblioteca y los protocolos/resultados d
 - Los experimentos GitHub 608–621 forman una secuencia relacionada sobre el contexto de ch/sh, pero los tests de sensibilidad no equivalen a réplicas independientes. La síntesis de EXP-621 declara expresamente pendientes el holdout por sección, la revisión completa de multiplicidad y la auditoría independiente del parser.
 - La suma acumulada de mismatches semánticos identificados en el registro pasa de 11 a 28. La revisión de los restantes solapamientos, las comparaciones de hashes de contenido y la trazabilidad exacta script→JSON→informe siguen pendientes.
 - No se han renombrado, fusionado, borrado ni sobrescrito archivos históricos; no se ha asignado ningún EXP ID nuevo.
+
+
+## Cierre del triage semántico de los 34 IDs compartidos — 2026-10-22
+
+La revisión de los casos restantes añade estos seis IDs al registro de diferencias de tema/método:
+
+| ID | Tema Biblioteca | Tema GitHub | Clasificación / acción segura |
+|---|---|---|---|
+| EXP-589 | Entropía de etiquetas / informe de entropía léxica | Posición inicial de `daiin` con nulo de permutación por línea | Preguntas distintas; no transferir resultados |
+| EXP-594 | Sensibilidad a incertidumbre y multiplicidad | Marcadores explícitos de inicio de párrafo IVTFF (además existe una segunda carpeta GH-EXP-594 de inicio de párrafo) | No asumir identidad por número; revisar cada carpeta por separado |
+| EXP-596 | Nulo de longitud exacta | Controles posicionales de `daiin` y auditoría pareada ZL3a/ZL3b en dos carpetas distintas | Preguntas distintas; mantener las dos rutas GH separadas |
+| EXP-597 | Adyacencia de prefijos/sufijos | Contexto del token siguiente tras formas iniciales y, en otra carpeta, controles de frecuencia de `daiin` | Preguntas distintas; no fusionar carpetas ni resultados |
+| EXP-622 | Control zodiacal del orden de palabras | Interacción de especificidad contextual ch/sh (contraste siguiente frente a anterior) | Preguntas distintas; no usar como replicación de orden de palabras |
+| EXP-624 | Auditoría de metadatos y control posicional con artefactos separados | Nota de discrepancia de parser y gate de predicción Currier A/B | Preguntas distintas; no asociar por número |
+
+Con estas seis incorporaciones y las 28 diferencias documentadas antes, **los 34 grupos con ID compartido han sido revisados semánticamente y los 34 tienen una discrepancia de pregunta, método o alcance**. Este resultado significa que el número EXP no es una clave de unión fiable entre Biblioteca y GitHub. No significa que todos los experimentos sean erróneos ni que se haya demostrado que sus archivos son distintos byte a byte.
+
+**Pendiente por separado:** comparación SHA-256 de contenido para los pares candidatos; comprobar las asociaciones exactas entre scripts, JSON e informes; ejecutar las reproducciones que aún no se han ejecutado (en especial las dos pruebas piloto de orden de palabras LIB-EXP-623); y revisar los siete IDs de carpetas duplicadas internamente en GitHub. Ningún original se ha renombrado, fusionado, borrado o sobrescrito y no se ha asignado un ID nuevo.
