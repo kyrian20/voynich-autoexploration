@@ -2,7 +2,7 @@
   "experiment": "EXP-590",
   "title": "daiin line-initial positional baseline",
   "date_utc": "2026-10-22",
-  "source": "/home/runner/work/voynich-autoexploration/voynich-autoexploration/data/transcriptions/eva_zl3b.txt",
+  "source": "data/transcriptions/eva_zl3b.txt",
   "source_sha256": "bf5b6d4ac1e3a51b1847a9c388318d609020441ccd56984c901c32b09beccafc",
   "tokenization": "lowercase ASCII alphabetic runs after removing IVTFF tags, braces and square-bracket annotations",
   "target": "daiin",
@@ -38,8 +38,8 @@
   "permutation_test": {
     "permutations": 5000,
     "seed": 20261020,
-    "null_mean_initial_lines": 109.1582,
-    "null_sd_initial_lines": 9.355339264826263,
+    "null_mean_initial_lines": 109.1214,
+    "null_sd_initial_lines": 9.314948311182407,
     "empirical_one_sided_p": 0.0001999600079984003,
     "null_ge_observed": 0,
     "interpretation": "Exploratory positional test; not a decipherment claim."
