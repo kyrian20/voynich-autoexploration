@@ -195,3 +195,9 @@ Se recalculó el inventario directamente desde el árbol recursivo de `master` (
 - La prueba de tokens existente cubre comentarios, alternativas primarias, alternativas vacías, anotaciones entre llaves, marcadores `@n`, marcadores de párrafo/dibujo y corchetes malformados. Aún se necesita ampliar las fixtures independientes y contrastarlas con el documento oficial antes de considerar cerrada la conformidad.
 - No iniciar todavía una clasificación confirmatoria Currier A/B: primero completar fixtures de formato, validar las etiquetas `$L` y mantener todos los folios enteros dentro de una sola partición de evaluación.
 
+## Hallazgo de auditoría IVTFF: ligaduras entre llaves — 2026-10-22
+
+La inspección de las dos funciones de tokenización usadas en EXP-602 (`tokens_regex` y `tokens_scanner`) detectó una limitación compartida: ambas eliminan todo el contenido `{…}`. IVTFF 2.0.2 §6.6 describe las llaves como ligaduras de caracteres Voynichese, por lo que no deben equipararse automáticamente a comentarios genéricos. La prueba actual solo acredita que los parsers coinciden en esta transformación; no acredita que conserve toda la información textual. Se documentó el riesgo y el criterio de validación en [la política de tokenización IVTFF](ivtff_tokenization_policy_2026-10-20.md).
+
+**Acción preventiva:** no cambiar retroactivamente los resultados ni proclamar que la conformidad del parser está cerrada. Antes de usar estos tokens para análisis confirmatorios, crear fixtures adjudicadas para ligaduras, conservar el texto bruto y comparar la política histórica de exclusión con una representación que preserve la ligadura; cuantificar cuántas filas, tokens y estadísticas cambian. El cero desacuerdo de EXP-602 v7 debe leerse como acuerdo entre dos implementaciones bajo una normalización compartida, no como conformidad oficial completa.
+
