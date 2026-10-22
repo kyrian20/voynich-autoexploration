@@ -4,7 +4,9 @@ on:
   workflow_dispatch:
   push:
     paths:
-      - "experiments/exp_601_folio_clustered_confirmation/**"
+      - "experiments/exp_601_folio_clustered_confirmation/script.py"
+      - "data/transcriptions/eva_zl3b.txt"
+      - ".github/workflows/voynich-folio-clustered-confirmation.yml"
       - "data/transcriptions/eva_zl3b.txt"
       - ".github/workflows/voynich-folio-clustered-confirmation.yml"
 
@@ -12,7 +14,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: voynich-folio-clustered-confirmation
+  group: voynich-master-writes
   cancel-in-progress: false
 
 jobs:
