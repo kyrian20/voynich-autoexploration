@@ -12,8 +12,8 @@ on:
 permissions:
   contents: write
 
-# Shared group: use this same name in every workflow that writes to master.
-# This pilot only serializes with other workflows after they adopt the same group.
+# Per-workflow concurrency prevents overlapping runs of this workflow only.
+# Cross-workflow push races are handled by the bounded rebase/push retry below.
 concurrency:
   group: voynich-exp603
   cancel-in-progress: false
