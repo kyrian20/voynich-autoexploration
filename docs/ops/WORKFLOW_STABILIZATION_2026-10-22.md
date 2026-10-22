@@ -40,3 +40,12 @@ During validation, the first edits exposed duplicated path entries; EXP-602 had 
 - EXP-602: `6ce6a864d4c3432cfe335b73ba99a21b54953c8a`
 
 The trigger files have been re-fetched after correction. Their new post-fix workflow runs must complete before marking all four fully validated. No scientific result files were deleted or modified as part of this workflow cleanup.
+
+
+## EXP-602 follow-up — verified 2026-10-22
+
+The apparent EXP-602 failures at runs `39714457080`, `39714486884`, `39714490804`, and `39714495615` had no jobs started; they corresponded to workflow YAML/configuration revisions during the rapid stabilization commits, not failures inside the scientific Python test. The corrected workflow run `39714499934` completed successfully: compile-check, held-out prediction, artifact upload, and generated-result commit all passed. General repository check `39714508491` also passed.
+
+The scientific result itself is negative for the predeclared primary claim. On the 528 held-out Currier B P0 lines across 21 held-out folios, the train-only global start probability for `daiin` has log-loss gain `-0.0813` versus the conditional inventory baseline; the folio-cluster bootstrap 95% interval is `[-0.1117, -0.0564]`, with bootstrap probability of positive gain 0.0. Brier gain is `-0.0080`. The declared decision rule is therefore not met: this simple model does not demonstrate predictive improvement. Important limitation: the comparison baseline uses each held-out line's token inventory and is a conditional null, not a deployable prediction system. This is not evidence for a semantic decipherment.
+
+No scientific outputs were changed during this documentation update.
