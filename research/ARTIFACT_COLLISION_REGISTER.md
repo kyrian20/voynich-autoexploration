@@ -88,3 +88,16 @@ A direct read of the two Library reports confirms that the EXP-623 label masks t
 - The two Library reports alone are insufficient to reproduce either result. The associated scripts and JSON outputs must be paired to their exact report, checked for corpus/parser hashes, and rerun before either is marked reproduced. This check did not calculate content hashes, modify Library files, or rename anything.
 
 This remains a partial cross-surface check. The Library listing for `/Investigación Voynich/` is paginated and the returned first page is not a complete inventory; full reconciliation still requires paging every item and comparing materialized content hashes with GitHub blobs.
+
+
+## Scoped hash and cross-surface identity checkpoint — 2026-10-22
+
+Raw Library bytes for the priority set were materialized and SHA-256 hashed. Values and sizes are in [library_artifact_sha256_manifest_2026-10-22.md](library_artifact_sha256_manifest_2026-10-22.md). This is a scoped content manifest, not a full pairwise hash comparison with GitHub.
+
+Additional same-number/different-question cases are now confirmed by directly reading both sides:
+
+- `LIB-EXP-590-EXTERNAL-MODELS` — `Voynich_Informe_exp590_Auditoria_Modelos_Externos_2026-10-18.md` is an audit of external models. GitHub `experiments/exp_590_daiin_section_stratification/` instead tests `daiin` initial-position enrichment across coarse folio-number ranges. These are different research questions and must not be treated as matching EXP-590 artifacts.
+- `LIB-EXP-593-ZODIAC-DENOMINATORS` — `Voynich_Informe_exp593_Denominadores_Zodiacales_2026-10-18.md` and its Library JSON/script concern zodiac denominators/reconciliation. GitHub `experiments/exp_593_daiin_line_metadata_contrast/` instead compares initial `daiin` across IVTFF locator categories. Separately, GitHub's dated `research/experiments/2026-10-22-exp593-corrected-L-metadata.*` is a corrected-`L)-metadata analysis of `daiin) variants, also not the Library zodiac report.
+- These are alias/ID namespace collisions, not proof that any one artifact is false. Preserve all originals and use descriptive stable aliases in cross-surface records.
+
+The Library listing has now been fully paged (501 items across six pages, no listing warnings). The remaining gap is not listing completeness but content-level mapping: verify exact script/JSON/report relationships, compare candidate GitHub and Library bytes, and trace each result to corpus/parser hashes. No original was edited, no EXP folder was renamed, and no new ID was allocated.
