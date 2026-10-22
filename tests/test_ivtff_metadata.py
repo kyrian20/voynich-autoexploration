@@ -78,6 +78,12 @@ def check_brace_inventory() -> None:
     assert report["distinct_contents"] == 2, report
     assert report["ignored_hash_comment_lines"] == 1, report
 
+    # IVTFF 2.0.2 §6.6 requires each ligature to close on the same line.
+    cross_line = audit_text("{open\\nclose}")
+    assert cross_line["brace_span_count"] == 0, cross_line
+    assert cross_line["unmatched_open_brace_count"] == 1, cross_line
+    assert cross_line["unmatched_close_brace_count"] == 1, cross_line
+
 
 def main() -> None:
     # $L wins even when $Q contradicts it; $Q means quire, not Currier language.
