@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "source_commit": "465b2cf05ce1d5715f93894e16dd5c9b5d9753af",
+  "scope": "Static claim-to-reader adjudication plus synthetic mathematical counterexample; no historical metric replay",
+  "historical_script_sha256": "91cb9febee7752d56fe91eeaa43155590b405b46cdd18330acb9271fd7816f59",
+  "historical_report_git_blob_sha1": "2feb8c7dbb268f46d6a7995ddd2c15a76f6bd907",
+  "reference_corpus_sha256": "d63b1b81824e259b1cf92ba8a6e5cbbf783e2a83214cf2c3db2ecd1459165bfe",
+  "reference_selected_units": 991553,
+  "reference_unit": "tokens",
+  "reference_language": "English",
+  "archived_vms_h_initial_bits": 3.137,
+  "archived_vms_h2_bits": 2.341,
+  "archived_latin_label_h_initial_bits": 3.978,
+  "claim_status": {
+    "latin_vulgate_as_monolingual_latin": "INVALID_FOR_CLAIM",
+    "h_initial_minus_h2_proves_lexicon_or_excludes_nonsemantic_generators": "NOT_ENTAILED_BY_STATISTIC",
+    "voynich_archived_values": "NOT_REPRODUCED_IN_THIS_AUDIT"
+  },
+  "synthetic_control": {
+    "generator": "fixed four-symbol onset cycle plus repeated z suffix",
+    "repeats": 128,
+    "suffix_length": 8,
+    "words": 512,
+    "input_sha256": "edd63e1a21774aa14e2ba7d9729f41baaed58b6abd90e252adbc412cd36fb075",
+    "h_initial_bits": 2,
+    "historical_h2_bits": 0.704577821,
+    "gap_bits": 1.295422179
+  }
+}
