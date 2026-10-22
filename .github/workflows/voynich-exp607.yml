@@ -4,7 +4,9 @@ on:
   workflow_dispatch:
   push:
     paths:
-      - 'experiments/exp_607_heldout_bigram_prediction/**'
+      - 'experiments/exp_607_heldout_bigram_prediction/script.py'
+      - 'data/transcriptions/eva_zl3b.txt'
+      - 'data/transcriptions/eva_it2a.txt'
       - '.github/workflows/voynich-exp607.yml'
 
 permissions:
