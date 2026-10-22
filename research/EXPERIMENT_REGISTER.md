@@ -70,3 +70,12 @@ Los workflows EXP-604–611 incluyen ahora publicación con fetch/rebase y hasta
 El árbol recursivo completo de GitHub confirma 7 colisiones de IDs en carpetas top-level: EXP-177, 594, 596, 597, 600, 601 y 602. Los pares exactos y el método de conteo están en [la auditoría de estabilización del 22-10-2026](stabilization_audit_2026-10-22.md). El árbol tiene 624 carpetas top-level de experimento y 617 IDs distintos; la carpeta combinada `exp_613_615_ch_sh_inference_sensitivity` y los huecos aparentes 29, 571, 614 y 615 requieren cotejo con la historia, no reasignación automática.
 
 **Bloqueo vigente:** no reservar ni renumerar nuevos EXP, no borrar ni fusionar carpetas históricas y no interpretar el número de carpeta como identificador global entre GitHub y Biblioteca hasta completar el cotejo de referencias, commits y hashes. En el trabajo cruzado, usar alias `GH-...` y `LIB-...` descriptivos.
+
+
+## Auditoría técnica de ligaduras y cobertura IVTFF (22-10-2026)
+
+- [Informe descriptivo reproducido en CI](ivtff_ligature_view_sensitivity_inventory_2026-10-22.md): compara política histórica, ligadura atómica y expansión derivada; no tiene ID EXP porque la reconciliación de numeración sigue pendiente.
+- La especificación IVTFF 2.0.2 §6.6 define `{…}` como ligadura. En cobertura amplia, ZL3b/ZL3a contienen 446/444 spans; 44/45 están dentro de anotaciones cuadradas eliminadas por la política histórica de incertidumbre. La vista expandida cambia `daiin` de 853 a 852 en cada una de esas transcripciones, sin cambiar el número de líneas iniciales en esta auditoría descriptiva.
+- Se detectó una diferencia de cobertura independiente: el patrón de EXP-590 no reconoce IDs como `f67r1.5` o `fRos.23`. Su salida histórica se reproduce exactamente (ZL3b: 4.188 líneas con tokens, 32.732 tokens, 726 `daiin`, 133 líneas iniciales); la vista amplia recoge 5.385 registros de texto. No sobrescribir EXP-590. Antes de regenerar resultados, validar la gramática oficial de IDs IVTFF y decidir explícitamente el universo de registros.
+- Nuevos scripts/tests: `scripts/audit_ivtff_brace_spans.py`, `scripts/audit_ivtff_ligature_views.py`, `tests/test_ivtff_ligature_views.py`. La auditoría de ligaduras y cobertura pasa por el workflow [run 563](https://github.com/kyrian20/voynich-autoexploration/actions/runs/39738683050).
+- Próxima acción: validar los identificadores de línea contra la especificación IVTFF y añadir una comparación de cobertura con EXP-602. Mantener todos los EXP históricos sin cambios hasta que esa adjudicación esté documentada.
