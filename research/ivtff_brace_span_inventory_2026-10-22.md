@@ -32,3 +32,10 @@ ZL3b y ZL3a comparten los contenidos más frecuentes: `ikh` (36 en ambas), `ckhh
 ## Reproducibilidad
 
 El script `scripts/audit_ivtff_brace_spans.py` realiza el inventario no destructivo y se ha incorporado al workflow `Voynich Check`. Las pruebas de regresión también verifican que las líneas de comentarios editoriales se excluyan. El resultado de CI debe quedar en estado `success` antes de considerar validada la integración.
+
+
+## Adjudicación normativa — 2026-10-22
+
+La consulta de la especificación oficial IVTFF 2.0.2, §6.6, tabla 10, confirma que las llaves delimitan una **ligadura de caracteres Voynichese**, no un comentario: https://www.voynich.nu/software/ivtt/IVTFF_format.pdf. El propio documento ofrece ejemplos en §8 como `yka{ckh'h}` y `{y'}`. Por tanto, los 446 spans de ZL3b y los 444 de ZL3a son anotaciones de ligadura según la convención declarada por el formato; no deben interpretarse como texto editorial ni eliminarse sin dejar rastro.
+
+La cuestión aún abierta es analítica: si un experimento requiere caracteres individuales, ¿debe expandir el contenido de la ligadura, tratarla como una unidad indivisible, o comparar ambas vistas? La especificación define la representación, pero no determina qué representación es óptima para todas las preguntas estadísticas. El siguiente paso es un análisis de sensibilidad versionado, conservando el texto bruto y sin reescribir EXP históricos.
