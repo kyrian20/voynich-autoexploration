@@ -17,7 +17,7 @@ on:
 permissions:
   contents: write
 
-# Shared group with exp603: serializes these two master-writing workflows.
+# Per-workflow concurrency serializes this workflow only; other writers use separate groups.
 concurrency:
   group: voynich-agent
   cancel-in-progress: false
