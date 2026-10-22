@@ -13,7 +13,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: voynich-master-writes
+  group: voynich-position-controls
   cancel-in-progress: false
 
 jobs:
