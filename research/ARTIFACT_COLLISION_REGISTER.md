@@ -110,3 +110,30 @@ The scoped manifest now records a content-level method association for the two L
 - `LIB-ORDER-2026-10-19-B` pairs by method with `exp623_order_null_summary.json` and `exp623_order_null.py` (interior-only shuffle preserving endpoints; 10 splits × 39 nulls).
 
 This resolves the intended report/JSON/script mapping at the protocol level, but **does not verify that either Python script generated the recorded pilot output**: both reports describe exploratory JavaScript pilot results, and their Python implementations were not run in GitHub Actions. Reproduction requires executing the exact scripts against the recorded transcription versions and comparing outputs. Keep both analyses exploratory and separate from GH-EXP-623.
+
+
+## Priority cross-surface EXP namespace triage — 2026-10-22
+
+A fresh inventory compared all 501 Library entries with the current 2,122-entry GitHub tree. **34 EXP-number groups occur on both surfaces.** This is a candidate set for semantic/provenance review, not 34 proven byte-level duplicates. The Library listing is complete; content-level pairing is not.
+
+### Additional question-level mismatches confirmed from Library titles and GitHub experiment protocols
+
+| ID | Library artifact topic | GitHub experiment topic | Status / safe action |
+|---|---|---|---|
+| EXP-591 | Sensitivity to line length | Exact IVTFF body-locus subtype stratification | Different question; keep separate |
+| EXP-592 | Zodiac-label replication | Leave-one-folio-out influence audit for `daiin` | Different question; keep separate |
+| EXP-595 | Re-grouping signs | Replication of explicit paragraph-marker findings in ZL3a | Different question; keep separate |
+| EXP-598 | Inter-transcriber audit (`Lz`) | Two-token successor context after line-initial forms | Different question; keep separate |
+| EXP-599 | Zodiac beginnings audit | Marginal successor distributions at offsets +1/+2 | Different question; keep separate |
+| EXP-600 | Zodiac comparison ZL3b/IT2a | GitHub has two separate IDs under this number: IVTFF parser conformance and transcription concordance | Namespace collision already present inside GitHub; do not assign Library files by number |
+| EXP-601 | Comparison of 299 RF1b/ZL3b/IT2a labels | Folio-clustered confirmation and paired positional-statistic sensitivity | Different question; keep separate |
+| EXP-602 | Sign-based positional heterogeneity | Held-out predictive test and independent IVTFF parser audit | Different question; keep separate |
+
+Together with the previously confirmed EXP-590, EXP-593 and EXP-623 cross-surface mismatches, these give **11 question-level mismatches identified so far**. For these cases, shared numeric labels must not be treated as identity. This does not mean any report is false; it means the number alone is not a reliable join key.
+
+### Remaining triage
+
+- The full overlap set contains 34 IDs; 23 other overlapping groups still need title/protocol review before classification.
+- Seven duplicated GitHub experiment-folder IDs remain historical collisions: 177, 594, 596, 597, 600, 601 and 602.
+- The selected SHA-256 manifest covers ten Library files only. Full file-by-file content hashing and GitHub counterpart pairing remains outstanding.
+- No file has been renamed, merged, deleted, or overwritten. No new EXP ID has been allocated.
