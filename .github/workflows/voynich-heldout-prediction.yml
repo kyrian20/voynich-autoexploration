@@ -5,8 +5,6 @@ on:
     paths:
       - "experiments/exp_602_heldout_predictive_test/script.py"
       - "data/transcriptions/eva_zl3b.txt"
-      - ".github/workflows/voynich-heldout-prediction.yml""
-      - "data/transcriptions/eva_zl3b.txt"
       - ".github/workflows/voynich-heldout-prediction.yml"
 permissions:
   contents: write
