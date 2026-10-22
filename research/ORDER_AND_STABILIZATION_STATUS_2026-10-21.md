@@ -137,3 +137,29 @@ La inspección fue estática y de cobertura de patrones; no demuestra que los 30
 - **Voynich Autonomous Research #26**, run [39736658859](https://github.com/kyrian20/voynich-autoexploration/actions/runs/39736658859), commit `9ff40c4ca3dbbc8da9158703ad8606936d76e01b`: seguía `in_progress` en la consulta de las 06:52 UTC; no se declara aprobado hasta comprobar su conclusión.
 
 No se ha creado ningún EXP, no se han renumerado experimentos ni se han eliminado o renombrado históricos en esta auditoría.
+
+
+## Revisión científica de resultados ch/sh — 2026-10-22
+
+Se compararon los resultados JSON y los informes versionados de EXP-622 y EXP-623 disponibles en `research/experiments/`. Estos son los resultados actualmente guardados en `master`; no deben confundirse con el cierre de la ejecución autónoma #26, que seguía en curso durante la consulta.
+
+| Métrica | EXP-622 (ZL3b) | EXP-623 (IT2a) |
+|---|---:|---:|
+| Ocurrencias con caracteres a ambos lados | 5.162 | 5.374 |
+| Estratos emparejados | 472 | 485 |
+| Folios representados | 144 | 149 |
+| Interacción (contraste posterior menos anterior) | +0,00530 | −0,00911 |
+| Permutaciones | 10.000 | 10.000 |
+| p bilateral por permutación | 0,82342 | 0,69003 |
+
+### Conclusión limitada
+
+Ninguno de estos resultados aporta evidencia estadística de una interacción ch/sh distinta de cero bajo el nulo de permutación empleado. Además, la estimación cambia de signo entre ZL3b e IT2a. Por tanto, **no se sostiene la afirmación de que el contraste ch/sh sea específicamente mayor después del dígrafo que antes** con estas pruebas. Esto no demuestra que el manuscrito carezca de estructura ni resuelve su desciframiento; solo limita esta hipótesis concreta bajo este análisis exploratorio.
+
+Ambos análisis usan un parser deliberadamente sencillo y un emparejamiento que no elimina todo posible confusor léxico. Antes de convertirlo en evidencia confirmatoria hacen falta pruebas de conformidad IVTFF independientes y un diseño preregistrado. ZL3b e IT2a son transcripciones alternativas del mismo manuscrito, no dos manuscritos independientes.
+
+### Protección de identidad y estado
+
+El árbol recursivo actual de GitHub devuelve 2.127 rutas y 624 carpetas `experiments/exp_NNN_…`, correspondientes a 617 IDs numéricos únicos. Se vuelven a observar siete colisiones de ID: 177, 594, 596, 597, 600, 601 y 602. Se conservan como hallazgos de inventario; no se fusiona, renombra ni elimina ninguna carpeta sin rastrear antes sus referencias históricas.
+
+La ejecución autónoma #26 había completado EXP-590, EXP-593 y EXP-622 con éxito y estaba ejecutando EXP-623 cuando se consultó. Su resultado final y la publicación de artefactos siguen pendientes de confirmación en Actions.
