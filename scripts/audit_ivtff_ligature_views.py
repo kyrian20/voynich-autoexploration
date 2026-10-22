@@ -144,6 +144,7 @@ def audit_source(label: str, path: Path) -> dict:
     all_noncomment_spans = 0
     non_text_spans = 0
     non_text_examples = []
+    text_record_brace_spans = 0
     for source_line_no, row in enumerate(text.splitlines(), start=1):
         if row.lstrip().startswith("#"):
             continue
@@ -152,6 +153,7 @@ def audit_source(label: str, path: Path) -> dict:
         match = TEXT_LINE.match(row)
         if match:
             folio, line_no, body = match.groups()
+            text_record_brace_spans += len(BRACE_RE.findall(body))
             if body.strip():
                 lines.append({"folio": folio, "line": int(line_no), "body": body})
         elif spans_on_line:
@@ -164,14 +166,19 @@ def audit_source(label: str, path: Path) -> dict:
                 })
     if not lines:
         raise RuntimeError(f"No transcription text lines parsed from {path}")
+    summary = summarize_lines(lines)
     return {
         "transcription": label,
         "source": str(path.relative_to(ROOT)),
         "source_sha256": hashlib.sha256(raw).hexdigest(),
         "all_noncomment_brace_spans": all_noncomment_spans,
         "non_text_line_brace_spans": non_text_spans,
+        "text_record_brace_spans_before_annotation_filter": text_record_brace_spans,
+        "brace_spans_removed_with_square_annotations": (
+            text_record_brace_spans - summary["ligature_spans"]
+        ),
         "non_text_line_brace_examples": non_text_examples,
-        **summarize_lines(lines),
+        **summary,
     }
 
 
