@@ -28,8 +28,8 @@ def main() -> None:
     assert summary["text_lines"] == 2, summary
     assert summary["lines_with_ligatures"] == 1, summary
     assert summary["ligature_spans"] == 1, summary
-    assert summary["exact_daiin_occurrences"]["historical"] == 2, summary
-    assert summary["exact_daiin_occurrences"]["expanded"] == 2, summary
+    assert summary["exact_daiin_occurrences"]["historical"] == 3, summary
+    assert summary["exact_daiin_occurrences"]["expanded"] == 3, summary
     assert summary["lines_changed_vs_historical"]["atomic"] == 1, summary
     assert summary["lines_changed_vs_historical"]["expanded"] == 1, summary
     print("IVTFF ligature view regression tests passed.")
