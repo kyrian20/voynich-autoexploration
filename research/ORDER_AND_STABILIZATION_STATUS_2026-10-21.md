@@ -85,3 +85,22 @@ La revisión estadística detectó que el ajuste anterior usaba el máximo de re
 ### Próximo paso seguro
 
 Pilotar una plantilla de publicación con rebase/reintentos y error explícito en un solo workflow; validar el run antes de propagarla a los restantes 29. Mantener congelada la numeración EXP y no fusionar ni renombrar las colisiones hasta completar la comparación con la Biblioteca mediante hashes de contenido reales. No afirmar que la reconciliación GitHub/Biblioteca está terminada: este ciclo ha cotejado los artefactos críticos de EXP-590/593, no los 499 elementos de la Biblioteca.
+
+
+## Update de estabilización — 2026-10-22
+
+### Cambios operativos realizados
+- Se homogeneizó la protección de escritura de los 30 workflows con capacidad de modificar `master`: grupos de concurrencia **individuales por workflow**, `cancel-in-progress: false` y reintentos acotados de rebase/push. El workflow de solo lectura `voynich-check.yml` queda separado.
+- Se corrigió la estrategia inicial de grupo global compartido: GitHub puede cancelar una ejecución pendiente cuando llega otra al mismo grupo, así que no era una cola segura para 30 workflows. Los runs cancelados durante esa prueba quedan como **CANCELLED**, nunca como validaciones exitosas.
+- Se añadieron guardias a EXP-602 para no producir auditorías parciales si faltan transcripciones, si no se cubren exactamente ZL3b/ZL3a o si algún parser devuelve cero registros.
+- Se registraron estos cambios en `state/current_state.md` y en la auditoría de concurrencia. No se asignaron IDs EXP ni se modificaron deliberadamente conclusiones científicas.
+
+### Estado de verificación
+Al escribir esta actualización, varias ejecuciones de `Voynich Check` y algunas pruebas específicas han terminado en éxito; otras siguen en cola/en ejecución y hubo cancelaciones durante el diseño transitorio de concurrencia. Por tanto, la infraestructura ha mejorado, pero **CI global aún no está cerrado**. Hay que comprobar el resultado final del último commit y repetir/confirmar los workflows relevantes que quedaron cancelados antes de considerar la estabilización operativa completa.
+
+### Bloqueos científicos/archivísticos que siguen vigentes
+1. No crear ni renumerar experimentos hasta reconciliar el registro de EXP, las colisiones entre carpetas y las colisiones GitHub/Biblioteca.
+2. Completar fixtures de conformidad IVTFF 2.0.2 y una adjudicación independiente contra la especificación; el acuerdo entre parsers v7 no basta para desbloquear la predicción Currier A/B.
+3. Reproducir/confirmar los outputs críticos desde fuentes con hashes y comandos documentados, sin sobrescribir históricos.
+4. Cotejar por hashes reales los artefactos de GitHub y la Biblioteca; el cotejo parcial de EXP-590/593 no equivale a revisar la Biblioteca completa.
+5. Solo después, seleccionar un único experimento confirmatorio preregistrado y someter el informe a `skills/audit_experiment.md` antes de tocar el estado científico.
