@@ -2,7 +2,11 @@
 
 Repositorio de trabajo: `kyrian20/voynich-autoexploration` (rama `master`).
 
-## Estado operativo — 20 octubre 2026
+## Estado operativo actual — 22 octubre 2026
+
+La arquitectura de publicación se ha reparado: **un único publicador y 31 workflows lectores**, con artefactos y guardias de CI. [Estado, pruebas y límites actuales](research/OPERATIONAL_STATUS.md). [Registro inequívoco de las 624 carpetas](research/EXPERIMENT_PATH_REGISTRY.json). La validación científica y la conformidad completa IVTFF siguen pendientes.
+
+## Estado histórico — 20 octubre 2026
 
 **Prioridad actual: estabilizar el corpus y la trazabilidad antes de añadir nuevas tandas de experimentos.** El árbol contiene más de 2.000 rutas y aproximadamente 1.900 archivos bajo `experiments/`; hay resultados útiles, experimentos históricos y algunos conflictos de numeración. No interpretar el número máximo de EXP como número de conclusiones válidas.
 

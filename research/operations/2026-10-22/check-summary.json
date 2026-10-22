@@ -1,0 +1,82 @@
+[
+  {
+    "step": "Auditar contratos operativos y cobertura de registros",
+    "returncode": 0,
+    "seconds": 0.53
+  },
+  {
+    "step": "Comprobar archivos de investigaci\u00f3n",
+    "returncode": 0,
+    "seconds": 0.02
+  },
+  {
+    "step": "Validar sintaxis de todos los scripts Python",
+    "returncode": 0,
+    "seconds": 1.48
+  },
+  {
+    "step": "Probar regresiones de metadatos IVTFF",
+    "returncode": 0,
+    "seconds": 0.04
+  },
+  {
+    "step": "Validar metadatos Currier desde IVTFF",
+    "returncode": 0,
+    "seconds": 0.03
+  },
+  {
+    "step": "Inventariar spans entre llaves sin alterar resultados",
+    "returncode": 0,
+    "seconds": 0.09
+  },
+  {
+    "step": "Probar vistas alternativas de ligaduras IVTFF",
+    "returncode": 0,
+    "seconds": 0.03
+  },
+  {
+    "step": "Cuantificar sensibilidad descriptiva de ligaduras IVTFF",
+    "returncode": 0,
+    "seconds": 0.48
+  },
+  {
+    "step": "Probar cobertura de identificadores IVTFF en EXP-590",
+    "returncode": 0,
+    "seconds": 0.04
+  },
+  {
+    "step": "Reproducir EXP-590 con cobertura ampliada",
+    "returncode": 0,
+    "seconds": 8.47
+  },
+  {
+    "step": "Probar sensibilidad de daiin agrupada por folio",
+    "returncode": 0,
+    "seconds": 0.05
+  },
+  {
+    "step": "Ejecutar sensibilidad descriptiva por folio para daiin",
+    "returncode": 0,
+    "seconds": 1.06
+  },
+  {
+    "step": "Verificar ruta portable del corpus de EXP-573",
+    "returncode": 0,
+    "seconds": 0.02
+  },
+  {
+    "step": "Reproducir reconciliaci\u00f3n metodol\u00f3gica EXP-573",
+    "returncode": 0,
+    "seconds": 0.6
+  },
+  {
+    "step": "Probar regresiones de identificadores de p\u00e1gina y locus IVTFF",
+    "returncode": 0,
+    "seconds": 0.02
+  },
+  {
+    "step": "Auditar cobertura estructural de identificadores IVTFF",
+    "returncode": 0,
+    "seconds": 0.05
+  }
+]

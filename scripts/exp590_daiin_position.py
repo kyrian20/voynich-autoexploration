@@ -13,6 +13,7 @@ import sys
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 from scripts.audit_ivtff_metadata import parse_currier_language
+from scripts.audit_ivtff_ligature_views import legacy_parser_coverage
 
 SOURCE = ROOT / "data/transcriptions/eva_zl3b.txt"
 OUT = ROOT / "research/experiments"
@@ -124,12 +125,19 @@ def main():
         "date_utc": date, "source": str(SOURCE.relative_to(ROOT)), "source_sha256": digest,
         "tokenization": "lowercase ASCII alphabetic runs after removing IVTFF tags, braces and square-bracket annotations",
         "target": TARGET, "metrics": metrics, "permutation_test": perm,
+        "coverage_comparison": {
+            "legacy_restricted_pattern": legacy_parser_coverage(raw.decode("utf-8-sig")),
+            "current_nonempty_token_lines": metrics["lines"],
+            "scope": "Different page-ID coverage; these are not identical populations.",
+        },
         "limitations": [
             "EVA transcription and tokenization choices affect counts.",
             "Only exact token daiin is tested; variants such as dain are excluded.",
             "Line-initial permutation test conditions on each line's token multiset.",
             "Currier classification is read only from the IVTFF $L page variable; unknowns remain unknown.",
-            "This is descriptive statistical analysis, not a translation or decipherment."
+            "This is descriptive statistical analysis, not a translation or decipherment.",
+            "The empirical p-value is not adjusted for prior selection of daiin among other candidate words or for other exploratory analyses of the same transcription; interpret it as exploratory rather than confirmatory.",
+            "The ASCII-letter token filter does not decode extended glyph codes such as @140; raw source records remain preserved."
         ],
     }
     OUT.mkdir(parents=True, exist_ok=True)
@@ -158,6 +166,8 @@ def main():
 
 La hipótesis nula permuta el orden de los tokens dentro de cada línea, conservando su multiconjunto exacto. El contraste evalúa si daiin aparece al principio de línea más de lo esperable bajo ese modelo; no prueba significado lingüístico. No se han explorado múltiples palabras en este experimento, pero cualquier búsqueda posterior deberá corregir comparaciones múltiples.
 
+**Precaución inferencial:** el valor p no corrige la selección histórica de daiin entre otras palabras ni otros análisis de esta transcripción. Es un contraste exploratorio bajo el nulo elegido, no una prueba confirmatoria independiente.
+
 ## Distribución por clase de Currier
 
 | Clase | Ocurrencias exactas | Líneas iniciales | Líneas finales | Líneas parseadas |
@@ -174,6 +184,11 @@ La hipótesis nula permuta el orden de los tokens dentro de cada línea, conserv
 - Esto es una línea base exploratoria reproducible, no una traducción ni una afirmación de desciframiento.
 - Datos completos y hash de entrada están en el JSON de este experimento.
 """
+    legacy = result["coverage_comparison"]["legacy_restricted_pattern"]
+    report += "\n## Cobertura histórica y actual\n\n| Métrica | Patrón restringido histórico | Patrón actual |\n|---|---:|---:|\n"
+    for label, old_key, new_key in [("Líneas con tokens", "nonempty_token_lines", "lines"), ("Tokens", "tokens", "tokens"), ("daiin exactos", "exact_daiin_occurrences", "target_occurrences"), ("Inicios daiin", "line_initial_daiin_lines", "line_initial_occurrences")]:
+        report += f"| {label} | {legacy[old_key]} | {metrics[new_key]} |\n"
+    report += "\nLas columnas usan distinta cobertura de identificadores; no describen idéntica población. El filtro ASCII no decodifica los códigos de caracteres extendidos @…;. Se conserva la transcripción bruta. Véase la auditoría operativa para el cotejo exacto de registros excluidos.\n"
     (OUT / f"{date}-exp590-corrected-L-metadata.md").write_text(report, encoding="utf-8")
     print(json.dumps({"experiment": "EXP-590", "date_utc": date, "lines": metrics["lines"],
                       "tokens": metrics["tokens"], "daiin": metrics["target_occurrences"],

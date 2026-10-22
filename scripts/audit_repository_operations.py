@@ -115,8 +115,32 @@ def reconcile_records() -> dict:
     }
 
 
+def audit_experiment_paths() -> dict:
+    registry = json.loads((ROOT / 'research/EXPERIMENT_PATH_REGISTRY.json').read_text())
+    expected = []
+    for path in sorted((ROOT / 'experiments').iterdir()):
+        match = re.fullmatch(r'exp_(\d+)_(.+)', path.name)
+        if path.is_dir() and match:
+            relative = path.relative_to(ROOT).as_posix()
+            expected.append({'canonical_id': 'GH:' + relative,
+                             'legacy_numeric_id': int(match[1]), 'path': relative})
+    if registry['entries'] != expected:
+        raise ValueError('Experiment path registry differs from actual directories; reconcile explicitly')
+    if len({x['canonical_id'] for x in expected}) != len(expected):
+        raise ValueError('Canonical experiment IDs are not unique')
+    collisions = {}
+    for entry in expected:
+        collisions.setdefault(str(entry['legacy_numeric_id']), []).append(entry['canonical_id'])
+    collisions = {key: values for key, values in collisions.items() if len(values) > 1}
+    if registry['numeric_collisions'] != collisions:
+        raise ValueError('Legacy numeric alias collisions are not fully registered')
+    return {'unique_path_ids': len(expected), 'legacy_numeric_collision_groups': len(collisions),
+            'scientific_validation': False}
+
+
 def main() -> None:
     print(json.dumps({'audit': 'repository_operations', 'workflows': audit_workflows(ROOT / '.github/workflows'),
+                      'experiment_paths': audit_experiment_paths(),
                       'record_reconciliation': reconcile_records()}, indent=2, ensure_ascii=False))
 
 

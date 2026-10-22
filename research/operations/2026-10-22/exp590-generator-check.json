@@ -1,0 +1,5 @@
+{
+  "metrics_unchanged": true,
+  "permutation_test_unchanged": true,
+  "change": "Persist inferential limitations and coverage comparison in generator rather than manually edited outputs."
+}

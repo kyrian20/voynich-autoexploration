@@ -1,5 +1,7 @@
 # Current State — Voynich Cryptanalyst
 
+**Operational status:** [current verified infrastructure and scientific limits](../research/OPERATIONAL_STATUS.md). One automated publisher; 31 readers. The path registry disambiguates all 624 experiment directories without renumbering. Earlier concurrency notes are historical.
+
 **Last updated:** 2026-10-22 (operational follow-up; scientific blockers remain)
 
 

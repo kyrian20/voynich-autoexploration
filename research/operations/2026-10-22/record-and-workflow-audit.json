@@ -1,0 +1,101 @@
+{
+  "audit": "repository_operations",
+  "workflows": {
+    "workflow_count": 32,
+    "publishers": [
+      "voynich-agent.yml"
+    ],
+    "artifact_or_check_readers": [
+      "exp623-reproduction.yml",
+      "voynich-check.yml",
+      "voynich-corpus-experiments.yml",
+      "voynich-exp603.yml",
+      "voynich-exp604.yml",
+      "voynich-exp605.yml",
+      "voynich-exp606.yml",
+      "voynich-exp607.yml",
+      "voynich-exp608.yml",
+      "voynich-exp609.yml",
+      "voynich-exp610.yml",
+      "voynich-exp611.yml",
+      "voynich-folio-clustered-confirmation.yml",
+      "voynich-folio-influence.yml",
+      "voynich-heldout-prediction.yml",
+      "voynich-independent-parser-audit.yml",
+      "voynich-initial-context.yml",
+      "voynich-lexical-controls.yml",
+      "voynich-line-level-audit.yml",
+      "voynich-line-metadata-tests.yml",
+      "voynich-locus-tests.yml",
+      "voynich-marginal-successors.yml",
+      "voynich-paired-sensitivity.yml",
+      "voynich-paragraph-marker-audit.yml",
+      "voynich-paragraph-marker-tests.yml",
+      "voynich-paragraph-replication.yml",
+      "voynich-parser-conformance.yml",
+      "voynich-position-controls.yml",
+      "voynich-stratified-tests.yml",
+      "voynich-transcription-concordance.yml",
+      "voynich-two-token-context.yml"
+    ]
+  },
+  "experiment_paths": {
+    "unique_path_ids": 624,
+    "legacy_numeric_collision_groups": 7,
+    "scientific_validation": false
+  },
+  "record_reconciliation": {
+    "source": "data/transcriptions/eva_zl3b.txt",
+    "source_sha256": "bf5b6d4ac1e3a51b1847a9c388318d609020441ccd56984c901c32b09beccafc",
+    "nonempty_raw_records": 5385,
+    "nonempty_token_records": 5376,
+    "excluded_after_token_filter": [
+      {
+        "id": "f49v.11",
+        "source_line": 2143,
+        "raw_body": "@140;"
+      },
+      {
+        "id": "f49v.21",
+        "source_line": 2153,
+        "raw_body": "@192;"
+      },
+      {
+        "id": "f49v.27",
+        "source_line": 2160,
+        "raw_body": "@140;"
+      },
+      {
+        "id": "f49v.29",
+        "source_line": 2162,
+        "raw_body": "@164;"
+      },
+      {
+        "id": "f49v.35",
+        "source_line": 2169,
+        "raw_body": "@192;"
+      },
+      {
+        "id": "f49v.41",
+        "source_line": 2175,
+        "raw_body": "@140;"
+      },
+      {
+        "id": "f66r.24",
+        "source_line": 2722,
+        "raw_body": "@169;"
+      },
+      {
+        "id": "f66r.38",
+        "source_line": 2736,
+        "raw_body": "@172;<!cf f57v?>"
+      },
+      {
+        "id": "f66r.42",
+        "source_line": 2740,
+        "raw_body": "@195;"
+      }
+    ],
+    "interpretation": "Exact ID-set reconciliation under the historical exclusion of tags, braces and square annotations; no scientific claim."
+  }
+}

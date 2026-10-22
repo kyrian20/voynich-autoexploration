@@ -1,5 +1,7 @@
 # Estado de orden y estabilización — 2026-10-21
 
+**Actualización operativa 22-10-2026:** [estado operativo actual](OPERATIONAL_STATUS.md). Sustituye las notas históricas de este documento sobre 30 publicadores y sobre la diferencia de nueve filas. La auditoría científica/archivística continúa abierta.
+
 Estado global: **EN AUDITORÍA**. No iniciar experimentos nuevos ni asignar nuevos IDs EXP hasta cerrar los bloqueos P0/P1 y reconciliar GitHub con la Biblioteca.
 
 ## 1. Cambios comprobados en este ciclo

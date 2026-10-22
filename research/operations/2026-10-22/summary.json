@@ -1,0 +1,240 @@
+[
+  {
+    "workflow": "voynich-agent.yml",
+    "command": "python scripts/audit_ivtff_metadata.py",
+    "returncode": 0,
+    "seconds": 0.04,
+    "log_sha256": "604204af4eba9fbf17602e5dcf909fc8385295efe8001aa9353ac2990de461b3"
+  },
+  {
+    "workflow": "voynich-agent.yml",
+    "command": "python scripts/exp590_daiin_position.py",
+    "returncode": 0,
+    "seconds": 10.78,
+    "log_sha256": "5713f5cef79b0c1589fd11cf83238be2fafb8bfaffb2f29ebca1f6f10bb5a219"
+  },
+  {
+    "workflow": "voynich-agent.yml",
+    "command": "python scripts/exp593_daiin_variants.py",
+    "returncode": 0,
+    "seconds": 46.26,
+    "log_sha256": "18637b83c42d51d333c0e107dd3ae9ea08d650164c909652ad4f73b756168263"
+  },
+  {
+    "workflow": "voynich-agent.yml",
+    "command": "python scripts/exp622_ch_sh_specificity.py",
+    "returncode": 0,
+    "seconds": 31.29,
+    "log_sha256": "a6c5600e415e950e53f94fc03874957395aa0f33bef7e0758f02f55446c939b6"
+  },
+  {
+    "workflow": "voynich-agent.yml",
+    "command": "python scripts/exp623_it2a_ch_sh_specificity.py",
+    "returncode": 0,
+    "seconds": 35.9,
+    "log_sha256": "7984deae5caec8de6035e715a9b869a3b5f898b0b24aae2e1c49d66f3969df91"
+  },
+  {
+    "workflow": "voynich-corpus-experiments.yml",
+    "command": "python experiments/exp_589_daiin_position_audit/script.py --permutations 2000",
+    "returncode": 0,
+    "seconds": 10.52,
+    "log_sha256": "a22b5e57a22f9fa55ccfaf11cd84e97394d349c6d190f83d3c017f57cf38e79f"
+  },
+  {
+    "workflow": "voynich-exp603.yml",
+    "command": "python experiments/exp_603_stratified_heldout_prediction/script.py",
+    "returncode": 0,
+    "seconds": 0.96,
+    "log_sha256": "6bab6ebd05b7fac4793ce623e06de5f6df3f61bd4c02072457a0bbd30eaab0cf"
+  },
+  {
+    "workflow": "voynich-exp604.yml",
+    "command": "python experiments/exp_604_independent_transcription_replication/script.py",
+    "returncode": 0,
+    "seconds": 24.84,
+    "log_sha256": "19c885cdbf5e52e208a92f0f657e09b37cdc674459d8f8f65c909a573f290798"
+  },
+  {
+    "workflow": "voynich-exp605.yml",
+    "command": "python experiments/exp_605_folio_sequence_gap_audit/script.py",
+    "returncode": 0,
+    "seconds": 0.05,
+    "log_sha256": "9c355efea7ba2b1a0158edd0a1e363ee278f9f2932efcbe127ebcc5734e007fa"
+  },
+  {
+    "workflow": "voynich-exp606.yml",
+    "command": "python experiments/exp_606_gap_boundary_lexical_audit/script.py",
+    "returncode": 0,
+    "seconds": 0.16,
+    "log_sha256": "43a4aa9de7d3997d1cc20369c09f77b0dde3a0cfdec12199ca42b620ebdec092"
+  },
+  {
+    "workflow": "voynich-exp607.yml",
+    "command": "python experiments/exp_607_heldout_bigram_prediction/script.py",
+    "returncode": 0,
+    "seconds": 0.14,
+    "log_sha256": "2c2945f7c375c32db884f08a1a8e48442898307d7b9b618be535c194af667c0d"
+  },
+  {
+    "workflow": "voynich-exp608.yml",
+    "command": "python experiments/exp_608_ch_sh_following_character_audit/script.py",
+    "returncode": 0,
+    "seconds": 0.1,
+    "log_sha256": "0ce53c34f00a88a46e60a3f5b8558fd1efca1f46b45be975440e68fb4a06ba13"
+  },
+  {
+    "workflow": "voynich-exp609.yml",
+    "command": "python experiments/exp_609_paired_ch_sh_vowel_test/script.py",
+    "returncode": 0,
+    "seconds": 3.4,
+    "log_sha256": "8220a331a36b65424d526c3bb81a5fedcf839484a8a257d93b09f7781146ee40"
+  },
+  {
+    "workflow": "voynich-exp610.yml",
+    "command": "python experiments/exp_610_length_stratified_ch_sh_audit/script.py",
+    "returncode": 0,
+    "seconds": 0.11,
+    "log_sha256": "5440fbb8ca1edee131187f4282885f5aea409a1b6321c368ec365fd583045959"
+  },
+  {
+    "workflow": "voynich-exp611.yml",
+    "command": "python experiments/exp_611_exact_length_position_ch_sh/script.py",
+    "returncode": 0,
+    "seconds": 0.13,
+    "log_sha256": "b9ed034e227ea7da1d39963e6c40226f5047954e61b8b4372d818acbdf37e512"
+  },
+  {
+    "workflow": "voynich-folio-clustered-confirmation.yml",
+    "command": "python experiments/exp_601_folio_clustered_confirmation/script.py --bootstrap 20000 --permutations 20000",
+    "returncode": 0,
+    "seconds": 17.11,
+    "log_sha256": "21051fe81506a31d029c61c37a69c65da11df7519c8a8ebe2a67dddcea7b5467"
+  },
+  {
+    "workflow": "voynich-folio-influence.yml",
+    "command": "python experiments/exp_592_daiin_folio_influence/script.py --top 20",
+    "returncode": 0,
+    "seconds": 0.24,
+    "log_sha256": "5d907608bc3589004aa7804086cf19844cf5d08c9e809ddedf461a4abc350ebd"
+  },
+  {
+    "workflow": "voynich-heldout-prediction.yml",
+    "command": "python experiments/exp_602_heldout_predictive_test/script.py",
+    "returncode": 0,
+    "seconds": 0.56,
+    "log_sha256": "a0c13f3f859fa466876d61cd4813f7eeff665e965684cc1450628fa86d66c135"
+  },
+  {
+    "workflow": "voynich-independent-parser-audit.yml",
+    "command": "python experiments/exp_602_independent_ivtff_parser_audit/script.py",
+    "returncode": 0,
+    "seconds": 0.48,
+    "log_sha256": "476e7c2827011844109383e448ccbd4902331dda8c479f73c3ddcc728b7e7470"
+  },
+  {
+    "workflow": "voynich-initial-context.yml",
+    "command": "python experiments/exp_597_initial_form_next_token_context/script.py --permutations 5000 --top 15",
+    "returncode": 0,
+    "seconds": 2.45,
+    "log_sha256": "68d126d6f2935ad7ca971f88b385d9b511fa45ec1d9218f2a56214146bf0e770"
+  },
+  {
+    "workflow": "voynich-lexical-controls.yml",
+    "command": "python experiments/exp_597_daiin_frequency_control_words/script.py --permutations 10000",
+    "returncode": 0,
+    "seconds": 87.25,
+    "log_sha256": "edb3d1c4cfbea9070b2dca5431886f5fef63f4cd3756f59bea4320b457bf2f27"
+  },
+  {
+    "workflow": "voynich-line-level-audit.yml",
+    "command": "python experiments/exp_596_zl3a_zl3b_line_level_audit/script.py",
+    "returncode": 0,
+    "seconds": 0.18,
+    "log_sha256": "775c5619a9dc61ff35c514d4241ac6ec919c34aecf7398d7547300546d2ddd10"
+  },
+  {
+    "workflow": "voynich-line-metadata-tests.yml",
+    "command": "python experiments/exp_593_daiin_line_metadata_contrast/script.py --permutations 5000",
+    "returncode": 0,
+    "seconds": 6.45,
+    "log_sha256": "ebbe56747089fbad5e07c4f387c7deb09b9c736c70a335b2f1b6349617aa4dce"
+  },
+  {
+    "workflow": "voynich-locus-tests.yml",
+    "command": "python experiments/exp_591_daiin_locus_stratification/script.py --permutations 2000",
+    "returncode": 0,
+    "seconds": 2.64,
+    "log_sha256": "21d149e15a45416156a15ef1b3159cb29bedd250402e22d59bb1d2cae79c301e"
+  },
+  {
+    "workflow": "voynich-marginal-successors.yml",
+    "command": "python experiments/exp_599_marginal_successor_positions/script.py --permutations 5000 --top 15",
+    "returncode": 0,
+    "seconds": 3.58,
+    "log_sha256": "68e72db0ebd9355f7e9cd6ec69afef4111b547cb6a350a9efa413f3a48f05935"
+  },
+  {
+    "workflow": "voynich-paired-sensitivity.yml",
+    "command": "python experiments/exp_601_primary_statistic_paired_sensitivity/script.py",
+    "returncode": 0,
+    "seconds": 0.18,
+    "log_sha256": "5a1462a2c8fec563d9a036dc7944abfbb22229090ae2fc0e67954bfb80b48f4c"
+  },
+  {
+    "workflow": "voynich-paragraph-marker-audit.yml",
+    "command": "python experiments/exp_594_daiin_paragraph_start/script.py --permutations 10000",
+    "returncode": 0,
+    "seconds": 38.19,
+    "log_sha256": "343196e496d902a3aa3acbe7e279c2c102f64f271939f2cdf6d31aec1af9881d"
+  },
+  {
+    "workflow": "voynich-paragraph-marker-tests.yml",
+    "command": "python experiments/exp_594_daiin_explicit_paragraph_markers/script.py --permutations 5000",
+    "returncode": 0,
+    "seconds": 6.82,
+    "log_sha256": "2a241938ea04ac85a2604b64fa1df9578636312cf61d412dbfa25eed6ebb0f76"
+  },
+  {
+    "workflow": "voynich-paragraph-replication.yml",
+    "command": "python experiments/exp_595_paragraph_marker_replication/script.py --permutations 5000",
+    "returncode": 0,
+    "seconds": 17.11,
+    "log_sha256": "e4c9bcdf62331e210cf334090a3e80fbd0d2a960da8faf59b800d65b21389374"
+  },
+  {
+    "workflow": "voynich-parser-conformance.yml",
+    "command": "python experiments/exp_600_ivtff_parser_conformance/script.py",
+    "returncode": 0,
+    "seconds": 0.18,
+    "log_sha256": "bccd9d4e6113908d931477cdc741bc5e659033281a6df026048a8c286ea4099d"
+  },
+  {
+    "workflow": "voynich-position-controls.yml",
+    "command": "python experiments/exp_596_daiin_position_controls/script.py --permutations 5000",
+    "returncode": 0,
+    "seconds": 16.98,
+    "log_sha256": "fa771368d4239f4167ae82608f966ab5d3e525a4595048a4c6f9fb413b33133d"
+  },
+  {
+    "workflow": "voynich-stratified-tests.yml",
+    "command": "python experiments/exp_590_daiin_section_stratification/script.py --permutations 2000",
+    "returncode": 0,
+    "seconds": 3.61,
+    "log_sha256": "35fdf8da2a97dd6e2349a26ff374b197823d901bae7278ad858f1fa17b3a380f"
+  },
+  {
+    "workflow": "voynich-transcription-concordance.yml",
+    "command": "python experiments/exp_600_transcription_concordance/script.py --examples 40",
+    "returncode": 0,
+    "seconds": 0.26,
+    "log_sha256": "69641a9dc92959a4ec78f68c1b3dfed8b878d5e12dd10324e190ebb25dac699a"
+  },
+  {
+    "workflow": "voynich-two-token-context.yml",
+    "command": "python experiments/exp_598_two_token_successor_context/script.py --permutations 5000 --top 15",
+    "returncode": 0,
+    "seconds": 1.2,
+    "log_sha256": "911c9c6572a2085e9c4809eeb5f0eb5907c646f622e91daa4736003f00c55b55"
+  }
+]

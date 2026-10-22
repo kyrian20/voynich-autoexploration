@@ -1,0 +1,3157 @@
+{
+  "schema_version": 1,
+  "identity_rule": "Full repository directory path; numeric EXP IDs are legacy aliases and are not unique. No directory is renamed.",
+  "scientific_status": "Not adjudicated by this namespace registry. See exact script/result/protocol.",
+  "entries": [
+    {
+      "canonical_id": "GH:experiments/exp_001_word_initial_entropy",
+      "legacy_numeric_id": 1,
+      "path": "experiments/exp_001_word_initial_entropy"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_002_positional_entropy",
+      "legacy_numeric_id": 2,
+      "path": "experiments/exp_002_positional_entropy"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_003_label_body_entropy",
+      "legacy_numeric_id": 3,
+      "path": "experiments/exp_003_label_body_entropy"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_004_daiin_distribution",
+      "legacy_numeric_id": 4,
+      "path": "experiments/exp_004_daiin_distribution"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_005_currier_ab_comparison",
+      "legacy_numeric_id": 5,
+      "path": "experiments/exp_005_currier_ab_comparison"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_006_gallows_grouping",
+      "legacy_numeric_id": 6,
+      "path": "experiments/exp_006_gallows_grouping"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_007_verbose_cipher_control",
+      "legacy_numeric_id": 7,
+      "path": "experiments/exp_007_verbose_cipher_control"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_008_stolfi_slot_entropy",
+      "legacy_numeric_id": 8,
+      "path": "experiments/exp_008_stolfi_slot_entropy"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_009_source_language_h2",
+      "legacy_numeric_id": 9,
+      "path": "experiments/exp_009_source_language_h2"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_010_label_word_sections",
+      "legacy_numeric_id": 10,
+      "path": "experiments/exp_010_label_word_sections"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_011_f66r_wordlist",
+      "legacy_numeric_id": 11,
+      "path": "experiments/exp_011_f66r_wordlist"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_012_f66r_alphabet_test",
+      "legacy_numeric_id": 12,
+      "path": "experiments/exp_012_f66r_alphabet_test"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_013_line_marker_structure",
+      "legacy_numeric_id": 13,
+      "path": "experiments/exp_013_line_marker_structure"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_014_prior_work_check",
+      "legacy_numeric_id": 14,
+      "path": "experiments/exp_014_prior_work_check"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_015_f57v_characterization",
+      "legacy_numeric_id": 15,
+      "path": "experiments/exp_015_f57v_characterization"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_016_at_glyph_census",
+      "legacy_numeric_id": 16,
+      "path": "experiments/exp_016_at_glyph_census"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_017_cluster_distinctiveness",
+      "legacy_numeric_id": 17,
+      "path": "experiments/exp_017_cluster_distinctiveness"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_018_at_glyph_prior_work",
+      "legacy_numeric_id": 18,
+      "path": "experiments/exp_018_at_glyph_prior_work"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_019_at_169_compound_test",
+      "legacy_numeric_id": 19,
+      "path": "experiments/exp_019_at_169_compound_test"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_020_f68r2_second_cluster",
+      "legacy_numeric_id": 20,
+      "path": "experiments/exp_020_f68r2_second_cluster"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_021_f57v_f66r_overlap",
+      "legacy_numeric_id": 21,
+      "path": "experiments/exp_021_f57v_f66r_overlap"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_022_l0_structural_audit",
+      "legacy_numeric_id": 22,
+      "path": "experiments/exp_022_l0_structural_audit"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_023_currier_ab_alignment",
+      "legacy_numeric_id": 23,
+      "path": "experiments/exp_023_currier_ab_alignment"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_024_lingua_ignota",
+      "legacy_numeric_id": 24,
+      "path": "experiments/exp_024_lingua_ignota"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_025_compound_forming_test",
+      "legacy_numeric_id": 25,
+      "path": "experiments/exp_025_compound_forming_test"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_026_f75v_line_markers",
+      "legacy_numeric_id": 26,
+      "path": "experiments/exp_026_f75v_line_markers"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_027_positional_bias_index",
+      "legacy_numeric_id": 27,
+      "path": "experiments/exp_027_positional_bias_index"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_028_reeds_search",
+      "legacy_numeric_id": 28,
+      "path": "experiments/exp_028_reeds_search"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_030_f49v_numerals",
+      "legacy_numeric_id": 30,
+      "path": "experiments/exp_030_f49v_numerals"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_031_qo_stripping",
+      "legacy_numeric_id": 31,
+      "path": "experiments/exp_031_qo_stripping"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_032_label_locus_audit",
+      "legacy_numeric_id": 32,
+      "path": "experiments/exp_032_label_locus_audit"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_033_qo_complementary",
+      "legacy_numeric_id": 33,
+      "path": "experiments/exp_033_qo_complementary"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_034_h024_glyph_comparison",
+      "legacy_numeric_id": 34,
+      "path": "experiments/exp_034_h024_glyph_comparison"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_035_ab_qo_normalization",
+      "legacy_numeric_id": 35,
+      "path": "experiments/exp_035_ab_qo_normalization"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_036_word_final_inventory",
+      "legacy_numeric_id": 36,
+      "path": "experiments/exp_036_word_final_inventory"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_037_label_o_prefix",
+      "legacy_numeric_id": 37,
+      "path": "experiments/exp_037_label_o_prefix"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_038_edy_ain_paradigm",
+      "legacy_numeric_id": 38,
+      "path": "experiments/exp_038_edy_ain_paradigm"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_039_folio_diversity",
+      "legacy_numeric_id": 39,
+      "path": "experiments/exp_039_folio_diversity"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_040_currier_a_suffix_paradigm",
+      "legacy_numeric_id": 40,
+      "path": "experiments/exp_040_currier_a_suffix_paradigm"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_041_paradigm_productivity",
+      "legacy_numeric_id": 41,
+      "path": "experiments/exp_041_paradigm_productivity"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_042_f76r_autocorrelation",
+      "legacy_numeric_id": 42,
+      "path": "experiments/exp_042_f76r_autocorrelation"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_043_parallel_passages",
+      "legacy_numeric_id": 43,
+      "path": "experiments/exp_043_parallel_passages"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_044_hand_qo_variation",
+      "legacy_numeric_id": 44,
+      "path": "experiments/exp_044_hand_qo_variation"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_045_astro_third_dialect",
+      "legacy_numeric_id": 45,
+      "path": "experiments/exp_045_astro_third_dialect"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_046_label_body_correlation",
+      "legacy_numeric_id": 46,
+      "path": "experiments/exp_046_label_body_correlation"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_047_quire_morphology",
+      "legacy_numeric_id": 47,
+      "path": "experiments/exp_047_quire_morphology"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_048_o_label_qo_stem_overlap",
+      "legacy_numeric_id": 48,
+      "path": "experiments/exp_048_o_label_qo_stem_overlap"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_049_bio_lag13_autocorr",
+      "legacy_numeric_id": 49,
+      "path": "experiments/exp_049_bio_lag13_autocorr"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_050_daiin_positional",
+      "legacy_numeric_id": 50,
+      "path": "experiments/exp_050_daiin_positional"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_051_pharma_ol_signature",
+      "legacy_numeric_id": 51,
+      "path": "experiments/exp_051_pharma_ol_signature"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_052_prefix_stem_class_distinction",
+      "legacy_numeric_id": 52,
+      "path": "experiments/exp_052_prefix_stem_class_distinction"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_053_a_line_structure",
+      "legacy_numeric_id": 53,
+      "path": "experiments/exp_053_a_line_structure"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_054_y_prefix_paragraph",
+      "legacy_numeric_id": 54,
+      "path": "experiments/exp_054_y_prefix_paragraph"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_055_bathing_pool_phrases",
+      "legacy_numeric_id": 55,
+      "path": "experiments/exp_055_bathing_pool_phrases"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_056_word_template",
+      "legacy_numeric_id": 56,
+      "path": "experiments/exp_056_word_template"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_057_b_para_start_markers",
+      "legacy_numeric_id": 57,
+      "path": "experiments/exp_057_b_para_start_markers"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_058_f6v_paragraph_structure",
+      "legacy_numeric_id": 58,
+      "path": "experiments/exp_058_f6v_paragraph_structure"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_059_a_grammar_violations",
+      "legacy_numeric_id": 59,
+      "path": "experiments/exp_059_a_grammar_violations"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_060_daiin_yinit_quire",
+      "legacy_numeric_id": 60,
+      "path": "experiments/exp_060_daiin_yinit_quire"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_061_section_para_onset",
+      "legacy_numeric_id": 61,
+      "path": "experiments/exp_061_section_para_onset"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_062_two_register_vocab",
+      "legacy_numeric_id": 62,
+      "path": "experiments/exp_062_two_register_vocab"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_063_pch_tch_onset",
+      "legacy_numeric_id": 63,
+      "path": "experiments/exp_063_pch_tch_onset"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_064_s_d_positional",
+      "legacy_numeric_id": 64,
+      "path": "experiments/exp_064_s_d_positional"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_065_aiin_dom_b_proximity",
+      "legacy_numeric_id": 65,
+      "path": "experiments/exp_065_aiin_dom_b_proximity"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_066_word_length_position",
+      "legacy_numeric_id": 66,
+      "path": "experiments/exp_066_word_length_position"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_067_bio_pool_quire",
+      "legacy_numeric_id": 67,
+      "path": "experiments/exp_067_bio_pool_quire"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_068_bio_para_qo",
+      "legacy_numeric_id": 68,
+      "path": "experiments/exp_068_bio_para_qo"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_069_ch_sh_gallows",
+      "legacy_numeric_id": 69,
+      "path": "experiments/exp_069_ch_sh_gallows"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_070_kedy_particle_ch_bigrams",
+      "legacy_numeric_id": 70,
+      "path": "experiments/exp_070_kedy_particle_ch_bigrams"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_071_onset_taxonomy_sections",
+      "legacy_numeric_id": 71,
+      "path": "experiments/exp_071_onset_taxonomy_sections"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_072_sh_qo_coupling",
+      "legacy_numeric_id": 72,
+      "path": "experiments/exp_072_sh_qo_coupling"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_073_medial_trigrams",
+      "legacy_numeric_id": 73,
+      "path": "experiments/exp_073_medial_trigrams"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_074_grammar_model",
+      "legacy_numeric_id": 74,
+      "path": "experiments/exp_074_grammar_model"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_075_a_grammar_sections",
+      "legacy_numeric_id": 75,
+      "path": "experiments/exp_075_a_grammar_sections"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_076_pharma_a_daiin_qo",
+      "legacy_numeric_id": 76,
+      "path": "experiments/exp_076_pharma_a_daiin_qo"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_077_para_closing_vocab",
+      "legacy_numeric_id": 77,
+      "path": "experiments/exp_077_para_closing_vocab"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_078_daiin_position_she",
+      "legacy_numeric_id": 78,
+      "path": "experiments/exp_078_daiin_position_she"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_079_e_infix_line_closers",
+      "legacy_numeric_id": 79,
+      "path": "experiments/exp_079_e_infix_line_closers"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_080_am_suffix_einfix_pharma",
+      "legacy_numeric_id": 80,
+      "path": "experiments/exp_080_am_suffix_einfix_pharma"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_081_einfix_stem_para_grammar",
+      "legacy_numeric_id": 81,
+      "path": "experiments/exp_081_einfix_stem_para_grammar"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_082_register_einfix_ol_or",
+      "legacy_numeric_id": 82,
+      "path": "experiments/exp_082_register_einfix_ol_or"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_083_suffix_substitution_para_start",
+      "legacy_numeric_id": 83,
+      "path": "experiments/exp_083_suffix_substitution_para_start"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_084_ol_prefix_daiin_hierarchy",
+      "legacy_numeric_id": 84,
+      "path": "experiments/exp_084_ol_prefix_daiin_hierarchy"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_085_she_dual_function_am_onset",
+      "legacy_numeric_id": 85,
+      "path": "experiments/exp_085_she_dual_function_am_onset"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_086_am_function_words_sh_profile",
+      "legacy_numeric_id": 86,
+      "path": "experiments/exp_086_am_function_words_sh_profile"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_087_daiin_b_line_opener",
+      "legacy_numeric_id": 87,
+      "path": "experiments/exp_087_daiin_b_line_opener"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_088_daiin_b_connector",
+      "legacy_numeric_id": 88,
+      "path": "experiments/exp_088_daiin_b_connector"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_089_y_qo_paradigm",
+      "legacy_numeric_id": 89,
+      "path": "experiments/exp_089_y_qo_paradigm"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_090_grammar_falsification",
+      "legacy_numeric_id": 90,
+      "path": "experiments/exp_090_grammar_falsification"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_091_a_line_structure",
+      "legacy_numeric_id": 91,
+      "path": "experiments/exp_091_a_line_structure"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_092_y_ch_vs_d_ch",
+      "legacy_numeric_id": 92,
+      "path": "experiments/exp_092_y_ch_vs_d_ch"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_093_a_para_start_p_onset",
+      "legacy_numeric_id": 93,
+      "path": "experiments/exp_093_a_para_start_p_onset"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_094_gallows_para_start",
+      "legacy_numeric_id": 94,
+      "path": "experiments/exp_094_gallows_para_start"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_095_gallows_ch_stem_hierarchy",
+      "legacy_numeric_id": 95,
+      "path": "experiments/exp_095_gallows_ch_stem_hierarchy"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_096_b_gallows_stem_hierarchy",
+      "legacy_numeric_id": 96,
+      "path": "experiments/exp_096_b_gallows_stem_hierarchy"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_097_stem_prefix_independence",
+      "legacy_numeric_id": 97,
+      "path": "experiments/exp_097_stem_prefix_independence"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_098_para_structure",
+      "legacy_numeric_id": 98,
+      "path": "experiments/exp_098_para_structure"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_099_other_para_starts",
+      "legacy_numeric_id": 99,
+      "path": "experiments/exp_099_other_para_starts"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_100_extended_classifier",
+      "legacy_numeric_id": 100,
+      "path": "experiments/exp_100_extended_classifier"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_101_o_onset_para",
+      "legacy_numeric_id": 101,
+      "path": "experiments/exp_101_o_onset_para"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_102_content_words",
+      "legacy_numeric_id": 102,
+      "path": "experiments/exp_102_content_words"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_103_section_classifier",
+      "legacy_numeric_id": 103,
+      "path": "experiments/exp_103_section_classifier"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_104_chd_heaps",
+      "legacy_numeric_id": 104,
+      "path": "experiments/exp_104_chd_heaps"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_105_other_vocab_zipf",
+      "legacy_numeric_id": 105,
+      "path": "experiments/exp_105_other_vocab_zipf"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_106_d_onset_o_prefix",
+      "legacy_numeric_id": 106,
+      "path": "experiments/exp_106_d_onset_o_prefix"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_107_universal_paradigm",
+      "legacy_numeric_id": 107,
+      "path": "experiments/exp_107_universal_paradigm"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_108_sd_complement_entropy",
+      "legacy_numeric_id": 108,
+      "path": "experiments/exp_108_sd_complement_entropy"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_109_am_4gram_cth",
+      "legacy_numeric_id": 109,
+      "path": "experiments/exp_109_am_4gram_cth"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_110_line_arc_bpole",
+      "legacy_numeric_id": 110,
+      "path": "experiments/exp_110_line_arc_bpole"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_111_olk_suffix_matrix",
+      "legacy_numeric_id": 111,
+      "path": "experiments/exp_111_olk_suffix_matrix"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_112_b_suffix_sections",
+      "legacy_numeric_id": 112,
+      "path": "experiments/exp_112_b_suffix_sections"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_113_vowel_ext_asuffix",
+      "legacy_numeric_id": 113,
+      "path": "experiments/exp_113_vowel_ext_asuffix"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_114_conditional_entropy",
+      "legacy_numeric_id": 114,
+      "path": "experiments/exp_114_conditional_entropy"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_115_folio_clustering",
+      "legacy_numeric_id": 115,
+      "path": "experiments/exp_115_folio_clustering"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_116_herbal_ab_linepos",
+      "legacy_numeric_id": 116,
+      "path": "experiments/exp_116_herbal_ab_linepos"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_117_other_suffix",
+      "legacy_numeric_id": 117,
+      "path": "experiments/exp_117_other_suffix"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_118_am_air_daiin",
+      "legacy_numeric_id": 118,
+      "path": "experiments/exp_118_am_air_daiin"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_119_bigram_matrix",
+      "legacy_numeric_id": 119,
+      "path": "experiments/exp_119_bigram_matrix"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_120_dialect_bigram",
+      "legacy_numeric_id": 120,
+      "path": "experiments/exp_120_dialect_bigram"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_121_trigrams_stars",
+      "legacy_numeric_id": 121,
+      "path": "experiments/exp_121_trigrams_stars"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_122_ol_or_bnp",
+      "legacy_numeric_id": 122,
+      "path": "experiments/exp_122_ol_or_bnp"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_123_onset_grammar",
+      "legacy_numeric_id": 123,
+      "path": "experiments/exp_123_onset_grammar"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_124_lk_onset",
+      "legacy_numeric_id": 124,
+      "path": "experiments/exp_124_lk_onset"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_125_prefix_paradigm",
+      "legacy_numeric_id": 125,
+      "path": "experiments/exp_125_prefix_paradigm"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_126_cth_vocab_suffix_grammar",
+      "legacy_numeric_id": 126,
+      "path": "experiments/exp_126_cth_vocab_suffix_grammar"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_127_line_template_4gram",
+      "legacy_numeric_id": 127,
+      "path": "experiments/exp_127_line_template_4gram"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_128_pr_prefix",
+      "legacy_numeric_id": 128,
+      "path": "experiments/exp_128_pr_prefix"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_129_pr_bracket",
+      "legacy_numeric_id": 129,
+      "path": "experiments/exp_129_pr_bracket"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_130_d_onset_grammar",
+      "legacy_numeric_id": 130,
+      "path": "experiments/exp_130_d_onset_grammar"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_131_folio_clustering_stars",
+      "legacy_numeric_id": 131,
+      "path": "experiments/exp_131_folio_clustering_stars"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_132_bherbal_diagnostic_s_onset",
+      "legacy_numeric_id": 132,
+      "path": "experiments/exp_132_bherbal_diagnostic_s_onset"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_133_cosmo_astro_section",
+      "legacy_numeric_id": 133,
+      "path": "experiments/exp_133_cosmo_astro_section"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_134_ol_onset_cheo_vocab",
+      "legacy_numeric_id": 134,
+      "path": "experiments/exp_134_ol_onset_cheo_vocab"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_135_cosmo_template_jaccard",
+      "legacy_numeric_id": 135,
+      "path": "experiments/exp_135_cosmo_template_jaccard"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_136_am_paragraph_universal_core",
+      "legacy_numeric_id": 136,
+      "path": "experiments/exp_136_am_paragraph_universal_core"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_137_para_tail_folio_gradient",
+      "legacy_numeric_id": 137,
+      "path": "experiments/exp_137_para_tail_folio_gradient"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_138_herbal_gradient_stars_cth",
+      "legacy_numeric_id": 138,
+      "path": "experiments/exp_138_herbal_gradient_stars_cth"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_139_herbal_cth_breakpoint_l_gradient",
+      "legacy_numeric_id": 139,
+      "path": "experiments/exp_139_herbal_cth_breakpoint_l_gradient"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_140_herbal_cth_vocabulary_shift",
+      "legacy_numeric_id": 140,
+      "path": "experiments/exp_140_herbal_cth_vocabulary_shift"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_141_l_cth_positional_parallel",
+      "legacy_numeric_id": 141,
+      "path": "experiments/exp_141_l_cth_positional_parallel"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_142_cthor_cthol_lchedy_bigram",
+      "legacy_numeric_id": 142,
+      "path": "experiments/exp_142_cthor_cthol_lchedy_bigram"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_143_cthor_ot_bigram_cth_runs",
+      "legacy_numeric_id": 143,
+      "path": "experiments/exp_143_cthor_ot_bigram_cth_runs"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_144_cthor_context_daiin",
+      "legacy_numeric_id": 144,
+      "path": "experiments/exp_144_cthor_context_daiin"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_145_daiin_transition_matrix",
+      "legacy_numeric_id": 145,
+      "path": "experiments/exp_145_daiin_transition_matrix"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_146_b_sh_che_positional_parallel",
+      "legacy_numeric_id": 146,
+      "path": "experiments/exp_146_b_sh_che_positional_parallel"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_147_b_ch_medial_nominal",
+      "legacy_numeric_id": 147,
+      "path": "experiments/exp_147_b_ch_medial_nominal"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_148_b_daiin_d_enrichment",
+      "legacy_numeric_id": 148,
+      "path": "experiments/exp_148_b_daiin_d_enrichment"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_149_a_sh_che_introducers",
+      "legacy_numeric_id": 149,
+      "path": "experiments/exp_149_a_sh_che_introducers"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_150_cth_introducer_positions",
+      "legacy_numeric_id": 150,
+      "path": "experiments/exp_150_cth_introducer_positions"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_151_cth_positional_paradigm",
+      "legacy_numeric_id": 151,
+      "path": "experiments/exp_151_cth_positional_paradigm"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_152_cthor_section_cthol_second",
+      "legacy_numeric_id": 152,
+      "path": "experiments/exp_152_cthor_section_cthol_second"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_153_cthor_section_daiin_cthy",
+      "legacy_numeric_id": 153,
+      "path": "experiments/exp_153_cthor_section_daiin_cthy"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_154_section_fix_cthor_daiin_cthy_position",
+      "legacy_numeric_id": 154,
+      "path": "experiments/exp_154_section_fix_cthor_daiin_cthy_position"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_155_cthor_cthol_second_lf_analysis",
+      "legacy_numeric_id": 155,
+      "path": "experiments/exp_155_cthor_cthol_second_lf_analysis"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_156_chol_cth_bigram_positions",
+      "legacy_numeric_id": 156,
+      "path": "experiments/exp_156_chol_cth_bigram_positions"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_157_daiin_cth_bigram_positions",
+      "legacy_numeric_id": 157,
+      "path": "experiments/exp_157_daiin_cth_bigram_positions"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_158_ot_positional_grammar_model",
+      "legacy_numeric_id": 158,
+      "path": "experiments/exp_158_ot_positional_grammar_model"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_159_y_d_onset_profiles",
+      "legacy_numeric_id": 159,
+      "path": "experiments/exp_159_y_d_onset_profiles"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_160_ychor_ycheor_grammar",
+      "legacy_numeric_id": 160,
+      "path": "experiments/exp_160_ychor_ycheor_grammar"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_161_ot_cth_grammatical_parallelism",
+      "legacy_numeric_id": 161,
+      "path": "experiments/exp_161_ot_cth_grammatical_parallelism"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_162_dam_dy_precursors_ychor_context",
+      "legacy_numeric_id": 162,
+      "path": "experiments/exp_162_dam_dy_precursors_ychor_context"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_163_ot_ot_bigram_dchor_cthor",
+      "legacy_numeric_id": 163,
+      "path": "experiments/exp_163_ot_ot_bigram_dchor_cthor"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_164_self_succession_details",
+      "legacy_numeric_id": 164,
+      "path": "experiments/exp_164_self_succession_details"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_165_k_cth_bigram_b_cth_occurrences",
+      "legacy_numeric_id": 165,
+      "path": "experiments/exp_165_k_cth_bigram_b_cth_occurrences"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_166_b_cth_vocabulary_analysis",
+      "legacy_numeric_id": 166,
+      "path": "experiments/exp_166_b_cth_vocabulary_analysis"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_167_trigram_analysis",
+      "legacy_numeric_id": 167,
+      "path": "experiments/exp_167_trigram_analysis"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_168_b_cthedy_lf_formulas_d_cth_d_trigrams",
+      "legacy_numeric_id": 168,
+      "path": "experiments/exp_168_b_cthedy_lf_formulas_d_cth_d_trigrams"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_169_ch_daiin_cth_compound_cthol_asymmetry",
+      "legacy_numeric_id": 169,
+      "path": "experiments/exp_169_ch_daiin_cth_compound_cthol_asymmetry"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_170_naibbe_simulation",
+      "legacy_numeric_id": 170,
+      "path": "experiments/exp_170_naibbe_simulation"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_171_timm_simulation",
+      "legacy_numeric_id": 171,
+      "path": "experiments/exp_171_timm_simulation"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_172_cross_validation",
+      "legacy_numeric_id": 172,
+      "path": "experiments/exp_172_cross_validation"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_173_multiple_testing",
+      "legacy_numeric_id": 173,
+      "path": "experiments/exp_173_multiple_testing"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_174_slot_grammar_residuals",
+      "legacy_numeric_id": 174,
+      "path": "experiments/exp_174_slot_grammar_residuals"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_175_long_range_mi_decay",
+      "legacy_numeric_id": 175,
+      "path": "experiments/exp_175_long_range_mi_decay"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_176_timm_parameter_sweep",
+      "legacy_numeric_id": 176,
+      "path": "experiments/exp_176_timm_parameter_sweep"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_177_position_sensitive_cipher",
+      "legacy_numeric_id": 177,
+      "path": "experiments/exp_177_position_sensitive_cipher"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_177_verify",
+      "legacy_numeric_id": 177,
+      "path": "experiments/exp_177_verify"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_178_naibbe_a_dialect",
+      "legacy_numeric_id": 178,
+      "path": "experiments/exp_178_naibbe_a_dialect"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_179_hybrid_cipher_copy",
+      "legacy_numeric_id": 179,
+      "path": "experiments/exp_179_hybrid_cipher_copy"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_180_position_aware_hybrid",
+      "legacy_numeric_id": 180,
+      "path": "experiments/exp_180_position_aware_hybrid"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_181_onset_preserving_mod",
+      "legacy_numeric_id": 181,
+      "path": "experiments/exp_181_onset_preserving_mod"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_182_timm_char_modification",
+      "legacy_numeric_id": 182,
+      "path": "experiments/exp_182_timm_char_modification"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_183_timm_char_extended_grid",
+      "legacy_numeric_id": 183,
+      "path": "experiments/exp_183_timm_char_extended_grid"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_184_latin_source_comparison",
+      "legacy_numeric_id": 184,
+      "path": "experiments/exp_184_latin_source_comparison"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_185_timm_char_cp_fine_grid",
+      "legacy_numeric_id": 185,
+      "path": "experiments/exp_185_timm_char_cp_fine_grid"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_186_pdetect_sweep",
+      "legacy_numeric_id": 186,
+      "path": "experiments/exp_186_pdetect_sweep"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_187_italian_source",
+      "legacy_numeric_id": 187,
+      "path": "experiments/exp_187_italian_source"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_188_cth_chain_analysis",
+      "legacy_numeric_id": 188,
+      "path": "experiments/exp_188_cth_chain_analysis"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_189_terminal_constructions",
+      "legacy_numeric_id": 189,
+      "path": "experiments/exp_189_terminal_constructions"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_190_bigram_inventory",
+      "legacy_numeric_id": 190,
+      "path": "experiments/exp_190_bigram_inventory"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_191_bigram_specifics",
+      "legacy_numeric_id": 191,
+      "path": "experiments/exp_191_bigram_specifics"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_192_cth_chain_structure",
+      "legacy_numeric_id": 192,
+      "path": "experiments/exp_192_cth_chain_structure"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_193_r_word_cth_chains",
+      "legacy_numeric_id": 193,
+      "path": "experiments/exp_193_r_word_cth_chains"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_194_para_structure_tests",
+      "legacy_numeric_id": 194,
+      "path": "experiments/exp_194_para_structure_tests"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_195_stars_dam_she",
+      "legacy_numeric_id": 195,
+      "path": "experiments/exp_195_stars_dam_she"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_196_grammar_structure",
+      "legacy_numeric_id": 196,
+      "path": "experiments/exp_196_grammar_structure"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_197_ch_classifier_zipf",
+      "legacy_numeric_id": 197,
+      "path": "experiments/exp_197_ch_classifier_zipf"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_198_grammar_summary",
+      "legacy_numeric_id": 198,
+      "path": "experiments/exp_198_grammar_summary"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_199_b_wplf_dch_sh",
+      "legacy_numeric_id": 199,
+      "path": "experiments/exp_199_b_wplf_dch_sh"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_200_cross_dialect_words",
+      "legacy_numeric_id": 200,
+      "path": "experiments/exp_200_cross_dialect_words"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_201_pol_daiin_sh_cth",
+      "legacy_numeric_id": 201,
+      "path": "experiments/exp_201_pol_daiin_sh_cth"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_202_pol_successor_daiin_mid_cth_rank",
+      "legacy_numeric_id": 202,
+      "path": "experiments/exp_202_pol_successor_daiin_mid_cth_rank"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_203_pol_ps_daiin_triple_pch",
+      "legacy_numeric_id": 203,
+      "path": "experiments/exp_203_pol_ps_daiin_triple_pch"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_204_aiin_cth_daiin_section",
+      "legacy_numeric_id": 204,
+      "path": "experiments/exp_204_aiin_cth_daiin_section"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_205_sh_grammar_qokaiin_cth_b",
+      "legacy_numeric_id": 205,
+      "path": "experiments/exp_205_sh_grammar_qokaiin_cth_b"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_206_b_edy_qo_grammar_sh_para",
+      "legacy_numeric_id": 206,
+      "path": "experiments/exp_206_b_edy_qo_grammar_sh_para"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_207_a_para_opening_b_pf_ll",
+      "legacy_numeric_id": 207,
+      "path": "experiments/exp_207_a_para_opening_b_pf_ll"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_208_b_para_model_daiin_hub_am_pf",
+      "legacy_numeric_id": 208,
+      "path": "experiments/exp_208_b_para_model_daiin_hub_am_pf"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_209_blind_ll_mapping",
+      "legacy_numeric_id": 209,
+      "path": "experiments/exp_209_blind_ll_mapping"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_210_dll_onset_recal",
+      "legacy_numeric_id": 210,
+      "path": "experiments/exp_210_dll_onset_recal"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_211_lf_blind_fine_sweep",
+      "legacy_numeric_id": 211,
+      "path": "experiments/exp_211_lf_blind_fine_sweep"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_212_b_firstline_y_qot_pf_ll",
+      "legacy_numeric_id": 212,
+      "path": "experiments/exp_212_b_firstline_y_qot_pf_ll"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_213_b_pos1_y_gallows_slot",
+      "legacy_numeric_id": 213,
+      "path": "experiments/exp_213_b_pos1_y_gallows_slot"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_214_pos1_anti_ps_sections",
+      "legacy_numeric_id": 214,
+      "path": "experiments/exp_214_pos1_anti_ps_sections"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_215_ps_formula_section_stability",
+      "legacy_numeric_id": 215,
+      "path": "experiments/exp_215_ps_formula_section_stability"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_216_a_dialect_primary_metrics",
+      "legacy_numeric_id": 216,
+      "path": "experiments/exp_216_a_dialect_primary_metrics"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_217_expanded_metric_battery",
+      "legacy_numeric_id": 217,
+      "path": "experiments/exp_217_expanded_metric_battery"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_218_vms_calibrated_distributions",
+      "legacy_numeric_id": 218,
+      "path": "experiments/exp_218_vms_calibrated_distributions"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_219_onset_preserving_copy",
+      "legacy_numeric_id": 219,
+      "path": "experiments/exp_219_onset_preserving_copy"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_220_onset_preserving_cp_sweep",
+      "legacy_numeric_id": 220,
+      "path": "experiments/exp_220_onset_preserving_cp_sweep"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_221_mode_b_fine_sweep",
+      "legacy_numeric_id": 221,
+      "path": "experiments/exp_221_mode_b_fine_sweep"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_222_positional_suffix_dist",
+      "legacy_numeric_id": 222,
+      "path": "experiments/exp_222_positional_suffix_dist"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_223_corpus_split_stability",
+      "legacy_numeric_id": 223,
+      "path": "experiments/exp_223_corpus_split_stability"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_224_parameter_count_control",
+      "legacy_numeric_id": 224,
+      "path": "experiments/exp_224_parameter_count_control"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_225_edy_suffix_preserving",
+      "legacy_numeric_id": 225,
+      "path": "experiments/exp_225_edy_suffix_preserving"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_226_edy_preservation_fresh_fallback",
+      "legacy_numeric_id": 226,
+      "path": "experiments/exp_226_edy_preservation_fresh_fallback"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_227_no_connector",
+      "legacy_numeric_id": 227,
+      "path": "experiments/exp_227_no_connector"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_228_qokch_markov",
+      "legacy_numeric_id": 228,
+      "path": "experiments/exp_228_qokch_markov"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_229_stutter",
+      "legacy_numeric_id": 229,
+      "path": "experiments/exp_229_stutter"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_230_qokll_diagnostic",
+      "legacy_numeric_id": 230,
+      "path": "experiments/exp_230_qokll_diagnostic"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_231_ll_onset_fix",
+      "legacy_numeric_id": 231,
+      "path": "experiments/exp_231_ll_onset_fix"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_232_am_suppression",
+      "legacy_numeric_id": 232,
+      "path": "experiments/exp_232_am_suppression"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_233_differential_am_suppression",
+      "legacy_numeric_id": 233,
+      "path": "experiments/exp_233_differential_am_suppression"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_234_edy_conditional_connector",
+      "legacy_numeric_id": 234,
+      "path": "experiments/exp_234_edy_conditional_connector"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_235_stutter_recalibration",
+      "legacy_numeric_id": 235,
+      "path": "experiments/exp_235_stutter_recalibration"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_236_global_am_resolution",
+      "legacy_numeric_id": 236,
+      "path": "experiments/exp_236_global_am_resolution"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_237_a_dialect_generalization",
+      "legacy_numeric_id": 237,
+      "path": "experiments/exp_237_a_dialect_generalization"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_238_a_dialect_corrected_r_mid",
+      "legacy_numeric_id": 238,
+      "path": "experiments/exp_238_a_dialect_corrected_r_mid"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_239_a_dialect_y_succession",
+      "legacy_numeric_id": 239,
+      "path": "experiments/exp_239_a_dialect_y_succession"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_240_a_dialect_split_stability",
+      "legacy_numeric_id": 240,
+      "path": "experiments/exp_240_a_dialect_split_stability"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_241_onset_bigram_structure",
+      "legacy_numeric_id": 241,
+      "path": "experiments/exp_241_onset_bigram_structure"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_242_position_filtered_bigrams",
+      "legacy_numeric_id": 242,
+      "path": "experiments/exp_242_position_filtered_bigrams"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_243_sh_qok_markov",
+      "legacy_numeric_id": 243,
+      "path": "experiments/exp_243_sh_qok_markov"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_244_sh_qok_lexical",
+      "legacy_numeric_id": 244,
+      "path": "experiments/exp_244_sh_qok_lexical"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_245_self_succession_diagnostic",
+      "legacy_numeric_id": 245,
+      "path": "experiments/exp_245_self_succession_diagnostic"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_246_bigram_global_vs_mid",
+      "legacy_numeric_id": 246,
+      "path": "experiments/exp_246_bigram_global_vs_mid"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_247_onset_trigrams",
+      "legacy_numeric_id": 247,
+      "path": "experiments/exp_247_onset_trigrams"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_248_ch_qok_return",
+      "legacy_numeric_id": 248,
+      "path": "experiments/exp_248_ch_qok_return"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_249_chqok_markov",
+      "legacy_numeric_id": 249,
+      "path": "experiments/exp_249_chqok_markov"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_250_a_dialect_chqok",
+      "legacy_numeric_id": 250,
+      "path": "experiments/exp_250_a_dialect_chqok"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_251_a_dialect_qokqok",
+      "legacy_numeric_id": 251,
+      "path": "experiments/exp_251_a_dialect_qokqok"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_252_section_onset_grammar",
+      "legacy_numeric_id": 252,
+      "path": "experiments/exp_252_section_onset_grammar"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_253_ot_ot_markov",
+      "legacy_numeric_id": 253,
+      "path": "experiments/exp_253_ot_ot_markov"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_254_a_dialect_mid_bigrams",
+      "legacy_numeric_id": 254,
+      "path": "experiments/exp_254_a_dialect_mid_bigrams"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_255_a_dialect_ot_ot_fix",
+      "legacy_numeric_id": 255,
+      "path": "experiments/exp_255_a_dialect_ot_ot_fix"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_256_b_dialect_ot_ot_recheck",
+      "legacy_numeric_id": 256,
+      "path": "experiments/exp_256_b_dialect_ot_ot_recheck"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_257_b_dialect_battery_fixed",
+      "legacy_numeric_id": 257,
+      "path": "experiments/exp_257_b_dialect_battery_fixed"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_258_a_dialect_o_o_markov",
+      "legacy_numeric_id": 258,
+      "path": "experiments/exp_258_a_dialect_o_o_markov"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_259_char_positional_entropy",
+      "legacy_numeric_id": 259,
+      "path": "experiments/exp_259_char_positional_entropy"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_260_char_bigram_pmi",
+      "legacy_numeric_id": 260,
+      "path": "experiments/exp_260_char_bigram_pmi"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_261_unified_onset_persist",
+      "legacy_numeric_id": 261,
+      "path": "experiments/exp_261_unified_onset_persist"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_262_a_dialect_sh_qok",
+      "legacy_numeric_id": 262,
+      "path": "experiments/exp_262_a_dialect_sh_qok"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_263_position_stratified_entropy",
+      "legacy_numeric_id": 263,
+      "path": "experiments/exp_263_position_stratified_entropy"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_264_a_dialect_13mech_split",
+      "legacy_numeric_id": 264,
+      "path": "experiments/exp_264_a_dialect_13mech_split"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_265_vocabulary_overlap",
+      "legacy_numeric_id": 265,
+      "path": "experiments/exp_265_vocabulary_overlap"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_266_onset_lag_enrichment",
+      "legacy_numeric_id": 266,
+      "path": "experiments/exp_266_onset_lag_enrichment"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_267_word_length_position",
+      "legacy_numeric_id": 267,
+      "path": "experiments/exp_267_word_length_position"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_268_menzerath_simulation",
+      "legacy_numeric_id": 268,
+      "path": "experiments/exp_268_menzerath_simulation"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_269_lf_ll_word_length_gap",
+      "legacy_numeric_id": 269,
+      "path": "experiments/exp_269_lf_ll_word_length_gap"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_270_midfix_lf_ll",
+      "legacy_numeric_id": 270,
+      "path": "experiments/exp_270_midfix_lf_ll"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_271_midfix_onset_conditioned",
+      "legacy_numeric_id": 271,
+      "path": "experiments/exp_271_midfix_onset_conditioned"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_272_within_line_gradient",
+      "legacy_numeric_id": 272,
+      "path": "experiments/exp_272_within_line_gradient"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_273_b_dialect_split_stability",
+      "legacy_numeric_id": 273,
+      "path": "experiments/exp_273_b_dialect_split_stability"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_274_s_succession_analysis",
+      "legacy_numeric_id": 274,
+      "path": "experiments/exp_274_s_succession_analysis"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_275_ch_sh_depletion",
+      "legacy_numeric_id": 275,
+      "path": "experiments/exp_275_ch_sh_depletion"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_276_word_repetition_distance",
+      "legacy_numeric_id": 276,
+      "path": "experiments/exp_276_word_repetition_distance"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_277_b_dialect_sh_qok_fine_sweep",
+      "legacy_numeric_id": 277,
+      "path": "experiments/exp_277_b_dialect_sh_qok_fine_sweep"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_278_word_length_distribution",
+      "legacy_numeric_id": 278,
+      "path": "experiments/exp_278_word_length_distribution"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_279_vocabulary_richness_gap",
+      "legacy_numeric_id": 279,
+      "path": "experiments/exp_279_vocabulary_richness_gap"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_280_mid_midfix_simulation",
+      "legacy_numeric_id": 280,
+      "path": "experiments/exp_280_mid_midfix_simulation"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_281_timm_rate_sweep",
+      "legacy_numeric_id": 281,
+      "path": "experiments/exp_281_timm_rate_sweep"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_282_word_index_conditioned_mid",
+      "legacy_numeric_id": 282,
+      "path": "experiments/exp_282_word_index_conditioned_mid"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_283_pmf_menzerath_sweep",
+      "legacy_numeric_id": 283,
+      "path": "experiments/exp_283_pmf_menzerath_sweep"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_284_lf_midfix_restored",
+      "legacy_numeric_id": 284,
+      "path": "experiments/exp_284_lf_midfix_restored"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_285_ll_midfix_rate_sweep",
+      "legacy_numeric_id": 285,
+      "path": "experiments/exp_285_ll_midfix_rate_sweep"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_286_mid_slope_joint_sweep",
+      "legacy_numeric_id": 286,
+      "path": "experiments/exp_286_mid_slope_joint_sweep"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_287_suffix_length_gradient",
+      "legacy_numeric_id": 287,
+      "path": "experiments/exp_287_suffix_length_gradient"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_288_stolfi_onset_decomp",
+      "legacy_numeric_id": 288,
+      "path": "experiments/exp_288_stolfi_onset_decomp"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_289_hapax_structure",
+      "legacy_numeric_id": 289,
+      "path": "experiments/exp_289_hapax_structure"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_290_hapax_position",
+      "legacy_numeric_id": 290,
+      "path": "experiments/exp_290_hapax_position"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_291_midfix_inventory",
+      "legacy_numeric_id": 291,
+      "path": "experiments/exp_291_midfix_inventory"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_292_cross_position_identity",
+      "legacy_numeric_id": 292,
+      "path": "experiments/exp_292_cross_position_identity"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_293_onset_positional_grammar",
+      "legacy_numeric_id": 293,
+      "path": "experiments/exp_293_onset_positional_grammar"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_294_qok_dialect_asymmetry",
+      "legacy_numeric_id": 294,
+      "path": "experiments/exp_294_qok_dialect_asymmetry"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_295_suffix_onset_paradigm",
+      "legacy_numeric_id": 295,
+      "path": "experiments/exp_295_suffix_onset_paradigm"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_296_daiin_analysis",
+      "legacy_numeric_id": 296,
+      "path": "experiments/exp_296_daiin_analysis"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_297_b_closed_paradigm_sections",
+      "legacy_numeric_id": 297,
+      "path": "experiments/exp_297_b_closed_paradigm_sections"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_298_text_section_register_mixing",
+      "legacy_numeric_id": 298,
+      "path": "experiments/exp_298_text_section_register_mixing"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_299_ch_sh_anti_succession",
+      "legacy_numeric_id": 299,
+      "path": "experiments/exp_299_ch_sh_anti_succession"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_300_a_dialect_onset_characterization",
+      "legacy_numeric_id": 300,
+      "path": "experiments/exp_300_a_dialect_onset_characterization"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_301_r_mid_calibration",
+      "legacy_numeric_id": 301,
+      "path": "experiments/exp_301_r_mid_calibration"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_302_sim_paradigm_diagnostic",
+      "legacy_numeric_id": 302,
+      "path": "experiments/exp_302_sim_paradigm_diagnostic"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_303_finite_vocab_pool",
+      "legacy_numeric_id": 303,
+      "path": "experiments/exp_303_finite_vocab_pool"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_304_vms_lexicon_battery",
+      "legacy_numeric_id": 304,
+      "path": "experiments/exp_304_vms_lexicon_battery"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_305_amlf_seed_check",
+      "legacy_numeric_id": 305,
+      "path": "experiments/exp_305_amlf_seed_check"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_306_beta_resweep",
+      "legacy_numeric_id": 306,
+      "path": "experiments/exp_306_beta_resweep"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_307_menzerath_section_analysis",
+      "legacy_numeric_id": 307,
+      "path": "experiments/exp_307_menzerath_section_analysis"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_308_menzerath_component_decomp",
+      "legacy_numeric_id": 308,
+      "path": "experiments/exp_308_menzerath_component_decomp"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_309_ll_line_len_conditional",
+      "legacy_numeric_id": 309,
+      "path": "experiments/exp_309_ll_line_len_conditional"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_310_ll_suffix_bias_cond",
+      "legacy_numeric_id": 310,
+      "path": "experiments/exp_310_ll_suffix_bias_cond"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_311_ll_word_len_filter",
+      "legacy_numeric_id": 311,
+      "path": "experiments/exp_311_ll_word_len_filter"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_312_mid_beta_cond_n",
+      "legacy_numeric_id": 312,
+      "path": "experiments/exp_312_mid_beta_cond_n"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_313_ll_bidir_filter",
+      "legacy_numeric_id": 313,
+      "path": "experiments/exp_313_ll_bidir_filter"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_314_beta_scale_fine",
+      "legacy_numeric_id": 314,
+      "path": "experiments/exp_314_beta_scale_fine"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_315_idx_thresh_sweep",
+      "legacy_numeric_id": 315,
+      "path": "experiments/exp_315_idx_thresh_sweep"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_316_cp90_wl_diagnostic",
+      "legacy_numeric_id": 316,
+      "path": "experiments/exp_316_cp90_wl_diagnostic"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_317_shchd_clamp",
+      "legacy_numeric_id": 317,
+      "path": "experiments/exp_317_shchd_clamp"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_318_length_biased_clamp",
+      "legacy_numeric_id": 318,
+      "path": "experiments/exp_318_length_biased_clamp"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_319_qok_ab_structure",
+      "legacy_numeric_id": 319,
+      "path": "experiments/exp_319_qok_ab_structure"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_320_onset_positional_entropy",
+      "legacy_numeric_id": 320,
+      "path": "experiments/exp_320_onset_positional_entropy"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_321_body_char_distribution",
+      "legacy_numeric_id": 321,
+      "path": "experiments/exp_321_body_char_distribution"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_322_y_gallows_compound",
+      "legacy_numeric_id": 322,
+      "path": "experiments/exp_322_y_gallows_compound"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_323_sh_qok_bigram",
+      "legacy_numeric_id": 323,
+      "path": "experiments/exp_323_sh_qok_bigram"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_324_onset_bigram_matrix",
+      "legacy_numeric_id": 324,
+      "path": "experiments/exp_324_onset_bigram_matrix"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_325_s_onset_structure",
+      "legacy_numeric_id": 325,
+      "path": "experiments/exp_325_s_onset_structure"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_326_ch_sh_avoidance_mechanism",
+      "legacy_numeric_id": 326,
+      "path": "experiments/exp_326_ch_sh_avoidance_mechanism"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_327_y_d_coupling",
+      "legacy_numeric_id": 327,
+      "path": "experiments/exp_327_y_d_coupling"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_328_ok_onset_body",
+      "legacy_numeric_id": 328,
+      "path": "experiments/exp_328_ok_onset_body"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_329_ok_position_distribution",
+      "legacy_numeric_id": 329,
+      "path": "experiments/exp_329_ok_position_distribution"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_330_bigram_directionality",
+      "legacy_numeric_id": 330,
+      "path": "experiments/exp_330_bigram_directionality"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_331_qok_a_body",
+      "legacy_numeric_id": 331,
+      "path": "experiments/exp_331_qok_a_body"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_332_doublet_positions",
+      "legacy_numeric_id": 332,
+      "path": "experiments/exp_332_doublet_positions"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_333_ch_sh_body_doublets",
+      "legacy_numeric_id": 333,
+      "path": "experiments/exp_333_ch_sh_body_doublets"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_334_ch_qok_bigram",
+      "legacy_numeric_id": 334,
+      "path": "experiments/exp_334_ch_qok_bigram"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_335_ch_sh_body_position",
+      "legacy_numeric_id": 335,
+      "path": "experiments/exp_335_ch_sh_body_position"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_336_ch_sh_power_analysis",
+      "legacy_numeric_id": 336,
+      "path": "experiments/exp_336_ch_sh_power_analysis"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_337_eey_position",
+      "legacy_numeric_id": 337,
+      "path": "experiments/exp_337_eey_position"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_338_ch_a_body_enrichment",
+      "legacy_numeric_id": 338,
+      "path": "experiments/exp_338_ch_a_body_enrichment"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_339_daiin_position",
+      "legacy_numeric_id": 339,
+      "path": "experiments/exp_339_daiin_position"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_340_a_body_by_section",
+      "legacy_numeric_id": 340,
+      "path": "experiments/exp_340_a_body_by_section"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_341_daiin_section_pos",
+      "legacy_numeric_id": 341,
+      "path": "experiments/exp_341_daiin_section_pos"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_342_daiin_para_opener",
+      "legacy_numeric_id": 342,
+      "path": "experiments/exp_342_daiin_para_opener"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_343_folio_opener_formula",
+      "legacy_numeric_id": 343,
+      "path": "experiments/exp_343_folio_opener_formula"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_344_folio_opener_structure",
+      "legacy_numeric_id": 344,
+      "path": "experiments/exp_344_folio_opener_structure"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_345_d_onset_section",
+      "legacy_numeric_id": 345,
+      "path": "experiments/exp_345_d_onset_section"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_346_cosmo_balance",
+      "legacy_numeric_id": 346,
+      "path": "experiments/exp_346_cosmo_balance"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_347_folio_first_ll",
+      "legacy_numeric_id": 347,
+      "path": "experiments/exp_347_folio_first_ll"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_348_ch_sh_folio_specialization",
+      "legacy_numeric_id": 348,
+      "path": "experiments/exp_348_ch_sh_folio_specialization"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_349_folio_last_line",
+      "legacy_numeric_id": 349,
+      "path": "experiments/exp_349_folio_last_line"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_350_bio_shckhy_compounds",
+      "legacy_numeric_id": 350,
+      "path": "experiments/exp_350_bio_shckhy_compounds"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_351_section_three_register",
+      "legacy_numeric_id": 351,
+      "path": "experiments/exp_351_section_three_register"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_352_y_onset_structure",
+      "legacy_numeric_id": 352,
+      "path": "experiments/exp_352_y_onset_structure"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_353_a_dialect_section_three_register",
+      "legacy_numeric_id": 353,
+      "path": "experiments/exp_353_a_dialect_section_three_register"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_354_folio_closer_vocab",
+      "legacy_numeric_id": 354,
+      "path": "experiments/exp_354_folio_closer_vocab"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_355_a_closer_y_ch_sequence",
+      "legacy_numeric_id": 355,
+      "path": "experiments/exp_355_a_closer_y_ch_sequence"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_356_register_pos1",
+      "legacy_numeric_id": 356,
+      "path": "experiments/exp_356_register_pos1"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_357_gallows_lf_pos1",
+      "legacy_numeric_id": 357,
+      "path": "experiments/exp_357_gallows_lf_pos1"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_358_gallows_mid_bigram",
+      "legacy_numeric_id": 358,
+      "path": "experiments/exp_358_gallows_mid_bigram"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_359_y_d_coupling",
+      "legacy_numeric_id": 359,
+      "path": "experiments/exp_359_y_d_coupling"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_360_ch_daiin_rule",
+      "legacy_numeric_id": 360,
+      "path": "experiments/exp_360_ch_daiin_rule"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_361_ok_succession",
+      "legacy_numeric_id": 361,
+      "path": "experiments/exp_361_ok_succession"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_362_gallows_subclass",
+      "legacy_numeric_id": 362,
+      "path": "experiments/exp_362_gallows_subclass"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_363_opener_formula",
+      "legacy_numeric_id": 363,
+      "path": "experiments/exp_363_opener_formula"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_364_prell_ll_grammar",
+      "legacy_numeric_id": 364,
+      "path": "experiments/exp_364_prell_ll_grammar"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_365_aiin_ol_shift",
+      "legacy_numeric_id": 365,
+      "path": "experiments/exp_365_aiin_ol_shift"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_366_a_dialect_positional_matrix",
+      "legacy_numeric_id": 366,
+      "path": "experiments/exp_366_a_dialect_positional_matrix"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_367_class_succession_survey",
+      "legacy_numeric_id": 367,
+      "path": "experiments/exp_367_class_succession_survey"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_368_y_succession",
+      "legacy_numeric_id": 368,
+      "path": "experiments/exp_368_y_succession"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_369_ch_daiin_positional",
+      "legacy_numeric_id": 369,
+      "path": "experiments/exp_369_ch_daiin_positional"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_370_sh_qok_mechanism",
+      "legacy_numeric_id": 370,
+      "path": "experiments/exp_370_sh_qok_mechanism"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_371_d_sh_d_cth",
+      "legacy_numeric_id": 371,
+      "path": "experiments/exp_371_d_sh_d_cth"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_372_s_sh_sh_qot",
+      "legacy_numeric_id": 372,
+      "path": "experiments/exp_372_s_sh_sh_qot"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_373_qot_characterization",
+      "legacy_numeric_id": 373,
+      "path": "experiments/exp_373_qot_characterization"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_374_ot_characterization",
+      "legacy_numeric_id": 374,
+      "path": "experiments/exp_374_ot_characterization"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_375_ok_characterization",
+      "legacy_numeric_id": 375,
+      "path": "experiments/exp_375_ok_characterization"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_376_qok_characterization",
+      "legacy_numeric_id": 376,
+      "path": "experiments/exp_376_qok_characterization"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_377_ol_characterization",
+      "legacy_numeric_id": 377,
+      "path": "experiments/exp_377_ol_characterization"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_378_r_characterization",
+      "legacy_numeric_id": 378,
+      "path": "experiments/exp_378_r_characterization"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_379_ch_characterization",
+      "legacy_numeric_id": 379,
+      "path": "experiments/exp_379_ch_characterization"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_380_sh_characterization",
+      "legacy_numeric_id": 380,
+      "path": "experiments/exp_380_sh_characterization"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_381_d_characterization",
+      "legacy_numeric_id": 381,
+      "path": "experiments/exp_381_d_characterization"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_382_s_characterization",
+      "legacy_numeric_id": 382,
+      "path": "experiments/exp_382_s_characterization"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_383_y_characterization",
+      "legacy_numeric_id": 383,
+      "path": "experiments/exp_383_y_characterization"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_384_cth_characterization",
+      "legacy_numeric_id": 384,
+      "path": "experiments/exp_384_cth_characterization"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_385_ll_grammar_synthesis",
+      "legacy_numeric_id": 385,
+      "path": "experiments/exp_385_ll_grammar_synthesis"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_386_lf_pos1_matrix",
+      "legacy_numeric_id": 386,
+      "path": "experiments/exp_386_lf_pos1_matrix"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_387_a_r_positional_census",
+      "legacy_numeric_id": 387,
+      "path": "experiments/exp_387_a_r_positional_census"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_388_lf_enrichment_synthesis",
+      "legacy_numeric_id": 388,
+      "path": "experiments/exp_388_lf_enrichment_synthesis"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_389_lf_pos1_pos2_trigram",
+      "legacy_numeric_id": 389,
+      "path": "experiments/exp_389_lf_pos1_pos2_trigram"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_390_b_r_pos1_analysis",
+      "legacy_numeric_id": 390,
+      "path": "experiments/exp_390_b_r_pos1_analysis"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_391_a_y_chain_length",
+      "legacy_numeric_id": 391,
+      "path": "experiments/exp_391_a_y_chain_length"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_392_b_p_sh_line_structure",
+      "legacy_numeric_id": 392,
+      "path": "experiments/exp_392_b_p_sh_line_structure"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_393_k_positional_census",
+      "legacy_numeric_id": 393,
+      "path": "experiments/exp_393_k_positional_census"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_394_b_sh_pos1_lf_pos2_matrix",
+      "legacy_numeric_id": 394,
+      "path": "experiments/exp_394_b_sh_pos1_lf_pos2_matrix"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_395_t_lf_pos1_trigram",
+      "legacy_numeric_id": 395,
+      "path": "experiments/exp_395_t_lf_pos1_trigram"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_396_a_sh_pos1_lf_pos2_matrix",
+      "legacy_numeric_id": 396,
+      "path": "experiments/exp_396_a_sh_pos1_lf_pos2_matrix"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_397_a_y_trigram",
+      "legacy_numeric_id": 397,
+      "path": "experiments/exp_397_a_y_trigram"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_398_b_raiin_line_grammar",
+      "legacy_numeric_id": 398,
+      "path": "experiments/exp_398_b_raiin_line_grammar"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_399_lf_ll_grammar",
+      "legacy_numeric_id": 399,
+      "path": "experiments/exp_399_lf_ll_grammar"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_400_a_p_sh_bracket",
+      "legacy_numeric_id": 400,
+      "path": "experiments/exp_400_a_p_sh_bracket"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_401_b_trigram_inventory",
+      "legacy_numeric_id": 401,
+      "path": "experiments/exp_401_b_trigram_inventory"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_402_a_trigram_inventory",
+      "legacy_numeric_id": 402,
+      "path": "experiments/exp_402_a_trigram_inventory"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_403_b_pos3_grammar",
+      "legacy_numeric_id": 403,
+      "path": "experiments/exp_403_b_pos3_grammar"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_404_ab_lf_pos1_matrix",
+      "legacy_numeric_id": 404,
+      "path": "experiments/exp_404_ab_lf_pos1_matrix"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_405_b_p_complete",
+      "legacy_numeric_id": 405,
+      "path": "experiments/exp_405_b_p_complete"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_406_a_y_chain_section",
+      "legacy_numeric_id": 406,
+      "path": "experiments/exp_406_a_y_chain_section"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_407_b_f_pos1",
+      "legacy_numeric_id": 407,
+      "path": "experiments/exp_407_b_f_pos1"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_408_ab_t_positional",
+      "legacy_numeric_id": 408,
+      "path": "experiments/exp_408_ab_t_positional"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_409_a_bracket_grammar",
+      "legacy_numeric_id": 409,
+      "path": "experiments/exp_409_a_bracket_grammar"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_410_b_bracket_grammar",
+      "legacy_numeric_id": 410,
+      "path": "experiments/exp_410_b_bracket_grammar"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_411_reference_trigram_formula",
+      "legacy_numeric_id": 411,
+      "path": "experiments/exp_411_reference_trigram_formula"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_412_formula_n10_threshold",
+      "legacy_numeric_id": 412,
+      "path": "experiments/exp_412_formula_n10_threshold"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_413_b_p_pos3_grammar",
+      "legacy_numeric_id": 413,
+      "path": "experiments/exp_413_b_p_pos3_grammar"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_414_bracket_line_content",
+      "legacy_numeric_id": 414,
+      "path": "experiments/exp_414_bracket_line_content"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_415_a_cth_pos1",
+      "legacy_numeric_id": 415,
+      "path": "experiments/exp_415_a_cth_pos1"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_416_b_d_ot_chain",
+      "legacy_numeric_id": 416,
+      "path": "experiments/exp_416_b_d_ot_chain"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_417_b_p_o_class",
+      "legacy_numeric_id": 417,
+      "path": "experiments/exp_417_b_p_o_class"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_418_reference_top_trigrams",
+      "legacy_numeric_id": 418,
+      "path": "experiments/exp_418_reference_top_trigrams"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_419_ot_self_chain",
+      "legacy_numeric_id": 419,
+      "path": "experiments/exp_419_ot_self_chain"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_420_b_l_grammar",
+      "legacy_numeric_id": 420,
+      "path": "experiments/exp_420_b_l_grammar"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_421_b_d_qok_ch_y",
+      "legacy_numeric_id": 421,
+      "path": "experiments/exp_421_b_d_qok_ch_y"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_422_b_y_o_ch",
+      "legacy_numeric_id": 422,
+      "path": "experiments/exp_422_b_y_o_ch"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_423_d_ch_l_section",
+      "legacy_numeric_id": 423,
+      "path": "experiments/exp_423_d_ch_l_section"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_424_formula_inventory",
+      "legacy_numeric_id": 424,
+      "path": "experiments/exp_424_formula_inventory"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_425_opch_enrichment",
+      "legacy_numeric_id": 425,
+      "path": "experiments/exp_425_opch_enrichment"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_426_t_ot_adjacency",
+      "legacy_numeric_id": 426,
+      "path": "experiments/exp_426_t_ot_adjacency"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_427_gallows_lf_mid_embedding",
+      "legacy_numeric_id": 427,
+      "path": "experiments/exp_427_gallows_lf_mid_embedding"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_428_formula_section_dist",
+      "legacy_numeric_id": 428,
+      "path": "experiments/exp_428_formula_section_dist"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_429_astro_qok_grammar",
+      "legacy_numeric_id": 429,
+      "path": "experiments/exp_429_astro_qok_grammar"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_430_a_opch_check",
+      "legacy_numeric_id": 430,
+      "path": "experiments/exp_430_a_opch_check"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_431_daiin_position_section",
+      "legacy_numeric_id": 431,
+      "path": "experiments/exp_431_daiin_position_section"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_432_ch_daiin_rule",
+      "legacy_numeric_id": 432,
+      "path": "experiments/exp_432_ch_daiin_rule"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_433_ok_ok_succession",
+      "legacy_numeric_id": 433,
+      "path": "experiments/exp_433_ok_ok_succession"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_434_qok_dialect_structure",
+      "legacy_numeric_id": 434,
+      "path": "experiments/exp_434_qok_dialect_structure"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_435_hapax_structure",
+      "legacy_numeric_id": 435,
+      "path": "experiments/exp_435_hapax_structure"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_436_latin_hapax_length",
+      "legacy_numeric_id": 436,
+      "path": "experiments/exp_436_latin_hapax_length"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_437_suffix_entropy_hapax",
+      "legacy_numeric_id": 437,
+      "path": "experiments/exp_437_suffix_entropy_hapax"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_438_stolfi_onset_structure",
+      "legacy_numeric_id": 438,
+      "path": "experiments/exp_438_stolfi_onset_structure"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_439_hapax_section_suffix",
+      "legacy_numeric_id": 439,
+      "path": "experiments/exp_439_hapax_section_suffix"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_440_crosspos_word_identity",
+      "legacy_numeric_id": 440,
+      "path": "experiments/exp_440_crosspos_word_identity"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_441_y_daiin_coupling",
+      "legacy_numeric_id": 441,
+      "path": "experiments/exp_441_y_daiin_coupling"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_442_a_qok_bracket",
+      "legacy_numeric_id": 442,
+      "path": "experiments/exp_442_a_qok_bracket"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_443_word_length_components",
+      "legacy_numeric_id": 443,
+      "path": "experiments/exp_443_word_length_components"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_444_crossline_y_d_bigram",
+      "legacy_numeric_id": 444,
+      "path": "experiments/exp_444_crossline_y_d_bigram"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_445_crossline_onset_matrix",
+      "legacy_numeric_id": 445,
+      "path": "experiments/exp_445_crossline_onset_matrix"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_446_suffix_position",
+      "legacy_numeric_id": 446,
+      "path": "experiments/exp_446_suffix_position"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_447_crossline_word_analysis",
+      "legacy_numeric_id": 447,
+      "path": "experiments/exp_447_crossline_word_analysis"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_448_crossline_inversion_corr",
+      "legacy_numeric_id": 448,
+      "path": "experiments/exp_448_crossline_inversion_corr"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_449_a_cth_sh_crossline",
+      "legacy_numeric_id": 449,
+      "path": "experiments/exp_449_a_cth_sh_crossline"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_450_sh_qok_wordlevel",
+      "legacy_numeric_id": 450,
+      "path": "experiments/exp_450_sh_qok_wordlevel"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_451_body_conditional_bigrams",
+      "legacy_numeric_id": 451,
+      "path": "experiments/exp_451_body_conditional_bigrams"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_452_ab_vocab_overlap",
+      "legacy_numeric_id": 452,
+      "path": "experiments/exp_452_ab_vocab_overlap"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_453_b_qok_chain_runlength",
+      "legacy_numeric_id": 453,
+      "path": "experiments/exp_453_b_qok_chain_runlength"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_454_a_qo_body_rule",
+      "legacy_numeric_id": 454,
+      "path": "experiments/exp_454_a_qo_body_rule"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_455_crossline_body_conditional",
+      "legacy_numeric_id": 455,
+      "path": "experiments/exp_455_crossline_body_conditional"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_456_daiin_crossline_bridge",
+      "legacy_numeric_id": 456,
+      "path": "experiments/exp_456_daiin_crossline_bridge"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_457_sh_body_crossline",
+      "legacy_numeric_id": 457,
+      "path": "experiments/exp_457_sh_body_crossline"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_458_ch_body_conditional",
+      "legacy_numeric_id": 458,
+      "path": "experiments/exp_458_ch_body_conditional"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_459_qot_ch_alternation",
+      "legacy_numeric_id": 459,
+      "path": "experiments/exp_459_qot_ch_alternation"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_460_a_s_crossline",
+      "legacy_numeric_id": 460,
+      "path": "experiments/exp_460_a_s_crossline"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_461_a_crossline_body",
+      "legacy_numeric_id": 461,
+      "path": "experiments/exp_461_a_crossline_body"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_462_cl_section_specificity",
+      "legacy_numeric_id": 462,
+      "path": "experiments/exp_462_cl_section_specificity"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_463_cl_paragraph_chain",
+      "legacy_numeric_id": 463,
+      "path": "experiments/exp_463_cl_paragraph_chain"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_464_a_cl_section_specificity",
+      "legacy_numeric_id": 464,
+      "path": "experiments/exp_464_a_cl_section_specificity"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_465_a_cth_sh_cl_section",
+      "legacy_numeric_id": 465,
+      "path": "experiments/exp_465_a_cth_sh_cl_section"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_466_a_stars_t_lf",
+      "legacy_numeric_id": 466,
+      "path": "experiments/exp_466_a_stars_t_lf"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_467_b_section_lf_grammar",
+      "legacy_numeric_id": 467,
+      "path": "experiments/exp_467_b_section_lf_grammar"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_468_b_herbal_t_lf_formula",
+      "legacy_numeric_id": 468,
+      "path": "experiments/exp_468_b_herbal_t_lf_formula"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_469_b_astro_qbench_triplet",
+      "legacy_numeric_id": 469,
+      "path": "experiments/exp_469_b_astro_qbench_triplet"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_470_a_cth_qot_cl_section",
+      "legacy_numeric_id": 470,
+      "path": "experiments/exp_470_a_cth_qot_cl_section"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_471_a_herbal_qot_lf_formula",
+      "legacy_numeric_id": 471,
+      "path": "experiments/exp_471_a_herbal_qot_lf_formula"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_472_b_herbal_t_lf_full",
+      "legacy_numeric_id": 472,
+      "path": "experiments/exp_472_b_herbal_t_lf_full"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_473_b_pharma_ok_lf_formula",
+      "legacy_numeric_id": 473,
+      "path": "experiments/exp_473_b_pharma_ok_lf_formula"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_474_b_pharma_ok_body_cond",
+      "legacy_numeric_id": 474,
+      "path": "experiments/exp_474_b_pharma_ok_body_cond"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_475_a_herbal_lf_ll_matrix",
+      "legacy_numeric_id": 475,
+      "path": "experiments/exp_475_a_herbal_lf_ll_matrix"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_476_a_herbal_y_lf_formula",
+      "legacy_numeric_id": 476,
+      "path": "experiments/exp_476_a_herbal_y_lf_formula"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_477_ab_t_lf_pos1_inversion",
+      "legacy_numeric_id": 477,
+      "path": "experiments/exp_477_ab_t_lf_pos1_inversion"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_478_b_pharma_lf_self_succession",
+      "legacy_numeric_id": 478,
+      "path": "experiments/exp_478_b_pharma_lf_self_succession"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_479_pharma_ot_l_lf_and_a_herbal_self_succ",
+      "legacy_numeric_id": 479,
+      "path": "experiments/exp_479_pharma_ot_l_lf_and_a_herbal_self_succ"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_480_a_herbal_ok_lf_and_pharma_qok",
+      "legacy_numeric_id": 480,
+      "path": "experiments/exp_480_a_herbal_ok_lf_and_pharma_qok"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_481_a_herbal_formula_matrix",
+      "legacy_numeric_id": 481,
+      "path": "experiments/exp_481_a_herbal_formula_matrix"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_482_b_herbal_formula_matrix",
+      "legacy_numeric_id": 482,
+      "path": "experiments/exp_482_b_herbal_formula_matrix"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_483_b_ot_lf_y_pos1_cross_section",
+      "legacy_numeric_id": 483,
+      "path": "experiments/exp_483_b_ot_lf_y_pos1_cross_section"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_484_ab_herbal_positional_shift",
+      "legacy_numeric_id": 484,
+      "path": "experiments/exp_484_ab_herbal_positional_shift"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_485_ch_lf_pos2_scope",
+      "legacy_numeric_id": 485,
+      "path": "experiments/exp_485_ch_lf_pos2_scope"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_486_b_herbal_remaining_lf",
+      "legacy_numeric_id": 486,
+      "path": "experiments/exp_486_b_herbal_remaining_lf"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_487_pos2_selfchain_survey",
+      "legacy_numeric_id": 487,
+      "path": "experiments/exp_487_pos2_selfchain_survey"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_488_f448_retraction",
+      "legacy_numeric_id": 488,
+      "path": "experiments/exp_488_f448_retraction"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_489_b_herbal_pos2_selfchain",
+      "legacy_numeric_id": 489,
+      "path": "experiments/exp_489_b_herbal_pos2_selfchain"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_490_pos2_ch_pharma_qbench_astro",
+      "legacy_numeric_id": 490,
+      "path": "experiments/exp_490_pos2_ch_pharma_qbench_astro"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_491_pos1_selfchain_survey",
+      "legacy_numeric_id": 491,
+      "path": "experiments/exp_491_pos1_selfchain_survey"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_492_pen_survey_ch_pos1_scope",
+      "legacy_numeric_id": 492,
+      "path": "experiments/exp_492_pen_survey_ch_pos1_scope"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_493_frame_validation_bherbal_pen",
+      "legacy_numeric_id": 493,
+      "path": "experiments/exp_493_frame_validation_bherbal_pen"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_494_b_herbal_pos1_survey",
+      "legacy_numeric_id": 494,
+      "path": "experiments/exp_494_b_herbal_pos1_survey"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_495_pos2_wordlevel_selfchain",
+      "legacy_numeric_id": 495,
+      "path": "experiments/exp_495_pos2_wordlevel_selfchain"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_496_combined_herbal_pos1",
+      "legacy_numeric_id": 496,
+      "path": "experiments/exp_496_combined_herbal_pos1"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_497_b_herbal_pos2_survey",
+      "legacy_numeric_id": 497,
+      "path": "experiments/exp_497_b_herbal_pos2_survey"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_498_b_astro_pos2_survey",
+      "legacy_numeric_id": 498,
+      "path": "experiments/exp_498_b_astro_pos2_survey"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_499_cosmo_pos2_survey",
+      "legacy_numeric_id": 499,
+      "path": "experiments/exp_499_cosmo_pos2_survey"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_500_a_cosmo_pos1_survey",
+      "legacy_numeric_id": 500,
+      "path": "experiments/exp_500_a_cosmo_pos1_survey"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_501_a_stars_pos1_survey",
+      "legacy_numeric_id": 501,
+      "path": "experiments/exp_501_a_stars_pos1_survey"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_502_b_pharma_pos1_survey",
+      "legacy_numeric_id": 502,
+      "path": "experiments/exp_502_b_pharma_pos1_survey"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_503_f480_scope_a_lf_pos1",
+      "legacy_numeric_id": 503,
+      "path": "experiments/exp_503_f480_scope_a_lf_pos1"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_504_b_astro_pen_survey",
+      "legacy_numeric_id": 504,
+      "path": "experiments/exp_504_b_astro_pen_survey"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_505_b_pen_scope_f481_483",
+      "legacy_numeric_id": 505,
+      "path": "experiments/exp_505_b_pen_scope_f481_483"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_506_a_herbal_pen_survey",
+      "legacy_numeric_id": 506,
+      "path": "experiments/exp_506_a_herbal_pen_survey"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_507_ot_lf_pen_scope",
+      "legacy_numeric_id": 507,
+      "path": "experiments/exp_507_ot_lf_pen_scope"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_508_a_cosmo_pen_survey",
+      "legacy_numeric_id": 508,
+      "path": "experiments/exp_508_a_cosmo_pen_survey"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_509_stars_bherbal_pen",
+      "legacy_numeric_id": 509,
+      "path": "experiments/exp_509_stars_bherbal_pen"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_510_cosmo_dlf_cooccur",
+      "legacy_numeric_id": 510,
+      "path": "experiments/exp_510_cosmo_dlf_cooccur"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_511_a_herbal_cl_survey",
+      "legacy_numeric_id": 511,
+      "path": "experiments/exp_511_a_herbal_cl_survey"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_512_a_herbal_cl_chain",
+      "legacy_numeric_id": 512,
+      "path": "experiments/exp_512_a_herbal_cl_chain"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_513_a_herbal_pos2_crossclass",
+      "legacy_numeric_id": 513,
+      "path": "experiments/exp_513_a_herbal_pos2_crossclass"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_514_b_sections_pos2_crossclass",
+      "legacy_numeric_id": 514,
+      "path": "experiments/exp_514_b_sections_pos2_crossclass"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_515_b_herbal_cl_scope",
+      "legacy_numeric_id": 515,
+      "path": "experiments/exp_515_b_herbal_cl_scope"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_516_b_astro_cl_b_bio_pos2",
+      "legacy_numeric_id": 516,
+      "path": "experiments/exp_516_b_astro_cl_b_bio_pos2"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_517_b_pharma_cl_a_herbal_triples",
+      "legacy_numeric_id": 517,
+      "path": "experiments/exp_517_b_pharma_cl_a_herbal_triples"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_518_a_cosmo_cl_inline_cooccur",
+      "legacy_numeric_id": 518,
+      "path": "experiments/exp_518_a_cosmo_cl_inline_cooccur"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_519_a_cosmo_cth_cl_folio_dist",
+      "legacy_numeric_id": 519,
+      "path": "experiments/exp_519_a_cosmo_cth_cl_folio_dist"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_520_o_lf_cross_section_y_pos1",
+      "legacy_numeric_id": 520,
+      "path": "experiments/exp_520_o_lf_cross_section_y_pos1"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_521_a_herbal_pos1_audit_and_pool",
+      "legacy_numeric_id": 521,
+      "path": "experiments/exp_521_a_herbal_pos1_audit_and_pool"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_522_o_lf_pos2_pen_a_stars_t_lf",
+      "legacy_numeric_id": 522,
+      "path": "experiments/exp_522_o_lf_pos2_pen_a_stars_t_lf"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_523_sh_lf_cl_cyclicity_within_line",
+      "legacy_numeric_id": 523,
+      "path": "experiments/exp_523_sh_lf_cl_cyclicity_within_line"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_524_t_lf_ok_lf_cl_role",
+      "legacy_numeric_id": 524,
+      "path": "experiments/exp_524_t_lf_ok_lf_cl_role"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_525_a_stars_per_page_reclassify",
+      "legacy_numeric_id": 525,
+      "path": "experiments/exp_525_a_stars_per_page_reclassify"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_526_a_stars_a_lf_grammar",
+      "legacy_numeric_id": 526,
+      "path": "experiments/exp_526_a_stars_a_lf_grammar"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_527_q011_q012_resolution",
+      "legacy_numeric_id": 527,
+      "path": "experiments/exp_527_q011_q012_resolution"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_528_a_stars_cl_grammar",
+      "legacy_numeric_id": 528,
+      "path": "experiments/exp_528_a_stars_cl_grammar"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_529_a_stars_f58_cl_and_b_herbal_cl",
+      "legacy_numeric_id": 529,
+      "path": "experiments/exp_529_a_stars_f58_cl_and_b_herbal_cl"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_530_ot_ch_cl_scope",
+      "legacy_numeric_id": 530,
+      "path": "experiments/exp_530_ot_ch_cl_scope"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_531_b_dialect_cl_grammar",
+      "legacy_numeric_id": 531,
+      "path": "experiments/exp_531_b_dialect_cl_grammar"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_532_b_astro_qo_qok_chain",
+      "legacy_numeric_id": 532,
+      "path": "experiments/exp_532_b_astro_qo_qok_chain"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_533_a_stars_a_onset_role",
+      "legacy_numeric_id": 533,
+      "path": "experiments/exp_533_a_stars_a_onset_role"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_534_qot_onset_characterization",
+      "legacy_numeric_id": 534,
+      "path": "experiments/exp_534_qot_onset_characterization"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_535_ot_onset_characterization",
+      "legacy_numeric_id": 535,
+      "path": "experiments/exp_535_ot_onset_characterization"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_536_ok_onset_characterization",
+      "legacy_numeric_id": 536,
+      "path": "experiments/exp_536_ok_onset_characterization"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_537_qok_onset_characterization",
+      "legacy_numeric_id": 537,
+      "path": "experiments/exp_537_qok_onset_characterization"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_538_qok_qot_triplet",
+      "legacy_numeric_id": 538,
+      "path": "experiments/exp_538_qok_qot_triplet"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_539_b_p_formula_pos3",
+      "legacy_numeric_id": 539,
+      "path": "experiments/exp_539_b_p_formula_pos3"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_540_sh_onset_characterization",
+      "legacy_numeric_id": 540,
+      "path": "experiments/exp_540_sh_onset_characterization"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_541_ch_onset_characterization",
+      "legacy_numeric_id": 541,
+      "path": "experiments/exp_541_ch_onset_characterization"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_542_b_ch_t_scope",
+      "legacy_numeric_id": 542,
+      "path": "experiments/exp_542_b_ch_t_scope"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_543_d_onset_characterization",
+      "legacy_numeric_id": 543,
+      "path": "experiments/exp_543_d_onset_characterization"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_544_b_d_sh_scope",
+      "legacy_numeric_id": 544,
+      "path": "experiments/exp_544_b_d_sh_scope"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_545_y_onset_characterization",
+      "legacy_numeric_id": 545,
+      "path": "experiments/exp_545_y_onset_characterization"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_546_d_lf_paragraph_nesting",
+      "legacy_numeric_id": 546,
+      "path": "experiments/exp_546_d_lf_paragraph_nesting"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_547_o_onset_characterization",
+      "legacy_numeric_id": 547,
+      "path": "experiments/exp_547_o_onset_characterization"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_548_o_a_coupling",
+      "legacy_numeric_id": 548,
+      "path": "experiments/exp_548_o_a_coupling"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_549_a_onset_characterization",
+      "legacy_numeric_id": 549,
+      "path": "experiments/exp_549_a_onset_characterization"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_550_s_onset_characterization",
+      "legacy_numeric_id": 550,
+      "path": "experiments/exp_550_s_onset_characterization"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_551_t_onset_characterization",
+      "legacy_numeric_id": 551,
+      "path": "experiments/exp_551_t_onset_characterization"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_552_k_onset_characterization",
+      "legacy_numeric_id": 552,
+      "path": "experiments/exp_552_k_onset_characterization"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_553_ol_l_onset_characterization",
+      "legacy_numeric_id": 553,
+      "path": "experiments/exp_553_ol_l_onset_characterization"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_554_r_onset_characterization",
+      "legacy_numeric_id": 554,
+      "path": "experiments/exp_554_r_onset_characterization"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_555_b_lf_terminal_synthesis",
+      "legacy_numeric_id": 555,
+      "path": "experiments/exp_555_b_lf_terminal_synthesis"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_556_p_onset_characterization",
+      "legacy_numeric_id": 556,
+      "path": "experiments/exp_556_p_onset_characterization"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_557_a_lf_terminal_synthesis",
+      "legacy_numeric_id": 557,
+      "path": "experiments/exp_557_a_lf_terminal_synthesis"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_558_cth_onset_characterization",
+      "legacy_numeric_id": 558,
+      "path": "experiments/exp_558_cth_onset_characterization"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_559_a_line_formula_cth_d",
+      "legacy_numeric_id": 559,
+      "path": "experiments/exp_559_a_line_formula_cth_d"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_560_sch_onset_characterization",
+      "legacy_numeric_id": 560,
+      "path": "experiments/exp_560_sch_onset_characterization"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_561_ckh_cph_characterization",
+      "legacy_numeric_id": 561,
+      "path": "experiments/exp_561_ckh_cph_characterization"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_562_cgallows_d_coupling",
+      "legacy_numeric_id": 562,
+      "path": "experiments/exp_562_cgallows_d_coupling"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_563_qo_onset_characterization",
+      "legacy_numeric_id": 563,
+      "path": "experiments/exp_563_qo_onset_characterization"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_564_sh_onset_characterization",
+      "legacy_numeric_id": 564,
+      "path": "experiments/exp_564_sh_onset_characterization"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_565_qok_onset_characterization",
+      "legacy_numeric_id": 565,
+      "path": "experiments/exp_565_qok_onset_characterization"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_566_ch_onset_characterization",
+      "legacy_numeric_id": 566,
+      "path": "experiments/exp_566_ch_onset_characterization"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_567_ok_onset_characterization",
+      "legacy_numeric_id": 567,
+      "path": "experiments/exp_567_ok_onset_characterization"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_568_ot_onset_characterization",
+      "legacy_numeric_id": 568,
+      "path": "experiments/exp_568_ot_onset_characterization"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_569_qot_onset_characterization",
+      "legacy_numeric_id": 569,
+      "path": "experiments/exp_569_qot_onset_characterization"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_570_qbench_r_routing",
+      "legacy_numeric_id": 570,
+      "path": "experiments/exp_570_qbench_r_routing"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_572_a_terminal_pairs",
+      "legacy_numeric_id": 572,
+      "path": "experiments/exp_572_a_terminal_pairs"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_573_c007_reconciliation",
+      "legacy_numeric_id": 573,
+      "path": "experiments/exp_573_c007_reconciliation"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_574_arch_negative_control",
+      "legacy_numeric_id": 574,
+      "path": "experiments/exp_574_arch_negative_control"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_575_arch_refit_shuffle",
+      "legacy_numeric_id": 575,
+      "path": "experiments/exp_575_arch_refit_shuffle"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_576_param_stability",
+      "legacy_numeric_id": 576,
+      "path": "experiments/exp_576_param_stability"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_577_q007_adjrate_decomp",
+      "legacy_numeric_id": 577,
+      "path": "experiments/exp_577_q007_adjrate_decomp"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_578_q007_copybuf_diag",
+      "legacy_numeric_id": 578,
+      "path": "experiments/exp_578_q007_copybuf_diag"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_579_doc_order_heterogeneity",
+      "legacy_numeric_id": 579,
+      "path": "experiments/exp_579_doc_order_heterogeneity"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_580_label_corpus_grammar",
+      "legacy_numeric_id": 580,
+      "path": "experiments/exp_580_label_corpus_grammar"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_581_convention_diagnostic",
+      "legacy_numeric_id": 581,
+      "path": "experiments/exp_581_convention_diagnostic"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_582_battery_correlation_matrix",
+      "legacy_numeric_id": 582,
+      "path": "experiments/exp_582_battery_correlation_matrix"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_583_chain_null_model",
+      "legacy_numeric_id": 583,
+      "path": "experiments/exp_583_chain_null_model"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_584_nonvms_specificity",
+      "legacy_numeric_id": 584,
+      "path": "experiments/exp_584_nonvms_specificity"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_585_nonvms_specificity_v2",
+      "legacy_numeric_id": 585,
+      "path": "experiments/exp_585_nonvms_specificity_v2"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_586_replication_eva_basic",
+      "legacy_numeric_id": 586,
+      "path": "experiments/exp_586_replication_eva_basic"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_587_replication_v101",
+      "legacy_numeric_id": 587,
+      "path": "experiments/exp_587_replication_v101"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_588_replication_zl3a",
+      "legacy_numeric_id": 588,
+      "path": "experiments/exp_588_replication_zl3a"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_589_daiin_position_audit",
+      "legacy_numeric_id": 589,
+      "path": "experiments/exp_589_daiin_position_audit"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_590_daiin_section_stratification",
+      "legacy_numeric_id": 590,
+      "path": "experiments/exp_590_daiin_section_stratification"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_591_daiin_locus_stratification",
+      "legacy_numeric_id": 591,
+      "path": "experiments/exp_591_daiin_locus_stratification"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_592_daiin_folio_influence",
+      "legacy_numeric_id": 592,
+      "path": "experiments/exp_592_daiin_folio_influence"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_593_daiin_line_metadata_contrast",
+      "legacy_numeric_id": 593,
+      "path": "experiments/exp_593_daiin_line_metadata_contrast"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_594_daiin_explicit_paragraph_markers",
+      "legacy_numeric_id": 594,
+      "path": "experiments/exp_594_daiin_explicit_paragraph_markers"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_594_daiin_paragraph_start",
+      "legacy_numeric_id": 594,
+      "path": "experiments/exp_594_daiin_paragraph_start"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_595_paragraph_marker_replication",
+      "legacy_numeric_id": 595,
+      "path": "experiments/exp_595_paragraph_marker_replication"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_596_daiin_position_controls",
+      "legacy_numeric_id": 596,
+      "path": "experiments/exp_596_daiin_position_controls"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_596_zl3a_zl3b_line_level_audit",
+      "legacy_numeric_id": 596,
+      "path": "experiments/exp_596_zl3a_zl3b_line_level_audit"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_597_daiin_frequency_control_words",
+      "legacy_numeric_id": 597,
+      "path": "experiments/exp_597_daiin_frequency_control_words"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_597_initial_form_next_token_context",
+      "legacy_numeric_id": 597,
+      "path": "experiments/exp_597_initial_form_next_token_context"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_598_two_token_successor_context",
+      "legacy_numeric_id": 598,
+      "path": "experiments/exp_598_two_token_successor_context"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_599_marginal_successor_positions",
+      "legacy_numeric_id": 599,
+      "path": "experiments/exp_599_marginal_successor_positions"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_600_ivtff_parser_conformance",
+      "legacy_numeric_id": 600,
+      "path": "experiments/exp_600_ivtff_parser_conformance"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_600_transcription_concordance",
+      "legacy_numeric_id": 600,
+      "path": "experiments/exp_600_transcription_concordance"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_601_folio_clustered_confirmation",
+      "legacy_numeric_id": 601,
+      "path": "experiments/exp_601_folio_clustered_confirmation"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_601_primary_statistic_paired_sensitivity",
+      "legacy_numeric_id": 601,
+      "path": "experiments/exp_601_primary_statistic_paired_sensitivity"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_602_heldout_predictive_test",
+      "legacy_numeric_id": 602,
+      "path": "experiments/exp_602_heldout_predictive_test"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_602_independent_ivtff_parser_audit",
+      "legacy_numeric_id": 602,
+      "path": "experiments/exp_602_independent_ivtff_parser_audit"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_603_stratified_heldout_prediction",
+      "legacy_numeric_id": 603,
+      "path": "experiments/exp_603_stratified_heldout_prediction"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_604_independent_transcription_replication",
+      "legacy_numeric_id": 604,
+      "path": "experiments/exp_604_independent_transcription_replication"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_605_folio_sequence_gap_audit",
+      "legacy_numeric_id": 605,
+      "path": "experiments/exp_605_folio_sequence_gap_audit"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_606_gap_boundary_lexical_audit",
+      "legacy_numeric_id": 606,
+      "path": "experiments/exp_606_gap_boundary_lexical_audit"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_607_heldout_bigram_prediction",
+      "legacy_numeric_id": 607,
+      "path": "experiments/exp_607_heldout_bigram_prediction"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_608_ch_sh_following_character_audit",
+      "legacy_numeric_id": 608,
+      "path": "experiments/exp_608_ch_sh_following_character_audit"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_609_paired_ch_sh_vowel_test",
+      "legacy_numeric_id": 609,
+      "path": "experiments/exp_609_paired_ch_sh_vowel_test"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_610_length_stratified_ch_sh_audit",
+      "legacy_numeric_id": 610,
+      "path": "experiments/exp_610_length_stratified_ch_sh_audit"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_611_exact_length_position_ch_sh",
+      "legacy_numeric_id": 611,
+      "path": "experiments/exp_611_exact_length_position_ch_sh"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_612_ch_sh_currier_stratification",
+      "legacy_numeric_id": 612,
+      "path": "experiments/exp_612_ch_sh_currier_stratification"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_613_615_ch_sh_inference_sensitivity",
+      "legacy_numeric_id": 613,
+      "path": "experiments/exp_613_615_ch_sh_inference_sensitivity"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_616_folio_block_holdout_sensitivity",
+      "legacy_numeric_id": 616,
+      "path": "experiments/exp_616_folio_block_holdout_sensitivity"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_617_ch_sh_high_support",
+      "legacy_numeric_id": 617,
+      "path": "experiments/exp_617_ch_sh_high_support"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_618_ch_sh_word_type_sensitivity",
+      "legacy_numeric_id": 618,
+      "path": "experiments/exp_618_ch_sh_word_type_sensitivity"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_619_ch_sh_adjacent_context_control",
+      "legacy_numeric_id": 619,
+      "path": "experiments/exp_619_ch_sh_adjacent_context_control"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_620_parser_audit",
+      "legacy_numeric_id": 620,
+      "path": "experiments/exp_620_parser_audit"
+    },
+    {
+      "canonical_id": "GH:experiments/exp_621_interim_ch_sh_decision_report",
+      "legacy_numeric_id": 621,
+      "path": "experiments/exp_621_interim_ch_sh_decision_report"
+    }
+  ],
+  "numeric_collisions": {
+    "177": [
+      "GH:experiments/exp_177_position_sensitive_cipher",
+      "GH:experiments/exp_177_verify"
+    ],
+    "594": [
+      "GH:experiments/exp_594_daiin_explicit_paragraph_markers",
+      "GH:experiments/exp_594_daiin_paragraph_start"
+    ],
+    "596": [
+      "GH:experiments/exp_596_daiin_position_controls",
+      "GH:experiments/exp_596_zl3a_zl3b_line_level_audit"
+    ],
+    "597": [
+      "GH:experiments/exp_597_daiin_frequency_control_words",
+      "GH:experiments/exp_597_initial_form_next_token_context"
+    ],
+    "600": [
+      "GH:experiments/exp_600_ivtff_parser_conformance",
+      "GH:experiments/exp_600_transcription_concordance"
+    ],
+    "601": [
+      "GH:experiments/exp_601_folio_clustered_confirmation",
+      "GH:experiments/exp_601_primary_statistic_paired_sensitivity"
+    ],
+    "602": [
+      "GH:experiments/exp_602_heldout_predictive_test",
+      "GH:experiments/exp_602_independent_ivtff_parser_audit"
+    ]
+  }
+}
