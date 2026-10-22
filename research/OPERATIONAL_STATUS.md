@@ -47,3 +47,10 @@ Conformidad independiente completa IVTFF; representación de códigos extendidos
 Los informes anteriores de concurrencia describen la arquitectura antigua de 30 escritores; esta sección los sustituye respecto a permisos y publicación. La CI de cada commit posterior debe comprobarse separadamente.
 
 Archivo de logs: [execution-logs.zip](operations/2026-10-22/execution-logs.zip). SHA-256: `5970815b019af20e6eee1a04f4addc220f201ca3020a5c4ecda52e8626f7e849`.
+
+## Cierre de verificación del código reparado
+
+- Código y registro del commit `13f054befcc17bc1d15365fa3702b5dfbd9cc2ee`: Voynich Check [39744845381](https://github.com/kyrian20/voynich-autoexploration/actions/runs/39744845381), `success` en todos los pasos.
+- Publicador del mismo commit: [39744845277](https://github.com/kyrian20/voynich-autoexploration/actions/runs/39744845277), `success`, incluida conservación de artefactos y publicación. Generó el commit `2e9f28903a9cc514c076dad7e609003e243c1f0e`.
+- Se inspeccionó el JSON EXP-590 publicado: conserva la advertencia inferencial y la comparación de cobertura, con 5.376 líneas, 39.594 tokens y 853 daiin. La corrección del generador ha quedado comprobada en publicación real.
+- Los correos de fallos anteriores siguen siendo históricos. El fallo EXP-603 del commit `0484aa1` fue corregido en `7d3b903` y su run posterior pasó. No se han ocultado fallos ni cambiado las preferencias de notificación del usuario.

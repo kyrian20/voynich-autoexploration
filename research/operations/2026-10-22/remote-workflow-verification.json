@@ -1,0 +1,285 @@
+{
+  "scope": "Actual run conclusions observed after the repair; the failed initial EXP-603 run is retained, with its corrected successor.",
+  "runs": [
+    {
+      "run_id": 39744845381,
+      "workflow": "Voynich Check",
+      "head_sha": "13f054befcc17bc1d15365fa3702b5dfbd9cc2ee",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/kyrian20/voynich-autoexploration/actions/runs/39744845381"
+    },
+    {
+      "run_id": 39744845277,
+      "workflow": "Voynich Autonomous Research",
+      "head_sha": "13f054befcc17bc1d15365fa3702b5dfbd9cc2ee",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/kyrian20/voynich-autoexploration/actions/runs/39744845277"
+    },
+    {
+      "run_id": 39744302807,
+      "workflow": "Voynich Check",
+      "head_sha": "7d3b903a7d4be7767f3b841beca29de3e28f7470",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/kyrian20/voynich-autoexploration/actions/runs/39744302807"
+    },
+    {
+      "run_id": 39744302712,
+      "workflow": "Voynich exp603 stratified held-out prediction",
+      "head_sha": "7d3b903a7d4be7767f3b841beca29de3e28f7470",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/kyrian20/voynich-autoexploration/actions/runs/39744302712"
+    },
+    {
+      "run_id": 39744139931,
+      "workflow": "Voynich Corpus Experiments",
+      "head_sha": "0484aa1593db95474a59adca4ea6961c729482d6",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/kyrian20/voynich-autoexploration/actions/runs/39744139931"
+    },
+    {
+      "run_id": 39744139847,
+      "workflow": "Voynich exp605 folio sequence gap audit",
+      "head_sha": "0484aa1593db95474a59adca4ea6961c729482d6",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/kyrian20/voynich-autoexploration/actions/runs/39744139847"
+    },
+    {
+      "run_id": 39744139804,
+      "workflow": "Voynich IVTFF Parser Conformance Audit",
+      "head_sha": "0484aa1593db95474a59adca4ea6961c729482d6",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/kyrian20/voynich-autoexploration/actions/runs/39744139804"
+    },
+    {
+      "run_id": 39744139766,
+      "workflow": "Voynich Explicit Paragraph Marker Checks",
+      "head_sha": "0484aa1593db95474a59adca4ea6961c729482d6",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/kyrian20/voynich-autoexploration/actions/runs/39744139766"
+    },
+    {
+      "run_id": 39744139747,
+      "workflow": "Voynich Transcription Concordance Audit",
+      "head_sha": "0484aa1593db95474a59adca4ea6961c729482d6",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/kyrian20/voynich-autoexploration/actions/runs/39744139747"
+    },
+    {
+      "run_id": 39744139738,
+      "workflow": "Voynich exp609 paired ch-sh vowel test",
+      "head_sha": "0484aa1593db95474a59adca4ea6961c729482d6",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/kyrian20/voynich-autoexploration/actions/runs/39744139738"
+    },
+    {
+      "run_id": 39744139732,
+      "workflow": "Voynich Independent Parser Audit",
+      "head_sha": "0484aa1593db95474a59adca4ea6961c729482d6",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/kyrian20/voynich-autoexploration/actions/runs/39744139732"
+    },
+    {
+      "run_id": 39744139713,
+      "workflow": "Voynich Folio Influence Checks",
+      "head_sha": "0484aa1593db95474a59adca4ea6961c729482d6",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/kyrian20/voynich-autoexploration/actions/runs/39744139713"
+    },
+    {
+      "run_id": 39744139697,
+      "workflow": "Voynich Autonomous Research",
+      "head_sha": "0484aa1593db95474a59adca4ea6961c729482d6",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/kyrian20/voynich-autoexploration/actions/runs/39744139697"
+    },
+    {
+      "run_id": 39744139690,
+      "workflow": "Voynich exp606 gap boundary lexical audit",
+      "head_sha": "0484aa1593db95474a59adca4ea6961c729482d6",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/kyrian20/voynich-autoexploration/actions/runs/39744139690"
+    },
+    {
+      "run_id": 39744139668,
+      "workflow": "Voynich Marginal Successor Checks",
+      "head_sha": "0484aa1593db95474a59adca4ea6961c729482d6",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/kyrian20/voynich-autoexploration/actions/runs/39744139668"
+    },
+    {
+      "run_id": 39744139626,
+      "workflow": "Voynich Paragraph Marker Replication",
+      "head_sha": "0484aa1593db95474a59adca4ea6961c729482d6",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/kyrian20/voynich-autoexploration/actions/runs/39744139626"
+    },
+    {
+      "run_id": 39744139623,
+      "workflow": "Voynich Line Metadata Checks",
+      "head_sha": "0484aa1593db95474a59adca4ea6961c729482d6",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/kyrian20/voynich-autoexploration/actions/runs/39744139623"
+    },
+    {
+      "run_id": 39744139612,
+      "workflow": "Voynich Held-Out Folio Prediction",
+      "head_sha": "0484aa1593db95474a59adca4ea6961c729482d6",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/kyrian20/voynich-autoexploration/actions/runs/39744139612"
+    },
+    {
+      "run_id": 39744139607,
+      "workflow": "Voynich Folio-Clustered Confirmation",
+      "head_sha": "0484aa1593db95474a59adca4ea6961c729482d6",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/kyrian20/voynich-autoexploration/actions/runs/39744139607"
+    },
+    {
+      "run_id": 39744139599,
+      "workflow": "Voynich exp608 ch-sh following-character audit",
+      "head_sha": "0484aa1593db95474a59adca4ea6961c729482d6",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/kyrian20/voynich-autoexploration/actions/runs/39744139599"
+    },
+    {
+      "run_id": 39744139586,
+      "workflow": "Voynich Two-Token Context Checks",
+      "head_sha": "0484aa1593db95474a59adca4ea6961c729482d6",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/kyrian20/voynich-autoexploration/actions/runs/39744139586"
+    },
+    {
+      "run_id": 39744139551,
+      "workflow": "Voynich Paired Transcription Sensitivity",
+      "head_sha": "0484aa1593db95474a59adca4ea6961c729482d6",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/kyrian20/voynich-autoexploration/actions/runs/39744139551"
+    },
+    {
+      "run_id": 39744139535,
+      "workflow": "Voynich exp604 independent transcription replication",
+      "head_sha": "0484aa1593db95474a59adca4ea6961c729482d6",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/kyrian20/voynich-autoexploration/actions/runs/39744139535"
+    },
+    {
+      "run_id": 39744139515,
+      "workflow": "Voynich IVTFF Locus Checks",
+      "head_sha": "0484aa1593db95474a59adca4ea6961c729482d6",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/kyrian20/voynich-autoexploration/actions/runs/39744139515"
+    },
+    {
+      "run_id": 39744139477,
+      "workflow": "Voynich Position Control Checks",
+      "head_sha": "0484aa1593db95474a59adca4ea6961c729482d6",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/kyrian20/voynich-autoexploration/actions/runs/39744139477"
+    },
+    {
+      "run_id": 39744139452,
+      "workflow": "Voynich exp611 exact length-position ch-sh matching",
+      "head_sha": "0484aa1593db95474a59adca4ea6961c729482d6",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/kyrian20/voynich-autoexploration/actions/runs/39744139452"
+    },
+    {
+      "run_id": 39744139410,
+      "workflow": "Voynich Initial-Form Context Checks",
+      "head_sha": "0484aa1593db95474a59adca4ea6961c729482d6",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/kyrian20/voynich-autoexploration/actions/runs/39744139410"
+    },
+    {
+      "run_id": 39744139259,
+      "workflow": "Voynich Check",
+      "head_sha": "0484aa1593db95474a59adca4ea6961c729482d6",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/kyrian20/voynich-autoexploration/actions/runs/39744139259"
+    },
+    {
+      "run_id": 39744139225,
+      "workflow": "Voynich Lexical Control Checks",
+      "head_sha": "0484aa1593db95474a59adca4ea6961c729482d6",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/kyrian20/voynich-autoexploration/actions/runs/39744139225"
+    },
+    {
+      "run_id": 39744139169,
+      "workflow": "Voynich exp610 length-stratified ch-sh audit",
+      "head_sha": "0484aa1593db95474a59adca4ea6961c729482d6",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/kyrian20/voynich-autoexploration/actions/runs/39744139169"
+    },
+    {
+      "run_id": 39744139140,
+      "workflow": "Voynich Stratified Corpus Checks",
+      "head_sha": "0484aa1593db95474a59adca4ea6961c729482d6",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/kyrian20/voynich-autoexploration/actions/runs/39744139140"
+    },
+    {
+      "run_id": 39744139136,
+      "workflow": "Voynich Line-Level Transcription Audit",
+      "head_sha": "0484aa1593db95474a59adca4ea6961c729482d6",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/kyrian20/voynich-autoexploration/actions/runs/39744139136"
+    },
+    {
+      "run_id": 39744139111,
+      "workflow": "Voynich Paragraph Marker Audit",
+      "head_sha": "0484aa1593db95474a59adca4ea6961c729482d6",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/kyrian20/voynich-autoexploration/actions/runs/39744139111"
+    },
+    {
+      "run_id": 39744139099,
+      "workflow": "Voynich exp607 held-out bigram prediction",
+      "head_sha": "0484aa1593db95474a59adca4ea6961c729482d6",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/kyrian20/voynich-autoexploration/actions/runs/39744139099"
+    },
+    {
+      "run_id": 39744137307,
+      "workflow": ".github/workflows/voynich-exp603.yml",
+      "head_sha": "0484aa1593db95474a59adca4ea6961c729482d6",
+      "status": "completed",
+      "conclusion": "failure",
+      "url": "https://github.com/kyrian20/voynich-autoexploration/actions/runs/39744137307"
+    }
+  ]
+}
