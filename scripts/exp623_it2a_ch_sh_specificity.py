@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """EXP-623: replicate the ch/sh context-specificity interaction in IT2a transcription.
 
-Uses IVTFF text rows from ZL3b. Matched strata are folio × token length ×
+Uses IVTFF text rows from the IT2a transcription file. Matched strata are folio × token length ×
 digraph character position, and only strata containing both ch and sh are kept.
 Primary statistic: within-stratum (sh−ch) vowel-rate difference after the
 digraph minus the same difference before it. A within-stratum permutation
@@ -95,7 +95,7 @@ def main():
         "permutation_exceedances": exceed,
         "interpretation": "A positive interaction would support greater ch/sh separation after than before the digraph under this matched-cell null; a null result would weaken outcome-specific claims. This is exploratory and not a decipherment result.",
         "limitations": [
-            "ZL3b is one transcription, not an independent manuscript.",
+            "IT2a is an alternative transcription of the same manuscript, not an independent manuscript.",
             "The parser is deliberately simple and needs independent parser conformance testing.",
             "Matching by observed token length and position does not eliminate all lexical-template confounding.",
             "This test was motivated by earlier exploratory results and is not preregistered."
@@ -121,7 +121,7 @@ Source: `{SOURCE}` (SHA-256 `{summary['source_sha256']}`). A simple parser extra
 - Two-sided permutation p: {p:.5f} ({exceed} exceedances / {B:,})
 
 ## Interpretation and limits
-This is a transcription-sensitivity replication of the diagnostic specificity test motivated by EXP-619, where the preceding-character control was not uniformly smaller than the primary contrast. A positive interaction supports a larger contrast after than before the digraph under this null; a non-positive or uncertain result does not support an outcome-specific claim. This remains exploratory, not a phonetic, semantic, language-identification, or decipherment result. ZL3b and IT2a are alternative transcriptions of the same manuscript; this experiment uses ZL3b only. The simple parser and the conditioning strategy leave possible lexical-template confounding.
+This is a transcription-sensitivity replication of the diagnostic specificity test motivated by EXP-619, where the preceding-character control was not uniformly smaller than the primary contrast. A positive interaction supports a larger contrast after than before the digraph under this null; a non-positive or uncertain result does not support an outcome-specific claim. This remains exploratory, not a phonetic, semantic, language-identification, or decipherment result. ZL3b and IT2a are alternative transcriptions of the same manuscript; this experiment uses IT2a only. The simple parser and the conditioning strategy leave possible lexical-template confounding.
 
 See `results.json` for machine-readable details.
 """
