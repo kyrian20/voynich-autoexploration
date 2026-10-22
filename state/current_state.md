@@ -242,3 +242,11 @@ Two workflows that commit generated results to `master` used separate GitHub Act
 - Registered stable descriptive aliases and the distinction in `research/ARTIFACT_COLLISION_REGISTER.md`. The hash manifest provides raw-byte SHA-256 values for the selected Library artifacts; pairwise identity with GitHub files is still unverified, and the EXP-623 report-to-script/JSON mapping remains open.
 - The Library list is now fully paginated (501 items, six pages, no warnings). The next gap is content mapping and corpus/parser provenance, not missing pages in that listing.
 - No originals changed, no IDs were renumbered, and no new scientific experiment was created. The collision-register commit and this state update each trigger a new Voynich Check; verify the latest run after the final commit before claiming HEAD is green.
+
+
+## EXP-623 Library pilot provenance clarification — 2026-10-22
+
+- Reviewed the raw JSON and script headers, resolving the intended method pairings: all-token shuffle report ↔ `exp623_resultados_2026-10-19.json` ↔ `exp623_shuffle_holdout.py`; endpoint-preserving interior shuffle report ↔ `exp623_order_null_summary.json` ↔ `exp623_order_null.py`.
+- Critical limitation: both reports describe exploratory JavaScript pilot results; the corresponding Python scripts were not run in GitHub Actions. The method pairing is clear from protocol fields, but exact output provenance is not established. Both analyses remain exploratory/unreproduced until the exact scripts are run against the recorded source transcription versions and their outputs compared.
+- Recorded this distinction in the SHA-256 manifest and collision register. This does not alter any reported statistics and does not turn either Library report into GitHub EXP-623, which remains the ch/sh interaction test.
+- Recent manifest and collision-register commits have successful Voynich Check runs for earlier commits, but the newest commits' checks remain queued/in progress at this checkpoint; verify HEAD's check before claiming current CI green.
