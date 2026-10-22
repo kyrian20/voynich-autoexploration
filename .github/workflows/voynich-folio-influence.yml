@@ -4,7 +4,9 @@ on:
   workflow_dispatch:
   push:
     paths:
-      - "experiments/exp_592_daiin_folio_influence/**"
+      - "experiments/exp_592_daiin_folio_influence/script.py"
+      - "data/transcriptions/eva_zl3b.txt"
+      - ".github/workflows/voynich-folio-influence.yml"
       - "data/transcriptions/eva_zl3b.txt"
       - ".github/workflows/voynich-folio-influence.yml"
 
@@ -12,7 +14,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: voynich-folio-influence
+  group: voynich-master-writes
   cancel-in-progress: false
 
 jobs:
