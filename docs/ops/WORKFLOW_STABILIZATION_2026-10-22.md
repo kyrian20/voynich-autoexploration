@@ -27,3 +27,16 @@ For each workflow `.github/workflows/voynich-exp604.yml` through `voynich-exp611
 - EXP-609: `bc1cf136fd5222fc99718093e3ae79b9101b72d8`
 - EXP-610: `0a1fe1d75691e4e6e7661945b60147db5b480f73`
 - EXP-611: `bdd9115fc6ee8468a8c81e1cb1a13195f32400c1`
+
+
+## Follow-up audit — 2026-10-22
+
+Extended the trigger audit to four more workflows: EXP-603, EXP-601 folio-clustered confirmation, EXP-592 folio influence, and EXP-602 held-out prediction. Their push filters now target the script and input files rather than the whole experiment directory, and their write concurrency groups use `voynich-master-writes`.
+
+During validation, the first edits exposed duplicated path entries; EXP-602 had a malformed trailing quote that caused its workflow run to fail. This was corrected immediately by replacing each complete `push.paths` block rather than editing a partial line. Follow-up commits:
+- EXP-603: `6bcd3c65dacdd7731555da36cc93cf0cb2536f53`
+- EXP-601: `c68113ab86e3a2d6110003eab2c8970dc2319d61`
+- EXP-592: `e70a20812f992edc8d8441c1f91a4f8f96c1d708`
+- EXP-602: `6ce6a864d4c3432cfe335b73ba99a21b54953c8a`
+
+The trigger files have been re-fetched after correction. Their new post-fix workflow runs must complete before marking all four fully validated. No scientific result files were deleted or modified as part of this workflow cleanup.
