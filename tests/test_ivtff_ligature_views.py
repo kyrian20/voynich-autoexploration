@@ -31,6 +31,12 @@ def main() -> None:
     assert tagged_ligature["raw_start"] == 11, tagged
     assert tagged_ligature["raw_end"] == 15, tagged
 
+    # The baseline-style uncertainty filter excludes ligatures nested inside
+    # square-bracket annotations; this is reported separately in the audit.
+    bracketed = tokenize_views("daiin [{ch}:foo]")
+    assert bracketed["historical"] == ["daiin"], bracketed
+    assert not any(u["kind"] == "ligature" for u in bracketed["atomic_units"]), bracketed
+
     lines = [
         {"folio": "f1r", "line": 1, "body": "dai{ch}in daiin"},
         {"folio": "f1r", "line": 2, "body": "daiin daiin"},
