@@ -199,7 +199,10 @@ def compare(path,label):
         "primary_stats_identical":stats_equal}
 
 def main():
-    versions=[compare(path,label) for label,path in FILES if path.exists()]
+    missing=[str(path) for _,path in FILES if not path.is_file()]
+    if missing:
+        raise FileNotFoundError("Required transcription file(s) missing; refusing partial audit: "+", ".join(missing))
+    versions=[compare(path,label) for label,path in FILES]
     data={"experiment":"exp_602_independent_ivtff_parser_audit","protocol_version":7,
       "parser_A":"regex extraction patterned after exp_600 + regex token cleanup",
       "parser_B":"stateful delimiter parser with inline first-alternative splicing; IVTFF <!…> comments end at >",
