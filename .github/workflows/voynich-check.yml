@@ -115,6 +115,17 @@ jobs:
           python scripts/audit_exp601_paired_reader_bootstrap.py > exp601-paired-reader-bootstrap.json
           python scripts/check_audit_snapshot.py research/maintenance/2026-10-22-token-sensitivity/exp601-paired-bootstrap.json exp601-paired-reader-bootstrap.json
 
+      - name: Probar y reproducir alcance P0 de EXP-607
+        run: |
+          python tests/test_exp607_scope_sensitivity.py
+          python scripts/audit_exp607_scope_sensitivity.py > exp607-scope-sensitivity.json
+          python scripts/check_audit_snapshot.py research/maintenance/2026-10-22-exp607-scope/results.json exp607-scope-sensitivity.json
+
+      - name: Reproducir paquete de posibles anclas textuales
+        run: |
+          python scripts/prepare_decipherment_anchor_packet.py > decipherment-anchor-candidates.json
+          python scripts/check_audit_snapshot.py research/decipherment/2026-10-22-anchor-candidates.json decipherment-anchor-candidates.json
+
       - name: Conservar auditorías de sensibilidad reproducidas
         uses: actions/upload-artifact@v4
         with:
@@ -123,6 +134,8 @@ jobs:
             token-policy-sensitivity.json
             exp607-reader-sensitivity.json
             exp601-paired-reader-bootstrap.json
+            exp607-scope-sensitivity.json
+            decipherment-anchor-candidates.json
           if-no-files-found: error
           retention-days: 90
 

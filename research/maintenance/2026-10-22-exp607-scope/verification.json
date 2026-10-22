@@ -1,0 +1,20 @@
+{
+  "python": "3.12.14",
+  "implementation_tests": {
+    "command": "python tests/test_exp607_scope_sensitivity.py",
+    "tests": 6,
+    "outcome": "passed"
+  },
+  "repository_operation_tests": "passed",
+  "workflow_yaml": "parsed",
+  "scientific_status": "exploratory_scope_diagnostic_no_plaintext_recovered",
+  "files": {
+    "scripts/audit_exp607_scope_sensitivity.py": "81d3d6fc292e51ad44ee7cc06fcf158ac069f385cf9479386a5077bf22124879",
+    "scripts/prepare_decipherment_anchor_packet.py": "49cb9c021acf3d41da7f2b702f3460c0d86ea86faf9560ed15ef3bab67d671f8",
+    "tests/test_exp607_scope_sensitivity.py": "8c6f7a84fbd783c1d2015c3d98c6177251df81516e85738e70576365cf5cbee3",
+    ".github/workflows/voynich-check.yml": "1f3ba6152012fd3e46017a2684fb190970f9371a0b4d5ef5ec8e8a7048259185",
+    "research/maintenance/2026-10-22-exp607-scope/PROTOCOL.md": "071b50092f050b55ec270862a700ba1888e4a4e4c9c2b8f730af196043ff4004",
+    "research/maintenance/2026-10-22-exp607-scope/results.json": "8dbe5cc6a257462947ca25b5b2f3d5b625fabe05d8394f6ff7441159728dabfa",
+    "research/decipherment/2026-10-22-anchor-candidates.json": "08d4962bd7bfff2140132d9291b0af928fa65446acf3db4b4ae695b9feb3cf5d"
+  }
+}

@@ -4,6 +4,8 @@ Repositorio de trabajo: `kyrian20/voynich-autoexploration` (rama `master`).
 
 ## Estado operativo actual — 22 octubre 2026
 
+**Vía de desciframiento iniciada:** [diagnóstico P0 ejecutado y primeras posibles anclas textuales](research/DECIPHERMENT_START_2026-10-22.md). La ventaja del orden real persiste sin etiquetas en el modelo ensayado; no se ha recuperado texto plano ni establecido significados.
+
 **Investigación profesional externa:** [ocho fuentes, conocimiento aplicable y límites de acceso](research/PROFESSIONAL_EXTERNAL_REVIEW_2026-10-22.md), con versiones fijadas de cuatro repositorios de autores. Se incorpora metodología; no se atribuye validación propia a sus conclusiones.
 
 **Sensibilidad ejecutada:** [rejilla de 128 normalizaciones y comparación de EXP-601/607](research/READER_SENSITIVITY_DECISION_2026-10-22.md). El patrón inicial B/P0 y la ventaja del modelo frente a su control conservan el signo bajo los perfiles ensayados; son resultados exploratorios, sin interpretación semántica.

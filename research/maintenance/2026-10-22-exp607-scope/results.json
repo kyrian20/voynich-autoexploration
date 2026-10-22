@@ -1,0 +1,4806 @@
+{
+  "audit": "EXP607_locus_scope_and_control_seed_diagnostic",
+  "version": 1,
+  "protocol": "research/maintenance/2026-10-22-exp607-scope/PROTOCOL.md",
+  "protocol_sha256": "071b50092f050b55ec270862a700ba1888e4a4e4c9c2b8f730af196043ff4004",
+  "settings": {
+    "alpha": 0.1,
+    "bigram_weight": 0.5,
+    "folio_test_modulo": 5,
+    "control_seed_count": 64,
+    "q95": "linear, index (n-1)*q"
+  },
+  "files": [
+    {
+      "transcription": "ZL3b",
+      "source": "data/transcriptions/eva_zl3b.txt",
+      "source_sha256": "bf5b6d4ac1e3a51b1847a9c388318d609020441ccd56984c901c32b09beccafc",
+      "previous_mixed_snapshot_reproduced": true,
+      "common_physical_records": 3730,
+      "profiles": {
+        "native_607": {
+          "cross_scope": {
+            "mixed": {
+              "train": {
+                "lines": 3133,
+                "folios": [
+                  "f100v",
+                  "f101v",
+                  "f103r",
+                  "f103v",
+                  "f104r",
+                  "f104v",
+                  "f105r",
+                  "f105v",
+                  "f106r",
+                  "f106v",
+                  "f107r",
+                  "f107v",
+                  "f108r",
+                  "f108v",
+                  "f10v",
+                  "f111r",
+                  "f112r",
+                  "f112v",
+                  "f113r",
+                  "f113v",
+                  "f114v",
+                  "f115r",
+                  "f115v",
+                  "f116v",
+                  "f11r",
+                  "f11v",
+                  "f13r",
+                  "f14r",
+                  "f15r",
+                  "f15v",
+                  "f16r",
+                  "f16v",
+                  "f17r",
+                  "f17v",
+                  "f18v",
+                  "f19r",
+                  "f19v",
+                  "f1r",
+                  "f1v",
+                  "f20r",
+                  "f20v",
+                  "f21v",
+                  "f22r",
+                  "f22v",
+                  "f23r",
+                  "f23v",
+                  "f24r",
+                  "f24v",
+                  "f25r",
+                  "f27r",
+                  "f27v",
+                  "f28r",
+                  "f28v",
+                  "f29r",
+                  "f29v",
+                  "f2r",
+                  "f2v",
+                  "f30r",
+                  "f31r",
+                  "f31v",
+                  "f32r",
+                  "f32v",
+                  "f33r",
+                  "f34v",
+                  "f35r",
+                  "f35v",
+                  "f36r",
+                  "f36v",
+                  "f37r",
+                  "f37v",
+                  "f38r",
+                  "f38v",
+                  "f39r",
+                  "f39v",
+                  "f3r",
+                  "f3v",
+                  "f40r",
+                  "f40v",
+                  "f41v",
+                  "f42v",
+                  "f43v",
+                  "f44r",
+                  "f45r",
+                  "f45v",
+                  "f46r",
+                  "f46v",
+                  "f47r",
+                  "f47v",
+                  "f48r",
+                  "f48v",
+                  "f49r",
+                  "f49v",
+                  "f4r",
+                  "f4v",
+                  "f50r",
+                  "f51v",
+                  "f52r",
+                  "f52v",
+                  "f53r",
+                  "f53v",
+                  "f54r",
+                  "f54v",
+                  "f55r",
+                  "f56r",
+                  "f56v",
+                  "f57r",
+                  "f58v",
+                  "f5r",
+                  "f65r",
+                  "f65v",
+                  "f66r",
+                  "f66v",
+                  "f69r",
+                  "f69v",
+                  "f6r",
+                  "f71r",
+                  "f71v",
+                  "f73r",
+                  "f75r",
+                  "f75v",
+                  "f76r",
+                  "f76v",
+                  "f78v",
+                  "f79r",
+                  "f79v",
+                  "f7r",
+                  "f7v",
+                  "f80r",
+                  "f80v",
+                  "f81r",
+                  "f81v",
+                  "f82r",
+                  "f82v",
+                  "f83r",
+                  "f83v",
+                  "f84r",
+                  "f84v",
+                  "f87r",
+                  "f87v",
+                  "f88r",
+                  "f88v",
+                  "f8r",
+                  "f93r",
+                  "f93v",
+                  "f94r",
+                  "f94v",
+                  "f96r",
+                  "f96v",
+                  "f99r",
+                  "f99v",
+                  "f9r",
+                  "f9v"
+                ],
+                "id_set_sha256": "0ce75d78242c1b3b8c5c8332feb887afc0502c4bf748fa6bbecac43e2b979771",
+                "locus_counts": {
+                  "Cc": 13,
+                  "L0": 16,
+                  "Lf": 6,
+                  "Ln": 2,
+                  "Lp": 1,
+                  "Lt": 3,
+                  "Lx": 3,
+                  "Lz": 7,
+                  "P0": 2959,
+                  "P1": 58,
+                  "Pb": 14,
+                  "Pc": 12,
+                  "Pr": 6,
+                  "Pt": 7,
+                  "Ri": 4,
+                  "Ro": 22
+                }
+              },
+              "evaluations": {
+                "mixed": {
+                  "test": {
+                    "lines": 597,
+                    "folios": [
+                      "f100r",
+                      "f101r",
+                      "f10r",
+                      "f111v",
+                      "f114r",
+                      "f116r",
+                      "f13v",
+                      "f14v",
+                      "f18r",
+                      "f21r",
+                      "f25v",
+                      "f26r",
+                      "f26v",
+                      "f30v",
+                      "f33v",
+                      "f34r",
+                      "f41r",
+                      "f42r",
+                      "f43r",
+                      "f44v",
+                      "f50v",
+                      "f51r",
+                      "f55v",
+                      "f57v",
+                      "f58r",
+                      "f5v",
+                      "f6v",
+                      "f73v",
+                      "f77r",
+                      "f77v",
+                      "f78r",
+                      "f8v"
+                    ],
+                    "id_set_sha256": "655fd7db7f824eaa3119f271d889cdfa44ab4d6b458dfaa07e7a2ab7aa0b575f",
+                    "locus_counts": {
+                      "Cc": 6,
+                      "Lf": 1,
+                      "Lt": 3,
+                      "P0": 581,
+                      "Pc": 2,
+                      "Pr": 3,
+                      "Ro": 1
+                    }
+                  },
+                  "scores": {
+                    "available": true,
+                    "real": {
+                      "tokens_scored": 4617,
+                      "unigram_bits_per_token": 10.558602940424109,
+                      "bigram_only_bits_per_token": 11.622371674711271,
+                      "interpolated_bits_per_token": 10.292364338600429,
+                      "gain_vs_unigram_bits_per_token": 0.26623860182368025,
+                      "train_vocabulary": 5530,
+                      "train_tokens": 25474
+                    },
+                    "original_seed_control": {
+                      "tokens_scored": 4617,
+                      "unigram_bits_per_token": 10.558602940424109,
+                      "bigram_only_bits_per_token": 11.796567703241154,
+                      "interpolated_bits_per_token": 10.347047413734185,
+                      "gain_vs_unigram_bits_per_token": 0.21155552668992336,
+                      "train_vocabulary": 5530,
+                      "train_tokens": 25474
+                    },
+                    "real_minus_original_seed_gain": 0.05468307513375689
+                  }
+                },
+                "P0": {
+                  "test": {
+                    "lines": 581,
+                    "folios": [
+                      "f100r",
+                      "f101r",
+                      "f10r",
+                      "f111v",
+                      "f114r",
+                      "f116r",
+                      "f13v",
+                      "f14v",
+                      "f18r",
+                      "f21r",
+                      "f25v",
+                      "f26r",
+                      "f26v",
+                      "f30v",
+                      "f33v",
+                      "f34r",
+                      "f41r",
+                      "f42r",
+                      "f43r",
+                      "f44v",
+                      "f50v",
+                      "f51r",
+                      "f55v",
+                      "f58r",
+                      "f5v",
+                      "f6v",
+                      "f77r",
+                      "f77v",
+                      "f78r",
+                      "f8v"
+                    ],
+                    "id_set_sha256": "d121a5dc368bd5f6b798f310307911e90079509a88b9f0568c96da3ba2dfa03e",
+                    "locus_counts": {
+                      "P0": 581
+                    }
+                  },
+                  "scores": {
+                    "available": true,
+                    "real": {
+                      "tokens_scored": 4481,
+                      "unigram_bits_per_token": 10.501145095378675,
+                      "bigram_only_bits_per_token": 11.604391391691397,
+                      "interpolated_bits_per_token": 10.25985153024965,
+                      "gain_vs_unigram_bits_per_token": 0.24129356512902428,
+                      "train_vocabulary": 5530,
+                      "train_tokens": 25474
+                    },
+                    "original_seed_control": {
+                      "tokens_scored": 4481,
+                      "unigram_bits_per_token": 10.501145095378675,
+                      "bigram_only_bits_per_token": 11.78577036443669,
+                      "interpolated_bits_per_token": 10.316378733789149,
+                      "gain_vs_unigram_bits_per_token": 0.18476636158952603,
+                      "train_vocabulary": 5530,
+                      "train_tokens": 25474
+                    },
+                    "real_minus_original_seed_gain": 0.05652720353949825
+                  }
+                },
+                "non_P0": {
+                  "test": {
+                    "lines": 16,
+                    "folios": [
+                      "f100r",
+                      "f114r",
+                      "f18r",
+                      "f42r",
+                      "f57v",
+                      "f73v",
+                      "f77v",
+                      "f78r"
+                    ],
+                    "id_set_sha256": "5fb58d96c8de08040ee67e3187b86a75954fb6368c97941c82e50cadfab34bae",
+                    "locus_counts": {
+                      "Cc": 6,
+                      "Lf": 1,
+                      "Lt": 3,
+                      "Pc": 2,
+                      "Pr": 3,
+                      "Ro": 1
+                    }
+                  },
+                  "scores": {
+                    "available": true,
+                    "real": {
+                      "tokens_scored": 136,
+                      "unigram_bits_per_token": 12.451754437840815,
+                      "bigram_only_bits_per_token": 12.214795558624024,
+                      "interpolated_bits_per_token": 11.363613560804772,
+                      "gain_vs_unigram_bits_per_token": 1.0881408770360428,
+                      "train_vocabulary": 5530,
+                      "train_tokens": 25474
+                    },
+                    "original_seed_control": {
+                      "tokens_scored": 136,
+                      "unigram_bits_per_token": 12.451754437840815,
+                      "bigram_only_bits_per_token": 12.152324138409444,
+                      "interpolated_bits_per_token": 11.357535316923315,
+                      "gain_vs_unigram_bits_per_token": 1.0942191209175007,
+                      "train_vocabulary": 5530,
+                      "train_tokens": 25474
+                    },
+                    "real_minus_original_seed_gain": -0.006078243881457945
+                  }
+                },
+                "labels": {
+                  "test": {
+                    "lines": 4,
+                    "folios": [
+                      "f100r",
+                      "f77v",
+                      "f78r"
+                    ],
+                    "id_set_sha256": "e82d041d02b1f9494cd6cf7b8b3cc562f92c803918d8dfef52cd383d41eec7ca",
+                    "locus_counts": {
+                      "Lf": 1,
+                      "Lt": 3
+                    }
+                  },
+                  "scores": {
+                    "available": true,
+                    "real": {
+                      "tokens_scored": 5,
+                      "unigram_bits_per_token": 10.499748837280622,
+                      "bigram_only_bits_per_token": 12.632799333439836,
+                      "interpolated_bits_per_token": 10.817824659945718,
+                      "gain_vs_unigram_bits_per_token": -0.31807582266509515,
+                      "train_vocabulary": 5530,
+                      "train_tokens": 25474
+                    },
+                    "original_seed_control": {
+                      "tokens_scored": 5,
+                      "unigram_bits_per_token": 10.499748837280622,
+                      "bigram_only_bits_per_token": 11.93884060550985,
+                      "interpolated_bits_per_token": 10.781167426247546,
+                      "gain_vs_unigram_bits_per_token": -0.2814185889669233,
+                      "train_vocabulary": 5530,
+                      "train_tokens": 25474
+                    },
+                    "real_minus_original_seed_gain": -0.036657233698171865
+                  }
+                },
+                "circular_radial": {
+                  "test": {
+                    "lines": 7,
+                    "folios": [
+                      "f57v",
+                      "f73v"
+                    ],
+                    "id_set_sha256": "8f158b52a414822b2a9a0bad38be37794da6122cce0460ae37572fbb34ffb490",
+                    "locus_counts": {
+                      "Cc": 6,
+                      "Ro": 1
+                    }
+                  },
+                  "scores": {
+                    "available": true,
+                    "real": {
+                      "tokens_scored": 121,
+                      "unigram_bits_per_token": 12.56047785384468,
+                      "bigram_only_bits_per_token": 12.174474243474046,
+                      "interpolated_bits_per_token": 11.385488634353043,
+                      "gain_vs_unigram_bits_per_token": 1.1749892194916374,
+                      "train_vocabulary": 5530,
+                      "train_tokens": 25474
+                    },
+                    "original_seed_control": {
+                      "tokens_scored": 121,
+                      "unigram_bits_per_token": 12.56047785384468,
+                      "bigram_only_bits_per_token": 12.133246233614182,
+                      "interpolated_bits_per_token": 11.380438509413585,
+                      "gain_vs_unigram_bits_per_token": 1.1800393444310948,
+                      "train_vocabulary": 5530,
+                      "train_tokens": 25474
+                    },
+                    "real_minus_original_seed_gain": -0.0050501249394574454
+                  }
+                },
+                "other_paragraph": {
+                  "test": {
+                    "lines": 5,
+                    "folios": [
+                      "f114r",
+                      "f18r",
+                      "f42r"
+                    ],
+                    "id_set_sha256": "7ee29da3f44573416df72dd10b5342e23fa9f98f197bc227fe6f1554683c010b",
+                    "locus_counts": {
+                      "Pc": 2,
+                      "Pr": 3
+                    }
+                  },
+                  "scores": {
+                    "available": true,
+                    "real": {
+                      "tokens_scored": 10,
+                      "unigram_bits_per_token": 12.112203904474143,
+                      "bigram_only_bits_per_token": 12.49368158453093,
+                      "interpolated_bits_per_token": 11.371819621300284,
+                      "gain_vs_unigram_bits_per_token": 0.7403842831738586,
+                      "train_vocabulary": 5530,
+                      "train_tokens": 25474
+                    },
+                    "original_seed_control": {
+                      "tokens_scored": 10,
+                      "unigram_bits_per_token": 12.112203904474143,
+                      "bigram_only_bits_per_token": 12.489908552881996,
+                      "interpolated_bits_per_token": 11.368590633128926,
+                      "gain_vs_unigram_bits_per_token": 0.7436132713452167,
+                      "train_vocabulary": 5530,
+                      "train_tokens": 25474
+                    },
+                    "real_minus_original_seed_gain": -0.0032289881713580826
+                  }
+                }
+              }
+            },
+            "P0": {
+              "train": {
+                "lines": 2959,
+                "folios": [
+                  "f100v",
+                  "f101v",
+                  "f103r",
+                  "f103v",
+                  "f104r",
+                  "f104v",
+                  "f105r",
+                  "f105v",
+                  "f106r",
+                  "f106v",
+                  "f107r",
+                  "f107v",
+                  "f108r",
+                  "f108v",
+                  "f10v",
+                  "f111r",
+                  "f112r",
+                  "f112v",
+                  "f113r",
+                  "f113v",
+                  "f114v",
+                  "f115r",
+                  "f115v",
+                  "f11r",
+                  "f11v",
+                  "f13r",
+                  "f14r",
+                  "f15r",
+                  "f15v",
+                  "f16r",
+                  "f16v",
+                  "f17r",
+                  "f17v",
+                  "f18v",
+                  "f19r",
+                  "f19v",
+                  "f1r",
+                  "f1v",
+                  "f20r",
+                  "f20v",
+                  "f21v",
+                  "f22r",
+                  "f22v",
+                  "f23r",
+                  "f23v",
+                  "f24r",
+                  "f24v",
+                  "f25r",
+                  "f27r",
+                  "f27v",
+                  "f28r",
+                  "f28v",
+                  "f29r",
+                  "f29v",
+                  "f2r",
+                  "f2v",
+                  "f30r",
+                  "f31r",
+                  "f31v",
+                  "f32r",
+                  "f32v",
+                  "f33r",
+                  "f34v",
+                  "f35r",
+                  "f35v",
+                  "f36r",
+                  "f36v",
+                  "f37r",
+                  "f37v",
+                  "f38r",
+                  "f38v",
+                  "f39r",
+                  "f39v",
+                  "f3r",
+                  "f3v",
+                  "f40r",
+                  "f40v",
+                  "f41v",
+                  "f42v",
+                  "f43v",
+                  "f44r",
+                  "f45r",
+                  "f45v",
+                  "f46r",
+                  "f46v",
+                  "f47r",
+                  "f47v",
+                  "f48r",
+                  "f48v",
+                  "f49r",
+                  "f49v",
+                  "f4r",
+                  "f4v",
+                  "f50r",
+                  "f51v",
+                  "f52r",
+                  "f52v",
+                  "f53r",
+                  "f53v",
+                  "f54r",
+                  "f54v",
+                  "f55r",
+                  "f56r",
+                  "f56v",
+                  "f57r",
+                  "f58v",
+                  "f5r",
+                  "f65v",
+                  "f66r",
+                  "f66v",
+                  "f69r",
+                  "f6r",
+                  "f75r",
+                  "f75v",
+                  "f76r",
+                  "f76v",
+                  "f78v",
+                  "f79r",
+                  "f79v",
+                  "f7r",
+                  "f7v",
+                  "f80r",
+                  "f80v",
+                  "f81r",
+                  "f81v",
+                  "f82r",
+                  "f82v",
+                  "f83r",
+                  "f83v",
+                  "f84r",
+                  "f84v",
+                  "f87r",
+                  "f87v",
+                  "f88r",
+                  "f88v",
+                  "f8r",
+                  "f93r",
+                  "f93v",
+                  "f94r",
+                  "f94v",
+                  "f96r",
+                  "f96v",
+                  "f99r",
+                  "f99v",
+                  "f9r",
+                  "f9v"
+                ],
+                "id_set_sha256": "ca40262137aa398971887775bb2e3772e768f37300d88f036f3a11331c8234c7",
+                "locus_counts": {
+                  "P0": 2959
+                }
+              },
+              "evaluations": {
+                "mixed": {
+                  "test": {
+                    "lines": 597,
+                    "folios": [
+                      "f100r",
+                      "f101r",
+                      "f10r",
+                      "f111v",
+                      "f114r",
+                      "f116r",
+                      "f13v",
+                      "f14v",
+                      "f18r",
+                      "f21r",
+                      "f25v",
+                      "f26r",
+                      "f26v",
+                      "f30v",
+                      "f33v",
+                      "f34r",
+                      "f41r",
+                      "f42r",
+                      "f43r",
+                      "f44v",
+                      "f50v",
+                      "f51r",
+                      "f55v",
+                      "f57v",
+                      "f58r",
+                      "f5v",
+                      "f6v",
+                      "f73v",
+                      "f77r",
+                      "f77v",
+                      "f78r",
+                      "f8v"
+                    ],
+                    "id_set_sha256": "655fd7db7f824eaa3119f271d889cdfa44ab4d6b458dfaa07e7a2ab7aa0b575f",
+                    "locus_counts": {
+                      "Cc": 6,
+                      "Lf": 1,
+                      "Lt": 3,
+                      "P0": 581,
+                      "Pc": 2,
+                      "Pr": 3,
+                      "Ro": 1
+                    }
+                  },
+                  "scores": {
+                    "available": true,
+                    "real": {
+                      "tokens_scored": 4617,
+                      "unigram_bits_per_token": 10.558357600739924,
+                      "bigram_only_bits_per_token": 11.594981582493158,
+                      "interpolated_bits_per_token": 10.279820918087614,
+                      "gain_vs_unigram_bits_per_token": 0.27853668265231013,
+                      "train_vocabulary": 5367,
+                      "train_tokens": 24571
+                    },
+                    "original_seed_control": {
+                      "tokens_scored": 4617,
+                      "unigram_bits_per_token": 10.558357600739924,
+                      "bigram_only_bits_per_token": 11.755740171627991,
+                      "interpolated_bits_per_token": 10.32918902819185,
+                      "gain_vs_unigram_bits_per_token": 0.22916857254807435,
+                      "train_vocabulary": 5367,
+                      "train_tokens": 24571
+                    },
+                    "real_minus_original_seed_gain": 0.04936811010423578
+                  }
+                },
+                "P0": {
+                  "test": {
+                    "lines": 581,
+                    "folios": [
+                      "f100r",
+                      "f101r",
+                      "f10r",
+                      "f111v",
+                      "f114r",
+                      "f116r",
+                      "f13v",
+                      "f14v",
+                      "f18r",
+                      "f21r",
+                      "f25v",
+                      "f26r",
+                      "f26v",
+                      "f30v",
+                      "f33v",
+                      "f34r",
+                      "f41r",
+                      "f42r",
+                      "f43r",
+                      "f44v",
+                      "f50v",
+                      "f51r",
+                      "f55v",
+                      "f58r",
+                      "f5v",
+                      "f6v",
+                      "f77r",
+                      "f77v",
+                      "f78r",
+                      "f8v"
+                    ],
+                    "id_set_sha256": "d121a5dc368bd5f6b798f310307911e90079509a88b9f0568c96da3ba2dfa03e",
+                    "locus_counts": {
+                      "P0": 581
+                    }
+                  },
+                  "scores": {
+                    "available": true,
+                    "real": {
+                      "tokens_scored": 4481,
+                      "unigram_bits_per_token": 10.500720162736592,
+                      "bigram_only_bits_per_token": 11.57730990585316,
+                      "interpolated_bits_per_token": 10.247175961641885,
+                      "gain_vs_unigram_bits_per_token": 0.25354420109470677,
+                      "train_vocabulary": 5367,
+                      "train_tokens": 24571
+                    },
+                    "original_seed_control": {
+                      "tokens_scored": 4481,
+                      "unigram_bits_per_token": 10.500720162736592,
+                      "bigram_only_bits_per_token": 11.748191346404607,
+                      "interpolated_bits_per_token": 10.299119703967811,
+                      "gain_vs_unigram_bits_per_token": 0.20160045876878085,
+                      "train_vocabulary": 5367,
+                      "train_tokens": 24571
+                    },
+                    "real_minus_original_seed_gain": 0.05194374232592591
+                  }
+                },
+                "non_P0": {
+                  "test": {
+                    "lines": 16,
+                    "folios": [
+                      "f100r",
+                      "f114r",
+                      "f18r",
+                      "f42r",
+                      "f57v",
+                      "f73v",
+                      "f77v",
+                      "f78r"
+                    ],
+                    "id_set_sha256": "5fb58d96c8de08040ee67e3187b86a75954fb6368c97941c82e50cadfab34bae",
+                    "locus_counts": {
+                      "Cc": 6,
+                      "Lf": 1,
+                      "Lt": 3,
+                      "Pc": 2,
+                      "Pr": 3,
+                      "Ro": 1
+                    }
+                  },
+                  "scores": {
+                    "available": true,
+                    "real": {
+                      "tokens_scored": 136,
+                      "unigram_bits_per_token": 12.457426422012038,
+                      "bigram_only_bits_per_token": 12.177237340022707,
+                      "interpolated_bits_per_token": 11.355424225685569,
+                      "gain_vs_unigram_bits_per_token": 1.1020021963264692,
+                      "train_vocabulary": 5367,
+                      "train_tokens": 24571
+                    },
+                    "original_seed_control": {
+                      "tokens_scored": 136,
+                      "unigram_bits_per_token": 12.457426422012038,
+                      "bigram_only_bits_per_token": 12.004462861526433,
+                      "interpolated_bits_per_token": 11.319929041779346,
+                      "gain_vs_unigram_bits_per_token": 1.137497380232692,
+                      "train_vocabulary": 5367,
+                      "train_tokens": 24571
+                    },
+                    "real_minus_original_seed_gain": -0.03549518390622275
+                  }
+                },
+                "labels": {
+                  "test": {
+                    "lines": 4,
+                    "folios": [
+                      "f100r",
+                      "f77v",
+                      "f78r"
+                    ],
+                    "id_set_sha256": "e82d041d02b1f9494cd6cf7b8b3cc562f92c803918d8dfef52cd383d41eec7ca",
+                    "locus_counts": {
+                      "Lf": 1,
+                      "Lt": 3
+                    }
+                  },
+                  "scores": {
+                    "available": true,
+                    "real": {
+                      "tokens_scored": 5,
+                      "unigram_bits_per_token": 10.67958933462095,
+                      "bigram_only_bits_per_token": 12.583982257331723,
+                      "interpolated_bits_per_token": 10.856879210886527,
+                      "gain_vs_unigram_bits_per_token": -0.1772898762655771,
+                      "train_vocabulary": 5367,
+                      "train_tokens": 24571
+                    },
+                    "original_seed_control": {
+                      "tokens_scored": 5,
+                      "unigram_bits_per_token": 10.67958933462095,
+                      "bigram_only_bits_per_token": 11.889200954649365,
+                      "interpolated_bits_per_token": 10.818527630985503,
+                      "gain_vs_unigram_bits_per_token": -0.13893829636455451,
+                      "train_vocabulary": 5367,
+                      "train_tokens": 24571
+                    },
+                    "real_minus_original_seed_gain": -0.03835157990102259
+                  }
+                },
+                "circular_radial": {
+                  "test": {
+                    "lines": 7,
+                    "folios": [
+                      "f57v",
+                      "f73v"
+                    ],
+                    "id_set_sha256": "8f158b52a414822b2a9a0bad38be37794da6122cce0460ae37572fbb34ffb490",
+                    "locus_counts": {
+                      "Cc": 6,
+                      "Ro": 1
+                    }
+                  },
+                  "scores": {
+                    "available": true,
+                    "real": {
+                      "tokens_scored": 121,
+                      "unigram_bits_per_token": 12.561362526246661,
+                      "bigram_only_bits_per_token": 12.1377837569994,
+                      "interpolated_bits_per_token": 11.376517278096205,
+                      "gain_vs_unigram_bits_per_token": 1.1848452481504557,
+                      "train_vocabulary": 5367,
+                      "train_tokens": 24571
+                    },
+                    "original_seed_control": {
+                      "tokens_scored": 121,
+                      "unigram_bits_per_token": 12.561362526246661,
+                      "bigram_only_bits_per_token": 11.972551881303065,
+                      "interpolated_bits_per_token": 11.338341588803043,
+                      "gain_vs_unigram_bits_per_token": 1.2230209374436165,
+                      "train_vocabulary": 5367,
+                      "train_tokens": 24571
+                    },
+                    "real_minus_original_seed_gain": -0.03817568929316084
+                  }
+                },
+                "other_paragraph": {
+                  "test": {
+                    "lines": 5,
+                    "folios": [
+                      "f114r",
+                      "f18r",
+                      "f42r"
+                    ],
+                    "id_set_sha256": "7ee29da3f44573416df72dd10b5342e23fa9f98f197bc227fe6f1554683c010b",
+                    "locus_counts": {
+                      "Pc": 2,
+                      "Pr": 3
+                    }
+                  },
+                  "scores": {
+                    "available": true,
+                    "real": {
+                      "tokens_scored": 10,
+                      "unigram_bits_per_token": 12.088718104468658,
+                      "bigram_only_bits_per_token": 12.451253235950274,
+                      "interpolated_bits_per_token": 11.349470798916384,
+                      "gain_vs_unigram_bits_per_token": 0.7392473055522728,
+                      "train_vocabulary": 5367,
+                      "train_tokens": 24571
+                    },
+                    "original_seed_control": {
+                      "tokens_scored": 10,
+                      "unigram_bits_per_token": 12.088718104468658,
+                      "bigram_only_bits_per_token": 12.44821667566773,
+                      "interpolated_bits_per_token": 11.34783792818955,
+                      "gain_vs_unigram_bits_per_token": 0.7408801762791072,
+                      "train_vocabulary": 5367,
+                      "train_tokens": 24571
+                    },
+                    "real_minus_original_seed_gain": -0.001632870726834379
+                  }
+                }
+              }
+            }
+          },
+          "P0_to_P0_64_seed_diagnostic": {
+            "available": true,
+            "real_gain_vs_unigram": 0.25354420109470677,
+            "controls": [
+              {
+                "seed": 6072026,
+                "gain_vs_unigram": 0.20160045876878085
+              },
+              {
+                "seed": 15901009758507696038,
+                "gain_vs_unigram": 0.1930952443502602
+              },
+              {
+                "seed": 1064899789605846212,
+                "gain_vs_unigram": 0.20015738865220906
+              },
+              {
+                "seed": 12678981224001818697,
+                "gain_vs_unigram": 0.1966839131796337
+              },
+              {
+                "seed": 1315918627780388177,
+                "gain_vs_unigram": 0.2012615203535273
+              },
+              {
+                "seed": 11967913695421862398,
+                "gain_vs_unigram": 0.1996583587610513
+              },
+              {
+                "seed": 1965499254305580576,
+                "gain_vs_unigram": 0.1991982603493806
+              },
+              {
+                "seed": 16863529119165834166,
+                "gain_vs_unigram": 0.20107741820502115
+              },
+              {
+                "seed": 7662939479327632916,
+                "gain_vs_unigram": 0.19516678017636205
+              },
+              {
+                "seed": 9423477367860679923,
+                "gain_vs_unigram": 0.19149221291283705
+              },
+              {
+                "seed": 16210181692035777502,
+                "gain_vs_unigram": 0.19536867178850048
+              },
+              {
+                "seed": 18194857128130490469,
+                "gain_vs_unigram": 0.19855014950228403
+              },
+              {
+                "seed": 9638717239959070426,
+                "gain_vs_unigram": 0.19675915602201274
+              },
+              {
+                "seed": 2664903617991061856,
+                "gain_vs_unigram": 0.19939187419789964
+              },
+              {
+                "seed": 3109407776191036969,
+                "gain_vs_unigram": 0.20234854023389331
+              },
+              {
+                "seed": 1113740499633387792,
+                "gain_vs_unigram": 0.1973844398288086
+              },
+              {
+                "seed": 13145135197198085203,
+                "gain_vs_unigram": 0.19370100621721678
+              },
+              {
+                "seed": 10212096978045694028,
+                "gain_vs_unigram": 0.2058684051086563
+              },
+              {
+                "seed": 3751636454716227859,
+                "gain_vs_unigram": 0.18736065352205594
+              },
+              {
+                "seed": 922392705430272403,
+                "gain_vs_unigram": 0.19887602214345004
+              },
+              {
+                "seed": 13069425424391740021,
+                "gain_vs_unigram": 0.18904749933570203
+              },
+              {
+                "seed": 6088321518013650026,
+                "gain_vs_unigram": 0.18978391502907532
+              },
+              {
+                "seed": 10808484719141090980,
+                "gain_vs_unigram": 0.19823194889707837
+              },
+              {
+                "seed": 1698472480607694926,
+                "gain_vs_unigram": 0.20086999396872088
+              },
+              {
+                "seed": 2840675694914038174,
+                "gain_vs_unigram": 0.19814479679499036
+              },
+              {
+                "seed": 10198407336486079616,
+                "gain_vs_unigram": 0.20195941997320863
+              },
+              {
+                "seed": 15388182174194487946,
+                "gain_vs_unigram": 0.2012202296951424
+              },
+              {
+                "seed": 17053201775663717303,
+                "gain_vs_unigram": 0.19684408127182132
+              },
+              {
+                "seed": 13903896511930836347,
+                "gain_vs_unigram": 0.20142109448162804
+              },
+              {
+                "seed": 13321367869096736525,
+                "gain_vs_unigram": 0.1935140658879898
+              },
+              {
+                "seed": 994795046056297159,
+                "gain_vs_unigram": 0.19774858835429543
+              },
+              {
+                "seed": 4867777445038067853,
+                "gain_vs_unigram": 0.195542868956444
+              },
+              {
+                "seed": 13236985582371238704,
+                "gain_vs_unigram": 0.20367317003639768
+              },
+              {
+                "seed": 1311911780153035140,
+                "gain_vs_unigram": 0.19822147406851326
+              },
+              {
+                "seed": 2648490356166194422,
+                "gain_vs_unigram": 0.19876067885848686
+              },
+              {
+                "seed": 15588760862577750682,
+                "gain_vs_unigram": 0.20403195067406565
+              },
+              {
+                "seed": 2607687945316874854,
+                "gain_vs_unigram": 0.19291847327846878
+              },
+              {
+                "seed": 13470006238856258266,
+                "gain_vs_unigram": 0.20444365342798856
+              },
+              {
+                "seed": 17523354033620107157,
+                "gain_vs_unigram": 0.20436427795867157
+              },
+              {
+                "seed": 6004487765887635328,
+                "gain_vs_unigram": 0.19652550683226183
+              },
+              {
+                "seed": 10521549829720915940,
+                "gain_vs_unigram": 0.203134128169589
+              },
+              {
+                "seed": 14380359301334617844,
+                "gain_vs_unigram": 0.19922982972878486
+              },
+              {
+                "seed": 17448025673612499231,
+                "gain_vs_unigram": 0.19445120125435914
+              },
+              {
+                "seed": 4259832877429381121,
+                "gain_vs_unigram": 0.2002259559421944
+              },
+              {
+                "seed": 17416372555237999856,
+                "gain_vs_unigram": 0.2030158050582689
+              },
+              {
+                "seed": 8176005086207212492,
+                "gain_vs_unigram": 0.19967842021053833
+              },
+              {
+                "seed": 7663274628540028445,
+                "gain_vs_unigram": 0.20048131965309557
+              },
+              {
+                "seed": 6891810609461615253,
+                "gain_vs_unigram": 0.193006715884129
+              },
+              {
+                "seed": 3371233537169998272,
+                "gain_vs_unigram": 0.19598408230831307
+              },
+              {
+                "seed": 16806959284044270157,
+                "gain_vs_unigram": 0.20037356136533696
+              },
+              {
+                "seed": 13666993347040600540,
+                "gain_vs_unigram": 0.20213881531829556
+              },
+              {
+                "seed": 17791462602929959036,
+                "gain_vs_unigram": 0.19231169111726787
+              },
+              {
+                "seed": 14402984793334591103,
+                "gain_vs_unigram": 0.20280904534922772
+              },
+              {
+                "seed": 4995402551274996978,
+                "gain_vs_unigram": 0.19929938830494387
+              },
+              {
+                "seed": 1457111941809275120,
+                "gain_vs_unigram": 0.19909708840882034
+              },
+              {
+                "seed": 7573434827260791219,
+                "gain_vs_unigram": 0.19395767377881154
+              },
+              {
+                "seed": 6087958081785327770,
+                "gain_vs_unigram": 0.1957915827865044
+              },
+              {
+                "seed": 1112216536977798412,
+                "gain_vs_unigram": 0.2012873304069342
+              },
+              {
+                "seed": 17369617532981509883,
+                "gain_vs_unigram": 0.20044349791541669
+              },
+              {
+                "seed": 12905348163912025814,
+                "gain_vs_unigram": 0.19148699277976164
+              },
+              {
+                "seed": 11162732039441679569,
+                "gain_vs_unigram": 0.20342837517062637
+              },
+              {
+                "seed": 14900714571127452433,
+                "gain_vs_unigram": 0.20656918851972458
+              },
+              {
+                "seed": 385038329012442619,
+                "gain_vs_unigram": 0.19590931071704198
+              },
+              {
+                "seed": 15131574700659178997,
+                "gain_vs_unigram": 0.2027430532367336
+              }
+            ],
+            "control_mean": 0.19842378461624235,
+            "control_min": 0.18736065352205594,
+            "control_max": 0.20656918851972458,
+            "control_q95_linear": 0.20431442886598067,
+            "controls_at_least_real": 0,
+            "real_minus_control_mean": 0.05512041647846441,
+            "original_seed_matches_native": true
+          }
+        },
+        "candidate_conservative_ascii": {
+          "cross_scope": {
+            "mixed": {
+              "train": {
+                "lines": 3133,
+                "folios": [
+                  "f100v",
+                  "f101v",
+                  "f103r",
+                  "f103v",
+                  "f104r",
+                  "f104v",
+                  "f105r",
+                  "f105v",
+                  "f106r",
+                  "f106v",
+                  "f107r",
+                  "f107v",
+                  "f108r",
+                  "f108v",
+                  "f10v",
+                  "f111r",
+                  "f112r",
+                  "f112v",
+                  "f113r",
+                  "f113v",
+                  "f114v",
+                  "f115r",
+                  "f115v",
+                  "f116v",
+                  "f11r",
+                  "f11v",
+                  "f13r",
+                  "f14r",
+                  "f15r",
+                  "f15v",
+                  "f16r",
+                  "f16v",
+                  "f17r",
+                  "f17v",
+                  "f18v",
+                  "f19r",
+                  "f19v",
+                  "f1r",
+                  "f1v",
+                  "f20r",
+                  "f20v",
+                  "f21v",
+                  "f22r",
+                  "f22v",
+                  "f23r",
+                  "f23v",
+                  "f24r",
+                  "f24v",
+                  "f25r",
+                  "f27r",
+                  "f27v",
+                  "f28r",
+                  "f28v",
+                  "f29r",
+                  "f29v",
+                  "f2r",
+                  "f2v",
+                  "f30r",
+                  "f31r",
+                  "f31v",
+                  "f32r",
+                  "f32v",
+                  "f33r",
+                  "f34v",
+                  "f35r",
+                  "f35v",
+                  "f36r",
+                  "f36v",
+                  "f37r",
+                  "f37v",
+                  "f38r",
+                  "f38v",
+                  "f39r",
+                  "f39v",
+                  "f3r",
+                  "f3v",
+                  "f40r",
+                  "f40v",
+                  "f41v",
+                  "f42v",
+                  "f43v",
+                  "f44r",
+                  "f45r",
+                  "f45v",
+                  "f46r",
+                  "f46v",
+                  "f47r",
+                  "f47v",
+                  "f48r",
+                  "f48v",
+                  "f49r",
+                  "f49v",
+                  "f4r",
+                  "f4v",
+                  "f50r",
+                  "f51v",
+                  "f52r",
+                  "f52v",
+                  "f53r",
+                  "f53v",
+                  "f54r",
+                  "f54v",
+                  "f55r",
+                  "f56r",
+                  "f56v",
+                  "f57r",
+                  "f58v",
+                  "f5r",
+                  "f65r",
+                  "f65v",
+                  "f66r",
+                  "f66v",
+                  "f69r",
+                  "f69v",
+                  "f6r",
+                  "f71r",
+                  "f71v",
+                  "f73r",
+                  "f75r",
+                  "f75v",
+                  "f76r",
+                  "f76v",
+                  "f78v",
+                  "f79r",
+                  "f79v",
+                  "f7r",
+                  "f7v",
+                  "f80r",
+                  "f80v",
+                  "f81r",
+                  "f81v",
+                  "f82r",
+                  "f82v",
+                  "f83r",
+                  "f83v",
+                  "f84r",
+                  "f84v",
+                  "f87r",
+                  "f87v",
+                  "f88r",
+                  "f88v",
+                  "f8r",
+                  "f93r",
+                  "f93v",
+                  "f94r",
+                  "f94v",
+                  "f96r",
+                  "f96v",
+                  "f99r",
+                  "f99v",
+                  "f9r",
+                  "f9v"
+                ],
+                "id_set_sha256": "0ce75d78242c1b3b8c5c8332feb887afc0502c4bf748fa6bbecac43e2b979771",
+                "locus_counts": {
+                  "Cc": 13,
+                  "L0": 16,
+                  "Lf": 6,
+                  "Ln": 2,
+                  "Lp": 1,
+                  "Lt": 3,
+                  "Lx": 3,
+                  "Lz": 7,
+                  "P0": 2959,
+                  "P1": 58,
+                  "Pb": 14,
+                  "Pc": 12,
+                  "Pr": 6,
+                  "Pt": 7,
+                  "Ri": 4,
+                  "Ro": 22
+                }
+              },
+              "evaluations": {
+                "mixed": {
+                  "test": {
+                    "lines": 597,
+                    "folios": [
+                      "f100r",
+                      "f101r",
+                      "f10r",
+                      "f111v",
+                      "f114r",
+                      "f116r",
+                      "f13v",
+                      "f14v",
+                      "f18r",
+                      "f21r",
+                      "f25v",
+                      "f26r",
+                      "f26v",
+                      "f30v",
+                      "f33v",
+                      "f34r",
+                      "f41r",
+                      "f42r",
+                      "f43r",
+                      "f44v",
+                      "f50v",
+                      "f51r",
+                      "f55v",
+                      "f57v",
+                      "f58r",
+                      "f5v",
+                      "f6v",
+                      "f73v",
+                      "f77r",
+                      "f77v",
+                      "f78r",
+                      "f8v"
+                    ],
+                    "id_set_sha256": "655fd7db7f824eaa3119f271d889cdfa44ab4d6b458dfaa07e7a2ab7aa0b575f",
+                    "locus_counts": {
+                      "Cc": 6,
+                      "Lf": 1,
+                      "Lt": 3,
+                      "P0": 581,
+                      "Pc": 2,
+                      "Pr": 3,
+                      "Ro": 1
+                    }
+                  },
+                  "scores": {
+                    "available": true,
+                    "real": {
+                      "tokens_scored": 4569,
+                      "unigram_bits_per_token": 10.633952814238114,
+                      "bigram_only_bits_per_token": 11.657225193802626,
+                      "interpolated_bits_per_token": 10.338248587234805,
+                      "gain_vs_unigram_bits_per_token": 0.2957042270033091,
+                      "train_vocabulary": 5701,
+                      "train_tokens": 25276
+                    },
+                    "original_seed_control": {
+                      "tokens_scored": 4569,
+                      "unigram_bits_per_token": 10.633952814238114,
+                      "bigram_only_bits_per_token": 11.82160738784313,
+                      "interpolated_bits_per_token": 10.38986324631917,
+                      "gain_vs_unigram_bits_per_token": 0.2440895679189454,
+                      "train_vocabulary": 5701,
+                      "train_tokens": 25276
+                    },
+                    "real_minus_original_seed_gain": 0.05161465908436372
+                  }
+                },
+                "P0": {
+                  "test": {
+                    "lines": 581,
+                    "folios": [
+                      "f100r",
+                      "f101r",
+                      "f10r",
+                      "f111v",
+                      "f114r",
+                      "f116r",
+                      "f13v",
+                      "f14v",
+                      "f18r",
+                      "f21r",
+                      "f25v",
+                      "f26r",
+                      "f26v",
+                      "f30v",
+                      "f33v",
+                      "f34r",
+                      "f41r",
+                      "f42r",
+                      "f43r",
+                      "f44v",
+                      "f50v",
+                      "f51r",
+                      "f55v",
+                      "f58r",
+                      "f5v",
+                      "f6v",
+                      "f77r",
+                      "f77v",
+                      "f78r",
+                      "f8v"
+                    ],
+                    "id_set_sha256": "d121a5dc368bd5f6b798f310307911e90079509a88b9f0568c96da3ba2dfa03e",
+                    "locus_counts": {
+                      "P0": 581
+                    }
+                  },
+                  "scores": {
+                    "available": true,
+                    "real": {
+                      "tokens_scored": 4433,
+                      "unigram_bits_per_token": 10.575974035339001,
+                      "bigram_only_bits_per_token": 11.638931765094593,
+                      "interpolated_bits_per_token": 10.304947487142465,
+                      "gain_vs_unigram_bits_per_token": 0.2710265481965349,
+                      "train_vocabulary": 5701,
+                      "train_tokens": 25276
+                    },
+                    "original_seed_control": {
+                      "tokens_scored": 4433,
+                      "unigram_bits_per_token": 10.575974035339001,
+                      "bigram_only_bits_per_token": 11.810051359360973,
+                      "interpolated_bits_per_token": 10.359159689941436,
+                      "gain_vs_unigram_bits_per_token": 0.21681434539756542,
+                      "train_vocabulary": 5701,
+                      "train_tokens": 25276
+                    },
+                    "real_minus_original_seed_gain": 0.05421220279896946
+                  }
+                },
+                "non_P0": {
+                  "test": {
+                    "lines": 16,
+                    "folios": [
+                      "f100r",
+                      "f114r",
+                      "f18r",
+                      "f42r",
+                      "f57v",
+                      "f73v",
+                      "f77v",
+                      "f78r"
+                    ],
+                    "id_set_sha256": "5fb58d96c8de08040ee67e3187b86a75954fb6368c97941c82e50cadfab34bae",
+                    "locus_counts": {
+                      "Cc": 6,
+                      "Lf": 1,
+                      "Lt": 3,
+                      "Pc": 2,
+                      "Pr": 3,
+                      "Ro": 1
+                    }
+                  },
+                  "scores": {
+                    "available": true,
+                    "real": {
+                      "tokens_scored": 136,
+                      "unigram_bits_per_token": 12.523805217618687,
+                      "bigram_only_bits_per_token": 12.253510263381385,
+                      "interpolated_bits_per_token": 11.42371753362708,
+                      "gain_vs_unigram_bits_per_token": 1.1000876839916083,
+                      "train_vocabulary": 5701,
+                      "train_tokens": 25276
+                    },
+                    "original_seed_control": {
+                      "tokens_scored": 136,
+                      "unigram_bits_per_token": 12.523805217618687,
+                      "bigram_only_bits_per_token": 12.198282933882435,
+                      "interpolated_bits_per_token": 11.390663727367107,
+                      "gain_vs_unigram_bits_per_token": 1.1331414902515813,
+                      "train_vocabulary": 5701,
+                      "train_tokens": 25276
+                    },
+                    "real_minus_original_seed_gain": -0.033053806259973006
+                  }
+                },
+                "labels": {
+                  "test": {
+                    "lines": 4,
+                    "folios": [
+                      "f100r",
+                      "f77v",
+                      "f78r"
+                    ],
+                    "id_set_sha256": "e82d041d02b1f9494cd6cf7b8b3cc562f92c803918d8dfef52cd383d41eec7ca",
+                    "locus_counts": {
+                      "Lf": 1,
+                      "Lt": 3
+                    }
+                  },
+                  "scores": {
+                    "available": true,
+                    "real": {
+                      "tokens_scored": 5,
+                      "unigram_bits_per_token": 11.37254848123309,
+                      "bigram_only_bits_per_token": 12.669734154859196,
+                      "interpolated_bits_per_token": 10.95248022891415,
+                      "gain_vs_unigram_bits_per_token": 0.4200682523189414,
+                      "train_vocabulary": 5701,
+                      "train_tokens": 25276
+                    },
+                    "original_seed_control": {
+                      "tokens_scored": 5,
+                      "unigram_bits_per_token": 11.37254848123309,
+                      "bigram_only_bits_per_token": 11.975518823003448,
+                      "interpolated_bits_per_token": 10.815114320138651,
+                      "gain_vs_unigram_bits_per_token": 0.5574341610944387,
+                      "train_vocabulary": 5701,
+                      "train_tokens": 25276
+                    },
+                    "real_minus_original_seed_gain": -0.13736590877549726
+                  }
+                },
+                "circular_radial": {
+                  "test": {
+                    "lines": 7,
+                    "folios": [
+                      "f57v",
+                      "f73v"
+                    ],
+                    "id_set_sha256": "8f158b52a414822b2a9a0bad38be37794da6122cce0460ae37572fbb34ffb490",
+                    "locus_counts": {
+                      "Cc": 6,
+                      "Ro": 1
+                    }
+                  },
+                  "scores": {
+                    "available": true,
+                    "real": {
+                      "tokens_scored": 121,
+                      "unigram_bits_per_token": 12.512887701570314,
+                      "bigram_only_bits_per_token": 12.212937912989277,
+                      "interpolated_bits_per_token": 11.398506717103947,
+                      "gain_vs_unigram_bits_per_token": 1.114380984466368,
+                      "train_vocabulary": 5701,
+                      "train_tokens": 25276
+                    },
+                    "original_seed_control": {
+                      "tokens_scored": 121,
+                      "unigram_bits_per_token": 12.512887701570314,
+                      "bigram_only_bits_per_token": 12.179944240952368,
+                      "interpolated_bits_per_token": 11.367209821073317,
+                      "gain_vs_unigram_bits_per_token": 1.145677880496997,
+                      "train_vocabulary": 5701,
+                      "train_tokens": 25276
+                    },
+                    "real_minus_original_seed_gain": -0.03129689603062902
+                  }
+                },
+                "other_paragraph": {
+                  "test": {
+                    "lines": 5,
+                    "folios": [
+                      "f114r",
+                      "f18r",
+                      "f42r"
+                    ],
+                    "id_set_sha256": "7ee29da3f44573416df72dd10b5342e23fa9f98f197bc227fe6f1554683c010b",
+                    "locus_counts": {
+                      "Pc": 2,
+                      "Pr": 3
+                    }
+                  },
+                  "scores": {
+                    "available": true,
+                    "real": {
+                      "tokens_scored": 10,
+                      "unigram_bits_per_token": 13.231535529996867,
+                      "bigram_only_bits_per_token": 12.536323757386914,
+                      "interpolated_bits_per_token": 11.964387065913423,
+                      "gain_vs_unigram_bits_per_token": 1.267148464083445,
+                      "train_vocabulary": 5701,
+                      "train_tokens": 25276
+                    },
+                    "original_seed_control": {
+                      "tokens_scored": 10,
+                      "unigram_bits_per_token": 13.231535529996867,
+                      "bigram_only_bits_per_token": 12.53156317377569,
+                      "interpolated_bits_per_token": 11.96223069713618,
+                      "gain_vs_unigram_bits_per_token": 1.2693048328606877,
+                      "train_vocabulary": 5701,
+                      "train_tokens": 25276
+                    },
+                    "real_minus_original_seed_gain": -0.0021563687772427897
+                  }
+                }
+              }
+            },
+            "P0": {
+              "train": {
+                "lines": 2959,
+                "folios": [
+                  "f100v",
+                  "f101v",
+                  "f103r",
+                  "f103v",
+                  "f104r",
+                  "f104v",
+                  "f105r",
+                  "f105v",
+                  "f106r",
+                  "f106v",
+                  "f107r",
+                  "f107v",
+                  "f108r",
+                  "f108v",
+                  "f10v",
+                  "f111r",
+                  "f112r",
+                  "f112v",
+                  "f113r",
+                  "f113v",
+                  "f114v",
+                  "f115r",
+                  "f115v",
+                  "f11r",
+                  "f11v",
+                  "f13r",
+                  "f14r",
+                  "f15r",
+                  "f15v",
+                  "f16r",
+                  "f16v",
+                  "f17r",
+                  "f17v",
+                  "f18v",
+                  "f19r",
+                  "f19v",
+                  "f1r",
+                  "f1v",
+                  "f20r",
+                  "f20v",
+                  "f21v",
+                  "f22r",
+                  "f22v",
+                  "f23r",
+                  "f23v",
+                  "f24r",
+                  "f24v",
+                  "f25r",
+                  "f27r",
+                  "f27v",
+                  "f28r",
+                  "f28v",
+                  "f29r",
+                  "f29v",
+                  "f2r",
+                  "f2v",
+                  "f30r",
+                  "f31r",
+                  "f31v",
+                  "f32r",
+                  "f32v",
+                  "f33r",
+                  "f34v",
+                  "f35r",
+                  "f35v",
+                  "f36r",
+                  "f36v",
+                  "f37r",
+                  "f37v",
+                  "f38r",
+                  "f38v",
+                  "f39r",
+                  "f39v",
+                  "f3r",
+                  "f3v",
+                  "f40r",
+                  "f40v",
+                  "f41v",
+                  "f42v",
+                  "f43v",
+                  "f44r",
+                  "f45r",
+                  "f45v",
+                  "f46r",
+                  "f46v",
+                  "f47r",
+                  "f47v",
+                  "f48r",
+                  "f48v",
+                  "f49r",
+                  "f49v",
+                  "f4r",
+                  "f4v",
+                  "f50r",
+                  "f51v",
+                  "f52r",
+                  "f52v",
+                  "f53r",
+                  "f53v",
+                  "f54r",
+                  "f54v",
+                  "f55r",
+                  "f56r",
+                  "f56v",
+                  "f57r",
+                  "f58v",
+                  "f5r",
+                  "f65v",
+                  "f66r",
+                  "f66v",
+                  "f69r",
+                  "f6r",
+                  "f75r",
+                  "f75v",
+                  "f76r",
+                  "f76v",
+                  "f78v",
+                  "f79r",
+                  "f79v",
+                  "f7r",
+                  "f7v",
+                  "f80r",
+                  "f80v",
+                  "f81r",
+                  "f81v",
+                  "f82r",
+                  "f82v",
+                  "f83r",
+                  "f83v",
+                  "f84r",
+                  "f84v",
+                  "f87r",
+                  "f87v",
+                  "f88r",
+                  "f88v",
+                  "f8r",
+                  "f93r",
+                  "f93v",
+                  "f94r",
+                  "f94v",
+                  "f96r",
+                  "f96v",
+                  "f99r",
+                  "f99v",
+                  "f9r",
+                  "f9v"
+                ],
+                "id_set_sha256": "ca40262137aa398971887775bb2e3772e768f37300d88f036f3a11331c8234c7",
+                "locus_counts": {
+                  "P0": 2959
+                }
+              },
+              "evaluations": {
+                "mixed": {
+                  "test": {
+                    "lines": 597,
+                    "folios": [
+                      "f100r",
+                      "f101r",
+                      "f10r",
+                      "f111v",
+                      "f114r",
+                      "f116r",
+                      "f13v",
+                      "f14v",
+                      "f18r",
+                      "f21r",
+                      "f25v",
+                      "f26r",
+                      "f26v",
+                      "f30v",
+                      "f33v",
+                      "f34r",
+                      "f41r",
+                      "f42r",
+                      "f43r",
+                      "f44v",
+                      "f50v",
+                      "f51r",
+                      "f55v",
+                      "f57v",
+                      "f58r",
+                      "f5v",
+                      "f6v",
+                      "f73v",
+                      "f77r",
+                      "f77v",
+                      "f78r",
+                      "f8v"
+                    ],
+                    "id_set_sha256": "655fd7db7f824eaa3119f271d889cdfa44ab4d6b458dfaa07e7a2ab7aa0b575f",
+                    "locus_counts": {
+                      "Cc": 6,
+                      "Lf": 1,
+                      "Lt": 3,
+                      "P0": 581,
+                      "Pc": 2,
+                      "Pr": 3,
+                      "Ro": 1
+                    }
+                  },
+                  "scores": {
+                    "available": true,
+                    "real": {
+                      "tokens_scored": 4569,
+                      "unigram_bits_per_token": 10.634021224952056,
+                      "bigram_only_bits_per_token": 11.63258218068167,
+                      "interpolated_bits_per_token": 10.326324227902521,
+                      "gain_vs_unigram_bits_per_token": 0.3076969970495337,
+                      "train_vocabulary": 5535,
+                      "train_tokens": 24383
+                    },
+                    "original_seed_control": {
+                      "tokens_scored": 4569,
+                      "unigram_bits_per_token": 10.634021224952056,
+                      "bigram_only_bits_per_token": 11.801295374124303,
+                      "interpolated_bits_per_token": 10.380700631302076,
+                      "gain_vs_unigram_bits_per_token": 0.2533205936499791,
+                      "train_vocabulary": 5535,
+                      "train_tokens": 24383
+                    },
+                    "real_minus_original_seed_gain": 0.054376403399554574
+                  }
+                },
+                "P0": {
+                  "test": {
+                    "lines": 581,
+                    "folios": [
+                      "f100r",
+                      "f101r",
+                      "f10r",
+                      "f111v",
+                      "f114r",
+                      "f116r",
+                      "f13v",
+                      "f14v",
+                      "f18r",
+                      "f21r",
+                      "f25v",
+                      "f26r",
+                      "f26v",
+                      "f30v",
+                      "f33v",
+                      "f34r",
+                      "f41r",
+                      "f42r",
+                      "f43r",
+                      "f44v",
+                      "f50v",
+                      "f51r",
+                      "f55v",
+                      "f58r",
+                      "f5v",
+                      "f6v",
+                      "f77r",
+                      "f77v",
+                      "f78r",
+                      "f8v"
+                    ],
+                    "id_set_sha256": "d121a5dc368bd5f6b798f310307911e90079509a88b9f0568c96da3ba2dfa03e",
+                    "locus_counts": {
+                      "P0": 581
+                    }
+                  },
+                  "scores": {
+                    "available": true,
+                    "real": {
+                      "tokens_scored": 4433,
+                      "unigram_bits_per_token": 10.575884218035585,
+                      "bigram_only_bits_per_token": 11.614670656523058,
+                      "interpolated_bits_per_token": 10.292912133900163,
+                      "gain_vs_unigram_bits_per_token": 0.28297208413542074,
+                      "train_vocabulary": 5535,
+                      "train_tokens": 24383
+                    },
+                    "original_seed_control": {
+                      "tokens_scored": 4433,
+                      "unigram_bits_per_token": 10.575884218035585,
+                      "bigram_only_bits_per_token": 11.790291505573125,
+                      "interpolated_bits_per_token": 10.349336293538917,
+                      "gain_vs_unigram_bits_per_token": 0.22654792449666689,
+                      "train_vocabulary": 5535,
+                      "train_tokens": 24383
+                    },
+                    "real_minus_original_seed_gain": 0.05642415963875386
+                  }
+                },
+                "non_P0": {
+                  "test": {
+                    "lines": 16,
+                    "folios": [
+                      "f100r",
+                      "f114r",
+                      "f18r",
+                      "f42r",
+                      "f57v",
+                      "f73v",
+                      "f77v",
+                      "f78r"
+                    ],
+                    "id_set_sha256": "5fb58d96c8de08040ee67e3187b86a75954fb6368c97941c82e50cadfab34bae",
+                    "locus_counts": {
+                      "Cc": 6,
+                      "Lf": 1,
+                      "Lt": 3,
+                      "Pc": 2,
+                      "Pr": 3,
+                      "Ro": 1
+                    }
+                  },
+                  "scores": {
+                    "available": true,
+                    "real": {
+                      "tokens_scored": 136,
+                      "unigram_bits_per_token": 12.52903116363402,
+                      "bigram_only_bits_per_token": 12.216418846822334,
+                      "interpolated_bits_per_token": 11.41541108608202,
+                      "gain_vs_unigram_bits_per_token": 1.1136200775519987,
+                      "train_vocabulary": 5535,
+                      "train_tokens": 24383
+                    },
+                    "original_seed_control": {
+                      "tokens_scored": 136,
+                      "unigram_bits_per_token": 12.52903116363402,
+                      "bigram_only_bits_per_token": 12.159972942413619,
+                      "interpolated_bits_per_token": 11.403039670302503,
+                      "gain_vs_unigram_bits_per_token": 1.1259914933315174,
+                      "train_vocabulary": 5535,
+                      "train_tokens": 24383
+                    },
+                    "real_minus_original_seed_gain": -0.012371415779518724
+                  }
+                },
+                "labels": {
+                  "test": {
+                    "lines": 4,
+                    "folios": [
+                      "f100r",
+                      "f77v",
+                      "f78r"
+                    ],
+                    "id_set_sha256": "e82d041d02b1f9494cd6cf7b8b3cc562f92c803918d8dfef52cd383d41eec7ca",
+                    "locus_counts": {
+                      "Lf": 1,
+                      "Lt": 3
+                    }
+                  },
+                  "scores": {
+                    "available": true,
+                    "real": {
+                      "tokens_scored": 5,
+                      "unigram_bits_per_token": 11.552943448131561,
+                      "bigram_only_bits_per_token": 12.621461745728078,
+                      "interpolated_bits_per_token": 10.993089233206865,
+                      "gain_vs_unigram_bits_per_token": 0.5598542149246967,
+                      "train_vocabulary": 5535,
+                      "train_tokens": 24383
+                    },
+                    "original_seed_control": {
+                      "tokens_scored": 5,
+                      "unigram_bits_per_token": 11.552943448131561,
+                      "bigram_only_bits_per_token": 12.614596488079282,
+                      "interpolated_bits_per_token": 10.988301544155313,
+                      "gain_vs_unigram_bits_per_token": 0.5646419039762491,
+                      "train_vocabulary": 5535,
+                      "train_tokens": 24383
+                    },
+                    "real_minus_original_seed_gain": -0.004787689051552468
+                  }
+                },
+                "circular_radial": {
+                  "test": {
+                    "lines": 7,
+                    "folios": [
+                      "f57v",
+                      "f73v"
+                    ],
+                    "id_set_sha256": "8f158b52a414822b2a9a0bad38be37794da6122cce0460ae37572fbb34ffb490",
+                    "locus_counts": {
+                      "Cc": 6,
+                      "Ro": 1
+                    }
+                  },
+                  "scores": {
+                    "available": true,
+                    "real": {
+                      "tokens_scored": 121,
+                      "unigram_bits_per_token": 12.514336318533893,
+                      "bigram_only_bits_per_token": 12.176707942220906,
+                      "interpolated_bits_per_token": 11.390318365844752,
+                      "gain_vs_unigram_bits_per_token": 1.1240179526891405,
+                      "train_vocabulary": 5535,
+                      "train_tokens": 24383
+                    },
+                    "original_seed_control": {
+                      "tokens_scored": 121,
+                      "unigram_bits_per_token": 12.514336318533893,
+                      "bigram_only_bits_per_token": 12.14256191830982,
+                      "interpolated_bits_per_token": 11.384550612924844,
+                      "gain_vs_unigram_bits_per_token": 1.1297857056090492,
+                      "train_vocabulary": 5535,
+                      "train_tokens": 24383
+                    },
+                    "real_minus_original_seed_gain": -0.00576775291990872
+                  }
+                },
+                "other_paragraph": {
+                  "test": {
+                    "lines": 5,
+                    "folios": [
+                      "f114r",
+                      "f18r",
+                      "f42r"
+                    ],
+                    "id_set_sha256": "7ee29da3f44573416df72dd10b5342e23fa9f98f197bc227fe6f1554683c010b",
+                    "locus_counts": {
+                      "Pc": 2,
+                      "Pr": 3
+                    }
+                  },
+                  "scores": {
+                    "available": true,
+                    "real": {
+                      "tokens_scored": 10,
+                      "unigram_bits_per_token": 13.19488264709687,
+                      "bigram_only_bits_per_token": 12.494399343046783,
+                      "interpolated_bits_per_token": 11.930193927390501,
+                      "gain_vs_unigram_bits_per_token": 1.2646887197063676,
+                      "train_vocabulary": 5535,
+                      "train_tokens": 24383
+                    },
+                    "original_seed_control": {
+                      "tokens_scored": 10,
+                      "unigram_bits_per_token": 13.19488264709687,
+                      "bigram_only_bits_per_token": 12.143334561236749,
+                      "interpolated_bits_per_token": 11.834126327645773,
+                      "gain_vs_unigram_bits_per_token": 1.3607563194510959,
+                      "train_vocabulary": 5535,
+                      "train_tokens": 24383
+                    },
+                    "real_minus_original_seed_gain": -0.09606759974472823
+                  }
+                }
+              }
+            }
+          },
+          "P0_to_P0_64_seed_diagnostic": {
+            "available": true,
+            "real_gain_vs_unigram": 0.28297208413542074,
+            "controls": [
+              {
+                "seed": 6072026,
+                "gain_vs_unigram": 0.22654792449666689
+              },
+              {
+                "seed": 15901009758507696038,
+                "gain_vs_unigram": 0.2311884470638933
+              },
+              {
+                "seed": 1064899789605846212,
+                "gain_vs_unigram": 0.23235954101590295
+              },
+              {
+                "seed": 12678981224001818697,
+                "gain_vs_unigram": 0.2302104253275683
+              },
+              {
+                "seed": 1315918627780388177,
+                "gain_vs_unigram": 0.22722628909099224
+              },
+              {
+                "seed": 11967913695421862398,
+                "gain_vs_unigram": 0.2277794038991826
+              },
+              {
+                "seed": 1965499254305580576,
+                "gain_vs_unigram": 0.2231307040740164
+              },
+              {
+                "seed": 16863529119165834166,
+                "gain_vs_unigram": 0.23559119599104966
+              },
+              {
+                "seed": 7662939479327632916,
+                "gain_vs_unigram": 0.23114553198270724
+              },
+              {
+                "seed": 9423477367860679923,
+                "gain_vs_unigram": 0.23539676167983314
+              },
+              {
+                "seed": 16210181692035777502,
+                "gain_vs_unigram": 0.22769761523411458
+              },
+              {
+                "seed": 18194857128130490469,
+                "gain_vs_unigram": 0.22540312388890157
+              },
+              {
+                "seed": 9638717239959070426,
+                "gain_vs_unigram": 0.22498787267527884
+              },
+              {
+                "seed": 2664903617991061856,
+                "gain_vs_unigram": 0.22972865022304131
+              },
+              {
+                "seed": 3109407776191036969,
+                "gain_vs_unigram": 0.23294182900928492
+              },
+              {
+                "seed": 1113740499633387792,
+                "gain_vs_unigram": 0.22903664627352258
+              },
+              {
+                "seed": 13145135197198085203,
+                "gain_vs_unigram": 0.23174342743310777
+              },
+              {
+                "seed": 10212096978045694028,
+                "gain_vs_unigram": 0.22618032955461378
+              },
+              {
+                "seed": 3751636454716227859,
+                "gain_vs_unigram": 0.23304268023198593
+              },
+              {
+                "seed": 922392705430272403,
+                "gain_vs_unigram": 0.23229599403382362
+              },
+              {
+                "seed": 13069425424391740021,
+                "gain_vs_unigram": 0.22589525232986188
+              },
+              {
+                "seed": 6088321518013650026,
+                "gain_vs_unigram": 0.23289217548715324
+              },
+              {
+                "seed": 10808484719141090980,
+                "gain_vs_unigram": 0.22514645679293255
+              },
+              {
+                "seed": 1698472480607694926,
+                "gain_vs_unigram": 0.2275531185703621
+              },
+              {
+                "seed": 2840675694914038174,
+                "gain_vs_unigram": 0.23570074635883723
+              },
+              {
+                "seed": 10198407336486079616,
+                "gain_vs_unigram": 0.23189493579414766
+              },
+              {
+                "seed": 15388182174194487946,
+                "gain_vs_unigram": 0.23580241613503553
+              },
+              {
+                "seed": 17053201775663717303,
+                "gain_vs_unigram": 0.23548335191583908
+              },
+              {
+                "seed": 13903896511930836347,
+                "gain_vs_unigram": 0.22729394020746987
+              },
+              {
+                "seed": 13321367869096736525,
+                "gain_vs_unigram": 0.2318585216469401
+              },
+              {
+                "seed": 994795046056297159,
+                "gain_vs_unigram": 0.22742819161071615
+              },
+              {
+                "seed": 4867777445038067853,
+                "gain_vs_unigram": 0.22808559486444072
+              },
+              {
+                "seed": 13236985582371238704,
+                "gain_vs_unigram": 0.23206645414616087
+              },
+              {
+                "seed": 1311911780153035140,
+                "gain_vs_unigram": 0.22681184994642273
+              },
+              {
+                "seed": 2648490356166194422,
+                "gain_vs_unigram": 0.2236403198386468
+              },
+              {
+                "seed": 15588760862577750682,
+                "gain_vs_unigram": 0.22934035335443403
+              },
+              {
+                "seed": 2607687945316874854,
+                "gain_vs_unigram": 0.2268552258891456
+              },
+              {
+                "seed": 13470006238856258266,
+                "gain_vs_unigram": 0.2291931678505004
+              },
+              {
+                "seed": 17523354033620107157,
+                "gain_vs_unigram": 0.2274892145047273
+              },
+              {
+                "seed": 6004487765887635328,
+                "gain_vs_unigram": 0.22787750506424062
+              },
+              {
+                "seed": 10521549829720915940,
+                "gain_vs_unigram": 0.23708218702853823
+              },
+              {
+                "seed": 14380359301334617844,
+                "gain_vs_unigram": 0.2293135746366082
+              },
+              {
+                "seed": 17448025673612499231,
+                "gain_vs_unigram": 0.23278904735048095
+              },
+              {
+                "seed": 4259832877429381121,
+                "gain_vs_unigram": 0.2332474392491562
+              },
+              {
+                "seed": 17416372555237999856,
+                "gain_vs_unigram": 0.2191815889803628
+              },
+              {
+                "seed": 8176005086207212492,
+                "gain_vs_unigram": 0.22640455379152416
+              },
+              {
+                "seed": 7663274628540028445,
+                "gain_vs_unigram": 0.23357119026512801
+              },
+              {
+                "seed": 6891810609461615253,
+                "gain_vs_unigram": 0.22596971740939778
+              },
+              {
+                "seed": 3371233537169998272,
+                "gain_vs_unigram": 0.2296006766191321
+              },
+              {
+                "seed": 16806959284044270157,
+                "gain_vs_unigram": 0.2320042002996645
+              },
+              {
+                "seed": 13666993347040600540,
+                "gain_vs_unigram": 0.23234838124800825
+              },
+              {
+                "seed": 17791462602929959036,
+                "gain_vs_unigram": 0.22779904825116745
+              },
+              {
+                "seed": 14402984793334591103,
+                "gain_vs_unigram": 0.2303286184589697
+              },
+              {
+                "seed": 4995402551274996978,
+                "gain_vs_unigram": 0.23167544202611734
+              },
+              {
+                "seed": 1457111941809275120,
+                "gain_vs_unigram": 0.23499215559247608
+              },
+              {
+                "seed": 7573434827260791219,
+                "gain_vs_unigram": 0.23048644565046417
+              },
+              {
+                "seed": 6087958081785327770,
+                "gain_vs_unigram": 0.22734421077571698
+              },
+              {
+                "seed": 1112216536977798412,
+                "gain_vs_unigram": 0.2245180677893909
+              },
+              {
+                "seed": 17369617532981509883,
+                "gain_vs_unigram": 0.2314450506371349
+              },
+              {
+                "seed": 12905348163912025814,
+                "gain_vs_unigram": 0.23166508060337707
+              },
+              {
+                "seed": 11162732039441679569,
+                "gain_vs_unigram": 0.22823183410401923
+              },
+              {
+                "seed": 14900714571127452433,
+                "gain_vs_unigram": 0.23236116485491712
+              },
+              {
+                "seed": 385038329012442619,
+                "gain_vs_unigram": 0.23005937491822384
+              },
+              {
+                "seed": 15131574700659178997,
+                "gain_vs_unigram": 0.23118916898619354
+              }
+            ],
+            "control_mean": 0.22977424070333863,
+            "control_min": 0.2191815889803628,
+            "control_max": 0.23708218702853823,
+            "control_q95_linear": 0.23557501937976807,
+            "controls_at_least_real": 0,
+            "real_minus_control_mean": 0.053197843432082115,
+            "original_seed_matches_native": true
+          }
+        }
+      }
+    },
+    {
+      "transcription": "IT2a",
+      "source": "data/transcriptions/eva_it2a.txt",
+      "source_sha256": "7f27a8b0feed8f6de0a99900df6bf912dd1d295c38e5f830bac8b41c3f536fb5",
+      "previous_mixed_snapshot_reproduced": true,
+      "common_physical_records": 3734,
+      "profiles": {
+        "native_607": {
+          "cross_scope": {
+            "mixed": {
+              "train": {
+                "lines": 3137,
+                "folios": [
+                  "f100v",
+                  "f101v",
+                  "f103r",
+                  "f103v",
+                  "f104r",
+                  "f104v",
+                  "f105r",
+                  "f105v",
+                  "f106r",
+                  "f106v",
+                  "f107r",
+                  "f107v",
+                  "f108r",
+                  "f108v",
+                  "f10v",
+                  "f111r",
+                  "f112r",
+                  "f112v",
+                  "f113r",
+                  "f113v",
+                  "f114v",
+                  "f115r",
+                  "f115v",
+                  "f11r",
+                  "f11v",
+                  "f13r",
+                  "f14r",
+                  "f15r",
+                  "f15v",
+                  "f16r",
+                  "f16v",
+                  "f17r",
+                  "f17v",
+                  "f18v",
+                  "f19r",
+                  "f19v",
+                  "f1r",
+                  "f1v",
+                  "f20r",
+                  "f20v",
+                  "f21v",
+                  "f22r",
+                  "f22v",
+                  "f23r",
+                  "f23v",
+                  "f24r",
+                  "f24v",
+                  "f25r",
+                  "f27r",
+                  "f27v",
+                  "f28r",
+                  "f28v",
+                  "f29r",
+                  "f29v",
+                  "f2r",
+                  "f2v",
+                  "f30r",
+                  "f31r",
+                  "f31v",
+                  "f32r",
+                  "f32v",
+                  "f33r",
+                  "f34v",
+                  "f35r",
+                  "f35v",
+                  "f36r",
+                  "f36v",
+                  "f37r",
+                  "f37v",
+                  "f38r",
+                  "f38v",
+                  "f39r",
+                  "f39v",
+                  "f3r",
+                  "f3v",
+                  "f40r",
+                  "f40v",
+                  "f41v",
+                  "f42v",
+                  "f43v",
+                  "f44r",
+                  "f45r",
+                  "f45v",
+                  "f46r",
+                  "f46v",
+                  "f47r",
+                  "f47v",
+                  "f48r",
+                  "f48v",
+                  "f49r",
+                  "f49v",
+                  "f4r",
+                  "f4v",
+                  "f50r",
+                  "f51v",
+                  "f52r",
+                  "f52v",
+                  "f53r",
+                  "f53v",
+                  "f54r",
+                  "f54v",
+                  "f55r",
+                  "f56r",
+                  "f56v",
+                  "f57r",
+                  "f58v",
+                  "f5r",
+                  "f65r",
+                  "f65v",
+                  "f66r",
+                  "f66v",
+                  "f69r",
+                  "f69v",
+                  "f6r",
+                  "f71r",
+                  "f71v",
+                  "f73r",
+                  "f75r",
+                  "f75v",
+                  "f76r",
+                  "f76v",
+                  "f78v",
+                  "f79r",
+                  "f79v",
+                  "f7r",
+                  "f7v",
+                  "f80r",
+                  "f80v",
+                  "f81r",
+                  "f81v",
+                  "f82r",
+                  "f82v",
+                  "f83r",
+                  "f83v",
+                  "f84r",
+                  "f84v",
+                  "f87r",
+                  "f87v",
+                  "f88r",
+                  "f88v",
+                  "f8r",
+                  "f93r",
+                  "f93v",
+                  "f94r",
+                  "f94v",
+                  "f96r",
+                  "f96v",
+                  "f99r",
+                  "f99v",
+                  "f9r",
+                  "f9v"
+                ],
+                "id_set_sha256": "e5d28ab5968d033a6aa8e8264c21228088056074473d4f843cd45af5aa781f09",
+                "locus_counts": {
+                  "Cc": 13,
+                  "L0": 14,
+                  "Lf": 9,
+                  "Ln": 5,
+                  "Lp": 1,
+                  "Lt": 5,
+                  "Lx": 1,
+                  "Lz": 9,
+                  "P0": 2959,
+                  "P1": 58,
+                  "Pb": 13,
+                  "Pc": 11,
+                  "Pr": 6,
+                  "Pt": 7,
+                  "Ri": 4,
+                  "Ro": 22
+                }
+              },
+              "evaluations": {
+                "mixed": {
+                  "test": {
+                    "lines": 597,
+                    "folios": [
+                      "f100r",
+                      "f101r",
+                      "f10r",
+                      "f111v",
+                      "f114r",
+                      "f116r",
+                      "f13v",
+                      "f14v",
+                      "f18r",
+                      "f21r",
+                      "f25v",
+                      "f26r",
+                      "f26v",
+                      "f30v",
+                      "f33v",
+                      "f34r",
+                      "f41r",
+                      "f42r",
+                      "f43r",
+                      "f44v",
+                      "f50v",
+                      "f51r",
+                      "f55v",
+                      "f57v",
+                      "f58r",
+                      "f5v",
+                      "f6v",
+                      "f73v",
+                      "f77r",
+                      "f77v",
+                      "f78r",
+                      "f8v"
+                    ],
+                    "id_set_sha256": "f71f9439a40be3c3e1b63183173f90323e7a2ca29ebee0f065aa2de768e980aa",
+                    "locus_counts": {
+                      "Cc": 6,
+                      "Lf": 1,
+                      "Lt": 3,
+                      "P0": 581,
+                      "Pc": 2,
+                      "Pr": 3,
+                      "Ro": 1
+                    }
+                  },
+                  "scores": {
+                    "available": true,
+                    "real": {
+                      "tokens_scored": 4613,
+                      "unigram_bits_per_token": 10.746211216620113,
+                      "bigram_only_bits_per_token": 11.697898900025784,
+                      "interpolated_bits_per_token": 10.405207505965366,
+                      "gain_vs_unigram_bits_per_token": 0.34100371065474744,
+                      "train_vocabulary": 5772,
+                      "train_tokens": 25514
+                    },
+                    "original_seed_control": {
+                      "tokens_scored": 4613,
+                      "unigram_bits_per_token": 10.746211216620113,
+                      "bigram_only_bits_per_token": 11.87014770577118,
+                      "interpolated_bits_per_token": 10.45991559814572,
+                      "gain_vs_unigram_bits_per_token": 0.2862956184743936,
+                      "train_vocabulary": 5772,
+                      "train_tokens": 25514
+                    },
+                    "real_minus_original_seed_gain": 0.05470809218035383
+                  }
+                },
+                "P0": {
+                  "test": {
+                    "lines": 581,
+                    "folios": [
+                      "f100r",
+                      "f101r",
+                      "f10r",
+                      "f111v",
+                      "f114r",
+                      "f116r",
+                      "f13v",
+                      "f14v",
+                      "f18r",
+                      "f21r",
+                      "f25v",
+                      "f26r",
+                      "f26v",
+                      "f30v",
+                      "f33v",
+                      "f34r",
+                      "f41r",
+                      "f42r",
+                      "f43r",
+                      "f44v",
+                      "f50v",
+                      "f51r",
+                      "f55v",
+                      "f58r",
+                      "f5v",
+                      "f6v",
+                      "f77r",
+                      "f77v",
+                      "f78r",
+                      "f8v"
+                    ],
+                    "id_set_sha256": "d121a5dc368bd5f6b798f310307911e90079509a88b9f0568c96da3ba2dfa03e",
+                    "locus_counts": {
+                      "P0": 581
+                    }
+                  },
+                  "scores": {
+                    "available": true,
+                    "real": {
+                      "tokens_scored": 4471,
+                      "unigram_bits_per_token": 10.676269852512567,
+                      "bigram_only_bits_per_token": 11.677876443656238,
+                      "interpolated_bits_per_token": 10.363934102937915,
+                      "gain_vs_unigram_bits_per_token": 0.31233574957465327,
+                      "train_vocabulary": 5772,
+                      "train_tokens": 25514
+                    },
+                    "original_seed_control": {
+                      "tokens_scored": 4471,
+                      "unigram_bits_per_token": 10.676269852512567,
+                      "bigram_only_bits_per_token": 11.857097721976277,
+                      "interpolated_bits_per_token": 10.420921951550563,
+                      "gain_vs_unigram_bits_per_token": 0.25534790096200466,
+                      "train_vocabulary": 5772,
+                      "train_tokens": 25514
+                    },
+                    "real_minus_original_seed_gain": 0.056987848612648606
+                  }
+                },
+                "non_P0": {
+                  "test": {
+                    "lines": 16,
+                    "folios": [
+                      "f100r",
+                      "f114r",
+                      "f18r",
+                      "f42r",
+                      "f57v",
+                      "f73v",
+                      "f77v",
+                      "f78r"
+                    ],
+                    "id_set_sha256": "6c87aa2aac05c7bc302471a54b00905524415d0c82f67ce4a60eeba5943bb468",
+                    "locus_counts": {
+                      "Cc": 6,
+                      "Lf": 1,
+                      "Lt": 3,
+                      "Pc": 2,
+                      "Pr": 3,
+                      "Ro": 1
+                    }
+                  },
+                  "scores": {
+                    "available": true,
+                    "real": {
+                      "tokens_scored": 142,
+                      "unigram_bits_per_token": 12.948379096372392,
+                      "bigram_only_bits_per_token": 12.328324269237708,
+                      "interpolated_bits_per_token": 11.704738385794348,
+                      "gain_vs_unigram_bits_per_token": 1.2436407105780432,
+                      "train_vocabulary": 5772,
+                      "train_tokens": 25514
+                    },
+                    "original_seed_control": {
+                      "tokens_scored": 142,
+                      "unigram_bits_per_token": 12.948379096372392,
+                      "bigram_only_bits_per_token": 12.281038392720903,
+                      "interpolated_bits_per_token": 11.687666259602706,
+                      "gain_vs_unigram_bits_per_token": 1.2607128367696858,
+                      "train_vocabulary": 5772,
+                      "train_tokens": 25514
+                    },
+                    "real_minus_original_seed_gain": -0.017072126191642667
+                  }
+                },
+                "labels": {
+                  "test": {
+                    "lines": 4,
+                    "folios": [
+                      "f100r",
+                      "f77v",
+                      "f78r"
+                    ],
+                    "id_set_sha256": "1e5b6dedbe134b5d29724049b4fa751b86c1f6cea687cdbe8d79f6304d474add",
+                    "locus_counts": {
+                      "Lf": 1,
+                      "Lt": 3
+                    }
+                  },
+                  "scores": {
+                    "available": true,
+                    "real": {
+                      "tokens_scored": 5,
+                      "unigram_bits_per_token": 11.638595207655113,
+                      "bigram_only_bits_per_token": 12.60764283608314,
+                      "interpolated_bits_per_token": 11.09816157649899,
+                      "gain_vs_unigram_bits_per_token": 0.5404336311561238,
+                      "train_vocabulary": 5772,
+                      "train_tokens": 25514
+                    },
+                    "original_seed_control": {
+                      "tokens_scored": 5,
+                      "unigram_bits_per_token": 11.638595207655113,
+                      "bigram_only_bits_per_token": 12.603499934347331,
+                      "interpolated_bits_per_token": 11.09608661937179,
+                      "gain_vs_unigram_bits_per_token": 0.5425085882833229,
+                      "train_vocabulary": 5772,
+                      "train_tokens": 25514
+                    },
+                    "real_minus_original_seed_gain": -0.002074957127199184
+                  }
+                },
+                "circular_radial": {
+                  "test": {
+                    "lines": 7,
+                    "folios": [
+                      "f57v",
+                      "f73v"
+                    ],
+                    "id_set_sha256": "8f158b52a414822b2a9a0bad38be37794da6122cce0460ae37572fbb34ffb490",
+                    "locus_counts": {
+                      "Cc": 6,
+                      "Ro": 1
+                    }
+                  },
+                  "scores": {
+                    "available": true,
+                    "real": {
+                      "tokens_scored": 127,
+                      "unigram_bits_per_token": 13.029235002880009,
+                      "bigram_only_bits_per_token": 12.29943597521411,
+                      "interpolated_bits_per_token": 11.71857191299243,
+                      "gain_vs_unigram_bits_per_token": 1.310663089887578,
+                      "train_vocabulary": 5772,
+                      "train_tokens": 25514
+                    },
+                    "original_seed_control": {
+                      "tokens_scored": 127,
+                      "unigram_bits_per_token": 13.029235002880009,
+                      "bigram_only_bits_per_token": 12.24701471552272,
+                      "interpolated_bits_per_token": 11.699787641182805,
+                      "gain_vs_unigram_bits_per_token": 1.3294473616972033,
+                      "train_vocabulary": 5772,
+                      "train_tokens": 25514
+                    },
+                    "real_minus_original_seed_gain": -0.018784271809625386
+                  }
+                },
+                "other_paragraph": {
+                  "test": {
+                    "lines": 5,
+                    "folios": [
+                      "f114r",
+                      "f18r",
+                      "f42r"
+                    ],
+                    "id_set_sha256": "7ee29da3f44573416df72dd10b5342e23fa9f98f197bc227fe6f1554683c010b",
+                    "locus_counts": {
+                      "Pc": 2,
+                      "Pr": 3
+                    }
+                  },
+                  "scores": {
+                    "available": true,
+                    "real": {
+                      "tokens_scored": 10,
+                      "unigram_bits_per_token": 12.576401028084353,
+                      "bigram_only_bits_per_token": 12.55554631991465,
+                      "interpolated_bits_per_token": 11.832340995026398,
+                      "gain_vs_unigram_bits_per_token": 0.7440600330579556,
+                      "train_vocabulary": 5772,
+                      "train_tokens": 25514
+                    },
+                    "original_seed_control": {
+                      "tokens_scored": 10,
+                      "unigram_bits_per_token": 12.576401028084353,
+                      "bigram_only_bits_per_token": 12.551908322324593,
+                      "interpolated_bits_per_token": 11.829514533650821,
+                      "gain_vs_unigram_bits_per_token": 0.7468864944335323,
+                      "train_vocabulary": 5772,
+                      "train_tokens": 25514
+                    },
+                    "real_minus_original_seed_gain": -0.0028264613755766277
+                  }
+                }
+              }
+            },
+            "P0": {
+              "train": {
+                "lines": 2959,
+                "folios": [
+                  "f100v",
+                  "f101v",
+                  "f103r",
+                  "f103v",
+                  "f104r",
+                  "f104v",
+                  "f105r",
+                  "f105v",
+                  "f106r",
+                  "f106v",
+                  "f107r",
+                  "f107v",
+                  "f108r",
+                  "f108v",
+                  "f10v",
+                  "f111r",
+                  "f112r",
+                  "f112v",
+                  "f113r",
+                  "f113v",
+                  "f114v",
+                  "f115r",
+                  "f115v",
+                  "f11r",
+                  "f11v",
+                  "f13r",
+                  "f14r",
+                  "f15r",
+                  "f15v",
+                  "f16r",
+                  "f16v",
+                  "f17r",
+                  "f17v",
+                  "f18v",
+                  "f19r",
+                  "f19v",
+                  "f1r",
+                  "f1v",
+                  "f20r",
+                  "f20v",
+                  "f21v",
+                  "f22r",
+                  "f22v",
+                  "f23r",
+                  "f23v",
+                  "f24r",
+                  "f24v",
+                  "f25r",
+                  "f27r",
+                  "f27v",
+                  "f28r",
+                  "f28v",
+                  "f29r",
+                  "f29v",
+                  "f2r",
+                  "f2v",
+                  "f30r",
+                  "f31r",
+                  "f31v",
+                  "f32r",
+                  "f32v",
+                  "f33r",
+                  "f34v",
+                  "f35r",
+                  "f35v",
+                  "f36r",
+                  "f36v",
+                  "f37r",
+                  "f37v",
+                  "f38r",
+                  "f38v",
+                  "f39r",
+                  "f39v",
+                  "f3r",
+                  "f3v",
+                  "f40r",
+                  "f40v",
+                  "f41v",
+                  "f42v",
+                  "f43v",
+                  "f44r",
+                  "f45r",
+                  "f45v",
+                  "f46r",
+                  "f46v",
+                  "f47r",
+                  "f47v",
+                  "f48r",
+                  "f48v",
+                  "f49r",
+                  "f49v",
+                  "f4r",
+                  "f4v",
+                  "f50r",
+                  "f51v",
+                  "f52r",
+                  "f52v",
+                  "f53r",
+                  "f53v",
+                  "f54r",
+                  "f54v",
+                  "f55r",
+                  "f56r",
+                  "f56v",
+                  "f57r",
+                  "f58v",
+                  "f5r",
+                  "f65v",
+                  "f66r",
+                  "f66v",
+                  "f69r",
+                  "f6r",
+                  "f75r",
+                  "f75v",
+                  "f76r",
+                  "f76v",
+                  "f78v",
+                  "f79r",
+                  "f79v",
+                  "f7r",
+                  "f7v",
+                  "f80r",
+                  "f80v",
+                  "f81r",
+                  "f81v",
+                  "f82r",
+                  "f82v",
+                  "f83r",
+                  "f83v",
+                  "f84r",
+                  "f84v",
+                  "f87r",
+                  "f87v",
+                  "f88r",
+                  "f88v",
+                  "f8r",
+                  "f93r",
+                  "f93v",
+                  "f94r",
+                  "f94v",
+                  "f96r",
+                  "f96v",
+                  "f99r",
+                  "f99v",
+                  "f9r",
+                  "f9v"
+                ],
+                "id_set_sha256": "a3860beaccb4a58df4d14bf639c6251f705f5e7df3eb541a2008e00603f00e79",
+                "locus_counts": {
+                  "P0": 2959
+                }
+              },
+              "evaluations": {
+                "mixed": {
+                  "test": {
+                    "lines": 597,
+                    "folios": [
+                      "f100r",
+                      "f101r",
+                      "f10r",
+                      "f111v",
+                      "f114r",
+                      "f116r",
+                      "f13v",
+                      "f14v",
+                      "f18r",
+                      "f21r",
+                      "f25v",
+                      "f26r",
+                      "f26v",
+                      "f30v",
+                      "f33v",
+                      "f34r",
+                      "f41r",
+                      "f42r",
+                      "f43r",
+                      "f44v",
+                      "f50v",
+                      "f51r",
+                      "f55v",
+                      "f57v",
+                      "f58r",
+                      "f5v",
+                      "f6v",
+                      "f73v",
+                      "f77r",
+                      "f77v",
+                      "f78r",
+                      "f8v"
+                    ],
+                    "id_set_sha256": "f71f9439a40be3c3e1b63183173f90323e7a2ca29ebee0f065aa2de768e980aa",
+                    "locus_counts": {
+                      "Cc": 6,
+                      "Lf": 1,
+                      "Lt": 3,
+                      "P0": 581,
+                      "Pc": 2,
+                      "Pr": 3,
+                      "Ro": 1
+                    }
+                  },
+                  "scores": {
+                    "available": true,
+                    "real": {
+                      "tokens_scored": 4613,
+                      "unigram_bits_per_token": 10.744485292101636,
+                      "bigram_only_bits_per_token": 11.666453212870108,
+                      "interpolated_bits_per_token": 10.390922548125557,
+                      "gain_vs_unigram_bits_per_token": 0.35356274397607845,
+                      "train_vocabulary": 5592,
+                      "train_tokens": 24593
+                    },
+                    "original_seed_control": {
+                      "tokens_scored": 4613,
+                      "unigram_bits_per_token": 10.744485292101636,
+                      "bigram_only_bits_per_token": 11.817102115581191,
+                      "interpolated_bits_per_token": 10.441249783049459,
+                      "gain_vs_unigram_bits_per_token": 0.303235509052176,
+                      "train_vocabulary": 5592,
+                      "train_tokens": 24593
+                    },
+                    "real_minus_original_seed_gain": 0.05032723492390245
+                  }
+                },
+                "P0": {
+                  "test": {
+                    "lines": 581,
+                    "folios": [
+                      "f100r",
+                      "f101r",
+                      "f10r",
+                      "f111v",
+                      "f114r",
+                      "f116r",
+                      "f13v",
+                      "f14v",
+                      "f18r",
+                      "f21r",
+                      "f25v",
+                      "f26r",
+                      "f26v",
+                      "f30v",
+                      "f33v",
+                      "f34r",
+                      "f41r",
+                      "f42r",
+                      "f43r",
+                      "f44v",
+                      "f50v",
+                      "f51r",
+                      "f55v",
+                      "f58r",
+                      "f5v",
+                      "f6v",
+                      "f77r",
+                      "f77v",
+                      "f78r",
+                      "f8v"
+                    ],
+                    "id_set_sha256": "d121a5dc368bd5f6b798f310307911e90079509a88b9f0568c96da3ba2dfa03e",
+                    "locus_counts": {
+                      "P0": 581
+                    }
+                  },
+                  "scores": {
+                    "available": true,
+                    "real": {
+                      "tokens_scored": 4471,
+                      "unigram_bits_per_token": 10.673317740511509,
+                      "bigram_only_bits_per_token": 11.646836774909172,
+                      "interpolated_bits_per_token": 10.349294548667912,
+                      "gain_vs_unigram_bits_per_token": 0.32402319184359674,
+                      "train_vocabulary": 5592,
+                      "train_tokens": 24593
+                    },
+                    "original_seed_control": {
+                      "tokens_scored": 4471,
+                      "unigram_bits_per_token": 10.673317740511509,
+                      "bigram_only_bits_per_token": 11.802859728832502,
+                      "interpolated_bits_per_token": 10.401101574124722,
+                      "gain_vs_unigram_bits_per_token": 0.2722161663867857,
+                      "train_vocabulary": 5592,
+                      "train_tokens": 24593
+                    },
+                    "real_minus_original_seed_gain": 0.05180702545681104
+                  }
+                },
+                "non_P0": {
+                  "test": {
+                    "lines": 16,
+                    "folios": [
+                      "f100r",
+                      "f114r",
+                      "f18r",
+                      "f42r",
+                      "f57v",
+                      "f73v",
+                      "f77v",
+                      "f78r"
+                    ],
+                    "id_set_sha256": "6c87aa2aac05c7bc302471a54b00905524415d0c82f67ce4a60eeba5943bb468",
+                    "locus_counts": {
+                      "Cc": 6,
+                      "Lf": 1,
+                      "Lt": 3,
+                      "Pc": 2,
+                      "Pr": 3,
+                      "Ro": 1
+                    }
+                  },
+                  "scores": {
+                    "available": true,
+                    "real": {
+                      "tokens_scored": 142,
+                      "unigram_bits_per_token": 12.985260807308869,
+                      "bigram_only_bits_per_token": 12.28409472078123,
+                      "interpolated_bits_per_token": 11.701618221190076,
+                      "gain_vs_unigram_bits_per_token": 1.2836425861187932,
+                      "train_vocabulary": 5592,
+                      "train_tokens": 24593
+                    },
+                    "original_seed_control": {
+                      "tokens_scored": 142,
+                      "unigram_bits_per_token": 12.985260807308869,
+                      "bigram_only_bits_per_token": 12.265536701168411,
+                      "interpolated_bits_per_token": 11.705352896447579,
+                      "gain_vs_unigram_bits_per_token": 1.2799079108612905,
+                      "train_vocabulary": 5592,
+                      "train_tokens": 24593
+                    },
+                    "real_minus_original_seed_gain": 0.0037346752575027065
+                  }
+                },
+                "labels": {
+                  "test": {
+                    "lines": 4,
+                    "folios": [
+                      "f100r",
+                      "f77v",
+                      "f78r"
+                    ],
+                    "id_set_sha256": "1e5b6dedbe134b5d29724049b4fa751b86c1f6cea687cdbe8d79f6304d474add",
+                    "locus_counts": {
+                      "Lf": 1,
+                      "Lt": 3
+                    }
+                  },
+                  "scores": {
+                    "available": true,
+                    "real": {
+                      "tokens_scored": 5,
+                      "unigram_bits_per_token": 11.802378906665519,
+                      "bigram_only_bits_per_token": 12.559770543766746,
+                      "interpolated_bits_per_token": 11.126335491744475,
+                      "gain_vs_unigram_bits_per_token": 0.6760434149210426,
+                      "train_vocabulary": 5592,
+                      "train_tokens": 24593
+                    },
+                    "original_seed_control": {
+                      "tokens_scored": 5,
+                      "unigram_bits_per_token": 11.802378906665519,
+                      "bigram_only_bits_per_token": 11.865059189864894,
+                      "interpolated_bits_per_token": 11.089765350173,
+                      "gain_vs_unigram_bits_per_token": 0.7126135564925192,
+                      "train_vocabulary": 5592,
+                      "train_tokens": 24593
+                    },
+                    "real_minus_original_seed_gain": -0.036570141571476644
+                  }
+                },
+                "circular_radial": {
+                  "test": {
+                    "lines": 7,
+                    "folios": [
+                      "f57v",
+                      "f73v"
+                    ],
+                    "id_set_sha256": "8f158b52a414822b2a9a0bad38be37794da6122cce0460ae37572fbb34ffb490",
+                    "locus_counts": {
+                      "Cc": 6,
+                      "Ro": 1
+                    }
+                  },
+                  "scores": {
+                    "available": true,
+                    "real": {
+                      "tokens_scored": 127,
+                      "unigram_bits_per_token": 13.06463455201278,
+                      "bigram_only_bits_per_token": 12.255437188515732,
+                      "interpolated_bits_per_token": 11.714856836963175,
+                      "gain_vs_unigram_bits_per_token": 1.3497777150496046,
+                      "train_vocabulary": 5592,
+                      "train_tokens": 24593
+                    },
+                    "original_seed_control": {
+                      "tokens_scored": 127,
+                      "unigram_bits_per_token": 13.06463455201278,
+                      "bigram_only_bits_per_token": 12.262374282944325,
+                      "interpolated_bits_per_token": 11.72073515302672,
+                      "gain_vs_unigram_bits_per_token": 1.3438993989860595,
+                      "train_vocabulary": 5592,
+                      "train_tokens": 24593
+                    },
+                    "real_minus_original_seed_gain": 0.005878316063545164
+                  }
+                },
+                "other_paragraph": {
+                  "test": {
+                    "lines": 5,
+                    "folios": [
+                      "f114r",
+                      "f18r",
+                      "f42r"
+                    ],
+                    "id_set_sha256": "7ee29da3f44573416df72dd10b5342e23fa9f98f197bc227fe6f1554683c010b",
+                    "locus_counts": {
+                      "Pc": 2,
+                      "Pr": 3
+                    }
+                  },
+                  "scores": {
+                    "available": true,
+                    "real": {
+                      "tokens_scored": 10,
+                      "unigram_bits_per_token": 12.568655199890896,
+                      "bigram_only_bits_per_token": 12.510207469060305,
+                      "interpolated_bits_per_token": 11.821129165594526,
+                      "gain_vs_unigram_bits_per_token": 0.7475260342963708,
+                      "train_vocabulary": 5592,
+                      "train_tokens": 24593
+                    },
+                    "original_seed_control": {
+                      "tokens_scored": 10,
+                      "unigram_bits_per_token": 12.568655199890896,
+                      "bigram_only_bits_per_token": 12.50593816826609,
+                      "interpolated_bits_per_token": 11.817792011029791,
+                      "gain_vs_unigram_bits_per_token": 0.7508631888611049,
+                      "train_vocabulary": 5592,
+                      "train_tokens": 24593
+                    },
+                    "real_minus_original_seed_gain": -0.003337154564734157
+                  }
+                }
+              }
+            }
+          },
+          "P0_to_P0_64_seed_diagnostic": {
+            "available": true,
+            "real_gain_vs_unigram": 0.32402319184359674,
+            "controls": [
+              {
+                "seed": 6072026,
+                "gain_vs_unigram": 0.2722161663867857
+              },
+              {
+                "seed": 15901009758507696038,
+                "gain_vs_unigram": 0.2713169650583892
+              },
+              {
+                "seed": 1064899789605846212,
+                "gain_vs_unigram": 0.26962901558051666
+              },
+              {
+                "seed": 12678981224001818697,
+                "gain_vs_unigram": 0.2693853427924569
+              },
+              {
+                "seed": 1315918627780388177,
+                "gain_vs_unigram": 0.273017842404259
+              },
+              {
+                "seed": 11967913695421862398,
+                "gain_vs_unigram": 0.2655041620019592
+              },
+              {
+                "seed": 1965499254305580576,
+                "gain_vs_unigram": 0.2690625611876924
+              },
+              {
+                "seed": 16863529119165834166,
+                "gain_vs_unigram": 0.2713255465878291
+              },
+              {
+                "seed": 7662939479327632916,
+                "gain_vs_unigram": 0.2741820375466173
+              },
+              {
+                "seed": 9423477367860679923,
+                "gain_vs_unigram": 0.2660289127443237
+              },
+              {
+                "seed": 16210181692035777502,
+                "gain_vs_unigram": 0.2685170201555372
+              },
+              {
+                "seed": 18194857128130490469,
+                "gain_vs_unigram": 0.272253321273687
+              },
+              {
+                "seed": 9638717239959070426,
+                "gain_vs_unigram": 0.2694745686490185
+              },
+              {
+                "seed": 2664903617991061856,
+                "gain_vs_unigram": 0.2679162830934668
+              },
+              {
+                "seed": 3109407776191036969,
+                "gain_vs_unigram": 0.2623714842977376
+              },
+              {
+                "seed": 1113740499633387792,
+                "gain_vs_unigram": 0.27423746493772067
+              },
+              {
+                "seed": 13145135197198085203,
+                "gain_vs_unigram": 0.2748190637354218
+              },
+              {
+                "seed": 10212096978045694028,
+                "gain_vs_unigram": 0.2654514601126452
+              },
+              {
+                "seed": 3751636454716227859,
+                "gain_vs_unigram": 0.26334700252437354
+              },
+              {
+                "seed": 922392705430272403,
+                "gain_vs_unigram": 0.2698441465834431
+              },
+              {
+                "seed": 13069425424391740021,
+                "gain_vs_unigram": 0.2726783299897136
+              },
+              {
+                "seed": 6088321518013650026,
+                "gain_vs_unigram": 0.26306980084368564
+              },
+              {
+                "seed": 10808484719141090980,
+                "gain_vs_unigram": 0.26222648754878736
+              },
+              {
+                "seed": 1698472480607694926,
+                "gain_vs_unigram": 0.2729660332659417
+              },
+              {
+                "seed": 2840675694914038174,
+                "gain_vs_unigram": 0.26843824308795555
+              },
+              {
+                "seed": 10198407336486079616,
+                "gain_vs_unigram": 0.27319184073468245
+              },
+              {
+                "seed": 15388182174194487946,
+                "gain_vs_unigram": 0.2689753532759207
+              },
+              {
+                "seed": 17053201775663717303,
+                "gain_vs_unigram": 0.2733424948438562
+              },
+              {
+                "seed": 13903896511930836347,
+                "gain_vs_unigram": 0.26384944678988714
+              },
+              {
+                "seed": 13321367869096736525,
+                "gain_vs_unigram": 0.26875074149489975
+              },
+              {
+                "seed": 994795046056297159,
+                "gain_vs_unigram": 0.2714015145504175
+              },
+              {
+                "seed": 4867777445038067853,
+                "gain_vs_unigram": 0.26160925987197337
+              },
+              {
+                "seed": 13236985582371238704,
+                "gain_vs_unigram": 0.2692359562056114
+              },
+              {
+                "seed": 1311911780153035140,
+                "gain_vs_unigram": 0.2687697498531646
+              },
+              {
+                "seed": 2648490356166194422,
+                "gain_vs_unigram": 0.2680992762680016
+              },
+              {
+                "seed": 15588760862577750682,
+                "gain_vs_unigram": 0.26590950772604355
+              },
+              {
+                "seed": 2607687945316874854,
+                "gain_vs_unigram": 0.2710896251487759
+              },
+              {
+                "seed": 13470006238856258266,
+                "gain_vs_unigram": 0.2710374985597899
+              },
+              {
+                "seed": 17523354033620107157,
+                "gain_vs_unigram": 0.26911720558501756
+              },
+              {
+                "seed": 6004487765887635328,
+                "gain_vs_unigram": 0.26595377831611816
+              },
+              {
+                "seed": 10521549829720915940,
+                "gain_vs_unigram": 0.2709351322015993
+              },
+              {
+                "seed": 14380359301334617844,
+                "gain_vs_unigram": 0.26923369472266967
+              },
+              {
+                "seed": 17448025673612499231,
+                "gain_vs_unigram": 0.2701804385246661
+              },
+              {
+                "seed": 4259832877429381121,
+                "gain_vs_unigram": 0.2744403524744422
+              },
+              {
+                "seed": 17416372555237999856,
+                "gain_vs_unigram": 0.26911281960499744
+              },
+              {
+                "seed": 8176005086207212492,
+                "gain_vs_unigram": 0.2736411395753718
+              },
+              {
+                "seed": 7663274628540028445,
+                "gain_vs_unigram": 0.2662574544518094
+              },
+              {
+                "seed": 6891810609461615253,
+                "gain_vs_unigram": 0.2628735254458791
+              },
+              {
+                "seed": 3371233537169998272,
+                "gain_vs_unigram": 0.26932192923673715
+              },
+              {
+                "seed": 16806959284044270157,
+                "gain_vs_unigram": 0.2682383265297484
+              },
+              {
+                "seed": 13666993347040600540,
+                "gain_vs_unigram": 0.2701404346230782
+              },
+              {
+                "seed": 17791462602929959036,
+                "gain_vs_unigram": 0.2638050877474718
+              },
+              {
+                "seed": 14402984793334591103,
+                "gain_vs_unigram": 0.2683809183565814
+              },
+              {
+                "seed": 4995402551274996978,
+                "gain_vs_unigram": 0.2684297085029372
+              },
+              {
+                "seed": 1457111941809275120,
+                "gain_vs_unigram": 0.2659037893176373
+              },
+              {
+                "seed": 7573434827260791219,
+                "gain_vs_unigram": 0.2692729341518079
+              },
+              {
+                "seed": 6087958081785327770,
+                "gain_vs_unigram": 0.27088766476199494
+              },
+              {
+                "seed": 1112216536977798412,
+                "gain_vs_unigram": 0.264244321313335
+              },
+              {
+                "seed": 17369617532981509883,
+                "gain_vs_unigram": 0.27176191810944494
+              },
+              {
+                "seed": 12905348163912025814,
+                "gain_vs_unigram": 0.26950586016681016
+              },
+              {
+                "seed": 11162732039441679569,
+                "gain_vs_unigram": 0.2625527131410358
+              },
+              {
+                "seed": 14900714571127452433,
+                "gain_vs_unigram": 0.26514648718529366
+              },
+              {
+                "seed": 385038329012442619,
+                "gain_vs_unigram": 0.2691513885808487
+              },
+              {
+                "seed": 15131574700659178997,
+                "gain_vs_unigram": 0.2740395774787809
+              }
+            ],
+            "control_mean": 0.26886047074717345,
+            "control_min": 0.26160925987197337,
+            "control_max": 0.2748190637354218,
+            "control_q95_linear": 0.27416066853644183,
+            "controls_at_least_real": 0,
+            "real_minus_control_mean": 0.055162721096423284,
+            "original_seed_matches_native": true
+          }
+        },
+        "candidate_conservative_ascii": {
+          "cross_scope": {
+            "mixed": {
+              "train": {
+                "lines": 3137,
+                "folios": [
+                  "f100v",
+                  "f101v",
+                  "f103r",
+                  "f103v",
+                  "f104r",
+                  "f104v",
+                  "f105r",
+                  "f105v",
+                  "f106r",
+                  "f106v",
+                  "f107r",
+                  "f107v",
+                  "f108r",
+                  "f108v",
+                  "f10v",
+                  "f111r",
+                  "f112r",
+                  "f112v",
+                  "f113r",
+                  "f113v",
+                  "f114v",
+                  "f115r",
+                  "f115v",
+                  "f11r",
+                  "f11v",
+                  "f13r",
+                  "f14r",
+                  "f15r",
+                  "f15v",
+                  "f16r",
+                  "f16v",
+                  "f17r",
+                  "f17v",
+                  "f18v",
+                  "f19r",
+                  "f19v",
+                  "f1r",
+                  "f1v",
+                  "f20r",
+                  "f20v",
+                  "f21v",
+                  "f22r",
+                  "f22v",
+                  "f23r",
+                  "f23v",
+                  "f24r",
+                  "f24v",
+                  "f25r",
+                  "f27r",
+                  "f27v",
+                  "f28r",
+                  "f28v",
+                  "f29r",
+                  "f29v",
+                  "f2r",
+                  "f2v",
+                  "f30r",
+                  "f31r",
+                  "f31v",
+                  "f32r",
+                  "f32v",
+                  "f33r",
+                  "f34v",
+                  "f35r",
+                  "f35v",
+                  "f36r",
+                  "f36v",
+                  "f37r",
+                  "f37v",
+                  "f38r",
+                  "f38v",
+                  "f39r",
+                  "f39v",
+                  "f3r",
+                  "f3v",
+                  "f40r",
+                  "f40v",
+                  "f41v",
+                  "f42v",
+                  "f43v",
+                  "f44r",
+                  "f45r",
+                  "f45v",
+                  "f46r",
+                  "f46v",
+                  "f47r",
+                  "f47v",
+                  "f48r",
+                  "f48v",
+                  "f49r",
+                  "f49v",
+                  "f4r",
+                  "f4v",
+                  "f50r",
+                  "f51v",
+                  "f52r",
+                  "f52v",
+                  "f53r",
+                  "f53v",
+                  "f54r",
+                  "f54v",
+                  "f55r",
+                  "f56r",
+                  "f56v",
+                  "f57r",
+                  "f58v",
+                  "f5r",
+                  "f65r",
+                  "f65v",
+                  "f66r",
+                  "f66v",
+                  "f69r",
+                  "f69v",
+                  "f6r",
+                  "f71r",
+                  "f71v",
+                  "f73r",
+                  "f75r",
+                  "f75v",
+                  "f76r",
+                  "f76v",
+                  "f78v",
+                  "f79r",
+                  "f79v",
+                  "f7r",
+                  "f7v",
+                  "f80r",
+                  "f80v",
+                  "f81r",
+                  "f81v",
+                  "f82r",
+                  "f82v",
+                  "f83r",
+                  "f83v",
+                  "f84r",
+                  "f84v",
+                  "f87r",
+                  "f87v",
+                  "f88r",
+                  "f88v",
+                  "f8r",
+                  "f93r",
+                  "f93v",
+                  "f94r",
+                  "f94v",
+                  "f96r",
+                  "f96v",
+                  "f99r",
+                  "f99v",
+                  "f9r",
+                  "f9v"
+                ],
+                "id_set_sha256": "e5d28ab5968d033a6aa8e8264c21228088056074473d4f843cd45af5aa781f09",
+                "locus_counts": {
+                  "Cc": 13,
+                  "L0": 14,
+                  "Lf": 9,
+                  "Ln": 5,
+                  "Lp": 1,
+                  "Lt": 5,
+                  "Lx": 1,
+                  "Lz": 9,
+                  "P0": 2959,
+                  "P1": 58,
+                  "Pb": 13,
+                  "Pc": 11,
+                  "Pr": 6,
+                  "Pt": 7,
+                  "Ri": 4,
+                  "Ro": 22
+                }
+              },
+              "evaluations": {
+                "mixed": {
+                  "test": {
+                    "lines": 597,
+                    "folios": [
+                      "f100r",
+                      "f101r",
+                      "f10r",
+                      "f111v",
+                      "f114r",
+                      "f116r",
+                      "f13v",
+                      "f14v",
+                      "f18r",
+                      "f21r",
+                      "f25v",
+                      "f26r",
+                      "f26v",
+                      "f30v",
+                      "f33v",
+                      "f34r",
+                      "f41r",
+                      "f42r",
+                      "f43r",
+                      "f44v",
+                      "f50v",
+                      "f51r",
+                      "f55v",
+                      "f57v",
+                      "f58r",
+                      "f5v",
+                      "f6v",
+                      "f73v",
+                      "f77r",
+                      "f77v",
+                      "f78r",
+                      "f8v"
+                    ],
+                    "id_set_sha256": "f71f9439a40be3c3e1b63183173f90323e7a2ca29ebee0f065aa2de768e980aa",
+                    "locus_counts": {
+                      "Cc": 6,
+                      "Lf": 1,
+                      "Lt": 3,
+                      "P0": 581,
+                      "Pc": 2,
+                      "Pr": 3,
+                      "Ro": 1
+                    }
+                  },
+                  "scores": {
+                    "available": true,
+                    "real": {
+                      "tokens_scored": 4599,
+                      "unigram_bits_per_token": 10.739051638976907,
+                      "bigram_only_bits_per_token": 11.695956249695334,
+                      "interpolated_bits_per_token": 10.399971150390963,
+                      "gain_vs_unigram_bits_per_token": 0.3390804885859436,
+                      "train_vocabulary": 5761,
+                      "train_tokens": 25456
+                    },
+                    "original_seed_control": {
+                      "tokens_scored": 4599,
+                      "unigram_bits_per_token": 10.739051638976907,
+                      "bigram_only_bits_per_token": 11.860570964165811,
+                      "interpolated_bits_per_token": 10.452898128280632,
+                      "gain_vs_unigram_bits_per_token": 0.28615351069627404,
+                      "train_vocabulary": 5761,
+                      "train_tokens": 25456
+                    },
+                    "real_minus_original_seed_gain": 0.052926977889669546
+                  }
+                },
+                "P0": {
+                  "test": {
+                    "lines": 581,
+                    "folios": [
+                      "f100r",
+                      "f101r",
+                      "f10r",
+                      "f111v",
+                      "f114r",
+                      "f116r",
+                      "f13v",
+                      "f14v",
+                      "f18r",
+                      "f21r",
+                      "f25v",
+                      "f26r",
+                      "f26v",
+                      "f30v",
+                      "f33v",
+                      "f34r",
+                      "f41r",
+                      "f42r",
+                      "f43r",
+                      "f44v",
+                      "f50v",
+                      "f51r",
+                      "f55v",
+                      "f58r",
+                      "f5v",
+                      "f6v",
+                      "f77r",
+                      "f77v",
+                      "f78r",
+                      "f8v"
+                    ],
+                    "id_set_sha256": "d121a5dc368bd5f6b798f310307911e90079509a88b9f0568c96da3ba2dfa03e",
+                    "locus_counts": {
+                      "P0": 581
+                    }
+                  },
+                  "scores": {
+                    "available": true,
+                    "real": {
+                      "tokens_scored": 4457,
+                      "unigram_bits_per_token": 10.668659090176126,
+                      "bigram_only_bits_per_token": 11.675859837269943,
+                      "interpolated_bits_per_token": 10.358401943841008,
+                      "gain_vs_unigram_bits_per_token": 0.31025714633511775,
+                      "train_vocabulary": 5761,
+                      "train_tokens": 25456
+                    },
+                    "original_seed_control": {
+                      "tokens_scored": 4457,
+                      "unigram_bits_per_token": 10.668659090176126,
+                      "bigram_only_bits_per_token": 11.849508436731204,
+                      "interpolated_bits_per_token": 10.413417829092252,
+                      "gain_vs_unigram_bits_per_token": 0.25524126108387424,
+                      "train_vocabulary": 5761,
+                      "train_tokens": 25456
+                    },
+                    "real_minus_original_seed_gain": 0.05501588525124351
+                  }
+                },
+                "non_P0": {
+                  "test": {
+                    "lines": 16,
+                    "folios": [
+                      "f100r",
+                      "f114r",
+                      "f18r",
+                      "f42r",
+                      "f57v",
+                      "f73v",
+                      "f77v",
+                      "f78r"
+                    ],
+                    "id_set_sha256": "6c87aa2aac05c7bc302471a54b00905524415d0c82f67ce4a60eeba5943bb468",
+                    "locus_counts": {
+                      "Cc": 6,
+                      "Lf": 1,
+                      "Lt": 3,
+                      "Pc": 2,
+                      "Pr": 3,
+                      "Ro": 1
+                    }
+                  },
+                  "scores": {
+                    "available": true,
+                    "real": {
+                      "tokens_scored": 142,
+                      "unigram_bits_per_token": 12.948485371408115,
+                      "bigram_only_bits_per_token": 12.326728856595517,
+                      "interpolated_bits_per_token": 11.704717302455393,
+                      "gain_vs_unigram_bits_per_token": 1.2437680689527217,
+                      "train_vocabulary": 5761,
+                      "train_tokens": 25456
+                    },
+                    "original_seed_control": {
+                      "tokens_scored": 142,
+                      "unigram_bits_per_token": 12.948485371408115,
+                      "bigram_only_bits_per_token": 12.207794096390458,
+                      "interpolated_bits_per_token": 11.692079068299135,
+                      "gain_vs_unigram_bits_per_token": 1.2564063031089794,
+                      "train_vocabulary": 5761,
+                      "train_tokens": 25456
+                    },
+                    "real_minus_original_seed_gain": -0.012638234156257644
+                  }
+                },
+                "labels": {
+                  "test": {
+                    "lines": 4,
+                    "folios": [
+                      "f100r",
+                      "f77v",
+                      "f78r"
+                    ],
+                    "id_set_sha256": "1e5b6dedbe134b5d29724049b4fa751b86c1f6cea687cdbe8d79f6304d474add",
+                    "locus_counts": {
+                      "Lf": 1,
+                      "Lt": 3
+                    }
+                  },
+                  "scores": {
+                    "available": true,
+                    "real": {
+                      "tokens_scored": 5,
+                      "unigram_bits_per_token": 11.635323619467256,
+                      "bigram_only_bits_per_token": 12.60509480215661,
+                      "interpolated_bits_per_token": 11.095153551418198,
+                      "gain_vs_unigram_bits_per_token": 0.5401700680490578,
+                      "train_vocabulary": 5761,
+                      "train_tokens": 25456
+                    },
+                    "original_seed_control": {
+                      "tokens_scored": 5,
+                      "unigram_bits_per_token": 11.635323619467256,
+                      "bigram_only_bits_per_token": 11.220813353457256,
+                      "interpolated_bits_per_token": 10.89941772839789,
+                      "gain_vs_unigram_bits_per_token": 0.7359058910693662,
+                      "train_vocabulary": 5761,
+                      "train_tokens": 25456
+                    },
+                    "real_minus_original_seed_gain": -0.19573582302030845
+                  }
+                },
+                "circular_radial": {
+                  "test": {
+                    "lines": 7,
+                    "folios": [
+                      "f57v",
+                      "f73v"
+                    ],
+                    "id_set_sha256": "8f158b52a414822b2a9a0bad38be37794da6122cce0460ae37572fbb34ffb490",
+                    "locus_counts": {
+                      "Cc": 6,
+                      "Ro": 1
+                    }
+                  },
+                  "scores": {
+                    "available": true,
+                    "real": {
+                      "tokens_scored": 127,
+                      "unigram_bits_per_token": 13.029653256064147,
+                      "bigram_only_bits_per_token": 12.297976725847077,
+                      "interpolated_bits_per_token": 11.71883042059307,
+                      "gain_vs_unigram_bits_per_token": 1.3108228354710771,
+                      "train_vocabulary": 5761,
+                      "train_tokens": 25456
+                    },
+                    "original_seed_control": {
+                      "tokens_scored": 127,
+                      "unigram_bits_per_token": 13.029653256064147,
+                      "bigram_only_bits_per_token": 12.219796612665872,
+                      "interpolated_bits_per_token": 11.712651887787995,
+                      "gain_vs_unigram_bits_per_token": 1.3170013682761523,
+                      "train_vocabulary": 5761,
+                      "train_tokens": 25456
+                    },
+                    "real_minus_original_seed_gain": -0.0061785328050751875
+                  }
+                },
+                "other_paragraph": {
+                  "test": {
+                    "lines": 5,
+                    "folios": [
+                      "f114r",
+                      "f18r",
+                      "f42r"
+                    ],
+                    "id_set_sha256": "7ee29da3f44573416df72dd10b5342e23fa9f98f197bc227fe6f1554683c010b",
+                    "locus_counts": {
+                      "Pc": 2,
+                      "Pr": 3
+                    }
+                  },
+                  "scores": {
+                    "available": true,
+                    "real": {
+                      "tokens_scored": 10,
+                      "unigram_bits_per_token": 12.574234112246893,
+                      "bigram_only_bits_per_token": 12.552697944320084,
+                      "interpolated_bits_per_token": 11.830262577625525,
+                      "gain_vs_unigram_bits_per_token": 0.7439715346213674,
+                      "train_vocabulary": 5761,
+                      "train_tokens": 25456
+                    },
+                    "original_seed_control": {
+                      "tokens_scored": 10,
+                      "unigram_bits_per_token": 12.574234112246893,
+                      "bigram_only_bits_per_token": 12.54885251115928,
+                      "interpolated_bits_per_token": 11.827134930741236,
+                      "gain_vs_unigram_bits_per_token": 0.7470991815056565,
+                      "train_vocabulary": 5761,
+                      "train_tokens": 25456
+                    },
+                    "real_minus_original_seed_gain": -0.003127646884289015
+                  }
+                }
+              }
+            },
+            "P0": {
+              "train": {
+                "lines": 2959,
+                "folios": [
+                  "f100v",
+                  "f101v",
+                  "f103r",
+                  "f103v",
+                  "f104r",
+                  "f104v",
+                  "f105r",
+                  "f105v",
+                  "f106r",
+                  "f106v",
+                  "f107r",
+                  "f107v",
+                  "f108r",
+                  "f108v",
+                  "f10v",
+                  "f111r",
+                  "f112r",
+                  "f112v",
+                  "f113r",
+                  "f113v",
+                  "f114v",
+                  "f115r",
+                  "f115v",
+                  "f11r",
+                  "f11v",
+                  "f13r",
+                  "f14r",
+                  "f15r",
+                  "f15v",
+                  "f16r",
+                  "f16v",
+                  "f17r",
+                  "f17v",
+                  "f18v",
+                  "f19r",
+                  "f19v",
+                  "f1r",
+                  "f1v",
+                  "f20r",
+                  "f20v",
+                  "f21v",
+                  "f22r",
+                  "f22v",
+                  "f23r",
+                  "f23v",
+                  "f24r",
+                  "f24v",
+                  "f25r",
+                  "f27r",
+                  "f27v",
+                  "f28r",
+                  "f28v",
+                  "f29r",
+                  "f29v",
+                  "f2r",
+                  "f2v",
+                  "f30r",
+                  "f31r",
+                  "f31v",
+                  "f32r",
+                  "f32v",
+                  "f33r",
+                  "f34v",
+                  "f35r",
+                  "f35v",
+                  "f36r",
+                  "f36v",
+                  "f37r",
+                  "f37v",
+                  "f38r",
+                  "f38v",
+                  "f39r",
+                  "f39v",
+                  "f3r",
+                  "f3v",
+                  "f40r",
+                  "f40v",
+                  "f41v",
+                  "f42v",
+                  "f43v",
+                  "f44r",
+                  "f45r",
+                  "f45v",
+                  "f46r",
+                  "f46v",
+                  "f47r",
+                  "f47v",
+                  "f48r",
+                  "f48v",
+                  "f49r",
+                  "f49v",
+                  "f4r",
+                  "f4v",
+                  "f50r",
+                  "f51v",
+                  "f52r",
+                  "f52v",
+                  "f53r",
+                  "f53v",
+                  "f54r",
+                  "f54v",
+                  "f55r",
+                  "f56r",
+                  "f56v",
+                  "f57r",
+                  "f58v",
+                  "f5r",
+                  "f65v",
+                  "f66r",
+                  "f66v",
+                  "f69r",
+                  "f6r",
+                  "f75r",
+                  "f75v",
+                  "f76r",
+                  "f76v",
+                  "f78v",
+                  "f79r",
+                  "f79v",
+                  "f7r",
+                  "f7v",
+                  "f80r",
+                  "f80v",
+                  "f81r",
+                  "f81v",
+                  "f82r",
+                  "f82v",
+                  "f83r",
+                  "f83v",
+                  "f84r",
+                  "f84v",
+                  "f87r",
+                  "f87v",
+                  "f88r",
+                  "f88v",
+                  "f8r",
+                  "f93r",
+                  "f93v",
+                  "f94r",
+                  "f94v",
+                  "f96r",
+                  "f96v",
+                  "f99r",
+                  "f99v",
+                  "f9r",
+                  "f9v"
+                ],
+                "id_set_sha256": "a3860beaccb4a58df4d14bf639c6251f705f5e7df3eb541a2008e00603f00e79",
+                "locus_counts": {
+                  "P0": 2959
+                }
+              },
+              "evaluations": {
+                "mixed": {
+                  "test": {
+                    "lines": 597,
+                    "folios": [
+                      "f100r",
+                      "f101r",
+                      "f10r",
+                      "f111v",
+                      "f114r",
+                      "f116r",
+                      "f13v",
+                      "f14v",
+                      "f18r",
+                      "f21r",
+                      "f25v",
+                      "f26r",
+                      "f26v",
+                      "f30v",
+                      "f33v",
+                      "f34r",
+                      "f41r",
+                      "f42r",
+                      "f43r",
+                      "f44v",
+                      "f50v",
+                      "f51r",
+                      "f55v",
+                      "f57v",
+                      "f58r",
+                      "f5v",
+                      "f6v",
+                      "f73v",
+                      "f77r",
+                      "f77v",
+                      "f78r",
+                      "f8v"
+                    ],
+                    "id_set_sha256": "f71f9439a40be3c3e1b63183173f90323e7a2ca29ebee0f065aa2de768e980aa",
+                    "locus_counts": {
+                      "Cc": 6,
+                      "Lf": 1,
+                      "Lt": 3,
+                      "P0": 581,
+                      "Pc": 2,
+                      "Pr": 3,
+                      "Ro": 1
+                    }
+                  },
+                  "scores": {
+                    "available": true,
+                    "real": {
+                      "tokens_scored": 4599,
+                      "unigram_bits_per_token": 10.73744393597215,
+                      "bigram_only_bits_per_token": 11.665190489140764,
+                      "interpolated_bits_per_token": 10.386016594612062,
+                      "gain_vs_unigram_bits_per_token": 0.3514273413600866,
+                      "train_vocabulary": 5584,
+                      "train_tokens": 24542
+                    },
+                    "original_seed_control": {
+                      "tokens_scored": 4599,
+                      "unigram_bits_per_token": 10.73744393597215,
+                      "bigram_only_bits_per_token": 11.838267609851012,
+                      "interpolated_bits_per_token": 10.439955882651557,
+                      "gain_vs_unigram_bits_per_token": 0.29748805332059386,
+                      "train_vocabulary": 5584,
+                      "train_tokens": 24542
+                    },
+                    "real_minus_original_seed_gain": 0.05393928803949272
+                  }
+                },
+                "P0": {
+                  "test": {
+                    "lines": 581,
+                    "folios": [
+                      "f100r",
+                      "f101r",
+                      "f10r",
+                      "f111v",
+                      "f114r",
+                      "f116r",
+                      "f13v",
+                      "f14v",
+                      "f18r",
+                      "f21r",
+                      "f25v",
+                      "f26r",
+                      "f26v",
+                      "f30v",
+                      "f33v",
+                      "f34r",
+                      "f41r",
+                      "f42r",
+                      "f43r",
+                      "f44v",
+                      "f50v",
+                      "f51r",
+                      "f55v",
+                      "f58r",
+                      "f5v",
+                      "f6v",
+                      "f77r",
+                      "f77v",
+                      "f78r",
+                      "f8v"
+                    ],
+                    "id_set_sha256": "d121a5dc368bd5f6b798f310307911e90079509a88b9f0568c96da3ba2dfa03e",
+                    "locus_counts": {
+                      "P0": 581
+                    }
+                  },
+                  "scores": {
+                    "available": true,
+                    "real": {
+                      "tokens_scored": 4457,
+                      "unigram_bits_per_token": 10.665744523711586,
+                      "bigram_only_bits_per_token": 11.645502893436788,
+                      "interpolated_bits_per_token": 10.344069418225152,
+                      "gain_vs_unigram_bits_per_token": 0.3216751054864341,
+                      "train_vocabulary": 5584,
+                      "train_tokens": 24542
+                    },
+                    "original_seed_control": {
+                      "tokens_scored": 4457,
+                      "unigram_bits_per_token": 10.665744523711586,
+                      "bigram_only_bits_per_token": 11.822542735454064,
+                      "interpolated_bits_per_token": 10.399670508539728,
+                      "gain_vs_unigram_bits_per_token": 0.266074015171858,
+                      "train_vocabulary": 5584,
+                      "train_tokens": 24542
+                    },
+                    "real_minus_original_seed_gain": 0.05560109031457605
+                  }
+                },
+                "non_P0": {
+                  "test": {
+                    "lines": 16,
+                    "folios": [
+                      "f100r",
+                      "f114r",
+                      "f18r",
+                      "f42r",
+                      "f57v",
+                      "f73v",
+                      "f77v",
+                      "f78r"
+                    ],
+                    "id_set_sha256": "6c87aa2aac05c7bc302471a54b00905524415d0c82f67ce4a60eeba5943bb468",
+                    "locus_counts": {
+                      "Cc": 6,
+                      "Lf": 1,
+                      "Lt": 3,
+                      "Pc": 2,
+                      "Pr": 3,
+                      "Ro": 1
+                    }
+                  },
+                  "scores": {
+                    "available": true,
+                    "real": {
+                      "tokens_scored": 142,
+                      "unigram_bits_per_token": 12.98789661516521,
+                      "bigram_only_bits_per_token": 12.283131433173462,
+                      "interpolated_bits_per_token": 11.702626208389878,
+                      "gain_vs_unigram_bits_per_token": 1.2852704067753313,
+                      "train_vocabulary": 5584,
+                      "train_tokens": 24542
+                    },
+                    "original_seed_control": {
+                      "tokens_scored": 142,
+                      "unigram_bits_per_token": 12.98789661516521,
+                      "bigram_only_bits_per_token": 12.331829336521576,
+                      "interpolated_bits_per_token": 11.704405970091047,
+                      "gain_vs_unigram_bits_per_token": 1.2834906450741623,
+                      "train_vocabulary": 5584,
+                      "train_tokens": 24542
+                    },
+                    "real_minus_original_seed_gain": 0.0017797617011690026
+                  }
+                },
+                "labels": {
+                  "test": {
+                    "lines": 4,
+                    "folios": [
+                      "f100r",
+                      "f77v",
+                      "f78r"
+                    ],
+                    "id_set_sha256": "1e5b6dedbe134b5d29724049b4fa751b86c1f6cea687cdbe8d79f6304d474add",
+                    "locus_counts": {
+                      "Lf": 1,
+                      "Lt": 3
+                    }
+                  },
+                  "scores": {
+                    "available": true,
+                    "real": {
+                      "tokens_scored": 5,
+                      "unigram_bits_per_token": 11.799404679176261,
+                      "bigram_only_bits_per_token": 12.557855347911744,
+                      "interpolated_bits_per_token": 11.123794683263785,
+                      "gain_vs_unigram_bits_per_token": 0.6756099959124754,
+                      "train_vocabulary": 5584,
+                      "train_tokens": 24542
+                    },
+                    "original_seed_control": {
+                      "tokens_scored": 5,
+                      "unigram_bits_per_token": 11.799404679176261,
+                      "bigram_only_bits_per_token": 12.55686964057637,
+                      "interpolated_bits_per_token": 11.122850448744357,
+                      "gain_vs_unigram_bits_per_token": 0.6765542304319041,
+                      "train_vocabulary": 5584,
+                      "train_tokens": 24542
+                    },
+                    "real_minus_original_seed_gain": -0.0009442345194287105
+                  }
+                },
+                "circular_radial": {
+                  "test": {
+                    "lines": 7,
+                    "folios": [
+                      "f57v",
+                      "f73v"
+                    ],
+                    "id_set_sha256": "8f158b52a414822b2a9a0bad38be37794da6122cce0460ae37572fbb34ffb490",
+                    "locus_counts": {
+                      "Cc": 6,
+                      "Ro": 1
+                    }
+                  },
+                  "scores": {
+                    "available": true,
+                    "real": {
+                      "tokens_scored": 127,
+                      "unigram_bits_per_token": 13.067845309229542,
+                      "bigram_only_bits_per_token": 12.25460830318864,
+                      "interpolated_bits_per_token": 11.716210385403352,
+                      "gain_vs_unigram_bits_per_token": 1.3516349238261898,
+                      "train_vocabulary": 5584,
+                      "train_tokens": 24542
+                    },
+                    "original_seed_control": {
+                      "tokens_scored": 127,
+                      "unigram_bits_per_token": 13.067845309229542,
+                      "bigram_only_bits_per_token": 12.309432541260076,
+                      "interpolated_bits_per_token": 11.71847274061875,
+                      "gain_vs_unigram_bits_per_token": 1.3493725686107914,
+                      "train_vocabulary": 5584,
+                      "train_tokens": 24542
+                    },
+                    "real_minus_original_seed_gain": 0.002262355215398415
+                  }
+                },
+                "other_paragraph": {
+                  "test": {
+                    "lines": 5,
+                    "folios": [
+                      "f114r",
+                      "f18r",
+                      "f42r"
+                    ],
+                    "id_set_sha256": "7ee29da3f44573416df72dd10b5342e23fa9f98f197bc227fe6f1554683c010b",
+                    "locus_counts": {
+                      "Pc": 2,
+                      "Pr": 3
+                    }
+                  },
+                  "scores": {
+                    "available": true,
+                    "real": {
+                      "tokens_scored": 10,
+                      "unigram_bits_per_token": 12.5667941685427,
+                      "bigram_only_bits_per_token": 12.508013226611562,
+                      "interpolated_bits_per_token": 11.819522922881815,
+                      "gain_vs_unigram_bits_per_token": 0.7472712456608847,
+                      "train_vocabulary": 5584,
+                      "train_tokens": 24542
+                    },
+                    "original_seed_control": {
+                      "tokens_scored": 10,
+                      "unigram_bits_per_token": 12.5667941685427,
+                      "bigram_only_bits_per_token": 12.503748484315247,
+                      "interpolated_bits_per_token": 11.81653574506251,
+                      "gain_vs_unigram_bits_per_token": 0.7502584234801901,
+                      "train_vocabulary": 5584,
+                      "train_tokens": 24542
+                    },
+                    "real_minus_original_seed_gain": -0.0029871778193054643
+                  }
+                }
+              }
+            }
+          },
+          "P0_to_P0_64_seed_diagnostic": {
+            "available": true,
+            "real_gain_vs_unigram": 0.3216751054864341,
+            "controls": [
+              {
+                "seed": 6072026,
+                "gain_vs_unigram": 0.266074015171858
+              },
+              {
+                "seed": 15901009758507696038,
+                "gain_vs_unigram": 0.26736742798956825
+              },
+              {
+                "seed": 1064899789605846212,
+                "gain_vs_unigram": 0.2722471930672336
+              },
+              {
+                "seed": 12678981224001818697,
+                "gain_vs_unigram": 0.2649918399734411
+              },
+              {
+                "seed": 1315918627780388177,
+                "gain_vs_unigram": 0.2641003638854708
+              },
+              {
+                "seed": 11967913695421862398,
+                "gain_vs_unigram": 0.26452588068299715
+              },
+              {
+                "seed": 1965499254305580576,
+                "gain_vs_unigram": 0.2709524400788117
+              },
+              {
+                "seed": 16863529119165834166,
+                "gain_vs_unigram": 0.2634419693006546
+              },
+              {
+                "seed": 7662939479327632916,
+                "gain_vs_unigram": 0.26773033784869293
+              },
+              {
+                "seed": 9423477367860679923,
+                "gain_vs_unigram": 0.2635291572720316
+              },
+              {
+                "seed": 16210181692035777502,
+                "gain_vs_unigram": 0.26116844703875264
+              },
+              {
+                "seed": 18194857128130490469,
+                "gain_vs_unigram": 0.27290263754517163
+              },
+              {
+                "seed": 9638717239959070426,
+                "gain_vs_unigram": 0.2674751107254908
+              },
+              {
+                "seed": 2664903617991061856,
+                "gain_vs_unigram": 0.2642220467065145
+              },
+              {
+                "seed": 3109407776191036969,
+                "gain_vs_unigram": 0.2650171586598204
+              },
+              {
+                "seed": 1113740499633387792,
+                "gain_vs_unigram": 0.2693398287691027
+              },
+              {
+                "seed": 13145135197198085203,
+                "gain_vs_unigram": 0.2616475632409393
+              },
+              {
+                "seed": 10212096978045694028,
+                "gain_vs_unigram": 0.26495259874978094
+              },
+              {
+                "seed": 3751636454716227859,
+                "gain_vs_unigram": 0.26632227124870805
+              },
+              {
+                "seed": 922392705430272403,
+                "gain_vs_unigram": 0.2713557147168601
+              },
+              {
+                "seed": 13069425424391740021,
+                "gain_vs_unigram": 0.2706082820250355
+              },
+              {
+                "seed": 6088321518013650026,
+                "gain_vs_unigram": 0.26486511112016453
+              },
+              {
+                "seed": 10808484719141090980,
+                "gain_vs_unigram": 0.26779891063732836
+              },
+              {
+                "seed": 1698472480607694926,
+                "gain_vs_unigram": 0.26596127100110595
+              },
+              {
+                "seed": 2840675694914038174,
+                "gain_vs_unigram": 0.26910149921750515
+              },
+              {
+                "seed": 10198407336486079616,
+                "gain_vs_unigram": 0.265637225157353
+              },
+              {
+                "seed": 15388182174194487946,
+                "gain_vs_unigram": 0.2657190851942714
+              },
+              {
+                "seed": 17053201775663717303,
+                "gain_vs_unigram": 0.26950760523545475
+              },
+              {
+                "seed": 13903896511930836347,
+                "gain_vs_unigram": 0.2630227030413212
+              },
+              {
+                "seed": 13321367869096736525,
+                "gain_vs_unigram": 0.26764683785454807
+              },
+              {
+                "seed": 994795046056297159,
+                "gain_vs_unigram": 0.2676576213103709
+              },
+              {
+                "seed": 4867777445038067853,
+                "gain_vs_unigram": 0.26053542466303536
+              },
+              {
+                "seed": 13236985582371238704,
+                "gain_vs_unigram": 0.2664285680412695
+              },
+              {
+                "seed": 1311911780153035140,
+                "gain_vs_unigram": 0.26925972581122193
+              },
+              {
+                "seed": 2648490356166194422,
+                "gain_vs_unigram": 0.26405873239778394
+              },
+              {
+                "seed": 15588760862577750682,
+                "gain_vs_unigram": 0.264209389330136
+              },
+              {
+                "seed": 2607687945316874854,
+                "gain_vs_unigram": 0.26833311753544103
+              },
+              {
+                "seed": 13470006238856258266,
+                "gain_vs_unigram": 0.2650985078468932
+              },
+              {
+                "seed": 17523354033620107157,
+                "gain_vs_unigram": 0.26459678761320915
+              },
+              {
+                "seed": 6004487765887635328,
+                "gain_vs_unigram": 0.2633147967686507
+              },
+              {
+                "seed": 10521549829720915940,
+                "gain_vs_unigram": 0.2631063902607779
+              },
+              {
+                "seed": 14380359301334617844,
+                "gain_vs_unigram": 0.2674054747558981
+              },
+              {
+                "seed": 17448025673612499231,
+                "gain_vs_unigram": 0.27041529813917015
+              },
+              {
+                "seed": 4259832877429381121,
+                "gain_vs_unigram": 0.26842765420308157
+              },
+              {
+                "seed": 17416372555237999856,
+                "gain_vs_unigram": 0.2671336022158965
+              },
+              {
+                "seed": 8176005086207212492,
+                "gain_vs_unigram": 0.2693560195339027
+              },
+              {
+                "seed": 7663274628540028445,
+                "gain_vs_unigram": 0.2636948002940858
+              },
+              {
+                "seed": 6891810609461615253,
+                "gain_vs_unigram": 0.2632023077870736
+              },
+              {
+                "seed": 3371233537169998272,
+                "gain_vs_unigram": 0.26703297298486633
+              },
+              {
+                "seed": 16806959284044270157,
+                "gain_vs_unigram": 0.2735196350646897
+              },
+              {
+                "seed": 13666993347040600540,
+                "gain_vs_unigram": 0.27254444599536265
+              },
+              {
+                "seed": 17791462602929959036,
+                "gain_vs_unigram": 0.2679237581218766
+              },
+              {
+                "seed": 14402984793334591103,
+                "gain_vs_unigram": 0.26705065224898533
+              },
+              {
+                "seed": 4995402551274996978,
+                "gain_vs_unigram": 0.26825767008547385
+              },
+              {
+                "seed": 1457111941809275120,
+                "gain_vs_unigram": 0.25929784499335734
+              },
+              {
+                "seed": 7573434827260791219,
+                "gain_vs_unigram": 0.26882089120844266
+              },
+              {
+                "seed": 6087958081785327770,
+                "gain_vs_unigram": 0.26406669368575353
+              },
+              {
+                "seed": 1112216536977798412,
+                "gain_vs_unigram": 0.26684468839914194
+              },
+              {
+                "seed": 17369617532981509883,
+                "gain_vs_unigram": 0.26836843041446795
+              },
+              {
+                "seed": 12905348163912025814,
+                "gain_vs_unigram": 0.26226012380654895
+              },
+              {
+                "seed": 11162732039441679569,
+                "gain_vs_unigram": 0.26045756140175186
+              },
+              {
+                "seed": 14900714571127452433,
+                "gain_vs_unigram": 0.26402115235294005
+              },
+              {
+                "seed": 385038329012442619,
+                "gain_vs_unigram": 0.26066667485717504
+              },
+              {
+                "seed": 15131574700659178997,
+                "gain_vs_unigram": 0.2694898382300764
+              }
+            ],
+            "control_mean": 0.2663451528986687,
+            "control_min": 0.25929784499335734,
+            "control_max": 0.2735196350646897,
+            "control_q95_linear": 0.27211347131467756,
+            "controls_at_least_real": 0,
+            "real_minus_control_mean": 0.05532995258776535,
+            "original_seed_matches_native": true
+          }
+        }
+      }
+    }
+  ],
+  "limits": [
+    "Exploratory follow-up on previously observed folios, not fresh confirmation.",
+    "No semantic, phonetic, language or decipherment assignments.",
+    "A control quantile is not a confidence interval; ranks are not confirmatory p-values.",
+    "Conditional on common-record eligibility, basic folios, readers, fixed split and model.",
+    "Related transcriptions are sensitivity views of one manuscript."
+  ]
+}

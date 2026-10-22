@@ -1,0 +1,116 @@
+{
+  "packet": "potential_decipherment_anchors_Lp",
+  "version": 1,
+  "selection": "All loci explicitly marked Lp in either supplied transcription; no ranking by desired meaning.",
+  "sources": [
+    {
+      "label": "ZL3b",
+      "path": "data/transcriptions/eva_zl3b.txt",
+      "sha256": "bf5b6d4ac1e3a51b1847a9c388318d609020441ccd56984c901c32b09beccafc"
+    },
+    {
+      "label": "IT2a",
+      "path": "data/transcriptions/eva_it2a.txt",
+      "sha256": "7f27a8b0feed8f6de0a99900df6bf912dd1d295c38e5f830bac8b41c3f536fb5"
+    }
+  ],
+  "candidates": [
+    {
+      "id": "f2r.14",
+      "folio": "f2r",
+      "locus": "Lp",
+      "transcriptions": {
+        "ZL3b": {
+          "source_line": 100,
+          "raw_body": "ytoail",
+          "primary_split_view": [
+            "ytoail"
+          ],
+          "primary_join_uncertain_spaces_view": [
+            "ytoail"
+          ]
+        }
+      },
+      "verified_plaintext": null,
+      "proposed_reading": null,
+      "verified_object_identity": null,
+      "status": "TEXT_CANDIDATE_REQUIRES_IMAGE_AND_EXTERNAL_ANCHOR"
+    },
+    {
+      "id": "f41v.1",
+      "folio": "f41v",
+      "locus": "Lp",
+      "transcriptions": {
+        "ZL3b": {
+          "source_line": 1758,
+          "raw_body": "keer[e:o]dal",
+          "primary_split_view": [
+            "keeredal"
+          ],
+          "primary_join_uncertain_spaces_view": [
+            "keeredal"
+          ]
+        },
+        "IT2a": {
+          "source_line": 1073,
+          "raw_body": "keerodal",
+          "primary_split_view": [
+            "keerodal"
+          ],
+          "primary_join_uncertain_spaces_view": [
+            "keerodal"
+          ]
+        }
+      },
+      "verified_plaintext": null,
+      "proposed_reading": null,
+      "verified_object_identity": null,
+      "status": "TEXT_CANDIDATE_REQUIRES_IMAGE_AND_EXTERNAL_ANCHOR"
+    },
+    {
+      "id": "f65r.1",
+      "folio": "f65r",
+      "locus": "Lp",
+      "transcriptions": {
+        "ZL3b": {
+          "source_line": 2655,
+          "raw_body": "otaim,dam.alam",
+          "primary_split_view": [
+            "otaim",
+            "dam",
+            "alam"
+          ],
+          "primary_join_uncertain_spaces_view": [
+            "otaimdam",
+            "alam"
+          ]
+        },
+        "IT2a": {
+          "source_line": 1662,
+          "raw_body": "otaim.dam.alam",
+          "primary_split_view": [
+            "otaim",
+            "dam",
+            "alam"
+          ],
+          "primary_join_uncertain_spaces_view": [
+            "otaim",
+            "dam",
+            "alam"
+          ]
+        }
+      },
+      "verified_plaintext": null,
+      "proposed_reading": null,
+      "verified_object_identity": null,
+      "status": "TEXT_CANDIDATE_REQUIRES_IMAGE_AND_EXTERNAL_ANCHOR"
+    }
+  ],
+  "warnings": [
+    "Lp metadata is a locator, not proof of a plant name or its identity.",
+    "A missing Lp entry in one transcription is not proof that the manuscript lacks text there.",
+    "Preserve alternatives and uncertain spaces; primary projection is not a resolved reading.",
+    "No image inspection or external botanical/name verification performed by this generator.",
+    "No plaintext, phonetic value or decipherment is established."
+  ]
+}
