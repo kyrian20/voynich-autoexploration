@@ -1,0 +1,3297 @@
+{
+  "selection_groups": {
+    "42189adaae845aa6265ca585119639263599c412f4eb79da6fba549ddccfa197": {
+      "representative_script": "experiments/exp_177_position_sensitive_cipher/script.py",
+      "evidence": [
+        {
+          "paragraph_index": 1,
+          "start_line": 3,
+          "tokens": 3,
+          "stopword_ratio": 0.0,
+          "excerpt": "TRANSCRIBER'S NOTE:"
+        },
+        {
+          "paragraph_index": 4,
+          "start_line": 26,
+          "tokens": 1,
+          "stopword_ratio": 0.0,
+          "excerpt": "CICERO"
+        },
+        {
+          "paragraph_index": 5,
+          "start_line": 28,
+          "tokens": 2,
+          "stopword_ratio": 0.0,
+          "excerpt": "DE OFFICIIS"
+        },
+        {
+          "paragraph_index": 8,
+          "start_line": 42,
+          "tokens": 1,
+          "stopword_ratio": 0.0,
+          "excerpt": "CONTENTS"
+        },
+        {
+          "paragraph_index": 9,
+          "start_line": 45,
+          "tokens": 2,
+          "stopword_ratio": 0.0,
+          "excerpt": "Introduction                    _Page_ ix"
+        },
+        {
+          "paragraph_index": 10,
+          "start_line": 47,
+          "tokens": 2,
+          "stopword_ratio": 0.0,
+          "excerpt": "Bibliography                         xiii"
+        },
+        {
+          "paragraph_index": 11,
+          "start_line": 49,
+          "tokens": 2,
+          "stopword_ratio": 0.0,
+          "excerpt": "Book I                                  1"
+        },
+        {
+          "paragraph_index": 12,
+          "start_line": 51,
+          "tokens": 2,
+          "stopword_ratio": 0.0,
+          "excerpt": "Book II                               167"
+        },
+        {
+          "paragraph_index": 13,
+          "start_line": 53,
+          "tokens": 2,
+          "stopword_ratio": 0.0,
+          "excerpt": "Book III                              269"
+        },
+        {
+          "paragraph_index": 14,
+          "start_line": 55,
+          "tokens": 1,
+          "stopword_ratio": 0.0,
+          "excerpt": "Index                                 405"
+        },
+        {
+          "paragraph_index": 15,
+          "start_line": 60,
+          "tokens": 1,
+          "stopword_ratio": 0.0,
+          "excerpt": "INTRODUCTION"
+        },
+        {
+          "paragraph_index": 25,
+          "start_line": 164,
+          "tokens": 1,
+          "stopword_ratio": 0.0,
+          "excerpt": "BIBLIOGRAPHY"
+        },
+        {
+          "paragraph_index": 29,
+          "start_line": 188,
+          "tokens": 8,
+          "stopword_ratio": 0.0,
+          "excerpt": "_Baiter & Kayser_: M. Tullii Ciceronis opera quae supersunt omnia.\n         Lipsiae, 1860-69."
+        },
+        {
+          "paragraph_index": 30,
+          "start_line": 191,
+          "tokens": 14,
+          "stopword_ratio": 0.07142857142857142,
+          "excerpt": "_Beier_: M. Tullii Ciceronis de Officiis libri tres ... cum\n         commentariis editi a Carolo Beiero. Lipsiae, 1820."
+        },
+        {
+          "paragraph_index": 31,
+          "start_line": 194,
+          "tokens": 19,
+          "stopword_ratio": 0.0,
+          "excerpt": "_Erasmus_:     }  M. Tullii Ciceronis Officia, diligenter restituta.\n  _Melanchthon_: }  Ejusdem de Amicitia et Senectute dialogi...: cum\n         annotationibus Erasmi et P. Melanchthonis. Parisiis, 1533."
+        },
+        {
+          "paragraph_index": 33,
+          "start_line": 202,
+          "tokens": 20,
+          "stopword_ratio": 0.05,
+          "excerpt": "_Ernesti_: M. Tullii Ciceronis opera ex recensione novissima. J. A.\n         Ernesti; cum eiusdem notis, et clave Ciceroniana. Editio prima\n         Americana. Bostoniae, 1815-16."
+        },
+        {
+          "paragraph_index": 34,
+          "start_line": 206,
+          "tokens": 26,
+          "stopword_ratio": 0.0,
+          "excerpt": "_Facciolati_: M. Tullii Ciceronis de Officiis libri tres, de\n         Senectute, de Amicitia, de Somnio Scipionis, et Paradoxa.\n         Accedit Q. fratris commentariolum petitionis. Ex recensione J.\n         Facciolati. Venetiis, 1747."
+        },
+        {
+          "paragraph_index": 35,
+          "start_line": 211,
+          "tokens": 4,
+          "stopword_ratio": 0.0,
+          "excerpt": "_Fleckeisen, Alf._: Kritische Miscellen. Dresden, 1864."
+        },
+        {
+          "paragraph_index": 2171,
+          "start_line": 13516,
+          "tokens": 2,
+          "stopword_ratio": 0.0,
+          "excerpt": "Perjury, III, 106-103, 113."
+        },
+        {
+          "paragraph_index": 2188,
+          "start_line": 13578,
+          "tokens": 5,
+          "stopword_ratio": 0.0,
+          "excerpt": "Pinthia, Marcus Lutatius, unknown, III, 77."
+        },
+        {
+          "paragraph_index": 2191,
+          "start_line": 13590,
+          "tokens": 4,
+          "stopword_ratio": 0.0,
+          "excerpt": "Plaetorian Law, enacted (192), III, 61."
+        },
+        {
+          "paragraph_index": 2196,
+          "start_line": 13610,
+          "tokens": 2,
+          "stopword_ratio": 0.0,
+          "excerpt": "Poeni;\n  _see_ Carthaginians."
+        },
+        {
+          "paragraph_index": 2209,
+          "start_line": 13665,
+          "tokens": 2,
+          "stopword_ratio": 0.0,
+          "excerpt": "Profession;\n  _see_ Vocation."
+        },
+        {
+          "paragraph_index": 2215,
+          "start_line": 13693,
+          "tokens": 2,
+          "stopword_ratio": 0.0,
+          "excerpt": "Prudence;\n  _see_ Wisdom."
+        },
+        {
+          "paragraph_index": 2221,
+          "start_line": 13717,
+          "tokens": 3,
+          "stopword_ratio": 0.0,
+          "excerpt": "Punic Wars;\n  _see_ Carthage."
+        },
+        {
+          "paragraph_index": 2250,
+          "start_line": 13844,
+          "tokens": 2,
+          "stopword_ratio": 0.0,
+          "excerpt": "Sanitation;\n  _see_ Health."
+        },
+        {
+          "paragraph_index": 2265,
+          "start_line": 13930,
+          "tokens": 4,
+          "stopword_ratio": 0.0,
+          "excerpt": "Secret sin, II, 37 fg."
+        },
+        {
+          "paragraph_index": 2267,
+          "start_line": 13935,
+          "tokens": 3,
+          "stopword_ratio": 0.0,
+          "excerpt": "Self-control;\n  _see_ Temperance."
+        },
+        {
+          "paragraph_index": 2269,
+          "start_line": 13941,
+          "tokens": 3,
+          "stopword_ratio": 0.0,
+          "excerpt": "Sergius, Gaius;\n  _see_ Orata."
+        },
+        {
+          "paragraph_index": 2273,
+          "start_line": 13955,
+          "tokens": 5,
+          "stopword_ratio": 0.0,
+          "excerpt": "Slaves, duty toward, I, 41; III, 89."
+        },
+        {
+          "paragraph_index": 2288,
+          "start_line": 14054,
+          "tokens": 2,
+          "stopword_ratio": 0.0,
+          "excerpt": "Sungod;\n  _see_ Sol."
+        },
+        {
+          "paragraph_index": 2289,
+          "start_line": 14057,
+          "tokens": 2,
+          "stopword_ratio": 0.0,
+          "excerpt": "Superbus;\n  _see_ Tarquin."
+        },
+        {
+          "paragraph_index": 2307,
+          "start_line": 14130,
+          "tokens": 2,
+          "stopword_ratio": 0.0,
+          "excerpt": "Torquatus;\n  _see_ Manlius."
+        },
+        {
+          "paragraph_index": 2308,
+          "start_line": 14133,
+          "tokens": 2,
+          "stopword_ratio": 0.0,
+          "excerpt": "Trades;\n  _see_ Vocation."
+        },
+        {
+          "paragraph_index": 2323,
+          "start_line": 14189,
+          "tokens": 2,
+          "stopword_ratio": 0.0,
+          "excerpt": "Viriathus, II, 40."
+        },
+        {
+          "paragraph_index": 2338,
+          "start_line": 14259,
+          "tokens": 1,
+          "stopword_ratio": 0.0,
+          "excerpt": "CORRECTIONS:"
+        }
+      ],
+      "stopwords": [
+        "a",
+        "about",
+        "all",
+        "an",
+        "and",
+        "are",
+        "as",
+        "at",
+        "be",
+        "but",
+        "by",
+        "can",
+        "do",
+        "each",
+        "for",
+        "from",
+        "had",
+        "has",
+        "have",
+        "he",
+        "her",
+        "him",
+        "his",
+        "how",
+        "if",
+        "in",
+        "into",
+        "is",
+        "it",
+        "like",
+        "look",
+        "make",
+        "many",
+        "more",
+        "not",
+        "of",
+        "on",
+        "or",
+        "other",
+        "out",
+        "said",
+        "she",
+        "so",
+        "some",
+        "that",
+        "the",
+        "their",
+        "them",
+        "then",
+        "there",
+        "these",
+        "they",
+        "this",
+        "time",
+        "to",
+        "two",
+        "up",
+        "use",
+        "was",
+        "we",
+        "were",
+        "what",
+        "when",
+        "which",
+        "will",
+        "with",
+        "would",
+        "your"
+      ],
+      "scripts": [
+        "experiments/exp_177_position_sensitive_cipher/script.py",
+        "experiments/exp_177_verify/script.py",
+        "experiments/exp_179_hybrid_cipher_copy/script.py",
+        "experiments/exp_180_position_aware_hybrid/script.py",
+        "experiments/exp_181_onset_preserving_mod/script.py",
+        "experiments/exp_182_timm_char_modification/script.py",
+        "experiments/exp_183_timm_char_extended_grid/script.py",
+        "experiments/exp_184_latin_source_comparison/script.py",
+        "experiments/exp_185_timm_char_cp_fine_grid/script.py",
+        "experiments/exp_186_pdetect_sweep/script.py",
+        "experiments/exp_209_blind_ll_mapping/script.py",
+        "experiments/exp_210_dll_onset_recal/script.py",
+        "experiments/exp_211_lf_blind_fine_sweep/script.py",
+        "experiments/exp_217_expanded_metric_battery/script.py"
+      ]
+    },
+    "0f77dc051c563fd78dd59bdd42a908222e1ac959599ee0e3d23081490914cdaa": {
+      "representative_script": "experiments/exp_218_vms_calibrated_distributions/script.py",
+      "evidence": [
+        {
+          "paragraph_index": 1,
+          "start_line": 3,
+          "tokens": 3,
+          "stopword_ratio": 0.0,
+          "excerpt": "TRANSCRIBER'S NOTE:"
+        },
+        {
+          "paragraph_index": 4,
+          "start_line": 26,
+          "tokens": 1,
+          "stopword_ratio": 0.0,
+          "excerpt": "CICERO"
+        },
+        {
+          "paragraph_index": 5,
+          "start_line": 28,
+          "tokens": 2,
+          "stopword_ratio": 0.0,
+          "excerpt": "DE OFFICIIS"
+        },
+        {
+          "paragraph_index": 8,
+          "start_line": 42,
+          "tokens": 1,
+          "stopword_ratio": 0.0,
+          "excerpt": "CONTENTS"
+        },
+        {
+          "paragraph_index": 9,
+          "start_line": 45,
+          "tokens": 2,
+          "stopword_ratio": 0.0,
+          "excerpt": "Introduction                    _Page_ ix"
+        },
+        {
+          "paragraph_index": 10,
+          "start_line": 47,
+          "tokens": 2,
+          "stopword_ratio": 0.0,
+          "excerpt": "Bibliography                         xiii"
+        },
+        {
+          "paragraph_index": 11,
+          "start_line": 49,
+          "tokens": 2,
+          "stopword_ratio": 0.0,
+          "excerpt": "Book I                                  1"
+        },
+        {
+          "paragraph_index": 12,
+          "start_line": 51,
+          "tokens": 2,
+          "stopword_ratio": 0.0,
+          "excerpt": "Book II                               167"
+        },
+        {
+          "paragraph_index": 13,
+          "start_line": 53,
+          "tokens": 2,
+          "stopword_ratio": 0.0,
+          "excerpt": "Book III                              269"
+        },
+        {
+          "paragraph_index": 14,
+          "start_line": 55,
+          "tokens": 1,
+          "stopword_ratio": 0.0,
+          "excerpt": "Index                                 405"
+        },
+        {
+          "paragraph_index": 15,
+          "start_line": 60,
+          "tokens": 1,
+          "stopword_ratio": 0.0,
+          "excerpt": "INTRODUCTION"
+        },
+        {
+          "paragraph_index": 25,
+          "start_line": 164,
+          "tokens": 1,
+          "stopword_ratio": 0.0,
+          "excerpt": "BIBLIOGRAPHY"
+        },
+        {
+          "paragraph_index": 29,
+          "start_line": 188,
+          "tokens": 8,
+          "stopword_ratio": 0.0,
+          "excerpt": "_Baiter & Kayser_: M. Tullii Ciceronis opera quae supersunt omnia.\n         Lipsiae, 1860-69."
+        },
+        {
+          "paragraph_index": 30,
+          "start_line": 191,
+          "tokens": 14,
+          "stopword_ratio": 0.07142857142857142,
+          "excerpt": "_Beier_: M. Tullii Ciceronis de Officiis libri tres ... cum\n         commentariis editi a Carolo Beiero. Lipsiae, 1820."
+        },
+        {
+          "paragraph_index": 31,
+          "start_line": 194,
+          "tokens": 19,
+          "stopword_ratio": 0.0,
+          "excerpt": "_Erasmus_:     }  M. Tullii Ciceronis Officia, diligenter restituta.\n  _Melanchthon_: }  Ejusdem de Amicitia et Senectute dialogi...: cum\n         annotationibus Erasmi et P. Melanchthonis. Parisiis, 1533."
+        },
+        {
+          "paragraph_index": 33,
+          "start_line": 202,
+          "tokens": 20,
+          "stopword_ratio": 0.05,
+          "excerpt": "_Ernesti_: M. Tullii Ciceronis opera ex recensione novissima. J. A.\n         Ernesti; cum eiusdem notis, et clave Ciceroniana. Editio prima\n         Americana. Bostoniae, 1815-16."
+        },
+        {
+          "paragraph_index": 34,
+          "start_line": 206,
+          "tokens": 26,
+          "stopword_ratio": 0.0,
+          "excerpt": "_Facciolati_: M. Tullii Ciceronis de Officiis libri tres, de\n         Senectute, de Amicitia, de Somnio Scipionis, et Paradoxa.\n         Accedit Q. fratris commentariolum petitionis. Ex recensione J.\n         Facciolati. Venetiis, 1747."
+        },
+        {
+          "paragraph_index": 35,
+          "start_line": 211,
+          "tokens": 4,
+          "stopword_ratio": 0.0,
+          "excerpt": "_Fleckeisen, Alf._: Kritische Miscellen. Dresden, 1864."
+        },
+        {
+          "paragraph_index": 2191,
+          "start_line": 13590,
+          "tokens": 4,
+          "stopword_ratio": 0.0,
+          "excerpt": "Plaetorian Law, enacted (192), III, 61."
+        },
+        {
+          "paragraph_index": 2196,
+          "start_line": 13610,
+          "tokens": 2,
+          "stopword_ratio": 0.0,
+          "excerpt": "Poeni;\n  _see_ Carthaginians."
+        },
+        {
+          "paragraph_index": 2209,
+          "start_line": 13665,
+          "tokens": 2,
+          "stopword_ratio": 0.0,
+          "excerpt": "Profession;\n  _see_ Vocation."
+        },
+        {
+          "paragraph_index": 2215,
+          "start_line": 13693,
+          "tokens": 2,
+          "stopword_ratio": 0.0,
+          "excerpt": "Prudence;\n  _see_ Wisdom."
+        },
+        {
+          "paragraph_index": 2221,
+          "start_line": 13717,
+          "tokens": 3,
+          "stopword_ratio": 0.0,
+          "excerpt": "Punic Wars;\n  _see_ Carthage."
+        },
+        {
+          "paragraph_index": 2232,
+          "start_line": 13766,
+          "tokens": 4,
+          "stopword_ratio": 0.0,
+          "excerpt": "Reproof, how administered, I, 136."
+        },
+        {
+          "paragraph_index": 2242,
+          "start_line": 13807,
+          "tokens": 6,
+          "stopword_ratio": 0.0,
+          "excerpt": "Rupilius, an actor otherwise unknown, I, 114."
+        },
+        {
+          "paragraph_index": 2250,
+          "start_line": 13844,
+          "tokens": 2,
+          "stopword_ratio": 0.0,
+          "excerpt": "Sanitation;\n  _see_ Health."
+        },
+        {
+          "paragraph_index": 2265,
+          "start_line": 13930,
+          "tokens": 4,
+          "stopword_ratio": 0.0,
+          "excerpt": "Secret sin, II, 37 fg."
+        },
+        {
+          "paragraph_index": 2267,
+          "start_line": 13935,
+          "tokens": 3,
+          "stopword_ratio": 0.0,
+          "excerpt": "Self-control;\n  _see_ Temperance."
+        },
+        {
+          "paragraph_index": 2269,
+          "start_line": 13941,
+          "tokens": 3,
+          "stopword_ratio": 0.0,
+          "excerpt": "Sergius, Gaius;\n  _see_ Orata."
+        },
+        {
+          "paragraph_index": 2273,
+          "start_line": 13955,
+          "tokens": 5,
+          "stopword_ratio": 0.0,
+          "excerpt": "Slaves, duty toward, I, 41; III, 89."
+        },
+        {
+          "paragraph_index": 2288,
+          "start_line": 14054,
+          "tokens": 2,
+          "stopword_ratio": 0.0,
+          "excerpt": "Sungod;\n  _see_ Sol."
+        },
+        {
+          "paragraph_index": 2289,
+          "start_line": 14057,
+          "tokens": 2,
+          "stopword_ratio": 0.0,
+          "excerpt": "Superbus;\n  _see_ Tarquin."
+        },
+        {
+          "paragraph_index": 2307,
+          "start_line": 14130,
+          "tokens": 2,
+          "stopword_ratio": 0.0,
+          "excerpt": "Torquatus;\n  _see_ Manlius."
+        },
+        {
+          "paragraph_index": 2308,
+          "start_line": 14133,
+          "tokens": 2,
+          "stopword_ratio": 0.0,
+          "excerpt": "Trades;\n  _see_ Vocation."
+        },
+        {
+          "paragraph_index": 2323,
+          "start_line": 14189,
+          "tokens": 2,
+          "stopword_ratio": 0.0,
+          "excerpt": "Viriathus, II, 40."
+        },
+        {
+          "paragraph_index": 2338,
+          "start_line": 14259,
+          "tokens": 1,
+          "stopword_ratio": 0.0,
+          "excerpt": "CORRECTIONS:"
+        }
+      ],
+      "stopwords": [
+        "a",
+        "all",
+        "and",
+        "are",
+        "as",
+        "at",
+        "be",
+        "but",
+        "by",
+        "for",
+        "from",
+        "had",
+        "have",
+        "he",
+        "his",
+        "in",
+        "is",
+        "it",
+        "not",
+        "of",
+        "on",
+        "or",
+        "that",
+        "the",
+        "they",
+        "this",
+        "to",
+        "was",
+        "we",
+        "were",
+        "what",
+        "with"
+      ],
+      "scripts": [
+        "experiments/exp_218_vms_calibrated_distributions/script.py",
+        "experiments/exp_219_onset_preserving_copy/script.py",
+        "experiments/exp_220_onset_preserving_cp_sweep/script.py",
+        "experiments/exp_221_mode_b_fine_sweep/script.py",
+        "experiments/exp_222_positional_suffix_dist/script.py",
+        "experiments/exp_223_corpus_split_stability/script.py",
+        "experiments/exp_224_parameter_count_control/script.py",
+        "experiments/exp_225_edy_suffix_preserving/script.py",
+        "experiments/exp_226_edy_preservation_fresh_fallback/script.py",
+        "experiments/exp_227_no_connector/script.py",
+        "experiments/exp_228_qokch_markov/script.py",
+        "experiments/exp_229_stutter/script.py",
+        "experiments/exp_230_qokll_diagnostic/script.py",
+        "experiments/exp_231_ll_onset_fix/script.py",
+        "experiments/exp_232_am_suppression/script.py",
+        "experiments/exp_233_differential_am_suppression/script.py",
+        "experiments/exp_234_edy_conditional_connector/script.py",
+        "experiments/exp_235_stutter_recalibration/script.py",
+        "experiments/exp_236_global_am_resolution/script.py",
+        "experiments/exp_237_a_dialect_generalization/script.py",
+        "experiments/exp_239_a_dialect_y_succession/script.py",
+        "experiments/exp_240_a_dialect_split_stability/script.py",
+        "experiments/exp_241_onset_bigram_structure/script.py",
+        "experiments/exp_243_sh_qok_markov/script.py",
+        "experiments/exp_245_self_succession_diagnostic/script.py",
+        "experiments/exp_246_bigram_global_vs_mid/script.py",
+        "experiments/exp_247_onset_trigrams/script.py",
+        "experiments/exp_248_ch_qok_return/script.py",
+        "experiments/exp_249_chqok_markov/script.py",
+        "experiments/exp_250_a_dialect_chqok/script.py",
+        "experiments/exp_251_a_dialect_qokqok/script.py",
+        "experiments/exp_253_ot_ot_markov/script.py",
+        "experiments/exp_254_a_dialect_mid_bigrams/script.py",
+        "experiments/exp_255_a_dialect_ot_ot_fix/script.py",
+        "experiments/exp_256_b_dialect_ot_ot_recheck/script.py",
+        "experiments/exp_257_b_dialect_battery_fixed/script.py",
+        "experiments/exp_258_a_dialect_o_o_markov/script.py",
+        "experiments/exp_261_unified_onset_persist/script.py",
+        "experiments/exp_262_a_dialect_sh_qok/script.py",
+        "experiments/exp_264_a_dialect_13mech_split/script.py",
+        "experiments/exp_268_menzerath_simulation/script.py",
+        "experiments/exp_270_midfix_lf_ll/script.py",
+        "experiments/exp_271_midfix_onset_conditioned/script.py",
+        "experiments/exp_272_within_line_gradient/script.py",
+        "experiments/exp_273_b_dialect_split_stability/script.py",
+        "experiments/exp_275_ch_sh_depletion/script.py",
+        "experiments/exp_277_b_dialect_sh_qok_fine_sweep/script.py",
+        "experiments/exp_280_mid_midfix_simulation/script.py",
+        "experiments/exp_281_timm_rate_sweep/script.py",
+        "experiments/exp_282_word_index_conditioned_mid/script.py",
+        "experiments/exp_283_pmf_menzerath_sweep/script.py",
+        "experiments/exp_284_lf_midfix_restored/script.py",
+        "experiments/exp_285_ll_midfix_rate_sweep/script.py",
+        "experiments/exp_286_mid_slope_joint_sweep/script.py",
+        "experiments/exp_287_suffix_length_gradient/script.py",
+        "experiments/exp_299_ch_sh_anti_succession/script.py",
+        "experiments/exp_301_r_mid_calibration/script.py",
+        "experiments/exp_302_sim_paradigm_diagnostic/script.py",
+        "experiments/exp_303_finite_vocab_pool/script.py",
+        "experiments/exp_304_vms_lexicon_battery/script.py",
+        "experiments/exp_305_amlf_seed_check/script.py",
+        "experiments/exp_306_beta_resweep/script.py",
+        "experiments/exp_308_menzerath_component_decomp/script.py",
+        "experiments/exp_309_ll_line_len_conditional/script.py",
+        "experiments/exp_310_ll_suffix_bias_cond/script.py",
+        "experiments/exp_311_ll_word_len_filter/script.py",
+        "experiments/exp_312_mid_beta_cond_n/script.py",
+        "experiments/exp_313_ll_bidir_filter/script.py",
+        "experiments/exp_314_beta_scale_fine/script.py",
+        "experiments/exp_315_idx_thresh_sweep/script.py",
+        "experiments/exp_316_cp90_wl_diagnostic/script.py",
+        "experiments/exp_317_shchd_clamp/script.py",
+        "experiments/exp_318_length_biased_clamp/script.py",
+        "experiments/exp_574_arch_negative_control/script.py",
+        "experiments/exp_575_arch_refit_shuffle/script.py",
+        "experiments/exp_576_param_stability/script.py",
+        "experiments/exp_578_q007_copybuf_diag/script.py",
+        "experiments/exp_582_battery_correlation_matrix/script.py"
+      ]
+    },
+    "cddae504839681c9f5757082d2a00fee255e154351e32126c07c510c98c8f3b5": {
+      "representative_script": "experiments/exp_259_char_positional_entropy/script.py",
+      "evidence": [
+        {
+          "paragraph_index": 0,
+          "start_line": 1,
+          "tokens": 6,
+          "stopword_ratio": null,
+          "excerpt": "*** START OF THE PROJECT GUTENBERG EBOOK 47001 ***"
+        },
+        {
+          "paragraph_index": 1,
+          "start_line": 3,
+          "tokens": 3,
+          "stopword_ratio": null,
+          "excerpt": "TRANSCRIBER'S NOTE:"
+        },
+        {
+          "paragraph_index": 2,
+          "start_line": 6,
+          "tokens": 114,
+          "stopword_ratio": null,
+          "excerpt": "Italic text has been marked with _underscores_. Inconsistencies in\nhyphenation have not been corrected, punctuation has been silently\ncorrected. A list of other corrections to the text can be found at the\nend of the document. In the book th"
+        },
+        {
+          "paragraph_index": 3,
+          "start_line": 20,
+          "tokens": 9,
+          "stopword_ratio": null,
+          "excerpt": "[Illustration: M. TULLIUS CICERO.\n  _FROM THE JAMES LOEB COLLECTION._]"
+        },
+        {
+          "paragraph_index": 4,
+          "start_line": 26,
+          "tokens": 1,
+          "stopword_ratio": null,
+          "excerpt": "CICERO"
+        },
+        {
+          "paragraph_index": 5,
+          "start_line": 28,
+          "tokens": 2,
+          "stopword_ratio": null,
+          "excerpt": "DE OFFICIIS"
+        },
+        {
+          "paragraph_index": 6,
+          "start_line": 31,
+          "tokens": 7,
+          "stopword_ratio": null,
+          "excerpt": "WITH AN ENGLISH TRANSLATION BY\n  WALTER MILLER"
+        },
+        {
+          "paragraph_index": 7,
+          "start_line": 35,
+          "tokens": 9,
+          "stopword_ratio": null,
+          "excerpt": "LONDON: WILLIAM HEINEMANN\n  NEW YORK: THE MACMILLAN CO.\n  MCMXIII"
+        },
+        {
+          "paragraph_index": 8,
+          "start_line": 42,
+          "tokens": 1,
+          "stopword_ratio": null,
+          "excerpt": "CONTENTS"
+        },
+        {
+          "paragraph_index": 9,
+          "start_line": 45,
+          "tokens": 3,
+          "stopword_ratio": null,
+          "excerpt": "Introduction                    _Page_ ix"
+        },
+        {
+          "paragraph_index": 10,
+          "start_line": 47,
+          "tokens": 2,
+          "stopword_ratio": null,
+          "excerpt": "Bibliography                         xiii"
+        },
+        {
+          "paragraph_index": 11,
+          "start_line": 49,
+          "tokens": 2,
+          "stopword_ratio": null,
+          "excerpt": "Book I                                  1"
+        },
+        {
+          "paragraph_index": 12,
+          "start_line": 51,
+          "tokens": 2,
+          "stopword_ratio": null,
+          "excerpt": "Book II                               167"
+        },
+        {
+          "paragraph_index": 13,
+          "start_line": 53,
+          "tokens": 2,
+          "stopword_ratio": null,
+          "excerpt": "Book III                              269"
+        },
+        {
+          "paragraph_index": 14,
+          "start_line": 55,
+          "tokens": 1,
+          "stopword_ratio": null,
+          "excerpt": "Index                                 405"
+        },
+        {
+          "paragraph_index": 15,
+          "start_line": 60,
+          "tokens": 1,
+          "stopword_ratio": null,
+          "excerpt": "INTRODUCTION"
+        },
+        {
+          "paragraph_index": 16,
+          "start_line": 63,
+          "tokens": 103,
+          "stopword_ratio": null,
+          "excerpt": "In the _de Officiis_ we have, save for the latter Philippics, the great\norator's last contribution to literature. The last, sad, troubled years\nof his busy life could not be given to his profession; and he turned his\nnever-resting thoughts "
+        },
+        {
+          "paragraph_index": 17,
+          "start_line": 73,
+          "tokens": 114,
+          "stopword_ratio": null,
+          "excerpt": "The liberators had been able to remove the tyrant, but they could not\nrestore the republic. Cicero's own life was in danger from the fury of\nmad Antony and he left Rome about the end of March, 44 B.C. He dared not\neven stop permanently in a"
+        },
+        {
+          "paragraph_index": 2323,
+          "start_line": 14189,
+          "tokens": 2,
+          "stopword_ratio": null,
+          "excerpt": "Viriathus, II, 40."
+        },
+        {
+          "paragraph_index": 2324,
+          "start_line": 14191,
+          "tokens": 34,
+          "stopword_ratio": null,
+          "excerpt": "Virtue, defined, II, 18;\n  chief function of, II, 17;\n  the four Cardinal Virtues described, I, 15-17;\n  the sources of moral rectitude, I, 152; III, 96;\n  Nature's leadings to, I, 100;\n  endangered by sensual pleasure, II, 37;\n  rulers cho"
+        },
+        {
+          "paragraph_index": 2325,
+          "start_line": 14199,
+          "tokens": 11,
+          "stopword_ratio": null,
+          "excerpt": "Vocation, choice of, I, 115-120;\n  change of, I, 120-121;\n  vulgar and liberal, I, 150-152."
+        },
+        {
+          "paragraph_index": 2326,
+          "start_line": 14203,
+          "tokens": 11,
+          "stopword_ratio": null,
+          "excerpt": "Volscians, a people of lower Latium, subdued (303), given full\n      citizenship (188), I, 35."
+        },
+        {
+          "paragraph_index": 2327,
+          "start_line": 14207,
+          "tokens": 29,
+          "stopword_ratio": null,
+          "excerpt": "War, rights of, to be enforced, I, 34;\n  Cato's son, I, 36-37;\n  excuse for war, I, 35, 80;\n  justice in war, I, 38;\n  war for supremacy, I, 38;\n  for glory, I, 38;\n  needless cruelty, I, 82."
+        },
+        {
+          "paragraph_index": 2328,
+          "start_line": 14215,
+          "tokens": 19,
+          "stopword_ratio": null,
+          "excerpt": "Wealth, Theophrastus on, II, 56;\n  insatiable thirst for, I, 25;\n  why sought, I, 25-27;\n  the real good of wealth, II, 56;\n  _see_ Riches."
+        },
+        {
+          "paragraph_index": 2329,
+          "start_line": 14221,
+          "tokens": 30,
+          "stopword_ratio": null,
+          "excerpt": "Wisdom, the first of the Cardinal Virtues, I, 15-19;\n  most important, I, 153; II, 6;\n  absolute, III, 16;\n  and propriety, I, 94, 100;\n  _vs._ Justice, I, 152-157, 160;\n  confounded with cunning, II, 10; III, 72, 96;\n  in Epicurus's system"
+        },
+        {
+          "paragraph_index": 2330,
+          "start_line": 14229,
+          "tokens": 7,
+          "stopword_ratio": null,
+          "excerpt": "Wit, kinds of, I, 103-104;\n  representatives of, I, 108."
+        },
+        {
+          "paragraph_index": 2331,
+          "start_line": 14233,
+          "tokens": 11,
+          "stopword_ratio": null,
+          "excerpt": "Xanthippus, a Spartan soldier of fortune, whose generalship defeated\n      Regulus, III, 99."
+        },
+        {
+          "paragraph_index": 2332,
+          "start_line": 14236,
+          "tokens": 15,
+          "stopword_ratio": null,
+          "excerpt": "Xenocrates, of Chalcedon (396-314), a pupil of Plato, president of the\n      Academy, industrious and severe, I, 109."
+        },
+        {
+          "paragraph_index": 2333,
+          "start_line": 14239,
+          "tokens": 14,
+          "stopword_ratio": null,
+          "excerpt": "Xenophon, soldier, historian, disciple of Socrates, II, 87;\n  the story of Hercules's choice, I, 118."
+        },
+        {
+          "paragraph_index": 2334,
+          "start_line": 14242,
+          "tokens": 17,
+          "stopword_ratio": null,
+          "excerpt": "Xerxes, king of Persia (485-465), son of Darius, invaded Greece (480),\n      came to grief at Salamis and Plataea, III, 48."
+        },
+        {
+          "paragraph_index": 2335,
+          "start_line": 14246,
+          "tokens": 11,
+          "stopword_ratio": null,
+          "excerpt": "Youth, duties peculiar to, I, 123; II, 52;\n  time for choosing profession, I, 117."
+        },
+        {
+          "paragraph_index": 2336,
+          "start_line": 14250,
+          "tokens": 19,
+          "stopword_ratio": null,
+          "excerpt": "Zeno, of Cytium (fourth century), pupil of Crates the Cynic and founder\n      of the Stoic school (_see_ Stoics), III, 35."
+        },
+        {
+          "paragraph_index": 2337,
+          "start_line": 14254,
+          "tokens": 5,
+          "stopword_ratio": null,
+          "excerpt": "LETCHWORTH: AT THE ARDEN PRESS."
+        },
+        {
+          "paragraph_index": 2338,
+          "start_line": 14259,
+          "tokens": 1,
+          "stopword_ratio": null,
+          "excerpt": "CORRECTIONS:"
+        },
+        {
+          "paragraph_index": 2339,
+          "start_line": 14262,
+          "tokens": 50,
+          "stopword_ratio": null,
+          "excerpt": "page     original text                   correction\n  190 sn   Fab. inc. Valhen^2, 402         Fab. inc. Vahlen^2, 402\n  230 fn   _Ma co_ MSS.                    _Marco_ MSS.\n  344      set etiam adiuvat iniuriam?     sed etiam adiuvat iniu"
+        },
+        {
+          "paragraph_index": 2340,
+          "start_line": 14270,
+          "tokens": 6,
+          "stopword_ratio": null,
+          "excerpt": "*** END OF THE PROJECT GUTENBERG EBOOK 47001 ***"
+        }
+      ],
+      "stopwords": [],
+      "scripts": [
+        "experiments/exp_259_char_positional_entropy/script.py"
+      ]
+    },
+    "177e646d83246447fb381e4bed2d68771f7282ce94e85df50f8b29af2944ddf2": {
+      "representative_script": "experiments/exp_260_char_bigram_pmi/script.py",
+      "evidence": [
+        {
+          "paragraph_index": 0,
+          "start_line": 1,
+          "tokens": 6,
+          "stopword_ratio": null,
+          "excerpt": "*** START OF THE PROJECT GUTENBERG EBOOK 47001 ***"
+        },
+        {
+          "paragraph_index": 1,
+          "start_line": 3,
+          "tokens": 2,
+          "stopword_ratio": null,
+          "excerpt": "TRANSCRIBER'S NOTE:"
+        },
+        {
+          "paragraph_index": 2,
+          "start_line": 6,
+          "tokens": 111,
+          "stopword_ratio": null,
+          "excerpt": "Italic text has been marked with _underscores_. Inconsistencies in\nhyphenation have not been corrected, punctuation has been silently\ncorrected. A list of other corrections to the text can be found at the\nend of the document. In the book th"
+        },
+        {
+          "paragraph_index": 3,
+          "start_line": 20,
+          "tokens": 8,
+          "stopword_ratio": null,
+          "excerpt": "[Illustration: M. TULLIUS CICERO.\n  _FROM THE JAMES LOEB COLLECTION._]"
+        },
+        {
+          "paragraph_index": 4,
+          "start_line": 26,
+          "tokens": 1,
+          "stopword_ratio": null,
+          "excerpt": "CICERO"
+        },
+        {
+          "paragraph_index": 5,
+          "start_line": 28,
+          "tokens": 2,
+          "stopword_ratio": null,
+          "excerpt": "DE OFFICIIS"
+        },
+        {
+          "paragraph_index": 6,
+          "start_line": 31,
+          "tokens": 7,
+          "stopword_ratio": null,
+          "excerpt": "WITH AN ENGLISH TRANSLATION BY\n  WALTER MILLER"
+        },
+        {
+          "paragraph_index": 7,
+          "start_line": 35,
+          "tokens": 9,
+          "stopword_ratio": null,
+          "excerpt": "LONDON: WILLIAM HEINEMANN\n  NEW YORK: THE MACMILLAN CO.\n  MCMXIII"
+        },
+        {
+          "paragraph_index": 8,
+          "start_line": 42,
+          "tokens": 1,
+          "stopword_ratio": null,
+          "excerpt": "CONTENTS"
+        },
+        {
+          "paragraph_index": 9,
+          "start_line": 45,
+          "tokens": 3,
+          "stopword_ratio": null,
+          "excerpt": "Introduction                    _Page_ ix"
+        },
+        {
+          "paragraph_index": 10,
+          "start_line": 47,
+          "tokens": 2,
+          "stopword_ratio": null,
+          "excerpt": "Bibliography                         xiii"
+        },
+        {
+          "paragraph_index": 11,
+          "start_line": 49,
+          "tokens": 1,
+          "stopword_ratio": null,
+          "excerpt": "Book I                                  1"
+        },
+        {
+          "paragraph_index": 12,
+          "start_line": 51,
+          "tokens": 2,
+          "stopword_ratio": null,
+          "excerpt": "Book II                               167"
+        },
+        {
+          "paragraph_index": 13,
+          "start_line": 53,
+          "tokens": 2,
+          "stopword_ratio": null,
+          "excerpt": "Book III                              269"
+        },
+        {
+          "paragraph_index": 14,
+          "start_line": 55,
+          "tokens": 1,
+          "stopword_ratio": null,
+          "excerpt": "Index                                 405"
+        },
+        {
+          "paragraph_index": 15,
+          "start_line": 60,
+          "tokens": 1,
+          "stopword_ratio": null,
+          "excerpt": "INTRODUCTION"
+        },
+        {
+          "paragraph_index": 16,
+          "start_line": 63,
+          "tokens": 99,
+          "stopword_ratio": null,
+          "excerpt": "In the _de Officiis_ we have, save for the latter Philippics, the great\norator's last contribution to literature. The last, sad, troubled years\nof his busy life could not be given to his profession; and he turned his\nnever-resting thoughts "
+        },
+        {
+          "paragraph_index": 17,
+          "start_line": 73,
+          "tokens": 109,
+          "stopword_ratio": null,
+          "excerpt": "The liberators had been able to remove the tyrant, but they could not\nrestore the republic. Cicero's own life was in danger from the fury of\nmad Antony and he left Rome about the end of March, 44 B.C. He dared not\neven stop permanently in a"
+        },
+        {
+          "paragraph_index": 2323,
+          "start_line": 14189,
+          "tokens": 2,
+          "stopword_ratio": null,
+          "excerpt": "Viriathus, II, 40."
+        },
+        {
+          "paragraph_index": 2324,
+          "start_line": 14191,
+          "tokens": 30,
+          "stopword_ratio": null,
+          "excerpt": "Virtue, defined, II, 18;\n  chief function of, II, 17;\n  the four Cardinal Virtues described, I, 15-17;\n  the sources of moral rectitude, I, 152; III, 96;\n  Nature's leadings to, I, 100;\n  endangered by sensual pleasure, II, 37;\n  rulers cho"
+        },
+        {
+          "paragraph_index": 2325,
+          "start_line": 14199,
+          "tokens": 8,
+          "stopword_ratio": null,
+          "excerpt": "Vocation, choice of, I, 115-120;\n  change of, I, 120-121;\n  vulgar and liberal, I, 150-152."
+        },
+        {
+          "paragraph_index": 2326,
+          "start_line": 14203,
+          "tokens": 9,
+          "stopword_ratio": null,
+          "excerpt": "Volscians, a people of lower Latium, subdued (303), given full\n      citizenship (188), I, 35."
+        },
+        {
+          "paragraph_index": 2327,
+          "start_line": 14207,
+          "tokens": 21,
+          "stopword_ratio": null,
+          "excerpt": "War, rights of, to be enforced, I, 34;\n  Cato's son, I, 36-37;\n  excuse for war, I, 35, 80;\n  justice in war, I, 38;\n  war for supremacy, I, 38;\n  for glory, I, 38;\n  needless cruelty, I, 82."
+        },
+        {
+          "paragraph_index": 2328,
+          "start_line": 14215,
+          "tokens": 17,
+          "stopword_ratio": null,
+          "excerpt": "Wealth, Theophrastus on, II, 56;\n  insatiable thirst for, I, 25;\n  why sought, I, 25-27;\n  the real good of wealth, II, 56;\n  _see_ Riches."
+        },
+        {
+          "paragraph_index": 2329,
+          "start_line": 14221,
+          "tokens": 25,
+          "stopword_ratio": null,
+          "excerpt": "Wisdom, the first of the Cardinal Virtues, I, 15-19;\n  most important, I, 153; II, 6;\n  absolute, III, 16;\n  and propriety, I, 94, 100;\n  _vs._ Justice, I, 152-157, 160;\n  confounded with cunning, II, 10; III, 72, 96;\n  in Epicurus's system"
+        },
+        {
+          "paragraph_index": 2330,
+          "start_line": 14229,
+          "tokens": 5,
+          "stopword_ratio": null,
+          "excerpt": "Wit, kinds of, I, 103-104;\n  representatives of, I, 108."
+        },
+        {
+          "paragraph_index": 2331,
+          "start_line": 14233,
+          "tokens": 10,
+          "stopword_ratio": null,
+          "excerpt": "Xanthippus, a Spartan soldier of fortune, whose generalship defeated\n      Regulus, III, 99."
+        },
+        {
+          "paragraph_index": 2332,
+          "start_line": 14236,
+          "tokens": 13,
+          "stopword_ratio": null,
+          "excerpt": "Xenocrates, of Chalcedon (396-314), a pupil of Plato, president of the\n      Academy, industrious and severe, I, 109."
+        },
+        {
+          "paragraph_index": 2333,
+          "start_line": 14239,
+          "tokens": 12,
+          "stopword_ratio": null,
+          "excerpt": "Xenophon, soldier, historian, disciple of Socrates, II, 87;\n  the story of Hercules's choice, I, 118."
+        },
+        {
+          "paragraph_index": 2334,
+          "start_line": 14242,
+          "tokens": 17,
+          "stopword_ratio": null,
+          "excerpt": "Xerxes, king of Persia (485-465), son of Darius, invaded Greece (480),\n      came to grief at Salamis and Plataea, III, 48."
+        },
+        {
+          "paragraph_index": 2335,
+          "start_line": 14246,
+          "tokens": 9,
+          "stopword_ratio": null,
+          "excerpt": "Youth, duties peculiar to, I, 123; II, 52;\n  time for choosing profession, I, 117."
+        },
+        {
+          "paragraph_index": 2336,
+          "start_line": 14250,
+          "tokens": 19,
+          "stopword_ratio": null,
+          "excerpt": "Zeno, of Cytium (fourth century), pupil of Crates the Cynic and founder\n      of the Stoic school (_see_ Stoics), III, 35."
+        },
+        {
+          "paragraph_index": 2337,
+          "start_line": 14254,
+          "tokens": 5,
+          "stopword_ratio": null,
+          "excerpt": "LETCHWORTH: AT THE ARDEN PRESS."
+        },
+        {
+          "paragraph_index": 2338,
+          "start_line": 14259,
+          "tokens": 1,
+          "stopword_ratio": null,
+          "excerpt": "CORRECTIONS:"
+        },
+        {
+          "paragraph_index": 2339,
+          "start_line": 14262,
+          "tokens": 47,
+          "stopword_ratio": null,
+          "excerpt": "page     original text                   correction\n  190 sn   Fab. inc. Valhen^2, 402         Fab. inc. Vahlen^2, 402\n  230 fn   _Ma co_ MSS.                    _Marco_ MSS.\n  344      set etiam adiuvat iniuriam?     sed etiam adiuvat iniu"
+        },
+        {
+          "paragraph_index": 2340,
+          "start_line": 14270,
+          "tokens": 6,
+          "stopword_ratio": null,
+          "excerpt": "*** END OF THE PROJECT GUTENBERG EBOOK 47001 ***"
+        }
+      ],
+      "stopwords": [],
+      "scripts": [
+        "experiments/exp_260_char_bigram_pmi/script.py"
+      ]
+    },
+    "48abc96531f13b6fb186e43e37d5dd3e5e3b30c34668584eb5d48c9ecf4c8150": {
+      "representative_script": "experiments/exp_584_nonvms_specificity/script.py",
+      "evidence": [
+        {
+          "paragraph_index": 29,
+          "start_line": 188,
+          "tokens": 7,
+          "stopword_ratio": 0.0,
+          "excerpt": "_Baiter & Kayser_: M. Tullii Ciceronis opera quae supersunt omnia.\n         Lipsiae, 1860-69."
+        },
+        {
+          "paragraph_index": 30,
+          "start_line": 191,
+          "tokens": 12,
+          "stopword_ratio": 0.07142857142857142,
+          "excerpt": "_Beier_: M. Tullii Ciceronis de Officiis libri tres ... cum\n         commentariis editi a Carolo Beiero. Lipsiae, 1820."
+        },
+        {
+          "paragraph_index": 31,
+          "start_line": 194,
+          "tokens": 17,
+          "stopword_ratio": 0.0,
+          "excerpt": "_Erasmus_:     }  M. Tullii Ciceronis Officia, diligenter restituta.\n  _Melanchthon_: }  Ejusdem de Amicitia et Senectute dialogi...: cum\n         annotationibus Erasmi et P. Melanchthonis. Parisiis, 1533."
+        },
+        {
+          "paragraph_index": 33,
+          "start_line": 202,
+          "tokens": 17,
+          "stopword_ratio": 0.05,
+          "excerpt": "_Ernesti_: M. Tullii Ciceronis opera ex recensione novissima. J. A.\n         Ernesti; cum eiusdem notis, et clave Ciceroniana. Editio prima\n         Americana. Bostoniae, 1815-16."
+        },
+        {
+          "paragraph_index": 34,
+          "start_line": 206,
+          "tokens": 23,
+          "stopword_ratio": 0.0,
+          "excerpt": "_Facciolati_: M. Tullii Ciceronis de Officiis libri tres, de\n         Senectute, de Amicitia, de Somnio Scipionis, et Paradoxa.\n         Accedit Q. fratris commentariolum petitionis. Ex recensione J.\n         Facciolati. Venetiis, 1747."
+        },
+        {
+          "paragraph_index": 36,
+          "start_line": 213,
+          "tokens": 17,
+          "stopword_ratio": 0.0,
+          "excerpt": "_Gernhard_: M. Tullii Ciceronis de Officiis libri tres. Rec. et\n         scholiis Iac. Facciolati suisque animadversionibus instruxit\n         Aug. G. Gernhard. Lipsiae, 1811."
+        },
+        {
+          "paragraph_index": 37,
+          "start_line": 217,
+          "tokens": 17,
+          "stopword_ratio": 0.0,
+          "excerpt": "_Graevius_: M. Tullii Ciceronis de Officiis libri tres; ... de\n         Senectute; ... de Amicitia; Paradoxa; Somnium Scipionis; ex\n         recensione J. G. Graevii. Amstelodami, 1689."
+        },
+        {
+          "paragraph_index": 38,
+          "start_line": 221,
+          "tokens": 12,
+          "stopword_ratio": 0.0,
+          "excerpt": "_Gulielmus_: }  M. Tullii Ciceronis opera omnia quae extant ...\n  _Gruter_:    }  emendata studio ... J. Gulielmi et J. Gruteri.\n         Hamburgi, 1618-19."
+        },
+        {
+          "paragraph_index": 39,
+          "start_line": 225,
+          "tokens": 11,
+          "stopword_ratio": 0.0,
+          "excerpt": "_Heine, Otto_: M. Tullii Ciceronis de Officiis ad Marcum Filium Libri\n         tres. 6te Aufl. Berlin, 1885."
+        },
+        {
+          "paragraph_index": 40,
+          "start_line": 228,
+          "tokens": 18,
+          "stopword_ratio": 0.04,
+          "excerpt": "_Heusinger_: M. Tullii Ciceronis de Officiis libri tres ... recensuit\n         adjectisque J. M. Heusingeri e suis annotationibus ... editurus\n         erat J. F. Heusinger. (Edited by C. Heusinger.) Brunsvigae,\n         1783."
+        },
+        {
+          "paragraph_index": 42,
+          "start_line": 238,
+          "tokens": 10,
+          "stopword_ratio": 0.0,
+          "excerpt": "_Klotz_: M. Tullii Ciceronis Scripta quae manserunt omnia. Recognovit\n         Reinholdus Klotz. Lipsiae, 1850-57, 1869-74."
+        },
+        {
+          "paragraph_index": 43,
+          "start_line": 241,
+          "tokens": 14,
+          "stopword_ratio": 0.058823529411764705,
+          "excerpt": "_Lambinus_: M. Tullii Ciceronis opera omnia quae extant, a D. Lambino\n         ... ex codicibus manuscriptis emendata et aucta ... Lutetiae,\n         1566-84."
+        },
+        {
+          "paragraph_index": 44,
+          "start_line": 245,
+          "tokens": 33,
+          "stopword_ratio": 0.027777777777777776,
+          "excerpt": "_Lange_: M. Tullii Ciceronis de Officiis lib. III. Cato Major vel de\n         Senectute ... Laelius vel de Amicitia ... Paradoxa Stoicorum\n         sex, Somnium Scipionis ... opera C. Langii recogniti ...\n         ejusdem in hosce ... libro"
+        },
+        {
+          "paragraph_index": 45,
+          "start_line": 251,
+          "tokens": 11,
+          "stopword_ratio": 0.0,
+          "excerpt": "_Lund_: De emendandis Ciceronis libris de Officiis observationes\n         criticae. Scripsit G. F. G. Lund. Kopenhagen, 1848."
+        },
+        {
+          "paragraph_index": 46,
+          "start_line": 254,
+          "tokens": 26,
+          "stopword_ratio": 0.034482758620689655,
+          "excerpt": "_Manutius_: M. Tullii Ciceronis Officiorum libri tres: Cato Maior, vel\n         de Senectute: Laelius, vel de Amicitia: Paradoxa Stoicorum sex\n         ... additae sunt ... variae lectiones. (Edited by P. Manuzio.)\n         P. Manutius: Ven"
+        },
+        {
+          "paragraph_index": 47,
+          "start_line": 259,
+          "tokens": 9,
+          "stopword_ratio": 0.0,
+          "excerpt": "_Müller, C. F. W._: M. Tullii Ciceronis de Officiis libri III. Für den\n         Schulgebrauch erklärt. Leipzig, 1882."
+        },
+        {
+          "paragraph_index": 48,
+          "start_line": 262,
+          "tokens": 12,
+          "stopword_ratio": 0.07692307692307693,
+          "excerpt": "_Muretus_: M. Antoni Mureti Scholia in Cic. officia. Mureti opera ed.\n         Ruhnken. Lugd. Bat., 1879."
+        },
+        {
+          "paragraph_index": 49,
+          "start_line": 265,
+          "tokens": 41,
+          "stopword_ratio": 0.0,
+          "excerpt": "_Orelli_: }  M. Tullii Ciceronis opera quae supersunt omnia, ac\n  _Baiter_: }  deperditorum fragmenta ... Edidit J. C. Orellius (M.\n  _Halm_:   }  Tullii Ciceronis Scholiastae. C. M. Victorinus, Rufinus,\n         C. Julius Victor, Boethius,"
+        },
+        {
+          "paragraph_index": 1820,
+          "start_line": 11893,
+          "tokens": 48,
+          "stopword_ratio": 0.020833333333333332,
+          "excerpt": "Iam, qui dolorem summum malum dicat, apud eum quem habet locum\nfortitudo, quae est dolorum laborumque contemptio? Quamvis enim multis\nlocis dicat Epicurus, sicuti[373] dicit, satis fortiter de dolore, tamen\nnon id spectandum est, quid dicat"
+        },
+        {
+          "paragraph_index": 1821,
+          "start_line": 11899,
+          "tokens": 40,
+          "stopword_ratio": 0.05,
+          "excerpt": "Et,[374] si illum audiam, de continentia et temperantia dicit ille\nquidem multa multis locis, sed aqua haeret, ut aiunt; nam qui potest\ntemperantiam laudare is, qui ponat summum bonum in voluptate? est enim\ntemperantia libidinum inimica, li"
+        },
+        {
+          "paragraph_index": 1822,
+          "start_line": 11905,
+          "tokens": 91,
+          "stopword_ratio": 0.04395604395604396,
+          "excerpt": "*118* Atque in his tamen tribus generibus, quoquo modo possunt, non\nincallide tergiversantur; prudentiam introducunt scientiam suppeditantem\nvoluptates, depellentem dolores; fortitudinem quoque aliquo modo\nexpediunt, cum tradunt rationem ne"
+        },
+        {
+          "paragraph_index": 1824,
+          "start_line": 11919,
+          "tokens": 78,
+          "stopword_ratio": 0.0,
+          "excerpt": "*119* Nam ut utilitatem nullam esse docuimus, quae honestati esset\ncontraria, sic omnem voluptatem dicimus honestati esse contrariam. Quo\nmagis reprehendendos Calliphontem et Dinomachum iudico, qui se\ndirempturos controversiam putaverunt, s"
+        },
+        {
+          "paragraph_index": 1825,
+          "start_line": 11929,
+          "tokens": 47,
+          "stopword_ratio": 0.02127659574468085,
+          "excerpt": "*120* Quem ad modum igitur, si quando ea, quae videtur[377] utilitas,\nhonestati repugnat, diiudicanda res sit, satis est supra disputatum. Sin\nautem speciem utilitatis etiam voluptas habere dicetur, nulla potest\nesse ei cum honestate coniun"
+        },
+        {
+          "paragraph_index": 1826,
+          "start_line": 11935,
+          "tokens": 87,
+          "stopword_ratio": 0.0449438202247191,
+          "excerpt": "*121* Habes a patre munus, Marce fili, mea quidem sententia magnum, sed\nperinde erit, ut acceperis. Quamquam hi tibi tres libri inter Cratippi\ncommentarios tamquam hospites erunt recipiendi; sed, ut, si ipse\nvenissem Athenas (quod quidem es"
+        },
+        {
+          "paragraph_index": 1827,
+          "start_line": 11945,
+          "tokens": 20,
+          "stopword_ratio": 0.0,
+          "excerpt": "Vale igitur, mi Cicero, tibique persuade esse te quidem mihi carissimum,\nsed multo fore cariorem, si talibus monitis[379] praeceptisque\nlaetabere."
+        },
+        {
+          "paragraph_index": 1914,
+          "start_line": 12327,
+          "tokens": 6,
+          "stopword_ratio": 0.0,
+          "excerpt": "Atilius;\n  Sextus Atilius Serranus, consul (136), III, 109."
+        },
+        {
+          "paragraph_index": 1920,
+          "start_line": 12357,
+          "tokens": 9,
+          "stopword_ratio": 0.0,
+          "excerpt": "Basilus, Lucius Minucius, otherwise unknown;\n  perhaps Sulla's lieutenant, III, 73-74."
+        },
+        {
+          "paragraph_index": 1933,
+          "start_line": 12409,
+          "tokens": 6,
+          "stopword_ratio": 0.0,
+          "excerpt": "Calpurnius;\n  Lucius Calpurnius Piso Frugi;\n  _see_ Piso."
+        },
+        {
+          "paragraph_index": 1934,
+          "start_line": 12413,
+          "tokens": 5,
+          "stopword_ratio": 0.0,
+          "excerpt": "Calpurnius;\n  Publius Calpurnius Lanarius;\n  _see_ Lanarius."
+        },
+        {
+          "paragraph_index": 1951,
+          "start_line": 12502,
+          "tokens": 5,
+          "stopword_ratio": 0.0,
+          "excerpt": "Centumalus, Tiberius Claudius;\n  unknown, III, 66."
+        },
+        {
+          "paragraph_index": 2099,
+          "start_line": 13219,
+          "tokens": 7,
+          "stopword_ratio": 0.0,
+          "excerpt": "Lusitania, western Spain, practically modern Portugal, II, 40."
+        },
+        {
+          "paragraph_index": 2112,
+          "start_line": 13259,
+          "tokens": 4,
+          "stopword_ratio": 0.0,
+          "excerpt": "Mancia, Quintus Mucius, unknown, I, 109."
+        },
+        {
+          "paragraph_index": 2153,
+          "start_line": 13425,
+          "tokens": 6,
+          "stopword_ratio": 0.0,
+          "excerpt": "Orata, Gaius Sergius Silus, praetor (97), III, 67."
+        },
+        {
+          "paragraph_index": 2156,
+          "start_line": 13436,
+          "tokens": 7,
+          "stopword_ratio": 0.0,
+          "excerpt": "Orestes;\n  Gnaeus Aufidius Orestes Aurelianus, consul (71), II, 58."
+        },
+        {
+          "paragraph_index": 2188,
+          "start_line": 13578,
+          "tokens": 5,
+          "stopword_ratio": 0.0,
+          "excerpt": "Pinthia, Marcus Lutatius, unknown, III, 77."
+        },
+        {
+          "paragraph_index": 2273,
+          "start_line": 13955,
+          "tokens": 4,
+          "stopword_ratio": 0.0,
+          "excerpt": "Slaves, duty toward, I, 41; III, 89."
+        }
+      ],
+      "stopwords": [
+        "a",
+        "about",
+        "after",
+        "all",
+        "also",
+        "an",
+        "and",
+        "another",
+        "any",
+        "are",
+        "around",
+        "as",
+        "ask",
+        "at",
+        "back",
+        "be",
+        "been",
+        "before",
+        "big",
+        "boy",
+        "but",
+        "by",
+        "call",
+        "came",
+        "can",
+        "come",
+        "could",
+        "day",
+        "did",
+        "different",
+        "do",
+        "does",
+        "down",
+        "each",
+        "end",
+        "find",
+        "first",
+        "follow",
+        "for",
+        "form",
+        "from",
+        "get",
+        "give",
+        "good",
+        "great",
+        "had",
+        "hand",
+        "has",
+        "have",
+        "he",
+        "help",
+        "her",
+        "here",
+        "high",
+        "him",
+        "his",
+        "home",
+        "how",
+        "if",
+        "in",
+        "into",
+        "is",
+        "it",
+        "just",
+        "kind",
+        "know",
+        "land",
+        "large",
+        "like",
+        "line",
+        "little",
+        "live",
+        "long",
+        "look",
+        "made",
+        "make",
+        "man",
+        "many",
+        "may",
+        "me",
+        "means",
+        "men",
+        "more",
+        "most",
+        "move",
+        "much",
+        "my",
+        "name",
+        "need",
+        "new",
+        "no",
+        "not",
+        "now",
+        "of",
+        "oil",
+        "old",
+        "on",
+        "only",
+        "or",
+        "other",
+        "our",
+        "out",
+        "over",
+        "part",
+        "place",
+        "put",
+        "read",
+        "right",
+        "said",
+        "same",
+        "say",
+        "sentence",
+        "set",
+        "she",
+        "show",
+        "sit",
+        "small",
+        "so",
+        "some",
+        "sound",
+        "such",
+        "take",
+        "tell",
+        "than",
+        "that",
+        "the",
+        "their",
+        "them",
+        "then",
+        "there",
+        "these",
+        "they",
+        "thing",
+        "think",
+        "this",
+        "three",
+        "through",
+        "time",
+        "to",
+        "too",
+        "try",
+        "turn",
+        "two",
+        "up",
+        "us",
+        "use",
+        "very",
+        "want",
+        "was",
+        "way",
+        "we",
+        "well",
+        "went",
+        "were",
+        "what",
+        "when",
+        "where",
+        "which",
+        "who",
+        "why",
+        "will",
+        "with",
+        "work",
+        "would",
+        "year",
+        "your"
+      ],
+      "scripts": [
+        "experiments/exp_584_nonvms_specificity/script.py"
+      ]
+    },
+    "c1c7477196ff07b6d4b34fc11499fc90f6cdf58e39134019689d37c697559107": {
+      "representative_script": "experiments/exp_585_nonvms_specificity_v2/script.py",
+      "evidence": [
+        {
+          "paragraph_index": 29,
+          "start_line": 188,
+          "tokens": 7,
+          "stopword_ratio": 0.0,
+          "excerpt": "_Baiter & Kayser_: M. Tullii Ciceronis opera quae supersunt omnia.\n         Lipsiae, 1860-69."
+        },
+        {
+          "paragraph_index": 30,
+          "start_line": 191,
+          "tokens": 12,
+          "stopword_ratio": 0.07142857142857142,
+          "excerpt": "_Beier_: M. Tullii Ciceronis de Officiis libri tres ... cum\n         commentariis editi a Carolo Beiero. Lipsiae, 1820."
+        },
+        {
+          "paragraph_index": 31,
+          "start_line": 194,
+          "tokens": 17,
+          "stopword_ratio": 0.0,
+          "excerpt": "_Erasmus_:     }  M. Tullii Ciceronis Officia, diligenter restituta.\n  _Melanchthon_: }  Ejusdem de Amicitia et Senectute dialogi...: cum\n         annotationibus Erasmi et P. Melanchthonis. Parisiis, 1533."
+        },
+        {
+          "paragraph_index": 33,
+          "start_line": 202,
+          "tokens": 17,
+          "stopword_ratio": 0.05,
+          "excerpt": "_Ernesti_: M. Tullii Ciceronis opera ex recensione novissima. J. A.\n         Ernesti; cum eiusdem notis, et clave Ciceroniana. Editio prima\n         Americana. Bostoniae, 1815-16."
+        },
+        {
+          "paragraph_index": 34,
+          "start_line": 206,
+          "tokens": 23,
+          "stopword_ratio": 0.0,
+          "excerpt": "_Facciolati_: M. Tullii Ciceronis de Officiis libri tres, de\n         Senectute, de Amicitia, de Somnio Scipionis, et Paradoxa.\n         Accedit Q. fratris commentariolum petitionis. Ex recensione J.\n         Facciolati. Venetiis, 1747."
+        },
+        {
+          "paragraph_index": 36,
+          "start_line": 213,
+          "tokens": 17,
+          "stopword_ratio": 0.0,
+          "excerpt": "_Gernhard_: M. Tullii Ciceronis de Officiis libri tres. Rec. et\n         scholiis Iac. Facciolati suisque animadversionibus instruxit\n         Aug. G. Gernhard. Lipsiae, 1811."
+        },
+        {
+          "paragraph_index": 37,
+          "start_line": 217,
+          "tokens": 17,
+          "stopword_ratio": 0.0,
+          "excerpt": "_Graevius_: M. Tullii Ciceronis de Officiis libri tres; ... de\n         Senectute; ... de Amicitia; Paradoxa; Somnium Scipionis; ex\n         recensione J. G. Graevii. Amstelodami, 1689."
+        },
+        {
+          "paragraph_index": 38,
+          "start_line": 221,
+          "tokens": 12,
+          "stopword_ratio": 0.0,
+          "excerpt": "_Gulielmus_: }  M. Tullii Ciceronis opera omnia quae extant ...\n  _Gruter_:    }  emendata studio ... J. Gulielmi et J. Gruteri.\n         Hamburgi, 1618-19."
+        },
+        {
+          "paragraph_index": 39,
+          "start_line": 225,
+          "tokens": 11,
+          "stopword_ratio": 0.0,
+          "excerpt": "_Heine, Otto_: M. Tullii Ciceronis de Officiis ad Marcum Filium Libri\n         tres. 6te Aufl. Berlin, 1885."
+        },
+        {
+          "paragraph_index": 40,
+          "start_line": 228,
+          "tokens": 18,
+          "stopword_ratio": 0.04,
+          "excerpt": "_Heusinger_: M. Tullii Ciceronis de Officiis libri tres ... recensuit\n         adjectisque J. M. Heusingeri e suis annotationibus ... editurus\n         erat J. F. Heusinger. (Edited by C. Heusinger.) Brunsvigae,\n         1783."
+        },
+        {
+          "paragraph_index": 42,
+          "start_line": 238,
+          "tokens": 10,
+          "stopword_ratio": 0.0,
+          "excerpt": "_Klotz_: M. Tullii Ciceronis Scripta quae manserunt omnia. Recognovit\n         Reinholdus Klotz. Lipsiae, 1850-57, 1869-74."
+        },
+        {
+          "paragraph_index": 43,
+          "start_line": 241,
+          "tokens": 14,
+          "stopword_ratio": 0.058823529411764705,
+          "excerpt": "_Lambinus_: M. Tullii Ciceronis opera omnia quae extant, a D. Lambino\n         ... ex codicibus manuscriptis emendata et aucta ... Lutetiae,\n         1566-84."
+        },
+        {
+          "paragraph_index": 44,
+          "start_line": 245,
+          "tokens": 33,
+          "stopword_ratio": 0.027777777777777776,
+          "excerpt": "_Lange_: M. Tullii Ciceronis de Officiis lib. III. Cato Major vel de\n         Senectute ... Laelius vel de Amicitia ... Paradoxa Stoicorum\n         sex, Somnium Scipionis ... opera C. Langii recogniti ...\n         ejusdem in hosce ... libro"
+        },
+        {
+          "paragraph_index": 45,
+          "start_line": 251,
+          "tokens": 11,
+          "stopword_ratio": 0.0,
+          "excerpt": "_Lund_: De emendandis Ciceronis libris de Officiis observationes\n         criticae. Scripsit G. F. G. Lund. Kopenhagen, 1848."
+        },
+        {
+          "paragraph_index": 46,
+          "start_line": 254,
+          "tokens": 26,
+          "stopword_ratio": 0.034482758620689655,
+          "excerpt": "_Manutius_: M. Tullii Ciceronis Officiorum libri tres: Cato Maior, vel\n         de Senectute: Laelius, vel de Amicitia: Paradoxa Stoicorum sex\n         ... additae sunt ... variae lectiones. (Edited by P. Manuzio.)\n         P. Manutius: Ven"
+        },
+        {
+          "paragraph_index": 47,
+          "start_line": 259,
+          "tokens": 9,
+          "stopword_ratio": 0.0,
+          "excerpt": "_Müller, C. F. W._: M. Tullii Ciceronis de Officiis libri III. Für den\n         Schulgebrauch erklärt. Leipzig, 1882."
+        },
+        {
+          "paragraph_index": 48,
+          "start_line": 262,
+          "tokens": 12,
+          "stopword_ratio": 0.07692307692307693,
+          "excerpt": "_Muretus_: M. Antoni Mureti Scholia in Cic. officia. Mureti opera ed.\n         Ruhnken. Lugd. Bat., 1879."
+        },
+        {
+          "paragraph_index": 49,
+          "start_line": 265,
+          "tokens": 41,
+          "stopword_ratio": 0.0,
+          "excerpt": "_Orelli_: }  M. Tullii Ciceronis opera quae supersunt omnia, ac\n  _Baiter_: }  deperditorum fragmenta ... Edidit J. C. Orellius (M.\n  _Halm_:   }  Tullii Ciceronis Scholiastae. C. M. Victorinus, Rufinus,\n         C. Julius Victor, Boethius,"
+        },
+        {
+          "paragraph_index": 1821,
+          "start_line": 11899,
+          "tokens": 40,
+          "stopword_ratio": 0.05,
+          "excerpt": "Et,[374] si illum audiam, de continentia et temperantia dicit ille\nquidem multa multis locis, sed aqua haeret, ut aiunt; nam qui potest\ntemperantiam laudare is, qui ponat summum bonum in voluptate? est enim\ntemperantia libidinum inimica, li"
+        },
+        {
+          "paragraph_index": 1822,
+          "start_line": 11905,
+          "tokens": 91,
+          "stopword_ratio": 0.04395604395604396,
+          "excerpt": "*118* Atque in his tamen tribus generibus, quoquo modo possunt, non\nincallide tergiversantur; prudentiam introducunt scientiam suppeditantem\nvoluptates, depellentem dolores; fortitudinem quoque aliquo modo\nexpediunt, cum tradunt rationem ne"
+        },
+        {
+          "paragraph_index": 1824,
+          "start_line": 11919,
+          "tokens": 78,
+          "stopword_ratio": 0.0,
+          "excerpt": "*119* Nam ut utilitatem nullam esse docuimus, quae honestati esset\ncontraria, sic omnem voluptatem dicimus honestati esse contrariam. Quo\nmagis reprehendendos Calliphontem et Dinomachum iudico, qui se\ndirempturos controversiam putaverunt, s"
+        },
+        {
+          "paragraph_index": 1825,
+          "start_line": 11929,
+          "tokens": 47,
+          "stopword_ratio": 0.02127659574468085,
+          "excerpt": "*120* Quem ad modum igitur, si quando ea, quae videtur[377] utilitas,\nhonestati repugnat, diiudicanda res sit, satis est supra disputatum. Sin\nautem speciem utilitatis etiam voluptas habere dicetur, nulla potest\nesse ei cum honestate coniun"
+        },
+        {
+          "paragraph_index": 1826,
+          "start_line": 11935,
+          "tokens": 87,
+          "stopword_ratio": 0.02247191011235955,
+          "excerpt": "*121* Habes a patre munus, Marce fili, mea quidem sententia magnum, sed\nperinde erit, ut acceperis. Quamquam hi tibi tres libri inter Cratippi\ncommentarios tamquam hospites erunt recipiendi; sed, ut, si ipse\nvenissem Athenas (quod quidem es"
+        },
+        {
+          "paragraph_index": 1827,
+          "start_line": 11945,
+          "tokens": 20,
+          "stopword_ratio": 0.0,
+          "excerpt": "Vale igitur, mi Cicero, tibique persuade esse te quidem mihi carissimum,\nsed multo fore cariorem, si talibus monitis[379] praeceptisque\nlaetabere."
+        },
+        {
+          "paragraph_index": 1875,
+          "start_line": 12164,
+          "tokens": 8,
+          "stopword_ratio": 0.0,
+          "excerpt": "Agriculture, impossible without man, II, 12;\n  man's noblest calling, I, 151."
+        },
+        {
+          "paragraph_index": 1914,
+          "start_line": 12327,
+          "tokens": 6,
+          "stopword_ratio": 0.0,
+          "excerpt": "Atilius;\n  Sextus Atilius Serranus, consul (136), III, 109."
+        },
+        {
+          "paragraph_index": 1920,
+          "start_line": 12357,
+          "tokens": 9,
+          "stopword_ratio": 0.0,
+          "excerpt": "Basilus, Lucius Minucius, otherwise unknown;\n  perhaps Sulla's lieutenant, III, 73-74."
+        },
+        {
+          "paragraph_index": 1933,
+          "start_line": 12409,
+          "tokens": 6,
+          "stopword_ratio": 0.0,
+          "excerpt": "Calpurnius;\n  Lucius Calpurnius Piso Frugi;\n  _see_ Piso."
+        },
+        {
+          "paragraph_index": 1934,
+          "start_line": 12413,
+          "tokens": 5,
+          "stopword_ratio": 0.0,
+          "excerpt": "Calpurnius;\n  Publius Calpurnius Lanarius;\n  _see_ Lanarius."
+        },
+        {
+          "paragraph_index": 1951,
+          "start_line": 12502,
+          "tokens": 5,
+          "stopword_ratio": 0.0,
+          "excerpt": "Centumalus, Tiberius Claudius;\n  unknown, III, 66."
+        },
+        {
+          "paragraph_index": 2099,
+          "start_line": 13219,
+          "tokens": 7,
+          "stopword_ratio": 0.0,
+          "excerpt": "Lusitania, western Spain, practically modern Portugal, II, 40."
+        },
+        {
+          "paragraph_index": 2112,
+          "start_line": 13259,
+          "tokens": 4,
+          "stopword_ratio": 0.0,
+          "excerpt": "Mancia, Quintus Mucius, unknown, I, 109."
+        },
+        {
+          "paragraph_index": 2153,
+          "start_line": 13425,
+          "tokens": 6,
+          "stopword_ratio": 0.0,
+          "excerpt": "Orata, Gaius Sergius Silus, praetor (97), III, 67."
+        },
+        {
+          "paragraph_index": 2156,
+          "start_line": 13436,
+          "tokens": 7,
+          "stopword_ratio": 0.0,
+          "excerpt": "Orestes;\n  Gnaeus Aufidius Orestes Aurelianus, consul (71), II, 58."
+        },
+        {
+          "paragraph_index": 2188,
+          "start_line": 13578,
+          "tokens": 5,
+          "stopword_ratio": 0.0,
+          "excerpt": "Pinthia, Marcus Lutatius, unknown, III, 77."
+        },
+        {
+          "paragraph_index": 2273,
+          "start_line": 13955,
+          "tokens": 4,
+          "stopword_ratio": 0.0,
+          "excerpt": "Slaves, duty toward, I, 41; III, 89."
+        }
+      ],
+      "stopwords": [
+        "a",
+        "about",
+        "all",
+        "an",
+        "and",
+        "are",
+        "as",
+        "at",
+        "be",
+        "been",
+        "but",
+        "by",
+        "call",
+        "can",
+        "come",
+        "could",
+        "day",
+        "did",
+        "do",
+        "down",
+        "each",
+        "find",
+        "first",
+        "for",
+        "from",
+        "get",
+        "had",
+        "has",
+        "have",
+        "he",
+        "her",
+        "him",
+        "his",
+        "how",
+        "if",
+        "in",
+        "into",
+        "is",
+        "it",
+        "like",
+        "long",
+        "look",
+        "made",
+        "make",
+        "many",
+        "may",
+        "more",
+        "my",
+        "no",
+        "not",
+        "now",
+        "of",
+        "oil",
+        "on",
+        "or",
+        "other",
+        "out",
+        "part",
+        "said",
+        "she",
+        "sit",
+        "so",
+        "some",
+        "than",
+        "that",
+        "the",
+        "their",
+        "them",
+        "then",
+        "there",
+        "these",
+        "they",
+        "this",
+        "time",
+        "to",
+        "two",
+        "up",
+        "use",
+        "was",
+        "way",
+        "we",
+        "were",
+        "what",
+        "when",
+        "which",
+        "who",
+        "will",
+        "with",
+        "would",
+        "your"
+      ],
+      "scripts": [
+        "experiments/exp_585_nonvms_specificity_v2/script.py"
+      ]
+    }
+  },
+  "source_commit": "1e49032d698713dd29672fd6fbbf2107cac80cd8",
+  "corpus": "data/reference_corpora/latin/cicero_de_officiis_latin.txt",
+  "corpus_sha256": "3a33a076d3dda42673ec7ab0331ae7e58fc150e7e92751c0adf6d1db7297b670",
+  "seed_for_diagnostic_chunking": 20261022,
+  "scripts": [
+    {
+      "script": "experiments/exp_177_position_sensitive_cipher/script.py",
+      "script_sha256": "1f86425de839dc1abef530810f36521649b2a55771312066dfdb3e44388a8057",
+      "status": "ISOLATED_LOADER_REPLAY_MATCHED",
+      "function": "extract_latin_sentences",
+      "function_ast_sha256": "88f569221a0db213c7da11c67187f434c20622d353de5d1cf24f7590a6e94ccd",
+      "filter": "PARAGRAPH_ENGLISH_STOPWORDS_LT_0.08",
+      "selected_tokens": 34977,
+      "retained_paragraphs": 826,
+      "selected_sequence_sha256": "42189adaae845aa6265ca585119639263599c412f4eb79da6fba549ddccfa197",
+      "chunking": {
+        "chunks": 3047,
+        "returned_tokens": 34977,
+        "omitted_tail_tokens": 0
+      }
+    },
+    {
+      "script": "experiments/exp_177_verify/script.py",
+      "script_sha256": "fb8b780b3455bf53ab5c170d6938ea20cb23abd69f107e1139d5a66a44217d84",
+      "status": "ISOLATED_LOADER_REPLAY_MATCHED",
+      "function": "extract_latin_sentences",
+      "function_ast_sha256": "9bc886a9352176697578778fe96ca9b429c28fafc70cbec10228952c8dc576c3",
+      "filter": "PARAGRAPH_ENGLISH_STOPWORDS_LT_0.08",
+      "selected_tokens": 34977,
+      "retained_paragraphs": 826,
+      "selected_sequence_sha256": "42189adaae845aa6265ca585119639263599c412f4eb79da6fba549ddccfa197",
+      "chunking": {
+        "chunks": 3047,
+        "returned_tokens": 34977,
+        "omitted_tail_tokens": 0
+      }
+    },
+    {
+      "script": "experiments/exp_179_hybrid_cipher_copy/script.py",
+      "script_sha256": "d7ae96b28bf088062691221afb73beeee3a404aa71eb106ac538143561958544",
+      "status": "ISOLATED_LOADER_REPLAY_MATCHED",
+      "function": "extract_latin_sentences",
+      "function_ast_sha256": "3ee428b16333bd19df473683b57b783a5d2980d84f8ffd771b43ae41ee7f4b71",
+      "filter": "PARAGRAPH_ENGLISH_STOPWORDS_LT_0.08",
+      "selected_tokens": 34977,
+      "retained_paragraphs": 826,
+      "selected_sequence_sha256": "42189adaae845aa6265ca585119639263599c412f4eb79da6fba549ddccfa197",
+      "chunking": {
+        "chunks": 3047,
+        "returned_tokens": 34977,
+        "omitted_tail_tokens": 0
+      }
+    },
+    {
+      "script": "experiments/exp_180_position_aware_hybrid/script.py",
+      "script_sha256": "d086a91b5aab0fe0bb00cfcdcc19d879cf531de157545079f53b1b0aad7ec74c",
+      "status": "ISOLATED_LOADER_REPLAY_MATCHED",
+      "function": "extract_latin_sentences",
+      "function_ast_sha256": "3ee428b16333bd19df473683b57b783a5d2980d84f8ffd771b43ae41ee7f4b71",
+      "filter": "PARAGRAPH_ENGLISH_STOPWORDS_LT_0.08",
+      "selected_tokens": 34977,
+      "retained_paragraphs": 826,
+      "selected_sequence_sha256": "42189adaae845aa6265ca585119639263599c412f4eb79da6fba549ddccfa197",
+      "chunking": {
+        "chunks": 3047,
+        "returned_tokens": 34977,
+        "omitted_tail_tokens": 0
+      }
+    },
+    {
+      "script": "experiments/exp_181_onset_preserving_mod/script.py",
+      "script_sha256": "0ed347119cd63e3879a864d88e287773a1a0356493e749db8a9bf4efa043b4c3",
+      "status": "ISOLATED_LOADER_REPLAY_MATCHED",
+      "function": "extract_latin_sentences",
+      "function_ast_sha256": "3ee428b16333bd19df473683b57b783a5d2980d84f8ffd771b43ae41ee7f4b71",
+      "filter": "PARAGRAPH_ENGLISH_STOPWORDS_LT_0.08",
+      "selected_tokens": 34977,
+      "retained_paragraphs": 826,
+      "selected_sequence_sha256": "42189adaae845aa6265ca585119639263599c412f4eb79da6fba549ddccfa197",
+      "chunking": {
+        "chunks": 3047,
+        "returned_tokens": 34977,
+        "omitted_tail_tokens": 0
+      }
+    },
+    {
+      "script": "experiments/exp_182_timm_char_modification/script.py",
+      "script_sha256": "d8b4da106bfbaac53370b318bdbf1468d3b9814c7be47720822c275e19481dda",
+      "status": "ISOLATED_LOADER_REPLAY_MATCHED",
+      "function": "extract_latin_sentences",
+      "function_ast_sha256": "3ee428b16333bd19df473683b57b783a5d2980d84f8ffd771b43ae41ee7f4b71",
+      "filter": "PARAGRAPH_ENGLISH_STOPWORDS_LT_0.08",
+      "selected_tokens": 34977,
+      "retained_paragraphs": 826,
+      "selected_sequence_sha256": "42189adaae845aa6265ca585119639263599c412f4eb79da6fba549ddccfa197",
+      "chunking": {
+        "chunks": 3047,
+        "returned_tokens": 34977,
+        "omitted_tail_tokens": 0
+      }
+    },
+    {
+      "script": "experiments/exp_183_timm_char_extended_grid/script.py",
+      "script_sha256": "e0cd0ad1048c02d4430d013cb2e3cee694b60149a58095ef998c4089ad8b68d3",
+      "status": "ISOLATED_LOADER_REPLAY_MATCHED",
+      "function": "extract_latin_sentences",
+      "function_ast_sha256": "3ee428b16333bd19df473683b57b783a5d2980d84f8ffd771b43ae41ee7f4b71",
+      "filter": "PARAGRAPH_ENGLISH_STOPWORDS_LT_0.08",
+      "selected_tokens": 34977,
+      "retained_paragraphs": 826,
+      "selected_sequence_sha256": "42189adaae845aa6265ca585119639263599c412f4eb79da6fba549ddccfa197",
+      "chunking": {
+        "chunks": 3047,
+        "returned_tokens": 34977,
+        "omitted_tail_tokens": 0
+      }
+    },
+    {
+      "script": "experiments/exp_184_latin_source_comparison/script.py",
+      "script_sha256": "8ca93f2828fc100f539aa071891838a724e7c23284eb96ca546767a1b1edf9e9",
+      "status": "ISOLATED_LOADER_REPLAY_MATCHED",
+      "function": "extract_latin_words",
+      "function_ast_sha256": "d72fe53fbec591cd75ed90137cfbb78f6155f684a79e154597b5581b2e069939",
+      "filter": "PARAGRAPH_ENGLISH_STOPWORDS_LT_0.08",
+      "selected_tokens": 34977,
+      "retained_paragraphs": 826,
+      "selected_sequence_sha256": "42189adaae845aa6265ca585119639263599c412f4eb79da6fba549ddccfa197",
+      "chunking": null
+    },
+    {
+      "script": "experiments/exp_185_timm_char_cp_fine_grid/script.py",
+      "script_sha256": "f9212ba23c44c34ff6f87c7dc6bc150390f1edf29f31aef6f929d12631255911",
+      "status": "ISOLATED_LOADER_REPLAY_MATCHED",
+      "function": "load_latin",
+      "function_ast_sha256": "a80087e6da83aceb6075a172e44ccd0af2f37bf40845ecd5edcb12ab4de10f7c",
+      "filter": "PARAGRAPH_ENGLISH_STOPWORDS_LT_0.08",
+      "selected_tokens": 34977,
+      "retained_paragraphs": 826,
+      "selected_sequence_sha256": "42189adaae845aa6265ca585119639263599c412f4eb79da6fba549ddccfa197",
+      "chunking": null
+    },
+    {
+      "script": "experiments/exp_186_pdetect_sweep/script.py",
+      "script_sha256": "9634a10dfdb14d779165a1ad42c410a5944f4dc8438c6ed7972e26e423be5338",
+      "status": "ISOLATED_LOADER_REPLAY_MATCHED",
+      "function": "load_latin",
+      "function_ast_sha256": "48faa46e6a97b5185cb5f9f438390fbf665722e8afd164c45b9a51bc6698c5a1",
+      "filter": "PARAGRAPH_ENGLISH_STOPWORDS_LT_0.08",
+      "selected_tokens": 34977,
+      "retained_paragraphs": 826,
+      "selected_sequence_sha256": "42189adaae845aa6265ca585119639263599c412f4eb79da6fba549ddccfa197",
+      "chunking": null
+    },
+    {
+      "script": "experiments/exp_209_blind_ll_mapping/script.py",
+      "script_sha256": "e8b303843f092c77906ea7a10ab55669e55d33d9125bc2cf49d8b0ccf4685ad5",
+      "status": "ISOLATED_LOADER_REPLAY_MATCHED",
+      "function": "load_latin",
+      "function_ast_sha256": "48faa46e6a97b5185cb5f9f438390fbf665722e8afd164c45b9a51bc6698c5a1",
+      "filter": "PARAGRAPH_ENGLISH_STOPWORDS_LT_0.08",
+      "selected_tokens": 34977,
+      "retained_paragraphs": 826,
+      "selected_sequence_sha256": "42189adaae845aa6265ca585119639263599c412f4eb79da6fba549ddccfa197",
+      "chunking": null
+    },
+    {
+      "script": "experiments/exp_210_dll_onset_recal/script.py",
+      "script_sha256": "4966c2710554768392ebda539fc993406186c82b5d8dd6c0a4fe29fa6a2c7ee9",
+      "status": "ISOLATED_LOADER_REPLAY_MATCHED",
+      "function": "load_latin",
+      "function_ast_sha256": "48faa46e6a97b5185cb5f9f438390fbf665722e8afd164c45b9a51bc6698c5a1",
+      "filter": "PARAGRAPH_ENGLISH_STOPWORDS_LT_0.08",
+      "selected_tokens": 34977,
+      "retained_paragraphs": 826,
+      "selected_sequence_sha256": "42189adaae845aa6265ca585119639263599c412f4eb79da6fba549ddccfa197",
+      "chunking": null
+    },
+    {
+      "script": "experiments/exp_211_lf_blind_fine_sweep/script.py",
+      "script_sha256": "9fabcf23e9941c1ba7eff1f0eb442f444f76f8fa34d4b6f073105d695318acc8",
+      "status": "ISOLATED_LOADER_REPLAY_MATCHED",
+      "function": "load_latin",
+      "function_ast_sha256": "48faa46e6a97b5185cb5f9f438390fbf665722e8afd164c45b9a51bc6698c5a1",
+      "filter": "PARAGRAPH_ENGLISH_STOPWORDS_LT_0.08",
+      "selected_tokens": 34977,
+      "retained_paragraphs": 826,
+      "selected_sequence_sha256": "42189adaae845aa6265ca585119639263599c412f4eb79da6fba549ddccfa197",
+      "chunking": null
+    },
+    {
+      "script": "experiments/exp_217_expanded_metric_battery/script.py",
+      "script_sha256": "541b4e837db38c97d9350d6c74bf08b5728d6668b83de2edd7c619d3d757d053",
+      "status": "ISOLATED_LOADER_REPLAY_MATCHED",
+      "function": "load_latin",
+      "function_ast_sha256": "48faa46e6a97b5185cb5f9f438390fbf665722e8afd164c45b9a51bc6698c5a1",
+      "filter": "PARAGRAPH_ENGLISH_STOPWORDS_LT_0.08",
+      "selected_tokens": 34977,
+      "retained_paragraphs": 826,
+      "selected_sequence_sha256": "42189adaae845aa6265ca585119639263599c412f4eb79da6fba549ddccfa197",
+      "chunking": null
+    },
+    {
+      "script": "experiments/exp_218_vms_calibrated_distributions/script.py",
+      "script_sha256": "938917311067b62f1d421668f7fd98cc95e0deb80c8b673d5476fe592cb62533",
+      "status": "ISOLATED_LOADER_REPLAY_MATCHED",
+      "function": "load_latin",
+      "function_ast_sha256": "48faa46e6a97b5185cb5f9f438390fbf665722e8afd164c45b9a51bc6698c5a1",
+      "filter": "PARAGRAPH_ENGLISH_STOPWORDS_LT_0.08",
+      "selected_tokens": 35090,
+      "retained_paragraphs": 840,
+      "selected_sequence_sha256": "0f77dc051c563fd78dd59bdd42a908222e1ac959599ee0e3d23081490914cdaa",
+      "chunking": null
+    },
+    {
+      "script": "experiments/exp_219_onset_preserving_copy/script.py",
+      "script_sha256": "9bb62408c52181c943f67edc1c0be66c227644363ebc986e3775cdb514341f43",
+      "status": "ISOLATED_LOADER_REPLAY_MATCHED",
+      "function": "load_latin",
+      "function_ast_sha256": "48faa46e6a97b5185cb5f9f438390fbf665722e8afd164c45b9a51bc6698c5a1",
+      "filter": "PARAGRAPH_ENGLISH_STOPWORDS_LT_0.08",
+      "selected_tokens": 35090,
+      "retained_paragraphs": 840,
+      "selected_sequence_sha256": "0f77dc051c563fd78dd59bdd42a908222e1ac959599ee0e3d23081490914cdaa",
+      "chunking": null
+    },
+    {
+      "script": "experiments/exp_220_onset_preserving_cp_sweep/script.py",
+      "script_sha256": "a25813954418bd54f2829677ffd80753ab88f01f66a31b9ba1e4507e4a54fbb0",
+      "status": "ISOLATED_LOADER_REPLAY_MATCHED",
+      "function": "load_latin",
+      "function_ast_sha256": "48faa46e6a97b5185cb5f9f438390fbf665722e8afd164c45b9a51bc6698c5a1",
+      "filter": "PARAGRAPH_ENGLISH_STOPWORDS_LT_0.08",
+      "selected_tokens": 35090,
+      "retained_paragraphs": 840,
+      "selected_sequence_sha256": "0f77dc051c563fd78dd59bdd42a908222e1ac959599ee0e3d23081490914cdaa",
+      "chunking": null
+    },
+    {
+      "script": "experiments/exp_221_mode_b_fine_sweep/script.py",
+      "script_sha256": "2bc23f04bd2a4a23d913495bcc0407131267603a6551ff1ea6aac0e66de8e576",
+      "status": "ISOLATED_LOADER_REPLAY_MATCHED",
+      "function": "load_latin",
+      "function_ast_sha256": "48faa46e6a97b5185cb5f9f438390fbf665722e8afd164c45b9a51bc6698c5a1",
+      "filter": "PARAGRAPH_ENGLISH_STOPWORDS_LT_0.08",
+      "selected_tokens": 35090,
+      "retained_paragraphs": 840,
+      "selected_sequence_sha256": "0f77dc051c563fd78dd59bdd42a908222e1ac959599ee0e3d23081490914cdaa",
+      "chunking": null
+    },
+    {
+      "script": "experiments/exp_222_positional_suffix_dist/script.py",
+      "script_sha256": "b76b89e6a5254ab7b52ee7bbe11434ae43dfd1d6fa276e71d44b7baedcb1ccba",
+      "status": "ISOLATED_LOADER_REPLAY_MATCHED",
+      "function": "load_latin",
+      "function_ast_sha256": "48faa46e6a97b5185cb5f9f438390fbf665722e8afd164c45b9a51bc6698c5a1",
+      "filter": "PARAGRAPH_ENGLISH_STOPWORDS_LT_0.08",
+      "selected_tokens": 35090,
+      "retained_paragraphs": 840,
+      "selected_sequence_sha256": "0f77dc051c563fd78dd59bdd42a908222e1ac959599ee0e3d23081490914cdaa",
+      "chunking": null
+    },
+    {
+      "script": "experiments/exp_223_corpus_split_stability/script.py",
+      "script_sha256": "670851738927c1aff18634023dda31c44695bc0324ffe000b963cc261cfd3ae7",
+      "status": "ISOLATED_LOADER_REPLAY_MATCHED",
+      "function": "load_latin",
+      "function_ast_sha256": "48faa46e6a97b5185cb5f9f438390fbf665722e8afd164c45b9a51bc6698c5a1",
+      "filter": "PARAGRAPH_ENGLISH_STOPWORDS_LT_0.08",
+      "selected_tokens": 35090,
+      "retained_paragraphs": 840,
+      "selected_sequence_sha256": "0f77dc051c563fd78dd59bdd42a908222e1ac959599ee0e3d23081490914cdaa",
+      "chunking": null
+    },
+    {
+      "script": "experiments/exp_224_parameter_count_control/script.py",
+      "script_sha256": "f73225be8418d06fba0aaafeaf556be4937e12293a1706ce49887e0621a80d02",
+      "status": "ISOLATED_LOADER_REPLAY_MATCHED",
+      "function": "load_latin",
+      "function_ast_sha256": "48faa46e6a97b5185cb5f9f438390fbf665722e8afd164c45b9a51bc6698c5a1",
+      "filter": "PARAGRAPH_ENGLISH_STOPWORDS_LT_0.08",
+      "selected_tokens": 35090,
+      "retained_paragraphs": 840,
+      "selected_sequence_sha256": "0f77dc051c563fd78dd59bdd42a908222e1ac959599ee0e3d23081490914cdaa",
+      "chunking": null
+    },
+    {
+      "script": "experiments/exp_225_edy_suffix_preserving/script.py",
+      "script_sha256": "4bf8ad6252ad6a9b5afa0058ac28aeaaa3af79054cf27fa3b41fba81107c24df",
+      "status": "ISOLATED_LOADER_REPLAY_MATCHED",
+      "function": "load_latin",
+      "function_ast_sha256": "48faa46e6a97b5185cb5f9f438390fbf665722e8afd164c45b9a51bc6698c5a1",
+      "filter": "PARAGRAPH_ENGLISH_STOPWORDS_LT_0.08",
+      "selected_tokens": 35090,
+      "retained_paragraphs": 840,
+      "selected_sequence_sha256": "0f77dc051c563fd78dd59bdd42a908222e1ac959599ee0e3d23081490914cdaa",
+      "chunking": null
+    },
+    {
+      "script": "experiments/exp_226_edy_preservation_fresh_fallback/script.py",
+      "script_sha256": "b3a2b3474fd731d2d4c314e059b4e61f7404a9f06954daec100cffb29912a318",
+      "status": "ISOLATED_LOADER_REPLAY_MATCHED",
+      "function": "load_latin",
+      "function_ast_sha256": "48faa46e6a97b5185cb5f9f438390fbf665722e8afd164c45b9a51bc6698c5a1",
+      "filter": "PARAGRAPH_ENGLISH_STOPWORDS_LT_0.08",
+      "selected_tokens": 35090,
+      "retained_paragraphs": 840,
+      "selected_sequence_sha256": "0f77dc051c563fd78dd59bdd42a908222e1ac959599ee0e3d23081490914cdaa",
+      "chunking": null
+    },
+    {
+      "script": "experiments/exp_227_no_connector/script.py",
+      "script_sha256": "ebe5cb3ecd3705924e35eb744f953fc19944ad2c852908992b060585ecdea608",
+      "status": "ISOLATED_LOADER_REPLAY_MATCHED",
+      "function": "load_latin",
+      "function_ast_sha256": "48faa46e6a97b5185cb5f9f438390fbf665722e8afd164c45b9a51bc6698c5a1",
+      "filter": "PARAGRAPH_ENGLISH_STOPWORDS_LT_0.08",
+      "selected_tokens": 35090,
+      "retained_paragraphs": 840,
+      "selected_sequence_sha256": "0f77dc051c563fd78dd59bdd42a908222e1ac959599ee0e3d23081490914cdaa",
+      "chunking": null
+    },
+    {
+      "script": "experiments/exp_228_qokch_markov/script.py",
+      "script_sha256": "e979f292f52f9bb466e131199f8c9b67f536aabdde7b7d72c0e7d92b80522bf9",
+      "status": "ISOLATED_LOADER_REPLAY_MATCHED",
+      "function": "load_latin",
+      "function_ast_sha256": "48faa46e6a97b5185cb5f9f438390fbf665722e8afd164c45b9a51bc6698c5a1",
+      "filter": "PARAGRAPH_ENGLISH_STOPWORDS_LT_0.08",
+      "selected_tokens": 35090,
+      "retained_paragraphs": 840,
+      "selected_sequence_sha256": "0f77dc051c563fd78dd59bdd42a908222e1ac959599ee0e3d23081490914cdaa",
+      "chunking": null
+    },
+    {
+      "script": "experiments/exp_229_stutter/script.py",
+      "script_sha256": "ce7d5b201a34352e9711f0535ab7fa498ab56440e113ffb0633c157d4bb8966c",
+      "status": "ISOLATED_LOADER_REPLAY_MATCHED",
+      "function": "load_latin",
+      "function_ast_sha256": "48faa46e6a97b5185cb5f9f438390fbf665722e8afd164c45b9a51bc6698c5a1",
+      "filter": "PARAGRAPH_ENGLISH_STOPWORDS_LT_0.08",
+      "selected_tokens": 35090,
+      "retained_paragraphs": 840,
+      "selected_sequence_sha256": "0f77dc051c563fd78dd59bdd42a908222e1ac959599ee0e3d23081490914cdaa",
+      "chunking": null
+    },
+    {
+      "script": "experiments/exp_230_qokll_diagnostic/script.py",
+      "script_sha256": "743087cb6ed0f22f5e6d0e62994d7c23a12c5837d643e046919a245d3f39c271",
+      "status": "ISOLATED_LOADER_REPLAY_MATCHED",
+      "function": "load_latin",
+      "function_ast_sha256": "48faa46e6a97b5185cb5f9f438390fbf665722e8afd164c45b9a51bc6698c5a1",
+      "filter": "PARAGRAPH_ENGLISH_STOPWORDS_LT_0.08",
+      "selected_tokens": 35090,
+      "retained_paragraphs": 840,
+      "selected_sequence_sha256": "0f77dc051c563fd78dd59bdd42a908222e1ac959599ee0e3d23081490914cdaa",
+      "chunking": null
+    },
+    {
+      "script": "experiments/exp_231_ll_onset_fix/script.py",
+      "script_sha256": "9e60d0a1359e0e6e6d04d27e52e4ec5061a484a028fddbddfb6651d76d2e959d",
+      "status": "ISOLATED_LOADER_REPLAY_MATCHED",
+      "function": "load_latin",
+      "function_ast_sha256": "48faa46e6a97b5185cb5f9f438390fbf665722e8afd164c45b9a51bc6698c5a1",
+      "filter": "PARAGRAPH_ENGLISH_STOPWORDS_LT_0.08",
+      "selected_tokens": 35090,
+      "retained_paragraphs": 840,
+      "selected_sequence_sha256": "0f77dc051c563fd78dd59bdd42a908222e1ac959599ee0e3d23081490914cdaa",
+      "chunking": null
+    },
+    {
+      "script": "experiments/exp_232_am_suppression/script.py",
+      "script_sha256": "a7b507917c3d22ec8f07cc0676c628bb75e5e75cb88bd25bca76a715256457b0",
+      "status": "ISOLATED_LOADER_REPLAY_MATCHED",
+      "function": "load_latin",
+      "function_ast_sha256": "48faa46e6a97b5185cb5f9f438390fbf665722e8afd164c45b9a51bc6698c5a1",
+      "filter": "PARAGRAPH_ENGLISH_STOPWORDS_LT_0.08",
+      "selected_tokens": 35090,
+      "retained_paragraphs": 840,
+      "selected_sequence_sha256": "0f77dc051c563fd78dd59bdd42a908222e1ac959599ee0e3d23081490914cdaa",
+      "chunking": null
+    },
+    {
+      "script": "experiments/exp_233_differential_am_suppression/script.py",
+      "script_sha256": "78f0941cd07660fe6a2e8343df8b975a4d098f669ca399ed5afb9ca3ba308fe4",
+      "status": "ISOLATED_LOADER_REPLAY_MATCHED",
+      "function": "load_latin",
+      "function_ast_sha256": "48faa46e6a97b5185cb5f9f438390fbf665722e8afd164c45b9a51bc6698c5a1",
+      "filter": "PARAGRAPH_ENGLISH_STOPWORDS_LT_0.08",
+      "selected_tokens": 35090,
+      "retained_paragraphs": 840,
+      "selected_sequence_sha256": "0f77dc051c563fd78dd59bdd42a908222e1ac959599ee0e3d23081490914cdaa",
+      "chunking": null
+    },
+    {
+      "script": "experiments/exp_234_edy_conditional_connector/script.py",
+      "script_sha256": "5d001862e0f17e0c3e58f795a13fe86db513d2a05bbbb3ecba9c6f553eb68767",
+      "status": "ISOLATED_LOADER_REPLAY_MATCHED",
+      "function": "load_latin",
+      "function_ast_sha256": "48faa46e6a97b5185cb5f9f438390fbf665722e8afd164c45b9a51bc6698c5a1",
+      "filter": "PARAGRAPH_ENGLISH_STOPWORDS_LT_0.08",
+      "selected_tokens": 35090,
+      "retained_paragraphs": 840,
+      "selected_sequence_sha256": "0f77dc051c563fd78dd59bdd42a908222e1ac959599ee0e3d23081490914cdaa",
+      "chunking": null
+    },
+    {
+      "script": "experiments/exp_235_stutter_recalibration/script.py",
+      "script_sha256": "7e2d599a85d43f3ac9e613309ebad515a11297e30ee6d4fab351bd4e9781dc26",
+      "status": "ISOLATED_LOADER_REPLAY_MATCHED",
+      "function": "load_latin",
+      "function_ast_sha256": "48faa46e6a97b5185cb5f9f438390fbf665722e8afd164c45b9a51bc6698c5a1",
+      "filter": "PARAGRAPH_ENGLISH_STOPWORDS_LT_0.08",
+      "selected_tokens": 35090,
+      "retained_paragraphs": 840,
+      "selected_sequence_sha256": "0f77dc051c563fd78dd59bdd42a908222e1ac959599ee0e3d23081490914cdaa",
+      "chunking": null
+    },
+    {
+      "script": "experiments/exp_236_global_am_resolution/script.py",
+      "script_sha256": "238b5e215eda8492a9a4bd1fa5380520812728c645c37d40dc2670666aff7589",
+      "status": "ISOLATED_LOADER_REPLAY_MATCHED",
+      "function": "load_latin",
+      "function_ast_sha256": "48faa46e6a97b5185cb5f9f438390fbf665722e8afd164c45b9a51bc6698c5a1",
+      "filter": "PARAGRAPH_ENGLISH_STOPWORDS_LT_0.08",
+      "selected_tokens": 35090,
+      "retained_paragraphs": 840,
+      "selected_sequence_sha256": "0f77dc051c563fd78dd59bdd42a908222e1ac959599ee0e3d23081490914cdaa",
+      "chunking": null
+    },
+    {
+      "script": "experiments/exp_237_a_dialect_generalization/script.py",
+      "script_sha256": "cd183c1f4acf6618a024d8744e454e29161776a51574f15de4faa6b9b13b6eca",
+      "status": "ISOLATED_LOADER_REPLAY_MATCHED",
+      "function": "load_latin",
+      "function_ast_sha256": "48faa46e6a97b5185cb5f9f438390fbf665722e8afd164c45b9a51bc6698c5a1",
+      "filter": "PARAGRAPH_ENGLISH_STOPWORDS_LT_0.08",
+      "selected_tokens": 35090,
+      "retained_paragraphs": 840,
+      "selected_sequence_sha256": "0f77dc051c563fd78dd59bdd42a908222e1ac959599ee0e3d23081490914cdaa",
+      "chunking": null
+    },
+    {
+      "script": "experiments/exp_239_a_dialect_y_succession/script.py",
+      "script_sha256": "13b000c1b17fd3188f635c2cfc5fe414fb5bb6ffe5365e90d2fe3790a1a97949",
+      "status": "ISOLATED_LOADER_REPLAY_MATCHED",
+      "function": "load_latin",
+      "function_ast_sha256": "48faa46e6a97b5185cb5f9f438390fbf665722e8afd164c45b9a51bc6698c5a1",
+      "filter": "PARAGRAPH_ENGLISH_STOPWORDS_LT_0.08",
+      "selected_tokens": 35090,
+      "retained_paragraphs": 840,
+      "selected_sequence_sha256": "0f77dc051c563fd78dd59bdd42a908222e1ac959599ee0e3d23081490914cdaa",
+      "chunking": null
+    },
+    {
+      "script": "experiments/exp_240_a_dialect_split_stability/script.py",
+      "script_sha256": "98776184bf8cb3ad28a2d1ca6c0a4937151f2fd0fa73befb96bcd9a5420bf193",
+      "status": "ISOLATED_LOADER_REPLAY_MATCHED",
+      "function": "load_latin",
+      "function_ast_sha256": "48faa46e6a97b5185cb5f9f438390fbf665722e8afd164c45b9a51bc6698c5a1",
+      "filter": "PARAGRAPH_ENGLISH_STOPWORDS_LT_0.08",
+      "selected_tokens": 35090,
+      "retained_paragraphs": 840,
+      "selected_sequence_sha256": "0f77dc051c563fd78dd59bdd42a908222e1ac959599ee0e3d23081490914cdaa",
+      "chunking": null
+    },
+    {
+      "script": "experiments/exp_241_onset_bigram_structure/script.py",
+      "script_sha256": "c161d3e29e52d41e51387bf8e1b3f8b3c9a497815f87535c1b6b595110adf4df",
+      "status": "ISOLATED_LOADER_REPLAY_MATCHED",
+      "function": "load_latin",
+      "function_ast_sha256": "48faa46e6a97b5185cb5f9f438390fbf665722e8afd164c45b9a51bc6698c5a1",
+      "filter": "PARAGRAPH_ENGLISH_STOPWORDS_LT_0.08",
+      "selected_tokens": 35090,
+      "retained_paragraphs": 840,
+      "selected_sequence_sha256": "0f77dc051c563fd78dd59bdd42a908222e1ac959599ee0e3d23081490914cdaa",
+      "chunking": null
+    },
+    {
+      "script": "experiments/exp_243_sh_qok_markov/script.py",
+      "script_sha256": "3d95d09837c77590a66b5abe0ffd8dc6b8da067130fe6861d95239abe1775df2",
+      "status": "ISOLATED_LOADER_REPLAY_MATCHED",
+      "function": "load_latin",
+      "function_ast_sha256": "48faa46e6a97b5185cb5f9f438390fbf665722e8afd164c45b9a51bc6698c5a1",
+      "filter": "PARAGRAPH_ENGLISH_STOPWORDS_LT_0.08",
+      "selected_tokens": 35090,
+      "retained_paragraphs": 840,
+      "selected_sequence_sha256": "0f77dc051c563fd78dd59bdd42a908222e1ac959599ee0e3d23081490914cdaa",
+      "chunking": null
+    },
+    {
+      "script": "experiments/exp_245_self_succession_diagnostic/script.py",
+      "script_sha256": "98c9116778fa0b82a7ad6e62bdb63ba72afb273a464996203ab206517e49e84c",
+      "status": "ISOLATED_LOADER_REPLAY_MATCHED",
+      "function": "load_latin",
+      "function_ast_sha256": "48faa46e6a97b5185cb5f9f438390fbf665722e8afd164c45b9a51bc6698c5a1",
+      "filter": "PARAGRAPH_ENGLISH_STOPWORDS_LT_0.08",
+      "selected_tokens": 35090,
+      "retained_paragraphs": 840,
+      "selected_sequence_sha256": "0f77dc051c563fd78dd59bdd42a908222e1ac959599ee0e3d23081490914cdaa",
+      "chunking": null
+    },
+    {
+      "script": "experiments/exp_246_bigram_global_vs_mid/script.py",
+      "script_sha256": "da4f9ca037263fbf2c8e40b9465c0f56f377bf066c1fb7abdbb4b0b0243b7e3d",
+      "status": "ISOLATED_LOADER_REPLAY_MATCHED",
+      "function": "load_latin",
+      "function_ast_sha256": "48faa46e6a97b5185cb5f9f438390fbf665722e8afd164c45b9a51bc6698c5a1",
+      "filter": "PARAGRAPH_ENGLISH_STOPWORDS_LT_0.08",
+      "selected_tokens": 35090,
+      "retained_paragraphs": 840,
+      "selected_sequence_sha256": "0f77dc051c563fd78dd59bdd42a908222e1ac959599ee0e3d23081490914cdaa",
+      "chunking": null
+    },
+    {
+      "script": "experiments/exp_247_onset_trigrams/script.py",
+      "script_sha256": "6758712af20ff826f2de137a4e7897d3f19457006c56f816683878e809c98c83",
+      "status": "ISOLATED_LOADER_REPLAY_MATCHED",
+      "function": "load_latin",
+      "function_ast_sha256": "48faa46e6a97b5185cb5f9f438390fbf665722e8afd164c45b9a51bc6698c5a1",
+      "filter": "PARAGRAPH_ENGLISH_STOPWORDS_LT_0.08",
+      "selected_tokens": 35090,
+      "retained_paragraphs": 840,
+      "selected_sequence_sha256": "0f77dc051c563fd78dd59bdd42a908222e1ac959599ee0e3d23081490914cdaa",
+      "chunking": null
+    },
+    {
+      "script": "experiments/exp_248_ch_qok_return/script.py",
+      "script_sha256": "fd5a15ad1878b4729f684938f81c1544747ac63a4b4d7e58251b6789ad1606ab",
+      "status": "ISOLATED_LOADER_REPLAY_MATCHED",
+      "function": "load_latin",
+      "function_ast_sha256": "48faa46e6a97b5185cb5f9f438390fbf665722e8afd164c45b9a51bc6698c5a1",
+      "filter": "PARAGRAPH_ENGLISH_STOPWORDS_LT_0.08",
+      "selected_tokens": 35090,
+      "retained_paragraphs": 840,
+      "selected_sequence_sha256": "0f77dc051c563fd78dd59bdd42a908222e1ac959599ee0e3d23081490914cdaa",
+      "chunking": null
+    },
+    {
+      "script": "experiments/exp_249_chqok_markov/script.py",
+      "script_sha256": "4dfe8e556f0799352f129a098b58b17de28dee6c25d36a706ade7ce59a75b131",
+      "status": "ISOLATED_LOADER_REPLAY_MATCHED",
+      "function": "load_latin",
+      "function_ast_sha256": "48faa46e6a97b5185cb5f9f438390fbf665722e8afd164c45b9a51bc6698c5a1",
+      "filter": "PARAGRAPH_ENGLISH_STOPWORDS_LT_0.08",
+      "selected_tokens": 35090,
+      "retained_paragraphs": 840,
+      "selected_sequence_sha256": "0f77dc051c563fd78dd59bdd42a908222e1ac959599ee0e3d23081490914cdaa",
+      "chunking": null
+    },
+    {
+      "script": "experiments/exp_250_a_dialect_chqok/script.py",
+      "script_sha256": "e5c07f2eb346dcdc4eb0673ded442f9cc098976bccc1fe827d95761225b4f3c2",
+      "status": "ISOLATED_LOADER_REPLAY_MATCHED",
+      "function": "load_latin",
+      "function_ast_sha256": "48faa46e6a97b5185cb5f9f438390fbf665722e8afd164c45b9a51bc6698c5a1",
+      "filter": "PARAGRAPH_ENGLISH_STOPWORDS_LT_0.08",
+      "selected_tokens": 35090,
+      "retained_paragraphs": 840,
+      "selected_sequence_sha256": "0f77dc051c563fd78dd59bdd42a908222e1ac959599ee0e3d23081490914cdaa",
+      "chunking": null
+    },
+    {
+      "script": "experiments/exp_251_a_dialect_qokqok/script.py",
+      "script_sha256": "8a41d626fa321457a9f557eeee4d81bdf12c65fd11ddeb66ded93226baeed5cf",
+      "status": "ISOLATED_LOADER_REPLAY_MATCHED",
+      "function": "load_latin",
+      "function_ast_sha256": "48faa46e6a97b5185cb5f9f438390fbf665722e8afd164c45b9a51bc6698c5a1",
+      "filter": "PARAGRAPH_ENGLISH_STOPWORDS_LT_0.08",
+      "selected_tokens": 35090,
+      "retained_paragraphs": 840,
+      "selected_sequence_sha256": "0f77dc051c563fd78dd59bdd42a908222e1ac959599ee0e3d23081490914cdaa",
+      "chunking": null
+    },
+    {
+      "script": "experiments/exp_253_ot_ot_markov/script.py",
+      "script_sha256": "1d0a8c0c7591d8431de74534f2ed8572e5dcfc5699413e31b31f048673f6063a",
+      "status": "ISOLATED_LOADER_REPLAY_MATCHED",
+      "function": "load_latin",
+      "function_ast_sha256": "48faa46e6a97b5185cb5f9f438390fbf665722e8afd164c45b9a51bc6698c5a1",
+      "filter": "PARAGRAPH_ENGLISH_STOPWORDS_LT_0.08",
+      "selected_tokens": 35090,
+      "retained_paragraphs": 840,
+      "selected_sequence_sha256": "0f77dc051c563fd78dd59bdd42a908222e1ac959599ee0e3d23081490914cdaa",
+      "chunking": null
+    },
+    {
+      "script": "experiments/exp_254_a_dialect_mid_bigrams/script.py",
+      "script_sha256": "6ccca2f724a1c3d465e4cd836eee6adaf64bbb74a450cfc60ae2934b92b2df05",
+      "status": "ISOLATED_LOADER_REPLAY_MATCHED",
+      "function": "load_latin",
+      "function_ast_sha256": "48faa46e6a97b5185cb5f9f438390fbf665722e8afd164c45b9a51bc6698c5a1",
+      "filter": "PARAGRAPH_ENGLISH_STOPWORDS_LT_0.08",
+      "selected_tokens": 35090,
+      "retained_paragraphs": 840,
+      "selected_sequence_sha256": "0f77dc051c563fd78dd59bdd42a908222e1ac959599ee0e3d23081490914cdaa",
+      "chunking": null
+    },
+    {
+      "script": "experiments/exp_255_a_dialect_ot_ot_fix/script.py",
+      "script_sha256": "2e315983987f27a75e5f3c4cbadee3251aac651bffc9772feca24113abb3286e",
+      "status": "ISOLATED_LOADER_REPLAY_MATCHED",
+      "function": "load_latin",
+      "function_ast_sha256": "48faa46e6a97b5185cb5f9f438390fbf665722e8afd164c45b9a51bc6698c5a1",
+      "filter": "PARAGRAPH_ENGLISH_STOPWORDS_LT_0.08",
+      "selected_tokens": 35090,
+      "retained_paragraphs": 840,
+      "selected_sequence_sha256": "0f77dc051c563fd78dd59bdd42a908222e1ac959599ee0e3d23081490914cdaa",
+      "chunking": null
+    },
+    {
+      "script": "experiments/exp_256_b_dialect_ot_ot_recheck/script.py",
+      "script_sha256": "74a9b900ce7abc0ef251bd69cbb2bfcc27e78a4944491c72824045e6cc8f5d38",
+      "status": "ISOLATED_LOADER_REPLAY_MATCHED",
+      "function": "load_latin",
+      "function_ast_sha256": "48faa46e6a97b5185cb5f9f438390fbf665722e8afd164c45b9a51bc6698c5a1",
+      "filter": "PARAGRAPH_ENGLISH_STOPWORDS_LT_0.08",
+      "selected_tokens": 35090,
+      "retained_paragraphs": 840,
+      "selected_sequence_sha256": "0f77dc051c563fd78dd59bdd42a908222e1ac959599ee0e3d23081490914cdaa",
+      "chunking": null
+    },
+    {
+      "script": "experiments/exp_257_b_dialect_battery_fixed/script.py",
+      "script_sha256": "8e93c6929981b7f4e012eca537f18197553cb41b2f94533078671a83d6f1af2f",
+      "status": "ISOLATED_LOADER_REPLAY_MATCHED",
+      "function": "load_latin",
+      "function_ast_sha256": "48faa46e6a97b5185cb5f9f438390fbf665722e8afd164c45b9a51bc6698c5a1",
+      "filter": "PARAGRAPH_ENGLISH_STOPWORDS_LT_0.08",
+      "selected_tokens": 35090,
+      "retained_paragraphs": 840,
+      "selected_sequence_sha256": "0f77dc051c563fd78dd59bdd42a908222e1ac959599ee0e3d23081490914cdaa",
+      "chunking": null
+    },
+    {
+      "script": "experiments/exp_258_a_dialect_o_o_markov/script.py",
+      "script_sha256": "e90303c4ee639fe075ddaaf6dba7eaf42ed6e174c03c442ea442c3cb4cf44d67",
+      "status": "ISOLATED_LOADER_REPLAY_MATCHED",
+      "function": "load_latin",
+      "function_ast_sha256": "48faa46e6a97b5185cb5f9f438390fbf665722e8afd164c45b9a51bc6698c5a1",
+      "filter": "PARAGRAPH_ENGLISH_STOPWORDS_LT_0.08",
+      "selected_tokens": 35090,
+      "retained_paragraphs": 840,
+      "selected_sequence_sha256": "0f77dc051c563fd78dd59bdd42a908222e1ac959599ee0e3d23081490914cdaa",
+      "chunking": null
+    },
+    {
+      "script": "experiments/exp_259_char_positional_entropy/script.py",
+      "script_sha256": "c8cc27ed64ea35a06bd90885bd26ec38a1cc3be25c4e2aaf6b451ff7279dd5f7",
+      "status": "ISOLATED_LOADER_REPLAY_MATCHED",
+      "function": "parse_latin",
+      "function_ast_sha256": "9c212200be575380b332a9e955f5a94b5430ce8307a3856304c4fec7a530a8d4",
+      "filter": "NONE",
+      "selected_tokens": 112081,
+      "retained_paragraphs": 2339,
+      "selected_sequence_sha256": "cddae504839681c9f5757082d2a00fee255e154351e32126c07c510c98c8f3b5",
+      "chunking": null
+    },
+    {
+      "script": "experiments/exp_260_char_bigram_pmi/script.py",
+      "script_sha256": "042c1a08558bbde8d0a942cb98d79ee1b8e790b5e8043a1a510fbfc5813d66e4",
+      "status": "ISOLATED_LOADER_REPLAY_MATCHED",
+      "function": "parse_latin",
+      "function_ast_sha256": "dde96b77e1da4d06c18c36ac6e647920df6e98a56ac1143988d5466c80eccb88",
+      "filter": "NONE",
+      "selected_tokens": 107590,
+      "retained_paragraphs": 2339,
+      "selected_sequence_sha256": "177e646d83246447fb381e4bed2d68771f7282ce94e85df50f8b29af2944ddf2",
+      "chunking": null
+    },
+    {
+      "script": "experiments/exp_261_unified_onset_persist/script.py",
+      "script_sha256": "cbd9bf474cda687265276547e00c2223be2a31fe605bcb8fdd64d99eab3eff64",
+      "status": "ISOLATED_LOADER_REPLAY_MATCHED",
+      "function": "load_latin",
+      "function_ast_sha256": "48faa46e6a97b5185cb5f9f438390fbf665722e8afd164c45b9a51bc6698c5a1",
+      "filter": "PARAGRAPH_ENGLISH_STOPWORDS_LT_0.08",
+      "selected_tokens": 35090,
+      "retained_paragraphs": 840,
+      "selected_sequence_sha256": "0f77dc051c563fd78dd59bdd42a908222e1ac959599ee0e3d23081490914cdaa",
+      "chunking": null
+    },
+    {
+      "script": "experiments/exp_262_a_dialect_sh_qok/script.py",
+      "script_sha256": "7538bfd07454b6699bd0a39331e01451af47ea7b876599e7cae8fabc27ac1078",
+      "status": "ISOLATED_LOADER_REPLAY_MATCHED",
+      "function": "load_latin",
+      "function_ast_sha256": "48faa46e6a97b5185cb5f9f438390fbf665722e8afd164c45b9a51bc6698c5a1",
+      "filter": "PARAGRAPH_ENGLISH_STOPWORDS_LT_0.08",
+      "selected_tokens": 35090,
+      "retained_paragraphs": 840,
+      "selected_sequence_sha256": "0f77dc051c563fd78dd59bdd42a908222e1ac959599ee0e3d23081490914cdaa",
+      "chunking": null
+    },
+    {
+      "script": "experiments/exp_264_a_dialect_13mech_split/script.py",
+      "script_sha256": "13405dcad696714b4262b689eb848f1fd83a0fcdf548c4f656be2e295c909418",
+      "status": "ISOLATED_LOADER_REPLAY_MATCHED",
+      "function": "load_latin",
+      "function_ast_sha256": "48faa46e6a97b5185cb5f9f438390fbf665722e8afd164c45b9a51bc6698c5a1",
+      "filter": "PARAGRAPH_ENGLISH_STOPWORDS_LT_0.08",
+      "selected_tokens": 35090,
+      "retained_paragraphs": 840,
+      "selected_sequence_sha256": "0f77dc051c563fd78dd59bdd42a908222e1ac959599ee0e3d23081490914cdaa",
+      "chunking": null
+    },
+    {
+      "script": "experiments/exp_266_onset_lag_enrichment/script.py",
+      "script_sha256": "5cb67755e0b43abc413ce6ee7a5844c77c6bd40e662a7b6a2929187dd2c106ee",
+      "status": "NOT_REPLAYED_NO_UNIQUE_SELECTED_LOADER"
+    },
+    {
+      "script": "experiments/exp_267_word_length_position/script.py",
+      "script_sha256": "f4197d8c18802d9d54def8d13f5ab83967d94c82f78427e77b67d92720ba4f44",
+      "status": "NOT_REPLAYED_NO_UNIQUE_SELECTED_LOADER"
+    },
+    {
+      "script": "experiments/exp_268_menzerath_simulation/script.py",
+      "script_sha256": "fbbcb652ee40631d369b4e60bc867f46c05b27b28828a2385cdc1661fff57989",
+      "status": "ISOLATED_LOADER_REPLAY_MATCHED",
+      "function": "load_latin",
+      "function_ast_sha256": "48faa46e6a97b5185cb5f9f438390fbf665722e8afd164c45b9a51bc6698c5a1",
+      "filter": "PARAGRAPH_ENGLISH_STOPWORDS_LT_0.08",
+      "selected_tokens": 35090,
+      "retained_paragraphs": 840,
+      "selected_sequence_sha256": "0f77dc051c563fd78dd59bdd42a908222e1ac959599ee0e3d23081490914cdaa",
+      "chunking": null
+    },
+    {
+      "script": "experiments/exp_270_midfix_lf_ll/script.py",
+      "script_sha256": "9a1608edae879a030f16db47b54218869a0e621a17f1f8946ec109a8b6669d59",
+      "status": "ISOLATED_LOADER_REPLAY_MATCHED",
+      "function": "load_latin",
+      "function_ast_sha256": "48faa46e6a97b5185cb5f9f438390fbf665722e8afd164c45b9a51bc6698c5a1",
+      "filter": "PARAGRAPH_ENGLISH_STOPWORDS_LT_0.08",
+      "selected_tokens": 35090,
+      "retained_paragraphs": 840,
+      "selected_sequence_sha256": "0f77dc051c563fd78dd59bdd42a908222e1ac959599ee0e3d23081490914cdaa",
+      "chunking": null
+    },
+    {
+      "script": "experiments/exp_271_midfix_onset_conditioned/script.py",
+      "script_sha256": "43ab44cbfd7727eef6874a273cbabf0af6d087e74f68f9e8e22a5145cadc4119",
+      "status": "ISOLATED_LOADER_REPLAY_MATCHED",
+      "function": "load_latin",
+      "function_ast_sha256": "48faa46e6a97b5185cb5f9f438390fbf665722e8afd164c45b9a51bc6698c5a1",
+      "filter": "PARAGRAPH_ENGLISH_STOPWORDS_LT_0.08",
+      "selected_tokens": 35090,
+      "retained_paragraphs": 840,
+      "selected_sequence_sha256": "0f77dc051c563fd78dd59bdd42a908222e1ac959599ee0e3d23081490914cdaa",
+      "chunking": null
+    },
+    {
+      "script": "experiments/exp_272_within_line_gradient/script.py",
+      "script_sha256": "cd92a0593aa4b671f9e5fc679b702c58eb3d2e4987e8892016215b8c961be3c3",
+      "status": "ISOLATED_LOADER_REPLAY_MATCHED",
+      "function": "load_latin",
+      "function_ast_sha256": "48faa46e6a97b5185cb5f9f438390fbf665722e8afd164c45b9a51bc6698c5a1",
+      "filter": "PARAGRAPH_ENGLISH_STOPWORDS_LT_0.08",
+      "selected_tokens": 35090,
+      "retained_paragraphs": 840,
+      "selected_sequence_sha256": "0f77dc051c563fd78dd59bdd42a908222e1ac959599ee0e3d23081490914cdaa",
+      "chunking": null
+    },
+    {
+      "script": "experiments/exp_273_b_dialect_split_stability/script.py",
+      "script_sha256": "75a34019c7999cb266b37b67d00d41c9b7c22097ce652595d9592ea9dc33498f",
+      "status": "ISOLATED_LOADER_REPLAY_MATCHED",
+      "function": "load_latin",
+      "function_ast_sha256": "48faa46e6a97b5185cb5f9f438390fbf665722e8afd164c45b9a51bc6698c5a1",
+      "filter": "PARAGRAPH_ENGLISH_STOPWORDS_LT_0.08",
+      "selected_tokens": 35090,
+      "retained_paragraphs": 840,
+      "selected_sequence_sha256": "0f77dc051c563fd78dd59bdd42a908222e1ac959599ee0e3d23081490914cdaa",
+      "chunking": null
+    },
+    {
+      "script": "experiments/exp_275_ch_sh_depletion/script.py",
+      "script_sha256": "ac1112f0a30a0320e8b58fe6ed2b12af6dc854d79d9477e0bede62f80fa9e76f",
+      "status": "ISOLATED_LOADER_REPLAY_MATCHED",
+      "function": "load_latin",
+      "function_ast_sha256": "48faa46e6a97b5185cb5f9f438390fbf665722e8afd164c45b9a51bc6698c5a1",
+      "filter": "PARAGRAPH_ENGLISH_STOPWORDS_LT_0.08",
+      "selected_tokens": 35090,
+      "retained_paragraphs": 840,
+      "selected_sequence_sha256": "0f77dc051c563fd78dd59bdd42a908222e1ac959599ee0e3d23081490914cdaa",
+      "chunking": null
+    },
+    {
+      "script": "experiments/exp_277_b_dialect_sh_qok_fine_sweep/script.py",
+      "script_sha256": "b4766a5b8cd4728f60acef8176ab39abf8a80be387148250624a2aacbe23a173",
+      "status": "ISOLATED_LOADER_REPLAY_MATCHED",
+      "function": "load_latin",
+      "function_ast_sha256": "48faa46e6a97b5185cb5f9f438390fbf665722e8afd164c45b9a51bc6698c5a1",
+      "filter": "PARAGRAPH_ENGLISH_STOPWORDS_LT_0.08",
+      "selected_tokens": 35090,
+      "retained_paragraphs": 840,
+      "selected_sequence_sha256": "0f77dc051c563fd78dd59bdd42a908222e1ac959599ee0e3d23081490914cdaa",
+      "chunking": null
+    },
+    {
+      "script": "experiments/exp_280_mid_midfix_simulation/script.py",
+      "script_sha256": "a7523ccd7b3126774f813d7ce07d14605d612bd20add474ad8b892bd04c3f080",
+      "status": "ISOLATED_LOADER_REPLAY_MATCHED",
+      "function": "load_latin",
+      "function_ast_sha256": "48faa46e6a97b5185cb5f9f438390fbf665722e8afd164c45b9a51bc6698c5a1",
+      "filter": "PARAGRAPH_ENGLISH_STOPWORDS_LT_0.08",
+      "selected_tokens": 35090,
+      "retained_paragraphs": 840,
+      "selected_sequence_sha256": "0f77dc051c563fd78dd59bdd42a908222e1ac959599ee0e3d23081490914cdaa",
+      "chunking": null
+    },
+    {
+      "script": "experiments/exp_281_timm_rate_sweep/script.py",
+      "script_sha256": "e2c64f883b654745f713df7cd22d1c7a141a210081b7b0b0ca77dcff722118ed",
+      "status": "ISOLATED_LOADER_REPLAY_MATCHED",
+      "function": "load_latin",
+      "function_ast_sha256": "48faa46e6a97b5185cb5f9f438390fbf665722e8afd164c45b9a51bc6698c5a1",
+      "filter": "PARAGRAPH_ENGLISH_STOPWORDS_LT_0.08",
+      "selected_tokens": 35090,
+      "retained_paragraphs": 840,
+      "selected_sequence_sha256": "0f77dc051c563fd78dd59bdd42a908222e1ac959599ee0e3d23081490914cdaa",
+      "chunking": null
+    },
+    {
+      "script": "experiments/exp_282_word_index_conditioned_mid/script.py",
+      "script_sha256": "b050857216e79830fba9290359abd6394cf5755bab7e9f9ba51c4eeb9edef61d",
+      "status": "ISOLATED_LOADER_REPLAY_MATCHED",
+      "function": "load_latin",
+      "function_ast_sha256": "48faa46e6a97b5185cb5f9f438390fbf665722e8afd164c45b9a51bc6698c5a1",
+      "filter": "PARAGRAPH_ENGLISH_STOPWORDS_LT_0.08",
+      "selected_tokens": 35090,
+      "retained_paragraphs": 840,
+      "selected_sequence_sha256": "0f77dc051c563fd78dd59bdd42a908222e1ac959599ee0e3d23081490914cdaa",
+      "chunking": null
+    },
+    {
+      "script": "experiments/exp_283_pmf_menzerath_sweep/script.py",
+      "script_sha256": "985ccde7f2a17052c1c883f14d6992d8593daa8145e0e4f724de488cd0f4975d",
+      "status": "ISOLATED_LOADER_REPLAY_MATCHED",
+      "function": "load_latin",
+      "function_ast_sha256": "48faa46e6a97b5185cb5f9f438390fbf665722e8afd164c45b9a51bc6698c5a1",
+      "filter": "PARAGRAPH_ENGLISH_STOPWORDS_LT_0.08",
+      "selected_tokens": 35090,
+      "retained_paragraphs": 840,
+      "selected_sequence_sha256": "0f77dc051c563fd78dd59bdd42a908222e1ac959599ee0e3d23081490914cdaa",
+      "chunking": null
+    },
+    {
+      "script": "experiments/exp_284_lf_midfix_restored/script.py",
+      "script_sha256": "c279bba3504cb43449bd158fdbed6080533c18872055d0ee746deefda1cbd9cb",
+      "status": "ISOLATED_LOADER_REPLAY_MATCHED",
+      "function": "load_latin",
+      "function_ast_sha256": "48faa46e6a97b5185cb5f9f438390fbf665722e8afd164c45b9a51bc6698c5a1",
+      "filter": "PARAGRAPH_ENGLISH_STOPWORDS_LT_0.08",
+      "selected_tokens": 35090,
+      "retained_paragraphs": 840,
+      "selected_sequence_sha256": "0f77dc051c563fd78dd59bdd42a908222e1ac959599ee0e3d23081490914cdaa",
+      "chunking": null
+    },
+    {
+      "script": "experiments/exp_285_ll_midfix_rate_sweep/script.py",
+      "script_sha256": "7e9cfaaa087ed85f07b3fee057d45174065e18637ef71990691d8b73cd9f5105",
+      "status": "ISOLATED_LOADER_REPLAY_MATCHED",
+      "function": "load_latin",
+      "function_ast_sha256": "48faa46e6a97b5185cb5f9f438390fbf665722e8afd164c45b9a51bc6698c5a1",
+      "filter": "PARAGRAPH_ENGLISH_STOPWORDS_LT_0.08",
+      "selected_tokens": 35090,
+      "retained_paragraphs": 840,
+      "selected_sequence_sha256": "0f77dc051c563fd78dd59bdd42a908222e1ac959599ee0e3d23081490914cdaa",
+      "chunking": null
+    },
+    {
+      "script": "experiments/exp_286_mid_slope_joint_sweep/script.py",
+      "script_sha256": "3a1ca358f878c2f81590c2033746e028f31bd3f2cc5aa60d448abb173a6cc42b",
+      "status": "ISOLATED_LOADER_REPLAY_MATCHED",
+      "function": "load_latin",
+      "function_ast_sha256": "48faa46e6a97b5185cb5f9f438390fbf665722e8afd164c45b9a51bc6698c5a1",
+      "filter": "PARAGRAPH_ENGLISH_STOPWORDS_LT_0.08",
+      "selected_tokens": 35090,
+      "retained_paragraphs": 840,
+      "selected_sequence_sha256": "0f77dc051c563fd78dd59bdd42a908222e1ac959599ee0e3d23081490914cdaa",
+      "chunking": null
+    },
+    {
+      "script": "experiments/exp_287_suffix_length_gradient/script.py",
+      "script_sha256": "fb189c1f1dbd851706061070cee935fe6025ad735112e7bd7fcd0f0db0539924",
+      "status": "ISOLATED_LOADER_REPLAY_MATCHED",
+      "function": "load_latin",
+      "function_ast_sha256": "48faa46e6a97b5185cb5f9f438390fbf665722e8afd164c45b9a51bc6698c5a1",
+      "filter": "PARAGRAPH_ENGLISH_STOPWORDS_LT_0.08",
+      "selected_tokens": 35090,
+      "retained_paragraphs": 840,
+      "selected_sequence_sha256": "0f77dc051c563fd78dd59bdd42a908222e1ac959599ee0e3d23081490914cdaa",
+      "chunking": null
+    },
+    {
+      "script": "experiments/exp_288_stolfi_onset_decomp/script.py",
+      "script_sha256": "913ae5a8c5abd34f4bd7966aa36950e1b4d96835d5ad06f7f5aad628e27c8b32",
+      "status": "NOT_REPLAYED_NO_UNIQUE_SELECTED_LOADER"
+    },
+    {
+      "script": "experiments/exp_299_ch_sh_anti_succession/script.py",
+      "script_sha256": "28280b1741a93ffb37063463bdb513e1c2ad1a7bd69a8825ff658c606f08e6fa",
+      "status": "ISOLATED_LOADER_REPLAY_MATCHED",
+      "function": "load_latin",
+      "function_ast_sha256": "48faa46e6a97b5185cb5f9f438390fbf665722e8afd164c45b9a51bc6698c5a1",
+      "filter": "PARAGRAPH_ENGLISH_STOPWORDS_LT_0.08",
+      "selected_tokens": 35090,
+      "retained_paragraphs": 840,
+      "selected_sequence_sha256": "0f77dc051c563fd78dd59bdd42a908222e1ac959599ee0e3d23081490914cdaa",
+      "chunking": null
+    },
+    {
+      "script": "experiments/exp_301_r_mid_calibration/script.py",
+      "script_sha256": "b55eec7461e45aa17ad1fe349403c4f5f09a4720a4993ea13ce261eabfb4cd60",
+      "status": "ISOLATED_LOADER_REPLAY_MATCHED",
+      "function": "load_latin",
+      "function_ast_sha256": "48faa46e6a97b5185cb5f9f438390fbf665722e8afd164c45b9a51bc6698c5a1",
+      "filter": "PARAGRAPH_ENGLISH_STOPWORDS_LT_0.08",
+      "selected_tokens": 35090,
+      "retained_paragraphs": 840,
+      "selected_sequence_sha256": "0f77dc051c563fd78dd59bdd42a908222e1ac959599ee0e3d23081490914cdaa",
+      "chunking": null
+    },
+    {
+      "script": "experiments/exp_302_sim_paradigm_diagnostic/script.py",
+      "script_sha256": "65f539a0e626522d8567a510869eb43c9e20da72f30048bf2a5b7e761703b4a2",
+      "status": "ISOLATED_LOADER_REPLAY_MATCHED",
+      "function": "load_latin",
+      "function_ast_sha256": "48faa46e6a97b5185cb5f9f438390fbf665722e8afd164c45b9a51bc6698c5a1",
+      "filter": "PARAGRAPH_ENGLISH_STOPWORDS_LT_0.08",
+      "selected_tokens": 35090,
+      "retained_paragraphs": 840,
+      "selected_sequence_sha256": "0f77dc051c563fd78dd59bdd42a908222e1ac959599ee0e3d23081490914cdaa",
+      "chunking": null
+    },
+    {
+      "script": "experiments/exp_303_finite_vocab_pool/script.py",
+      "script_sha256": "4412e380b4234b21181a57a11b69b7172e6322942c33220f88066d49388e5ba0",
+      "status": "ISOLATED_LOADER_REPLAY_MATCHED",
+      "function": "load_latin",
+      "function_ast_sha256": "48faa46e6a97b5185cb5f9f438390fbf665722e8afd164c45b9a51bc6698c5a1",
+      "filter": "PARAGRAPH_ENGLISH_STOPWORDS_LT_0.08",
+      "selected_tokens": 35090,
+      "retained_paragraphs": 840,
+      "selected_sequence_sha256": "0f77dc051c563fd78dd59bdd42a908222e1ac959599ee0e3d23081490914cdaa",
+      "chunking": null
+    },
+    {
+      "script": "experiments/exp_304_vms_lexicon_battery/script.py",
+      "script_sha256": "d0d6f576be01d061c3f4b6041f3368b311c84d197b91326337598dc37e0804ec",
+      "status": "ISOLATED_LOADER_REPLAY_MATCHED",
+      "function": "load_latin",
+      "function_ast_sha256": "48faa46e6a97b5185cb5f9f438390fbf665722e8afd164c45b9a51bc6698c5a1",
+      "filter": "PARAGRAPH_ENGLISH_STOPWORDS_LT_0.08",
+      "selected_tokens": 35090,
+      "retained_paragraphs": 840,
+      "selected_sequence_sha256": "0f77dc051c563fd78dd59bdd42a908222e1ac959599ee0e3d23081490914cdaa",
+      "chunking": null
+    },
+    {
+      "script": "experiments/exp_305_amlf_seed_check/script.py",
+      "script_sha256": "f4e4badb088e5b96b05090bc5da0bb9805dbfef6f3decbe0daaf7dd2aa241794",
+      "status": "ISOLATED_LOADER_REPLAY_MATCHED",
+      "function": "load_latin",
+      "function_ast_sha256": "0b8eb6a71cc0412adaba31ac3a75aa79c483cdfe7f123339f23e20513cc22889",
+      "filter": "PARAGRAPH_ENGLISH_STOPWORDS_LT_0.08",
+      "selected_tokens": 35090,
+      "retained_paragraphs": 840,
+      "selected_sequence_sha256": "0f77dc051c563fd78dd59bdd42a908222e1ac959599ee0e3d23081490914cdaa",
+      "chunking": null
+    },
+    {
+      "script": "experiments/exp_306_beta_resweep/script.py",
+      "script_sha256": "2e28afe3d5ce822a685e30fbe1d4c364a471aa2f70372a7061246f76f6789246",
+      "status": "ISOLATED_LOADER_REPLAY_MATCHED",
+      "function": "load_latin",
+      "function_ast_sha256": "48faa46e6a97b5185cb5f9f438390fbf665722e8afd164c45b9a51bc6698c5a1",
+      "filter": "PARAGRAPH_ENGLISH_STOPWORDS_LT_0.08",
+      "selected_tokens": 35090,
+      "retained_paragraphs": 840,
+      "selected_sequence_sha256": "0f77dc051c563fd78dd59bdd42a908222e1ac959599ee0e3d23081490914cdaa",
+      "chunking": null
+    },
+    {
+      "script": "experiments/exp_308_menzerath_component_decomp/script.py",
+      "script_sha256": "b1df438a8e6712328f755f1a98e603da513b162ff038cabe18f73e1ee11b37e5",
+      "status": "ISOLATED_LOADER_REPLAY_MATCHED",
+      "function": "load_latin",
+      "function_ast_sha256": "48faa46e6a97b5185cb5f9f438390fbf665722e8afd164c45b9a51bc6698c5a1",
+      "filter": "PARAGRAPH_ENGLISH_STOPWORDS_LT_0.08",
+      "selected_tokens": 35090,
+      "retained_paragraphs": 840,
+      "selected_sequence_sha256": "0f77dc051c563fd78dd59bdd42a908222e1ac959599ee0e3d23081490914cdaa",
+      "chunking": null
+    },
+    {
+      "script": "experiments/exp_309_ll_line_len_conditional/script.py",
+      "script_sha256": "8f506d0f643fddbfd761204df225c704ff0655599b4d6bb617fddfd81c30f678",
+      "status": "ISOLATED_LOADER_REPLAY_MATCHED",
+      "function": "load_latin",
+      "function_ast_sha256": "48faa46e6a97b5185cb5f9f438390fbf665722e8afd164c45b9a51bc6698c5a1",
+      "filter": "PARAGRAPH_ENGLISH_STOPWORDS_LT_0.08",
+      "selected_tokens": 35090,
+      "retained_paragraphs": 840,
+      "selected_sequence_sha256": "0f77dc051c563fd78dd59bdd42a908222e1ac959599ee0e3d23081490914cdaa",
+      "chunking": null
+    },
+    {
+      "script": "experiments/exp_310_ll_suffix_bias_cond/script.py",
+      "script_sha256": "233d5495644acd017b25802ca4ddf76b1316c7bcefb45f2de649b79aa927bdc5",
+      "status": "ISOLATED_LOADER_REPLAY_MATCHED",
+      "function": "load_latin",
+      "function_ast_sha256": "48faa46e6a97b5185cb5f9f438390fbf665722e8afd164c45b9a51bc6698c5a1",
+      "filter": "PARAGRAPH_ENGLISH_STOPWORDS_LT_0.08",
+      "selected_tokens": 35090,
+      "retained_paragraphs": 840,
+      "selected_sequence_sha256": "0f77dc051c563fd78dd59bdd42a908222e1ac959599ee0e3d23081490914cdaa",
+      "chunking": null
+    },
+    {
+      "script": "experiments/exp_311_ll_word_len_filter/script.py",
+      "script_sha256": "0488cc8f7de0a3b229b8ea1b686d132723b607b139577625ba82b29591bf99ae",
+      "status": "ISOLATED_LOADER_REPLAY_MATCHED",
+      "function": "load_latin",
+      "function_ast_sha256": "48faa46e6a97b5185cb5f9f438390fbf665722e8afd164c45b9a51bc6698c5a1",
+      "filter": "PARAGRAPH_ENGLISH_STOPWORDS_LT_0.08",
+      "selected_tokens": 35090,
+      "retained_paragraphs": 840,
+      "selected_sequence_sha256": "0f77dc051c563fd78dd59bdd42a908222e1ac959599ee0e3d23081490914cdaa",
+      "chunking": null
+    },
+    {
+      "script": "experiments/exp_312_mid_beta_cond_n/script.py",
+      "script_sha256": "ff676ef60a8a9153dc6522795f83a94371e1ea7380c343b74cb911fbfa845b34",
+      "status": "ISOLATED_LOADER_REPLAY_MATCHED",
+      "function": "load_latin",
+      "function_ast_sha256": "48faa46e6a97b5185cb5f9f438390fbf665722e8afd164c45b9a51bc6698c5a1",
+      "filter": "PARAGRAPH_ENGLISH_STOPWORDS_LT_0.08",
+      "selected_tokens": 35090,
+      "retained_paragraphs": 840,
+      "selected_sequence_sha256": "0f77dc051c563fd78dd59bdd42a908222e1ac959599ee0e3d23081490914cdaa",
+      "chunking": null
+    },
+    {
+      "script": "experiments/exp_313_ll_bidir_filter/script.py",
+      "script_sha256": "74d50ff6fa191354a8ba0327283ea1c7e88c6b792aa16c2db3db1970087b0a80",
+      "status": "ISOLATED_LOADER_REPLAY_MATCHED",
+      "function": "load_latin",
+      "function_ast_sha256": "48faa46e6a97b5185cb5f9f438390fbf665722e8afd164c45b9a51bc6698c5a1",
+      "filter": "PARAGRAPH_ENGLISH_STOPWORDS_LT_0.08",
+      "selected_tokens": 35090,
+      "retained_paragraphs": 840,
+      "selected_sequence_sha256": "0f77dc051c563fd78dd59bdd42a908222e1ac959599ee0e3d23081490914cdaa",
+      "chunking": null
+    },
+    {
+      "script": "experiments/exp_314_beta_scale_fine/script.py",
+      "script_sha256": "3073e4cde06f22c38be67b2425b683136176cb2004d2a6cff1da5080f48d095f",
+      "status": "ISOLATED_LOADER_REPLAY_MATCHED",
+      "function": "load_latin",
+      "function_ast_sha256": "48faa46e6a97b5185cb5f9f438390fbf665722e8afd164c45b9a51bc6698c5a1",
+      "filter": "PARAGRAPH_ENGLISH_STOPWORDS_LT_0.08",
+      "selected_tokens": 35090,
+      "retained_paragraphs": 840,
+      "selected_sequence_sha256": "0f77dc051c563fd78dd59bdd42a908222e1ac959599ee0e3d23081490914cdaa",
+      "chunking": null
+    },
+    {
+      "script": "experiments/exp_315_idx_thresh_sweep/script.py",
+      "script_sha256": "a6fa4264f7d100d740ec6df37824c439cfa55cb94c05e932fb1d0ee0c68580b9",
+      "status": "ISOLATED_LOADER_REPLAY_MATCHED",
+      "function": "load_latin",
+      "function_ast_sha256": "48faa46e6a97b5185cb5f9f438390fbf665722e8afd164c45b9a51bc6698c5a1",
+      "filter": "PARAGRAPH_ENGLISH_STOPWORDS_LT_0.08",
+      "selected_tokens": 35090,
+      "retained_paragraphs": 840,
+      "selected_sequence_sha256": "0f77dc051c563fd78dd59bdd42a908222e1ac959599ee0e3d23081490914cdaa",
+      "chunking": null
+    },
+    {
+      "script": "experiments/exp_316_cp90_wl_diagnostic/script.py",
+      "script_sha256": "d2da644ffb3070a5104e9ed4a369b098222f597546b0da0f92a93e57b885c15f",
+      "status": "ISOLATED_LOADER_REPLAY_MATCHED",
+      "function": "load_latin",
+      "function_ast_sha256": "48faa46e6a97b5185cb5f9f438390fbf665722e8afd164c45b9a51bc6698c5a1",
+      "filter": "PARAGRAPH_ENGLISH_STOPWORDS_LT_0.08",
+      "selected_tokens": 35090,
+      "retained_paragraphs": 840,
+      "selected_sequence_sha256": "0f77dc051c563fd78dd59bdd42a908222e1ac959599ee0e3d23081490914cdaa",
+      "chunking": null
+    },
+    {
+      "script": "experiments/exp_317_shchd_clamp/script.py",
+      "script_sha256": "d65938a64ccb88c03eff9a33b11a016ba4ffe5fd6798bbf5e5a2d4fff181d4ad",
+      "status": "ISOLATED_LOADER_REPLAY_MATCHED",
+      "function": "load_latin",
+      "function_ast_sha256": "48faa46e6a97b5185cb5f9f438390fbf665722e8afd164c45b9a51bc6698c5a1",
+      "filter": "PARAGRAPH_ENGLISH_STOPWORDS_LT_0.08",
+      "selected_tokens": 35090,
+      "retained_paragraphs": 840,
+      "selected_sequence_sha256": "0f77dc051c563fd78dd59bdd42a908222e1ac959599ee0e3d23081490914cdaa",
+      "chunking": null
+    },
+    {
+      "script": "experiments/exp_318_length_biased_clamp/script.py",
+      "script_sha256": "94794644845c21c1b5d59c97dab3d550c7a184c67a04141570a1c1d0fe33d016",
+      "status": "ISOLATED_LOADER_REPLAY_MATCHED",
+      "function": "load_latin",
+      "function_ast_sha256": "48faa46e6a97b5185cb5f9f438390fbf665722e8afd164c45b9a51bc6698c5a1",
+      "filter": "PARAGRAPH_ENGLISH_STOPWORDS_LT_0.08",
+      "selected_tokens": 35090,
+      "retained_paragraphs": 840,
+      "selected_sequence_sha256": "0f77dc051c563fd78dd59bdd42a908222e1ac959599ee0e3d23081490914cdaa",
+      "chunking": null
+    },
+    {
+      "script": "experiments/exp_574_arch_negative_control/script.py",
+      "script_sha256": "a03282a0aa96603c5a2e5f4a6dec0234e9b1830bbfe985f224bf623ed6801391",
+      "status": "ISOLATED_LOADER_REPLAY_MATCHED",
+      "function": "load_latin",
+      "function_ast_sha256": "48faa46e6a97b5185cb5f9f438390fbf665722e8afd164c45b9a51bc6698c5a1",
+      "filter": "PARAGRAPH_ENGLISH_STOPWORDS_LT_0.08",
+      "selected_tokens": 35090,
+      "retained_paragraphs": 840,
+      "selected_sequence_sha256": "0f77dc051c563fd78dd59bdd42a908222e1ac959599ee0e3d23081490914cdaa",
+      "chunking": null
+    },
+    {
+      "script": "experiments/exp_575_arch_refit_shuffle/script.py",
+      "script_sha256": "b8117da5a5c7f1aa07b24a926bf52e947093eb5174ce5c062d9e8c9c58bdbbba",
+      "status": "ISOLATED_LOADER_REPLAY_MATCHED",
+      "function": "load_latin",
+      "function_ast_sha256": "48faa46e6a97b5185cb5f9f438390fbf665722e8afd164c45b9a51bc6698c5a1",
+      "filter": "PARAGRAPH_ENGLISH_STOPWORDS_LT_0.08",
+      "selected_tokens": 35090,
+      "retained_paragraphs": 840,
+      "selected_sequence_sha256": "0f77dc051c563fd78dd59bdd42a908222e1ac959599ee0e3d23081490914cdaa",
+      "chunking": null
+    },
+    {
+      "script": "experiments/exp_576_param_stability/script.py",
+      "script_sha256": "be953cc83a65fd73fcbb04168f49266a777b6b541db7f738370e3d85775a4dc6",
+      "status": "ISOLATED_LOADER_REPLAY_MATCHED",
+      "function": "load_latin",
+      "function_ast_sha256": "48faa46e6a97b5185cb5f9f438390fbf665722e8afd164c45b9a51bc6698c5a1",
+      "filter": "PARAGRAPH_ENGLISH_STOPWORDS_LT_0.08",
+      "selected_tokens": 35090,
+      "retained_paragraphs": 840,
+      "selected_sequence_sha256": "0f77dc051c563fd78dd59bdd42a908222e1ac959599ee0e3d23081490914cdaa",
+      "chunking": null
+    },
+    {
+      "script": "experiments/exp_577_q007_adjrate_decomp/script.py",
+      "script_sha256": "c80df5d94a2d998b811363aaa5c85f0f923e5f3a69a52f617d3abb0de4bb1032",
+      "status": "NOT_REPLAYED_NO_UNIQUE_SELECTED_LOADER"
+    },
+    {
+      "script": "experiments/exp_578_q007_copybuf_diag/script.py",
+      "script_sha256": "eaa0751c76f0c7fdca67d17f8b6277da75b89d1c67825f7108cbc59a475771a6",
+      "status": "ISOLATED_LOADER_REPLAY_MATCHED",
+      "function": "load_latin",
+      "function_ast_sha256": "48faa46e6a97b5185cb5f9f438390fbf665722e8afd164c45b9a51bc6698c5a1",
+      "filter": "PARAGRAPH_ENGLISH_STOPWORDS_LT_0.08",
+      "selected_tokens": 35090,
+      "retained_paragraphs": 840,
+      "selected_sequence_sha256": "0f77dc051c563fd78dd59bdd42a908222e1ac959599ee0e3d23081490914cdaa",
+      "chunking": null
+    },
+    {
+      "script": "experiments/exp_582_battery_correlation_matrix/script.py",
+      "script_sha256": "2903c63983098e9cec8703824b8c772418181008f36cd632e06a8c4f355bf706",
+      "status": "ISOLATED_LOADER_REPLAY_MATCHED",
+      "function": "load_latin",
+      "function_ast_sha256": "48faa46e6a97b5185cb5f9f438390fbf665722e8afd164c45b9a51bc6698c5a1",
+      "filter": "PARAGRAPH_ENGLISH_STOPWORDS_LT_0.08",
+      "selected_tokens": 35090,
+      "retained_paragraphs": 840,
+      "selected_sequence_sha256": "0f77dc051c563fd78dd59bdd42a908222e1ac959599ee0e3d23081490914cdaa",
+      "chunking": null
+    },
+    {
+      "script": "experiments/exp_584_nonvms_specificity/script.py",
+      "script_sha256": "00d992673e62f87cf6e4050204cfed5132ecdd92b113ea23439b60949fcc6acc",
+      "status": "ISOLATED_LOADER_REPLAY_MATCHED",
+      "function": "extract_latin_words",
+      "function_ast_sha256": "ee02c70f9f31d79c94cf250e409f11ebedef245fdb789685b2fe2fb8be65f58e",
+      "filter": "PARAGRAPH_ENGLISH_STOPWORDS_LT_0.08",
+      "selected_tokens": 32711,
+      "retained_paragraphs": 543,
+      "selected_sequence_sha256": "48abc96531f13b6fb186e43e37d5dd3e5e3b30c34668584eb5d48c9ecf4c8150",
+      "chunking": null
+    },
+    {
+      "script": "experiments/exp_585_nonvms_specificity_v2/script.py",
+      "script_sha256": "6c58fcb1a43893f54514765b7c4bc8b227bb63d5f844925b9e4470f0a4ca0968",
+      "status": "ISOLATED_LOADER_REPLAY_MATCHED",
+      "function": "extract_latin_words",
+      "function_ast_sha256": "0e2fe08261469f5654366c87555733196420160c14f9aea7ffcfb962bcfe520e",
+      "filter": "PARAGRAPH_ENGLISH_STOPWORDS_LT_0.08",
+      "selected_tokens": 32765,
+      "retained_paragraphs": 547,
+      "selected_sequence_sha256": "c1c7477196ff07b6d4b34fc11499fc90f6cdf58e39134019689d37c697559107",
+      "chunking": null
+    }
+  ],
+  "limits": [
+    "No experiment module body, simulation or historical result was executed.",
+    "Replay proves loader behavior on frozen input, not that a historical run used it.",
+    "Stopword filtering is not language adjudication. Evidence excerpts require human review.",
+    "Four scripts without a selected loader remain unresolved; transitive imports are outside scope."
+  ],
+  "static_remaining_cases": [
+    {
+      "script": "experiments/exp_266_onset_lag_enrichment/script.py",
+      "script_sha256": "5cb67755e0b43abc413ce6ee7a5844c77c6bd40e662a7b6a2929187dd2c106ee",
+      "path_variable": "LATIN_CORPUS",
+      "ast_name_load_lines": [],
+      "manual_source_review": "DECLARED_NO_AST_NAME_LOAD",
+      "limit": "Static source review, not execution or transitive/dynamic use analysis."
+    },
+    {
+      "script": "experiments/exp_577_q007_adjrate_decomp/script.py",
+      "script_sha256": "c80df5d94a2d998b811363aaa5c85f0f923e5f3a69a52f617d3abb0de4bb1032",
+      "path_variable": "LATIN_CORPUS",
+      "ast_name_load_lines": [],
+      "manual_source_review": "DECLARED_NO_AST_NAME_LOAD",
+      "limit": "Static source review, not execution or transitive/dynamic use analysis."
+    },
+    {
+      "script": "experiments/exp_267_word_length_position/script.py",
+      "script_sha256": "f4197d8c18802d9d54def8d13f5ab83967d94c82f78427e77b67d92720ba4f44",
+      "path_variable": "LATIN_CORPUS",
+      "ast_name_load_lines": [
+        274
+      ],
+      "manual_source_review": "INLINE_READ_NO_LANGUAGE_FILTER",
+      "limit": "Static source review, not execution or transitive/dynamic use analysis."
+    },
+    {
+      "script": "experiments/exp_288_stolfi_onset_decomp/script.py",
+      "script_sha256": "913ae5a8c5abd34f4bd7966aa36950e1b4d96835d5ad06f7f5aad628e27c8b32",
+      "path_variable": "LATIN_PATH",
+      "ast_name_load_lines": [
+        359,
+        385
+      ],
+      "manual_source_review": "INLINE_READ_NO_LANGUAGE_FILTER",
+      "limit": "Static source review, not execution or transitive/dynamic use analysis."
+    },
+    {
+      "script": "experiments/exp_031_qo_stripping/script.py",
+      "script_sha256": "085a574cd853173dd8034af877582a38204a9c6c5edbf03476f37fa60d71fd50",
+      "path_variable": "LATIN",
+      "ast_name_load_lines": [],
+      "manual_source_review": "DECLARED_NO_AST_NAME_LOAD_DIFFERENT_LEGACY_PATH",
+      "limit": "Static source review, not execution or transitive/dynamic use analysis."
+    },
+    {
+      "script": "experiments/exp_001_word_initial_entropy/script.py",
+      "script_sha256": "91cb9febee7752d56fe91eeaa43155590b405b46cdd18330acb9271fd7816f59",
+      "path_variable": null,
+      "ast_name_load_lines": [],
+      "manual_source_review": "VULGATE_PASSED_TO_GENERIC_TOKENIZER",
+      "limit": "Static source review, not execution or transitive/dynamic use analysis."
+    },
+    {
+      "script": "experiments/exp_170_naibbe_simulation/script.py",
+      "script_sha256": "8fe0f7d153211b320b34ca8543dac1ba029e629c4413c203fb2df0031063721c",
+      "path_variable": "LATIN_CORPUS",
+      "ast_name_load_lines": [
+        308
+      ],
+      "manual_source_review": "VULGATE_PASSED_TO_LINE_LOADER",
+      "limit": "Static source review, not execution or transitive/dynamic use analysis."
+    }
+  ]
+}

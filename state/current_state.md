@@ -1,3 +1,5 @@
+> **Auditoría de lectores — 22-10-2026:** [96 lectores históricos de Cicero reproducidos de forma aislada](../research/maintenance/2026-10-22-loader-audit/REPORT.md), seis secuencias de entrada distintas y cuatro casos revisados estáticamente. Los filtros dejan pasar material editorial; EXP259/260 cargan ambos idiomas. Esto no reproduce ni invalida en bloque las simulaciones históricas.
+
 > **Actualización pública — 22-10-2026:** el bloque inicialmente privado de orden residual está integrado en [una reproducción conjunta](../research/analysis/2026-10-22-residual-order/README.md). La revisión de identidad de corpus es canónica en `research/CORPUS_IDENTITY_REVIEW.json`. Esto no resuelve automáticamente sus 103 referencias históricas ni la conformidad IVTFF.
 
 # Current State — Voynich Cryptanalyst

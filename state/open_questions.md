@@ -1,3 +1,7 @@
+## Revisión de entradas bilingües — 2026-10-22
+
+La [auditoría de lectores](../research/maintenance/2026-10-22-loader-audit/REPORT.md) reproduce 96 funciones aisladas. EXP259/260 tokenizan el Cicero bilingüe sin separar idiomas; los filtros de otros scripts conservan material editorial e índices. Queda por medir el efecto sobre resultados y afirmaciones históricas y reproducir los consumidores revisados solo estáticamente. No se han reproducido las simulaciones ni modificado compromisos; no se afirma una contradicción numérica con sus salidas.
+
 # Open Questions
 # Cryptanalyst — Voynich Manuscript Investigation
 # Questions that require human judgment, domain expertise, missing tools, or a dataset not currently available.

@@ -103,3 +103,5 @@ Cada conclusión debe apuntar a script, corpus/transcripción, hash, unidad de a
 ## Criterio de calidad institucional
 
 El repositorio todavía no se declara completamente limpio: persisten la discrepancia de tokenización, colisiones de IDs entre GitHub y la Biblioteca, y ejecuciones CI cuya confirmación debe comprobarse. La norma de integridad define el orden de cierre. No se borrarán datos históricos ni se publicarán como validados resultados afectados por defectos conocidos.
+
+Auditoría del 22-10-2026: [lectores históricos de Cicero, selección efectiva y límites](research/maintenance/2026-10-22-loader-audit/REPORT.md).

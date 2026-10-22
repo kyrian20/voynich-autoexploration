@@ -563,3 +563,5 @@
 2026-10-22 | Sin EXP nuevo: 16 controles exactos de daiin→dam preservando posición/bordes; controles de ambos bordes esperan 7–7,5 de 8 parejas y solo 1–2 registros varían. No se admite ancla semántica. Reproducido byte a byte un driver externo fijado; revisión de fuentes primarias y límites de paquete/preprocesado. Reporte: research/decipherment/2026-10-22-constrained-pair/REPORT.md.
 
 2026-10-22 | Sin EXP nuevo: integración pública autorizada del bloque privado de orden residual; fuentes canónicas sin duplicados crudos, revisión de identidad de corpus, runner conjunto V1/V2 y reproducción en Voynich Check. Las cifras científicas permanecen idénticas al paquete original; corpus históricos pendientes de adjudicar. Ruta: research/analysis/2026-10-22-residual-order/.
+
+2026-10-22 — Auditoría de entradas históricas, sin EXP nuevo: 100 referencias Cicero; 96 lectores aislados reproducidos, seis secuencias, cuatro casos pendientes. Se preservan corpus y resultados. Informe: research/maintenance/2026-10-22-loader-audit/REPORT.md.
