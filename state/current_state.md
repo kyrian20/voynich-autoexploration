@@ -301,3 +301,15 @@ Two workflows that commit generated results to `master` used separate GitHub Act
 - Ejecución inicial del workflow: [39729111827](https://github.com/kyrian20/voynich-autoexploration/actions/runs/39729111827), iniciada en el commit `40e636cd7815f0b2de5d10d5ea6b7a47f1ad645d`; al redactar esta nota, el paso del primer análisis seguía en curso. No declarar reproducción completa hasta que termine y se comparen los outputs con los JSON piloto.
 - El workflow de comprobaciones ordinarias para ese mismo commit es [39729111832](https://github.com/kyrian20/voynich-autoexploration/actions/runs/39729111832), observado completado con éxito. La reproducción científica es un control separado y aún no se considera validada.
 - Los scripts compilan en Python 3.12. Esto solo valida sintaxis; no constituye por sí mismo reproducción de resultados.
+
+
+## LIB-EXP-623 pilot reproduction completed — 2026-10-22
+
+- The isolated Actions reproduction completed successfully: [run 39729111827](https://github.com/kyrian20/voynich-autoexploration/actions/runs/39729111827), workflow commit `40e636cd7815f0b2de5d10d5ea6b7a47f1ad645d`. Both source-blob verification, script compilation, both analysis runs, and artifact upload passed.
+- Exact transcription blob identities were verified in the workflow: ZL3b `2a4533ab9bdfa85db9bad602d590978953055df1` (411,671 bytes); IT2a `4d6d3f2537b1f507a257529b49c94af7d6e03446` (342,104 bytes).
+- Endpoint-preserving pilot: ZL3b 3,879 loci / 32,959 tokens and IT2a 3,881 / 33,380; the 10-split mean/median/range and categorical outcomes match the saved JS pilot within floating-point rounding. Both transcriptions have 10/10 splits above the null q95 and maximum.
+- All-token shuffle pilot: ZL3b 5,376 loci / 39,298 tokens and IT2a 5,207 / 37,945; counts and categorical outcomes match exactly, with mean-loss differences around 10^-15 bits/token. Original sequence loss is lower in 3/20 ZL3b splits and 0/20 IT2a splits; shuffles have lower loss than original in 76.9% and 98.8% of draws.
+- These are distinct protocols: one refits the model under an endpoint-preserving interior-shuffle null; the other scores all-token-shuffled test sequences against a model fit to original training sequences. Do not combine their statistics. Neither supports semantic decipherment; the two transcriptions are not independent manuscripts.
+- Durable comparison note: `research/reproduction/EXP623_REPRODUCTION_COMPARISON_2026-10-22.md`. Immutable run artifact ID 12404740024 contains both reproduced JSON outputs and their SHA-256 values are recorded in the comparison note.
+- This closes the execution-provenance gap for these two Library pilots only. Full Library↔GitHub byte-level reconciliation, seven internal duplicate GitHub folder IDs, and independent IVTFF parser audit remain open. No original Library pilot was overwritten, renamed, merged or deleted; no new EXP ID was assigned.
+- Verify the latest Voynich Check for this state update and the collision-register update before claiming the current HEAD has passed CI.
