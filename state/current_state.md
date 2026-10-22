@@ -283,3 +283,12 @@ Two workflows that commit generated results to `master` used separate GitHub Act
 - La síntesis de GitHub EXP-621 sobre ch/sh mantiene pendientes el holdout por sección, la revisión completa de multiplicidad y la auditoría independiente del parser. Los análisis de sensibilidad correlacionados no deben contarse como réplicas independientes.
 - No se renombró, fusionó, borró ni sobrescribió ningún original. No se asignó ningún EXP ID nuevo. El SHA-256 manifest sigue limitado a diez archivos; los emparejamientos binarios y la reproducción exacta de EXP-623 siguen abiertos.
 - Tras este commit, comprobar el estado de Actions del HEAD más reciente; no inferir CI verde a partir de ejecuciones anteriores.
+
+
+## Cierre del triage semántico de IDs compartidos — 2026-10-22
+
+- La última pasada revisó los seis IDs restantes del solapamiento (EXP-589, 594, 596, 597, 622 y 624). El registro documenta ahora discrepancias semánticas de tema/método para los **34 de 34 grupos** con ID compartido entre Biblioteca y GitHub.
+- Esto cierra el triage semántico por títulos y protocolos, no la auditoría binaria: aún faltan hashes de contenido comparables para todos los candidatos, emparejamiento script→JSON→informe y reproducción exacta de los pilotos LIB-EXP-623.
+- EXP-594, EXP-596 y EXP-597 tienen además más de una carpeta GitHub bajo el mismo número; no fusionar las carpetas. Persisten siete IDs de carpeta duplicados internamente: 177, 594, 596, 597, 600, 601 y 602.
+- No se modificaron ni renombraron artefactos experimentales originales; no se asignó ningún ID nuevo. El manifiesto SHA-256 sigue siendo un checkpoint de diez archivos, no una cobertura total.
+- El nuevo commit de cierre del registro debe pasar su propio Voynich Check antes de considerar CI del HEAD verde.
