@@ -172,3 +172,26 @@ Se volvió a leer el resultado versionado `experiments/exp_602_independent_ivtff
 Esto respalda **consistencia entre estas dos implementaciones concretas**, pero no equivale a validación oficial completa de IVTFF 2.0.2: el propio resultado documenta que ambas implementaciones tuvieron que corregirse en versiones previas y que la conformidad requiere fixtures independientes adjudicados contra la especificación. La auditoría ligera `exp_600_ivtff_parser_conformance` informa cero anomalías estructurales de las categorías que comprueba en ZL3b, ZL3a e IT2a, pero declara explícitamente que no es un validador oficial completo.
 
 **Decisión de control:** no se desbloquea todavía el uso del parser como fundamento único para conclusiones científicas confirmatorias. Mantener los resultados exploratorios con sus hashes, y exigir fixtures de delimitadores, alternativas vacías/no vacías, spans de incertidumbre, comentarios `<!…>`, continuaciones y cabeceras antes de elevar el estado de validación.
+
+## Inventario exacto de colisiones de identificadores — 2026-10-22
+
+Se recalculó el inventario directamente desde el árbol recursivo de `master` (2.127 rutas; el árbol no aparece truncado). Las siete colisiones de directorios de experimentos son:
+
+| ID repetido | Directorio A | Directorio B |
+|---|---|---|
+| 177 | `experiments/exp_177_position_sensitive_cipher` | `experiments/exp_177_verify` |
+| 594 | `experiments/exp_594_daiin_explicit_paragraph_markers` | `experiments/exp_594_daiin_paragraph_start` |
+| 596 | `experiments/exp_596_daiin_position_controls` | `experiments/exp_596_zl3a_zl3b_line_level_audit` |
+| 597 | `experiments/exp_597_daiin_frequency_control_words` | `experiments/exp_597_initial_form_next_token_context` |
+| 600 | `experiments/exp_600_ivtff_parser_conformance` | `experiments/exp_600_transcription_concordance` |
+| 601 | `experiments/exp_601_folio_clustered_confirmation` | `experiments/exp_601_primary_statistic_paired_sensitivity` |
+| 602 | `experiments/exp_602_heldout_predictive_test` | `experiments/exp_602_independent_ivtff_parser_audit` |
+
+**Decisión de integridad:** no renombrar directorios, reescribir referencias ni reutilizar estos números. Antes de reconciliar cada colisión hay que buscar referencias cruzadas en scripts, informes, workflows, índices y registros históricos; después, preparar un mapa de migración revisable y comprobar que no cambia hashes ni resultados de experimentos. Los nombres completos de directorio son por ahora el identificador inequívoco. Este inventario describe el árbol actual de GitHub, no una reconciliación con una copia local o una biblioteca externa.
+
+## Puertas de validación que siguen abiertas
+
+- La comprobación `Voynich Check #531` para el commit `cadb2e866a9dc68ea1a9f4ab8fcd61894519b0f1` terminó en **success**. Eso confirma que pasan las comprobaciones configuradas en ese workflow, incluida la prueba de regresión `tests/test_ivtff_metadata.py`; no equivale a validación completa del formato IVTFF.
+- La prueba de tokens existente cubre comentarios, alternativas primarias, alternativas vacías, anotaciones entre llaves, marcadores `@n`, marcadores de párrafo/dibujo y corchetes malformados. Aún se necesita ampliar las fixtures independientes y contrastarlas con el documento oficial antes de considerar cerrada la conformidad.
+- No iniciar todavía una clasificación confirmatoria Currier A/B: primero completar fixtures de formato, validar las etiquetas `$L` y mantener todos los folios enteros dentro de una sola partición de evaluación.
+
