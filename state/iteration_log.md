@@ -557,3 +557,5 @@
 2026-10-19 | exp_616/619/621 partials | Numeric folio-block omission kept pooled ch/sh contrast positive, but preceding-character control is similarly large or larger; treat template/local-context confounding as a live alternative. Interim report added; full multiple-testing and independent parser audits remain open.
 
 2026-10-22 | Sin EXP nuevo: auditoría por bytes de 1.534 archivos, manifiesto de 14 corpus y ocho controles de duplicación EXP-607 (cero líneas compartidas); control exploratorio daiin→dam en cuatro vistas P0 (8 parejas, esperanza nula 2,09–2,63). Protocolos, hashes, scripts y límites en research/maintenance/2026-10-22-duplicate-control/ y research/decipherment/2026-10-22-daiin-dam-control/. Sin actualización de hallazgos semánticos.
+
+2026-10-22 | Sin EXP nuevo: endurecida validación de manifiesto frente a duplicados y campos inválidos; distribución racional exacta del mismo nulo daiin→dam, contrastada por enumeración exhaustiva hasta longitud seis. Datos y ocho lugares intactos; selección retrospectiva y límites semánticos conservados. Informe: research/maintenance/2026-10-22-precision-review/REPORT.md.

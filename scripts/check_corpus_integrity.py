@@ -2,12 +2,46 @@
 """Fail on unreviewed corpus changes, additions, removals or empty inputs."""
 import hashlib
 import json
+import re
 from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 MANIFEST = ROOT / 'research/CORPUS_INPUT_MANIFEST.json'
 
 
+def unique_keys(pairs):
+    result = {}
+    for key, value in pairs:
+        if key in result:
+            raise ValueError(f'Duplicate JSON key: {key}')
+        result[key] = value
+    return result
+
+
 def verify(root, manifest):
+    files = manifest.get('files') if isinstance(manifest, dict) else None
+    if not isinstance(files, list) or not files:
+        return ['Manifest requires a nonempty files list']
+    seen, schema_errors = set(), []
+    statuses = {'FROZEN_BYTES_NOT_SCIENTIFICALLY_VALIDATED', 'BLOCKED_EMPTY_DO_NOT_USE'}
+    for entry in files:
+        if not isinstance(entry, dict):
+            schema_errors.append('Manifest entry must be an object')
+            continue
+        name = entry.get('path')
+        if not isinstance(name, str) or not re.fullmatch(r'data/(?:transcriptions|reference_corpora)/[^\\]+\.txt', name) or '..' in Path(name).parts:
+            schema_errors.append(f'Invalid corpus path: {name}')
+            continue
+        if name in seen:
+            schema_errors.append(f'Duplicate manifest path: {name}')
+        seen.add(name)
+        if type(entry.get('bytes')) is not int or entry['bytes'] < 0:
+            schema_errors.append(f'Invalid byte size: {name}')
+        if not isinstance(entry.get('sha256'), str) or not re.fullmatch('[0-9a-f]{64}', entry['sha256']):
+            schema_errors.append(f'Invalid SHA-256: {name}')
+        if entry.get('status') not in statuses:
+            schema_errors.append(f'Invalid corpus status: {name}')
+    if schema_errors:
+        return schema_errors
     expected = {entry['path']: entry for entry in manifest['files']}
     actual = {p.relative_to(root).as_posix() for folder in ('data/transcriptions','data/reference_corpora')
               for p in (root/folder).rglob('*.txt') if p.is_file()}
@@ -26,7 +60,7 @@ def verify(root, manifest):
 
 
 if __name__=='__main__':
-    manifest=json.loads(MANIFEST.read_text())
+    manifest=json.loads(MANIFEST.read_text(), object_pairs_hook=unique_keys)
     errors=verify(ROOT,manifest)
     print(json.dumps({'files_checked':len(manifest['files']), 'errors':errors,
         'quarantined':[x['path'] for x in manifest['files'] if x['status']=='BLOCKED_EMPTY_DO_NOT_USE'],

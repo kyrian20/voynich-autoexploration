@@ -1,10 +1,11 @@
 import hashlib
+import json
 import sys
 import tempfile
 from pathlib import Path
 import unittest
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
-from scripts.check_corpus_integrity import verify
+from scripts.check_corpus_integrity import verify, unique_keys
 class CorpusIntegrity(unittest.TestCase):
     def test_mutation_missing_and_unregistered_input_rejected(self):
         with tempfile.TemporaryDirectory() as d:
@@ -23,4 +24,20 @@ class CorpusIntegrity(unittest.TestCase):
             self.assertTrue(verify(root,{'files':[entry]}))
             entry['status']='BLOCKED_EMPTY_DO_NOT_USE'
             self.assertEqual(verify(root,{'files':[entry]}),[])
+    def test_duplicate_manifest_paths_rejected(self):
+        entry={'path':'data/transcriptions/x.txt','bytes':0,'sha256':hashlib.sha256(b'').hexdigest(),'status':'BLOCKED_EMPTY_DO_NOT_USE'}
+        with tempfile.TemporaryDirectory() as d:
+            errors=verify(Path(d),{'files':[entry,dict(entry)]})
+            self.assertTrue(any('Duplicate manifest path' in e for e in errors))
+    def test_invalid_manifest_fields_rejected(self):
+        entry={'path':'data/transcriptions/x.txt','bytes':0,'sha256':hashlib.sha256(b'').hexdigest(),'status':'BLOCKED_EMPTY_DO_NOT_USE'}
+        cases=[('bytes',True),('bytes',-1),('sha256','bad'),('status','VALIDATED'),('path','data/transcriptions/../x.txt')]
+        with tempfile.TemporaryDirectory() as d:
+            for key,value in cases:
+                with self.subTest(field=key,value=value):
+                    changed=dict(entry);changed[key]=value
+                    self.assertTrue(verify(Path(d),{'files':[changed]}))
+    def test_duplicate_json_keys_rejected(self):
+        with self.assertRaises(ValueError):
+            json.loads('{"files": [], "files": []}',object_pairs_hook=unique_keys)
 if __name__=='__main__': unittest.main()

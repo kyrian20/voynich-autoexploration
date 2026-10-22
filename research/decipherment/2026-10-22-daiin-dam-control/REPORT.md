@@ -1,5 +1,7 @@
 # daiin dam: primer control local con denominadores
 
+> Precisión posterior: las colas Monte Carlo de este informe se conservan como históricas. Para valores exactos del mismo nulo y revisión de límites, consultar [revisión de precisión](../../maintenance/2026-10-22-precision-review/REPORT.md).
+
 **Estado: análisis exploratorio ejecutado; no traducción ni confirmación independiente.**
 
 Se continúa el inventario previo de ocho lugares, sin repetirlo como un experimento nuevo. Se conserva la unidad de registro P0; no se atraviesan límites de línea.

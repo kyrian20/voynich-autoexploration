@@ -1,0 +1,583 @@
+{
+  "status": "EXPLORATORY_EXACT_NULL_NOT_CONFIRMATORY",
+  "protocol": "research/maintenance/2026-10-22-precision-review/PROTOCOL.md",
+  "protocol_sha256": "b40694933871cf1575449c03548a2023ab86fa3ca595481a5489e838e4317f5a",
+  "views": [
+    {
+      "transcription": "ZL3b",
+      "space_policy": "split",
+      "source": "data/transcriptions/eva_zl3b.txt",
+      "source_sha256": "bf5b6d4ac1e3a51b1847a9c388318d609020441ccd56984c901c32b09beccafc",
+      "active_records": 15,
+      "observed_pairs": 8,
+      "matches": [
+        {
+          "id": "f11v.2",
+          "count": 1
+        },
+        {
+          "id": "f22v.8",
+          "count": 1
+        },
+        {
+          "id": "f23r.2",
+          "count": 1
+        },
+        {
+          "id": "f32r.8",
+          "count": 1
+        },
+        {
+          "id": "f34r.12",
+          "count": 1
+        },
+        {
+          "id": "f42r.14",
+          "count": 1
+        },
+        {
+          "id": "f89r1.17",
+          "count": 1
+        },
+        {
+          "id": "f105r.24",
+          "count": 1
+        }
+      ],
+      "exact_expected_count": {
+        "numerator": "3425",
+        "denominator": "1638",
+        "decimal": 2.090964590964591
+      },
+      "exact_exploratory_tail": {
+        "numerator": "286929911",
+        "denominator": "1088242646400",
+        "decimal": 0.0002636635422708242
+      },
+      "distribution": {
+        "0": {
+          "numerator": "2509056",
+          "denominator": "24990875",
+          "decimal": 0.10039888559324153
+        },
+        "1": {
+          "numerator": "223210944",
+          "denominator": "874680625",
+          "decimal": 0.2551913665630812
+        },
+        "2": {
+          "numerator": "258496044",
+          "denominator": "874680625",
+          "decimal": 0.2955319194363085
+        },
+        "3": {
+          "numerator": "1629556868",
+          "denominator": "7872125625",
+          "decimal": 0.20700341249953058
+        },
+        "4": {
+          "numerator": "30907921",
+          "denominator": "314885025",
+          "decimal": 0.09815621114405171
+        },
+        "5": {
+          "numerator": "18933893759",
+          "denominator": "566793045000",
+          "decimal": 0.03340530362188901
+        },
+        "6": {
+          "numerator": "114772333511",
+          "denominator": "13603033080000",
+          "decimal": 0.008437260487129537
+        },
+        "7": {
+          "numerator": "14618518657",
+          "denominator": "9068688720000",
+          "decimal": 0.0016119771124970313
+        },
+        "8": {
+          "numerator": "11513205139",
+          "denominator": "48970919088000",
+          "decimal": 0.00023510290093414307
+        },
+        "9": {
+          "numerator": "229112749",
+          "denominator": "8744806980000",
+          "decimal": 2.6199863476003218e-05
+        },
+        "10": {
+          "numerator": "45189121",
+          "denominator": "20404549620000",
+          "decimal": 2.2146590756262915e-06
+        },
+        "11": {
+          "numerator": "11391077",
+          "denominator": "81618198480000",
+          "decimal": 1.3956540590382312e-07
+        },
+        "12": {
+          "numerator": "103693",
+          "denominator": "16323639696000",
+          "decimal": 6.35232104672154e-09
+        },
+        "13": {
+          "numerator": "8051",
+          "denominator": "40809099240000",
+          "decimal": 1.9728443288227794e-10
+        },
+        "14": {
+          "numerator": "229",
+          "denominator": "61213648860000",
+          "decimal": 3.740995746287555e-12
+        },
+        "15": {
+          "numerator": "1",
+          "denominator": "30606824430000",
+          "decimal": 3.2672451932642394e-14
+        }
+      },
+      "exact_exploratory_Holm_four_views": {
+        "numerator": "656542253",
+        "denominator": "654735312000",
+        "decimal": 0.0010027598037968663
+      }
+    },
+    {
+      "transcription": "ZL3b",
+      "space_policy": "join",
+      "source": "data/transcriptions/eva_zl3b.txt",
+      "source_sha256": "bf5b6d4ac1e3a51b1847a9c388318d609020441ccd56984c901c32b09beccafc",
+      "active_records": 14,
+      "observed_pairs": 8,
+      "matches": [
+        {
+          "id": "f11v.2",
+          "count": 1
+        },
+        {
+          "id": "f22v.8",
+          "count": 1
+        },
+        {
+          "id": "f23r.2",
+          "count": 1
+        },
+        {
+          "id": "f32r.8",
+          "count": 1
+        },
+        {
+          "id": "f34r.12",
+          "count": 1
+        },
+        {
+          "id": "f42r.14",
+          "count": 1
+        },
+        {
+          "id": "f89r1.17",
+          "count": 1
+        },
+        {
+          "id": "f105r.24",
+          "count": 1
+        }
+      ],
+      "exact_expected_count": {
+        "numerator": "14867",
+        "denominator": "6930",
+        "decimal": 2.1453102453102453
+      },
+      "exact_exploratory_tail": {
+        "numerator": "656542253",
+        "denominator": "2618941248000",
+        "decimal": 0.0002506899509492166
+      },
+      "distribution": {
+        "0": {
+          "numerator": "1331",
+          "denominator": "14580",
+          "decimal": 0.09128943758573388
+        },
+        "1": {
+          "numerator": "564707",
+          "denominator": "2296350",
+          "decimal": 0.24591503908376336
+        },
+        "2": {
+          "numerator": "3938820721",
+          "denominator": "13226976000",
+          "decimal": 0.2977869409455343
+        },
+        "3": {
+          "numerator": "102450357787",
+          "denominator": "476171136000",
+          "decimal": 0.21515448972320741
+        },
+        "4": {
+          "numerator": "43481918969",
+          "denominator": "419030599680",
+          "decimal": 0.10376788473730969
+        },
+        "5": {
+          "numerator": "370740207841",
+          "denominator": "10475764992000",
+          "decimal": 0.035390275375986595
+        },
+        "6": {
+          "numerator": "30778983313",
+          "denominator": "3491921664000",
+          "decimal": 0.008814339574199566
+        },
+        "7": {
+          "numerator": "1898328533",
+          "denominator": "1163973888000",
+          "decimal": 0.001630903023315932
+        },
+        "8": {
+          "numerator": "157547087",
+          "denominator": "698384332800",
+          "decimal": 0.00022558794577815593
+        },
+        "9": {
+          "numerator": "2459677",
+          "denominator": "105815808000",
+          "decimal": 2.324489172733057e-05
+        },
+        "10": {
+          "numerator": "6141307",
+          "denominator": "3491921664000",
+          "decimal": 1.758718433839414e-06
+        },
+        "11": {
+          "numerator": "12269",
+          "denominator": "129330432000",
+          "decimal": 9.486553017931619e-08
+        },
+        "12": {
+          "numerator": "3617",
+          "denominator": "1047576499200",
+          "decimal": 3.452731139694509e-09
+        },
+        "13": {
+          "numerator": "199",
+          "denominator": "2618941248000",
+          "decimal": 7.598490426311388e-11
+        },
+        "14": {
+          "numerator": "1",
+          "denominator": "1309470624000",
+          "decimal": 7.636673795287828e-13
+        }
+      },
+      "exact_exploratory_Holm_four_views": {
+        "numerator": "656542253",
+        "denominator": "654735312000",
+        "decimal": 0.0010027598037968663
+      }
+    },
+    {
+      "transcription": "IT2a",
+      "space_policy": "split",
+      "source": "data/transcriptions/eva_it2a.txt",
+      "source_sha256": "7f27a8b0feed8f6de0a99900df6bf912dd1d295c38e5f830bac8b41c3f536fb5",
+      "active_records": 17,
+      "observed_pairs": 8,
+      "matches": [
+        {
+          "id": "f11v.2",
+          "count": 1
+        },
+        {
+          "id": "f22v.8",
+          "count": 1
+        },
+        {
+          "id": "f23r.2",
+          "count": 1
+        },
+        {
+          "id": "f32r.8",
+          "count": 1
+        },
+        {
+          "id": "f34r.12",
+          "count": 1
+        },
+        {
+          "id": "f42r.14",
+          "count": 1
+        },
+        {
+          "id": "f89r1.17",
+          "count": 1
+        },
+        {
+          "id": "f105r.24",
+          "count": 1
+        }
+      ],
+      "exact_expected_count": {
+        "numerator": "5259",
+        "denominator": "2002",
+        "decimal": 2.626873126873127
+      },
+      "exact_exploratory_tail": {
+        "numerator": "6870372461",
+        "denominator": "4482360382500",
+        "decimal": 0.0015327577157390692
+      },
+      "distribution": {
+        "0": {
+          "numerator": "313344",
+          "denominator": "5920915",
+          "decimal": 0.05292155013203196
+        },
+        "1": {
+          "numerator": "559616",
+          "denominator": "3188185",
+          "decimal": 0.1755280825924468
+        },
+        "2": {
+          "numerator": "118409056",
+          "denominator": "444068625",
+          "decimal": 0.26664585006427777
+        },
+        "3": {
+          "numerator": "103437026192",
+          "denominator": "419644850625",
+          "decimal": 0.24648706170931345
+        },
+        "4": {
+          "numerator": "16764654248",
+          "denominator": "107908675875",
+          "decimal": 0.1553596512241514
+        },
+        "5": {
+          "numerator": "803242125929",
+          "denominator": "11330410966875",
+          "decimal": 0.0708925852978605
+        },
+        "6": {
+          "numerator": "314210195437",
+          "denominator": "12949041105000",
+          "decimal": 0.024265132289654587
+        },
+        "7": {
+          "numerator": "5194400691071",
+          "denominator": "815789589615000",
+          "decimal": 0.00636732897452445
+        },
+        "8": {
+          "numerator": "1814729854453",
+          "denominator": "1398496439340000",
+          "decimal": 0.001297629227650687
+        },
+        "9": {
+          "numerator": "74939710837",
+          "denominator": "362573150940000",
+          "decimal": 0.00020668852793625999
+        },
+        "10": {
+          "numerator": "2000418841",
+          "denominator": "77694246630000",
+          "decimal": 2.574732271395216e-05
+        },
+        "11": {
+          "numerator": "12215839729",
+          "denominator": "4894737537690000",
+          "decimal": 2.495708837284274e-06
+        },
+        "12": {
+          "numerator": "86726243",
+          "denominator": "466165479780000",
+          "decimal": 1.8604175290055624e-07
+        },
+        "13": {
+          "numerator": "34092193",
+          "denominator": "3263158358460000",
+          "decimal": 1.044760604756225e-08
+        },
+        "14": {
+          "numerator": "149309",
+          "denominator": "349624109835000",
+          "decimal": 4.270557887740185e-10
+        },
+        "15": {
+          "numerator": "349",
+          "denominator": "29135342486250",
+          "decimal": 1.1978578942900893e-11
+        },
+        "16": {
+          "numerator": "1",
+          "denominator": "4855890414375",
+          "decimal": 2.0593545460574602e-13
+        },
+        "17": {
+          "numerator": "1",
+          "denominator": "611842192211250",
+          "decimal": 1.6344083698868732e-15
+        }
+      },
+      "exact_exploratory_Holm_four_views": {
+        "numerator": "6870372461",
+        "denominator": "2241180191250",
+        "decimal": 0.0030655154314781384
+      }
+    },
+    {
+      "transcription": "IT2a",
+      "space_policy": "join",
+      "source": "data/transcriptions/eva_it2a.txt",
+      "source_sha256": "7f27a8b0feed8f6de0a99900df6bf912dd1d295c38e5f830bac8b41c3f536fb5",
+      "active_records": 17,
+      "observed_pairs": 8,
+      "matches": [
+        {
+          "id": "f11v.2",
+          "count": 1
+        },
+        {
+          "id": "f22v.8",
+          "count": 1
+        },
+        {
+          "id": "f23r.2",
+          "count": 1
+        },
+        {
+          "id": "f32r.8",
+          "count": 1
+        },
+        {
+          "id": "f34r.12",
+          "count": 1
+        },
+        {
+          "id": "f42r.14",
+          "count": 1
+        },
+        {
+          "id": "f89r1.17",
+          "count": 1
+        },
+        {
+          "id": "f105r.24",
+          "count": 1
+        }
+      ],
+      "exact_expected_count": {
+        "numerator": "5259",
+        "denominator": "2002",
+        "decimal": 2.626873126873127
+      },
+      "exact_exploratory_tail": {
+        "numerator": "6870372461",
+        "denominator": "4482360382500",
+        "decimal": 0.0015327577157390692
+      },
+      "distribution": {
+        "0": {
+          "numerator": "313344",
+          "denominator": "5920915",
+          "decimal": 0.05292155013203196
+        },
+        "1": {
+          "numerator": "559616",
+          "denominator": "3188185",
+          "decimal": 0.1755280825924468
+        },
+        "2": {
+          "numerator": "118409056",
+          "denominator": "444068625",
+          "decimal": 0.26664585006427777
+        },
+        "3": {
+          "numerator": "103437026192",
+          "denominator": "419644850625",
+          "decimal": 0.24648706170931345
+        },
+        "4": {
+          "numerator": "16764654248",
+          "denominator": "107908675875",
+          "decimal": 0.1553596512241514
+        },
+        "5": {
+          "numerator": "803242125929",
+          "denominator": "11330410966875",
+          "decimal": 0.0708925852978605
+        },
+        "6": {
+          "numerator": "314210195437",
+          "denominator": "12949041105000",
+          "decimal": 0.024265132289654587
+        },
+        "7": {
+          "numerator": "5194400691071",
+          "denominator": "815789589615000",
+          "decimal": 0.00636732897452445
+        },
+        "8": {
+          "numerator": "1814729854453",
+          "denominator": "1398496439340000",
+          "decimal": 0.001297629227650687
+        },
+        "9": {
+          "numerator": "74939710837",
+          "denominator": "362573150940000",
+          "decimal": 0.00020668852793625999
+        },
+        "10": {
+          "numerator": "2000418841",
+          "denominator": "77694246630000",
+          "decimal": 2.574732271395216e-05
+        },
+        "11": {
+          "numerator": "12215839729",
+          "denominator": "4894737537690000",
+          "decimal": 2.495708837284274e-06
+        },
+        "12": {
+          "numerator": "86726243",
+          "denominator": "466165479780000",
+          "decimal": 1.8604175290055624e-07
+        },
+        "13": {
+          "numerator": "34092193",
+          "denominator": "3263158358460000",
+          "decimal": 1.044760604756225e-08
+        },
+        "14": {
+          "numerator": "149309",
+          "denominator": "349624109835000",
+          "decimal": 4.270557887740185e-10
+        },
+        "15": {
+          "numerator": "349",
+          "denominator": "29135342486250",
+          "decimal": 1.1978578942900893e-11
+        },
+        "16": {
+          "numerator": "1",
+          "denominator": "4855890414375",
+          "decimal": 2.0593545460574602e-13
+        },
+        "17": {
+          "numerator": "1",
+          "denominator": "611842192211250",
+          "decimal": 1.6344083698868732e-15
+        }
+      },
+      "exact_exploratory_Holm_four_views": {
+        "numerator": "6870372461",
+        "denominator": "2241180191250",
+        "decimal": 0.0030655154314781384
+      }
+    }
+  ],
+  "limits": [
+    "Exact probability for declared conditional null only.",
+    "Retrospective selection and multiplicity beyond four views remain uncontrolled.",
+    "No plaintext, phonetics or independent replication."
+  ]
+}
