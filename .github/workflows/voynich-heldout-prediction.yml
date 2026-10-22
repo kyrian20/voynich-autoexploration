@@ -9,7 +9,7 @@ on:
 permissions:
   contents: write
 concurrency:
-  group: voynich-master-writes
+  group: voynich-heldout-prediction
   cancel-in-progress: false
 jobs:
   prediction:
