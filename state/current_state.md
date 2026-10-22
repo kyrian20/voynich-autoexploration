@@ -218,3 +218,10 @@ Two workflows that commit generated results to `master` used separate GitHub Act
 - The listing confirms a sequence of large master-document exports `v39`–`v58`, alongside the checkpoint and the two distinct Library EXP-623 order-analysis reports. These are historical artifacts and have not been deleted or overwritten.
 - The GitHub tree query returned 2,120 tree entries (1,449 blobs; recursive response not truncated), while the earlier inventory's 2,085 count refers to paths under its own counting method. Do not compare these raw counts as if they were the same unit; directories/tree entries and blob/path counts differ.
 - Full GitHub/Library reconciliation is still **not complete**: metadata listing does not expose content SHA-256 for every item, and names/sizes/modified times are not proof of byte identity. Next safe stage is a scoped hash manifest for high-priority scripts/results (starting with EXP-590/593 and the two Library EXP-623 analyses), then expand systematically without modifying originals.
+
+
+## Inventory artifact and verification — 2026-10-22
+
+- Saved a metadata-only CSV snapshot of all 501 Library items after traversing all six pages: [library_inventory_metadata_2026-10-22.csv](../research/library_inventory_metadata_2026-10-22.csv). It records paths, names, item kind, byte size, and modified timestamp. It deliberately contains no content hashes and must not be mistaken for a byte-level reconciliation.
+- The check on commit `82f93451e1cd87c8ee8ae5b2078994fcf31bd5ff` passed: [run 39727348147](https://github.com/kyrian20/voynich-autoexploration/actions/runs/39727348147). The check on the collision-register commit `3aa41afdad6fba839130a07582d8202beea29350` also passed: [run 39727305142](https://github.com/kyrian20/voynich-autoexploration/actions/runs/39727305142).
+- The CSV inventory commit triggers a new check; do not assume that newest run is green until it completes. Historical artifacts remain untouched.
