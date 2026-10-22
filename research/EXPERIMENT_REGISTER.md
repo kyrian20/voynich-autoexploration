@@ -63,3 +63,10 @@ La síntesis crítica de resultados, hashes de fuentes, criterios de interpretac
 - **EXP-611:** la diferencia descriptiva persiste en estratos emparejados por longitud exacta y posición; no se calculó p-valor y quedan posibles confusores.
 
 Los workflows EXP-604–611 incluyen ahora publicación con fetch/rebase y hasta cinco intentos de push, sin force-push. Los runs correctos de EXP-604, 605, 607, 608, 609, 610 y 611 constan en la síntesis. No confundir fallos intermedios de YAML durante la reparación con resultados científicos; esos runs fallidos se conservan en el historial. EXP-606 se regeneró tras corregir `$Q`/`$L` y se verificó su run y artefactos; la interpretación queda limitada por la muestra de tres bordes elegibles.
+
+
+## Revisión estructural independiente — 2026-10-22
+
+El árbol recursivo completo de GitHub confirma 7 colisiones de IDs en carpetas top-level: EXP-177, 594, 596, 597, 600, 601 y 602. Los pares exactos y el método de conteo están en [la auditoría de estabilización del 22-10-2026](stabilization_audit_2026-10-22.md). El árbol tiene 624 carpetas top-level de experimento y 617 IDs distintos; la carpeta combinada `exp_613_615_ch_sh_inference_sensitivity` y los huecos aparentes 29, 571, 614 y 615 requieren cotejo con la historia, no reasignación automática.
+
+**Bloqueo vigente:** no reservar ni renumerar nuevos EXP, no borrar ni fusionar carpetas históricas y no interpretar el número de carpeta como identificador global entre GitHub y Biblioteca hasta completar el cotejo de referencias, commits y hashes. En el trabajo cruzado, usar alias `GH-...` y `LIB-...` descriptivos.
