@@ -118,7 +118,7 @@ def main():
     result = {
         "experiment": "EXP-590",
         "title": "daiin line-initial positional baseline",
-        "date_utc": date, "source": str(SOURCE), "source_sha256": digest,
+        "date_utc": date, "source": str(SOURCE.relative_to(ROOT)), "source_sha256": digest,
         "tokenization": "lowercase ASCII alphabetic runs after removing IVTFF tags, braces and square-bracket annotations",
         "target": TARGET, "metrics": metrics, "permutation_test": perm,
         "limitations": [
@@ -135,7 +135,7 @@ def main():
     report = f"""# EXP-590 — Posición inicial de daiin
 
 - Fecha UTC: {date}
-- Fuente: {SOURCE}
+- Fuente: {SOURCE.relative_to(ROOT)}
 - SHA-256 de la transcripción: {digest}
 - Líneas EVA parseadas: {metrics['lines']:,}
 - Tokens parseados: {metrics['tokens']:,}
