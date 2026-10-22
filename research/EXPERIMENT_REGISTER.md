@@ -96,3 +96,11 @@ El árbol recursivo completo de GitHub confirma 7 colisiones de IDs en carpetas 
 - La versión actual del parser audit es `results_v7.json`: cero diferencias de campos entre Parser A y B para ZL3b (5.385 registros) y ZL3a (5.389 registros) bajo la política declarada. Los resultados v1–v6 se conservan como historial.
 - La prueba held-out es distinta y su criterio predictivo predeclarado falla para `daiin` (ganancia log-loss −0,08131; IC 95 % por folio [−0,11174; −0,05641]). No mezclar este resultado con la auditoría del parser.
 - Ambos resultados son metodológicos/estadísticos, no desciframiento. No asignar otro ID numérico hasta reconciliar el registro global.
+
+
+## Cobertura estructural de identificadores IVTFF (22-10-2026)
+
+- Auditoría nueva: [ivtff_page_locus_id_coverage_audit_2026-10-22.md](ivtff_page_locus_id_coverage_audit_2026-10-22.md). CI run [575](https://github.com/kyrian20/voynich-autoexploration/actions/runs/39740049037) terminó en `success`; fixtures de regresión run [574](https://github.com/kyrian20/voynich-autoexploration/actions/runs/39740031613) también terminó en `success`.
+- ZL3b: 227 cabeceras únicas, 5.385 registros; ZL3a: 227, 5.389; IT2a: 225, 5.215. En los tres archivos: cero cabeceras malformadas, cero registros malformados, cero discordancias entre la página activa y el ID de locus, y cero números de locus fuera del intervalo de control 1–160.
+- Se añadieron `scripts/audit_ivtff_page_locus_ids.py` y `tests/test_ivtff_page_locus_ids.py`, integrados en `.github/workflows/voynich-check.yml`. La auditoría no modifica transcripciones ni resultados históricos.
+- Esta validación estructural no reemplaza un validador IVTFF completo ni resuelve automáticamente los experimentos históricos que usaban patrones incompletos. Cada análisis debe declarar su población y política de tokenización antes de regenerarse.
