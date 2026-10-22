@@ -71,3 +71,8 @@ La auditoría de árbol del 20-10-2026 cuenta 2.085 rutas, 624 carpetas `experim
 4. Agrupar coincidencias exactas y detectar pares con mismo ID pero distinta pregunta, script o resultado.
 5. Resolver cada grupo con un alias estable, una relación de sustitución y referencias cruzadas.
 6. No borrar ni sobrescribir artefactos históricos durante el proceso.
+
+
+## Actualización de inventario top-level — 2026-10-22
+
+La auditoría recursiva de GitHub confirma las colisiones de carpeta EXP-177, EXP-594, EXP-596, EXP-597, EXP-600, EXP-601 y EXP-602. La lista de pares de carpetas y las limitaciones del método están en [stabilization_audit_2026-10-22.md](stabilization_audit_2026-10-22.md). No se renombró ni eliminó ningún artefacto. Esta auditoría solo recorrió GitHub; la Biblioteca no está completamente reconciliada y sus IDs no deben asumirse globalmente únicos.
