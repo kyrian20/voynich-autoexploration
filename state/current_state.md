@@ -313,3 +313,13 @@ Two workflows that commit generated results to `master` used separate GitHub Act
 - Durable comparison note: `research/reproduction/EXP623_REPRODUCTION_COMPARISON_2026-10-22.md`. Immutable run artifact ID 12404740024 contains both reproduced JSON outputs and their SHA-256 values are recorded in the comparison note.
 - This closes the execution-provenance gap for these two Library pilots only. Full Library↔GitHub byte-level reconciliation, seven internal duplicate GitHub folder IDs, and independent IVTFF parser audit remain open. No original Library pilot was overwritten, renamed, merged or deleted; no new EXP ID was assigned.
 - Verify the latest Voynich Check for this state update and the collision-register update before claiming the current HEAD has passed CI.
+
+
+## Estado corregido tras cierre de reproducción EXP-623 — 2026-10-22
+
+Esta sección sustituye cualquier nota anterior que describa la reproducción como «en curso» o pendiente de comparación: la reproducción terminó y el informe comparativo quedó registrado en el commit `c988bfd9c3aaa5316fd4fac6863fa7fdae042320`.
+
+- Comparación documentada: `research/reproduction/EXP623_REPRODUCTION_COMPARISON_2026-10-22.md`.
+- Los dos protocolos y los dos JSON de salida se ejecutaron en Actions contra los blobs de transcripción fijados y verificados. Coincidencias de conteos y resultados reproducidos descritas en el informe; no combinar los nulos ni llamar a los cortes repetidos «réplicas independientes».
+- El workflow de reproducción terminó en éxito: [39729111827](https://github.com/kyrian20/voynich-autoexploration/actions/runs/39729111827). El control ordinario del HEAD `c988bfd9c3aaa5316fd4fac6863fa7fdae042320` también terminó en éxito: [39730573888](https://github.com/kyrian20/voynich-autoexploration/actions/runs/39730573888). Esto confirma CI para ese HEAD concreto, no garantiza que cada workflow histórico o cada análisis sea científicamente válido.
+- Próximos trabajos prioritarios: comparación de bytes/hashes Biblioteca↔GitHub en pares de artefactos; resolución documental de las siete carpetas con IDs duplicados (177, 594, 596, 597, 600, 601, 602); y auditoría independiente del parser IVTFF. No asignar IDs EXP nuevos ni sobrescribir originales antes de terminar la reconciliación.
