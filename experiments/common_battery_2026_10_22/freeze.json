@@ -1,0 +1,24 @@
+{
+  "id": "BC-2026-10-22",
+  "base": "b31492596c3e9a0c3f322c0ece62fa13a84d739d",
+  "frozen_utc": "2026-10-22T19:35:26.715774+00:00",
+  "english_anchor": "*** START OF THE PROJECT GUTENBERG EBOOK THE BIBLE, DOUAY-RHEIMS, COMPLETE ***",
+  "files": {
+    "data/reference_corpora/italian/dante_divina_commedia.txt": "76a06f77ea52d4c815f27251fa253ddc8383dfdae49a44065e45a15adec828a6",
+    "data/reference_corpora/latin/caesar_de_bello_gallico_latin.txt": "026e9c30e84e2418936db5784c1857c30780066df0ae724c959846aac75b1e33",
+    "data/reference_corpora/latin/vulgate.txt": "d63b1b81824e259b1cf92ba8a6e5cbbf783e2a83214cf2c3db2ecd1459165bfe",
+    "data/transcriptions/eva_it2a.txt": "7f27a8b0feed8f6de0a99900df6bf912dd1d295c38e5f830bac8b41c3f536fb5",
+    "data/transcriptions/eva_zl3b.txt": "bf5b6d4ac1e3a51b1847a9c388318d609020441ccd56984c901c32b09beccafc",
+    "experiments/common_battery_2026_10_22/PROTOCOL.md": "6cb911b8eac9fb54810b6a3c27337db90a92851642481be72e37fb4dee5e6682",
+    "experiments/common_battery_2026_10_22/vendor/LICENSE": "e8fb5c1110aaa38618eab2013d1e7c5cae343efd21ea9859478df4930f7746bc",
+    "experiments/common_battery_2026_10_22/vendor/naibbe_v2.py": "8a28fc7677a9a117ad79e8060b42059eb17069bea58d82ccf7ef1f0747ea06b7",
+    "experiments/common_battery_2026_10_22/vendor/references/naibbe_tables.csv": "4e7cfd54b7ec66515d39a51e11ec97e8e19b643b0b189124eebc3982e707dcec",
+    "experiments/exp_170_naibbe_simulation/data/simulation_results.json": "c71f7161eb69c6cefa7b7fb6a72c000b6647137200166f331ca920042159e874",
+    "experiments/exp_170_naibbe_simulation/result.md": "740e9997559a43529391ba29e339bbf955722aa0a1b8302efb451cb66706f354",
+    "experiments/exp_170_naibbe_simulation/script.py": "8fe0f7d153211b320b34ca8543dac1ba029e629c4413c203fb2df0031063721c",
+    "research/analysis/2026-10-22-residual-order/prepare_inputs.py": "0b37ad21487df61fee12fe6977b7de8f1d809f69acf3aabcac636e440efb9613",
+    "scripts/audit_ivtff_metadata.py": "c01c335b1727f53369caba468e366d4d539b63e96c2db84c75a071b2e54c0116",
+    "scripts/audit_token_policy_sensitivity.py": "b1bebb1e375c1d0aa64adc46ae0a09cdf11b247554c6cb33eb62b95b54ffc523",
+    "scripts/ivtff_lossless.py": "32ebb9aed11642a760793cf677b8148a4d867351ce4f74f4a7839f32fd180c1f"
+  }
+}
