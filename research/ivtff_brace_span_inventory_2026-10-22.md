@@ -24,10 +24,10 @@ ZL3b y ZL3a comparten los contenidos más frecuentes: `ikh` (36 en ambas), `ckhh
 
 ## Puerta de validación pendiente
 
-- Consultar y registrar la regla aplicable de IVTFF 2.0.2 para ligaduras entre llaves.
-- Añadir fixtures que separen el texto original, la anotación de ligadura y la vista tokenizada, sin destruir la información original.
-- Ejecutar un análisis de sensibilidad en una rama o experimento nuevo y versionado, solo después de decidir la interpretación normativa.
-- No modificar ni sobrescribir EXP históricos hasta cuantificar exactamente qué estadísticas cambian.
+- [x] Consultar y registrar la regla de IVTFF 2.0.2 §6.6: las llaves representan ligaduras y deben cerrarse en la misma línea.
+- [ ] Añadir fixtures que separen el texto original, la anotación de ligadura y la vista tokenizada, sin destruir la información original.
+- [ ] Ejecutar un análisis de sensibilidad en un experimento nuevo y versionado, comparando ligadura como unidad, expansión de caracteres y política histórica.
+- [x] No modificar ni sobrescribir EXP históricos durante esta auditoría; mantener esta protección hasta cuantificar exactamente qué estadísticas cambian.
 
 ## Reproducibilidad
 
