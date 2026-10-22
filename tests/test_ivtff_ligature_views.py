@@ -19,6 +19,13 @@ def main() -> None:
     assert views["atomic_units"][1]["raw"] == "{ch}", views
     assert views["atomic_units"][1]["start"] == 3, views
     assert views["atomic_units"][1]["end"] == 7, views
+    assert views["atomic_units"][1]["raw_start"] == 3, views
+    assert views["atomic_units"][1]["raw_end"] == 7, views
+
+    tagged = tokenize_views("<!note> dai{ch}in")
+    tagged_ligature = next(u for u in tagged["atomic_units"] if u["kind"] == "ligature")
+    assert tagged_ligature["raw_start"] == 11, tagged
+    assert tagged_ligature["raw_end"] == 15, tagged
 
     lines = [
         {"folio": "f1r", "line": 1, "body": "dai{ch}in daiin"},
