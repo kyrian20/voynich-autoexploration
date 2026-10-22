@@ -21,6 +21,29 @@ def scientific_compare(expected,actual):
     compare(a,b)
 
 
+def reference_audit_compare(expected, actual):
+    """Keep corpus facts and historical hits strict; report additive inventory."""
+    def split(audit):
+        facts = dict(audit)
+        rows = facts.pop('static_references')
+        declared = facts.pop('distinct_scripts_with_direct_reference')
+        indexed = {(row['script'], row['input']): row for row in rows}
+        if len(indexed) != len(rows):
+            raise ValueError('Duplicate static reference')
+        if declared != len({row['script'] for row in rows}):
+            raise ValueError('Incorrect static-reference script count')
+        return facts, indexed
+
+    expected_facts, historical = split(expected)
+    actual_facts, current = split(actual)
+    compare(expected_facts, actual_facts)
+    for key, row in historical.items():
+        if key not in current:
+            raise ValueError(f'Historical static reference missing: {key}')
+        compare(row, current[key], f'$.static_references[{key!r}]')
+    return [current[key] for key in sorted(current.keys() - historical.keys())]
+
+
 def validate_source_reuse(root,inputs,review):
     excluded=review['excluded_from_new_language_baselines']
     names=[entry['path'] for entry in excluded]
@@ -60,7 +83,12 @@ def run(args,out):
     command([BLOCK/'prepare_inputs.py','--repo',ROOT,'--out',out])
     compare(inputs,json.loads((out/'inputs.json').read_text()))
     command([BLOCK/'audit_reference_identity.py','--repo',ROOT],out/'reference_identity_audit.json')
-    compare(json.loads((BLOCK/'reference_identity_audit.json').read_text()),json.loads((out/'reference_identity_audit.json').read_text()))
+    added_references = reference_audit_compare(
+        json.loads((BLOCK/'reference_identity_audit.json').read_text()),
+        json.loads((out/'reference_identity_audit.json').read_text()))
+    (out/'static-reference-additions.json').write_text(
+        json.dumps({'status':'STATIC_MENTIONS_NOT_PROOF_OF_EXECUTION',
+                    'added_references':added_references},indent=2)+'\n')
     for stem in ('residual_order','residual_order_calibrated'):
         actual=out/(stem+'_results.json')
         command([BLOCK/(stem+'.py')],actual)
@@ -68,7 +96,8 @@ def run(args,out):
     receipt={'status':'REPRODUCED_INTEGRATED_NOT_SEMANTIC_VALIDATION',
              'canonical_corpora_reused':len(inputs['raw_sources']),
              'raw_corpus_copies_added':0,'prepared_inputs_reproduced':True,
-             'reference_identity_audit_reproduced':True,
+             'historical_reference_identity_audit_reproduced':True,
+             'new_static_references':len(added_references),
              'V1_and_V2_results_reproduced':True,'commands':commands}
     (out/'integration-receipt.json').write_text(json.dumps(receipt,indent=2)+'\n')
     print(json.dumps({key:value for key,value in receipt.items() if key!='commands'},indent=2))
