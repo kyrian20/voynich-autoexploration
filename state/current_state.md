@@ -210,3 +210,11 @@ Two workflows that commit generated results to `master` used separate GitHub Act
 - A fresh recursive Git tree query (not truncated) again found 624 experiment folders, 617 distinct numeric folder IDs, and the same seven collision groups: 177, 594, 596, 597, 600, 601, 602. No folders were renamed or deleted.
 - The Library cross-surface spot-check read both distinct EXP-623 order reports and recorded their different null models/outcomes in [ARTIFACT_COLLISION_REGISTER.md](../research/ARTIFACT_COLLISION_REGISTER.md). It remains partial: the Library listing is paginated, and no full SHA-256 pairing or bulk content reconciliation has yet been completed.
 - The collision-register update itself triggers a new Voynich Check run; verify that run before claiming the very latest commit is green. All newest observed runs for the 31 workflows were successful before this final register update; the post-update check is pending at the time this note was written.
+
+
+## Library inventory pagination completed — 2026-10-22
+
+- Completed all six pages for `/Investigación Voynich/`: 501 listed items, no listing warnings, and no exact duplicate filenames in this folder snapshot. A filename inventory found 176 names matching the broad EXP/fase/checkpoint/master-document pattern; this is a name-based inventory only, not semantic classification or checksum reconciliation.
+- The listing confirms a sequence of large master-document exports `v39`–`v58`, alongside the checkpoint and the two distinct Library EXP-623 order-analysis reports. These are historical artifacts and have not been deleted or overwritten.
+- The GitHub tree query returned 2,120 tree entries (1,449 blobs; recursive response not truncated), while the earlier inventory's 2,085 count refers to paths under its own counting method. Do not compare these raw counts as if they were the same unit; directories/tree entries and blob/path counts differ.
+- Full GitHub/Library reconciliation is still **not complete**: metadata listing does not expose content SHA-256 for every item, and names/sizes/modified times are not proof of byte identity. Next safe stage is a scoped hash manifest for high-priority scripts/results (starting with EXP-590/593 and the two Library EXP-623 analyses), then expand systematically without modifying originals.
