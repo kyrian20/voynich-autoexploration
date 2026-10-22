@@ -225,3 +225,12 @@ Two workflows that commit generated results to `master` used separate GitHub Act
 - Saved a metadata-only CSV snapshot of all 501 Library items after traversing all six pages: [library_inventory_metadata_2026-10-22.csv](../research/library_inventory_metadata_2026-10-22.csv). It records paths, names, item kind, byte size, and modified timestamp. It deliberately contains no content hashes and must not be mistaken for a byte-level reconciliation.
 - The check on commit `82f93451e1cd87c8ee8ae5b2078994fcf31bd5ff` passed: [run 39727348147](https://github.com/kyrian20/voynich-autoexploration/actions/runs/39727348147). The check on the collision-register commit `3aa41afdad6fba839130a07582d8202beea29350` also passed: [run 39727305142](https://github.com/kyrian20/voynich-autoexploration/actions/runs/39727305142).
 - The CSV inventory commit triggers a new check; do not assume that newest run is green until it completes. Historical artifacts remain untouched.
+
+
+## Scoped Library content-hash checkpoint — 2026-10-22
+
+- Materialized raw bytes for six EXP-623 Library artifacts (two different order-analysis reports, two scripts, and two JSON files) and four selected EXP-590/593 Library artifacts; calculated SHA-256 hashes and saved the values in [library_artifact_sha256_manifest_2026-10-22.md](../research/library_artifact_sha256_manifest_2026-10-22.md).
+- This is the first scoped content-hash checkpoint, not a complete reconciliation. GitHub counterparts have not yet all been proven byte-identical, and the EXP-623 JSON-to-script mapping remains a required provenance check.
+- The two Library EXP-623 reports remain distinct null-model analyses. Neither is the GitHub EXP-623 ch/sh-context experiment. Do not merge their results or reuse the EXP number as if these were the same experiment.
+- Verified the previously pending Voynich Check run [39727424359](https://github.com/kyrian20/voynich-autoexploration/actions/runs/39727424359) for commit `6b72a09891d7be30d5121c2875fdf6dd7fe11881`: conclusion `success`. The new manifest commit creates a newer check that must be verified separately.
+- No original Library files were edited, no collision was renumbered, and no new scientific experiment ID was allocated. Remaining blockers: GitHub/Library pairwise reconciliation, EXP-623 script/JSON provenance, and independent IVTFF parser conformance.
