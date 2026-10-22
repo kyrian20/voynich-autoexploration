@@ -4,7 +4,9 @@ on:
   workflow_dispatch:
   push:
     paths:
-      - 'experiments/exp_610_length_stratified_ch_sh_audit/**'
+      - 'experiments/exp_610_length_stratified_ch_sh_audit/script.py'
+      - 'data/transcriptions/eva_zl3b.txt'
+      - 'data/transcriptions/eva_it2a.txt'
       - '.github/workflows/voynich-exp610.yml'
 
 permissions:
