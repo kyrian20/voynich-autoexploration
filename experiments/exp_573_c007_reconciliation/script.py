@@ -28,9 +28,11 @@ a misattribution. In exp_174, B qo=2.047× is the maximum, not A ok. A ok in exp
 """
 
 import re
+from pathlib import Path
 from collections import Counter, defaultdict
 
-CORPUS = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+ROOT = Path(__file__).resolve().parents[2]
+CORPUS = ROOT / 'data/transcriptions/eva_zl3b.txt'
 
 ONSET_OLD = ['qok','qot','qo','cth','ch_e','ch','sh','ok','ot','ol','d','s','y','k','t','l','r','p','f']
 ONSET_CAN = ['qok','qot','qo','cth','ckh','cph','ch','sh','ok','ot','ol','sch','skh','sph',
