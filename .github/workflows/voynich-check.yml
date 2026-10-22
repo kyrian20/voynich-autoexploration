@@ -270,5 +270,20 @@ jobs:
       - name: Auditar cobertura estructural de identificadores IVTFF
         run: python scripts/audit_ivtff_page_locus_ids.py
 
+      - name: Configurar intérprete exacto para reconstrucción de batería
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12.14"
+
+      - name: Reconstruir batería temporal y verificar hashes históricos
+        env:
+          BC_REPLAY_DIR: ${{ runner.temp }}/bc-replay-${{ github.run_id }}-${{ github.run_attempt }}
+        run: |
+          python -m pip install -r experiments/common_battery_2026_10_22/requirements.txt
+          python experiments/common_battery_2026_10_22/script.py --out "$BC_REPLAY_DIR"
+          python scripts/verify_common_battery_reconstruction.py "$BC_REPLAY_DIR"
+
       - name: Verificar contratos y archivo de batería común (no valida ciencia)
+        env:
+          BC_REPLAY_DIR: ${{ runner.temp }}/bc-replay-${{ github.run_id }}-${{ github.run_attempt }}
         run: python tests/test_common_battery.py

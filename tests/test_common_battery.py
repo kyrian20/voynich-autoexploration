@@ -4,8 +4,10 @@ import gzip
 import hashlib
 import importlib.util
 import json
+import os
 from pathlib import Path
 import sys
+import tempfile
 import unittest
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -14,6 +16,19 @@ spec = importlib.util.spec_from_file_location('battery',HERE/'script.py')
 bc = importlib.util.module_from_spec(spec); spec.loader.exec_module(bc)
 
 class BatteryTests(unittest.TestCase):
+    def test_reconstruction_rejects_missing_or_changed_files(self):
+        from scripts.verify_common_battery_reconstruction import verify
+        with tempfile.TemporaryDirectory() as directory:
+            root=Path(directory)
+            manifest=root/'manifest.json'
+            (root/'result.json').write_bytes(b'original')
+            manifest.write_text(json.dumps({'result.json':hashlib.sha256(b'original').hexdigest()}))
+            self.assertEqual(verify(root,manifest)['status'],'EXACT_HISTORICAL_HASH_MATCH')
+            (root/'result.json').write_bytes(b'changed')
+            with self.assertRaises(ValueError):verify(root,manifest)
+            (root/'result.json').unlink()
+            with self.assertRaises(FileNotFoundError):verify(root,manifest)
+
     def test_metricas_con_conteos_independientes(self):
         m=bc.metrics([['am','yam'],['yam','am']])
         self.assertEqual(m['tokens'],4)
@@ -59,8 +74,11 @@ class BatteryTests(unittest.TestCase):
         with self.assertRaises(ValueError): bc.reshape(['a'],[2])
 
     def test_archivo_reconstruye_todas_las_metricas(self):
-        out=HERE/'data/run-03'
+        explicit=os.environ.get('BC_REPLAY_DIR')
+        out=Path(explicit) if explicit else HERE/'data/run-03'
         if not (out/'tokens.jsonl.gz').exists():
+            if explicit:
+                self.fail('Requested replay directory has no tokens.jsonl.gz')
             self.skipTest('Archivo crudo solo local: publicación bloqueada por revisión automática; no se verifica replay en CI')
         data=json.loads((out/'resultados.json').read_text())
         for name,digest in json.loads((out/'SHA256.json').read_text()).items():

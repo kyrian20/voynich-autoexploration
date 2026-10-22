@@ -33,15 +33,24 @@
     "run-02/seleccion.json"
   ],
   "public_raw_upload_authorized": false,
-  "tests": {
+  "technical_fix": {
+    "pull_request": 4,
+    "merged_commit": "74743fb0119c93cfeb70556013fab04453ae7bad"
+  },
+  "historical_limit": "No original hashes for run-01/02 selections were available; they are not presented as recovered.",
+  "initial_archived_suite": {
     "command": "python -m unittest discover -s tests",
     "tests_run": 53,
     "skipped": 0,
     "result": "OK"
   },
-  "technical_fix": {
-    "pull_request": 4,
-    "merged_commit": "74743fb0119c93cfeb70556013fab04453ae7bad"
-  },
-  "historical_limit": "No original hashes for run-01/02 selections were available; they are not presented as recovered."
+  "current_validation": {
+    "command": "BC_REPLAY_DIR=<temporary-reconstruction> python -m unittest discover -s tests",
+    "tests_run": 54,
+    "skipped": 0,
+    "result": "OK",
+    "integration_contracts": 5,
+    "operational_audit": "OK",
+    "remote_CI": "pending_for_updated_commit"
+  }
 }
