@@ -203,6 +203,13 @@ def main():
     if missing:
         raise FileNotFoundError("Required transcription file(s) missing; refusing partial audit: "+", ".join(missing))
     versions=[compare(path,label) for label,path in FILES]
+    expected_labels=[label for label,_ in FILES]
+    actual_labels=[v["transcription"] for v in versions]
+    if actual_labels != expected_labels:
+        raise RuntimeError(f"Audit coverage mismatch: expected {expected_labels}, got {actual_labels}")
+    for v in versions:
+        if v["parser_A"]["record_count"] == 0 or v["parser_B"]["record_count"] == 0:
+            raise RuntimeError(f"Empty parser output for {v['transcription']}; refusing to write a misleading audit")
     data={"experiment":"exp_602_independent_ivtff_parser_audit","protocol_version":7,
       "parser_A":"regex extraction patterned after exp_600 + regex token cleanup",
       "parser_B":"stateful delimiter parser with inline first-alternative splicing; IVTFF <!…> comments end at >",
