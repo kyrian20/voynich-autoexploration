@@ -39,3 +39,10 @@ El script `scripts/audit_ivtff_brace_spans.py` realiza el inventario no destruct
 La consulta de la especificación oficial IVTFF 2.0.2, §6.6, tabla 10, confirma que las llaves delimitan una **ligadura de caracteres Voynichese**, no un comentario: https://www.voynich.nu/software/ivtt/IVTFF_format.pdf. El propio documento ofrece ejemplos en §8 como `yka{ckh'h}` y `{y'}`. Por tanto, los 446 spans de ZL3b y los 444 de ZL3a son anotaciones de ligadura según la convención declarada por el formato; no deben interpretarse como texto editorial ni eliminarse sin dejar rastro.
 
 La cuestión aún abierta es analítica: si un experimento requiere caracteres individuales, ¿debe expandir el contenido de la ligadura, tratarla como una unidad indivisible, o comparar ambas vistas? La especificación define la representación, pero no determina qué representación es óptima para todas las preguntas estadísticas. El siguiente paso es un análisis de sensibilidad versionado, conservando el texto bruto y sin reescribir EXP históricos.
+
+
+## Reconciliación con las vistas de sensibilidad — 2026-10-22
+
+La auditoría reproducida en CI confirma que, aunque el archivo contiene 446/444 spans entre llaves, las vistas de análisis que primero eliminan anotaciones cuadradas conservan 402/399 ligaduras visibles; 44/45 spans están dentro de anotaciones cuadradas y desaparecen junto con ellas. Véase [inventario de sensibilidad y cobertura del parser](ivtff_ligature_view_sensitivity_inventory_2026-10-22.md).
+
+La misma auditoría detectó que el patrón heredado de EXP-590 no reconoce IDs como `f67r1.5` ni `fRos.23`. La función de compatibilidad reproduce la línea base antigua, mientras que el patrón amplio recoge 5.385 registros ZL3b y 5.389 ZL3a. Esto es un problema distinto de las ligaduras y puede alterar denominadores y recuentos. No se modificó EXP-590 ni se regeneró ningún resultado histórico; la gramática oficial y el alcance analítico deben adjudicarse antes de cualquier corrección.
