@@ -46,3 +46,10 @@ En esta definición descriptiva, las líneas que contienen daiin comienzan con d
 Script: [`scripts/exp590_folio_cluster_sensitivity.py`](../../scripts/exp590_folio_cluster_sensitivity.py)  
 Prueba de regresión: [`tests/test_exp590_folio_cluster_sensitivity.py`](../../tests/test_exp590_folio_cluster_sensitivity.py)  
 El workflow de GitHub Actions ejecuta la prueba y genera un artefacto JSON/Markdown fechado para inspección.
+
+## Control adicional incorporado después del primer análisis
+
+Se añadió al script una referencia de aleatorización condicionada a cada línea: conserva el multiconjunto de tokens de la línea y supone que todas las posiciones son intercambiables. Para una línea con (k) tokens y (m) apariciones exactas de daiin, la probabilidad nula de que la primera posición sea daiin es (m/k); su varianza para el indicador inicial es ((m/k)(1-m/k)). Se suman estas expectativas y varianzas por clase Currier.
+
+Este control no es un modelo realista del lenguaje ni una prueba de desciframiento: solo mide cuánto se aparta la posición inicial observada de un baseline que ignora el orden de los tokens dentro de cada línea. El script y la prueba de regresión se han ampliado para calcularlo. Los valores numéricos generados por esta versión se deben tomar del artefacto de GitHub Actions correspondiente al commit actualizado, no de la tabla anterior de este informe.
+
