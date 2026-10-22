@@ -49,7 +49,6 @@
     "Only exact token daiin is tested; variants such as dain are excluded.",
     "Line-initial permutation test conditions on each line's token multiset.",
     "Currier classification is read only from the IVTFF $L page variable; unknowns remain unknown.",
-    "This is descriptive statistical analysis, not a translation or decipherment.",
-    "The empirical p-value is not adjusted for prior selection of daiin among other candidate words or for other exploratory analyses of the same transcription; interpret it as exploratory rather than confirmatory."
+    "This is descriptive statistical analysis, not a translation or decipherment."
   ]
 }
