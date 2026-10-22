@@ -1,0 +1,91 @@
+{
+  "schema_version": 1,
+  "source_commit": "2da0b63617a3d6dc29b47b99a731a8c9692e9aaa",
+  "policy": "No automatic regeneration; review provenance and affected results before accepting changed bytes. Empty quarantined file is not an available baseline.",
+  "files": [
+    {
+      "path": "data/reference_corpora/arabic/quran_arabic.txt",
+      "bytes": 112268,
+      "sha256": "8adc6237eda291ec5e35c0ca1574b9eac6641c387b7f6d5183b112bd766f88c4",
+      "status": "FROZEN_BYTES_NOT_SCIENTIFICALLY_VALIDATED"
+    },
+    {
+      "path": "data/reference_corpora/english/kjv_bible.txt",
+      "bytes": 1518921,
+      "sha256": "7fe73321d11257c172a578c4bf35c53ba1859a3b0cbf37cbcd207df2faa8ead6",
+      "status": "FROZEN_BYTES_NOT_SCIENTIFICALLY_VALIDATED"
+    },
+    {
+      "path": "data/reference_corpora/german/goethe_faust.txt",
+      "bytes": 218446,
+      "sha256": "470fab58aa9013efde23f082ba0061f1fbc60a5f9b85451d5b4a63b8f9c21e16",
+      "status": "FROZEN_BYTES_NOT_SCIENTIFICALLY_VALIDATED"
+    },
+    {
+      "path": "data/reference_corpora/italian/dante_divina_commedia.txt",
+      "bytes": 626098,
+      "sha256": "76a06f77ea52d4c815f27251fa253ddc8383dfdae49a44065e45a15adec828a6",
+      "status": "FROZEN_BYTES_NOT_SCIENTIFICALLY_VALIDATED"
+    },
+    {
+      "path": "data/reference_corpora/latin/caesar_de_bello_gallico_latin.txt",
+      "bytes": 169680,
+      "sha256": "026e9c30e84e2418936db5784c1857c30780066df0ae724c959846aac75b1e33",
+      "status": "FROZEN_BYTES_NOT_SCIENTIFICALLY_VALIDATED"
+    },
+    {
+      "path": "data/reference_corpora/latin/caesar_gallic_wars.txt",
+      "bytes": 964557,
+      "sha256": "eaa456256c46507f872efd965335b370605e6d323ca89ef2012cb71b516183d7",
+      "status": "FROZEN_BYTES_NOT_SCIENTIFICALLY_VALIDATED"
+    },
+    {
+      "path": "data/reference_corpora/latin/cicero_caesar_latin.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "BLOCKED_EMPTY_DO_NOT_USE"
+    },
+    {
+      "path": "data/reference_corpora/latin/cicero_de_officiis_latin.txt",
+      "bytes": 720407,
+      "sha256": "3a33a076d3dda42673ec7ab0331ae7e58fc150e7e92751c0adf6d1db7297b670",
+      "status": "FROZEN_BYTES_NOT_SCIENTIFICALLY_VALIDATED"
+    },
+    {
+      "path": "data/reference_corpora/latin/virgil_aeneid_latin.txt",
+      "bytes": 495789,
+      "sha256": "c844c7d1c6fa4cf798e8bd8b13a855054820811add902e63db7edea5a4f3aa37",
+      "status": "FROZEN_BYTES_NOT_SCIENTIFICALLY_VALIDATED"
+    },
+    {
+      "path": "data/reference_corpora/latin/vulgate.txt",
+      "bytes": 5650501,
+      "sha256": "d63b1b81824e259b1cf92ba8a6e5cbbf783e2a83214cf2c3db2ecd1459165bfe",
+      "status": "FROZEN_BYTES_NOT_SCIENTIFICALLY_VALIDATED"
+    },
+    {
+      "path": "data/transcriptions/eva_it2a.txt",
+      "bytes": 342104,
+      "sha256": "7f27a8b0feed8f6de0a99900df6bf912dd1d295c38e5f830bac8b41c3f536fb5",
+      "status": "FROZEN_BYTES_NOT_SCIENTIFICALLY_VALIDATED"
+    },
+    {
+      "path": "data/transcriptions/eva_zl3b.txt",
+      "bytes": 411671,
+      "sha256": "bf5b6d4ac1e3a51b1847a9c388318d609020441ccd56984c901c32b09beccafc",
+      "status": "FROZEN_BYTES_NOT_SCIENTIFICALLY_VALIDATED"
+    },
+    {
+      "path": "data/transcriptions/v101_claston.txt",
+      "bytes": 248567,
+      "sha256": "f278a451d873c520f7ab509c4af12152698a1d3efd2353924e177a565c17ba7e",
+      "status": "FROZEN_BYTES_NOT_SCIENTIFICALLY_VALIDATED"
+    },
+    {
+      "path": "data/transcriptions/zl3a.txt",
+      "bytes": 411710,
+      "sha256": "56419297682d338ff1a0a17f5ae251e3ee3e2c5bf05a62db04c5385ef30b36a2",
+      "status": "FROZEN_BYTES_NOT_SCIENTIFICALLY_VALIDATED"
+    }
+  ]
+}

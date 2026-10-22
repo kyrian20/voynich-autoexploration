@@ -31,6 +31,12 @@ jobs:
           python tests/test_repository_operations.py
           python scripts/audit_repository_operations.py
 
+      - name: Comprobar identidad de corpus y control de duplicados
+        run: |
+          python tests/test_corpus_integrity.py
+          python scripts/check_corpus_integrity.py
+          python tests/test_duplicate_leakage.py
+
       - name: Comprobar archivos de investigación
         run: |
           python - <<'PY'
@@ -125,6 +131,12 @@ jobs:
         run: |
           python scripts/prepare_decipherment_anchor_packet.py > decipherment-anchor-candidates.json
           python scripts/check_audit_snapshot.py research/decipherment/2026-10-22-anchor-candidates.json decipherment-anchor-candidates.json
+
+      - name: Probar y reproducir control exploratorio daiin dam
+        run: |
+          python tests/test_daiin_dam_control.py
+          python scripts/audit_daiin_dam_control.py > daiin-dam-control.json
+          python scripts/check_audit_snapshot.py research/decipherment/2026-10-22-daiin-dam-control/results.json daiin-dam-control.json
 
       - name: Probar evidencias de anclas y reproducir concordancias
         run: |

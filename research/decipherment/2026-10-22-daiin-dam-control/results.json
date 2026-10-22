@@ -1,0 +1,306 @@
+{
+  "audit": "daiin_dam_P0_local_randomization",
+  "status": "EXPLORATORY_NOT_CONFIRMATORY",
+  "protocol": "research/decipherment/2026-10-22-daiin-dam-control/PROTOCOL.md",
+  "protocol_sha256": "5a2a195a8612a4b7ed2f0ff2099557b6058d58acbcbc33e57aced875f3a7975b",
+  "permutations": 9999,
+  "seed": 2026102201,
+  "views": [
+    {
+      "transcription": "ZL3b",
+      "source": "data/transcriptions/eva_zl3b.txt",
+      "source_sha256": "bf5b6d4ac1e3a51b1847a9c388318d609020441ccd56984c901c32b09beccafc",
+      "space_policy": "split",
+      "P0_records": 3885,
+      "transitions": 30091,
+      "daiin_with_successor": 667,
+      "dam_with_predecessor": 76,
+      "pair_count": 8,
+      "conditional_rate": 0.01199400299850075,
+      "marginal_rate": 0.0025256721278787675,
+      "null_exact_expected_count": 2.090964590964591,
+      "observed_over_expected": 3.825985401459854,
+      "null_mean": 2.0903090309030903,
+      "null_histogram": {
+        "0": 995,
+        "1": 2593,
+        "2": 2912,
+        "3": 2074,
+        "4": 996,
+        "5": 326,
+        "6": 79,
+        "7": 19,
+        "8": 4,
+        "9": 1
+      },
+      "exploratory_tail_plus_one": 0.0006,
+      "matches": [
+        {
+          "id": "f11v.2",
+          "folio": "f11v",
+          "count": 1
+        },
+        {
+          "id": "f22v.8",
+          "folio": "f22v",
+          "count": 1
+        },
+        {
+          "id": "f23r.2",
+          "folio": "f23r",
+          "count": 1
+        },
+        {
+          "id": "f32r.8",
+          "folio": "f32r",
+          "count": 1
+        },
+        {
+          "id": "f34r.12",
+          "folio": "f34r",
+          "count": 1
+        },
+        {
+          "id": "f42r.14",
+          "folio": "f42r",
+          "count": 1
+        },
+        {
+          "id": "f89r1.17",
+          "folio": "f89r1",
+          "count": 1
+        },
+        {
+          "id": "f105r.24",
+          "folio": "f105r",
+          "count": 1
+        }
+      ],
+      "active_records_for_randomization": 15,
+      "exploratory_Holm_four_views": 0.0018
+    },
+    {
+      "transcription": "ZL3b",
+      "source": "data/transcriptions/eva_zl3b.txt",
+      "source_sha256": "bf5b6d4ac1e3a51b1847a9c388318d609020441ccd56984c901c32b09beccafc",
+      "space_policy": "join",
+      "P0_records": 3885,
+      "transitions": 27700,
+      "daiin_with_successor": 628,
+      "dam_with_predecessor": 65,
+      "pair_count": 8,
+      "conditional_rate": 0.012738853503184714,
+      "marginal_rate": 0.0023465703971119133,
+      "null_exact_expected_count": 2.1453102453102453,
+      "observed_over_expected": 3.729064370754019,
+      "null_mean": 2.1598159815981597,
+      "null_histogram": {
+        "0": 923,
+        "1": 2341,
+        "2": 3010,
+        "3": 2212,
+        "4": 1074,
+        "5": 349,
+        "6": 73,
+        "7": 16,
+        "8": 1
+      },
+      "exploratory_tail_plus_one": 0.0002,
+      "matches": [
+        {
+          "id": "f11v.2",
+          "folio": "f11v",
+          "count": 1
+        },
+        {
+          "id": "f22v.8",
+          "folio": "f22v",
+          "count": 1
+        },
+        {
+          "id": "f23r.2",
+          "folio": "f23r",
+          "count": 1
+        },
+        {
+          "id": "f32r.8",
+          "folio": "f32r",
+          "count": 1
+        },
+        {
+          "id": "f34r.12",
+          "folio": "f34r",
+          "count": 1
+        },
+        {
+          "id": "f42r.14",
+          "folio": "f42r",
+          "count": 1
+        },
+        {
+          "id": "f89r1.17",
+          "folio": "f89r1",
+          "count": 1
+        },
+        {
+          "id": "f105r.24",
+          "folio": "f105r",
+          "count": 1
+        }
+      ],
+      "active_records_for_randomization": 14,
+      "exploratory_Holm_four_views": 0.0008
+    },
+    {
+      "transcription": "IT2a",
+      "source": "data/transcriptions/eva_it2a.txt",
+      "source_sha256": "7f27a8b0feed8f6de0a99900df6bf912dd1d295c38e5f830bac8b41c3f536fb5",
+      "space_policy": "split",
+      "P0_records": 3884,
+      "transitions": 29571,
+      "daiin_with_successor": 683,
+      "dam_with_predecessor": 84,
+      "pair_count": 8,
+      "conditional_rate": 0.01171303074670571,
+      "marginal_rate": 0.0028406208785634575,
+      "null_exact_expected_count": 2.626873126873127,
+      "observed_over_expected": 3.0454459022627876,
+      "null_mean": 2.609060906090609,
+      "null_histogram": {
+        "0": 515,
+        "1": 1741,
+        "2": 2759,
+        "3": 2496,
+        "4": 1528,
+        "5": 638,
+        "6": 238,
+        "7": 66,
+        "8": 13,
+        "9": 5
+      },
+      "exploratory_tail_plus_one": 0.0019,
+      "matches": [
+        {
+          "id": "f11v.2",
+          "folio": "f11v",
+          "count": 1
+        },
+        {
+          "id": "f22v.8",
+          "folio": "f22v",
+          "count": 1
+        },
+        {
+          "id": "f23r.2",
+          "folio": "f23r",
+          "count": 1
+        },
+        {
+          "id": "f32r.8",
+          "folio": "f32r",
+          "count": 1
+        },
+        {
+          "id": "f34r.12",
+          "folio": "f34r",
+          "count": 1
+        },
+        {
+          "id": "f42r.14",
+          "folio": "f42r",
+          "count": 1
+        },
+        {
+          "id": "f89r1.17",
+          "folio": "f89r1",
+          "count": 1
+        },
+        {
+          "id": "f105r.24",
+          "folio": "f105r",
+          "count": 1
+        }
+      ],
+      "active_records_for_randomization": 17,
+      "exploratory_Holm_four_views": 0.0038
+    },
+    {
+      "transcription": "IT2a",
+      "source": "data/transcriptions/eva_it2a.txt",
+      "source_sha256": "7f27a8b0feed8f6de0a99900df6bf912dd1d295c38e5f830bac8b41c3f536fb5",
+      "space_policy": "join",
+      "P0_records": 3884,
+      "transitions": 29571,
+      "daiin_with_successor": 683,
+      "dam_with_predecessor": 84,
+      "pair_count": 8,
+      "conditional_rate": 0.01171303074670571,
+      "marginal_rate": 0.0028406208785634575,
+      "null_exact_expected_count": 2.626873126873127,
+      "observed_over_expected": 3.0454459022627876,
+      "null_mean": 2.609060906090609,
+      "null_histogram": {
+        "0": 515,
+        "1": 1741,
+        "2": 2759,
+        "3": 2496,
+        "4": 1528,
+        "5": 638,
+        "6": 238,
+        "7": 66,
+        "8": 13,
+        "9": 5
+      },
+      "exploratory_tail_plus_one": 0.0019,
+      "matches": [
+        {
+          "id": "f11v.2",
+          "folio": "f11v",
+          "count": 1
+        },
+        {
+          "id": "f22v.8",
+          "folio": "f22v",
+          "count": 1
+        },
+        {
+          "id": "f23r.2",
+          "folio": "f23r",
+          "count": 1
+        },
+        {
+          "id": "f32r.8",
+          "folio": "f32r",
+          "count": 1
+        },
+        {
+          "id": "f34r.12",
+          "folio": "f34r",
+          "count": 1
+        },
+        {
+          "id": "f42r.14",
+          "folio": "f42r",
+          "count": 1
+        },
+        {
+          "id": "f89r1.17",
+          "folio": "f89r1",
+          "count": 1
+        },
+        {
+          "id": "f105r.24",
+          "folio": "f105r",
+          "count": 1
+        }
+      ],
+      "active_records_for_randomization": 17,
+      "exploratory_Holm_four_views": 0.0038
+    }
+  ],
+  "limits": [
+    "Pair selected after seeing the corpus; multiplicity outside four views is uncontrolled.",
+    "Null conditions on each line multiset; not an independent-token population test.",
+    "No semantics, pronunciation or language assignment."
+  ]
+}
