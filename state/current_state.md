@@ -1,6 +1,6 @@
 # Current State — Voynich Cryptanalyst
 
-**Last updated:** 2026-10-19 (exp_612–exp_618 analyses saved; exp_620 parser audit partial)
+**Last updated:** 2026-10-22 (operational follow-up; scientific blockers remain)
 
 
 
@@ -179,3 +179,12 @@ Two workflows that commit generated results to `master` used separate GitHub Act
 - No se renumeraron ni borraron carpetas; no se creó un EXP nuevo ni se recalcularon resultados científicos en esta auditoría.
 - La lista consultada de la Biblioteca devolvió como máximo 200 elementos y no permite afirmar que se haya cotejado todo su contenido. El cotejo de hashes GitHub/Biblioteca sigue pendiente, al igual que la adjudicación IVTFF independiente y la revisión de cada resultado histórico relevante.
 - Siguiente orden obligatorio: (1) reconciliar IDs y referencias, (2) inventariar y comparar hashes de ambos repositorios, (3) completar fixtures IVTFF y verificar resultados críticos con logs, (4) elegir un único experimento confirmatorio preregistrado y pasar `skills/audit_experiment.md` antes de actualizar estado científico.
+
+
+## Operational follow-up — 2026-10-22 (repository inspection)
+
+- Re-read the concurrency audit, experiment register, Voynich Check workflow, and writer workflows for EXP-603 through EXP-611 plus the corpus-experiments workflow.
+- The inspected EXP-605–611 and corpus-experiments workflows now contain per-workflow concurrency groups and bounded rebase/push retry loops. This reduces the chance that transient cross-workflow push races permanently lose result publication, but does not globally serialize different workflows; it is not proof that every workflow or every recent run is healthy.
+- Corrected misleading concurrency comments in `.github/workflows/voynich-exp603.yml` and `.github/workflows/voynich-exp604.yml`: their groups serialize only executions of the same workflow, while cross-workflow races rely on bounded retries.
+- This session inspected workflow source, not live run conclusions. Do not mark CI globally closed without verifying the relevant latest run IDs, commit SHAs, and failed/cancelled jobs.
+- Scientific and archival gates remain unchanged: no new EXP IDs; reconcile the experiment register and Library/GitHub artifacts; complete independent IVTFF conformance fixtures; preserve historical outputs; and do not interpret distributional results as decipherment.
