@@ -78,3 +78,16 @@ The examples are fixture specifications, not claims that these exact strings occ
 ## Current status
 
 CI now checks transcription files, Python syntax, regression tests for $L metadata semantics, and the corpus-level Currier metadata audit. **This does not yet resolve the token-level parser disagreement.** The next code change should implement F01–F11 in a dedicated tokenizer test suite before any Currier A/B prediction experiment is run.
+
+## Auditoría adicional de pérdida de información — 2026-10-22
+
+La lectura conjunta de la política declarada y las funciones actuales `tokens_regex` / `tokens_scanner` identifica una limitación concreta que debe resolverse antes de considerar cerrada la conformidad:
+
+- Ambas implementaciones eliminan el contenido delimitado por llaves de la secuencia de tokens. La expresión regular sustituye `{…}` por espacio; el escáner vacía la palabra y salta hasta `}`.
+- Sin embargo, la especificación IVTFF 2.0.2 §6.6 describe las llaves como una ligadura de caracteres Voynichese, no como comentario genérico. Por tanto, la eliminación puede perder información de grafemas y alterar límites de palabras. El hecho de que ambos parsers coincidan no detecta este sesgo compartido.
+- La prueba actual de regresión solo demuestra que ambas implementaciones producen la misma salida para ejemplos con llaves; no valida que esa salida conserve correctamente la lectura.
+
+**Decisión:** no cambiar silenciosamente el normalizador de producción ni regenerar resultados anteriores. Mantener bloqueados los análisis de tokenización que puedan verse afectados por spans con llaves hasta crear fixtures adjudicadas contra §6.6 y una política de sensibilidad explícita: conservar el span bruto y offsets, evaluar por separado una vista que preserve la ligadura y la política histórica que la excluye, e informar cuántas líneas/tokens/resultados cambian. El resultado de cero discrepancias de EXP-602 v7 se debe describir solo como acuerdo entre implementaciones bajo una política compartida de pérdida de llaves.
+
+Esta observación no demuestra que ningún resultado anterior sea falso; delimita una fuente de incertidumbre de tokenización aún no evaluada.
+
