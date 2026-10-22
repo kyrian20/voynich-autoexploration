@@ -189,3 +189,15 @@ La revisión de los casos restantes añade estos seis IDs al registro de diferen
 Con estas seis incorporaciones y las 28 diferencias documentadas antes, **los 34 grupos con ID compartido han sido revisados semánticamente y los 34 tienen una discrepancia de pregunta, método o alcance**. Este resultado significa que el número EXP no es una clave de unión fiable entre Biblioteca y GitHub. No significa que todos los experimentos sean erróneos ni que se haya demostrado que sus archivos son distintos byte a byte.
 
 **Pendiente por separado:** comparación SHA-256 de contenido para los pares candidatos; comprobar las asociaciones exactas entre scripts, JSON e informes; ejecutar las reproducciones que aún no se han ejecutado (en especial las dos pruebas piloto de orden de palabras LIB-EXP-623); y revisar los siete IDs de carpetas duplicadas internamente en GitHub. Ningún original se ha renombrado, fusionado, borrado o sobrescrito y no se ha asignado un ID nuevo.
+
+
+## LIB-EXP-623 reproduction closure — 2026-10-22
+
+The two Library word-order pilot scripts were executed in the isolated GitHub Actions workflow against the exact recorded source transcription blobs. Run: [39729111827](https://github.com/kyrian20/voynich-autoexploration/actions/runs/39729111827); workflow commit `40e636cd7815f0b2de5d10d5ea6b7a47f1ad645d`. Both analysis steps and artifact upload succeeded.
+
+- `research/reproduction/exp623_order_null.py`: endpoint-preserving interior shuffle, 10 folio-stratified splits × 39 nulls. Loci/tokens match pilot metadata (ZL3b 3,879/32,959; IT2a 3,881/33,380); mean deltas and split classifications match within floating-point rounding; all 10/10 splits in both transcriptions are above the null 95th percentile and maximum.
+- `research/reproduction/exp623_shuffle_holdout.py`: all-token within-locus shuffle, 20 splits × 50 shuffles. Loci/tokens match (ZL3b 5,376/39,298; IT2a 5,207/37,945); categorical outcomes match exactly. Mean shuffled-minus-original loss differs from pilot by only about 10^-15 bits/token. Original sequence has lower loss in 3/20 ZL3b splits and 0/20 IT2a splits; random shuffles have lower loss in 76.9% and 98.8% of draws, respectively.
+- The source blobs verified in the workflow are ZL3b `2a4533ab9bdfa85db9bad602d590978953055df1` and IT2a `4d6d3f2537b1f507a257529b49c94af7d6e03446`.
+- Full comparison, interpretation limits, artifact ID and output hashes: [EXP623_REPRODUCTION_COMPARISON_2026-10-22.md](https://github.com/kyrian20/voynich-autoexploration/blob/master/research/reproduction/EXP623_REPRODUCTION_COMPARISON_2026-10-22.md). The Actions artifact is `exp623-reproduction-40e636cd7815f0b2de5d10d5ea6b7a47f1ad645d` (ID 12404740024).
+
+This closes exact execution provenance for these two Library pilot scripts, not the broader binary reconciliation. The two protocols use different null constructions and must remain separate; neither is a decipherment result. Historical Library files were not overwritten or merged. No new EXP ID was assigned.
