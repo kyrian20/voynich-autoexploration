@@ -1,7 +1,7 @@
 # EXP-590 — Posición inicial de daiin
 
 - Fecha UTC: 2026-10-22
-- Fuente: /home/runner/work/voynich-autoexploration/voynich-autoexploration/data/transcriptions/eva_zl3b.txt
+- Fuente: data/transcriptions/eva_zl3b.txt
 - SHA-256 de la transcripción: bf5b6d4ac1e3a51b1847a9c388318d609020441ccd56984c901c32b09beccafc
 - Líneas EVA parseadas: 5,376
 - Tokens parseados: 39,594
@@ -15,8 +15,8 @@
 
 - Permutaciones: 5,000
 - Semilla fija: 20261020
-- Media nula de líneas que empiezan por daiin: 109.158
-- Desviación típica nula: 9.355
+- Media nula de líneas que empiezan por daiin: 109.121
+- Desviación típica nula: 9.315
 - p empírico unilateral con corrección +1: 0.000200
 
 La hipótesis nula permuta el orden de los tokens dentro de cada línea, conservando su multiconjunto exacto. El contraste evalúa si daiin aparece al principio de línea más de lo esperable bajo ese modelo; no prueba significado lingüístico. No se han explorado múltiples palabras en este experimento, pero cualquier búsqueda posterior deberá corregir comparaciones múltiples.
