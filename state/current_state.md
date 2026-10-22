@@ -149,3 +149,8 @@ The committed outputs for EXP-622 and EXP-623 were inspected directly:
 - **Decision:** the data do not show that the ch/sh vowel contrast is specifically stronger after the digraph than before it. This weakens the outcome-specific/phonetic interpretation; it does not erase the descriptive contrast, but neither experiment establishes sound values, meaning, language identity, or decipherment. IT2a and ZL3b are alternative transcriptions of one manuscript, not independent manuscript samples.
 - **Provenance correction:** the EXP-623 script and generated report/JSON previously contained copy-paste wording incorrectly saying the analysis used ZL3b. The source path and SHA-256 were already IT2a; wording has now been corrected in all three files without changing the statistics.
 - **Still open:** independent parser/IVTFF edge-case audit; section-level holdout using defensible codicological boundaries; and a complete predeclared multiple-testing/control-family review. Do not mark the ch/sh line closed or start another lexical variant scan before those checks.
+
+
+## Workflow integrity correction — 2026-10-22
+
+Two workflows that commit generated results to `master` used separate GitHub Actions concurrency groups (`voynich-independent-parser-audit` and `voynich-paired-sensitivity`). Because concurrency only serializes runs sharing the same group, those settings did not serialize them with the other master-writing workflows despite comments implying coordination. Both have been changed to the shared `voynich-master-writes` group with `cancel-in-progress: false`. This reduces avoidable non-fast-forward races; it does not guarantee every future push will succeed, so run logs still need verification.
