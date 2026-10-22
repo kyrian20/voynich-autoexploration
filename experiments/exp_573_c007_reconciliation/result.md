@@ -152,3 +152,18 @@ This misattribution does not affect C007's practical validity for most purposes 
 5. See **state/proposed_c007_amendment.md** for the proposed corrected language.
 
 **→ Q013 RESOLVED**
+
+
+---
+
+## Reproducibility check — 2026-10-22
+
+The script was made repository-relative (removing the machine-specific `/Users/asash/...` corpus path), given a main guard so it can be imported safely, and added to the `Voynich Check` workflow. The full run passed in [CI run 584](https://github.com/kyrian20/voynich-autoexploration/actions/runs/39740259579).
+
+The canonical per-line/formula values reproduce the reported values closely:
+- A-dialect `ok`: 1.421× (reported exp_567: 1.42×).
+- B-dialect `qok`: 1.028× (reported exp_565: 1.03×).
+
+**Important limitation:** the old-formula/folio-level branch is not an exact numerical reproduction of the historical exp_174 table: this run gives A `ok` = 2.083× versus the cited 1.930×, and B `qok` = 1.259× versus 1.239×. Thus, treat that branch as a best-faith methodological comparison, not as an exact reproduction of exp_174. The script's execution success does not remove this discrepancy. The attribution check remains a direct comparison against the values transcribed from the cited exp_174 table: 2.047× is listed for B `qo`, not A `ok` (listed as 1.930×).
+
+No source transcription or historical output was changed. The result remains methodological; it is not evidence of decipherment.
