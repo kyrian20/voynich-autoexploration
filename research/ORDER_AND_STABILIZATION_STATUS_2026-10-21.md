@@ -104,3 +104,11 @@ Al escribir esta actualización, varias ejecuciones de `Voynich Check` y algunas
 3. Reproducir/confirmar los outputs críticos desde fuentes con hashes y comandos documentados, sin sobrescribir históricos.
 4. Cotejar por hashes reales los artefactos de GitHub y la Biblioteca; el cotejo parcial de EXP-590/593 no equivale a revisar la Biblioteca completa.
 5. Solo después, seleccionar un único experimento confirmatorio preregistrado y someter el informe a `skills/audit_experiment.md` antes de tocar el estado científico.
+
+
+## Verificación adicional de CI — 2026-10-22 05:54 UTC
+
+- Se consultó directamente la API de GitHub Actions para el run **Voynich Check #526**, run ID [39730701397](https://github.com/kyrian20/voynich-autoexploration/actions/runs/39730701397), asociado al commit `63b6e68b6816c9ec9e347d633a08fe3146dd850d` (mensaje: `Correct current state after completed EXP-623 reproduction`).
+- Resultado del run: `completed / success`. Se verificaron los siete pasos principales: checkout, configuración de Python, existencia de corpus, sintaxis de scripts, regresiones IVTFF, auditoría de metadatos Currier y cierre del job; todos aparecen como `success`.
+- Alcance: esto confirma que el workflow de comprobación pasó en ese SHA concreto. **No** demuestra que los 30 workflows que escriben resultados estén todos verdes ni cierra la auditoría de concurrencia, el parser IVTFF completo o el cotejo GitHub/Biblioteca.
+- No se han borrado ni renombrado artefactos ni se ha asignado un nuevo ID EXP en esta actualización.
