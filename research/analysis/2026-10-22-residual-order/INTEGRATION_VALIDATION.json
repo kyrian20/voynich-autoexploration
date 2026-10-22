@@ -1,0 +1,64 @@
+{
+  "status": "REPRODUCED_INTEGRATED_NOT_SEMANTIC_VALIDATION",
+  "canonical_corpora_reused": 4,
+  "raw_corpus_copies_added": 0,
+  "prepared_inputs_reproduced": true,
+  "reference_identity_audit_reproduced": true,
+  "V1_and_V2_results_reproduced": true,
+  "commands": [
+    {
+      "arguments": [
+        "<repository>/scripts/check_corpus_integrity.py"
+      ],
+      "exit_code": 0
+    },
+    {
+      "arguments": [
+        "<repository>/research/analysis/2026-10-22-residual-order/test_residual_order.py"
+      ],
+      "exit_code": 0
+    },
+    {
+      "arguments": [
+        "<repository>/research/analysis/2026-10-22-residual-order/test_calibrated.py"
+      ],
+      "exit_code": 0
+    },
+    {
+      "arguments": [
+        "<repository>/research/analysis/2026-10-22-residual-order/test_integration.py"
+      ],
+      "exit_code": 0
+    },
+    {
+      "arguments": [
+        "<repository>/research/analysis/2026-10-22-residual-order/prepare_inputs.py",
+        "--repo",
+        "<repository>",
+        "--out",
+        "/workspace/scratch/46cd60ee9013/open-integration-verification-1"
+      ],
+      "exit_code": 0
+    },
+    {
+      "arguments": [
+        "<repository>/research/analysis/2026-10-22-residual-order/audit_reference_identity.py",
+        "--repo",
+        "<repository>"
+      ],
+      "exit_code": 0
+    },
+    {
+      "arguments": [
+        "<repository>/research/analysis/2026-10-22-residual-order/residual_order.py"
+      ],
+      "exit_code": 0
+    },
+    {
+      "arguments": [
+        "<repository>/research/analysis/2026-10-22-residual-order/residual_order_calibrated.py"
+      ],
+      "exit_code": 0
+    }
+  ]
+}

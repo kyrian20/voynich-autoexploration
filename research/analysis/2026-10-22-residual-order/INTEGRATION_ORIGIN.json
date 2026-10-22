@@ -1,0 +1,23 @@
+{
+  "publication_authorized": "User requested open integration on 22-10-2026",
+  "source_commit": "b566b6fa461f3a4e6fd8bb3a1aaa6e71f035f190",
+  "original_private_package_sha256": "9621ecac205bf60643187eff224a3a726116c533eac6bea3cedb1f131eb1aa55",
+  "original_artifact_sha256": {
+    "PROTOCOL.md": "0a7d409a0e333ba200c282e0bf31766068d3dfb8c8bc5f3f913d89dc58388585",
+    "PROTOCOL_V2.md": "db1c548bd92b89351f9b20d362ba3012314be24be6610096d734f768e8ccdd12",
+    "SOURCES.md": "ce55cc4b8d9dac0d84c647156d710ec26ad96c8a305c6d51b4463baa49e91ba5",
+    "CORPUS_INCIDENTS.md": "a60b87fc3b0919df4d0ae2391526a5402b85aeb8d980ac5e2a792769876f718c",
+    "reference_identity_audit.json": "d8908b5b294a747063dca970cf89544b443f06080861577a239524d67baa5be6",
+    "residual_order.py": "19c08029d63ad8f3e3f10aa713b51ff0d6767e0cfa2a1998d05fcb1d8c1d9415",
+    "residual_order_calibrated.py": "0f7d2c00c522e7f98978c7fe0bf03cd5aa6ffad07215a1594a9ff8f0bae099b0",
+    "prepare_inputs.py": "577390854211f3504e400ac39a7793c62243724be0814b08d5eb090eeeaa2746",
+    "audit_reference_identity.py": "e5f52cb9719ac69884c7ca8a8bfc01c603fa0aaf937e0f160ef58414f9cfa85b",
+    "test_residual_order.py": "017cc9917a51b14b6535d3e867059174a0312f472e7161f451bb8090ffd10e1d",
+    "test_calibrated.py": "e7f766c0219454c9afd84e4df7185aaad48ab02c7ff1eef4a4cae0cacdd3489e",
+    "residual_order_results.json": "b7a9aebaffbe228d58ffcb9814e027fee9532d7d80bb7ebcb9ca152db3cfa443",
+    "residual_order_calibrated_results.json": "8b5615d89b988c20aefd957772c2fd3cd11da4727f784fe73ef6a1eb1b0836f6",
+    "inputs.json": "8fbd5824cf2d1b995811d49affbaaa1048882ad193d5e2bced848eb8a2941f77",
+    "Informe_privado_orden_residual_2026-10-22.md": "03af888a9380b17ca029e3fe94b2ec15db0a481d4cc6f09b222c2243c7fb4c05"
+  },
+  "migration": "No raw corpus duplication. Canonical data/ files reused. Regenerated outputs must preserve the original results arrays; only implementation/input metadata changes."
+}

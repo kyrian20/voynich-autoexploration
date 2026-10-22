@@ -1,53 +1,26 @@
-# Reference Corpora Manifest
+# Corpus de comparación — identidad revisada el 22-10-2026
 
-Reference corpora for use as natural-language baselines in entropy and statistical experiments. All are plain text (UTF-8 unless noted). The goal is not comprehensiveness but representativeness — a few thousand words per language is enough for the entropy tests in H001-H009.
+Los nombres heredados de varios archivos no describen su contenido real. Se conservan los bytes y las rutas para no romper procedencia ni ocultar resultados históricos. El manifiesto de hashes verifica integridad; no certifica idioma ni representatividad.
 
----
+| Archivo | Identidad observada | Uso y estado |
+|---|---|---|
+| `latin/caesar_de_bello_gallico_latin.txt` | César, *De Bello Gallico* I–IV, latín, Gutenberg #218 | Control latino del bloque de orden residual, con selección de cuerpo explícita |
+| `italian/dante_divina_commedia.txt` | Dante, *Divina Commedia*, italiano, #1012 | Control italiano del mismo bloque; poesía, no prosa |
+| `latin/virgil_aeneid_latin.txt` | *The Aeneid*, cabecera Language: Latin | Identidad según cabecera; no se declara aquí su adjudicación completa |
+| `german/goethe_faust.txt` | *Faust*, cabecera Language: German | Misma limitación de adjudicación |
+| `latin/vulgate.txt` | Biblia Douay-Rheims, **inglés**, #8300 | No usar como latín |
+| `latin/caesar_gallic_wars.txt` | César en traducción **inglesa**, #10657 | No usar como latín |
+| `latin/cicero_de_officiis_latin.txt` | Cicerón, **latín e inglés alternados**, #47001 | Requiere revisar el extractor antes de tratar su salida como monolingüe |
+| `arabic/quran_arabic.txt` | Whitman, *Drum-Taps*, **inglés**, #8801 | No es Corán ni control árabe |
+| `english/kjv_bible.txt` | *Book of Mormon*, inglés, #17 | No describir como KJV; pertinencia del género pendiente |
+| `latin/cicero_caesar_latin.txt` | Vacío | `BLOCKED_EMPTY_DO_NOT_USE` |
 
-## latin/vulgate.txt
-**Source:** Project Gutenberg #8300
-**Language:** Latin (Vulgate Bible, medieval/late antique)
-**Size:** ~5.6 MB
-**Notes:** Primary Latin baseline. Vulgate Latin is appropriate for the Voynich historical context (early 15th century, Central Europe, likely literate-clerical production). Contains Gutenberg header/footer — strip before use.
+Revisión canónica de identidad: [CORPUS_IDENTITY_REVIEW.json](../../research/CORPUS_IDENTITY_REVIEW.json). Evidencia y alcance: [incidencias](../../research/analysis/2026-10-22-residual-order/CORPUS_INCIDENTS.md) y [fuentes primarias](../../research/analysis/2026-10-22-residual-order/SOURCES.md).
 
-## latin/caesar_gallic_wars.txt
-**Source:** Project Gutenberg #10657
-**Language:** Latin (Classical — 1st century BCE)
-**Size:** ~965 KB
-**Notes:** Classical Latin for comparison with medieval Vulgate. Register differences may be informative. Contains Gutenberg header/footer — strip before use.
+El inventario localiza 103 scripts con referencias literales a Cicerón o al archivo llamado Vulgata. Esto no demuestra 103 ejecuciones ni 103 resultados inválidos. Algunos extractores de Cicerón aplican filtros de inglés que requieren revisión específica. Los resultados históricos no se recalculan ni se invalidan masivamente por este inventario.
 
-## italian/dante_divina_commedia.txt
-**Source:** Project Gutenberg #1012
-**Language:** Italian (medieval — early 14th century, Tuscan)
-**Size:** ~626 KB
-**Notes:** Dante's Italian is the best available medieval Italian baseline — geographically and temporally close to the Voynich's likely production context. Contains Gutenberg header/footer — strip before use.
+## Reproducción integrada
 
-## english/kjv_bible.txt
-**Source:** Project Gutenberg #17
-**Language:** English (early modern — King James Version, 1611)
-**Size:** ~1.5 MB
-**Notes:** Included as a control in a language with well-characterized entropy properties. Not a primary comparison target for Voynich (wrong language family and period) but useful for sanity-checking that entropy measurements behave as expected on a known corpus.
+El bloque de [orden residual](../../research/analysis/2026-10-22-residual-order/README.md) verifica hashes, rechaza el uso de corpus con incidencias no adjudicadas en sus nuevas comparaciones, regenera las entradas desde `data/` y reproduce modelos y controles. No añade copias crudas de estos textos.
 
----
-
-## Languages Still Needed
-
-The following reference corpora are listed in SOUL.md but not yet downloaded:
-- **Hebrew** (Tanakh): needed for H005 and any Semitic-language hypotheses. Source: sefaria.org or wikisource.
-- **Arabic** (Quran): same motivation. Source: corpus.quran.com or any plain-text Quran.
-- **German** (medieval): useful if phonotactic comparison to Germanic L1 is needed. Source: Gutenberg (MHD texts).
-
-Add these if an experiment requires them. Do not download proactively.
-
----
-
-## Preprocessing Notes
-
-For entropy experiments, preprocessing should:
-1. Remove Gutenberg headers/footers (lines before/after the actual text)
-2. Strip punctuation and numerals
-3. Lowercase
-4. Tokenize into words (split on whitespace and punctuation)
-5. Optionally: strip diacritics for character-level entropy (or keep them — document the choice)
-
-For character-level entropy analysis (H001-H003), work with individual characters; for word-level analysis (H004), work with space-separated tokens. Always document which preprocessing was applied in the experiment's result.md.
+No hay todavía un control árabe o hebreo aprobado por esta revisión. La exclusión de un archivo mal identificado no equivale a excluir una lengua como posible explicación del manuscrito.

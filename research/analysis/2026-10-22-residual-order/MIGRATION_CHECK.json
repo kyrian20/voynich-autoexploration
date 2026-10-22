@@ -1,0 +1,20 @@
+[
+  {
+    "script": "residual_order.py",
+    "original_results_array_sha256": "b4e8c6ffda9616242735463931871fb5eddfe5bd90e8ff04cbffdf8ef49c9ca4",
+    "integrated_results_array_sha256": "b4e8c6ffda9616242735463931871fb5eddfe5bd90e8ff04cbffdf8ef49c9ca4",
+    "same_scientific_results": true,
+    "changed_fields": [
+      "sha256"
+    ]
+  },
+  {
+    "script": "residual_order_calibrated.py",
+    "original_results_array_sha256": "0d48cf5ea7f81b84ba05a1df3e643d046831b9c7110f9d8d10514b2bd2e0a3ea",
+    "integrated_results_array_sha256": "0d48cf5ea7f81b84ba05a1df3e643d046831b9c7110f9d8d10514b2bd2e0a3ea",
+    "same_scientific_results": true,
+    "changed_fields": [
+      "sha256"
+    ]
+  }
+]

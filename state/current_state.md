@@ -1,3 +1,5 @@
+> **Actualización pública — 22-10-2026:** el bloque inicialmente privado de orden residual está integrado en [una reproducción conjunta](../research/analysis/2026-10-22-residual-order/README.md). La revisión de identidad de corpus es canónica en `research/CORPUS_IDENTITY_REVIEW.json`. Esto no resuelve automáticamente sus 103 referencias históricas ni la conformidad IVTFF.
+
 # Current State — Voynich Cryptanalyst
 
 **Operational status:** [current verified infrastructure and scientific limits](../research/OPERATIONAL_STATUS.md). One automated publisher; 31 readers. The path registry disambiguates all 624 experiment directories without renumbering. Earlier concurrency notes are historical.

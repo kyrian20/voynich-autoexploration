@@ -1,0 +1,115 @@
+{
+  "source_commit": "b566b6fa461f3a4e6fd8bb3a1aaa6e71f035f190",
+  "scope": "Public corpus identity overlay; original bytes and historical results preserved",
+  "excluded_from_new_language_baselines": [
+    {
+      "path": "data/reference_corpora/arabic/quran_arabic.txt",
+      "sha256": "8adc6237eda291ec5e35c0ca1574b9eac6641c387b7f6d5183b112bd766f88c4",
+      "bytes": 112268,
+      "header_title": [
+        "Title: Drum-Taps"
+      ],
+      "header_language": [
+        "Language: English"
+      ],
+      "issue": "WRONG_LANGUAGE_AND_WORK",
+      "adjudicated_language": "English",
+      "adjudicated_work": "Drum-Taps #8801",
+      "evidence": [
+        "Title: Drum-Taps",
+        "Language: English"
+      ]
+    },
+    {
+      "path": "data/reference_corpora/english/kjv_bible.txt",
+      "sha256": "7fe73321d11257c172a578c4bf35c53ba1859a3b0cbf37cbcd207df2faa8ead6",
+      "bytes": 1518921,
+      "header_title": [
+        "Title: The Book of Mormon"
+      ],
+      "header_language": [
+        "Language: English"
+      ],
+      "issue": "WRONG_WORK_SAME_LANGUAGE",
+      "adjudicated_language": "English",
+      "adjudicated_work": "The Book of Mormon #17",
+      "evidence": [
+        "Title: The Book of Mormon",
+        "Language: English"
+      ]
+    },
+    {
+      "path": "data/reference_corpora/latin/caesar_gallic_wars.txt",
+      "sha256": "eaa456256c46507f872efd965335b370605e6d323ca89ef2012cb71b516183d7",
+      "bytes": 964557,
+      "header_title": [
+        "Title: \"De Bello Gallico\" and Other Commentaries"
+      ],
+      "header_language": [
+        "Language: English"
+      ],
+      "issue": "WRONG_LANGUAGE_FOR_LATIN",
+      "adjudicated_language": "English",
+      "adjudicated_work": "De Bello Gallico and Other Commentaries, English translation",
+      "evidence": [
+        "Title: \"De Bello Gallico\" and Other Commentaries",
+        "Language: English"
+      ]
+    },
+    {
+      "path": "data/reference_corpora/latin/cicero_caesar_latin.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "header_title": [],
+      "header_language": [],
+      "issue": "BLOCKED_EMPTY",
+      "adjudicated_language": "none",
+      "adjudicated_work": "empty",
+      "evidence": []
+    },
+    {
+      "path": "data/reference_corpora/latin/cicero_de_officiis_latin.txt",
+      "sha256": "3a33a076d3dda42673ec7ab0331ae7e58fc150e7e92751c0adf6d1db7297b670",
+      "bytes": 720407,
+      "header_title": [],
+      "header_language": [],
+      "issue": "BILINGUAL_REQUIRES_FILTER_AUDIT",
+      "adjudicated_language": "Latin and English",
+      "adjudicated_work": "De Officiis #47001",
+      "evidence": [
+        "page, and the English translation on the right. Here, the text is split",
+        "followed by its English translation. The section numbers that appeared in",
+        "  WITH AN ENGLISH TRANSLATION BY"
+      ]
+    },
+    {
+      "path": "data/reference_corpora/latin/vulgate.txt",
+      "sha256": "d63b1b81824e259b1cf92ba8a6e5cbbf783e2a83214cf2c3db2ecd1459165bfe",
+      "bytes": 5650501,
+      "header_title": [
+        "Title: The Bible, Douay-Rheims, Complete"
+      ],
+      "header_language": [
+        "Language: English"
+      ],
+      "issue": "WRONG_LANGUAGE_FOR_LATIN",
+      "adjudicated_language": "English",
+      "adjudicated_work": "The Bible, Douay-Rheims, Complete",
+      "evidence": [
+        "Title: The Bible, Douay-Rheims, Complete",
+        "Language: English",
+        "First Published by the English College at Douay",
+        "First Published by the English College at Rheims",
+        "Rheims Version of the Holy Bible. In 1568 English exiles, many from",
+        "Oxford, established the English College of Douay (Douai/Doway), Flanders,",
+        "began the work of preparing an English translation of the Bible for",
+        "Catholic readers, the first such translation into Modern English.",
+        "seminary. The translation had been prepared before the appearance of the",
+        "in the translation. In some instances where no English word conveyed the",
+        "words later found common usage in the English language. Spellings of",
+        "archaic in the almost two centuries since the translations were first"
+      ]
+    }
+  ],
+  "historical_results": "PENDING_SCOPE_AUDIT_NOT_AUTOMATICALLY_RETRACTED"
+}

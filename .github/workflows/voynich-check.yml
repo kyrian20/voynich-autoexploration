@@ -144,6 +144,19 @@ jobs:
           python scripts/audit_daiin_dam_exact.py > daiin-dam-exact.json
           python scripts/check_audit_snapshot.py research/maintenance/2026-10-22-precision-review/exact-results.json daiin-dam-exact.json
 
+      - name: Reproducir bloque integrado de orden residual y corpus
+        run: |
+          python research/analysis/2026-10-22-residual-order/run_integrated.py --out "$RUNNER_TEMP/residual-order-${{ github.run_id }}"
+
+      - name: Conservar reproducción del bloque integrado
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: residual-order-integrated-${{ github.run_id }}
+          path: ${{ runner.temp }}/residual-order-${{ github.run_id }}/
+          if-no-files-found: warn
+          retention-days: 90
+
       - name: Probar controles de posición y bordes de la pareja EVA
         run: |
           python tests/test_constrained_pair.py

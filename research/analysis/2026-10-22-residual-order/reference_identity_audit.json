@@ -1,0 +1,1097 @@
+{
+  "files": [
+    {
+      "path": "data/reference_corpora/arabic/quran_arabic.txt",
+      "sha256": "8adc6237eda291ec5e35c0ca1574b9eac6641c387b7f6d5183b112bd766f88c4",
+      "bytes": 112268,
+      "header_title": [
+        "Title: Drum-Taps"
+      ],
+      "header_language": [
+        "Language: English"
+      ],
+      "issue": "WRONG_LANGUAGE_AND_WORK",
+      "adjudicated_language": "English",
+      "adjudicated_work": "Drum-Taps #8801",
+      "evidence": [
+        "Title: Drum-Taps",
+        "Language: English"
+      ]
+    },
+    {
+      "path": "data/reference_corpora/english/kjv_bible.txt",
+      "sha256": "7fe73321d11257c172a578c4bf35c53ba1859a3b0cbf37cbcd207df2faa8ead6",
+      "bytes": 1518921,
+      "header_title": [
+        "Title: The Book of Mormon"
+      ],
+      "header_language": [
+        "Language: English"
+      ],
+      "issue": "WRONG_WORK_SAME_LANGUAGE",
+      "adjudicated_language": "English",
+      "adjudicated_work": "The Book of Mormon #17",
+      "evidence": [
+        "Title: The Book of Mormon",
+        "Language: English"
+      ]
+    },
+    {
+      "path": "data/reference_corpora/german/goethe_faust.txt",
+      "sha256": "470fab58aa9013efde23f082ba0061f1fbc60a5f9b85451d5b4a63b8f9c21e16",
+      "bytes": 218446,
+      "header_title": [
+        "Title: Faust: Der Trag\u00f6die erster Teil"
+      ],
+      "header_language": [
+        "Language: German"
+      ],
+      "issue": "NO_HEADER_CONTRADICTION_DETECTED_NOT_FULLY_ADJUDICATED"
+    },
+    {
+      "path": "data/reference_corpora/italian/dante_divina_commedia.txt",
+      "sha256": "76a06f77ea52d4c815f27251fa253ddc8383dfdae49a44065e45a15adec828a6",
+      "bytes": 626098,
+      "header_title": [
+        "Title: La Divina Commedia di Dante"
+      ],
+      "header_language": [
+        "Language: Italian"
+      ],
+      "issue": "NO_HEADER_CONTRADICTION_DETECTED_NOT_FULLY_ADJUDICATED"
+    },
+    {
+      "path": "data/reference_corpora/latin/caesar_de_bello_gallico_latin.txt",
+      "sha256": "026e9c30e84e2418936db5784c1857c30780066df0ae724c959846aac75b1e33",
+      "bytes": 169680,
+      "header_title": [
+        "Title: C\ufffdsar's Commentaries, Books I-IV"
+      ],
+      "header_language": [
+        "Language: Latin"
+      ],
+      "issue": "NO_HEADER_CONTRADICTION_DETECTED_NOT_FULLY_ADJUDICATED"
+    },
+    {
+      "path": "data/reference_corpora/latin/caesar_gallic_wars.txt",
+      "sha256": "eaa456256c46507f872efd965335b370605e6d323ca89ef2012cb71b516183d7",
+      "bytes": 964557,
+      "header_title": [
+        "Title: \"De Bello Gallico\" and Other Commentaries"
+      ],
+      "header_language": [
+        "Language: English"
+      ],
+      "issue": "WRONG_LANGUAGE_FOR_LATIN",
+      "adjudicated_language": "English",
+      "adjudicated_work": "De Bello Gallico and Other Commentaries, English translation",
+      "evidence": [
+        "Title: \"De Bello Gallico\" and Other Commentaries",
+        "Language: English"
+      ]
+    },
+    {
+      "path": "data/reference_corpora/latin/cicero_caesar_latin.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "header_title": [],
+      "header_language": [],
+      "issue": "BLOCKED_EMPTY",
+      "adjudicated_language": "none",
+      "adjudicated_work": "empty",
+      "evidence": []
+    },
+    {
+      "path": "data/reference_corpora/latin/cicero_de_officiis_latin.txt",
+      "sha256": "3a33a076d3dda42673ec7ab0331ae7e58fc150e7e92751c0adf6d1db7297b670",
+      "bytes": 720407,
+      "header_title": [],
+      "header_language": [],
+      "issue": "BILINGUAL_REQUIRES_FILTER_AUDIT",
+      "adjudicated_language": "Latin and English",
+      "adjudicated_work": "De Officiis #47001",
+      "evidence": [
+        "page, and the English translation on the right. Here, the text is split",
+        "followed by its English translation. The section numbers that appeared in",
+        "  WITH AN ENGLISH TRANSLATION BY"
+      ]
+    },
+    {
+      "path": "data/reference_corpora/latin/virgil_aeneid_latin.txt",
+      "sha256": "c844c7d1c6fa4cf798e8bd8b13a855054820811add902e63db7edea5a4f3aa37",
+      "bytes": 495789,
+      "header_title": [
+        "Title: The Aeneid"
+      ],
+      "header_language": [
+        "Language: Latin"
+      ],
+      "issue": "NO_HEADER_CONTRADICTION_DETECTED_NOT_FULLY_ADJUDICATED"
+    },
+    {
+      "path": "data/reference_corpora/latin/vulgate.txt",
+      "sha256": "d63b1b81824e259b1cf92ba8a6e5cbbf783e2a83214cf2c3db2ecd1459165bfe",
+      "bytes": 5650501,
+      "header_title": [
+        "Title: The Bible, Douay-Rheims, Complete"
+      ],
+      "header_language": [
+        "Language: English"
+      ],
+      "issue": "WRONG_LANGUAGE_FOR_LATIN",
+      "adjudicated_language": "English",
+      "adjudicated_work": "The Bible, Douay-Rheims, Complete",
+      "evidence": [
+        "Title: The Bible, Douay-Rheims, Complete",
+        "Language: English",
+        "First Published by the English College at Douay",
+        "First Published by the English College at Rheims",
+        "Rheims Version of the Holy Bible. In 1568 English exiles, many from",
+        "Oxford, established the English College of Douay (Douai/Doway), Flanders,",
+        "began the work of preparing an English translation of the Bible for",
+        "Catholic readers, the first such translation into Modern English.",
+        "seminary. The translation had been prepared before the appearance of the",
+        "in the translation. In some instances where no English word conveyed the",
+        "words later found common usage in the English language. Spellings of",
+        "archaic in the almost two centuries since the translations were first"
+      ]
+    }
+  ],
+  "issue_files": 6,
+  "static_references": [
+    {
+      "script": "experiments/exp_001_word_initial_entropy/script.py",
+      "input": "latin/vulgate.txt",
+      "lines": [
+        4,
+        191
+      ],
+      "status": "STATIC_REFERENCE_NOT_PROOF_OF_EXECUTION_OR_INVALID_RESULT",
+      "mentions_english_stopword_filter": false
+    },
+    {
+      "script": "experiments/exp_031_qo_stripping/script.py",
+      "input": "latin/vulgate.txt",
+      "lines": [
+        18
+      ],
+      "status": "STATIC_REFERENCE_NOT_PROOF_OF_EXECUTION_OR_INVALID_RESULT",
+      "mentions_english_stopword_filter": false
+    },
+    {
+      "script": "experiments/exp_170_naibbe_simulation/script.py",
+      "input": "latin/vulgate.txt",
+      "lines": [
+        20
+      ],
+      "status": "STATIC_REFERENCE_NOT_PROOF_OF_EXECUTION_OR_INVALID_RESULT",
+      "mentions_english_stopword_filter": false
+    },
+    {
+      "script": "experiments/exp_177_position_sensitive_cipher/script.py",
+      "input": "latin/cicero_de_officiis_latin.txt",
+      "lines": [
+        38
+      ],
+      "status": "STATIC_REFERENCE_NOT_PROOF_OF_EXECUTION_OR_INVALID_RESULT",
+      "mentions_english_stopword_filter": true
+    },
+    {
+      "script": "experiments/exp_177_verify/script.py",
+      "input": "latin/cicero_de_officiis_latin.txt",
+      "lines": [
+        16
+      ],
+      "status": "STATIC_REFERENCE_NOT_PROOF_OF_EXECUTION_OR_INVALID_RESULT",
+      "mentions_english_stopword_filter": true
+    },
+    {
+      "script": "experiments/exp_179_hybrid_cipher_copy/script.py",
+      "input": "latin/cicero_de_officiis_latin.txt",
+      "lines": [
+        31
+      ],
+      "status": "STATIC_REFERENCE_NOT_PROOF_OF_EXECUTION_OR_INVALID_RESULT",
+      "mentions_english_stopword_filter": true
+    },
+    {
+      "script": "experiments/exp_180_position_aware_hybrid/script.py",
+      "input": "latin/cicero_de_officiis_latin.txt",
+      "lines": [
+        45
+      ],
+      "status": "STATIC_REFERENCE_NOT_PROOF_OF_EXECUTION_OR_INVALID_RESULT",
+      "mentions_english_stopword_filter": true
+    },
+    {
+      "script": "experiments/exp_181_onset_preserving_mod/script.py",
+      "input": "latin/cicero_de_officiis_latin.txt",
+      "lines": [
+        56
+      ],
+      "status": "STATIC_REFERENCE_NOT_PROOF_OF_EXECUTION_OR_INVALID_RESULT",
+      "mentions_english_stopword_filter": true
+    },
+    {
+      "script": "experiments/exp_182_timm_char_modification/script.py",
+      "input": "latin/cicero_de_officiis_latin.txt",
+      "lines": [
+        68
+      ],
+      "status": "STATIC_REFERENCE_NOT_PROOF_OF_EXECUTION_OR_INVALID_RESULT",
+      "mentions_english_stopword_filter": true
+    },
+    {
+      "script": "experiments/exp_183_timm_char_extended_grid/script.py",
+      "input": "latin/cicero_de_officiis_latin.txt",
+      "lines": [
+        56
+      ],
+      "status": "STATIC_REFERENCE_NOT_PROOF_OF_EXECUTION_OR_INVALID_RESULT",
+      "mentions_english_stopword_filter": true
+    },
+    {
+      "script": "experiments/exp_184_latin_source_comparison/script.py",
+      "input": "latin/cicero_de_officiis_latin.txt",
+      "lines": [
+        61
+      ],
+      "status": "STATIC_REFERENCE_NOT_PROOF_OF_EXECUTION_OR_INVALID_RESULT",
+      "mentions_english_stopword_filter": false
+    },
+    {
+      "script": "experiments/exp_185_timm_char_cp_fine_grid/script.py",
+      "input": "latin/cicero_de_officiis_latin.txt",
+      "lines": [
+        33
+      ],
+      "status": "STATIC_REFERENCE_NOT_PROOF_OF_EXECUTION_OR_INVALID_RESULT",
+      "mentions_english_stopword_filter": false
+    },
+    {
+      "script": "experiments/exp_186_pdetect_sweep/script.py",
+      "input": "latin/cicero_de_officiis_latin.txt",
+      "lines": [
+        39
+      ],
+      "status": "STATIC_REFERENCE_NOT_PROOF_OF_EXECUTION_OR_INVALID_RESULT",
+      "mentions_english_stopword_filter": false
+    },
+    {
+      "script": "experiments/exp_209_blind_ll_mapping/script.py",
+      "input": "latin/cicero_de_officiis_latin.txt",
+      "lines": [
+        38
+      ],
+      "status": "STATIC_REFERENCE_NOT_PROOF_OF_EXECUTION_OR_INVALID_RESULT",
+      "mentions_english_stopword_filter": false
+    },
+    {
+      "script": "experiments/exp_210_dll_onset_recal/script.py",
+      "input": "latin/cicero_de_officiis_latin.txt",
+      "lines": [
+        33
+      ],
+      "status": "STATIC_REFERENCE_NOT_PROOF_OF_EXECUTION_OR_INVALID_RESULT",
+      "mentions_english_stopword_filter": false
+    },
+    {
+      "script": "experiments/exp_211_lf_blind_fine_sweep/script.py",
+      "input": "latin/cicero_de_officiis_latin.txt",
+      "lines": [
+        34
+      ],
+      "status": "STATIC_REFERENCE_NOT_PROOF_OF_EXECUTION_OR_INVALID_RESULT",
+      "mentions_english_stopword_filter": false
+    },
+    {
+      "script": "experiments/exp_217_expanded_metric_battery/script.py",
+      "input": "latin/cicero_de_officiis_latin.txt",
+      "lines": [
+        46
+      ],
+      "status": "STATIC_REFERENCE_NOT_PROOF_OF_EXECUTION_OR_INVALID_RESULT",
+      "mentions_english_stopword_filter": false
+    },
+    {
+      "script": "experiments/exp_218_vms_calibrated_distributions/script.py",
+      "input": "latin/cicero_de_officiis_latin.txt",
+      "lines": [
+        42
+      ],
+      "status": "STATIC_REFERENCE_NOT_PROOF_OF_EXECUTION_OR_INVALID_RESULT",
+      "mentions_english_stopword_filter": false
+    },
+    {
+      "script": "experiments/exp_219_onset_preserving_copy/script.py",
+      "input": "latin/cicero_de_officiis_latin.txt",
+      "lines": [
+        45
+      ],
+      "status": "STATIC_REFERENCE_NOT_PROOF_OF_EXECUTION_OR_INVALID_RESULT",
+      "mentions_english_stopword_filter": false
+    },
+    {
+      "script": "experiments/exp_220_onset_preserving_cp_sweep/script.py",
+      "input": "latin/cicero_de_officiis_latin.txt",
+      "lines": [
+        41
+      ],
+      "status": "STATIC_REFERENCE_NOT_PROOF_OF_EXECUTION_OR_INVALID_RESULT",
+      "mentions_english_stopword_filter": false
+    },
+    {
+      "script": "experiments/exp_221_mode_b_fine_sweep/script.py",
+      "input": "latin/cicero_de_officiis_latin.txt",
+      "lines": [
+        32
+      ],
+      "status": "STATIC_REFERENCE_NOT_PROOF_OF_EXECUTION_OR_INVALID_RESULT",
+      "mentions_english_stopword_filter": false
+    },
+    {
+      "script": "experiments/exp_222_positional_suffix_dist/script.py",
+      "input": "latin/cicero_de_officiis_latin.txt",
+      "lines": [
+        48
+      ],
+      "status": "STATIC_REFERENCE_NOT_PROOF_OF_EXECUTION_OR_INVALID_RESULT",
+      "mentions_english_stopword_filter": false
+    },
+    {
+      "script": "experiments/exp_223_corpus_split_stability/script.py",
+      "input": "latin/cicero_de_officiis_latin.txt",
+      "lines": [
+        46
+      ],
+      "status": "STATIC_REFERENCE_NOT_PROOF_OF_EXECUTION_OR_INVALID_RESULT",
+      "mentions_english_stopword_filter": false
+    },
+    {
+      "script": "experiments/exp_224_parameter_count_control/script.py",
+      "input": "latin/cicero_de_officiis_latin.txt",
+      "lines": [
+        53
+      ],
+      "status": "STATIC_REFERENCE_NOT_PROOF_OF_EXECUTION_OR_INVALID_RESULT",
+      "mentions_english_stopword_filter": false
+    },
+    {
+      "script": "experiments/exp_225_edy_suffix_preserving/script.py",
+      "input": "latin/cicero_de_officiis_latin.txt",
+      "lines": [
+        47
+      ],
+      "status": "STATIC_REFERENCE_NOT_PROOF_OF_EXECUTION_OR_INVALID_RESULT",
+      "mentions_english_stopword_filter": false
+    },
+    {
+      "script": "experiments/exp_226_edy_preservation_fresh_fallback/script.py",
+      "input": "latin/cicero_de_officiis_latin.txt",
+      "lines": [
+        31
+      ],
+      "status": "STATIC_REFERENCE_NOT_PROOF_OF_EXECUTION_OR_INVALID_RESULT",
+      "mentions_english_stopword_filter": false
+    },
+    {
+      "script": "experiments/exp_227_no_connector/script.py",
+      "input": "latin/cicero_de_officiis_latin.txt",
+      "lines": [
+        35
+      ],
+      "status": "STATIC_REFERENCE_NOT_PROOF_OF_EXECUTION_OR_INVALID_RESULT",
+      "mentions_english_stopword_filter": false
+    },
+    {
+      "script": "experiments/exp_228_qokch_markov/script.py",
+      "input": "latin/cicero_de_officiis_latin.txt",
+      "lines": [
+        34
+      ],
+      "status": "STATIC_REFERENCE_NOT_PROOF_OF_EXECUTION_OR_INVALID_RESULT",
+      "mentions_english_stopword_filter": false
+    },
+    {
+      "script": "experiments/exp_229_stutter/script.py",
+      "input": "latin/cicero_de_officiis_latin.txt",
+      "lines": [
+        33
+      ],
+      "status": "STATIC_REFERENCE_NOT_PROOF_OF_EXECUTION_OR_INVALID_RESULT",
+      "mentions_english_stopword_filter": false
+    },
+    {
+      "script": "experiments/exp_230_qokll_diagnostic/script.py",
+      "input": "latin/cicero_de_officiis_latin.txt",
+      "lines": [
+        34
+      ],
+      "status": "STATIC_REFERENCE_NOT_PROOF_OF_EXECUTION_OR_INVALID_RESULT",
+      "mentions_english_stopword_filter": false
+    },
+    {
+      "script": "experiments/exp_231_ll_onset_fix/script.py",
+      "input": "latin/cicero_de_officiis_latin.txt",
+      "lines": [
+        35
+      ],
+      "status": "STATIC_REFERENCE_NOT_PROOF_OF_EXECUTION_OR_INVALID_RESULT",
+      "mentions_english_stopword_filter": false
+    },
+    {
+      "script": "experiments/exp_232_am_suppression/script.py",
+      "input": "latin/cicero_de_officiis_latin.txt",
+      "lines": [
+        44
+      ],
+      "status": "STATIC_REFERENCE_NOT_PROOF_OF_EXECUTION_OR_INVALID_RESULT",
+      "mentions_english_stopword_filter": false
+    },
+    {
+      "script": "experiments/exp_233_differential_am_suppression/script.py",
+      "input": "latin/cicero_de_officiis_latin.txt",
+      "lines": [
+        49
+      ],
+      "status": "STATIC_REFERENCE_NOT_PROOF_OF_EXECUTION_OR_INVALID_RESULT",
+      "mentions_english_stopword_filter": false
+    },
+    {
+      "script": "experiments/exp_234_edy_conditional_connector/script.py",
+      "input": "latin/cicero_de_officiis_latin.txt",
+      "lines": [
+        52
+      ],
+      "status": "STATIC_REFERENCE_NOT_PROOF_OF_EXECUTION_OR_INVALID_RESULT",
+      "mentions_english_stopword_filter": false
+    },
+    {
+      "script": "experiments/exp_235_stutter_recalibration/script.py",
+      "input": "latin/cicero_de_officiis_latin.txt",
+      "lines": [
+        31
+      ],
+      "status": "STATIC_REFERENCE_NOT_PROOF_OF_EXECUTION_OR_INVALID_RESULT",
+      "mentions_english_stopword_filter": false
+    },
+    {
+      "script": "experiments/exp_236_global_am_resolution/script.py",
+      "input": "latin/cicero_de_officiis_latin.txt",
+      "lines": [
+        43
+      ],
+      "status": "STATIC_REFERENCE_NOT_PROOF_OF_EXECUTION_OR_INVALID_RESULT",
+      "mentions_english_stopword_filter": false
+    },
+    {
+      "script": "experiments/exp_237_a_dialect_generalization/script.py",
+      "input": "latin/cicero_de_officiis_latin.txt",
+      "lines": [
+        35
+      ],
+      "status": "STATIC_REFERENCE_NOT_PROOF_OF_EXECUTION_OR_INVALID_RESULT",
+      "mentions_english_stopword_filter": false
+    },
+    {
+      "script": "experiments/exp_239_a_dialect_y_succession/script.py",
+      "input": "latin/cicero_de_officiis_latin.txt",
+      "lines": [
+        36
+      ],
+      "status": "STATIC_REFERENCE_NOT_PROOF_OF_EXECUTION_OR_INVALID_RESULT",
+      "mentions_english_stopword_filter": false
+    },
+    {
+      "script": "experiments/exp_240_a_dialect_split_stability/script.py",
+      "input": "latin/cicero_de_officiis_latin.txt",
+      "lines": [
+        36
+      ],
+      "status": "STATIC_REFERENCE_NOT_PROOF_OF_EXECUTION_OR_INVALID_RESULT",
+      "mentions_english_stopword_filter": false
+    },
+    {
+      "script": "experiments/exp_241_onset_bigram_structure/script.py",
+      "input": "latin/cicero_de_officiis_latin.txt",
+      "lines": [
+        35
+      ],
+      "status": "STATIC_REFERENCE_NOT_PROOF_OF_EXECUTION_OR_INVALID_RESULT",
+      "mentions_english_stopword_filter": false
+    },
+    {
+      "script": "experiments/exp_243_sh_qok_markov/script.py",
+      "input": "latin/cicero_de_officiis_latin.txt",
+      "lines": [
+        31
+      ],
+      "status": "STATIC_REFERENCE_NOT_PROOF_OF_EXECUTION_OR_INVALID_RESULT",
+      "mentions_english_stopword_filter": false
+    },
+    {
+      "script": "experiments/exp_245_self_succession_diagnostic/script.py",
+      "input": "latin/cicero_de_officiis_latin.txt",
+      "lines": [
+        51
+      ],
+      "status": "STATIC_REFERENCE_NOT_PROOF_OF_EXECUTION_OR_INVALID_RESULT",
+      "mentions_english_stopword_filter": false
+    },
+    {
+      "script": "experiments/exp_246_bigram_global_vs_mid/script.py",
+      "input": "latin/cicero_de_officiis_latin.txt",
+      "lines": [
+        31
+      ],
+      "status": "STATIC_REFERENCE_NOT_PROOF_OF_EXECUTION_OR_INVALID_RESULT",
+      "mentions_english_stopword_filter": false
+    },
+    {
+      "script": "experiments/exp_247_onset_trigrams/script.py",
+      "input": "latin/cicero_de_officiis_latin.txt",
+      "lines": [
+        32
+      ],
+      "status": "STATIC_REFERENCE_NOT_PROOF_OF_EXECUTION_OR_INVALID_RESULT",
+      "mentions_english_stopword_filter": false
+    },
+    {
+      "script": "experiments/exp_248_ch_qok_return/script.py",
+      "input": "latin/cicero_de_officiis_latin.txt",
+      "lines": [
+        22
+      ],
+      "status": "STATIC_REFERENCE_NOT_PROOF_OF_EXECUTION_OR_INVALID_RESULT",
+      "mentions_english_stopword_filter": false
+    },
+    {
+      "script": "experiments/exp_249_chqok_markov/script.py",
+      "input": "latin/cicero_de_officiis_latin.txt",
+      "lines": [
+        25
+      ],
+      "status": "STATIC_REFERENCE_NOT_PROOF_OF_EXECUTION_OR_INVALID_RESULT",
+      "mentions_english_stopword_filter": false
+    },
+    {
+      "script": "experiments/exp_250_a_dialect_chqok/script.py",
+      "input": "latin/cicero_de_officiis_latin.txt",
+      "lines": [
+        22
+      ],
+      "status": "STATIC_REFERENCE_NOT_PROOF_OF_EXECUTION_OR_INVALID_RESULT",
+      "mentions_english_stopword_filter": false
+    },
+    {
+      "script": "experiments/exp_251_a_dialect_qokqok/script.py",
+      "input": "latin/cicero_de_officiis_latin.txt",
+      "lines": [
+        23
+      ],
+      "status": "STATIC_REFERENCE_NOT_PROOF_OF_EXECUTION_OR_INVALID_RESULT",
+      "mentions_english_stopword_filter": false
+    },
+    {
+      "script": "experiments/exp_253_ot_ot_markov/script.py",
+      "input": "latin/cicero_de_officiis_latin.txt",
+      "lines": [
+        32
+      ],
+      "status": "STATIC_REFERENCE_NOT_PROOF_OF_EXECUTION_OR_INVALID_RESULT",
+      "mentions_english_stopword_filter": false
+    },
+    {
+      "script": "experiments/exp_254_a_dialect_mid_bigrams/script.py",
+      "input": "latin/cicero_de_officiis_latin.txt",
+      "lines": [
+        29
+      ],
+      "status": "STATIC_REFERENCE_NOT_PROOF_OF_EXECUTION_OR_INVALID_RESULT",
+      "mentions_english_stopword_filter": false
+    },
+    {
+      "script": "experiments/exp_255_a_dialect_ot_ot_fix/script.py",
+      "input": "latin/cicero_de_officiis_latin.txt",
+      "lines": [
+        23
+      ],
+      "status": "STATIC_REFERENCE_NOT_PROOF_OF_EXECUTION_OR_INVALID_RESULT",
+      "mentions_english_stopword_filter": false
+    },
+    {
+      "script": "experiments/exp_256_b_dialect_ot_ot_recheck/script.py",
+      "input": "latin/cicero_de_officiis_latin.txt",
+      "lines": [
+        26
+      ],
+      "status": "STATIC_REFERENCE_NOT_PROOF_OF_EXECUTION_OR_INVALID_RESULT",
+      "mentions_english_stopword_filter": false
+    },
+    {
+      "script": "experiments/exp_257_b_dialect_battery_fixed/script.py",
+      "input": "latin/cicero_de_officiis_latin.txt",
+      "lines": [
+        23
+      ],
+      "status": "STATIC_REFERENCE_NOT_PROOF_OF_EXECUTION_OR_INVALID_RESULT",
+      "mentions_english_stopword_filter": false
+    },
+    {
+      "script": "experiments/exp_258_a_dialect_o_o_markov/script.py",
+      "input": "latin/cicero_de_officiis_latin.txt",
+      "lines": [
+        31
+      ],
+      "status": "STATIC_REFERENCE_NOT_PROOF_OF_EXECUTION_OR_INVALID_RESULT",
+      "mentions_english_stopword_filter": false
+    },
+    {
+      "script": "experiments/exp_259_char_positional_entropy/script.py",
+      "input": "latin/cicero_de_officiis_latin.txt",
+      "lines": [
+        28
+      ],
+      "status": "STATIC_REFERENCE_NOT_PROOF_OF_EXECUTION_OR_INVALID_RESULT",
+      "mentions_english_stopword_filter": false
+    },
+    {
+      "script": "experiments/exp_260_char_bigram_pmi/script.py",
+      "input": "latin/cicero_de_officiis_latin.txt",
+      "lines": [
+        25
+      ],
+      "status": "STATIC_REFERENCE_NOT_PROOF_OF_EXECUTION_OR_INVALID_RESULT",
+      "mentions_english_stopword_filter": false
+    },
+    {
+      "script": "experiments/exp_261_unified_onset_persist/script.py",
+      "input": "latin/cicero_de_officiis_latin.txt",
+      "lines": [
+        24
+      ],
+      "status": "STATIC_REFERENCE_NOT_PROOF_OF_EXECUTION_OR_INVALID_RESULT",
+      "mentions_english_stopword_filter": false
+    },
+    {
+      "script": "experiments/exp_262_a_dialect_sh_qok/script.py",
+      "input": "latin/cicero_de_officiis_latin.txt",
+      "lines": [
+        34
+      ],
+      "status": "STATIC_REFERENCE_NOT_PROOF_OF_EXECUTION_OR_INVALID_RESULT",
+      "mentions_english_stopword_filter": false
+    },
+    {
+      "script": "experiments/exp_264_a_dialect_13mech_split/script.py",
+      "input": "latin/cicero_de_officiis_latin.txt",
+      "lines": [
+        29
+      ],
+      "status": "STATIC_REFERENCE_NOT_PROOF_OF_EXECUTION_OR_INVALID_RESULT",
+      "mentions_english_stopword_filter": false
+    },
+    {
+      "script": "experiments/exp_266_onset_lag_enrichment/script.py",
+      "input": "latin/cicero_de_officiis_latin.txt",
+      "lines": [
+        28
+      ],
+      "status": "STATIC_REFERENCE_NOT_PROOF_OF_EXECUTION_OR_INVALID_RESULT",
+      "mentions_english_stopword_filter": false
+    },
+    {
+      "script": "experiments/exp_267_word_length_position/script.py",
+      "input": "latin/cicero_de_officiis_latin.txt",
+      "lines": [
+        25
+      ],
+      "status": "STATIC_REFERENCE_NOT_PROOF_OF_EXECUTION_OR_INVALID_RESULT",
+      "mentions_english_stopword_filter": false
+    },
+    {
+      "script": "experiments/exp_268_menzerath_simulation/script.py",
+      "input": "latin/cicero_de_officiis_latin.txt",
+      "lines": [
+        20
+      ],
+      "status": "STATIC_REFERENCE_NOT_PROOF_OF_EXECUTION_OR_INVALID_RESULT",
+      "mentions_english_stopword_filter": false
+    },
+    {
+      "script": "experiments/exp_270_midfix_lf_ll/script.py",
+      "input": "latin/cicero_de_officiis_latin.txt",
+      "lines": [
+        30
+      ],
+      "status": "STATIC_REFERENCE_NOT_PROOF_OF_EXECUTION_OR_INVALID_RESULT",
+      "mentions_english_stopword_filter": false
+    },
+    {
+      "script": "experiments/exp_271_midfix_onset_conditioned/script.py",
+      "input": "latin/cicero_de_officiis_latin.txt",
+      "lines": [
+        22
+      ],
+      "status": "STATIC_REFERENCE_NOT_PROOF_OF_EXECUTION_OR_INVALID_RESULT",
+      "mentions_english_stopword_filter": false
+    },
+    {
+      "script": "experiments/exp_272_within_line_gradient/script.py",
+      "input": "latin/cicero_de_officiis_latin.txt",
+      "lines": [
+        25
+      ],
+      "status": "STATIC_REFERENCE_NOT_PROOF_OF_EXECUTION_OR_INVALID_RESULT",
+      "mentions_english_stopword_filter": false
+    },
+    {
+      "script": "experiments/exp_273_b_dialect_split_stability/script.py",
+      "input": "latin/cicero_de_officiis_latin.txt",
+      "lines": [
+        32
+      ],
+      "status": "STATIC_REFERENCE_NOT_PROOF_OF_EXECUTION_OR_INVALID_RESULT",
+      "mentions_english_stopword_filter": false
+    },
+    {
+      "script": "experiments/exp_275_ch_sh_depletion/script.py",
+      "input": "latin/cicero_de_officiis_latin.txt",
+      "lines": [
+        26
+      ],
+      "status": "STATIC_REFERENCE_NOT_PROOF_OF_EXECUTION_OR_INVALID_RESULT",
+      "mentions_english_stopword_filter": false
+    },
+    {
+      "script": "experiments/exp_277_b_dialect_sh_qok_fine_sweep/script.py",
+      "input": "latin/cicero_de_officiis_latin.txt",
+      "lines": [
+        31
+      ],
+      "status": "STATIC_REFERENCE_NOT_PROOF_OF_EXECUTION_OR_INVALID_RESULT",
+      "mentions_english_stopword_filter": false
+    },
+    {
+      "script": "experiments/exp_280_mid_midfix_simulation/script.py",
+      "input": "latin/cicero_de_officiis_latin.txt",
+      "lines": [
+        37
+      ],
+      "status": "STATIC_REFERENCE_NOT_PROOF_OF_EXECUTION_OR_INVALID_RESULT",
+      "mentions_english_stopword_filter": false
+    },
+    {
+      "script": "experiments/exp_281_timm_rate_sweep/script.py",
+      "input": "latin/cicero_de_officiis_latin.txt",
+      "lines": [
+        29
+      ],
+      "status": "STATIC_REFERENCE_NOT_PROOF_OF_EXECUTION_OR_INVALID_RESULT",
+      "mentions_english_stopword_filter": false
+    },
+    {
+      "script": "experiments/exp_282_word_index_conditioned_mid/script.py",
+      "input": "latin/cicero_de_officiis_latin.txt",
+      "lines": [
+        49
+      ],
+      "status": "STATIC_REFERENCE_NOT_PROOF_OF_EXECUTION_OR_INVALID_RESULT",
+      "mentions_english_stopword_filter": false
+    },
+    {
+      "script": "experiments/exp_283_pmf_menzerath_sweep/script.py",
+      "input": "latin/cicero_de_officiis_latin.txt",
+      "lines": [
+        30
+      ],
+      "status": "STATIC_REFERENCE_NOT_PROOF_OF_EXECUTION_OR_INVALID_RESULT",
+      "mentions_english_stopword_filter": false
+    },
+    {
+      "script": "experiments/exp_284_lf_midfix_restored/script.py",
+      "input": "latin/cicero_de_officiis_latin.txt",
+      "lines": [
+        36
+      ],
+      "status": "STATIC_REFERENCE_NOT_PROOF_OF_EXECUTION_OR_INVALID_RESULT",
+      "mentions_english_stopword_filter": false
+    },
+    {
+      "script": "experiments/exp_285_ll_midfix_rate_sweep/script.py",
+      "input": "latin/cicero_de_officiis_latin.txt",
+      "lines": [
+        32
+      ],
+      "status": "STATIC_REFERENCE_NOT_PROOF_OF_EXECUTION_OR_INVALID_RESULT",
+      "mentions_english_stopword_filter": false
+    },
+    {
+      "script": "experiments/exp_286_mid_slope_joint_sweep/script.py",
+      "input": "latin/cicero_de_officiis_latin.txt",
+      "lines": [
+        32
+      ],
+      "status": "STATIC_REFERENCE_NOT_PROOF_OF_EXECUTION_OR_INVALID_RESULT",
+      "mentions_english_stopword_filter": false
+    },
+    {
+      "script": "experiments/exp_287_suffix_length_gradient/script.py",
+      "input": "latin/cicero_de_officiis_latin.txt",
+      "lines": [
+        34
+      ],
+      "status": "STATIC_REFERENCE_NOT_PROOF_OF_EXECUTION_OR_INVALID_RESULT",
+      "mentions_english_stopword_filter": false
+    },
+    {
+      "script": "experiments/exp_288_stolfi_onset_decomp/script.py",
+      "input": "latin/cicero_de_officiis_latin.txt",
+      "lines": [
+        20
+      ],
+      "status": "STATIC_REFERENCE_NOT_PROOF_OF_EXECUTION_OR_INVALID_RESULT",
+      "mentions_english_stopword_filter": false
+    },
+    {
+      "script": "experiments/exp_299_ch_sh_anti_succession/script.py",
+      "input": "latin/cicero_de_officiis_latin.txt",
+      "lines": [
+        29
+      ],
+      "status": "STATIC_REFERENCE_NOT_PROOF_OF_EXECUTION_OR_INVALID_RESULT",
+      "mentions_english_stopword_filter": false
+    },
+    {
+      "script": "experiments/exp_301_r_mid_calibration/script.py",
+      "input": "latin/cicero_de_officiis_latin.txt",
+      "lines": [
+        23
+      ],
+      "status": "STATIC_REFERENCE_NOT_PROOF_OF_EXECUTION_OR_INVALID_RESULT",
+      "mentions_english_stopword_filter": false
+    },
+    {
+      "script": "experiments/exp_302_sim_paradigm_diagnostic/script.py",
+      "input": "latin/cicero_de_officiis_latin.txt",
+      "lines": [
+        26
+      ],
+      "status": "STATIC_REFERENCE_NOT_PROOF_OF_EXECUTION_OR_INVALID_RESULT",
+      "mentions_english_stopword_filter": false
+    },
+    {
+      "script": "experiments/exp_303_finite_vocab_pool/script.py",
+      "input": "latin/cicero_de_officiis_latin.txt",
+      "lines": [
+        32
+      ],
+      "status": "STATIC_REFERENCE_NOT_PROOF_OF_EXECUTION_OR_INVALID_RESULT",
+      "mentions_english_stopword_filter": false
+    },
+    {
+      "script": "experiments/exp_304_vms_lexicon_battery/script.py",
+      "input": "latin/cicero_de_officiis_latin.txt",
+      "lines": [
+        28
+      ],
+      "status": "STATIC_REFERENCE_NOT_PROOF_OF_EXECUTION_OR_INVALID_RESULT",
+      "mentions_english_stopword_filter": false
+    },
+    {
+      "script": "experiments/exp_305_amlf_seed_check/script.py",
+      "input": "latin/cicero_de_officiis_latin.txt",
+      "lines": [
+        16
+      ],
+      "status": "STATIC_REFERENCE_NOT_PROOF_OF_EXECUTION_OR_INVALID_RESULT",
+      "mentions_english_stopword_filter": false
+    },
+    {
+      "script": "experiments/exp_306_beta_resweep/script.py",
+      "input": "latin/cicero_de_officiis_latin.txt",
+      "lines": [
+        26
+      ],
+      "status": "STATIC_REFERENCE_NOT_PROOF_OF_EXECUTION_OR_INVALID_RESULT",
+      "mentions_english_stopword_filter": false
+    },
+    {
+      "script": "experiments/exp_308_menzerath_component_decomp/script.py",
+      "input": "latin/cicero_de_officiis_latin.txt",
+      "lines": [
+        24
+      ],
+      "status": "STATIC_REFERENCE_NOT_PROOF_OF_EXECUTION_OR_INVALID_RESULT",
+      "mentions_english_stopword_filter": false
+    },
+    {
+      "script": "experiments/exp_309_ll_line_len_conditional/script.py",
+      "input": "latin/cicero_de_officiis_latin.txt",
+      "lines": [
+        28
+      ],
+      "status": "STATIC_REFERENCE_NOT_PROOF_OF_EXECUTION_OR_INVALID_RESULT",
+      "mentions_english_stopword_filter": false
+    },
+    {
+      "script": "experiments/exp_310_ll_suffix_bias_cond/script.py",
+      "input": "latin/cicero_de_officiis_latin.txt",
+      "lines": [
+        27
+      ],
+      "status": "STATIC_REFERENCE_NOT_PROOF_OF_EXECUTION_OR_INVALID_RESULT",
+      "mentions_english_stopword_filter": false
+    },
+    {
+      "script": "experiments/exp_311_ll_word_len_filter/script.py",
+      "input": "latin/cicero_de_officiis_latin.txt",
+      "lines": [
+        33
+      ],
+      "status": "STATIC_REFERENCE_NOT_PROOF_OF_EXECUTION_OR_INVALID_RESULT",
+      "mentions_english_stopword_filter": false
+    },
+    {
+      "script": "experiments/exp_312_mid_beta_cond_n/script.py",
+      "input": "latin/cicero_de_officiis_latin.txt",
+      "lines": [
+        27
+      ],
+      "status": "STATIC_REFERENCE_NOT_PROOF_OF_EXECUTION_OR_INVALID_RESULT",
+      "mentions_english_stopword_filter": false
+    },
+    {
+      "script": "experiments/exp_313_ll_bidir_filter/script.py",
+      "input": "latin/cicero_de_officiis_latin.txt",
+      "lines": [
+        39
+      ],
+      "status": "STATIC_REFERENCE_NOT_PROOF_OF_EXECUTION_OR_INVALID_RESULT",
+      "mentions_english_stopword_filter": false
+    },
+    {
+      "script": "experiments/exp_314_beta_scale_fine/script.py",
+      "input": "latin/cicero_de_officiis_latin.txt",
+      "lines": [
+        20
+      ],
+      "status": "STATIC_REFERENCE_NOT_PROOF_OF_EXECUTION_OR_INVALID_RESULT",
+      "mentions_english_stopword_filter": false
+    },
+    {
+      "script": "experiments/exp_315_idx_thresh_sweep/script.py",
+      "input": "latin/cicero_de_officiis_latin.txt",
+      "lines": [
+        22
+      ],
+      "status": "STATIC_REFERENCE_NOT_PROOF_OF_EXECUTION_OR_INVALID_RESULT",
+      "mentions_english_stopword_filter": false
+    },
+    {
+      "script": "experiments/exp_316_cp90_wl_diagnostic/script.py",
+      "input": "latin/cicero_de_officiis_latin.txt",
+      "lines": [
+        22
+      ],
+      "status": "STATIC_REFERENCE_NOT_PROOF_OF_EXECUTION_OR_INVALID_RESULT",
+      "mentions_english_stopword_filter": false
+    },
+    {
+      "script": "experiments/exp_317_shchd_clamp/script.py",
+      "input": "latin/cicero_de_officiis_latin.txt",
+      "lines": [
+        28
+      ],
+      "status": "STATIC_REFERENCE_NOT_PROOF_OF_EXECUTION_OR_INVALID_RESULT",
+      "mentions_english_stopword_filter": false
+    },
+    {
+      "script": "experiments/exp_318_length_biased_clamp/script.py",
+      "input": "latin/cicero_de_officiis_latin.txt",
+      "lines": [
+        32
+      ],
+      "status": "STATIC_REFERENCE_NOT_PROOF_OF_EXECUTION_OR_INVALID_RESULT",
+      "mentions_english_stopword_filter": false
+    },
+    {
+      "script": "experiments/exp_574_arch_negative_control/script.py",
+      "input": "latin/cicero_de_officiis_latin.txt",
+      "lines": [
+        45
+      ],
+      "status": "STATIC_REFERENCE_NOT_PROOF_OF_EXECUTION_OR_INVALID_RESULT",
+      "mentions_english_stopword_filter": false
+    },
+    {
+      "script": "experiments/exp_575_arch_refit_shuffle/script.py",
+      "input": "latin/cicero_de_officiis_latin.txt",
+      "lines": [
+        39
+      ],
+      "status": "STATIC_REFERENCE_NOT_PROOF_OF_EXECUTION_OR_INVALID_RESULT",
+      "mentions_english_stopword_filter": false
+    },
+    {
+      "script": "experiments/exp_576_param_stability/script.py",
+      "input": "latin/cicero_de_officiis_latin.txt",
+      "lines": [
+        37
+      ],
+      "status": "STATIC_REFERENCE_NOT_PROOF_OF_EXECUTION_OR_INVALID_RESULT",
+      "mentions_english_stopword_filter": false
+    },
+    {
+      "script": "experiments/exp_577_q007_adjrate_decomp/script.py",
+      "input": "latin/cicero_de_officiis_latin.txt",
+      "lines": [
+        48
+      ],
+      "status": "STATIC_REFERENCE_NOT_PROOF_OF_EXECUTION_OR_INVALID_RESULT",
+      "mentions_english_stopword_filter": false
+    },
+    {
+      "script": "experiments/exp_578_q007_copybuf_diag/script.py",
+      "input": "latin/cicero_de_officiis_latin.txt",
+      "lines": [
+        38
+      ],
+      "status": "STATIC_REFERENCE_NOT_PROOF_OF_EXECUTION_OR_INVALID_RESULT",
+      "mentions_english_stopword_filter": false
+    },
+    {
+      "script": "experiments/exp_582_battery_correlation_matrix/script.py",
+      "input": "latin/cicero_de_officiis_latin.txt",
+      "lines": [
+        26
+      ],
+      "status": "STATIC_REFERENCE_NOT_PROOF_OF_EXECUTION_OR_INVALID_RESULT",
+      "mentions_english_stopword_filter": false
+    },
+    {
+      "script": "experiments/exp_584_nonvms_specificity/script.py",
+      "input": "latin/cicero_de_officiis_latin.txt",
+      "lines": [
+        70
+      ],
+      "status": "STATIC_REFERENCE_NOT_PROOF_OF_EXECUTION_OR_INVALID_RESULT",
+      "mentions_english_stopword_filter": false
+    },
+    {
+      "script": "experiments/exp_585_nonvms_specificity_v2/script.py",
+      "input": "latin/cicero_de_officiis_latin.txt",
+      "lines": [
+        33
+      ],
+      "status": "STATIC_REFERENCE_NOT_PROOF_OF_EXECUTION_OR_INVALID_RESULT",
+      "mentions_english_stopword_filter": false
+    }
+  ],
+  "distinct_scripts_with_direct_reference": 103,
+  "limits": [
+    "No historical output or claim retracted automatically.",
+    "References can be optional, unused, or subject to filters.",
+    "Importer and transitive dependencies are not exhaustively resolved."
+  ]
+}
