@@ -44,7 +44,8 @@ def analyze_text(text: str) -> dict:
             "folio": folio, "currier": currier_by_folio.get(folio, "unknown"),
             "lines": 0, "tokens": 0, "target_occurrences": 0,
             "lines_containing_target": 0, "target_bearing_lines_starting_target": 0,
-            "target_bearing_lines_ending_target": 0,
+            "target_bearing_lines_ending_target": 0, "conditional_expected_initial": 0.0,
+            "conditional_initial_variance": 0.0,
         })
         n_target = tokens.count(TARGET)
         stats["lines"] += 1
@@ -53,6 +54,10 @@ def analyze_text(text: str) -> dict:
         stats["lines_containing_target"] += int(n_target > 0)
         stats["target_bearing_lines_starting_target"] += int(n_target > 0 and tokens[0] == TARGET)
         stats["target_bearing_lines_ending_target"] += int(n_target > 0 and tokens[-1] == TARGET)
+        if n_target:
+            p_initial = n_target / len(tokens)
+            stats["conditional_expected_initial"] += p_initial
+            stats["conditional_initial_variance"] += p_initial * (1.0 - p_initial)
     return {"parsed_lines": parsed_lines, "folios": list(folios.values())}
 
 
@@ -96,7 +101,7 @@ def build_result(raw: bytes) -> dict:
         "source_sha256": hashlib.sha256(raw).hexdigest(),
         "tokenization": "lowercase ASCII alphabetic runs after removing IVTFF tags, brace spans and square-bracket spans; exact token daiin only",
         "parsed_lines": parsed["parsed_lines"], "folio_count": len(folios),
-        "classes": {}, "bootstrap": None,
+        "classes": {}, "bootstrap": None, "within_line_randomization": {},
         "interpretation": "Exploratory descriptive comparison, not a decipherment claim. Folios are resampled as clusters; alternative transcriptions are not independent samples.",
         "limitations": [
             "Token counts depend on the declared simplified tokenization policy.",
@@ -124,10 +129,24 @@ def build_result(raw: bytes) -> dict:
             "initial_share_among_daiin_bearing_lines": initial_lines / bearing_lines if bearing_lines else None,
             "final_share_among_daiin_bearing_lines": final_lines / bearing_lines if bearing_lines else None,
             "unweighted_mean_folio_initial_share": sum(rates) / len(rates) if rates else None,
+            "conditional_expected_initial_lines": sum(f["conditional_expected_initial"] for f in group),
+            "conditional_initial_sd": sum(f["conditional_initial_variance"] for f in group) ** 0.5,
+            "observed_minus_conditional_expected": initial_lines - sum(f["conditional_expected_initial"] for f in group),
         }
     rate_a = [f["target_bearing_lines_starting_target"] / f["lines_containing_target"] for f in folios if f["currier"] == "A" and f["lines_containing_target"] > 0]
     rate_b = [f["target_bearing_lines_starting_target"] / f["lines_containing_target"] for f in folios if f["currier"] == "B" and f["lines_containing_target"] > 0]
     result["bootstrap"] = bootstrap_difference(rate_a, rate_b)
+    for cls in ("A", "B", "unknown"):
+        x = result["classes"][cls]
+        sd = x["conditional_initial_sd"]
+        result["within_line_randomization"][cls] = {
+            "observed_initial_lines": x["target_bearing_lines_starting_daiin"],
+            "conditional_expected_initial_lines": x["conditional_expected_initial_lines"],
+            "conditional_sd": sd,
+            "observed_minus_expected": x["observed_minus_conditional_expected"],
+            "standardized_deviation": x["observed_minus_conditional_expected"] / sd if sd else None,
+            "null": "Within each line containing daiin, uniformly permute the observed token multiset across positions; expected initial indicator = count(daiin)/token_count.",
+        }
     return result
 
 
@@ -147,6 +166,13 @@ def render_report(result: dict) -> str:
     for cls in ("A", "B", "unknown"):
         x = c[cls]
         lines.append(f"| {cls} | {x['folios']} | {x['folios_with_daiin']} | {x['parsed_lines']} | {x['target_occurrences']} | {x['lines_containing_daiin']} | {x['target_bearing_lines_starting_daiin']} | {x['target_bearing_lines_ending_daiin']} | {x['initial_share_among_daiin_bearing_lines']:.4f} |")
+    lines += [
+        "", "## Within-line conditional randomization baseline", "",
+        "This baseline conditions on each line's observed token multiset and assumes all token positions are exchangeable within that line. It is a deliberately simple control, not a realistic language model.", "",
+    ]
+    for cls in ("A", "B", "unknown"):
+        x = result["within_line_randomization"][cls]
+        lines.append("- {}: observed starts={}; expected={:.3f}; null SD={:.3f}; standardized deviation={:.3f}.".format(cls, x["observed_initial_lines"], x["conditional_expected_initial_lines"], x["conditional_sd"], x["standardized_deviation"]))
     lines += [
         "", "## Folio-cluster bootstrap: Currier A minus Currier B", "",
         f"- Difference in unweighted mean folio rate: {b['difference_A_minus_B']:.6f}",
