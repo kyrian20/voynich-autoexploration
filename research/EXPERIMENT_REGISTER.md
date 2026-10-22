@@ -112,3 +112,11 @@ El árbol recursivo completo de GitHub confirma 7 colisiones de IDs en carpetas 
 - La ejecución completa pasó en [CI run 584](https://github.com/kyrian20/voynich-autoexploration/actions/runs/39740259579). Los valores canónicos se reproducen: A `ok` = 1,421× frente a 1,42× publicado; B `qok` = 1,028× frente a 1,03× publicado.
 - **Limitación confirmada:** la rama de fórmula antigua + clasificación por folio no reproduce exactamente exp_174: A `ok` = 2,083× frente a 1,930× citado; B `qok` = 1,259× frente a 1,239×. El contraste histórico es una comparación metodológica aproximada, no una reproducción exacta. La errata de atribución 2,047× (B `qo`, no A `ok`) se basa en la tabla histórica citada, no en asumir que la rama antigua se ha reproducido exactamente.
 - El detalle se conserva en [result.md de EXP-573](../experiments/exp_573_c007_reconciliation/result.md). No se han modificado las transcripciones ni se ha creado un EXP nuevo.
+
+
+## EXP-590 — cobertura ampliada de IDs IVTFF (22-10-2026)
+
+- Se amplió `scripts/exp590_daiin_position.py` para reconocer IDs de página subdividida (p. ej., `f67r1`) y `fRos`; también se corrigieron las rutas de entrada/salida para que sean relativas a la raíz del repositorio.
+- Añadida la prueba `tests/test_exp590_ivtff_line_ids.py` e integrada en el workflow. La ejecución de CI de la prueba se está verificando: [run 590](https://github.com/kyrian20/voynich-autoexploration/actions/runs/39740873673).
+- **No considerar finales los conteos publicados previamente para EXP-590.** El parser anterior omitía esos identificadores válidos; la reproducción con población ampliada aún debe completarse y revisarse. Los artefactos previos se conservan sin sobrescribir y la errata ampliada lo documenta: [errata EXP-590](experiments/2026-10-20-exp590-erratum.md).
+- No crear otro ID ni afirmar validación lingüística/desciframiento. La corrección mejora la cobertura estructural, pero los resultados estadísticos deberán reevaluarse una vez regenerados.
