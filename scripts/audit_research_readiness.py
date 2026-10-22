@@ -98,7 +98,8 @@ def audit_source(label, filename):
 
 def main():
     manifest = json.loads(MANIFEST.read_text())
-    missing = [{'script': entry['path'], 'target': target['relative_path']}
+    missing = [{'script': entry['path'], 'target': target['relative_path'],
+                'required': target.get('required'), 'usage': target.get('usage', 'unclassified')}
                for entry in manifest['files'] for target in entry['targets']
                if not (ROOT / target['relative_path']).exists()]
     print(json.dumps({'audit': 'intensive_research_readiness', 'version': 1,

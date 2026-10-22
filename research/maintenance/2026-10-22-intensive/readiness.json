@@ -5,19 +5,27 @@
   "missing_input_references": [
     {
       "script": "experiments/exp_031_qo_stripping/script.py",
-      "target": "data/reference_corpora/latin_vulgate.txt"
+      "target": "data/reference_corpora/latin_vulgate.txt",
+      "required": false,
+      "usage": "unused LATIN constant; no Load references"
     },
     {
       "script": "experiments/exp_170_naibbe_simulation/script.py",
-      "target": "data/derived/naibbe-cipher"
+      "target": "data/derived/naibbe-cipher",
+      "required": true,
+      "usage": "required external cipher directory/import and plaintext"
     },
     {
       "script": "experiments/exp_170_naibbe_simulation/script.py",
-      "target": "data/derived/naibbe-cipher/input/examples/divina_commedia.txt"
+      "target": "data/derived/naibbe-cipher/input/examples/divina_commedia.txt",
+      "required": true,
+      "usage": "required external cipher directory/import and plaintext"
     },
     {
       "script": "experiments/exp_436_latin_hapax_length/script.py",
-      "target": "data/reference_corpora/italian/dante_divine_comedy_italian.txt"
+      "target": "data/reference_corpora/italian/dante_divine_comedy_italian.txt",
+      "required": false,
+      "usage": "optional Italian branch guarded by os.path.exists; Latin main executes"
     }
   ],
   "candidate_policy": {

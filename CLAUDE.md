@@ -9,11 +9,11 @@ Key files:
   - working_position.md — theory discrimination synthesis (the live document; read every iteration)
   - hypothesis_backlog.md — active untested hypotheses only (resolved hypotheses archived)
   - committed_claims.md — claims in public outputs (check before updating findings/failures)
-  - findings.md — 284 established facts (grep by ID, don't read cover-to-cover)
+  - findings.md — historical findings ledger; verify provenance and audit status (grep by ID, do not read cover-to-cover)
   - working_model.md — characterization reference organized by topic (consult when needed, not every iteration)
   - failed_approaches.md, open_questions.md, iteration_log.md, current_state.md
 - state/archive/ — Opus reviews, paper materials, resolved hypotheses (reference, not read during normal iterations)
-- experiments/ — 287 experiment directories with scripts, results, and data
+- experiments/ — historical experiment directories; consult research/EXPERIMENT_PATH_REGISTRY.json for unique path identities and legacy numeric collisions
 
 Constraints that must never be skipped:
 1. Run skills/audit_experiment.md after every experiment, before updating state files.

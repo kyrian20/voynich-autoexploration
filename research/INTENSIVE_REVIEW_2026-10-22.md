@@ -44,17 +44,17 @@ La comparación usa los mismos registros. La candidata elige primera alternativa
 
 [Salida reproducible con hashes, políticas y ejemplos](maintenance/2026-10-22-intensive/readiness.json). El lector permite representar las nueve filas de códigos extendidos antes vacías bajo el filtro ASCII.
 
-## Dependencias históricas explícitamente bloqueadas
+## Referencias ausentes: impacto verificado
 
-Cuatro referencias faltantes afectan a tres scripts:
+Cuatro referencias faltantes aparecen en tres scripts. Se revisó su uso y se ejecutaron los dos scripts que no necesitan todas esas referencias:
 
-| Script | Requisito ausente |
+| Script | Referencia ausente e impacto |
 |---|---|
-| EXP-031 `qo_stripping` | `data/reference_corpora/latin_vulgate.txt` |
-| EXP-170 `naibbe_simulation` | `data/derived/naibbe-cipher` y su ejemplo `divina_commedia.txt` |
-| EXP-436 `latin_hapax_length` | `data/reference_corpora/italian/dante_divine_comedy_italian.txt` |
+| EXP-031 `qo_stripping` | `data/reference_corpora/latin_vulgate.txt`: constante LATIN sin uso; no bloquea |
+| EXP-170 `naibbe_simulation` | `data/derived/naibbe-cipher` y su ejemplo `divina_commedia.txt`: requeridos; bloquean |
+| EXP-436 `latin_hapax_length` | `data/reference_corpora/italian/dante_divine_comedy_italian.txt`: rama opcional protegida por exists; comparación italiana omitida |
 
-Estado operativo de esas ejecuciones históricas: **BLOCKED_MISSING_INPUT**. No se sustituyeron por textos de nombre parecido. Recuperar las fuentes y sus versiones exige verificar procedencia; los outputs anteriores permanecen archivados, con reproducibilidad pendiente para estos scripts. El inventario de rutas no cubre todas las dependencias Python o externas de cada experimento histórico.
+Estado de EXP-170: **BLOCKED_MISSING_INPUT**. EXP-031 y la parte latina de EXP-436 se ejecutaron desde `/tmp` con retorno cero: [logs de ejecución](maintenance/2026-10-22-intensive/historical-smoke-results.json). La comparación italiana opcional de EXP-436 sigue ausente. No se sustituyeron fuentes por textos de nombre parecido. Recuperar Naibbe y su versión exacta exige verificar procedencia. El inventario no cubre todas las dependencias Python o externas de cada experimento histórico.
 
 ## Validación y alcance
 
@@ -78,9 +78,13 @@ Las dos pruebas LIB-EXP-623 usan controles diferentes y muestran comportamientos
 - **Conocimiento del objetivo:** la política léxica se fijó por reglas documentadas, sin escoger variantes por su recuento de `daiin`; la comparación es descriptiva.
 - **Pérdida de características:** se conserva la capa bruta y se evita que los caracteres extendidos desaparezcan. La vista candidata sigue siendo una elección de análisis, no una lectura lingüística.
 - **Extrapolación:** las firmas AST prueban una migración mecánica y las fixtures una cobertura finita; no validan todos los experimentos ni todo IVTFF.
-- **Resultados negativos:** una dependencia ausente bloquea su ejecución; no refuta su hipótesis. No se cambió `committed_claims.md`, `findings.md` ni `failed_approaches.md`.
+- **Resultados negativos:** una dependencia requerida ausente bloquea su ejecución; una referencia opcional o sin uso no permite esa conclusión. Ninguno de esos casos refuta una hipótesis. No se cambió `committed_claims.md`, `findings.md` ni `failed_approaches.md`.
 - **Controles:** no se introdujeron nulos estadísticos ni nuevas afirmaciones inferenciales. La igualdad EXP-590 se comprobó bajo su tokenizador existente; no se traslada esa validación a la candidata.
 
 ## Estado para continuar
 
-La infraestructura operativa se conserva. La revisión cierra las rutas de máquina conocidas en 474 scripts y la cobertura del auditor de metadatos, y entrega una capa léxica comprobable para la siguiente integración. Continúan abiertos: las tres ejecuciones con inputs ausentes, validación documental/alphabet-specific del lector, sensibilidad científica antes de migrar resultados y cotejo completo Biblioteca/GitHub. No se declara la investigación entera validada.
+La infraestructura operativa se conserva. La revisión cierra las rutas de máquina conocidas en 474 scripts y la cobertura del auditor de metadatos, y entrega una capa léxica comprobable para la siguiente integración. Continúan abiertos: EXP-170 con inputs requeridos ausentes y la comparación italiana opcional, validación documental/alphabet-specific del lector, sensibilidad científica antes de migrar resultados y cotejo completo Biblioteca/GitHub. No se declara la investigación entera validada.
+
+## Verificación de integración
+
+Voynich Check [39748431050](https://github.com/kyrian20/voynich-autoexploration/actions/runs/39748431050) terminó en `success` para el commit `83b0875841b3cbdb83c4ffa661e55abfb5b98fa4`, incluyendo portabilidad, capa léxica, auditoría de tres transcripciones, metadatos y regresiones existentes. Artefacto `intensive-readiness-39748431050`, ID `12412790780`, digest ZIP `sha256:9b970f70a2eae45b4fcf7053164543ea457c54760a4b768a222f2fbab8cb6065`. La clasificación posterior de referencias se conserva en el manifiesto; cualquier commit posterior requiere su propia comprobación de CI.

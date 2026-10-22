@@ -66,9 +66,10 @@ def main() -> None:
                         raise ValueError(f'Runtime path expression does not resolve to this checkout: {path}')
         for target in entry['targets']:
             if not (ROOT / target['relative_path']).exists():
-                blocked.append({'script': entry['path'], 'missing_target': target['relative_path']})
+                blocked.append({'script': entry['path'], 'missing_target': target['relative_path'],
+                                'required': target.get('required'), 'usage': target.get('usage', 'unclassified')})
     print(json.dumps({'path_only_files_verified': len(manifest['files']), 'algorithm_ast_checks': 'pass',
-                      'missing_inputs': blocked,
+                      'missing_input_references': blocked,
                       'scope': 'Static semantic preservation, not execution or scientific validation of every historical experiment.'}, indent=2))
 
 

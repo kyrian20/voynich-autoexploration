@@ -4,7 +4,7 @@ Repositorio de trabajo: `kyrian20/voynich-autoexploration` (rama `master`).
 
 ## Estado operativo actual — 22 octubre 2026
 
-**Revisión intensiva posterior:** [reparaciones, pruebas y límites](research/INTENSIVE_REVIEW_2026-10-22.md): 474 scripts con rutas portables, auditor de 227 cabeceras y capa léxica sin pérdida probada sobre tres transcripciones. Tres scripts históricos siguen bloqueados por inputs ausentes.
+**Revisión intensiva posterior:** [reparaciones, pruebas y límites](research/INTENSIVE_REVIEW_2026-10-22.md): 474 scripts con rutas portables, auditor de 227 cabeceras y capa léxica sin pérdida probada sobre tres transcripciones. EXP-170 sigue bloqueado por inputs externos requeridos; EXP-031 y la parte latina de EXP-436 pasan una ejecución desde otro directorio.
 
 La arquitectura de publicación se ha reparado: **un único publicador y 31 workflows lectores**, con artefactos y guardias de CI. [Estado, pruebas y límites actuales](research/OPERATIONAL_STATUS.md). [Registro inequívoco de las 624 carpetas](research/EXPERIMENT_PATH_REGISTRY.json). La validación científica y la conformidad completa IVTFF siguen pendientes.
 

@@ -26,7 +26,9 @@
         },
         {
           "relative_path": "data/reference_corpora/latin_vulgate.txt",
-          "exists_at_audit": false
+          "exists_at_audit": false,
+          "required": false,
+          "usage": "unused LATIN constant; no Load references"
         }
       ],
       "algorithm_ast_sha256": "d952467ac563e07849c30e5cbf6ee5c4f56dec813d84fd4ed443ffeb44426b57"
@@ -1382,7 +1384,9 @@
       "targets": [
         {
           "relative_path": "data/derived/naibbe-cipher",
-          "exists_at_audit": false
+          "exists_at_audit": false,
+          "required": true,
+          "usage": "required external cipher directory/import and plaintext"
         },
         {
           "relative_path": "data/transcriptions/eva_zl3b.txt",
@@ -1390,7 +1394,9 @@
         },
         {
           "relative_path": "data/derived/naibbe-cipher/input/examples/divina_commedia.txt",
-          "exists_at_audit": false
+          "exists_at_audit": false,
+          "required": true,
+          "usage": "required external cipher directory/import and plaintext"
         },
         {
           "relative_path": "data/reference_corpora/latin/vulgate.txt",
@@ -4606,7 +4612,9 @@
         },
         {
           "relative_path": "data/reference_corpora/italian/dante_divine_comedy_italian.txt",
-          "exists_at_audit": false
+          "exists_at_audit": false,
+          "required": false,
+          "usage": "optional Italian branch guarded by os.path.exists; Latin main executes"
         }
       ],
       "algorithm_ast_sha256": "830b65076f8b9df2385a85be8b61e83195a1ac9bed0d223f9823838853c909dc"

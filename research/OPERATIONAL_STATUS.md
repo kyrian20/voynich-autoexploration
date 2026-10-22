@@ -1,6 +1,6 @@
 # Estado operativo del repositorio — 22-10-2026
 
-**Revisión intensiva posterior:** [estado de código, lector y reproducibilidad](INTENSIVE_REVIEW_2026-10-22.md). Este documento conserva el cierre de infraestructura; el informe posterior amplía el alcance y explicita las tres ejecuciones históricas bloqueadas.
+**Revisión intensiva posterior:** [estado de código, lector y reproducibilidad](INTENSIVE_REVIEW_2026-10-22.md). Este documento conserva el cierre de infraestructura; el informe posterior amplía el alcance y clasifica las referencias ausentes: un bloqueo requerido confirmado en EXP-170, una rama opcional y una constante sin uso.
 
 Estado: **infraestructura reparada y ejecución verificada para los workflows modificados**. La validez científica de todos los experimentos históricos sigue sin estar certificada.
 
