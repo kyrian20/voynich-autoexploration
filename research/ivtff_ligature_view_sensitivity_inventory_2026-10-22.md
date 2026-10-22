@@ -70,3 +70,22 @@ El origen técnico principal identificado es el patrón de ID: la expresión ant
 2. Añadir una prueba que reproduzca el recuento de registros del parser independiente EXP-602.
 3. Separar en la siguiente versión las anotaciones cuadradas con ligaduras internas, sin inferir automáticamente cómo deben interpretarse.
 4. Crear un experimento nuevo solo después de reconciliar el registro de IDs EXP; conservar las salidas actuales como auditoría técnica sin número EXP.
+
+## Actualización de vigencia — cobertura productiva comprobada el 22-10-2026
+
+Esta sección actualiza las frases anteriores que indicaban que el parser productivo aún no había cambiado. Esas frases describen el momento de la auditoría original, no el código actual.
+
+Se inspeccionó `scripts/exp590_daiin_position.py`, blob Git `50974525d50c499fa95a40305a915e667dbe7515`: sus patrones de cabecera y línea ya admiten subdivisiones de folio y `fRos`. La función `legacy_parser_coverage` sigue siendo una reconstrucción deliberada del patrón histórico para comparación; no debe confundirse con el parser productivo actual.
+
+El JSON versionado `research/experiments/2026-10-22-exp590-corrected-L-metadata.json`, blob Git `07a844bcb12ec42934d5d9390badb2c928c262ff`, declara para ZL3b:
+
+- 5.376 líneas que producen al menos un token;
+- 39.594 tokens y 853 ocurrencias exactas de `daiin`;
+- 161 líneas iniciales y 134 finales con `daiin`;
+- 502 ocurrencias en Currier A, 314 en B y 37 sin etiqueta conocida.
+
+Así queda aclarada la comparación: los 5.385 registros de texto de cobertura amplia y las 5.376 líneas tokenizadas no usan el mismo filtro de inclusión. Su diferencia aritmética es nueve; aún no se ha cotejado aquí su identidad registro por registro. La cifra histórica de 726 pertenece al universo restringido de EXP-590 y no debe presentarse como el recuento actual del script ampliado.
+
+Esta comprobación es una inspección de código y artefactos versionados, no una nueva ejecución independiente ni una validación científica. El SHA-256 de fuente declarado coincide con el de esta auditoría. Los identificadores de blobs anteriores son hashes Git, no SHA-256 del contenido. No se han modificado datos, resultados históricos ni números EXP.
+
+Pendiente: comparar los conjuntos exactos de IDs antes de atribuir las nueve filas a una causa concreta, conservar la política de incertidumbre/ligaduras explícita y verificar CI del commit documental resultante.
