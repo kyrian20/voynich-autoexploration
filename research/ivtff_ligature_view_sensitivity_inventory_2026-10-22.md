@@ -52,7 +52,7 @@ La función de compatibilidad reproduce el patrón de línea heredado de EXP-590
 
 La comparación de líneas tiene una pequeña diferencia de definición: EXP-590 cuenta solo líneas que producen al menos un token; la cobertura amplia cuenta registros de texto no vacíos, incluso si después una vista de análisis no produce tokens. Por eso no debe interpretarse la diferencia de 1.197 como un recuento exacto de registros perdidos sin aplicar el mismo filtro de tokens a ambas vistas.
 
-El origen técnico principal identificado es el patrón de ID: la expresión antigua `f(\d+[rv])` no admite sufijos de subdivisión como `f67r1.5` ni IDs especiales como `fRos.23`. La nueva auditoría usa un patrón más general para inventariar esos registros. No se ha cambiado el parser productivo ni se ha regenerado EXP-590. Antes de actualizar cualquier análisis, hay que revisar la gramática oficial de los IDs de folio y declarar qué familias de registros pertenecen al universo analítico.
+El origen técnico principal identificado es el patrón de ID: la expresión antigua `f(\\d+[rv])` no admite sufijos de subdivisión como `f67r1.5`. La documentación oficial IVTFF da nombres de página como `f102r2`, por lo que el parser debe poder representar esos sufijos ([fuente oficial](https://www.voynich.nu/extra/sta-aaa.html); [formato IVTFF 2.0.2](https://www.voynich.nu/software/ivtt/IVTFF_format.pdf)). También aparece el ID especial `fRos.23` en la transcripción, que la auditoría amplia registra por separado. No se ha cambiado el parser productivo ni se ha regenerado EXP-590. Antes de actualizar cualquier análisis, hay que declarar qué familias de registros pertenecen al universo analítico.
 
 ## Interpretación y límites
 
