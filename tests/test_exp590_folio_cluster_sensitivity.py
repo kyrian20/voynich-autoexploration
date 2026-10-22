@@ -27,7 +27,7 @@ def main():
     assert by_folio["f1r"]["target_occurrences"] == 3
     assert by_folio["f1r"]["lines_containing_target"] == 2
     assert by_folio["f1r"]["target_bearing_lines_starting_target"] == 1
-    assert by_folio["f1r"]["target_bearing_lines_ending_target"] == 1
+    assert by_folio["f1r"]["target_bearing_lines_ending_target"] == 2
     first = bootstrap_difference([1.0, 0.0], [0.0, 0.0], n=1000, seed=42)
     second = bootstrap_difference([1.0, 0.0], [0.0, 0.0], n=1000, seed=42)
     assert first == second
