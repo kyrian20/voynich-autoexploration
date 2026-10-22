@@ -264,3 +264,12 @@ Two workflows that commit generated results to `master` used separate GitHub Act
 - This closes source-file identity for those pilot metadata records, but not output provenance: the saved Python scripts still need to be executed against those exact source blobs and their fresh JSON outputs compared with the JavaScript pilot results.
 - The two analyses have different declared filters (all matching locus records vs P0-only paragraph-body loci), different sample sizes, and different null constructions. Treat them as separate exploratory analyses, not as direct replications. Details are in `research/library_artifact_sha256_manifest_2026-10-22.md`.
 - No original results were overwritten and no new experiment ID was allocated. Check the workflow triggered by this state update before claiming the current HEAD has passed CI.
+
+
+## Cross-surface namespace triage expansion — 2026-10-22
+
+- Recompared the complete 501-item Library inventory with the 2,122-entry GitHub tree. Thirty-four EXP-number groups overlap across surfaces and need semantic/provenance triage; numeric overlap alone is not proof of same artifact.
+- Confirmed question-level mismatches now total eleven, including EXP-590, 591, 592, 593, 595, 598, 599, 600, 601, 602 and 623. See `research/ARTIFACT_COLLISION_REGISTER.md` for the comparison and safe handling. The count means topic/protocol mismatch, not invalid science.
+- Seven internal GitHub folder-ID collisions (177, 594, 596, 597, 600, 601, 602) remain distinct from the cross-surface mismatches.
+- The Library SHA-256 manifest is deliberately scoped to ten files; complete byte-level pairing across all candidate artifacts is still pending. Do not rename or merge anything until exact references, scripts, JSON, and corpus/parser hashes are reconciled.
+- No new experiment IDs were assigned. The last verified Voynich Check for an earlier state commit succeeded, but the newest state and collision-register commits have new checks to verify before claiming HEAD is green.
