@@ -14,12 +14,12 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 from scripts.audit_ivtff_metadata import parse_currier_language
 
-SOURCE = Path("data/transcriptions/eva_zl3b.txt")
-OUT = Path("research/experiments")
+SOURCE = ROOT / "data/transcriptions/eva_zl3b.txt"
+OUT = ROOT / "research/experiments"
 N_PERM = 5000
 SEED = 20261020
-FOLIO_HEADER = re.compile(r"^<f(\d+[rv])>\s*(.*)$")
-TEXT_LINE = re.compile(r"^<f(\d+[rv])\.(\d+),[^>]*>\s*(.*)$")
+FOLIO_HEADER = re.compile(r"^<(f(?:\d+[rv][1-6]?|Ros))>\s*(.*)$")
+TEXT_LINE = re.compile(r"^<(f(?:\d+[rv][1-6]?|Ros))\.(\d+),[^>]*>\s*(.*)$")
 TOKEN_RE = re.compile(r"[a-z]+")
 TARGET = "daiin"
 
