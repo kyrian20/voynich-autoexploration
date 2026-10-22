@@ -84,3 +84,9 @@ jobs:
 
       - name: Cuantificar sensibilidad descriptiva de ligaduras IVTFF
         run: python scripts/audit_ivtff_ligature_views.py
+
+      - name: Probar regresiones de identificadores de página y locus IVTFF
+        run: python tests/test_ivtff_page_locus_ids.py
+
+      - name: Auditar cobertura estructural de identificadores IVTFF
+        run: python scripts/audit_ivtff_page_locus_ids.py
