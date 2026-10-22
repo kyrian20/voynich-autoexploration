@@ -87,3 +87,12 @@ El árbol recursivo completo de GitHub confirma 7 colisiones de IDs en carpetas 
 - El ID EXP-602 colisiona con `exp_602_independent_ivtff_parser_audit`; no adjudicar todavía qué artefacto retiene el ID canónico ni renombrar carpetas sin rastrear referencias y hashes.
 - Plan de siguiente prueba, sin asignar EXP nuevo: [`next_decisive_test_plan_2026-10-22.md`](next_decisive_test_plan_2026-10-22.md). Define cobertura IVTFF congelada, división por folio sin fugas, baseline entrenable, métrica/regla de éxito previa y controles negativos.
 - No presentar el resultado actual como desciframiento. La próxima prueba solo contará como avance positivo si supera un baseline justo en folios no vistos; un resultado negativo se conserva y no se usa para ajustar repetidamente sobre el mismo conjunto reservado.
+
+
+## Adjudicación documental de la colisión EXP-602 (22-10-2026)
+
+- Informe: [exp602_collision_adjudication_2026-10-22.md](exp602_collision_adjudication_2026-10-22.md).
+- Hasta reconciliar la cronología de commits, referencias cruzadas y registros de la Biblioteca, usar alias descriptivos y limitados a ruta: **GH-602-PARSER-AUDIT** para `experiments/exp_602_independent_ivtff_parser_audit/` y **GH-602-HELDOUT-PREDICTION** para `experiments/exp_602_heldout_predictive_test/`. No renombrar ni asignar un EXP canónico todavía.
+- La versión actual del parser audit es `results_v7.json`: cero diferencias de campos entre Parser A y B para ZL3b (5.385 registros) y ZL3a (5.389 registros) bajo la política declarada. Los resultados v1–v6 se conservan como historial.
+- La prueba held-out es distinta y su criterio predictivo predeclarado falla para `daiin` (ganancia log-loss −0,08131; IC 95 % por folio [−0,11174; −0,05641]). No mezclar este resultado con la auditoría del parser.
+- Ambos resultados son metodológicos/estadísticos, no desciframiento. No asignar otro ID numérico hasta reconciliar el registro global.
