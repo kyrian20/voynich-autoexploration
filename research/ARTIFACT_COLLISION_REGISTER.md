@@ -76,3 +76,15 @@ La auditoría de árbol del 20-10-2026 cuenta 2.085 rutas, 624 carpetas `experim
 ## Actualización de inventario top-level — 2026-10-22
 
 La auditoría recursiva de GitHub confirma las colisiones de carpeta EXP-177, EXP-594, EXP-596, EXP-597, EXP-600, EXP-601 y EXP-602. La lista de pares de carpetas y las limitaciones del método están en [stabilization_audit_2026-10-22.md](stabilization_audit_2026-10-22.md). No se renombró ni eliminó ningún artefacto. Esta auditoría solo recorrió GitHub; la Biblioteca no está completamente reconciliada y sus IDs no deben asumirse globalmente únicos.
+
+
+## Cross-surface evidence check — 2026-10-22
+
+A direct read of the two Library reports confirms that the EXP-623 label masks two different order-model analyses with different null constructions and different reported outcomes:
+
+- `LIB-ORDER-2026-10-19-A` — `Informe_Voynich_exp623_Control_orden_palabras_2026-10-19.md`: permutes all words within each locus; its own table reports that the real order loses to the permuted control (17/20 ZL3b and 20/20 IT2a partitions favor the permutation).
+- `LIB-ORDER-2026-10-19-B` — `Informe_Voynich_exp623_control_orden_2026-10-19.md`: permutes only interior words while preserving the first and last word; its own table reports a positive real-order advantage under that different null.
+- `GH-EXP-623` is instead the IT2a ch/sh context-specificity interaction test. It is neither Library order experiment. Do not compare the numeric outputs as if they were replications of one hypothesis, and do not copy either Library result into the GitHub EXP-623 slot.
+- The two Library reports alone are insufficient to reproduce either result. The associated scripts and JSON outputs must be paired to their exact report, checked for corpus/parser hashes, and rerun before either is marked reproduced. This check did not calculate content hashes, modify Library files, or rename anything.
+
+This remains a partial cross-surface check. The Library listing for `/Investigación Voynich/` is paginated and the returned first page is not a complete inventory; full reconciliation still requires paging every item and comparing materialized content hashes with GitHub blobs.
