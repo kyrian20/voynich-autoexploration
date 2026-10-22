@@ -8,7 +8,8 @@ on:
       - 'data/transcriptions/eva_it2a.txt'
       - '.github/workflows/voynich-exp604.yml'
 
-# Serialize all workflows that write results to master.
+# Per-workflow concurrency prevents overlapping runs of this workflow only.
+# Cross-workflow push races are handled by the bounded rebase/push retry below.
 concurrency:
   group: voynich-exp604
   cancel-in-progress: false
