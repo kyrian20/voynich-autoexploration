@@ -15,7 +15,7 @@ permissions:
 # Shared group: use this same name in every workflow that writes to master.
 # This pilot only serializes with other workflows after they adopt the same group.
 concurrency:
-  group: voynich-master-writes
+  group: voynich-exp603
   cancel-in-progress: false
 
 jobs:
