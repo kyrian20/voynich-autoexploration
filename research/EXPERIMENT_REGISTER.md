@@ -136,3 +136,7 @@ Se añadió un análisis de sensibilidad descriptivo por folio sin asignar un nu
 ## Seguimiento sin ID nuevo — sensibilidad del lector, 22-10-2026
 
 [Informe y decisión](READER_SENSITIVITY_DECISION_2026-10-22.md). Rejilla descriptiva de 128 normalizaciones, bootstrap pareado del directorio completo `experiments/exp_601_folio_clustered_confirmation/` y sensibilidad del modelo `experiments/exp_607_heldout_bigram_prediction/`. No confundir el primer directorio con `experiments/exp_601_primary_statistic_paired_sensitivity/`. Los tres análisis conservan fuentes y resultados originales, y no ocupan otro número EXP.
+
+## Auditoría acotada de EXP-170 — 22-10-2026
+
+[Informe, snapshot y tabla corregida](maintenance/2026-10-22-exp170-audit/REPORT.md): reproducidos los cálculos sobre 400 vectores archivados sin ejecutar Naibbe; confirmados error de rotulación P5/P95, intercambios de columnas, recuentos y confusión máximo/media. Originales intactos; C001 remitido a open_questions sin editar el compromiso. [Tres pruebas futuras priorizadas y sus bloqueos](maintenance/2026-10-22-exp170-audit/NEXT_EXPERIMENTS.md), sin EXP nuevo ni ejecución.
