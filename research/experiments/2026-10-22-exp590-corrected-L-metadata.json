@@ -44,11 +44,23 @@
     "null_ge_observed": 0,
     "interpretation": "Exploratory positional test; not a decipherment claim."
   },
+  "coverage_comparison": {
+    "legacy_restricted_pattern": {
+      "nonempty_token_lines": 4188,
+      "tokens": 32732,
+      "exact_daiin_occurrences": 726,
+      "line_initial_daiin_lines": 133
+    },
+    "current_nonempty_token_lines": 5376,
+    "scope": "Different page-ID coverage; these are not identical populations."
+  },
   "limitations": [
     "EVA transcription and tokenization choices affect counts.",
     "Only exact token daiin is tested; variants such as dain are excluded.",
     "Line-initial permutation test conditions on each line's token multiset.",
     "Currier classification is read only from the IVTFF $L page variable; unknowns remain unknown.",
-    "This is descriptive statistical analysis, not a translation or decipherment."
+    "This is descriptive statistical analysis, not a translation or decipherment.",
+    "The empirical p-value is not adjusted for prior selection of daiin among other candidate words or for other exploratory analyses of the same transcription; interpret it as exploratory rather than confirmatory.",
+    "The ASCII-letter token filter does not decode extended glyph codes such as @140; raw source records remain preserved."
   ]
 }

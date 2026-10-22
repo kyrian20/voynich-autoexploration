@@ -21,6 +21,8 @@
 
 La hipótesis nula permuta el orden de los tokens dentro de cada línea, conservando su multiconjunto exacto. El contraste evalúa si daiin aparece al principio de línea más de lo esperable bajo ese modelo; no prueba significado lingüístico. No se han explorado múltiples palabras en este experimento, pero cualquier búsqueda posterior deberá corregir comparaciones múltiples.
 
+**Precaución inferencial:** el valor p no corrige la selección histórica de daiin entre otras palabras ni otros análisis de esta transcripción. Es un contraste exploratorio bajo el nulo elegido, no una prueba confirmatoria independiente.
+
 ## Distribución por clase de Currier
 
 | Clase | Ocurrencias exactas | Líneas iniciales | Líneas finales | Líneas parseadas |
@@ -36,3 +38,14 @@ La hipótesis nula permuta el orden de los tokens dentro de cada línea, conserv
 - La clasificación Currier se lee de cabeceras de folio cuando está disponible; los casos sin clasificación quedan como unknown.
 - Esto es una línea base exploratoria reproducible, no una traducción ni una afirmación de desciframiento.
 - Datos completos y hash de entrada están en el JSON de este experimento.
+
+## Cobertura histórica y actual
+
+| Métrica | Patrón restringido histórico | Patrón actual |
+|---|---:|---:|
+| Líneas con tokens | 4188 | 5376 |
+| Tokens | 32732 | 39594 |
+| daiin exactos | 726 | 853 |
+| Inicios daiin | 133 | 161 |
+
+Las columnas usan distinta cobertura de identificadores; no describen idéntica población. El filtro ASCII no decodifica los códigos de caracteres extendidos @…;. Se conserva la transcripción bruta. Véase la auditoría operativa para el cotejo exacto de registros excluidos.
