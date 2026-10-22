@@ -100,3 +100,12 @@ Se ha consultado la especificación oficial publicada por René Zandbergen, *IVT
 Esto resuelve la pregunta semántica principal: los spans entre llaves no son comentarios editoriales ni deben descartarse como si lo fueran. La norma describe una ligadura representada en la transliteración. No prescribe por sí sola cómo debe representarse esa ligadura en cada estadística concreta; esa decisión analítica debe ser explícita y no destructiva.
 
 **Acción segura inmediata:** conservar la secuencia bruta exacta y sus offsets; añadir un tipo de unidad estructural `ligature`; para análisis que necesiten secuencias de caracteres, permitir una vista derivada que expanda el contenido interno, y comparar con la política histórica que elimina el span. No sobrescribir resultados históricos ni afirmar que la expansión es el único análisis válido hasta comprobar la semántica de los alfabetos EVA/STA y cuantificar los cambios. El inventario de 446/444 spans pasa de «significado por adjudicar» a «ligaduras según §6.6; política de análisis pendiente».
+
+
+## Resultado de sensibilidad y cobertura del parser — 2026-10-22
+
+La auditoría descriptiva reproducida en CI se documenta en [inventario de sensibilidad de ligaduras y cobertura del parser](ivtff_ligature_view_sensitivity_inventory_2026-10-22.md). En cobertura amplia, la vista expandida reduce las ocurrencias exactas de `daiin` de 853 a 852 en ZL3b y ZL3a; el conteo de líneas iniciales se mantiene en 161. Esto es una medida de sensibilidad de la representación, no una prueba lingüística.
+
+La auditoría también confirma que la expresión regular heredada de EXP-590 no reconoce identificadores como `f67r1.5` ni `fRos.23`. La función de compatibilidad reproduce exactamente la salida histórica de ZL3b (4.188 líneas con tokens, 32.732 tokens, 726 `daiin`, 133 líneas iniciales), mientras que el inventario de cobertura amplia recoge 5.385 registros de texto. **No se han sobrescrito los resultados de EXP-590.** Antes de corregir cualquier análisis hay que validar la gramática de los IDs y declarar el universo de registros incluido.
+
+Además, 44 spans de ZL3b y 45 de ZL3a quedan dentro de anotaciones cuadradas que las tres vistas actuales eliminan completas. Se registran por separado; no se ha decidido todavía cómo representar ligaduras dentro de lecturas inciertas.
