@@ -1,0 +1,47 @@
+{
+  "source_commit": "e2d082e333bed5a0f0444d13160af088f5c92518",
+  "method": "deterministic regeneration; not recovery of original filesystem",
+  "checks": [
+    {
+      "file": "resultados.json",
+      "expected_sha256": "ef884f11fb01c28749936b2f3cb91d60837d639a513e7416aef3155f33ab133b",
+      "actual_sha256": "ef884f11fb01c28749936b2f3cb91d60837d639a513e7416aef3155f33ab133b",
+      "matches": true
+    },
+    {
+      "file": "seleccion.json",
+      "expected_sha256": "75fd47b8511235980004eb82913d963b008931f569a08dd33938ebe17cbd1d68",
+      "actual_sha256": "75fd47b8511235980004eb82913d963b008931f569a08dd33938ebe17cbd1d68",
+      "matches": true
+    },
+    {
+      "file": "tokens.jsonl.gz",
+      "expected_sha256": "d0e8d367785c943b65b91cb49eb0e07ebec5e10d0f765895d4a568ad7bd39716",
+      "actual_sha256": "d0e8d367785c943b65b91cb49eb0e07ebec5e10d0f765895d4a568ad7bd39716",
+      "matches": true
+    },
+    {
+      "file": "vistas_referencia.json",
+      "expected_sha256": "bfe3fac3ce127d4f37412bc5e1449e8ce9ccbfb441dc9e3188bfd2ec96b1acc2",
+      "actual_sha256": "bfe3fac3ce127d4f37412bc5e1449e8ce9ccbfb441dc9e3188bfd2ec96b1acc2",
+      "matches": true
+    }
+  ],
+  "all_match": true,
+  "unrecovered": [
+    "run-01/seleccion.json",
+    "run-02/seleccion.json"
+  ],
+  "public_raw_upload_authorized": false,
+  "tests": {
+    "command": "python -m unittest discover -s tests",
+    "tests_run": 53,
+    "skipped": 0,
+    "result": "OK"
+  },
+  "technical_fix": {
+    "pull_request": 4,
+    "merged_commit": "74743fb0119c93cfeb70556013fab04453ae7bad"
+  },
+  "historical_limit": "No original hashes for run-01/02 selections were available; they are not presented as recovered."
+}

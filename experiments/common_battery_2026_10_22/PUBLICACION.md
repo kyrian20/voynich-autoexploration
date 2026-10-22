@@ -15,3 +15,12 @@ La autorización dio error y se pulsó Omitir. Esto no autoriza la divulgación 
 En el entorno de continuación no se han localizado el commit local 87701fd, work/entrega/bc-2026-10-22-completo.tar.gz ni historial-prerregistro.txt. Su conservación fue declarada por la entrega anterior, pero aquí no se ha podido verificar ni recuperar. Los archivos bloqueados siguen ausentes de esta PR: data/run-01/seleccion.json, data/run-02/seleccion.json, data/run-03/seleccion.json, data/run-03/vistas_referencia.json y data/run-03/tokens.jsonl.gz. Los hashes originales se conservan sin cambios; no sustituyen los archivos.
 
 La entrega recuperable reúne código, protocolos, resultados, informes, corpus fuente y hashes, con instrucciones para una reproducción futura voluntaria. Es parcial: no contiene los tokens archivados ni permite verificar ahora su replay. Completar la entrega requiere recuperar el paquete original del entorno anterior y resolver el control de publicación por su vía autorizada. No se fusiona la PR ni se activa fusión automática.
+
+
+## Reconstrucción verificada posterior — 22-10-2026
+
+Se regeneró run-03 desde el commit e2d082e333bed5a0f0444d13160af088f5c92518 con Python 3.12.14 y pandas 2.2.3, sin cambiar parámetros, semillas ni criterios. Los cuatro archivos resultados.json, seleccion.json, vistas_referencia.json y tokens.jsonl.gz coinciden exactamente con los SHA-256 publicados previamente. RECONSTRUCCION.json conserva las comparaciones. Es reconstrucción determinista, no recuperación del sistema de archivos ni un experimento nuevo.
+
+Con los tres archivos ausentes reconstruidos en el árbol local, las 53 pruebas de tests pasan sin omisiones, incluida la reconstrucción de métricas desde los tokens. La copia verificable se entrega al usuario por separado; los datos crudos no se suben a esta PR y la CI pública sigue omitiendo su replay. La autorización pública específica sigue sin resolverse. La reparación de integración de la PR #4, ya fusionada en master, se incorpora sin cambiar los resultados científicos.
+
+Las selecciones de run-01 y run-02 no están recuperadas: no hay hashes originales individuales disponibles para acreditar una reconstrucción exacta. Los errores originales permanecen conservados. Este avance resuelve la ausencia de los datos de la ejecución final, pero no completa los dos intentos históricos ni convierte esta publicación en una entrega pública íntegra.
