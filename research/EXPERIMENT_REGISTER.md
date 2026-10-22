@@ -104,3 +104,11 @@ El árbol recursivo completo de GitHub confirma 7 colisiones de IDs en carpetas 
 - ZL3b: 227 cabeceras únicas, 5.385 registros; ZL3a: 227, 5.389; IT2a: 225, 5.215. En los tres archivos: cero cabeceras malformadas, cero registros malformados, cero discordancias entre la página activa y el ID de locus, y cero números de locus fuera del intervalo de control 1–160.
 - Se añadieron `scripts/audit_ivtff_page_locus_ids.py` y `tests/test_ivtff_page_locus_ids.py`, integrados en `.github/workflows/voynich-check.yml`. La auditoría no modifica transcripciones ni resultados históricos.
 - Esta validación estructural no reemplaza un validador IVTFF completo ni resuelve automáticamente los experimentos históricos que usaban patrones incompletos. Cada análisis debe declarar su población y política de tokenización antes de regenerarse.
+
+
+## Reproducción de EXP-573 y portabilidad (22-10-2026)
+
+- Se eliminó la ruta absoluta de máquina de `experiments/exp_573_c007_reconciliation/script.py`, se añadió una función `main()` protegida por `if __name__ == "__main__"`, y se agregó una prueba de portabilidad al workflow.
+- La ejecución completa pasó en [CI run 584](https://github.com/kyrian20/voynich-autoexploration/actions/runs/39740259579). Los valores canónicos se reproducen: A `ok` = 1,421× frente a 1,42× publicado; B `qok` = 1,028× frente a 1,03× publicado.
+- **Limitación confirmada:** la rama de fórmula antigua + clasificación por folio no reproduce exactamente exp_174: A `ok` = 2,083× frente a 1,930× citado; B `qok` = 1,259× frente a 1,239×. El contraste histórico es una comparación metodológica aproximada, no una reproducción exacta. La errata de atribución 2,047× (B `qo`, no A `ok`) se basa en la tabla histórica citada, no en asumir que la rama antigua se ha reproducido exactamente.
+- El detalle se conserva en [result.md de EXP-573](../experiments/exp_573_c007_reconciliation/result.md). No se han modificado las transcripciones ni se ha creado un EXP nuevo.
