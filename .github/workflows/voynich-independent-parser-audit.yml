@@ -13,7 +13,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: voynich-master-writes
+  group: voynich-independent-parser-audit
   cancel-in-progress: false
 
 jobs:
