@@ -18,3 +18,10 @@ Intervalo de escritura observado run-03 (UTC, primera selección a último resul
 - resultados.json: 2026-10-22T19:39:06.068892+00:00
 
 Publicación: ver PUBLICACION.md. Las siete pruebas y el replay completo se verificaron localmente. En la PR parcial el replay se marca SKIPPED por archivo crudo no publicado; no se afirma su verificación en CI.
+
+
+## Verificación posterior de reconstrucción
+
+Los cuatro archivos deterministas se regeneraron desde e2d082e y coinciden con los SHA-256 anteriores, incluido el gzip de tokens. La suite original pasó sus 53 pruebas sin omisiones; con el contrato añadido de detección de archivo ausente/corrupto pasan 54 pruebas. Cinco contratos de integración y auditoría operativa también pasan. RECONSTRUCCION.json documenta ambas suites.
+
+La CI actual reconstruye los datos en una carpeta temporal con Python 3.12.14/pandas 2.2.3, verifica los cuatro hashes y dirige el replay a esa carpeta. Ya no depende de que los datos crudos estén publicados en el árbol. No los incluye en artefactos ni commits. El éxito remoto se registra según el check del commit concreto; no se infiere del éxito local. Las selecciones de run-01/run-02 siguen sin recuperar y no se acreditan mediante hashes inventados.
