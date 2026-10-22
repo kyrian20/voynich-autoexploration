@@ -1,0 +1,21 @@
+{
+  "python": "3.12.14",
+  "implementation_tests": {
+    "tests": 6,
+    "outcome": "passed"
+  },
+  "source_download_script_executed": true,
+  "fresh_download_matches_saved_receipt": true,
+  "source_images_inspected": 3,
+  "verified_plaintext_anchors": 0,
+  "scientific_status": "exploratory_candidate_review_no_decipherment",
+  "files": {
+    "scripts/audit_decipherment_anchor_concordances.py": "4891df776933f2a596ea919df0b2791195467508bd96488d41911d289521703d",
+    "scripts/fetch_decipherment_anchor_images.py": "102841dfad8c2a365a59c2e716b3c8a6b230a9138937a3b7a7aa50f3e363f442",
+    "tests/test_decipherment_anchor_evidence.py": "723f62da36bb2a9ce01ae942a04568a23dcd4ad5feccb6bdef395933de27107d",
+    ".github/workflows/voynich-check.yml": "e14daa53860868f6f74620e8b5553639fe6a39667b3377a0cacb0543f5ec24dc",
+    "research/decipherment/2026-10-22-anchor-review/PROTOCOL.md": "8c8a464a53154e95d43cd96fcfc81eaa57fcc17e030b1509a5818b00069246a4",
+    "research/decipherment/2026-10-22-anchor-review/image-sources.json": "961f0a7865cb1332ca85e69a0d959401ea9804f2bf35edc358960a06840ee634",
+    "research/decipherment/2026-10-22-anchor-review/concordances.json": "e447e818efc2e95ee8f63a4ce5f47381614fd4769d35b38a0778b8dbe6d24152"
+  }
+}

@@ -126,6 +126,12 @@ jobs:
           python scripts/prepare_decipherment_anchor_packet.py > decipherment-anchor-candidates.json
           python scripts/check_audit_snapshot.py research/decipherment/2026-10-22-anchor-candidates.json decipherment-anchor-candidates.json
 
+      - name: Probar evidencias de anclas y reproducir concordancias
+        run: |
+          python tests/test_decipherment_anchor_evidence.py
+          python scripts/audit_decipherment_anchor_concordances.py > decipherment-anchor-concordances.json
+          python scripts/check_audit_snapshot.py research/decipherment/2026-10-22-anchor-review/concordances.json decipherment-anchor-concordances.json
+
       - name: Conservar auditorías de sensibilidad reproducidas
         uses: actions/upload-artifact@v4
         with:
@@ -136,6 +142,7 @@ jobs:
             exp601-paired-reader-bootstrap.json
             exp607-scope-sensitivity.json
             decipherment-anchor-candidates.json
+            decipherment-anchor-concordances.json
           if-no-files-found: error
           retention-days: 90
 

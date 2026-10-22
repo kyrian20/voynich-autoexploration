@@ -4,6 +4,8 @@ Repositorio de trabajo: `kyrian20/voynich-autoexploration` (rama `master`).
 
 ## Estado operativo actual — 22 octubre 2026
 
+**Anclas contrastadas con imágenes:** [tres lugares verificados en Yale y concordancias de nueve candidatos](research/DECIPHERMENT_ANCHOR_REVIEW_2026-10-22.md). Se distingue el rótulo lateral de f2r del inicio de párrafo usado por Bax; ninguna equivalencia se admite todavía como texto plano conocido.
+
 **Vía de desciframiento iniciada:** [diagnóstico P0 ejecutado y primeras posibles anclas textuales](research/DECIPHERMENT_START_2026-10-22.md). La ventaja del orden real persiste sin etiquetas en el modelo ensayado; no se ha recuperado texto plano ni establecido significados.
 
 **Investigación profesional externa:** [ocho fuentes, conocimiento aplicable y límites de acceso](research/PROFESSIONAL_EXTERNAL_REVIEW_2026-10-22.md), con versiones fijadas de cuatro repositorios de autores. Se incorpora metodología; no se atribuye validación propia a sus conclusiones.
