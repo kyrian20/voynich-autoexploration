@@ -61,3 +61,10 @@ La causa de riesgo no es solo la falta de `concurrency`: los grupos diferentes p
 
 **No se declaran los riesgos de concurrencia resueltos.** La siguiente corrección técnica debe estandarizar el mecanismo de escritura en los 30 workflows: rebase sobre la referencia remota, reintento limitado y fallo explícito si se agotan los intentos; conservar los artefactos y no ocultar errores de push. Antes de aplicar cambios masivos, probar la plantilla en un workflow piloto y verificar el run.
 
+
+
+## Follow-up correction — 2026-10-22
+
+The earlier recommendation to use one shared concurrency group across all writers was not retained. GitHub Actions allows only one running and one pending run per group; a newer run can replace/cancel an older pending run. The shared-group trial caused several queued writer runs to be cancelled, so it was replaced with **distinct concurrency groups per workflow**. All 30 write-capable workflows were rechecked: each has a workflow-specific concurrency group with `cancel-in-progress: false` and a bounded five-attempt rebase/push retry loop; the read-only `voynich-check.yml` is excluded. This prevents overlapping runs of the same workflow and makes cross-workflow push races retryable, rather than pretending one group can queue every workflow indefinitely.
+
+Verification is not yet closed: multiple `Voynich Check` runs and workflow-specific runs have succeeded, while some runs triggered during the configuration change were cancelled under the temporary shared-group design and others remain queued/in progress. A cancelled run is not a pass. Recheck Actions for the latest master commit and confirm the final conclusion of each relevant run before resuming new experiments. No force-push or historical result deletion was used.
