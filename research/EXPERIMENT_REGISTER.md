@@ -120,3 +120,14 @@ El árbol recursivo completo de GitHub confirma 7 colisiones de IDs en carpetas 
 - Añadida la prueba `tests/test_exp590_ivtff_line_ids.py` e integrada en el workflow. La ejecución de CI de la prueba se está verificando: [run 590](https://github.com/kyrian20/voynich-autoexploration/actions/runs/39740873673).
 - **Reproducción ampliada completada:** 5.376 líneas con tokens, 39.594 tokens, 853 `daiin`, 161 líneas iniciales y 134 finales. Contraste de permutación de 5.000 réplicas: media nula 109,121; DE 9,315; p empírico corregido 0,000200. La salida queda guardada en [informe Markdown](experiments/2026-10-22-exp590-corrected-L-metadata.md) y [JSON](experiments/2026-10-22-exp590-corrected-L-metadata.json). CI [run 596](https://github.com/kyrian20/voynich-autoexploration/actions/runs/39741331722) terminó en success. Los conteos previos (4.188 líneas, 32.732 tokens, 726 `daiin`) corresponden al parser incompleto y no deben mezclarse con la población corregida. Ver [errata EXP-590](experiments/2026-10-20-exp590-erratum.md).
 - No crear otro ID ni afirmar validación lingüística/desciframiento. La corrección mejora la cobertura estructural, pero los resultados estadísticos deberán reevaluarse una vez regenerados.
+
+
+## Seguimiento de posición de daiin por folio — 22-10-2026
+
+Se añadió un análisis de sensibilidad descriptivo por folio sin asignar un nuevo ID EXP ni sobrescribir EXP-590. El script `scripts/exp590_folio_cluster_sensitivity.py` calcula, por clase Currier obtenida exclusivamente de `$L`, el número de ocurrencias exactas, líneas que contienen daiin y proporción de esas líneas que empiezan por daiin. La comparación A−B utiliza la media no ponderada de tasas por folio y bootstrap por folio (20.000 réplicas; semilla 20261022).
+
+- Informe: `research/experiments/2026-10-22-daiin-folio-cluster-sensitivity.md`.
+- Prueba de regresión: `tests/test_exp590_folio_cluster_sensitivity.py`.
+- Resultados preliminares calculados sobre ZL3b: A 60/423 líneas con daiin empiezan por daiin; B 91/283. Diferencia de medias por folio A−B = −0,179871; intervalo percentil del 95 % [−0,271083; −0,090770].
+- El run [39742385683](https://github.com/kyrian20/voynich-autoexploration/actions/runs/39742385683) ejecuta el test y genera artefactos JSON/Markdown. No marcar como reproducido por CI hasta que el run concluya en `success`.
+- Interpretación: diferencia descriptiva bajo la tokenización declarada, no significado lingüístico ni desciframiento. La selección histórica de daiin no está corregida y ZL3a/ZL3b/IT2a no son muestras independientes.
