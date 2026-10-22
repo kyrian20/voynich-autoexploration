@@ -78,3 +78,9 @@ jobs:
 
       - name: Inventariar spans entre llaves sin alterar resultados
         run: python scripts/audit_ivtff_brace_spans.py
+
+      - name: Probar vistas alternativas de ligaduras IVTFF
+        run: python tests/test_ivtff_ligature_views.py
+
+      - name: Cuantificar sensibilidad descriptiva de ligaduras IVTFF
+        run: python scripts/audit_ivtff_ligature_views.py
