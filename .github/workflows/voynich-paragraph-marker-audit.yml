@@ -11,7 +11,7 @@ on:
 permissions:
   contents: write
 concurrency:
-  group: voynich-paragraph-marker-audit
+  group: voynich-master-writes
   cancel-in-progress: false
 jobs:
   paragraph-audit:
