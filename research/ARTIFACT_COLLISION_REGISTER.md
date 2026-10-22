@@ -101,3 +101,12 @@ Additional same-number/different-question cases are now confirmed by directly re
 - These are alias/ID namespace collisions, not proof that any one artifact is false. Preserve all originals and use descriptive stable aliases in cross-surface records.
 
 The Library listing has now been fully paged (501 items across six pages, no listing warnings). The remaining gap is not listing completeness but content-level mapping: verify exact script/JSON/report relationships, compare candidate GitHub and Library bytes, and trace each result to corpus/parser hashes. No original was edited, no EXP folder was renamed, and no new ID was allocated.
+
+
+## EXP-623 method-pairing clarification — 2026-10-22
+
+The scoped manifest now records a content-level method association for the two Library reports:
+- `LIB-ORDER-2026-10-19-A` pairs by method with `exp623_resultados_2026-10-19.json` and `exp623_shuffle_holdout.py` (all-token within-locus shuffle; 20 splits × 50 shuffles).
+- `LIB-ORDER-2026-10-19-B` pairs by method with `exp623_order_null_summary.json` and `exp623_order_null.py` (interior-only shuffle preserving endpoints; 10 splits × 39 nulls).
+
+This resolves the intended report/JSON/script mapping at the protocol level, but **does not verify that either Python script generated the recorded pilot output**: both reports describe exploratory JavaScript pilot results, and their Python implementations were not run in GitHub Actions. Reproduction requires executing the exact scripts against the recorded transcription versions and comparing outputs. Keep both analyses exploratory and separate from GH-EXP-623.
