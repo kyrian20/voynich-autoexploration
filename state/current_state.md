@@ -154,3 +154,11 @@ The committed outputs for EXP-622 and EXP-623 were inspected directly:
 ## Workflow integrity correction — 2026-10-22
 
 Two workflows that commit generated results to `master` used separate GitHub Actions concurrency groups (`voynich-independent-parser-audit` and `voynich-paired-sensitivity`). Because concurrency only serializes runs sharing the same group, those settings did not serialize them with the other master-writing workflows despite comments implying coordination. Both have been changed to the shared `voynich-master-writes` group with `cancel-in-progress: false`. This reduces avoidable non-fast-forward races; it does not guarantee every future push will succeed, so run logs still need verification.
+
+## Integrity follow-up — 2026-10-22
+
+- Removed duplicate `cancel-in-progress: false` keys from `.github/workflows/voynich-independent-parser-audit.yml` and `.github/workflows/voynich-paired-sensitivity.yml`; both retain the shared `voynich-master-writes` concurrency group.
+- Hardened `experiments/exp_602_independent_ivtff_parser_audit/script.py`: the audit now stops if either required transcription file is missing, if the expected ZL3b/ZL3a coverage is incomplete, or if either parser returns zero records for a transcription. This prevents a partial/empty run from being written as if it were a complete audit.
+- These are guardrail changes, not a new scientific result. Existing exp_602 result values have not been represented as newly rerun.
+- CI verification remains pending: the available repository status/run lookup returned no status entries or workflow runs for the relevant commits, so this session cannot claim that GitHub Actions passed. Confirm the run in the Actions UI before treating the updated script as execution-verified.
+
