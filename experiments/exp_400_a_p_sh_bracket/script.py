@@ -4,11 +4,12 @@ exp_400: A p-Formula Lines sh-Bracket Structure (H622)
 F403: A p→sh at pos1=3.60×/N=41 AND A p→sh at LL=3.60×/N=7 — identical E values.
 Q: Do A p-LF lines have sh at BOTH pos1 and LL forming a "sh-bracket"?
 """
+from pathlib import Path as _RepositoryPath
 
 import os, re
 from collections import Counter, defaultdict
 
-DATA_PATH = os.path.expanduser('~/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt')
+DATA_PATH = os.path.expanduser(str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt'))
 
 ONSET_ORDER = [
     ('qok','qok'),('qot','qot'),('qo','qo'),('cth','cth'),

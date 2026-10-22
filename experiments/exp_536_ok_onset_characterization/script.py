@@ -10,11 +10,12 @@ Four-part characterization of ok-onset class in both dialects:
 Compare to ot/qot characterizations (F533-F538, exp_534/535).
 H589_archived: Does ok form a qok/ok spatial pair analogous to qot/ot?
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 from collections import defaultdict, Counter
 
-CORPUS = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+CORPUS = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 ONSET_PRIORITY = [
     'qok','qot','qo','cth','ckh','cph','ch','sh','ok','ot','ol','sch','skh','sph',

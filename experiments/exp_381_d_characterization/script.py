@@ -7,11 +7,12 @@ d appears as pos1 responder to LF-formula words; B d→sh(F328-related).
 This experiment provides full d vocabulary, positional distribution, self-succession positional,
 and complete outgoing bigram characterization.
 """
+from pathlib import Path as _RepositoryPath
 
 import os, re
 from collections import Counter, defaultdict
 
-DATA_PATH = os.path.expanduser('~/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt')
+DATA_PATH = os.path.expanduser(str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt'))
 TARGET = 'd'   # onset to characterize
 ONSET_LEN = 1  # len('d')
 

@@ -20,11 +20,12 @@ Exp_239 parameters (A-dialect):
   p_blind=0.0505, d_boost=24.30%, r_lf=0.266, r_mid=0.87, p_stutter=0.002
   mu_len=5.64, cp=0.55, mp=0.90, p_qokch=0.12, p_y_y=0.10, p_chqok=0.00, p_lf=1.0
 """
+from pathlib import Path as _RepositoryPath
 
 import os, re, random
 from collections import Counter, deque, defaultdict
 
-REPO_DIR     = os.path.expanduser('~/voynich-cryptanalyst')
+REPO_DIR     = os.path.expanduser(str(_RepositoryPath(__file__).resolve().parents[2]))
 LATIN_CORPUS = os.path.join(REPO_DIR, 'data/reference_corpora/latin/cicero_de_officiis_latin.txt')
 DATA_PATH    = os.path.join(REPO_DIR, 'data/transcriptions/eva_zl3b.txt')
 

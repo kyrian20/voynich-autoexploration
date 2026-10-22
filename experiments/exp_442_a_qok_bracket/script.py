@@ -10,11 +10,12 @@ Method:
 - Compare qok-onset MID word distribution in bracket vs non-bracket lines
 - Specifically: ch-midfix qok forms (qokchy/qokchol/qokchor) rate in bracket vs non-bracket MID
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 from collections import Counter, defaultdict
 
-ZL3B = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+ZL3B = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 ONSETS = ['qok', 'qot', 'qo', 'cth', 'ch', 'sh', 'ok', 'ot', 'ol',
           'd', 's', 'y', 'k', 't', 'l', 'r', 'p', 'f', 'o']

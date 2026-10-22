@@ -6,10 +6,11 @@ Q: Does A ok+edy→y drive the ok→y CL? Does A d+aiin→sh extend to A (parall
 Method: Body-conditional CL analysis for ok/sh/d/qok/ol onset classes in A-dialect.
 Parallel to exp_457 but for A-dialect.
 """
+from pathlib import Path as _RepositoryPath
 import re
 from collections import defaultdict, Counter
 
-ZL3B = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+ZL3B = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 ONSETS = ['qok','qot','qo','cth','ch','sh','ok','ot','ol','d','s','y','k','t','l','r','p','f','o']
 
 def get_onset(word):

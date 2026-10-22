@@ -12,10 +12,11 @@ Prediction 2 (edy within-line only): shedy at LL → d same as aggregate;
 Also: extend to other onset classes (ch, ok, ol) to check broader edy/aiin
 body-class cross-line asymmetry (H_new_U exploration).
 """
+from pathlib import Path as _RepositoryPath
 import re
 from collections import defaultdict, Counter
 
-ZL3B = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+ZL3B = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 ONSETS = ['qok','qot','qo','cth','ch','sh','ok','ot','ol','d','s','y','k','t','l','r','p','f','o']
 

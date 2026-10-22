@@ -2,11 +2,12 @@
 exp_359: y→d Coupling Decomposition (H569)
 Is y→d (B: 1.49×, A: 1.37× from F326) primarily y→daiin, and at which position pair?
 """
+from pathlib import Path as _RepositoryPath
 
 import os, re
 from collections import Counter, defaultdict
 
-REPO_DIR  = os.path.expanduser('~/voynich-cryptanalyst')
+REPO_DIR  = os.path.expanduser(str(_RepositoryPath(__file__).resolve().parents[2]))
 DATA_PATH = os.path.join(REPO_DIR, 'data/transcriptions/eva_zl3b.txt')
 
 def folio_base(folio):

@@ -2,11 +2,12 @@
 exp_430: A-dialect p-LF → opch MID embedding check (H648)
 Cross-dialectal test: does A also show opch enrichment in p-LF MID?
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 from collections import Counter, defaultdict
 
-ZL3B = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+ZL3B = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 ONSET_ORDER = ['qok','qot','qo','cth','ch','sh','ok','ot','ol',
                'd','s','y','k','t','l','r','p','f','o']

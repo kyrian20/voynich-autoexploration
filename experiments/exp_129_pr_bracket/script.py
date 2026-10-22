@@ -7,6 +7,7 @@ H256: Do B-dialect lines template as [p-word at start][content][r-word at end]?
 H257: raiin vs aiin context comparison.
       Pre/post-word onset class; section/position distribution.
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 from collections import defaultdict, Counter
@@ -295,7 +296,7 @@ def analyze_raiin_vs_aiin(records):
 # ── main ──────────────────────────────────────────────────────────────────────
 
 if __name__ == '__main__':
-    corpus_path = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+    corpus_path = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
     print("Loading corpus...")
     records = parse_corpus(corpus_path)
     total_words = sum(len(r['words']) for r in records)

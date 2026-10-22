@@ -8,11 +8,12 @@ For B continuation lines with p at LF (N~229):
 4. MID onset composition (positions 2 to n-3 for lines with n>=5)
 5. LL class distribution (already known from F403, but recompute here for consistency)
 """
+from pathlib import Path as _RepositoryPath
 
 import os, re
 from collections import Counter, defaultdict
 
-DATA_PATH = os.path.expanduser('~/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt')
+DATA_PATH = os.path.expanduser(str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt'))
 
 ONSET_ORDER = [
     ('qok','qok'),('qot','qot'),('qo','qo'),('cth','cth'),

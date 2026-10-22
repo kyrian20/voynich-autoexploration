@@ -4,11 +4,12 @@ exp_042 found f84v and f75v (bio) both have word autocorrelation peaks at lag=13
 (ratios 2.30 and 2.22 vs baseline). Is this systematic across the bio section,
 or a 2-folio coincidence?
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 from collections import Counter, defaultdict
 
-DATA_PATH = "/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt"
+DATA_PATH = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 def is_body_locus(locus_code):
     base = locus_code.lstrip('+*@=/~&')

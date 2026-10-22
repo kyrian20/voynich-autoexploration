@@ -29,11 +29,12 @@ Unfairness check from H382: if the random_onset variant breaks d_ll but a hybrid
 
 Seed base: 209000. N_SIMS=30 per combination (fast — key metric is am_ll and d_ll).
 """
+from pathlib import Path as _RepositoryPath
 
 import os, re, random
 from collections import Counter, deque
 
-REPO_DIR     = os.path.expanduser('~/voynich-cryptanalyst')
+REPO_DIR     = os.path.expanduser(str(_RepositoryPath(__file__).resolve().parents[2]))
 LATIN_CORPUS = os.path.join(REPO_DIR, 'data/reference_corpora/latin/cicero_de_officiis_latin.txt')
 
 N_SIMS       = 30

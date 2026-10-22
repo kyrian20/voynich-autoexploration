@@ -8,12 +8,13 @@ H203: Is d-onset a unified LINE-BOUNDARY MORPHEME class?
 H202: Do ok/ot body words relate to label vocabulary?
       Section distribution and positional profile of o-prefix words.
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 import math
 from collections import defaultdict, Counter
 
-DATA_PATH = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+DATA_PATH = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 
 def folio_base(folio):

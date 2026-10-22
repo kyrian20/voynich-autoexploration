@@ -4,11 +4,12 @@ exp_487: A herbal_a pos2 Self-Chaining Survey + Scope Tests for sh/o
 H_new_BH: Is pos2 self-chaining universal across all A herbal_a LF classes?
 H_new_BI: Are sh→sh@pos2 and o→o@pos2 herbal-section-specific (like ch)?
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 from collections import defaultdict
 
-ZL3B = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+ZL3B = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 ONSET_PRIORITY = ['qok','qot','qo','cth','ckh','cph','ch','sh','ok','ot','ol',
                   'sch','skh','sph','d','s','y','k','t','l','r','p','f','o','e','a','n','m']

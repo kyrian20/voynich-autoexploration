@@ -7,12 +7,13 @@ H258: What specific onset classes make B-herbal folios (f26/f31/f40/f48/f50) clu
 H259: Characterize s-onset words — are they a grammatical opener class with
       sub-types?
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 import math
 from collections import defaultdict, Counter
 
-CORPUS_PATH = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+CORPUS_PATH = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 # Section map (folio number → section)
 def folio_to_section(f):

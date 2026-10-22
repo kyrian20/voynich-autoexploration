@@ -6,11 +6,12 @@ exp_373: B qot→ot MID E=1.72× (body-parallel templating).
 ot is a template class with ZeroMid≥66% (sparse midfix, Phase 6).
 This experiment characterizes ot vocabulary, positional grammar, and bigram rules.
 """
+from pathlib import Path as _RepositoryPath
 
 import os, re
 from collections import Counter, defaultdict
 
-DATA_PATH = os.path.expanduser('~/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt')
+DATA_PATH = os.path.expanduser(str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt'))
 TARGET = 'ot'  # onset to characterize
 ONSET_LEN = 2  # len('ot')
 

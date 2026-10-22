@@ -20,11 +20,12 @@ Test for two outcomes:
   - Convergence: all onset classes have ~same body entropy profile (body is independent of onset)
   - Divergence: different onset classes have different body entropy profiles (onset predicts body)
 """
+from pathlib import Path as _RepositoryPath
 
 import os, re, math
 from collections import Counter, defaultdict
 
-REPO_DIR  = os.path.expanduser('~/voynich-cryptanalyst')
+REPO_DIR  = os.path.expanduser(str(_RepositoryPath(__file__).resolve().parents[2]))
 DATA_PATH = os.path.join(REPO_DIR, 'data/transcriptions/eva_zl3b.txt')
 
 ONSET_ORDER=[

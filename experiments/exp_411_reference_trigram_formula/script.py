@@ -22,15 +22,16 @@ More classes → smaller base rates → potentially higher E_cond → potentiall
 formula-typed fraction. This is a methodological limitation (stated in result).
 To address it, also run VMS with first-letter onset (same grain as reference).
 """
+from pathlib import Path as _RepositoryPath
 
 import os, re, random
 from collections import Counter, defaultdict
 from itertools import chain
 
 # ---- VMS setup ----
-VMS_PATH = os.path.expanduser('~/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt')
-LATIN_PATH = os.path.expanduser('~/voynich-cryptanalyst/data/reference_corpora/latin/caesar_de_bello_gallico_latin.txt')
-ITALIAN_PATH = os.path.expanduser('~/voynich-cryptanalyst/data/reference_corpora/italian/dante_divina_commedia.txt')
+VMS_PATH = os.path.expanduser(str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt'))
+LATIN_PATH = os.path.expanduser(str(_RepositoryPath(__file__).resolve().parents[2] / 'data/reference_corpora/latin/caesar_de_bello_gallico_latin.txt'))
+ITALIAN_PATH = os.path.expanduser(str(_RepositoryPath(__file__).resolve().parents[2] / 'data/reference_corpora/italian/dante_divina_commedia.txt'))
 
 ONSET_ORDER = [
     ('qok','qok'),('qot','qot'),('qo','qo'),('cth','cth'),

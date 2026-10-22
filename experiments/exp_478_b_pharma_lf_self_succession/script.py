@@ -6,11 +6,12 @@ From exp_477: B pharma t-LF → t at pos1 (E=7.99×/N=3, dir).
 Test all major LF classes: ok, o, y, t, l, d, sh, ch.
 Also compare to B herbal for the same classes.
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 from collections import defaultdict
 
-ZL3B = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+ZL3B = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 ONSET_PRIORITY = ['qok','qot','qo','cth','ckh','cph','ch','sh','ok','ot','ol',
                   'sch','skh','sph','d','s','y','k','t','l','r','p','f','o','e','a','n','m']

@@ -14,11 +14,12 @@ Measurement:
 4. Report cross-dialect consistent patterns (|enr_B - enr_A| < 0.3, both >1.2 or both <0.8)
 5. Focus on template classes (qok, ch, sh, ok, d, y, s) and mutual avoidance/attraction
 """
+from pathlib import Path as _RepositoryPath
 
 import os, re, math
 from collections import Counter, defaultdict
 
-REPO_DIR  = os.path.expanduser('~/voynich-cryptanalyst')
+REPO_DIR  = os.path.expanduser(str(_RepositoryPath(__file__).resolve().parents[2]))
 DATA_PATH = os.path.join(REPO_DIR, 'data/transcriptions/eva_zl3b.txt')
 
 ONSET_ORDER=[

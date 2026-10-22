@@ -7,11 +7,12 @@ H178: If prefix=position and stem=content, then the SAME stems should appear
 
 H179: Why is f+ch para-level in A but mid-line in B? Check folio distribution.
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 from collections import defaultdict, Counter
 
-DATA_PATH = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+DATA_PATH = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 
 def folio_base(folio):

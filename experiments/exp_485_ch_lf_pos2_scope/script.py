@@ -6,11 +6,12 @@ H_new_BB: Is ch self-chaining at pos2 (F461+F458) herbal-specific or universal?
 Tests: B pharma, B astro, A stars, A cosmo, B cosmo, A herbal_b
 Also: d-LF → ch at pos2 (B herbal F457 uses sh at pos2; does A herbal_a d-LF have anything at pos2?)
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 from collections import defaultdict
 
-ZL3B = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+ZL3B = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 ONSET_PRIORITY = ['qok','qot','qo','cth','ckh','cph','ch','sh','ok','ot','ol',
                   'sch','skh','sph','d','s','y','k','t','l','r','p','f','o','e','a','n','m']

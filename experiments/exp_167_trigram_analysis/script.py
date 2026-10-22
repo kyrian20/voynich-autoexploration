@@ -7,10 +7,11 @@ H342: B-dialect cthedy vs chedy/shedy positional profiles
 H343: qok→l specific word pairs
 BONUS: Survey enriched trigrams involving cth-words in A-dialect
 """
+from pathlib import Path as _RepositoryPath
 import re
 from collections import Counter, defaultdict
 
-CORPUS = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+CORPUS = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 def get_onset(word):
     w = word.lower()

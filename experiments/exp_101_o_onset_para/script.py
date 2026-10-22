@@ -8,11 +8,12 @@ H191: Which specific o-onset words are para-enriched?
 H192: Is there a correlation between paragraph length and positional grammar strictness?
       Hypothesis: longer paragraphs follow the grammar more strictly.
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 from collections import defaultdict, Counter
 
-DATA_PATH = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+DATA_PATH = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 
 def folio_base(folio):

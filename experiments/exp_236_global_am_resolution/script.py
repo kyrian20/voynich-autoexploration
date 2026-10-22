@@ -34,11 +34,12 @@ Selection criterion:
   Best combo = smallest combined normalized distance from VMS global_am, am_lf_enr, am_mid_enr,
   subject to: global_am PASS AND am_lf_enr PASS AND am_mid_enr PASS AND am_ll PASS.
 """
+from pathlib import Path as _RepositoryPath
 
 import os, re, random
 from collections import Counter, deque, defaultdict
 
-REPO_DIR     = os.path.expanduser('~/voynich-cryptanalyst')
+REPO_DIR     = os.path.expanduser(str(_RepositoryPath(__file__).resolve().parents[2]))
 LATIN_CORPUS = os.path.join(REPO_DIR, 'data/reference_corpora/latin/cicero_de_officiis_latin.txt')
 DATA_PATH    = os.path.join(REPO_DIR, 'data/transcriptions/eva_zl3b.txt')
 

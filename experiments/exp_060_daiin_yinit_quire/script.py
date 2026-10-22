@@ -4,11 +4,12 @@ Tests two small hypotheses from the recent findings:
 H069: Is daiin frequency negatively correlated with y-initial rate across herbal A folios?
 H072: Do the aiin-dominant herbal A folios cluster in specific quires?
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 from collections import Counter, defaultdict
 
-DATA_PATH = "/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt"
+DATA_PATH = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 SUFFIX_LIST = ['aiin', 'ain', 'eedy', 'edy', 'chy', 'eey', 'dy', 'ey', 'y', 'ol', 'or', 'al', 'ar', 'iin', 'in']
 
 def suffix_group(word):

@@ -4,12 +4,13 @@ H054: f76r has higher within-sequence word-level autocorrelation / periodic stru
 than normal bio text, consistent with its "key-like sequence" designation and lowest-TTR status.
 Compare: f76r vs f75v (same hand/section), vs 5 other bio folios.
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 import math
 from collections import defaultdict, Counter
 
-DATA_PATH = "/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt"
+DATA_PATH = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 TARGET_FOLIO = 'f76r'
 COMPARISON_FOLIOS = ['f75v', 'f77r', 'f77v', 'f78r', 'f80r', 'f84r', 'f84v']

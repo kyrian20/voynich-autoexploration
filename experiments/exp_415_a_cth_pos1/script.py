@@ -8,11 +8,12 @@ This is a major A/B pos1 asymmetry. Characterize:
 3. Any LF→cth→pos2 formula types with E_cond>=2.0?
 4. Compare A cth pos1 lines to B cth pos1 lines (B is extremely rare at pos1=cth)
 """
+from pathlib import Path as _RepositoryPath
 
 import os, re
 from collections import Counter, defaultdict
 
-DATA_PATH = os.path.expanduser('~/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt')
+DATA_PATH = os.path.expanduser(str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt'))
 
 ONSET_ORDER = [
     ('qok','qok'),('qot','qot'),('qo','qo'),('cth','cth'),

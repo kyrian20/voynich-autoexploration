@@ -2,10 +2,11 @@
 exp_206: H386 B edy-suffix para-terminal class; H387 A qo-onset grammar (sh→qo→sh loop?);
          H388 A sh vs cth paragraph position; H389 B qo-onset grammar.
 """
+from pathlib import Path as _RepositoryPath
 import re
 from collections import defaultdict, Counter
 
-DATA_PATH = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+DATA_PATH = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 ONSET_ORDER = [
     ('qok', 'qok'), ('qot', 'qot'), ('qo', 'qo'), ('cth', 'cth'),

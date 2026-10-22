@@ -6,11 +6,12 @@ Known partial rules: A y→qot MID coupling (F377 reverse); B y=edy-suffix heavy
 This experiment provides full y vocabulary, positional distribution, self-succession positional,
 and complete outgoing bigram characterization.
 """
+from pathlib import Path as _RepositoryPath
 
 import os, re
 from collections import Counter, defaultdict
 
-DATA_PATH = os.path.expanduser('~/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt')
+DATA_PATH = os.path.expanduser(str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt'))
 TARGET = 'y'   # onset to characterize
 ONSET_LEN = 1  # len('y')
 

@@ -7,18 +7,19 @@ Primary comparison: B-dialect VMS values vs Naibbe simulated corpora.
 
 Run: 100 simulations × 2 plaintext sources × 2 line-break protocols = 400 runs.
 """
+from pathlib import Path as _RepositoryPath
 import os, sys, re, random, json, math
 from collections import Counter, defaultdict
 
 # ── Path setup ───────────────────────────────────────────────────────────────
-REPO_DIR = os.path.expanduser('~/voynich-cryptanalyst/data/derived/naibbe-cipher')
-VMS_CORPUS = os.path.expanduser('~/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt')
+REPO_DIR = os.path.expanduser(str(_RepositoryPath(__file__).resolve().parents[2] / 'data/derived/naibbe-cipher'))
+VMS_CORPUS = os.path.expanduser(str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt'))
 ITALIAN_CORPUS = os.path.expanduser(
-    '~/voynich-cryptanalyst/data/derived/naibbe-cipher/input/examples/divina_commedia.txt')
+    str(_RepositoryPath(__file__).resolve().parents[2] / 'data/derived/naibbe-cipher/input/examples/divina_commedia.txt'))
 LATIN_CORPUS = os.path.expanduser(
-    '~/voynich-cryptanalyst/data/reference_corpora/latin/vulgate.txt')
+    str(_RepositoryPath(__file__).resolve().parents[2] / 'data/reference_corpora/latin/vulgate.txt'))
 OUT_DIR = os.path.expanduser(
-    '~/voynich-cryptanalyst/experiments/exp_170_naibbe_simulation/data')
+    str(_RepositoryPath(__file__).resolve().parents[2] / 'experiments/exp_170_naibbe_simulation/data'))
 
 N_SIMS = 100
 TARGET_TOKENS = 20000   # tokens per simulated corpus

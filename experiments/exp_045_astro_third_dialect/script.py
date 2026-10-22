@@ -3,12 +3,13 @@ exp_045: Is the Astro/Cosmo Section a Morphologically Intermediate Third Dialect
 H056: Hand 4 (astro/cosmo) is intermediate between Currier A and B.
 Test: vocabulary Jaccard, suffix distances, character distributions.
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 import math
 from collections import defaultdict, Counter
 
-DATA_PATH = "/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt"
+DATA_PATH = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 SUFFIXES = ['aiin', 'ain', 'eedy', 'edy', 'chy', 'eey', 'dy', 'ey', 'y',
             'ol', 'or', 'al', 'ar', 'iin', 'in']

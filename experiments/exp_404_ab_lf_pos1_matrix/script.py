@@ -6,11 +6,12 @@ Identify structural sources of A pos1=ch=28.6% vs B=19.0%;
 A pos1=qok=4.6% vs B=12.3%.
 Which LF classes drive the A/B pos1 divergence?
 """
+from pathlib import Path as _RepositoryPath
 
 import os, re
 from collections import Counter, defaultdict
 
-DATA_PATH = os.path.expanduser('~/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt')
+DATA_PATH = os.path.expanduser(str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt'))
 
 ONSET_ORDER = [
     ('qok','qok'),('qot','qot'),('qo','qo'),('cth','cth'),

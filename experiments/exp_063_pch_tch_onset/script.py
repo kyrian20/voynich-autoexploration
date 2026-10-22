@@ -3,11 +3,12 @@ exp_063: B Para-Start pch/tch Onset Class Analysis (H073)
 Tests whether 'pch' and 'tch' onset words in Currier B are a distinct structural vocabulary
 (concentrated at para-starts, distinctive suffix distribution, absent from labels).
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 from collections import Counter, defaultdict
 
-DATA_PATH = "/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt"
+DATA_PATH = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 SUFFIX_LIST = ['aiin', 'ain', 'eedy', 'edy', 'chy', 'eey', 'dy', 'ey', 'y', 'ol', 'or', 'al', 'ar', 'iin', 'in']
 
 LABEL_LOCI = ('Lf', 'Ls', 'Lz', 'Lc', 'Ln', 'Lt')

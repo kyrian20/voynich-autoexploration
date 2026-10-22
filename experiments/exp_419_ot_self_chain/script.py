@@ -6,11 +6,12 @@ Is ot self-succession generally elevated in B?
 Compare onset self-succession bigrams across all positions in B cont lines
 and check ot run-length distribution vs geometric expectation.
 """
+from pathlib import Path as _RepositoryPath
 
 import os, re, math
 from collections import Counter, defaultdict
 
-DATA_PATH = os.path.expanduser('~/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt')
+DATA_PATH = os.path.expanduser(str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt'))
 
 ONSET_ORDER = [
     ('qok','qok'),('qot','qot'),('qo','qo'),('cth','cth'),

@@ -7,10 +7,11 @@ Q: What fraction of A word types also appear in B, and vice versa?
 Method: Extract all unique word types from A and B folios separately.
 Compute overlap fractions by onset class and by frequency tier.
 """
+from pathlib import Path as _RepositoryPath
 import re
 from collections import defaultdict, Counter
 
-ZL3B = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+ZL3B = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 ONSETS = ['qok','qot','qo','cth','ch','sh','ok','ot','ol','d','s','y','k','t','l','r','p','f','o']
 

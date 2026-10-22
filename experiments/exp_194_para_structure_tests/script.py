@@ -19,11 +19,12 @@ H186: Stars B paragraph internal structure — do 47-line star paragraphs have
 H187: OTHER para-start → line-2 bigrams — do specific OTHER para-start words
       predict specific tier patterns on line 2?
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 from collections import Counter, defaultdict
 
-DATA_PATH = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+DATA_PATH = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 
 def folio_base(folio):

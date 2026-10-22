@@ -3,12 +3,13 @@ exp_066: Word Length by Line Position (H081) + Register Entropy (H079)
 H081: Does Voynichese use word LENGTH as a positional signal?
 H079: Does the aiin-dominant register have higher or lower entropy than y-dominant?
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 from collections import Counter, defaultdict
 import math
 
-DATA_PATH = "/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt"
+DATA_PATH = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 SUFFIX_LIST = ['aiin', 'ain', 'eedy', 'edy', 'chy', 'eey', 'dy', 'ey', 'y', 'ol', 'or', 'al', 'ar', 'iin', 'in']
 
 AIIN_DOMINANT = {'f20r', 'f22r', 'f30v', 'f32r', 'f32v', 'f35r', 'f42r', 'f42v',

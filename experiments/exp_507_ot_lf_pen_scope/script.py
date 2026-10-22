@@ -8,11 +8,12 @@ ot-LF lines to push these over threshold?
 NOTE: A sections are identified by folio number ONLY (no B-dialect filter for A sections).
 B-dialect filter is applied only to B-range folios (n=73+) to separate B sub-sections.
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 from collections import defaultdict, Counter
 
-CORPUS = "/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt"
+CORPUS = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 ONSET_PRIORITY = [
     'qok','qot','qo','cth','ckh','cph','ch','sh','ok','ot','ol',
     'sch','skh','sph','d','s','y','k','t','l','r','p','f','o','e','a','n','m'

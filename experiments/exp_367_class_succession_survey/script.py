@@ -16,11 +16,12 @@ Also: compute the FULL 7×7 onset succession matrix for CONTINUATION LINES ONLY
 
 And test: does the overall bigram structure change when restricted to continuation lines?
 """
+from pathlib import Path as _RepositoryPath
 
 import os, re
 from collections import Counter, defaultdict
 
-REPO_DIR  = os.path.expanduser('~/voynich-cryptanalyst')
+REPO_DIR  = os.path.expanduser(str(_RepositoryPath(__file__).resolve().parents[2]))
 DATA_PATH = os.path.join(REPO_DIR, 'data/transcriptions/eva_zl3b.txt')
 
 def folio_base(folio):

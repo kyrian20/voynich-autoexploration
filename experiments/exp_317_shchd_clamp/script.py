@@ -19,11 +19,12 @@ Design: Sweep 5 conditions (N=30 each):
 Primary metrics: adj_rate (must stay 80-120% of VMS 0.009), all 19 battery, CP90 ratios.
 Expected: clamp_sh and clamp_ch may be safe (large VMS lexicons); clamp_d riskier (150 types, small).
 """
+from pathlib import Path as _RepositoryPath
 
 import os, re, random, math
 from collections import Counter, deque, defaultdict
 
-REPO_DIR     = os.path.expanduser('~/voynich-cryptanalyst')
+REPO_DIR     = os.path.expanduser(str(_RepositoryPath(__file__).resolve().parents[2]))
 LATIN_CORPUS = os.path.join(REPO_DIR, 'data/reference_corpora/latin/cicero_de_officiis_latin.txt')
 DATA_PATH    = os.path.join(REPO_DIR, 'data/transcriptions/eva_zl3b.txt')
 

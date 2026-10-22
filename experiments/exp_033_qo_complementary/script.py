@@ -5,11 +5,12 @@ Experiment exp_033: qo-Word Complementary Distribution Test (H032)
 Test whether qo-form and bare-form appear in complementary distribution
 by: (a) position-in-line (initial/medial/final), (b) Currier A/B, (c) section.
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 from collections import Counter, defaultdict
 
-ZL3B = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+ZL3B = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 def parse_tokens_with_position(path):
     """Extract tokens with line position, section, Currier dialect."""

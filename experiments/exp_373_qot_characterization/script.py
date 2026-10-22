@@ -5,11 +5,12 @@ qot is the highest A-dialect self-succession class (E=2.60×), LF-enriched (F368
 with qot→daiin A E=2.52× (F366), qot→y A E=1.75×, qot→r B E=2.00× (exp_367).
 This experiment characterizes qot vocabulary, positional grammar, and bigram rules.
 """
+from pathlib import Path as _RepositoryPath
 
 import os, re
 from collections import Counter, defaultdict
 
-DATA_PATH = os.path.expanduser('~/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt')
+DATA_PATH = os.path.expanduser(str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt'))
 
 ONSET_ORDER = [
     ('qok','qok'),('qot','qot'),('qo','qo'),('cth','cth'),

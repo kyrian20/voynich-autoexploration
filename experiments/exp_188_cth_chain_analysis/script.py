@@ -23,11 +23,12 @@ Pre-registration:
   H353: cthol→cthy likely but n=4 cases too small for specific claim. [cthol][daiin][cthy]
     may exist as a variant with daiin as mediator.
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 from collections import Counter, defaultdict
 
-CORPUS = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+CORPUS = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 def get_onset(word):
     w = word.lower()

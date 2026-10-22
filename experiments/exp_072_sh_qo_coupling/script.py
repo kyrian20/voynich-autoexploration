@@ -3,11 +3,12 @@ exp_072: sh→qo Coupling Analysis (H092) + Currier A Sequential Grammar (H091, 
 H092: Is the sh→qo transition (36.6%) a tight bi-word construction or a coincidence?
 H091/H093: What is Currier A's sequential grammar (onset transition matrix)?
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 from collections import Counter, defaultdict
 
-DATA_PATH = "/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt"
+DATA_PATH = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 def clean_text(text):
     return re.sub(r'<%>|<\$>|<->|\{[^}]+\}|\[[^\]]+\]|@\d+;[a-z]*|@\d+;?', '', text)

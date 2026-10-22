@@ -6,10 +6,11 @@ Q2 (H_new_J): B qok(LL)→s(LF) E=1.51× — is this the s→sh→qok formula cy
 Method: ZL3B continuation lines. Enumerate word-level cross-line pairs for
 specific onset combinations. Classify as class-level vs word-pair specific.
 """
+from pathlib import Path as _RepositoryPath
 import re
 from collections import defaultdict, Counter
 
-ZL3B = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+ZL3B = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 ONSETS = ['qok','qot','qo','cth','ch','sh','ok','ot','ol','d','s','y','k','t','l','r','p','f','o']
 

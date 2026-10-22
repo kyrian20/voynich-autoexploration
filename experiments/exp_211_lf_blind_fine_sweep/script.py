@@ -25,11 +25,12 @@ Pre-registration:
 
 Seed base: 211000. N_SIMS=50 per configuration.
 """
+from pathlib import Path as _RepositoryPath
 
 import os, re, random
 from collections import Counter, deque
 
-REPO_DIR     = os.path.expanduser('~/voynich-cryptanalyst')
+REPO_DIR     = os.path.expanduser(str(_RepositoryPath(__file__).resolve().parents[2]))
 LATIN_CORPUS = os.path.join(REPO_DIR, 'data/reference_corpora/latin/cicero_de_officiis_latin.txt')
 
 N_SIMS       = 50

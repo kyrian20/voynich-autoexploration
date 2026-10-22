@@ -6,11 +6,12 @@ Background:
 - H541: Is A-dialect daiin LL-enriched? Does this explain the aiin LL enrichment?
 - B-dialect: d-onset is known to be LF-enriched (exp_293, F294)
 """
+from pathlib import Path as _RepositoryPath
 
 import os, re
 from collections import Counter, defaultdict
 
-REPO_DIR  = os.path.expanduser('~/voynich-cryptanalyst')
+REPO_DIR  = os.path.expanduser(str(_RepositoryPath(__file__).resolve().parents[2]))
 DATA_PATH = os.path.join(REPO_DIR, 'data/transcriptions/eva_zl3b.txt')
 
 ONSET_ORDER=[('qok','qok'),('qot','qot'),('qo','qo'),('cth','cth'),

@@ -8,10 +8,11 @@ H333: ch_e↔r bidirectional pairs
 BONUS: B-dialect onset self-succession survey (compare to A)
 BONUS2: Full onset bigram matrix heatmap for A-dialect
 """
+from pathlib import Path as _RepositoryPath
 import re
 from collections import Counter, defaultdict
 
-CORPUS = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+CORPUS = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 ONSET_ORDER = ['qok','qot','qo','cth','ch_e','ch','sh','ok','ot','ol','d','s','y','k','t','l','r','p','f']
 

@@ -3,11 +3,12 @@ exp_062: Vocabulary Differences in Two-Register Herbal A Folios (H068)
 Tests whether aiin-dominant herbal A folios (f49r, f32r, f8v, f42v, f35r, f20r, f22r, f30v, f32v, f45r, f47r, f47v, f42r, f4r)
 differ in vocabulary from y-dominant folios (f6v, f17r, f17v, f19v, f24v, f51r, f53v, etc.)
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 from collections import Counter, defaultdict
 
-DATA_PATH = "/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt"
+DATA_PATH = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 SUFFIX_LIST = ['aiin', 'ain', 'eedy', 'edy', 'chy', 'eey', 'dy', 'ey', 'y', 'ol', 'or', 'al', 'ar', 'iin', 'in']
 

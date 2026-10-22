@@ -4,11 +4,12 @@ exp_501: A stars pos1 Grammar Survey
 H_new_CG: Does A stars have confirmed pos1 routing rules?
 A stars pos2 had no confirmed rules (exp_498). t-LF dominant (F446).
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 from collections import defaultdict
 
-ZL3B = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+ZL3B = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 ONSET_PRIORITY = ['qok','qot','qo','cth','ckh','cph','ch','sh','ok','ot','ol',
                   'sch','skh','sph','d','s','y','k','t','l','r','p','f','o','e','a','n','m']

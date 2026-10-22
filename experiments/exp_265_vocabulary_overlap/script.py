@@ -15,11 +15,12 @@ Expected under copy-buffer glossographic model:
 - MID vocabulary heavily overlaps LF/LL (words copied from shared pool)
 - Most frequent MID words appear frequently in LF/LL too
 """
+from pathlib import Path as _RepositoryPath
 
 import os, re, math
 from collections import Counter, defaultdict
 
-REPO_DIR  = os.path.expanduser('~/voynich-cryptanalyst')
+REPO_DIR  = os.path.expanduser(str(_RepositoryPath(__file__).resolve().parents[2]))
 DATA_PATH = os.path.join(REPO_DIR, 'data/transcriptions/eva_zl3b.txt')
 
 EVA_CHARS = set('acdehiklmnoqrsty')

@@ -10,11 +10,12 @@ Method:
 - When onset(w1)=y: what fraction of w2 is 'daiin' vs other d-onset words?
 - Decompose by position pair: LF→pos1, pos1→pos2, MID_inner, pre-LL→LL
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 from collections import Counter, defaultdict
 
-ZL3B = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+ZL3B = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 ONSETS = ['qok', 'qot', 'qo', 'cth', 'ch', 'sh', 'ok', 'ot', 'ol',
           'd', 's', 'y', 'k', 't', 'l', 'r', 'p', 'f', 'o']

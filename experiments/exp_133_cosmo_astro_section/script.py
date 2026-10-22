@@ -5,12 +5,13 @@ exp_133: Cosmo vs Stars Differentiation (H261) + Astro Section Characterization 
 H261: What onset classes, suffixes, and positional patterns distinguish cosmo from stars?
 H260: Why is astro the least cohesive section and why does f87 (pharma) best-match astro?
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 import math
 from collections import defaultdict, Counter
 
-CORPUS_PATH = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+CORPUS_PATH = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 ONSET_CLASSES = [
     'qok', 'qot', 'qo',

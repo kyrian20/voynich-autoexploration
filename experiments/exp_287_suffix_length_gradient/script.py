@@ -25,11 +25,12 @@ Design:
 - Full N=30 at best beta (19/19 AND most negative menz_r)
 - Architecture: gamma=0.30, alpha=0.20, p_ll_mf=0.00, p_lf_mf=0.50, p_mf=0.20
 """
+from pathlib import Path as _RepositoryPath
 
 import os, re, random, math
 from collections import Counter, deque, defaultdict
 
-REPO_DIR     = os.path.expanduser('~/voynich-cryptanalyst')
+REPO_DIR     = os.path.expanduser(str(_RepositoryPath(__file__).resolve().parents[2]))
 LATIN_CORPUS = os.path.join(REPO_DIR, 'data/reference_corpora/latin/cicero_de_officiis_latin.txt')
 DATA_PATH    = os.path.join(REPO_DIR, 'data/transcriptions/eva_zl3b.txt')
 

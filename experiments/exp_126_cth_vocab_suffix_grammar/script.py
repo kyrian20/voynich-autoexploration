@@ -9,6 +9,7 @@ H246: Within-line suffix grammar — does suffix sequence within a line show sys
       Test: -ol before -aiin; suffix bigrams within lines; suffix positional enrichment by
       line-fraction; entropy by fractional position. Compare A and B dialect.
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 import sys
@@ -354,7 +355,7 @@ def analyze_suffix_grammar(records):
 # ── main ──────────────────────────────────────────────────────────────────────
 
 if __name__ == '__main__':
-    corpus_path = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+    corpus_path = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
     print(f"Loading corpus from {corpus_path}...")
     records = parse_corpus(corpus_path)

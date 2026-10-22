@@ -14,11 +14,12 @@ This script:
   A) Reproduces exp_173 method exactly
   B) Compares to spec values
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 from collections import defaultdict
 
-VMS_CORPUS = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+VMS_CORPUS = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 # ─── exp_173 onset classifier (verbatim) ─────────────────────────────────────
 def get_onset_173(word):

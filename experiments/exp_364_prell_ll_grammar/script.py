@@ -5,11 +5,12 @@ F339: am is the sole LL-terminal in B-dialect (6.49×).
 This experiment computes full P(LL_word | prev_onset) for all top LL words
 and P(LL_onset | prev_onset) in both dialects.
 """
+from pathlib import Path as _RepositoryPath
 
 import os, re
 from collections import Counter, defaultdict
 
-REPO_DIR  = os.path.expanduser('~/voynich-cryptanalyst')
+REPO_DIR  = os.path.expanduser(str(_RepositoryPath(__file__).resolve().parents[2]))
 DATA_PATH = os.path.join(REPO_DIR, 'data/transcriptions/eva_zl3b.txt')
 
 def folio_base(folio):

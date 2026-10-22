@@ -6,11 +6,12 @@ Test whether -edy/-ain/-aiin are in complementary distribution
 (different syntactic positions) or freely alternating.
 Also test: do words of the form X-edy, X-ain, X-aiin share the same stems X?
 """
+from pathlib import Path as _RepositoryPath
 
 import re, math
 from collections import Counter, defaultdict
 
-ZL3B = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+ZL3B = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 def parse_tokens_with_position(path):
     tokens = []

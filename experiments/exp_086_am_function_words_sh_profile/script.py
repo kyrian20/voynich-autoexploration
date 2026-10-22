@@ -6,11 +6,12 @@ H144: sh-onset has low line-last% and high line-first% — explaining -am suppre
 H145: dam/otam/okam/qokam are a closed class of within-para line-ending function words (high LLast%, low LFirst%, within-para enriched)
 H142: Positional grammar models hold across ALL folio sections (Pharma A, Astro B, Special) — not section-specific
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 from collections import defaultdict
 
-DATA_PATH = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+DATA_PATH = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 # Folios classified as aiin-dominant (from prior experiments)
 AIIN_DOM_FOLIOS = {

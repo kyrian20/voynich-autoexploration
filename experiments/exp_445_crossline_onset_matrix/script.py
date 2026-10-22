@@ -6,11 +6,12 @@ Q: Which LL→LF cross-line onset couplings are systematic (E≥1.5, N≥5)?
 Method: ZL3B continuation lines. For consecutive pairs of continuation lines in
 same folio, compute (LL onset, LF onset) bigrams. Compare to within-line bigrams.
 """
+from pathlib import Path as _RepositoryPath
 import re
 from collections import defaultdict, Counter
 import math
 
-ZL3B = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+ZL3B = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 ONSETS = ['qok','qot','qo','cth','ch','sh','ok','ot','ol','d','s','y','k','t','l','r','p','f','o']
 # Compact list for matrix display

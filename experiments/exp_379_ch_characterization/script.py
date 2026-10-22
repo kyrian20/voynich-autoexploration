@@ -8,11 +8,12 @@ F369: A ch self-succession=1.22×, B near-baseline.
 This experiment provides full ch vocabulary, positional distribution, self-succession positional,
 and complete outgoing bigram characterization.
 """
+from pathlib import Path as _RepositoryPath
 
 import os, re
 from collections import Counter, defaultdict
 
-DATA_PATH = os.path.expanduser('~/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt')
+DATA_PATH = os.path.expanduser(str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt'))
 TARGET = 'ch'  # onset to characterize
 ONSET_LEN = 2  # len('ch')
 

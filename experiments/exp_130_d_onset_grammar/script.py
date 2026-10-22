@@ -8,6 +8,7 @@ H203: Is d-onset a unified line-boundary morpheme class?
 H202: ok/ot-onset body words — are they a naming vocabulary parallel to labels?
       Section distribution, vocab overlap with ok-labels, positional behavior.
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 from collections import defaultdict, Counter
@@ -319,7 +320,7 @@ def analyze_ok_ot_body(records, label_records):
 # ── main ──────────────────────────────────────────────────────────────────────
 
 if __name__ == '__main__':
-    corpus_path = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+    corpus_path = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
     print("Loading corpus...")
     records, label_records = parse_corpus_with_labels(corpus_path)
     total_words = sum(len(r['words']) for r in records)

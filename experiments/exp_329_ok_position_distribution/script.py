@@ -19,12 +19,13 @@ MID position index: 0 = first MID word, n-1 = last MID word
 Normalized position: position / (line_length - 3) where 3 = first + last + 1
 Or: use raw index from start of MID (0 = just after LF word, n-1 = just before LL word)
 """
+from pathlib import Path as _RepositoryPath
 
 import os, re, math
 from collections import Counter, defaultdict
 import statistics
 
-REPO_DIR  = os.path.expanduser('~/voynich-cryptanalyst')
+REPO_DIR  = os.path.expanduser(str(_RepositoryPath(__file__).resolve().parents[2]))
 DATA_PATH = os.path.join(REPO_DIR, 'data/transcriptions/eva_zl3b.txt')
 
 ONSET_ORDER=[

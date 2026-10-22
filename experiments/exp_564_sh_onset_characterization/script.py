@@ -8,11 +8,12 @@ Parts:
 4. sh-LF pos1 profile (lines ending in sh)
 5. sh pos1 profile — lines opened by sh (opener check)
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 from collections import Counter
 
-CORPUS = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+CORPUS = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 ONSET_PRIORITY = ['qok','qot','qo','cth','ckh','cph','ch','sh','ok','ot','ol','sch','skh','sph',
                   'd','s','y','k','t','l','r','p','f','o','e','a','n','m']
 

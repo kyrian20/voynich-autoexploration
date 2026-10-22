@@ -5,12 +5,13 @@ H200: What are the mid-line words not classified by the positional grammar (OTHE
 H199: Does Voynichese word frequency follow Zipf's law? What is the Zipf exponent α?
 H201: Are there universal words appearing in ALL sections with high frequency?
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 import math
 from collections import defaultdict, Counter
 
-DATA_PATH = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+DATA_PATH = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 
 def folio_base(folio):

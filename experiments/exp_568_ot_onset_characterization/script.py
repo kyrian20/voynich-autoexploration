@@ -3,11 +3,12 @@ exp_568: ot-onset full characterization (H_new_GF)
 ot = words starting with "ot" (after qot in ONSET_PRIORITY)
 4-part methodology: (1) vocabulary; (2) positional; (3) bigrams; (4) ot-LF pos1 profile
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 from collections import Counter, defaultdict
 
-CORPUS = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+CORPUS = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 ONSET_PRIORITY = ['qok','qot','qo','cth','ckh','cph','ch','sh','ok','ot','ol','sch','skh','sph',
                   'd','s','y','k','t','l','r','p','f','o','e','a','n','m']
 

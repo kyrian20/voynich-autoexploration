@@ -11,11 +11,12 @@ This experiment:
 3. Tests Candidate B: section composition
 4. Reports which driver (if any) explains the document-order gradient
 """
+from pathlib import Path as _RepositoryPath
 
 import os, re, math
 from collections import Counter, defaultdict
 
-DATA_PATH = os.path.expanduser('~/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt')
+DATA_PATH = os.path.expanduser(str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt'))
 
 def folio_sort_key(fname):
     """Convert folio name to numeric sort key preserving document order."""

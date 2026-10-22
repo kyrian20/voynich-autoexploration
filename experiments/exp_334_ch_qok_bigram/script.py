@@ -14,11 +14,12 @@ Questions:
 3. Full template-class bigram profile: which qok/ok transitions are enriched from ch/sh?
 4. Compare sh→qok vs ch→qok — same rule or different?
 """
+from pathlib import Path as _RepositoryPath
 
 import os, re
 from collections import Counter, defaultdict
 
-REPO_DIR  = os.path.expanduser('~/voynich-cryptanalyst')
+REPO_DIR  = os.path.expanduser(str(_RepositoryPath(__file__).resolve().parents[2]))
 DATA_PATH = os.path.join(REPO_DIR, 'data/transcriptions/eva_zl3b.txt')
 
 ONSET_ORDER=[

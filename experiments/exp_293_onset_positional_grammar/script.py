@@ -12,13 +12,14 @@ Also tests H493: formal positional entropy conditioned on onset class.
 
 Data: eva_zl3b.txt
 """
+from pathlib import Path as _RepositoryPath
 
 import os, re
 import numpy as np
 from collections import Counter, defaultdict
 from math import log2
 
-REPO_DIR  = os.path.expanduser('~/voynich-cryptanalyst')
+REPO_DIR  = os.path.expanduser(str(_RepositoryPath(__file__).resolve().parents[2]))
 ZL3B_PATH = os.path.join(REPO_DIR, 'data/transcriptions/eva_zl3b.txt')
 
 ONSET_ORDER = [

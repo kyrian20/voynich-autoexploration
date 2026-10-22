@@ -4,12 +4,13 @@ exp_104: B ch+d Cluster Analysis (H197) and Heaps' Law Vocabulary Growth (H198)
 H197: Is "chd" a morphological unit in B? Are chd-words a distinct class?
 H198: Does Voynichese follow Heaps' law (natural language vocabulary growth)?
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 import math
 from collections import defaultdict, Counter
 
-DATA_PATH = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+DATA_PATH = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 
 def folio_base(folio):

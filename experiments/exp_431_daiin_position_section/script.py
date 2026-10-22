@@ -3,11 +3,12 @@ exp_431: daiin positional distribution by dialect and section (H541 + H546)
 H541: Is A-dialect daiin LL-enriched (vs B-dialect)?
 H546: Is B-dialect daiin LF enrichment uniform across sections?
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 from collections import Counter, defaultdict
 
-ZL3B = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+ZL3B = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 ONSET_ORDER = ['qok','qot','qo','cth','ch','sh','ok','ot','ol',
                'd','s','y','k','t','l','r','p','f','o']

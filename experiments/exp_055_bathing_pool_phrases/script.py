@@ -4,11 +4,12 @@ H059: Do f75v, f82v, f84v (bio folios with lag=13 autocorrelation signal) share 
       distinctive phrase structure that explains the lag-13 repeat?
 H063: Are y-initial line-opening words concentrated in specific sections or manuscript regions?
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 from collections import Counter, defaultdict
 
-DATA_PATH = "/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt"
+DATA_PATH = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 def is_body_locus(locus_code):
     base = locus_code.lstrip('+*@=/~&')

@@ -4,11 +4,12 @@ exp_483: Cross-section ot-LF → y at pos1 test (B pharma + B astro)
 Also: ok → a at pen as B-dialect-wide rule (B herbal + B pharma combined)
 H_new_AZ: Does B pharma ot-LF → y at pos1 (confirmation of cross-dialectal ot/y rule)?
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 from collections import defaultdict
 
-ZL3B = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+ZL3B = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 ONSET_PRIORITY = ['qok','qot','qo','cth','ckh','cph','ch','sh','ok','ot','ol',
                   'sch','skh','sph','d','s','y','k','t','l','r','p','f','o','e','a','n','m']

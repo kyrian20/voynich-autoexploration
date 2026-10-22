@@ -7,11 +7,12 @@ Known partial rules: B s→sh LF-specific (F376); B s→ol pre_LL (F376); s→sh
 This experiment provides full s vocabulary, positional distribution, self-succession positional,
 and complete outgoing bigram characterization.
 """
+from pathlib import Path as _RepositoryPath
 
 import os, re
 from collections import Counter, defaultdict
 
-DATA_PATH = os.path.expanduser('~/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt')
+DATA_PATH = os.path.expanduser(str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt'))
 TARGET = 's'   # onset to characterize
 ONSET_LEN = 1  # len('s')
 

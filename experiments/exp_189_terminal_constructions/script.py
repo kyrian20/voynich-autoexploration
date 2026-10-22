@@ -16,11 +16,12 @@ Pre-registration:
     Alternatively, d-onset or daiin-class might precede. Not known.
   H323: [ychor][cthy...] lines likely have a specific third-word onset or cluster in same folio range.
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 from collections import Counter, defaultdict
 
-CORPUS = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+CORPUS = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 def get_onset(word):
     w = word.lower()

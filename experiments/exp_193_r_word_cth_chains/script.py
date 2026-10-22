@@ -6,11 +6,12 @@ H355: [oty][l@LL] in B-Stars — is l-word specifically at LL after oty?
 + cth chain length: what is the longest cth-word run in a single line?
 + cthey→ch cycle: does [cthey][ch-word] return to cthey?
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 from collections import Counter, defaultdict
 
-CORPUS = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+CORPUS = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 def get_onset(word):
     w = word.lower()

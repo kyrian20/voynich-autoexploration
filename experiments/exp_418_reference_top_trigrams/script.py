@@ -10,13 +10,14 @@ may be VMS-specific. Compare top formula trigrams from:
 Question: are the structural patterns different? Do Latin/Italian formula types
 reflect syntactic units (determiner→noun→verb)? Do VMS types reflect onset-class grammar?
 """
+from pathlib import Path as _RepositoryPath
 
 import os, re
 from collections import Counter, defaultdict
 
-DATA_PATH = os.path.expanduser('~/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt')
-LATIN_PATH = os.path.expanduser('~/voynich-cryptanalyst/data/reference_corpora/latin/caesar_de_bello_gallico_latin.txt')
-ITALIAN_PATH = os.path.expanduser('~/voynich-cryptanalyst/data/reference_corpora/italian/dante_divina_commedia.txt')
+DATA_PATH = os.path.expanduser(str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt'))
+LATIN_PATH = os.path.expanduser(str(_RepositoryPath(__file__).resolve().parents[2] / 'data/reference_corpora/latin/caesar_de_bello_gallico_latin.txt'))
+ITALIAN_PATH = os.path.expanduser(str(_RepositoryPath(__file__).resolve().parents[2] / 'data/reference_corpora/italian/dante_divina_commedia.txt'))
 
 # ===== VMS onset function =====
 ONSET_ORDER = [

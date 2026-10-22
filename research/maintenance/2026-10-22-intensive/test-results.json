@@ -1,0 +1,50 @@
+[
+  {
+    "command": "python tests/test_exp573_portability.py",
+    "returncode": 0,
+    "stdout": "EXP-573 repository-relative corpus path smoke test passed.\n",
+    "stderr": ""
+  },
+  {
+    "command": "python tests/test_exp590_folio_cluster_sensitivity.py",
+    "returncode": 0,
+    "stdout": "Folio-level daiin sensitivity regression tests passed.\n",
+    "stderr": ""
+  },
+  {
+    "command": "python tests/test_exp590_ivtff_line_ids.py",
+    "returncode": 0,
+    "stdout": "EXP-590 IVTFF page-ID and permutation-null regression tests passed.\n",
+    "stderr": ""
+  },
+  {
+    "command": "python tests/test_ivtff_ligature_views.py",
+    "returncode": 0,
+    "stdout": "IVTFF ligature view regression tests passed.\n",
+    "stderr": ""
+  },
+  {
+    "command": "python tests/test_ivtff_lossless.py",
+    "returncode": 0,
+    "stdout": "16 named fixtures plus policy, malformed-input, offset and continuation checks passed.\n",
+    "stderr": ""
+  },
+  {
+    "command": "python tests/test_ivtff_metadata.py",
+    "returncode": 0,
+    "stdout": "EXP-590 loader under test: /workspace/scratch/52bf8f3d5221/voynich-autoexploration/scripts/exp590_daiin_position.py\nIVTFF metadata and tokenizer regression tests passed.\n",
+    "stderr": ""
+  },
+  {
+    "command": "python tests/test_ivtff_page_locus_ids.py",
+    "returncode": 0,
+    "stdout": "IVTFF page/locus identifier regression tests passed.\n",
+    "stderr": ""
+  },
+  {
+    "command": "python tests/test_repository_operations.py",
+    "returncode": 0,
+    "stdout": "Publication guards and exact record-ID reconciliation passed.\n",
+    "stderr": ""
+  }
+]

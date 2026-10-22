@@ -12,11 +12,12 @@ Plan:
 3. Cross-register and cross-dialect comparison table
 4. Also compute the pos1 onset conditional on LF onset for folio-opener (is t excluded?)
 """
+from pathlib import Path as _RepositoryPath
 
 import os, re
 from collections import Counter, defaultdict
 
-REPO_DIR  = os.path.expanduser('~/voynich-cryptanalyst')
+REPO_DIR  = os.path.expanduser(str(_RepositoryPath(__file__).resolve().parents[2]))
 DATA_PATH = os.path.join(REPO_DIR, 'data/transcriptions/eva_zl3b.txt')
 
 def folio_base(folio):

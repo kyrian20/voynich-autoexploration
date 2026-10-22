@@ -5,12 +5,13 @@ H211: Are -am words dialect/section-specific, or universal function words?
 H212: Are there verbatim 4-word sequences repeated across multiple folios?
 H213: Is cth- a productive morphological prefix parallel to qo- and o-?
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 import math
 from collections import defaultdict, Counter
 
-DATA_PATH = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+DATA_PATH = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 
 def folio_base(folio):

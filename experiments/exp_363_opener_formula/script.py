@@ -3,11 +3,12 @@ exp_363: Folio-Opener Two-Word Formula (H565)
 What are the specific word pairs at folio-opener LF+pos1 in both dialects?
 This completes the three-register grammar characterization.
 """
+from pathlib import Path as _RepositoryPath
 
 import os, re
 from collections import Counter, defaultdict
 
-REPO_DIR  = os.path.expanduser('~/voynich-cryptanalyst')
+REPO_DIR  = os.path.expanduser(str(_RepositoryPath(__file__).resolve().parents[2]))
 DATA_PATH = os.path.join(REPO_DIR, 'data/transcriptions/eva_zl3b.txt')
 
 def folio_base(folio):

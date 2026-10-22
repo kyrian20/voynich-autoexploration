@@ -6,11 +6,12 @@ H151: When daiin opens a B line, does the PRECEDING line end with ch/sh words?
 H152: Do words preceding oly/oldy vs -am endings differ by onset class or form?
 H153: Are y-compound words (ycheey, ykaiin) exclusively line-initial in B?
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 from collections import defaultdict, Counter
 
-DATA_PATH = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+DATA_PATH = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 def folio_base(folio):
     return folio.split('.')[0]

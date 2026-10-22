@@ -5,11 +5,12 @@ F340 (exp_338): universal shift in ALL template onsets; d-onset unchanged.
 Question: What are the specific words involved? In pharma, what specific aiin-body words
 are ABSENT while ol-body words are PRESENT? Is it chaiin→chol, qokaiin→qokol, etc.?
 """
+from pathlib import Path as _RepositoryPath
 
 import os, re
 from collections import Counter, defaultdict
 
-REPO_DIR  = os.path.expanduser('~/voynich-cryptanalyst')
+REPO_DIR  = os.path.expanduser(str(_RepositoryPath(__file__).resolve().parents[2]))
 DATA_PATH = os.path.join(REPO_DIR, 'data/transcriptions/eva_zl3b.txt')
 
 def folio_base(folio):

@@ -14,11 +14,12 @@ Method:
   (d) Suffix distribution
   (e) Type-token structure
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 from collections import Counter, defaultdict
 
-ZL3B = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+ZL3B = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 # Suffix list for stripping (longest-match approach)
 SUFFIXES = [

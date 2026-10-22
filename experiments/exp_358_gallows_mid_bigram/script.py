@@ -12,11 +12,12 @@ Plan:
 3. For each position pair, compute P(sh | gallows_prev) vs P(sh | non-gallows_prev)
 4. Compare across positions to see if gallows→sh is position-dependent
 """
+from pathlib import Path as _RepositoryPath
 
 import os, re
 from collections import Counter, defaultdict
 
-REPO_DIR  = os.path.expanduser('~/voynich-cryptanalyst')
+REPO_DIR  = os.path.expanduser(str(_RepositoryPath(__file__).resolve().parents[2]))
 DATA_PATH = os.path.join(REPO_DIR, 'data/transcriptions/eva_zl3b.txt')
 
 def folio_base(folio):

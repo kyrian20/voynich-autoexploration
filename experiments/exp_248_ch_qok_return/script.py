@@ -12,11 +12,12 @@ Diagnostic questions:
 
 Uses exp_236 simulation architecture with added p_chqok parameter in draw_buf.
 """
+from pathlib import Path as _RepositoryPath
 
 import os, re, random
 from collections import Counter, defaultdict, deque
 
-REPO_DIR     = os.path.expanduser('~/voynich-cryptanalyst')
+REPO_DIR     = os.path.expanduser(str(_RepositoryPath(__file__).resolve().parents[2]))
 DATA_PATH    = os.path.join(REPO_DIR, 'data/transcriptions/eva_zl3b.txt')
 LATIN_CORPUS = os.path.join(REPO_DIR, 'data/reference_corpora/latin/cicero_de_officiis_latin.txt')
 

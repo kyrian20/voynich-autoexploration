@@ -9,11 +9,12 @@ For B continuation lines (≥4 words), for each LF class:
 We already know: A has multiple brackets (y/d/k/p, F413). B p is anti-bracket (0.44×, F404).
 H634 asks: does B show bracket structure for any LF class?
 """
+from pathlib import Path as _RepositoryPath
 
 import os, re
 from collections import Counter, defaultdict
 
-DATA_PATH = os.path.expanduser('~/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt')
+DATA_PATH = os.path.expanduser(str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt'))
 
 ONSET_ORDER = [
     ('qok','qok'),('qot','qot'),('qo','qo'),('cth','cth'),

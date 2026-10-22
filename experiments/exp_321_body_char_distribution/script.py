@@ -18,11 +18,12 @@ Measurement:
 4. Compare A vs B dialect for d-onset (A has more constrained body per exp_320)
 5. Also: cross-onset character overlap — Jaccard index between onset class body[0] char sets
 """
+from pathlib import Path as _RepositoryPath
 
 import os, re, math
 from collections import Counter, defaultdict
 
-REPO_DIR  = os.path.expanduser('~/voynich-cryptanalyst')
+REPO_DIR  = os.path.expanduser(str(_RepositoryPath(__file__).resolve().parents[2]))
 DATA_PATH = os.path.join(REPO_DIR, 'data/transcriptions/eva_zl3b.txt')
 
 ONSET_ORDER=[

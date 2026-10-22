@@ -7,11 +7,12 @@ A-dialect: r appears largely absent (A ol→r=0/169).
 This experiment characterizes r vocabulary, positional grammar, and bigram rules,
 with special focus on who precedes r at LL in B-dialect.
 """
+from pathlib import Path as _RepositoryPath
 
 import os, re
 from collections import Counter, defaultdict
 
-DATA_PATH = os.path.expanduser('~/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt')
+DATA_PATH = os.path.expanduser(str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt'))
 TARGET = 'r'  # onset to characterize
 ONSET_LEN = 1  # len('r')
 

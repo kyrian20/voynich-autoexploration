@@ -1,0 +1,6 @@
+{
+  "python_files_syntax_checked": 592,
+  "exp590_metrics_unchanged": true,
+  "source_sha256": "bf5b6d4ac1e3a51b1847a9c388318d609020441ccd56984c901c32b09beccafc",
+  "scope": "No new significance test or re-estimation; direct metric equality under the existing production tokenizer."
+}

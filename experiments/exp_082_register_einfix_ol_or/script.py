@@ -7,12 +7,13 @@ H129: In aiin-dom, she- prefix SUPPRESSES qo (0.41×). What does she- predict in
 H128: Aiin-dom has -ol=13.6%, -or=12.2% — 2× more than y-dom. Why?
 H130: Can B's tripartite paragraph grammar predict para-boundaries from word features?
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 import math
 from collections import defaultdict, Counter
 
-DATA_PATH = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+DATA_PATH = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 AIIN_DOM_FOLIOS = {
     'f1r','f1v','f2r','f2v','f3r','f3v','f4r','f4v','f5r','f5v',

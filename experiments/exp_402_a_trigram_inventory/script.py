@@ -7,11 +7,12 @@ Report counts, E values for the top trigrams.
 Characterize what fraction of lines are formula-typed (E_cond>=2.0) vs near-Markovian.
 Compare A formula-typed fraction to B's 9.3% (exp_401/F405).
 """
+from pathlib import Path as _RepositoryPath
 
 import os, re
 from collections import Counter, defaultdict
 
-DATA_PATH = os.path.expanduser('~/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt')
+DATA_PATH = os.path.expanduser(str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt'))
 
 ONSET_ORDER = [
     ('qok','qok'),('qot','qot'),('qo','qo'),('cth','cth'),

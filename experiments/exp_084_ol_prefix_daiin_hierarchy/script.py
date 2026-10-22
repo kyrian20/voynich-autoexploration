@@ -7,12 +7,13 @@ H136: Do B ol-prefix words (olfchedy, olkey, oly, olkam) serve a dual role:
 H137: Are she-prefix sh-forms MORE enriched at A para-starts than plain sh-forms?
 H138: Is daiin rate monotonically increasing from para-start to para-final in A?
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 import math
 from collections import defaultdict, Counter
 
-DATA_PATH = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+DATA_PATH = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 AIIN_DOM_FOLIOS = {
     'f1r','f1v','f2r','f2v','f3r','f3v','f4r','f4v','f5r','f5v',

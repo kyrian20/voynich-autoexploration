@@ -4,11 +4,12 @@ exp_388: Cross-Dialectal LF-Enrichment Synthesis Table (H604)
 Computes LF-enrichment E for all major onset classes in both A and B dialects.
 Identifies which onset classes invert between A and B at LF position.
 """
+from pathlib import Path as _RepositoryPath
 
 import os, re
 from collections import Counter, defaultdict
 
-DATA_PATH = os.path.expanduser('~/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt')
+DATA_PATH = os.path.expanduser(str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt'))
 
 ONSET_ORDER = [
     ('qok','qok'),('qot','qot'),('qo','qo'),('cth','cth'),

@@ -4,10 +4,11 @@ exp_204: -aiin Class as cth-Introducer (H378), cth-Successor Profile (H379),
 
 Parser: identical to exp_201-203 (ZL3b paragraph-aware, dot-split words).
 """
+from pathlib import Path as _RepositoryPath
 import re
 from collections import defaultdict, Counter
 
-DATA_PATH = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+DATA_PATH = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 
 def folio_base(folio):

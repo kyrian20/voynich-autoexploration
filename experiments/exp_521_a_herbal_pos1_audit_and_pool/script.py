@@ -7,11 +7,12 @@ Goals:
 2. H_new_EH: Pool A herbal_a (1-56) + A stars (57-72) o-LF for CONF test
 3. H_new_EF: ot-LF pos2=a check in A herbal_a — verify (dir) and examine word identities
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 from collections import defaultdict, Counter
 
-CORPUS = "/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt"
+CORPUS = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 ONSET_PRIORITY = [
     'qok','qot','qo','cth','ckh','cph','ch','sh','ok','ot','ol',
     'sch','skh','sph','d','s','y','k','t','l','r','p','f','o','e','a','n','m'

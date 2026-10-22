@@ -5,12 +5,13 @@ exp_140: A-herbal cth vocabulary shift (H277)
          Uniform proportional reduction (scribal drift) or selective disappearance (content shift)?
          Also H278: B-dialect l-vocabulary profile for comparison.
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 from collections import Counter, defaultdict
 import math
 
-CORPUS = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+CORPUS = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 SECTION_MAP = {}
 for f in range(1, 58):    SECTION_MAP[f] = 'herbal'

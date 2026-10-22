@@ -3,11 +3,12 @@ exp_043: Cross-Folio Parallel Passages — Repeated Word N-grams Across Folios
 H052: High within-section cross-folio bigram/trigram repetition; bio section highest.
 Tests for "parallel passages" — identical word sequences on multiple folios.
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 from collections import defaultdict, Counter
 
-DATA_PATH = "/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt"
+DATA_PATH = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 SECTION_MAP = {
     'H': 'herbal', 'P': 'pharma', 'A': 'astro', 'B': 'bio',

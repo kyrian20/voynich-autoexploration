@@ -12,12 +12,13 @@ Method:
 - Measure word length by frequency class
 - Compare ratio to VMS F435 ratios
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 from collections import Counter
 import math
 
-LATIN_CORPUS = '/Users/asash/voynich-cryptanalyst/data/reference_corpora/latin/caesar_de_bello_gallico_latin.txt'
+LATIN_CORPUS = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/reference_corpora/latin/caesar_de_bello_gallico_latin.txt')
 
 def tokenize_latin(text):
     """Extract Latin words (alpha only, lowercase, min 2 chars)."""
@@ -91,7 +92,7 @@ def main():
     # Also check Italian for comparison
     import os
     italian_files = [
-        '/Users/asash/voynich-cryptanalyst/data/reference_corpora/italian/dante_divine_comedy_italian.txt'
+        str(_RepositoryPath(__file__).resolve().parents[2] / 'data/reference_corpora/italian/dante_divine_comedy_italian.txt')
     ]
     for fpath in italian_files:
         if os.path.exists(fpath):

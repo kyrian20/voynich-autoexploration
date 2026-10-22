@@ -9,12 +9,13 @@ confirmed pen routing rules? Near-threshold directionals from prior experiments:
 
 Full pen distribution for all major LF classes with min N.
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 from collections import defaultdict, Counter
 
 # ── corpus loading ───────────────────────────────────────────────────────────
-CORPUS = "/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt"
+CORPUS = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 ONSET_PRIORITY = [
     'qok','qot','qo','cth','ckh','cph','ch','sh','ok','ot','ol',
     'sch','skh','sph','d','s','y','k','t','l','r','p','f','o','e','a','n','m'

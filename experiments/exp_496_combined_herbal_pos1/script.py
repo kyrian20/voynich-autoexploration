@@ -4,11 +4,12 @@ exp_496: Combined Herbal pos1 Grammar — Cross-Dialectal Confirmation for ot-LF
 H_new_BZ: Pool A herbal_a + B herbal ot-LF and ok-LF to test cross-dialectal confirmation.
 Also: B astro pos1 grammar survey (H_new_BY, opportunistic).
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 from collections import defaultdict
 
-ZL3B = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+ZL3B = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 ONSET_PRIORITY = ['qok','qot','qo','cth','ckh','cph','ch','sh','ok','ot','ol',
                   'sch','skh','sph','d','s','y','k','t','l','r','p','f','o','e','a','n','m']

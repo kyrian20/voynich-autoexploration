@@ -8,10 +8,11 @@ Questions:
  2. Do @NNN codes (@140, @192, @164) follow a counting pattern across the folio?
  3. Are there recurring glyphs at regular intervals suggesting a continued counting system?
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 
-ZL3B = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+ZL3B = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 def extract_f49v(path):
     """Extract all f49v lines with comments."""

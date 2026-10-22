@@ -6,12 +6,13 @@ H140: Are she-prefix's para-start function and qo-predictor function the SAME th
 H141: Does B ol-prefix stem complexity predict positional role (line-closer vs para-starter)?
 H143: What onset classes take -am suffix? Is -am onset-structured?
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 import math
 from collections import defaultdict, Counter
 
-DATA_PATH = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+DATA_PATH = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 AIIN_DOM_FOLIOS = {
     'f1r','f1v','f2r','f2v','f3r','f3v','f4r','f4v','f5r','f5v',

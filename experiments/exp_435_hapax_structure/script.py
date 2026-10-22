@@ -12,12 +12,13 @@ Method:
 - Compare: onset distribution, suffix distribution, word length, midfix entropy
 - Do per dialect
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 from collections import Counter, defaultdict
 import math
 
-ZL3B = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+ZL3B = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 ONSETS = ['qok', 'qot', 'qo', 'cth', 'ch', 'sh', 'ok', 'ot', 'ol',
           'd', 's', 'y', 'k', 't', 'l', 'r', 'p', 'f', 'o']

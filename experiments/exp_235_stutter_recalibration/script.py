@@ -22,11 +22,12 @@ Motivation:
   cp=0.55, mp=0.90, p_blind=0.30, p_lf=1.0, p_qokch=0.12,
   d_boost=9.13%, VMS LL onset for non-blind LL, r_lf=0.25, r_mid=0.60.
 """
+from pathlib import Path as _RepositoryPath
 
 import os, re, random
 from collections import Counter, deque, defaultdict
 
-REPO_DIR     = os.path.expanduser('~/voynich-cryptanalyst')
+REPO_DIR     = os.path.expanduser(str(_RepositoryPath(__file__).resolve().parents[2]))
 LATIN_CORPUS = os.path.join(REPO_DIR, 'data/reference_corpora/latin/cicero_de_officiis_latin.txt')
 DATA_PATH    = os.path.join(REPO_DIR, 'data/transcriptions/eva_zl3b.txt')
 

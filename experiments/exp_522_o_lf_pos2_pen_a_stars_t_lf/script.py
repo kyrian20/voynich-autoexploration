@@ -6,11 +6,12 @@ Hypotheses:
   H_new_AH (open): A stars t-LF → pos2=ot (E=4.93×/N=3, dir) — confirm or not?
   H_new_CW (open): B astro F469/F471 — do sh-LF and ol-LF pos2 self-chains survive 2-word-line correction?
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 from collections import defaultdict
 
-CORPUS = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+CORPUS = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 ONSET_PRIORITY = [
     'qok','qot','qo','cth','ckh','cph','ch','sh','ok','ot','ol','sch','skh','sph',

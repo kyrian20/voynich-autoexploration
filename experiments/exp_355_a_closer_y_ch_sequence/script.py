@@ -14,11 +14,12 @@ Plan:
 4. Focus on: when LF=y, what onset follows? When LF=d/ch/s, what follows?
 5. Also check: in continuation lines, does y→ch succession appear at LF→pos1?
 """
+from pathlib import Path as _RepositoryPath
 
 import os, re
 from collections import Counter, defaultdict
 
-REPO_DIR  = os.path.expanduser('~/voynich-cryptanalyst')
+REPO_DIR  = os.path.expanduser(str(_RepositoryPath(__file__).resolve().parents[2]))
 DATA_PATH = os.path.join(REPO_DIR, 'data/transcriptions/eva_zl3b.txt')
 
 def folio_base(folio):

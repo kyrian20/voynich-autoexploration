@@ -6,11 +6,12 @@ H117: Does e-vowel infix after onset (she-, che-, de-, oe-) consistently predict
 H118: Does Currier A have line-closing words equivalent to B's oly/otam/okam?
 H119: Is Pharma A's elevated X→qo driven by higher qo base-rate or genuine grammar?
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 from collections import Counter, defaultdict
 
-DATA_PATH = "/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt"
+DATA_PATH = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 def clean_text(text):
     return re.sub(r'<%>|<\$>|<->|\{[^}]+\}|\[[^\]]+\]|@\d+;[a-z]*|@\d+;?', '', text)

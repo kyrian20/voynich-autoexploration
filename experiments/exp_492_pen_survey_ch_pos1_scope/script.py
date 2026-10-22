@@ -4,11 +4,12 @@ exp_492: A herbal_a pen Position Survey + ch-LF pos1 Scope
 H_new_BR: Any confirmed pen routing rules in A herbal_a with correct ws[-2] baselines?
 H_new_BS: Does ch-LF → ch@pos1 extend to B herbal, B astro, A cosmo?
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 from collections import defaultdict
 
-ZL3B = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+ZL3B = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 ONSET_PRIORITY = ['qok','qot','qo','cth','ckh','cph','ch','sh','ok','ot','ol',
                   'sch','skh','sph','d','s','y','k','t','l','r','p','f','o','e','a','n','m']

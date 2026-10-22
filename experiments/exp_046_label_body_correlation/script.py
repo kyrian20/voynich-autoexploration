@@ -3,12 +3,13 @@ exp_046: Per-Folio Label-Body Vocabulary Correlation
 H053: Do label words on a folio predict the body word distribution on the same folio?
 Tests if labels are folio-specific (naming what's illustrated) vs. formulaic (standard label templates).
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 import math
 from collections import defaultdict, Counter
 
-DATA_PATH = "/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt"
+DATA_PATH = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 # True label loci (from exp_032: Lf/Lz/Ls/Lc/Ln/Lt are clean label loci)
 LABEL_LOCI = {'Lf', 'Lz', 'Ls', 'Lc', 'Ln', 'Lt', 'La', 'Lp', 'Lx'}

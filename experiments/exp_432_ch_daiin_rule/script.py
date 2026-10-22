@@ -3,11 +3,12 @@ exp_432: ch→daiin sequential rule (H571)
 Is ch the dominant predecessor of daiin in both dialects?
 Decompose by position pair (LF→pos1, pos1→pos2, MID_inner, pre_LL→LL).
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 from collections import Counter, defaultdict
 
-ZL3B = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+ZL3B = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 ONSET_ORDER = ['qok','qot','qo','cth','ch','sh','ok','ot','ol',
                'd','s','y','k','t','l','r','p','f','o']

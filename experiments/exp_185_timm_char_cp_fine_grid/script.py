@@ -24,11 +24,12 @@ Architecture: identical to exp_182/183 (MID-only buffer, Timm char modification,
 Grid: cp ∈ {0.70, 0.72, 0.74, 0.76, 0.78, 0.80} × mp ∈ {0.7, 0.8, 0.9} = 18 combinations × 50 sims.
 Seed base: 185000.
 """
+from pathlib import Path as _RepositoryPath
 
 import os, re, random, json
 from collections import Counter, deque
 
-REPO_DIR     = os.path.expanduser('~/voynich-cryptanalyst')
+REPO_DIR     = os.path.expanduser(str(_RepositoryPath(__file__).resolve().parents[2]))
 LATIN_CORPUS = os.path.join(REPO_DIR, 'data/reference_corpora/latin/cicero_de_officiis_latin.txt')
 OUT_DIR      = os.path.join(REPO_DIR, 'experiments/exp_185_timm_char_cp_fine_grid/data')
 os.makedirs(OUT_DIR, exist_ok=True)

@@ -7,11 +7,12 @@ H181: Can morphological form predict word position with >70% accuracy?
 H182: Do Voynichese paragraphs have consistent internal line-type sequence?
       Track opener type at line 1, 2, 3... of each paragraph.
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 from collections import defaultdict, Counter
 
-DATA_PATH = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+DATA_PATH = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 
 def folio_base(folio):

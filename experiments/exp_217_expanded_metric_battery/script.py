@@ -37,11 +37,12 @@ The simulation uses fixed params: d_am=0.16, p_blind=0.40, p_lf_blind=0.22,
 cp=0.76, mp=0.9. Same architecture as exp_211 but only ONE configuration
 (no sweep needed — just the best joint config).
 """
+from pathlib import Path as _RepositoryPath
 
 import os, re, random
 from collections import Counter, deque, defaultdict
 
-REPO_DIR     = os.path.expanduser('~/voynich-cryptanalyst')
+REPO_DIR     = os.path.expanduser(str(_RepositoryPath(__file__).resolve().parents[2]))
 LATIN_CORPUS = os.path.join(REPO_DIR, 'data/reference_corpora/latin/cicero_de_officiis_latin.txt')
 DATA_PATH    = os.path.join(REPO_DIR, 'data/transcriptions/eva_zl3b.txt')
 

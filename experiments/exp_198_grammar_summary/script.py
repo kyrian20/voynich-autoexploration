@@ -6,12 +6,13 @@ H194: Cross-sectional positional grammar summary — complete tier × position t
 H131 (computational portion): Is the aiin-dom/y-dom register split folio-based?
      Is there a clear boundary at f16/f17 in suffix paradigms?
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 import math
 from collections import Counter, defaultdict
 
-DATA_PATH = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+DATA_PATH = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 
 def folio_base(folio):

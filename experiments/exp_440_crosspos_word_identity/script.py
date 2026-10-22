@@ -10,11 +10,12 @@ Method:
 - Compute: P(word appears in other positions) vs P(onset class appears in other positions)
 - Measure type-level overlap vs onset-class-level overlap
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 from collections import Counter, defaultdict
 
-ZL3B = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+ZL3B = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 ONSETS = ['qok', 'qot', 'qo', 'cth', 'ch', 'sh', 'ok', 'ot', 'ol',
           'd', 's', 'y', 'k', 't', 'l', 'r', 'p', 'f', 'o']

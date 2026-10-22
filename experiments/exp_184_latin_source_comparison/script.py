@@ -48,11 +48,12 @@ Target-awareness note (inherited from exp_177):
 
 Seed base: 184000 (Cicero replication), 184100 (Virgil), 184200 (Caesar).
 """
+from pathlib import Path as _RepositoryPath
 
 import os, re, random, json
 from collections import Counter, deque
 
-REPO_DIR   = os.path.expanduser('~/voynich-cryptanalyst')
+REPO_DIR   = os.path.expanduser(str(_RepositoryPath(__file__).resolve().parents[2]))
 OUT_DIR    = os.path.join(REPO_DIR, 'experiments/exp_184_latin_source_comparison/data')
 os.makedirs(OUT_DIR, exist_ok=True)
 

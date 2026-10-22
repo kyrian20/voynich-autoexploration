@@ -3,10 +3,11 @@ exp_449: A cth→sh Cross-Line Section Analysis (H_new_L)
 Q: Is A cth(LL)→sh(LF) E=1.93×/N=12 section-specific?
 Also examine A s→s cross-line (E=2.57×/N=8) section distribution.
 """
+from pathlib import Path as _RepositoryPath
 import re
 from collections import defaultdict, Counter
 
-ZL3B = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+ZL3B = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 ONSETS = ['qok','qot','qo','cth','ch','sh','ok','ot','ol','d','s','y','k','t','l','r','p','f','o']
 
 def get_onset(word):

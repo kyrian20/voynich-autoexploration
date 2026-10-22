@@ -4,11 +4,12 @@ exp_387: A-Dialect r-Onset Positional Census (H601)
 Tests whether A-dialect r is approximately LL-exclusive.
 Counts r-onset tokens at each position (LF, pos1, MID_inner, pre_LL, LL).
 """
+from pathlib import Path as _RepositoryPath
 
 import os, re
 from collections import Counter, defaultdict
 
-DATA_PATH = os.path.expanduser('~/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt')
+DATA_PATH = os.path.expanduser(str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt'))
 
 ONSET_ORDER = [
     ('qok','qok'),('qot','qot'),('qo','qo'),('cth','cth'),

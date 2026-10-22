@@ -8,11 +8,12 @@ Method:
   E = obs(A→B) / (base_A × base_B × N_pairs)
   Confirmation thresholds: CONF = E≥1.5×/N≥10; dir = E≥2.0×/N≥5; (dir) = E≥2.5×/N≥3
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 from collections import Counter, defaultdict
 
-CORPUS = "/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt"
+CORPUS = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 ONSET_PRIORITY = [
     'qok','qot','qo','cth','ckh','cph','ch','sh','ok','ot','ol',
     'sch','skh','sph','d','s','y','k','t','l','r','p','f','o','e','a','n','m'

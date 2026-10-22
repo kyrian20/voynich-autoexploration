@@ -12,11 +12,12 @@ NOT reproduce positional grammar (it has no concept of line positions).
 Seeds from real VMS B-dialect high-frequency vocabulary.
 100 simulations with VMS-length-matched line breaking.
 """
+from pathlib import Path as _RepositoryPath
 import os, sys, re, random, json, math
 from collections import Counter, defaultdict
 
-VMS_CORPUS = os.path.expanduser('~/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt')
-OUT_DIR = os.path.expanduser('~/voynich-cryptanalyst/experiments/exp_171_timm_simulation/data')
+VMS_CORPUS = os.path.expanduser(str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt'))
+OUT_DIR = os.path.expanduser(str(_RepositoryPath(__file__).resolve().parents[2] / 'experiments/exp_171_timm_simulation/data'))
 
 # ── Timm self-citation algorithm parameters ───────────────────────────────────
 WINDOW_SIZE   = 50     # look back this many words for self-citation
@@ -335,7 +336,7 @@ print(f"Done: {len(timm_results)} successful runs")
 
 # ── Load Naibbe results for comparison ────────────────────────────────────────
 naibbe_path = os.path.expanduser(
-    '~/voynich-cryptanalyst/experiments/exp_170_naibbe_simulation/data/simulation_results.json')
+    str(_RepositoryPath(__file__).resolve().parents[2] / 'experiments/exp_170_naibbe_simulation/data/simulation_results.json'))
 try:
     with open(naibbe_path) as f:
         naibbe_raw = json.load(f)

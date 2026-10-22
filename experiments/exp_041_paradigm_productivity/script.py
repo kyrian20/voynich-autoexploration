@@ -5,12 +5,13 @@ H041: The 9-form suffix paradigm is productive. Prediction:
   (b) "Missing" suffix forms for singleton stems appear at near-zero frequency, not absolute zero
   (c) If productive, the paradigm can be modeled as: P(stem takes suffix S) ~ P(S in corpus)
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 import math
 from collections import defaultdict
 
-DATA_PATH = "/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt"
+DATA_PATH = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 SUFFIXES = ['aiin', 'ain', 'eedy', 'edy', 'chy', 'eey', 'dy', 'ey', 'y',
             'ol', 'or', 'al', 'ar', 'iin', 'in', 'on', 'an']

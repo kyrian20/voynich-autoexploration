@@ -3,12 +3,13 @@
 exp_139: A-herbal cth decline — smooth gradient or breakpoint? (H275)
         A-herbal l-gradient — B-vocabulary contamination or A-content shift? (H276)
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 import sys
 from collections import Counter, defaultdict
 
-CORPUS = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+CORPUS = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 SECTION_MAP = {}
 for f in range(1, 58):    SECTION_MAP[f] = 'herbal'

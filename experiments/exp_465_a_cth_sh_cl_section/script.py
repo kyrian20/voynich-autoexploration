@@ -3,10 +3,11 @@ exp_465: A-dialect cth→sh CL section-specificity and body-conditional breakdow
 Q: Is the A cth→sh CL (E=1.9×/N=12) section-specific? Which body class drives it?
 Also: A stars section paragraph structure (H_new_AD component — short paragraphs?)
 """
+from pathlib import Path as _RepositoryPath
 import re
 from collections import defaultdict, Counter
 
-ZL3B = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+ZL3B = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 ONSETS = ['qok','qot','qo','cth','ch','sh','ok','ot','ol','d','s','y','k','t','l','r','p','f','o']
 
 def get_onset(word):

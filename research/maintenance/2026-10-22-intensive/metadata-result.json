@@ -1,0 +1,12 @@
+{
+  "source": "data/transcriptions/eva_zl3b.txt",
+  "source_sha256": "bf5b6d4ac1e3a51b1847a9c388318d609020441ccd56984c901c32b09beccafc",
+  "folio_headers": 227,
+  "folios_with_currier_language": 197,
+  "language_counts": {
+    "A": 114,
+    "B": 83
+  },
+  "headers_with_AB_quire_but_no_language": [],
+  "interpretation": "$L is Currier language; $Q is quire and must not be used as a substitute."
+}

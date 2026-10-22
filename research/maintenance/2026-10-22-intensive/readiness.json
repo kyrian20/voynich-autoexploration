@@ -1,0 +1,1734 @@
+{
+  "audit": "intensive_research_readiness",
+  "version": 1,
+  "migration_files": 474,
+  "missing_input_references": [
+    {
+      "script": "experiments/exp_031_qo_stripping/script.py",
+      "target": "data/reference_corpora/latin_vulgate.txt"
+    },
+    {
+      "script": "experiments/exp_170_naibbe_simulation/script.py",
+      "target": "data/derived/naibbe-cipher"
+    },
+    {
+      "script": "experiments/exp_170_naibbe_simulation/script.py",
+      "target": "data/derived/naibbe-cipher/input/examples/divina_commedia.txt"
+    },
+    {
+      "script": "experiments/exp_436_latin_hapax_length/script.py",
+      "target": "data/reference_corpora/italian/dante_divine_comedy_italian.txt"
+    }
+  ],
+  "candidate_policy": {
+    "uncertain_space": "split",
+    "alternatives": "primary",
+    "ligatures": "expand",
+    "high_ascii": "opaque literal code, not decoded",
+    "whitespace": "layout only"
+  },
+  "files": [
+    {
+      "transcription": "ZL3b",
+      "source": "data/transcriptions/eva_zl3b.txt",
+      "source_sha256": "bf5b6d4ac1e3a51b1847a9c388318d609020441ccd56984c901c32b09beccafc",
+      "records": 5385,
+      "raw_payloads_roundtrip": true,
+      "nested_offsets_checked": true,
+      "raw_payload_stream_sha256": "b884063d70d8b8fb4a06c5ffc7adca8f38ba5135df4bc56797a40b495ab55946",
+      "projectable_records": 5385,
+      "unprojected_records": 0,
+      "diagnostic_event_counts": {},
+      "feature_counts_including_all_alternatives": {
+        "alternatives": 817,
+        "comment": 863,
+        "drawing_space": 764,
+        "glyph": 195295,
+        "high_ascii": 178,
+        "ligature": 446,
+        "paragraph_end": 740,
+        "paragraph_start": 740,
+        "text_tag": 2,
+        "uncertain_space": 2748,
+        "unreadable": 308,
+        "word_space": 30129
+      },
+      "changed_token_lists_on_same_projectable_records": 1170,
+      "exact_daiin_on_same_projectable_records": {
+        "historical": 853,
+        "candidate": 848
+      },
+      "previously_token_empty_records_represented": [
+        {
+          "id": "f49v.11",
+          "tokens": [
+            "@140;"
+          ]
+        },
+        {
+          "id": "f49v.21",
+          "tokens": [
+            "@192;"
+          ]
+        },
+        {
+          "id": "f49v.27",
+          "tokens": [
+            "@140;"
+          ]
+        },
+        {
+          "id": "f49v.29",
+          "tokens": [
+            "@164;"
+          ]
+        },
+        {
+          "id": "f49v.35",
+          "tokens": [
+            "@192;"
+          ]
+        },
+        {
+          "id": "f49v.41",
+          "tokens": [
+            "@140;"
+          ]
+        },
+        {
+          "id": "f66r.24",
+          "tokens": [
+            "@169;"
+          ]
+        },
+        {
+          "id": "f66r.38",
+          "tokens": [
+            "@172;"
+          ]
+        },
+        {
+          "id": "f66r.42",
+          "tokens": [
+            "@195;"
+          ]
+        }
+      ],
+      "diagnostic_examples": [],
+      "changed_examples": [
+        {
+          "id": "f1r.1",
+          "historical": [
+            "fachys",
+            "ykal",
+            "ar",
+            "ataiin",
+            "shol",
+            "shory",
+            "res",
+            "y",
+            "kor",
+            "sholdy"
+          ],
+          "candidate_primary_split_expand": [
+            "fachys",
+            "ykal",
+            "ar",
+            "ataiin",
+            "shol",
+            "shory",
+            "cthres",
+            "y",
+            "kor",
+            "sholdy"
+          ]
+        },
+        {
+          "id": "f1r.4",
+          "historical": [
+            "soiin",
+            "oteey",
+            "oteo",
+            "roloty",
+            "cthiar",
+            "daiin",
+            "okaiin",
+            "or",
+            "okan"
+          ],
+          "candidate_primary_split_expand": [
+            "soiin",
+            "oteey",
+            "oteos",
+            "roloty",
+            "cthiar",
+            "daiin",
+            "okaiin",
+            "or",
+            "okan"
+          ]
+        },
+        {
+          "id": "f1r.7",
+          "historical": [
+            "odar",
+            "shol",
+            "cphoy",
+            "oydar",
+            "sh",
+            "s",
+            "cfhoaiin",
+            "shodary"
+          ],
+          "candidate_primary_split_expand": [
+            "odar",
+            "c'y",
+            "shol",
+            "cphoy",
+            "oydar",
+            "sh",
+            "s",
+            "cfhoaiin",
+            "shodary"
+          ]
+        },
+        {
+          "id": "f1r.14",
+          "historical": [
+            "dain",
+            "oiin",
+            "chol",
+            "odaiin",
+            "chodain",
+            "chdy",
+            "ok",
+            "in",
+            "d",
+            "n",
+            "cthy",
+            "kod"
+          ],
+          "candidate_primary_split_expand": [
+            "dain",
+            "oiin",
+            "chol",
+            "odaiin",
+            "chodain",
+            "chdy",
+            "okain",
+            "d?n",
+            "cthy",
+            "kod"
+          ]
+        },
+        {
+          "id": "f1r.15",
+          "historical": [
+            "daiin",
+            "shckhey",
+            "eo",
+            "r",
+            "char",
+            "shey",
+            "kol",
+            "chol",
+            "chol",
+            "kor",
+            "chal"
+          ],
+          "candidate_primary_split_expand": [
+            "daiin",
+            "shckhey",
+            "ckeo",
+            "r",
+            "char",
+            "shey",
+            "kol",
+            "chol",
+            "chol",
+            "kor",
+            "chal"
+          ]
+        },
+        {
+          "id": "f1r.17",
+          "historical": [
+            "ycho",
+            "tchey",
+            "chekain",
+            "sheo",
+            "pshol",
+            "dydyd",
+            "cthy",
+            "dai",
+            "y"
+          ],
+          "candidate_primary_split_expand": [
+            "ycho",
+            "tchey",
+            "chekain",
+            "sheo",
+            "pshol",
+            "dydyd",
+            "cthy",
+            "daictoy"
+          ]
+        },
+        {
+          "id": "f1r.19",
+          "historical": [
+            "dchar",
+            "shcthaiin",
+            "okaiir",
+            "chey",
+            "chy",
+            "tol",
+            "cthols",
+            "dlo",
+            "o"
+          ],
+          "candidate_primary_split_expand": [
+            "dchar",
+            "shcthaiin",
+            "okaiir",
+            "chey",
+            "@192;chy",
+            "@130;tol",
+            "cthols",
+            "dlocto"
+          ]
+        },
+        {
+          "id": "f1r.24",
+          "historical": [
+            "cho",
+            "o",
+            "kaiin",
+            "shoaiin",
+            "okol",
+            "daiin",
+            "far",
+            "cthol",
+            "daiin",
+            "ctholdar"
+          ],
+          "candidate_primary_split_expand": [
+            "cho",
+            "?o",
+            "kaiin",
+            "shoaiin",
+            "okol",
+            "daiin",
+            "far",
+            "cthol",
+            "daiin",
+            "ctholdar"
+          ]
+        },
+        {
+          "id": "f1r.25",
+          "historical": [
+            "ycheey",
+            "okeey",
+            "oky",
+            "daiin",
+            "okchey",
+            "kokaiin",
+            "o",
+            "chol",
+            "k",
+            "dchy",
+            "dal"
+          ],
+          "candidate_primary_split_expand": [
+            "ycheey",
+            "okeey",
+            "oky",
+            "daiin",
+            "okchey",
+            "kokaiin",
+            "o?chol",
+            "k?dchy",
+            "dal"
+          ]
+        },
+        {
+          "id": "f1r.27",
+          "historical": [
+            "eo",
+            "chol",
+            "chok",
+            "choty",
+            "chotey"
+          ],
+          "candidate_primary_split_expand": [
+            "?eo?",
+            "chol",
+            "chok",
+            "choty",
+            "chotey"
+          ]
+        },
+        {
+          "id": "f1v.9",
+          "historical": [
+            "shor",
+            "okol",
+            "chol",
+            "dol",
+            "ky",
+            "dar",
+            "shol",
+            "dchor",
+            "o",
+            "tcho",
+            "dar",
+            "ody"
+          ],
+          "candidate_primary_split_expand": [
+            "shor",
+            "okol",
+            "chol",
+            "dol",
+            "ky",
+            "dar",
+            "shol",
+            "dchor",
+            "o",
+            "tcho",
+            "dar",
+            "shody"
+          ]
+        },
+        {
+          "id": "f2r.2",
+          "historical": [
+            "dorchory",
+            "chkar",
+            "s",
+            "shor",
+            "cthy"
+          ],
+          "candidate_primary_split_expand": [
+            "dorchory",
+            "chkar",
+            "s",
+            "shor",
+            "cthy",
+            "cto"
+          ]
+        },
+        {
+          "id": "f2r.4",
+          "historical": [
+            "aiidy",
+            "chtod",
+            "dy",
+            "cphy",
+            "dals",
+            "chokaiin",
+            "d"
+          ],
+          "candidate_primary_split_expand": [
+            "c'oaiidy",
+            "chtod",
+            "dy",
+            "cphy",
+            "dals",
+            "chokaiin",
+            "d"
+          ]
+        },
+        {
+          "id": "f2r.10",
+          "historical": [
+            "qo",
+            "ky",
+            "cholaiin",
+            "shol",
+            "sheky",
+            "daiin",
+            "cthey",
+            "keol",
+            "saiin",
+            "e",
+            "a",
+            "iin"
+          ],
+          "candidate_primary_split_expand": [
+            "qo'ky",
+            "cholaiin",
+            "shol",
+            "sheky",
+            "daiin",
+            "cthey",
+            "keol",
+            "saiin",
+            "e'a'iin"
+          ]
+        },
+        {
+          "id": "f2v.5",
+          "historical": [
+            "kchor",
+            "shy",
+            "daiiin",
+            "ch",
+            "m",
+            "s",
+            "shey",
+            "dor",
+            "chol",
+            "daiin"
+          ],
+          "candidate_primary_split_expand": [
+            "kchor",
+            "shy",
+            "daiiin",
+            "chckom",
+            "s",
+            "shey",
+            "dor",
+            "chol",
+            "daiin"
+          ]
+        },
+        {
+          "id": "f3v.5",
+          "historical": [
+            "ychear",
+            "otchal",
+            "cho",
+            "r",
+            "char",
+            "ckh"
+          ],
+          "candidate_primary_split_expand": [
+            "ychear",
+            "otchal",
+            "cho",
+            "r",
+            "char",
+            "ckha"
+          ]
+        },
+        {
+          "id": "f4r.2",
+          "historical": [
+            "dchor",
+            "shol",
+            "shol",
+            "cthol",
+            "shtchy",
+            "chaiin",
+            "s",
+            "choraiin",
+            "chom"
+          ],
+          "candidate_primary_split_expand": [
+            "dchor",
+            "shol",
+            "shol",
+            "cthol",
+            "shtchy",
+            "chaiin",
+            "@163;s",
+            "choraiin",
+            "chom"
+          ]
+        },
+        {
+          "id": "f4r.11",
+          "historical": [
+            "qotchoiin",
+            "she",
+            "r",
+            "qoty"
+          ],
+          "candidate_primary_split_expand": [
+            "qotchoiin",
+            "sheor",
+            "qoty"
+          ]
+        },
+        {
+          "id": "f4v.4",
+          "historical": [
+            "qok",
+            "y",
+            "qocthy",
+            "choteol",
+            "daiin",
+            "cthey",
+            "choaiin"
+          ],
+          "candidate_primary_split_expand": [
+            "qokshy",
+            "qocthy",
+            "choteol",
+            "daiin",
+            "cthey",
+            "choaiin"
+          ]
+        },
+        {
+          "id": "f4v.5",
+          "historical": [
+            "shor",
+            "sheey",
+            "otoiin",
+            "shey",
+            "qotchoiin",
+            "chodain"
+          ],
+          "candidate_primary_split_expand": [
+            "shor",
+            "sheey",
+            "cto",
+            "otoiin",
+            "shey",
+            "qotchoiin",
+            "chodain"
+          ]
+        }
+      ]
+    },
+    {
+      "transcription": "ZL3a",
+      "source": "data/transcriptions/zl3a.txt",
+      "source_sha256": "56419297682d338ff1a0a17f5ae251e3ee3e2c5bf05a62db04c5385ef30b36a2",
+      "records": 5389,
+      "raw_payloads_roundtrip": true,
+      "nested_offsets_checked": true,
+      "raw_payload_stream_sha256": "37d7e9c7c72d85eeeeff86d0d9c75fc13c11003ce9018b4878c70682d54aea85",
+      "projectable_records": 5389,
+      "unprojected_records": 0,
+      "diagnostic_event_counts": {},
+      "feature_counts_including_all_alternatives": {
+        "alternatives": 847,
+        "comment": 865,
+        "drawing_space": 761,
+        "glyph": 195281,
+        "high_ascii": 170,
+        "ligature": 444,
+        "paragraph_end": 740,
+        "paragraph_start": 740,
+        "text_tag": 2,
+        "uncertain_space": 2736,
+        "unreadable": 343,
+        "word_space": 30134
+      },
+      "changed_token_lists_on_same_projectable_records": 1178,
+      "exact_daiin_on_same_projectable_records": {
+        "historical": 853,
+        "candidate": 849
+      },
+      "previously_token_empty_records_represented": [
+        {
+          "id": "f49v.11",
+          "tokens": [
+            "@140;"
+          ]
+        },
+        {
+          "id": "f49v.21",
+          "tokens": [
+            "@192;"
+          ]
+        },
+        {
+          "id": "f49v.27",
+          "tokens": [
+            "@140;"
+          ]
+        },
+        {
+          "id": "f49v.29",
+          "tokens": [
+            "@164;"
+          ]
+        },
+        {
+          "id": "f49v.35",
+          "tokens": [
+            "@192;"
+          ]
+        },
+        {
+          "id": "f49v.41",
+          "tokens": [
+            "@140;"
+          ]
+        },
+        {
+          "id": "f66r.24",
+          "tokens": [
+            "?"
+          ]
+        },
+        {
+          "id": "f66r.38",
+          "tokens": [
+            "@172;"
+          ]
+        },
+        {
+          "id": "f66r.42",
+          "tokens": [
+            "@195;"
+          ]
+        }
+      ],
+      "diagnostic_examples": [],
+      "changed_examples": [
+        {
+          "id": "f1r.1",
+          "historical": [
+            "fachys",
+            "ykal",
+            "ar",
+            "ataiin",
+            "shol",
+            "shory",
+            "res",
+            "y",
+            "kor",
+            "sholdy"
+          ],
+          "candidate_primary_split_expand": [
+            "fachys",
+            "ykal",
+            "ar",
+            "ataiin",
+            "shol",
+            "shory",
+            "cthres",
+            "y",
+            "kor",
+            "sholdy"
+          ]
+        },
+        {
+          "id": "f1r.4",
+          "historical": [
+            "soiin",
+            "oteey",
+            "oteo",
+            "roloty",
+            "cthiar",
+            "daiin",
+            "okaiin",
+            "or",
+            "okan"
+          ],
+          "candidate_primary_split_expand": [
+            "soiin",
+            "oteey",
+            "oteos",
+            "roloty",
+            "cthiar",
+            "daiin",
+            "okaiin",
+            "or",
+            "okan"
+          ]
+        },
+        {
+          "id": "f1r.7",
+          "historical": [
+            "odar",
+            "shol",
+            "cphoy",
+            "oydar",
+            "sh",
+            "s",
+            "cfhoaiin",
+            "shodary"
+          ],
+          "candidate_primary_split_expand": [
+            "odar",
+            "c'y",
+            "shol",
+            "cphoy",
+            "oydar",
+            "sh",
+            "s",
+            "cfhoaiin",
+            "shodary"
+          ]
+        },
+        {
+          "id": "f1r.14",
+          "historical": [
+            "dain",
+            "oiin",
+            "chol",
+            "odaiin",
+            "chodain",
+            "chdy",
+            "ok",
+            "in",
+            "d",
+            "n",
+            "cthy",
+            "kod"
+          ],
+          "candidate_primary_split_expand": [
+            "dain",
+            "oiin",
+            "chol",
+            "odaiin",
+            "chodain",
+            "chdy",
+            "okain",
+            "d?n",
+            "cthy",
+            "kod"
+          ]
+        },
+        {
+          "id": "f1r.15",
+          "historical": [
+            "daiin",
+            "shckhey",
+            "eo",
+            "r",
+            "char",
+            "shey",
+            "kol",
+            "chol",
+            "chol",
+            "kor",
+            "chal"
+          ],
+          "candidate_primary_split_expand": [
+            "daiin",
+            "shckhey",
+            "ckeo",
+            "r",
+            "char",
+            "shey",
+            "kol",
+            "chol",
+            "chol",
+            "kor",
+            "chal"
+          ]
+        },
+        {
+          "id": "f1r.17",
+          "historical": [
+            "ycho",
+            "tchey",
+            "chekain",
+            "sheo",
+            "pshol",
+            "dydyd",
+            "cthy",
+            "dai",
+            "y"
+          ],
+          "candidate_primary_split_expand": [
+            "ycho",
+            "tchey",
+            "chekain",
+            "sheo",
+            "pshol",
+            "dydyd",
+            "cthy",
+            "daictoy"
+          ]
+        },
+        {
+          "id": "f1r.19",
+          "historical": [
+            "dchar",
+            "shcthaiin",
+            "okaiir",
+            "chey",
+            "chy",
+            "tol",
+            "cthols",
+            "dlo",
+            "o"
+          ],
+          "candidate_primary_split_expand": [
+            "dchar",
+            "shcthaiin",
+            "okaiir",
+            "chey",
+            "@192;chy",
+            "@130;tol",
+            "cthols",
+            "dlocto"
+          ]
+        },
+        {
+          "id": "f1r.23",
+          "historical": [
+            "doin",
+            "chol",
+            "dain",
+            "cthal",
+            "dar",
+            "shear",
+            "kaiin",
+            "dar",
+            "shey",
+            "cthar"
+          ],
+          "candidate_primary_split_expand": [
+            "??doin",
+            "chol",
+            "dain",
+            "cthal",
+            "dar",
+            "shear",
+            "kaiin",
+            "dar",
+            "shey",
+            "cthar"
+          ]
+        },
+        {
+          "id": "f1r.24",
+          "historical": [
+            "cho",
+            "o",
+            "kaiin",
+            "shoaiin",
+            "okol",
+            "daiin",
+            "far",
+            "cthol",
+            "daiin",
+            "ctholdar"
+          ],
+          "candidate_primary_split_expand": [
+            "cho",
+            "?o",
+            "kaiin",
+            "shoaiin",
+            "okol",
+            "daiin",
+            "far",
+            "cthol",
+            "daiin",
+            "ctholdar"
+          ]
+        },
+        {
+          "id": "f1r.25",
+          "historical": [
+            "ycheey",
+            "okeey",
+            "oky",
+            "daiin",
+            "okchey",
+            "kokaiin",
+            "o",
+            "chol",
+            "k",
+            "dchy",
+            "dal"
+          ],
+          "candidate_primary_split_expand": [
+            "ycheey",
+            "okeey",
+            "oky",
+            "daiin",
+            "okchey",
+            "kokaiin",
+            "o?chol",
+            "k?dchy",
+            "dal"
+          ]
+        },
+        {
+          "id": "f1r.27",
+          "historical": [
+            "eo",
+            "chol",
+            "chok",
+            "choty",
+            "chotey"
+          ],
+          "candidate_primary_split_expand": [
+            "?eo?",
+            "chol",
+            "chok",
+            "choty",
+            "chotey"
+          ]
+        },
+        {
+          "id": "f1v.9",
+          "historical": [
+            "shor",
+            "okol",
+            "chol",
+            "dol",
+            "ky",
+            "dar",
+            "shol",
+            "dchor",
+            "o",
+            "tcho",
+            "dar",
+            "ody"
+          ],
+          "candidate_primary_split_expand": [
+            "shor",
+            "okol",
+            "chol",
+            "dol",
+            "ky",
+            "dar",
+            "shol",
+            "dchor",
+            "o",
+            "tcho",
+            "dar",
+            "shody"
+          ]
+        },
+        {
+          "id": "f2r.2",
+          "historical": [
+            "dorchory",
+            "chkar",
+            "s",
+            "shor",
+            "cthy"
+          ],
+          "candidate_primary_split_expand": [
+            "dorchory",
+            "chkar",
+            "s",
+            "shor",
+            "cthy",
+            "cto"
+          ]
+        },
+        {
+          "id": "f2r.4",
+          "historical": [
+            "aiidy",
+            "chtod",
+            "dy",
+            "cphy",
+            "dals",
+            "chokaiin",
+            "d"
+          ],
+          "candidate_primary_split_expand": [
+            "c'oaiidy",
+            "chtod",
+            "dy",
+            "cphy",
+            "dals",
+            "chokaiin",
+            "d"
+          ]
+        },
+        {
+          "id": "f2r.10",
+          "historical": [
+            "qo",
+            "ky",
+            "cholaiin",
+            "shol",
+            "sheky",
+            "daiin",
+            "cthey",
+            "keol",
+            "saiin",
+            "e",
+            "a",
+            "iin"
+          ],
+          "candidate_primary_split_expand": [
+            "qo'ky",
+            "cholaiin",
+            "shol",
+            "sheky",
+            "daiin",
+            "cthey",
+            "keol",
+            "saiin",
+            "e'a'iin"
+          ]
+        },
+        {
+          "id": "f2v.5",
+          "historical": [
+            "kchor",
+            "shy",
+            "daiiin",
+            "ch",
+            "m",
+            "s",
+            "shey",
+            "dor",
+            "chol",
+            "daiin"
+          ],
+          "candidate_primary_split_expand": [
+            "kchor",
+            "shy",
+            "daiiin",
+            "chckom",
+            "s",
+            "shey",
+            "dor",
+            "chol",
+            "daiin"
+          ]
+        },
+        {
+          "id": "f3v.5",
+          "historical": [
+            "ychear",
+            "otchal",
+            "cho",
+            "r",
+            "char",
+            "ckh"
+          ],
+          "candidate_primary_split_expand": [
+            "ychear",
+            "otchal",
+            "cho",
+            "r",
+            "char",
+            "ckha"
+          ]
+        },
+        {
+          "id": "f4r.2",
+          "historical": [
+            "dchor",
+            "shol",
+            "shol",
+            "cthol",
+            "shtchy",
+            "chaiin",
+            "s",
+            "choraiin",
+            "chom"
+          ],
+          "candidate_primary_split_expand": [
+            "dchor",
+            "shol",
+            "shol",
+            "cthol",
+            "shtchy",
+            "chaiin",
+            "@163;s",
+            "choraiin",
+            "chom"
+          ]
+        },
+        {
+          "id": "f4r.11",
+          "historical": [
+            "qotchoiin",
+            "she",
+            "r",
+            "qoty"
+          ],
+          "candidate_primary_split_expand": [
+            "qotchoiin",
+            "sheor",
+            "qoty"
+          ]
+        },
+        {
+          "id": "f4v.4",
+          "historical": [
+            "qok",
+            "y",
+            "qocthy",
+            "choteol",
+            "daiin",
+            "cthey",
+            "choaiin"
+          ],
+          "candidate_primary_split_expand": [
+            "qokshy",
+            "qocthy",
+            "choteol",
+            "daiin",
+            "cthey",
+            "choaiin"
+          ]
+        }
+      ]
+    },
+    {
+      "transcription": "IT2a",
+      "source": "data/transcriptions/eva_it2a.txt",
+      "source_sha256": "7f27a8b0feed8f6de0a99900df6bf912dd1d295c38e5f830bac8b41c3f536fb5",
+      "records": 5215,
+      "raw_payloads_roundtrip": true,
+      "nested_offsets_checked": true,
+      "raw_payload_stream_sha256": "4f65a2fed0c26e00553c3d2bb1343c3a2fafb7977dffd80c7702aa543b72dcce",
+      "projectable_records": 5215,
+      "unprojected_records": 0,
+      "diagnostic_event_counts": {},
+      "feature_counts_including_all_alternatives": {
+        "drawing_space": 875,
+        "glyph": 191545,
+        "paragraph_end": 772,
+        "paragraph_start": 772,
+        "text_tag": 2,
+        "unreadable": 257,
+        "word_space": 31829
+      },
+      "changed_token_lists_on_same_projectable_records": 115,
+      "exact_daiin_on_same_projectable_records": {
+        "historical": 865,
+        "candidate": 863
+      },
+      "previously_token_empty_records_represented": [
+        {
+          "id": "f49v.11",
+          "tokens": [
+            "?"
+          ]
+        },
+        {
+          "id": "f49v.21",
+          "tokens": [
+            "?"
+          ]
+        },
+        {
+          "id": "f49v.27",
+          "tokens": [
+            "?"
+          ]
+        },
+        {
+          "id": "f49v.29",
+          "tokens": [
+            "?"
+          ]
+        },
+        {
+          "id": "f49v.35",
+          "tokens": [
+            "?"
+          ]
+        },
+        {
+          "id": "f49v.41",
+          "tokens": [
+            "?"
+          ]
+        },
+        {
+          "id": "f66r.24",
+          "tokens": [
+            "?"
+          ]
+        },
+        {
+          "id": "f66r.42",
+          "tokens": [
+            "?"
+          ]
+        }
+      ],
+      "diagnostic_examples": [],
+      "changed_examples": [
+        {
+          "id": "f1r.4",
+          "historical": [
+            "ooiin",
+            "oteey",
+            "oteos",
+            "roloty",
+            "cth",
+            "ar",
+            "daiin",
+            "otaiin",
+            "or",
+            "okan"
+          ],
+          "candidate_primary_split_expand": [
+            "ooiin",
+            "oteey",
+            "oteos",
+            "roloty",
+            "cth?ar",
+            "daiin",
+            "otaiin",
+            "or",
+            "okan"
+          ]
+        },
+        {
+          "id": "f1r.7",
+          "historical": [
+            "odar",
+            "o",
+            "y",
+            "shol",
+            "cphoy",
+            "oydar",
+            "sh",
+            "s",
+            "cfhoaiin",
+            "shodary"
+          ],
+          "candidate_primary_split_expand": [
+            "?",
+            "odar",
+            "o",
+            "y",
+            "shol",
+            "cphoy",
+            "oydar",
+            "sh",
+            "s",
+            "cfhoaiin",
+            "shodary"
+          ]
+        },
+        {
+          "id": "f1r.11",
+          "historical": [
+            "ydain",
+            "cphesaiin",
+            "ol",
+            "s",
+            "cphey",
+            "ytain",
+            "shoshy",
+            "cphodales"
+          ],
+          "candidate_primary_split_expand": [
+            "?",
+            "ydain",
+            "cphesaiin",
+            "ol",
+            "s",
+            "cphey",
+            "ytain",
+            "shoshy",
+            "cphodales"
+          ]
+        },
+        {
+          "id": "f1r.22",
+          "historical": [
+            "cpho",
+            "shaiin",
+            "shokcheey",
+            "chol",
+            "tshodeesy",
+            "shey",
+            "pydeey",
+            "chy",
+            "ro",
+            "d"
+          ],
+          "candidate_primary_split_expand": [
+            "cpho",
+            "shaiin",
+            "shokcheey",
+            "chol",
+            "tshodeesy",
+            "shey",
+            "pydeey",
+            "chy",
+            "ro",
+            "d?"
+          ]
+        },
+        {
+          "id": "f1r.23",
+          "historical": [
+            "doin",
+            "chol",
+            "dain",
+            "cthal",
+            "dar",
+            "shear",
+            "kaiin",
+            "dar",
+            "shey",
+            "cthar"
+          ],
+          "candidate_primary_split_expand": [
+            "?doin",
+            "chol",
+            "dain",
+            "cthal",
+            "dar",
+            "shear",
+            "kaiin",
+            "dar",
+            "shey",
+            "cthar"
+          ]
+        },
+        {
+          "id": "f1r.24",
+          "historical": [
+            "cho",
+            "o",
+            "kaiin",
+            "shoaiin",
+            "okol",
+            "daiin",
+            "far",
+            "cthol",
+            "daiin",
+            "ctholdar"
+          ],
+          "candidate_primary_split_expand": [
+            "cho?o",
+            "kaiin",
+            "shoaiin",
+            "okol",
+            "daiin",
+            "far",
+            "cthol",
+            "daiin",
+            "ctholdar"
+          ]
+        },
+        {
+          "id": "f1r.25",
+          "historical": [
+            "ycheey",
+            "okay",
+            "oky",
+            "daiin",
+            "okchey",
+            "kokaiin",
+            "chol",
+            "k",
+            "chy",
+            "dal"
+          ],
+          "candidate_primary_split_expand": [
+            "ycheey",
+            "okay",
+            "oky",
+            "daiin",
+            "okchey",
+            "kokaiin",
+            "??chol",
+            "k??chy",
+            "dal"
+          ]
+        },
+        {
+          "id": "f1r.26",
+          "historical": [
+            "d",
+            "eeo",
+            "shody",
+            "koshey",
+            "cthy",
+            "okchey",
+            "keey",
+            "keey",
+            "dal",
+            "chtor"
+          ],
+          "candidate_primary_split_expand": [
+            "d?eeo",
+            "shody",
+            "koshey",
+            "cthy",
+            "okchey",
+            "keey",
+            "keey",
+            "dal",
+            "chtor"
+          ]
+        },
+        {
+          "id": "f1r.27",
+          "historical": [
+            "eo",
+            "chol",
+            "chok",
+            "choty",
+            "chotey"
+          ],
+          "candidate_primary_split_expand": [
+            "?eo",
+            "chol",
+            "chok",
+            "choty",
+            "chotey"
+          ]
+        },
+        {
+          "id": "f3r.9",
+          "historical": [
+            "sho",
+            "or",
+            "sheoldam",
+            "otchody",
+            "ol"
+          ],
+          "candidate_primary_split_expand": [
+            "sho",
+            "?or",
+            "sheoldam",
+            "otchody",
+            "ol"
+          ]
+        },
+        {
+          "id": "f5r.2",
+          "historical": [
+            "ochey",
+            "okey",
+            "qokaiin",
+            "sho",
+            "ckhoy",
+            "cthey",
+            "chey",
+            "oka",
+            "or",
+            "otol"
+          ],
+          "candidate_primary_split_expand": [
+            "ochey",
+            "okey",
+            "qokaiin",
+            "sho",
+            "ckhoy",
+            "cthey",
+            "chey",
+            "oka?or",
+            "otol"
+          ]
+        },
+        {
+          "id": "f6v.10",
+          "historical": [
+            "qokche",
+            "ychear",
+            "kchdy"
+          ],
+          "candidate_primary_split_expand": [
+            "qokche?",
+            "ychear",
+            "kchdy"
+          ]
+        },
+        {
+          "id": "f11v.3",
+          "historical": [
+            "otchor",
+            "dy",
+            "kchy",
+            "tchy",
+            "ar",
+            "qokchd",
+            "oky",
+            "chol",
+            "dy",
+            "dy"
+          ],
+          "candidate_primary_split_expand": [
+            "otchor",
+            "dy",
+            "kchy",
+            "tchy",
+            "?ar",
+            "qokchd",
+            "oky",
+            "chol",
+            "dy",
+            "dy"
+          ]
+        },
+        {
+          "id": "f15v.2",
+          "historical": [
+            "chor",
+            "or",
+            "oro",
+            "r",
+            "aiin",
+            "cthy",
+            "kain",
+            "dar"
+          ],
+          "candidate_primary_split_expand": [
+            "?chor",
+            "or",
+            "oro",
+            "r",
+            "aiin",
+            "cthy",
+            "kain",
+            "dar"
+          ]
+        },
+        {
+          "id": "f17r.4",
+          "historical": [
+            "tcho",
+            "shol",
+            "qokol",
+            "qor",
+            "olaiin",
+            "opydg",
+            "som",
+            "ypchy",
+            "ypaim"
+          ],
+          "candidate_primary_split_expand": [
+            "tcho?",
+            "shol",
+            "qokol",
+            "qor",
+            "olaiin",
+            "opydg",
+            "som",
+            "ypchy",
+            "ypaim"
+          ]
+        },
+        {
+          "id": "f17r.10",
+          "historical": [
+            "dar",
+            "chear",
+            "dsheor",
+            "ain",
+            "y",
+            "mol"
+          ],
+          "candidate_primary_split_expand": [
+            "dar",
+            "chear",
+            "dsheor",
+            "?ain",
+            "y",
+            "mol"
+          ]
+        },
+        {
+          "id": "f24r.10",
+          "historical": [
+            "q",
+            "or",
+            "cfhar",
+            "chor",
+            "s",
+            "am",
+            "chotaiin",
+            "dy"
+          ],
+          "candidate_primary_split_expand": [
+            "q?or",
+            "cfhar",
+            "chor",
+            "s",
+            "am",
+            "chotaiin",
+            "dy"
+          ]
+        },
+        {
+          "id": "f26r.2",
+          "historical": [
+            "dchey",
+            "aiin",
+            "adeeody",
+            "ykecthhy",
+            "chedy",
+            "ytedy",
+            "dy",
+            "checthedy",
+            "lr"
+          ],
+          "candidate_primary_split_expand": [
+            "dchey",
+            "?aiin",
+            "adeeody",
+            "ykecthhy",
+            "chedy",
+            "ytedy",
+            "dy",
+            "checthedy",
+            "lr"
+          ]
+        },
+        {
+          "id": "f26v.1",
+          "historical": [
+            "pchedar",
+            "qodary",
+            "o",
+            "iiin",
+            "pcheety",
+            "sair",
+            "shedy",
+            "ypchedy",
+            "ypchdy",
+            "qopy",
+            "shdy"
+          ],
+          "candidate_primary_split_expand": [
+            "pchedar",
+            "qodary",
+            "o?iiin",
+            "pcheety",
+            "sair",
+            "shedy",
+            "ypchedy",
+            "ypchdy",
+            "qopy",
+            "shdy"
+          ]
+        },
+        {
+          "id": "f31r.4",
+          "historical": [
+            "qotar",
+            "chy",
+            "dar",
+            "lk",
+            "r",
+            "ar",
+            "cheey",
+            "keeol",
+            "ch",
+            "d",
+            "qokey"
+          ],
+          "candidate_primary_split_expand": [
+            "qotar",
+            "chy",
+            "dar",
+            "lk",
+            "r",
+            "ar",
+            "cheey",
+            "keeol",
+            "ch?d?",
+            "qokey"
+          ]
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "Lexical layer only; full alphabet-specific and document-level conformance not certified.",
+    "Candidate views are not replacements for production experiments.",
+    "Related transcriptions are not independent manuscripts.",
+    "Static portability verification does not execute all 624 historical directories."
+  ]
+}

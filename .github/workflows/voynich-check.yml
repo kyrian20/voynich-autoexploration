@@ -80,6 +80,23 @@ jobs:
           print("Sintaxis Python correcta.")
           PY
 
+      - name: Verificar reparación de rutas sin cambios de algoritmo
+        run: python scripts/audit_legacy_portability.py
+
+      - name: Probar capa léxica IVTFF sin pérdida
+        run: python tests/test_ivtff_lossless.py
+
+      - name: Auditar preservación de información en tres transcripciones
+        run: python scripts/audit_research_readiness.py > intensive-readiness.json
+
+      - name: Conservar auditoría intensiva
+        uses: actions/upload-artifact@v4
+        with:
+          name: intensive-readiness-${{ github.run_id }}
+          path: intensive-readiness.json
+          if-no-files-found: error
+          retention-days: 90
+
       - name: Probar regresiones de metadatos IVTFF
         run: python tests/test_ivtff_metadata.py
 

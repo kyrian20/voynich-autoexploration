@@ -5,12 +5,13 @@ H195: Section-specific ch-stem vocabulary — can ch-stems identify section?
 H196: Cross-dialect ch-stem — do A-herbal and B-stars share ch-stems?
 H199: Zipf's law — does Voynich word frequency follow f(r) ∝ r^(-α)?
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 import math
 from collections import Counter, defaultdict
 
-DATA_PATH = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+DATA_PATH = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 
 def folio_base(folio):

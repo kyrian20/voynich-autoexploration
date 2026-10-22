@@ -9,12 +9,13 @@ Tests:
 2. For ch-LF and d-LF: compare ch/sh enrichment at pos2 vs pen in both sections
 3. Length-controlled analysis: lines ≥5 words only
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 from collections import defaultdict
 from statistics import mean, median
 
-ZL3B = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+ZL3B = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 ONSET_PRIORITY = ['qok','qot','qo','cth','ckh','cph','ch','sh','ok','ot','ol',
                   'sch','skh','sph','d','s','y','k','t','l','r','p','f','o','e','a','n','m']

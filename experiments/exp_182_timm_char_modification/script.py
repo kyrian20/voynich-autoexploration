@@ -59,11 +59,12 @@ Viability thresholds (identical to exp_180/exp_181):
 
 Seed base: 182000 (main); 182999 (verification, 10 sims at best combo).
 """
+from pathlib import Path as _RepositoryPath
 
 import os, re, random, json, math
 from collections import Counter, deque
 
-REPO_DIR     = os.path.expanduser('~/voynich-cryptanalyst')
+REPO_DIR     = os.path.expanduser(str(_RepositoryPath(__file__).resolve().parents[2]))
 LATIN_CORPUS = os.path.join(REPO_DIR, 'data/reference_corpora/latin/cicero_de_officiis_latin.txt')
 OUT_DIR      = os.path.join(REPO_DIR, 'experiments/exp_182_timm_char_modification/data')
 os.makedirs(OUT_DIR, exist_ok=True)

@@ -3,11 +3,12 @@ exp_071: Onset Taxonomy Stability Across B Sections (H089) + Sequential Grammar 
 H089: Is the 5-class positional onset taxonomy stable across Currier B sections?
 H090: Does the qo+gallows→ch/sh sequential rule hold across all B sections?
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 from collections import Counter, defaultdict
 
-DATA_PATH = "/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt"
+DATA_PATH = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 def clean_text(text):
     return re.sub(r'<%>|<\$>|<->|\{[^}]+\}|\[[^\]]+\]|@\d+;[a-z]*|@\d+;?', '', text)

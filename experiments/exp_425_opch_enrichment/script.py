@@ -2,11 +2,12 @@
 exp_425: B 'opch'-compound enrichment in p-LF vs non-p-LF MID positions
 H640: Is 'opchedy'/'opchdy' enrichment specific to p-formula lines?
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 from collections import Counter
 
-ZL3B = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+ZL3B = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 ONSET_ORDER = ['qok','qot','qo','cth','ch','sh','ok','ot','ol',
                'd','s','y','k','t','l','r','p','f','o']

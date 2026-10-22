@@ -5,10 +5,11 @@ H321: dam and dy are strong LL-closers (3.98×, 3.02×). What is the penultimate
   Is [X][dam@LL] or [X][dy@LL] a specific bigram construction?
 H323: [ychor][cthy@second] appears 2 times. What follows cthy at position 2? What folios?
 """
+from pathlib import Path as _RepositoryPath
 import re
 from collections import Counter, defaultdict
 
-CORPUS = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+CORPUS = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 ONSET_ORDER = ['qok','qot','qo','cth','ch_e','ch','sh','ok','ot','ol','d','s','y','k','t','l','r','p','f']
 

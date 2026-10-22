@@ -7,10 +7,11 @@ H337: 8 B-dialect ch→cth bigrams — which sections? What cth-words?
 H336: 15 A-dialect ch→r pairs — which words?
 H334: 16 A-dialect t→ot pairs — which words?
 """
+from pathlib import Path as _RepositoryPath
 import re
 from collections import Counter, defaultdict
 
-CORPUS = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+CORPUS = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 def get_onset(word):
     w = word.lower()

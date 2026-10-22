@@ -28,6 +28,7 @@ cross-line MI — this isolates within-line structure from inter-line structure)
 Note: We use word-type MI (onset class), not raw word MI, to avoid
 vocabulary size effects and make the comparison numerically stable.
 """
+from pathlib import Path as _RepositoryPath
 
 import sys
 import os
@@ -35,7 +36,7 @@ import json
 import random
 import math
 
-REPO_DIR = os.path.expanduser('~/voynich-cryptanalyst')
+REPO_DIR = os.path.expanduser(str(_RepositoryPath(__file__).resolve().parents[2]))
 sys.path.insert(0, os.path.join(REPO_DIR, 'src'))
 
 from collections import defaultdict, Counter

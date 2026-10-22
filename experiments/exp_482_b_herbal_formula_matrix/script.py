@@ -6,11 +6,12 @@ H_new_AW (embedded): Does B herbal ok-LF and ot-LF → y at pos1 (as in A herbal
 If yes: y/ok and y/ot opener is cross-dialectal.
 If no: F455/F456 are A-herbal_a-specific.
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 from collections import defaultdict
 
-ZL3B = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+ZL3B = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 ONSET_PRIORITY = ['qok','qot','qo','cth','ckh','cph','ch','sh','ok','ot','ol',
                   'sch','skh','sph','d','s','y','k','t','l','r','p','f','o','e','a','n','m']

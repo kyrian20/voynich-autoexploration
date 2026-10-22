@@ -8,12 +8,13 @@ If qo is a B-dialect marker for A's bare k/t-initial stems, then:
   - Jaccard should increase
   - Rank correlation should increase
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 import math
 from collections import Counter
 
-ZL3B = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+ZL3B = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 def parse_currier_words(path):
     """Parse words by Currier dialect."""

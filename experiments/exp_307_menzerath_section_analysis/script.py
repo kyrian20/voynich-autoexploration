@@ -15,11 +15,12 @@ This experiment:
   5. Runs simulation at beta=0.50 (exp_306 architecture) to compare section profiles
   6. Reports: where does the VMS r come from? Cross-section or within-section?
 """
+from pathlib import Path as _RepositoryPath
 
 import os, re, random, math
 from collections import Counter, deque, defaultdict
 
-REPO_DIR  = os.path.expanduser('~/voynich-cryptanalyst')
+REPO_DIR  = os.path.expanduser(str(_RepositoryPath(__file__).resolve().parents[2]))
 DATA_PATH = os.path.join(REPO_DIR, 'data/transcriptions/eva_zl3b.txt')
 
 # Section folio ranges (B-dialect text sections)

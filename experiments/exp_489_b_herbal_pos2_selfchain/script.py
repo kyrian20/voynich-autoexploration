@@ -5,11 +5,12 @@ H_new_BK: Does pos2 self-chaining extend universally to B herbal (as it does in 
 Known B herbal pos2: ch→ch(F458,CONF), d→sh(F457,CONF,cross-class). Test all LF classes.
 Also run B pharma pos2 self-chaining survey (H_new_BL).
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 from collections import defaultdict
 
-ZL3B = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+ZL3B = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 ONSET_PRIORITY = ['qok','qot','qo','cth','ckh','cph','ch','sh','ok','ot','ol',
                   'sch','skh','sph','d','s','y','k','t','l','r','p','f','o','e','a','n','m']

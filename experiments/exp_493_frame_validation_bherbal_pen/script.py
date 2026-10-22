@@ -4,11 +4,12 @@ exp_493: A herbal_a Formula Frame Validation + B herbal pen Survey
 H_new_BT: cth↔ot pen relationship; co-occurrence rates for formula frames
 H_new_BU: B herbal pen routing with correct ws[-2] baselines
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 from collections import defaultdict
 
-ZL3B = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+ZL3B = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 ONSET_PRIORITY = ['qok','qot','qo','cth','ckh','cph','ch','sh','ok','ot','ol',
                   'sch','skh','sph','d','s','y','k','t','l','r','p','f','o','e','a','n','m']

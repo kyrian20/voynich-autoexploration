@@ -8,11 +8,12 @@ H159: Three-level positional paradigm for ch-stems in A: bare ch < ? < d+ch.
 
 Also: full characterization of A mid-line ch-onset words.
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 from collections import defaultdict, Counter
 
-DATA_PATH = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+DATA_PATH = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 def folio_base(folio):
     return folio.split('.')[0]

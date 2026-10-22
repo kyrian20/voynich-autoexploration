@@ -3,11 +3,12 @@ exp_443: Word-Length Component Analysis (H494)
 Measure onset/midfix/suffix component lengths in VMS corpus by dialect/position.
 Target: identify which component drives the 22% length overproduction in simulation (exp_217).
 """
+from pathlib import Path as _RepositoryPath
 import re
 from collections import defaultdict, Counter
 import statistics
 
-ZL3B = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+ZL3B = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 ONSETS = ['qok','qot','qo','cth','ch','sh','ok','ot','ol','d','s','y','k','t','l','r','p','f','o']
 SUFFIXES = [

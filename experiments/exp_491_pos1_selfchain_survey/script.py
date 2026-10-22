@@ -5,11 +5,12 @@ H_new_BP: Is pos1 self-chaining universal (like pos2) or partial in A herbal_a?
 Compare pos1 vs pos2 self-chaining for each LF class.
 Also test pos1 cross-class routing vs self-chaining coexistence.
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 from collections import defaultdict
 
-ZL3B = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+ZL3B = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 ONSET_PRIORITY = ['qok','qot','qo','cth','ckh','cph','ch','sh','ok','ot','ol',
                   'sch','skh','sph','d','s','y','k','t','l','r','p','f','o','e','a','n','m']

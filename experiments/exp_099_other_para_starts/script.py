@@ -10,11 +10,12 @@ H185: Is o-onset specifically enriched at PARA-FINAL positions?
 
 H186 (bonus): What is the onset distribution of line-2 "OTHER" words within paragraphs?
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 from collections import defaultdict, Counter
 
-DATA_PATH = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+DATA_PATH = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 
 def folio_base(folio):

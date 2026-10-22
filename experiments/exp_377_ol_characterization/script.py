@@ -6,11 +6,12 @@ ol is the primary B-dialect LL terminal class after multiple template class pre_
 F368: B LL={d,ol,s}. No vocabulary, positional, or bigram characterization exists.
 This experiment characterizes ol vocabulary, positional grammar, and bigram rules.
 """
+from pathlib import Path as _RepositoryPath
 
 import os, re
 from collections import Counter, defaultdict
 
-DATA_PATH = os.path.expanduser('~/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt')
+DATA_PATH = os.path.expanduser(str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt'))
 TARGET = 'ol'  # onset to characterize
 ONSET_LEN = 2  # len('ol')
 

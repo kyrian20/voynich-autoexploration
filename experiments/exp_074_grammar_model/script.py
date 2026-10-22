@@ -4,12 +4,13 @@ H097: Does Currier A also have d/sh complementarity?
 H098: Does a bigram onset model outperform unigram? Is B's grammar stronger than A's?
 H099: Are line-final words determined by the preceding onset class?
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 import math
 from collections import Counter, defaultdict
 
-DATA_PATH = "/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt"
+DATA_PATH = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 def clean_text(text):
     return re.sub(r'<%>|<\$>|<->|\{[^}]+\}|\[[^\]]+\]|@\d+;[a-z]*|@\d+;?', '', text)

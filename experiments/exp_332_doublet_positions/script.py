@@ -13,11 +13,12 @@ Test: for each of the 5 onset classes × core bodies, compute mean MID position 
 word and compare to: (1) expected class position from F331, (2) whether body-sharing words
 differ in position.
 """
+from pathlib import Path as _RepositoryPath
 
 import os, re, statistics
 from collections import Counter, defaultdict
 
-REPO_DIR  = os.path.expanduser('~/voynich-cryptanalyst')
+REPO_DIR  = os.path.expanduser(str(_RepositoryPath(__file__).resolve().parents[2]))
 DATA_PATH = os.path.join(REPO_DIR, 'data/transcriptions/eva_zl3b.txt')
 
 ONSET_ORDER=[

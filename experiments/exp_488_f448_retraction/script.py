@@ -4,11 +4,12 @@ exp_488: F448 Retraction Investigation — y-LF N Discrepancy
 H_new_BJ: Does exp_476's y-LF N=124 and ok@pos2 obs=20 reproduce with correct methodology?
 Definitive: reproduce exp_487 methodology exactly for y-LF, show N_lf and pos2 distribution.
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 from collections import defaultdict
 
-ZL3B = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+ZL3B = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 ONSET_PRIORITY = ['qok','qot','qo','cth','ckh','cph','ch','sh','ok','ot','ol',
                   'sch','skh','sph','d','s','y','k','t','l','r','p','f','o','e','a','n','m']

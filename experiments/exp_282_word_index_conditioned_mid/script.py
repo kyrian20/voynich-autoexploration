@@ -39,12 +39,13 @@ Calibration:
 - L_slope = -0.053 chars/word-idx (VMS B MID slope from F272)
 - Short-onset classes: d, s, y, k, t, l, r, p, f, o (single/short char onsets)
 """
+from pathlib import Path as _RepositoryPath
 
 import os, re, random
 from collections import Counter, deque, defaultdict
 import math
 
-REPO_DIR     = os.path.expanduser('~/voynich-cryptanalyst')
+REPO_DIR     = os.path.expanduser(str(_RepositoryPath(__file__).resolve().parents[2]))
 LATIN_CORPUS = os.path.join(REPO_DIR, 'data/reference_corpora/latin/cicero_de_officiis_latin.txt')
 DATA_PATH    = os.path.join(REPO_DIR, 'data/transcriptions/eva_zl3b.txt')
 

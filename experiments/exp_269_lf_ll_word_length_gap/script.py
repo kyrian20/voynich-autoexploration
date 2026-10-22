@@ -21,11 +21,12 @@ This experiment:
 4. Checks if using position-specific suffix distribution (vs global) would close the gap.
 5. Analyzes midfix region: characters between onset and matched suffix.
 """
+from pathlib import Path as _RepositoryPath
 
 import os, re
 from collections import Counter, defaultdict
 
-REPO_DIR  = os.path.expanduser('~/voynich-cryptanalyst')
+REPO_DIR  = os.path.expanduser(str(_RepositoryPath(__file__).resolve().parents[2]))
 DATA_PATH = os.path.join(REPO_DIR, 'data/transcriptions/eva_zl3b.txt')
 
 ONSET_ORDER = [

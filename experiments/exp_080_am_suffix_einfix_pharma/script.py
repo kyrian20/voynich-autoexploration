@@ -6,12 +6,13 @@ H120: Do e-infix words (she-, che-, ke-) take specific suffix classes?
 H121: Is -am a grammatical line-boundary marker in B?
 H122: Where does Pharma A sit on the A-to-B spectrum of features?
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 import math
 from collections import Counter, defaultdict
 
-DATA_PATH = "/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt"
+DATA_PATH = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 AIIN_DOM_FOLIOS = {'f6r', 'f6v', 'f7r', 'f7v', 'f8r', 'f8v', 'f9r', 'f9v',
                    'f10r', 'f10v', 'f11r', 'f11v', 'f13r', 'f13v', 'f14r', 'f14v',

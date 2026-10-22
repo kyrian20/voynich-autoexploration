@@ -23,11 +23,12 @@ Design:
   Compare: same analysis for simulation (exp_236 architecture, N=10)
   Does the simulation show similar 2nd-order enrichment patterns?
 """
+from pathlib import Path as _RepositoryPath
 
 import os, re, random
 from collections import Counter, defaultdict, deque
 
-REPO_DIR  = os.path.expanduser('~/voynich-cryptanalyst')
+REPO_DIR  = os.path.expanduser(str(_RepositoryPath(__file__).resolve().parents[2]))
 LATIN_CORPUS = os.path.join(REPO_DIR, 'data/reference_corpora/latin/cicero_de_officiis_latin.txt')
 DATA_PATH = os.path.join(REPO_DIR, 'data/transcriptions/eva_zl3b.txt')
 

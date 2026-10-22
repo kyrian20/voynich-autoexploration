@@ -3,11 +3,12 @@ exp_427: Gallows-class generalization of LF-onset MID embedding
 H647: Does f/t/k-LF show gallows-embedded compound enrichment at MID,
       analogous to p-LF→opch enrichment (F427)?
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 from collections import Counter, defaultdict
 
-ZL3B = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+ZL3B = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 ONSET_ORDER = ['qok','qot','qo','cth','ch','sh','ok','ot','ol',
                'd','s','y','k','t','l','r','p','f','o']

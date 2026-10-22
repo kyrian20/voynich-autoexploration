@@ -36,11 +36,12 @@ Viability (same as exp_179):
 
 Seed base: 180000 (main run); 180999 (verification run, 10 sims at best combo).
 """
+from pathlib import Path as _RepositoryPath
 
 import os, re, random, json, math
 from collections import Counter, deque
 
-REPO_DIR     = os.path.expanduser('~/voynich-cryptanalyst')
+REPO_DIR     = os.path.expanduser(str(_RepositoryPath(__file__).resolve().parents[2]))
 LATIN_CORPUS = os.path.join(REPO_DIR, 'data/reference_corpora/latin/cicero_de_officiis_latin.txt')
 OUT_DIR      = os.path.join(REPO_DIR, 'experiments/exp_180_position_aware_hybrid/data')
 os.makedirs(OUT_DIR, exist_ok=True)

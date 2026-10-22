@@ -4,11 +4,12 @@ Experiment exp_037: Label 'o'-Initial Morpheme Analysis (H033)
 58.4% of object labels begin with 'o'. Is this a label-marker prefix,
 or does it reflect section-specific vocabulary?
 """
+from pathlib import Path as _RepositoryPath
 
 import re, math
 from collections import Counter, defaultdict
 
-ZL3B = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+ZL3B = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 def parse_all(path):
     label_entries = []

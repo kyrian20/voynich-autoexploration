@@ -5,11 +5,12 @@ H_new_CP: Does A stars (186 lines) have confirmed pen routing rules?
 H_new_CQ: Does B herbal (272 lines) have confirmed pen routing rules?
 Also: compile cross-section pen grammar summary table.
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 from collections import defaultdict, Counter
 
-CORPUS = "/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt"
+CORPUS = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 ONSET_PRIORITY = [
     'qok','qot','qo','cth','ckh','cph','ch','sh','ok','ot','ol',
     'sch','skh','sph','d','s','y','k','t','l','r','p','f','o','e','a','n','m'

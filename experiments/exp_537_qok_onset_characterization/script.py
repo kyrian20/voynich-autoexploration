@@ -10,11 +10,12 @@ Four-part characterization of qok-onset class in both dialects:
 Completes the template class quad: qot (F533/F534), ot (F536/F537), ok (F539/F540), qok (this exp).
 Compare against qo-prefix gradient from F539.
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 from collections import defaultdict, Counter
 
-CORPUS = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+CORPUS = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 ONSET_PRIORITY = [
     'qok','qot','qo','cth','ckh','cph','ch','sh','ok','ot','ol','sch','skh','sph',

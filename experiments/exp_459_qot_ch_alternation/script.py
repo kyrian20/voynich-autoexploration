@@ -9,10 +9,11 @@ Method:
   Part B: Full B cross-line onset matrix comparison (to identify all complementary pairs).
   Part C: A dialect — ch cross-line triple chain (ch at LL of line N, ch at LF of N+1, ch at LL of N+1 or LF of N+2).
 """
+from pathlib import Path as _RepositoryPath
 import re
 from collections import defaultdict, Counter
 
-ZL3B = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+ZL3B = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 ONSETS = ['qok','qot','qo','cth','ch','sh','ok','ot','ol','d','s','y','k','t','l','r','p','f','o']
 

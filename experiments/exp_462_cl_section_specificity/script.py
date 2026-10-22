@@ -5,10 +5,11 @@ Q: Are B cross-line onset couplings (F438/F442/F443) section-specific?
 Method: Decompose B CL couplings by section (herbal/astro/pharma/bio/text/cosmo).
 Compute section-specific E for: ch→qot, s→qok, d→sh, d→qok, ok→y, sh→d, qok→s.
 """
+from pathlib import Path as _RepositoryPath
 import re
 from collections import defaultdict, Counter
 
-ZL3B = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+ZL3B = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 ONSETS = ['qok','qot','qo','cth','ch','sh','ok','ot','ol','d','s','y','k','t','l','r','p','f','o']
 
 def get_onset(word):

@@ -9,6 +9,7 @@ H232: Do stars section paragraphs have a repeating template?
       Stars paragraphs: line count distribution, line-position onset enrichment,
       whether specific onset patterns repeat across paragraphs.
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 import math
@@ -361,7 +362,7 @@ def analyze_stars_paragraphs(records):
 # ── main ──────────────────────────────────────────────────────────────────────
 
 if __name__ == '__main__':
-    corpus_path = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+    corpus_path = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
     print("Loading corpus...")
     records = parse_corpus(corpus_path)
     total_words = sum(len(r['words']) for r in records)

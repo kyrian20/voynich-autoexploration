@@ -4,10 +4,11 @@ exp_203: pol-Prefix PS vs WP-LF (H374), [ch][daiin][cth] Triple (H375),
 
 Parser: identical to exp_201/202 (ZL3b paragraph-aware, dot-split words).
 """
+from pathlib import Path as _RepositoryPath
 import re
 from collections import defaultdict, Counter
 
-DATA_PATH = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+DATA_PATH = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 
 def folio_base(folio):

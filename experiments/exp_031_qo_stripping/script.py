@@ -8,13 +8,14 @@ Tests:
  2. H2 of qo-words vs non-qo words (parallel corpora)
  3. Vocabulary diversity of qo-stripped vs full corpus
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 import math
 from collections import Counter
 
-ZL3B = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
-LATIN = '/Users/asash/voynich-cryptanalyst/data/reference_corpora/latin_vulgate.txt'
+ZL3B = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
+LATIN = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/reference_corpora/latin_vulgate.txt')
 
 def parse_words(path, body_only=True):
     """Extract word tokens from IVTFF file."""

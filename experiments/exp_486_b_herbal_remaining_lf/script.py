@@ -4,11 +4,12 @@ exp_486: B herbal Remaining LF Classes — d-LF, y-LF, ok-LF pos1/pos2 Routing
 H_new_BF: Cross-dialectal conservation tests for A herbal_a F453 (d→ot@pos1), F448 (y→ok@pos2), F455 (ok→y@pos1)
 Also: A herbal_a sh-LF and qot-LF complete routing (H_new_BG)
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 from collections import defaultdict
 
-ZL3B = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+ZL3B = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 ONSET_PRIORITY = ['qok','qot','qo','cth','ckh','cph','ch','sh','ok','ot','ol',
                   'sch','skh','sph','d','s','y','k','t','l','r','p','f','o','e','a','n','m']

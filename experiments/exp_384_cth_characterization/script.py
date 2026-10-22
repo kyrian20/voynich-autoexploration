@@ -5,11 +5,12 @@ cth is an A-specific sparse-midfix class. Known: A d→cth pan-positional (F385/
 This experiment provides full cth vocabulary, positional distribution, self-succession positional,
 and complete outgoing bigram characterization.
 """
+from pathlib import Path as _RepositoryPath
 
 import os, re
 from collections import Counter, defaultdict
 
-DATA_PATH = os.path.expanduser('~/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt')
+DATA_PATH = os.path.expanduser(str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt'))
 TARGET = 'cth'  # onset to characterize
 ONSET_LEN = 3   # len('cth')
 

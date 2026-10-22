@@ -14,11 +14,12 @@ H179: f+ch cross-dialect asymmetry — why does B f+ch have 0% PS?
 H193: Section vs length effect on grammar strictness — within herbal A,
       do shorter paragraphs follow positional grammar less strictly?
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 from collections import Counter, defaultdict
 
-DATA_PATH = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+DATA_PATH = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 
 def folio_base(folio):

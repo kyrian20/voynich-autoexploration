@@ -4,11 +4,12 @@ exp_141: l-onset (B-dialect) vs cth-onset (A-dialect) — positional parallel? (
          Are lch-words medially concentrated like cth-words?
          Do they appear in similar positional/bigram contexts?
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 from collections import Counter, defaultdict
 
-CORPUS = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+CORPUS = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 SECTION_MAP = {}
 for f in range(1, 58):    SECTION_MAP[f] = 'herbal'

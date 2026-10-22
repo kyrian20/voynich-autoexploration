@@ -4,11 +4,12 @@ exp_503: F480 Scope — a-LF → y@pos1 in B herbal, B astro, B cosmo
 H_new_CI: Is F480 (B pharma a-LF → y@pos1, CONF) B-dialect-wide or B pharma-specific?
 Also tests: A herbal_a, A cosmo a-LF → y@pos1 for full picture.
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 from collections import defaultdict
 
-ZL3B = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+ZL3B = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 ONSET_PRIORITY = ['qok','qot','qo','cth','ckh','cph','ch','sh','ok','ot','ol',
                   'sch','skh','sph','d','s','y','k','t','l','r','p','f','o','e','a','n','m']

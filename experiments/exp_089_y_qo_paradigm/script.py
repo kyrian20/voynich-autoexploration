@@ -4,11 +4,12 @@ exp_089: y+{stem} vs qo+{stem} Positional Paradigm (H154), B Line Structure Temp
 H154: y+{stem} (line-initial) and qo+{stem} (mid-line) are alternants of the same stem.
 H155: How many B lines follow the full [y/s opener → qo mid → -am/oly closer] template?
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 from collections import defaultdict, Counter
 
-DATA_PATH = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+DATA_PATH = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 def folio_base(folio):
     return folio.split('.')[0]

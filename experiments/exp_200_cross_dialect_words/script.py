@@ -7,11 +7,12 @@ H363: B para-final closing vocabulary — which specific words close B paragraph
 H364: p-onset WP-LF vocabulary in B — which p-onset words flood B's WP-LF?
 H365: sh-prefix successor profile — is she-qo affinity specific to she- or all sh-prefix?
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 from collections import defaultdict, Counter
 
-DATA_PATH = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+DATA_PATH = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 
 def folio_base(folio):

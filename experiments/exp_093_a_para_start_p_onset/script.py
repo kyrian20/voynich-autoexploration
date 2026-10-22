@@ -5,12 +5,13 @@ H164: A para-starts are dominated by specific p-onset words — identify the clo
 H165: d-closer → d+ch opener is statistically significant (d-chain pattern).
 H166: A p-onset para-start words = B's pchedy/tchedy para-starters — both dialects use p/t-onset for para-starts.
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 import os
 from collections import defaultdict, Counter
 
-DATA_PATH = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+DATA_PATH = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 
 def folio_base(folio):

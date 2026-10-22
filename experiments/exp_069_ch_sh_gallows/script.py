@@ -3,11 +3,12 @@ exp_069: ch vs sh Discrimination (H085) + Gallows Individual Positional Grammar 
 H085: What determines whether ch or sh appears? Are they in complementary distribution?
 H086: Do k, t, f, p have individual positional grammars, or are k/t truly interchangeable?
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 from collections import Counter, defaultdict
 
-DATA_PATH = "/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt"
+DATA_PATH = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 SUFFIX_LIST = ['aiin', 'ain', 'eedy', 'edy', 'chy', 'eey', 'dy', 'ey', 'y', 'ol', 'or', 'al', 'ar', 'iin', 'in']
 
 def suffix_group(word):

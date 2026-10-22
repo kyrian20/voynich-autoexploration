@@ -5,11 +5,12 @@ Is this driven by a small set of frequent words, or distributed across stems?
 Do pharma LABELS also prefer -ol endings?
 What stems carry the pharma -ol signal?
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 from collections import Counter, defaultdict
 
-DATA_PATH = "/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt"
+DATA_PATH = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 LABEL_LOCI = {'Lf', 'Ls', 'Lz', 'Lc', 'Ln', 'Lt', 'La', 'Lp', 'Lx'}
 SUFFIX_LIST = ['aiin', 'ain', 'eedy', 'edy', 'chy', 'eey', 'dy', 'ey', 'y', 'ol', 'or', 'al', 'ar', 'iin', 'in']

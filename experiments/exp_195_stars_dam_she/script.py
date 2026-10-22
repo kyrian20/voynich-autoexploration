@@ -14,11 +14,12 @@ H127: d-onset cross-dialect bridge — dam/d-onset positional comparison A vs B.
 
 H147: she- word following profile — what words/onsets follow she-prefix words?
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 from collections import Counter, defaultdict
 
-DATA_PATH = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+DATA_PATH = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 
 def folio_base(folio):

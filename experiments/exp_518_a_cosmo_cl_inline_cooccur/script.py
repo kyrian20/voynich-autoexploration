@@ -6,11 +6,12 @@ Questions:
   - H_new_DA: ot-LF pos1+pos2=y co-occurrence in A herbal_a (inline, tiny).
   - H_new_DB: cth-LF pos2=qot AND pen=d co-occurrence in A herbal_a (inline, tiny).
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 from collections import Counter, defaultdict
 
-CORPUS = "/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt"
+CORPUS = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 ONSET_PRIORITY = [
     'qok','qot','qo','cth','ckh','cph','ch','sh','ok','ot','ol',
     'sch','skh','sph','d','s','y','k','t','l','r','p','f','o','e','a','n','m'

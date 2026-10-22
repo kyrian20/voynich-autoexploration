@@ -2,10 +2,11 @@
 exp_205: H382 sh-grammar neighborhood in A; H383 qokaiin positional profile A vs B;
          H384 B-dialect cth-rate and cth-word positional profile; H385 [ch][daiin][cth][daiin] quadruple.
 """
+from pathlib import Path as _RepositoryPath
 import re
 from collections import defaultdict, Counter
 
-DATA_PATH = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+DATA_PATH = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 ONSET_ORDER = [
     ('qok', 'qok'), ('qot', 'qot'), ('qo', 'qo'), ('cth', 'cth'),

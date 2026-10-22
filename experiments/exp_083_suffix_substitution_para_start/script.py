@@ -9,12 +9,13 @@ H133: B para-starts show no p-onset marking — are they morphologically
       indistinguishable from non-para-start lines?
 H135: Does A have a para-start morphological marker?
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 import math
 from collections import defaultdict, Counter
 
-DATA_PATH = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+DATA_PATH = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 AIIN_DOM_FOLIOS = {
     'f1r','f1v','f2r','f2v','f3r','f3v','f4r','f4v','f5r','f5v',

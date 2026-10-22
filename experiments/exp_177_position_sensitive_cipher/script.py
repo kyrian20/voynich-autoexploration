@@ -28,11 +28,12 @@ Three calibration levels tested for the LL table:
 This tests whether ANY level of position-sensitive encoding can reproduce
 the VMS -am LL enrichment of 6.811×.
 """
+from pathlib import Path as _RepositoryPath
 
 import os, sys, re, random, json
 from collections import Counter, defaultdict
 
-REPO_DIR = os.path.expanduser('~/voynich-cryptanalyst')
+REPO_DIR = os.path.expanduser(str(_RepositoryPath(__file__).resolve().parents[2]))
 VMS_CORPUS = os.path.join(REPO_DIR, 'data/transcriptions/eva_zl3b.txt')
 LATIN_CORPUS = os.path.join(REPO_DIR, 'data/reference_corpora/latin/cicero_de_officiis_latin.txt')
 OUT_DIR = os.path.join(REPO_DIR, 'experiments/exp_177_position_sensitive_cipher/data')

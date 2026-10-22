@@ -4,11 +4,12 @@ exp_053 found 'y-' initial words (ychor, ycheey, etc.) are 5-6× enriched at lin
 H061: Is this effect concentrated at PARAGRAPH starts (@P0) vs mid-paragraph lines (+P0)?
 Also tests H062: -ain concentration at paragraph vs mid-paragraph boundaries.
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 from collections import Counter, defaultdict
 
-DATA_PATH = "/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt"
+DATA_PATH = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 SUFFIX_LIST = ['aiin', 'ain', 'eedy', 'edy', 'chy', 'eey', 'dy', 'ey', 'y', 'ol', 'or', 'al', 'ar', 'iin', 'in']
 

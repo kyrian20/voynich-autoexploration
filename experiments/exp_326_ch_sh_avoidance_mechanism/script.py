@@ -12,11 +12,12 @@ Two tests:
      one sh-onset word, compute ch→sh and sh→ch bigram enrichment within those lines only.
      If avoidance persists within mixed-onset lines, it's a sequential grammar rule.
 """
+from pathlib import Path as _RepositoryPath
 
 import os, re, math
 from collections import Counter, defaultdict
 
-REPO_DIR  = os.path.expanduser('~/voynich-cryptanalyst')
+REPO_DIR  = os.path.expanduser(str(_RepositoryPath(__file__).resolve().parents[2]))
 DATA_PATH = os.path.join(REPO_DIR, 'data/transcriptions/eva_zl3b.txt')
 
 ONSET_ORDER=[

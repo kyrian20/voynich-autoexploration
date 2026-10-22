@@ -15,11 +15,12 @@ Measurement:
 4. Cross-dialect pair overlap: are the same y×d pairs enriched in both dialects?
 5. Compare to sh→qok mechanism: is y→d analogous (class-level) or more concentrated (word-type)?
 """
+from pathlib import Path as _RepositoryPath
 
 import os, re
 from collections import Counter, defaultdict
 
-REPO_DIR  = os.path.expanduser('~/voynich-cryptanalyst')
+REPO_DIR  = os.path.expanduser(str(_RepositoryPath(__file__).resolve().parents[2]))
 DATA_PATH = os.path.join(REPO_DIR, 'data/transcriptions/eva_zl3b.txt')
 
 ONSET_ORDER=[

@@ -30,11 +30,12 @@ Pre-registration:
 
 Seed base: 186000.
 """
+from pathlib import Path as _RepositoryPath
 
 import os, re, random, json
 from collections import Counter, deque
 
-REPO_DIR     = os.path.expanduser('~/voynich-cryptanalyst')
+REPO_DIR     = os.path.expanduser(str(_RepositoryPath(__file__).resolve().parents[2]))
 LATIN_CORPUS = os.path.join(REPO_DIR, 'data/reference_corpora/latin/cicero_de_officiis_latin.txt')
 OUT_DIR      = os.path.join(REPO_DIR, 'experiments/exp_186_pdetect_sweep/data')
 os.makedirs(OUT_DIR, exist_ok=True)

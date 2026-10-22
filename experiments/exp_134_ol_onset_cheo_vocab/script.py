@@ -5,12 +5,13 @@ exp_134: ol-Onset Characterization (H262) + Stars ch+eo Vocabulary (H263)
 H262: Is ol-onset a distinct onset class with sub-classes? Cosmo=2.06× corpus.
 H263: Are cheo/cheody/cheeo stars-exclusive ch+eo morphological sub-class?
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 import math
 from collections import defaultdict, Counter
 
-CORPUS_PATH = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+CORPUS_PATH = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 ONSET_CLASSES = [
     'qok', 'qot', 'qo',

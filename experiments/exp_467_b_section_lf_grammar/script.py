@@ -3,10 +3,11 @@ exp_467: B-Dialect Full Section LF-Class Grammar (H_new_AG)
 Q: Do B herbal/pharma/cosmo sections have section-specific LF onset markers,
    parallel to B astro qok-LF (F431) and A stars t-LF (F446)?
 """
+from pathlib import Path as _RepositoryPath
 import re
 from collections import defaultdict, Counter
 
-ZL3B = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+ZL3B = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 ONSETS = ['qok','qot','qo','cth','ch','sh','ok','ot','ol','d','s','y','k','t','l','r','p','f','o']
 
 def get_onset(word):

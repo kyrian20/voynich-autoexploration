@@ -16,11 +16,12 @@ Note: ch and sh are the two highest-frequency onsets in both dialects (~15-25% e
 High-frequency onsets would be EXPECTED to self-succeed more by chance (buffer cycling),
 yet VMS shows depletion. This is a genuine anti-self-succession pattern.
 """
+from pathlib import Path as _RepositoryPath
 
 import os, re, random, math
 from collections import Counter, deque, defaultdict
 
-REPO_DIR   = os.path.expanduser('~/voynich-cryptanalyst')
+REPO_DIR   = os.path.expanduser(str(_RepositoryPath(__file__).resolve().parents[2]))
 DATA_PATH  = os.path.join(REPO_DIR, 'data/transcriptions/eva_zl3b.txt')
 LATIN_CORPUS = os.path.join(REPO_DIR, 'data/reference_corpora/latin/cicero_de_officiis_latin.txt')
 

@@ -3,12 +3,13 @@ exp_040: Currier A Suffix Paradigm — Does A Have a Parallel to B's 9-Form Syst
 H040: Currier A has a structural parallel to B's -edy/-ain suffix paradigm.
 Method: Same suffix_group() as exp_038, applied only to Currier A body text.
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 import sys
 from collections import defaultdict
 
-DATA_PATH = "/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt"
+DATA_PATH = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 # Same suffix priority list as exp_038 (longest match first)
 SUFFIXES = ['aiin', 'ain', 'eedy', 'edy', 'chy', 'eey', 'dy', 'ey', 'y',

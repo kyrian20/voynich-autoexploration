@@ -6,11 +6,12 @@ From exp_394: B t→sh=35 lines, t→ch=38 lines.
 Q: What is the full t→pos1 distribution, and what does t produce at pos2 for each pos1?
 Is there a third gallows formula type (t→{ch or sh}→pos2 distinct from p→sh→qot and y→sh→ch)?
 """
+from pathlib import Path as _RepositoryPath
 
 import os, re
 from collections import Counter, defaultdict
 
-DATA_PATH = os.path.expanduser('~/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt')
+DATA_PATH = os.path.expanduser(str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt'))
 
 ONSET_ORDER = [
     ('qok','qok'),('qot','qot'),('qo','qo'),('cth','cth'),

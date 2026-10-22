@@ -27,11 +27,12 @@ Tests:
   H3: -am words at LL are specifically -am, not any LL word
   H4: y-onset words at LF are specifically y-onset, not any LF word
 """
+from pathlib import Path as _RepositoryPath
 
 import sys
 import os
 
-REPO_DIR = os.path.expanduser('~/voynich-cryptanalyst')
+REPO_DIR = os.path.expanduser(str(_RepositoryPath(__file__).resolve().parents[2]))
 sys.path.insert(0, os.path.join(REPO_DIR, 'src'))
 
 from collections import defaultdict, Counter

@@ -11,11 +11,12 @@ position category. Specifically:
 H541 (open): A-dialect daiin LL enrichment — is it word-specific or class-wide?
 H579 (new): Full A-dialect onset positional matrix; d-class LL affinity vs daiin formula.
 """
+from pathlib import Path as _RepositoryPath
 
 import os, re
 from collections import Counter, defaultdict
 
-REPO_DIR  = os.path.expanduser('~/voynich-cryptanalyst')
+REPO_DIR  = os.path.expanduser(str(_RepositoryPath(__file__).resolve().parents[2]))
 DATA_PATH = os.path.join(REPO_DIR, 'data/transcriptions/eva_zl3b.txt')
 
 def folio_base(folio):

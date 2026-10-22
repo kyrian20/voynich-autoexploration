@@ -23,11 +23,12 @@ Plus: baseline_clamp_shchd (uniform clamp, no length bias) for comparison.
 
 Target: CP90 near-VMS for sh/ch/d AND menz_r ≥ 95% AND 19/19 PASS.
 """
+from pathlib import Path as _RepositoryPath
 
 import os, re, random, math
 from collections import Counter, deque, defaultdict
 
-REPO_DIR     = os.path.expanduser('~/voynich-cryptanalyst')
+REPO_DIR     = os.path.expanduser(str(_RepositoryPath(__file__).resolve().parents[2]))
 LATIN_CORPUS = os.path.join(REPO_DIR, 'data/reference_corpora/latin/cicero_de_officiis_latin.txt')
 DATA_PATH    = os.path.join(REPO_DIR, 'data/transcriptions/eva_zl3b.txt')
 

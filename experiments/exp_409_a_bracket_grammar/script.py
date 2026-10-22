@@ -11,11 +11,12 @@ For A continuation lines (≥4 words), for each LF class:
 We already know: A p → sh-bracket (pos1=sh 1.66×, LL=sh 3.52×, joint E=1.80×, N=3).
 H624 asks: do A qot / s / d / y / other LF classes show bracket structure?
 """
+from pathlib import Path as _RepositoryPath
 
 import os, re
 from collections import Counter, defaultdict
 
-DATA_PATH = os.path.expanduser('~/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt')
+DATA_PATH = os.path.expanduser(str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt'))
 
 ONSET_ORDER = [
     ('qok','qok'),('qot','qot'),('qo','qo'),('cth','cth'),

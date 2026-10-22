@@ -6,11 +6,12 @@ H266: Is -am a SENTENCE-FINAL (paragraph-final) marker, not just a line-final ma
 H267: Does the 71-word universal core behave as functional vocabulary (balanced positional distribution)?
 H268: Are the 31 cosmo-absent words (chor, sho, cthy, cthol, cheo) A-dialect specific?
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 from collections import defaultdict, Counter
 
-CORPUS_PATH = "/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt"
+CORPUS_PATH = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 SECTION_MAP = {}
 for f in range(1, 58):

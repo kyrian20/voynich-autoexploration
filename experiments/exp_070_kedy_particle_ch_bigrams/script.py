@@ -3,11 +3,12 @@ exp_070: k+-dy Particle Analysis (H087) + ch-ch/sh-sh Bigram Constructions (H088
 H087: Is 'kedy' a positionally-restricted grammatical particle?
 H088: Do ch-ch and sh-sh self-following bigrams form bi-word constructions?
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 from collections import Counter, defaultdict
 
-DATA_PATH = "/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt"
+DATA_PATH = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 SUFFIX_LIST = ['aiin', 'ain', 'eedy', 'edy', 'chy', 'eey', 'dy', 'ey', 'y', 'ol', 'or', 'al', 'ar', 'iin', 'in']
 
 def suffix_group(word):

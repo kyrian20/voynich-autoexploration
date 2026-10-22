@@ -5,11 +5,12 @@ Is daiin a cth-specific determiner or general linker?
 Compute daiin→[onset] enrichment across all onset classes in A and B dialects.
 Compare with aiin/ar/ol→cth enrichment to isolate uniqueness.
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 from collections import defaultdict
 
-CORPUS_PATH = "/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt"
+CORPUS_PATH = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 # Onset classes (order matters — longer/more specific first)
 ONSET_CLASSES = [

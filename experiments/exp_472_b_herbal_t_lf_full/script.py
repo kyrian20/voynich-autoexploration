@@ -15,11 +15,12 @@ Questions:
 4. Also check B herbal y-LF (N=55) for comparison (the second elevated LF class in B herbal)
 5. Word-level inventory for B herbal and B cosmo t-LF lines
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 from collections import defaultdict, Counter
 
-ZL3B = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+ZL3B = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 ONSETS = ['qok','qot','qo','cth','ckh','cph','ch','sh','ok','ot','ol',
           'sch','skh','sph','d','s','y','k','t','l','r','p','f','o','e','a','n','m']
 

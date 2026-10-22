@@ -3,12 +3,13 @@ exp_061: Paragraph Structure by Section (H071) + k vs t Onset Classes (H070)
 H071: Is single-paragraph structure herbal-specific, or does it extend to all sections?
 H070: Do k-initial and t-initial words (the 'other' onset class) have different suffix preferences?
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 from collections import Counter, defaultdict
 import math
 
-DATA_PATH = "/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt"
+DATA_PATH = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 SUFFIX_LIST = ['aiin', 'ain', 'eedy', 'edy', 'chy', 'eey', 'dy', 'ey', 'y', 'ol', 'or', 'al', 'ar', 'iin', 'in']
 
 def suffix_group(word):

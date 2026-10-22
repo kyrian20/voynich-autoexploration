@@ -4,11 +4,12 @@ exp_396: A dialect sh-pos1 LF×pos2 Matrix (H616)
 Analogous to exp_394 but for A-dialect.
 Q: Does A dialect sh-pos1 grammar have the same five formula-typed LF grammar types as B?
 """
+from pathlib import Path as _RepositoryPath
 
 import os, re
 from collections import Counter, defaultdict
 
-DATA_PATH = os.path.expanduser('~/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt')
+DATA_PATH = os.path.expanduser(str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt'))
 
 ONSET_ORDER = [
     ('qok','qok'),('qot','qot'),('qo','qo'),('cth','cth'),

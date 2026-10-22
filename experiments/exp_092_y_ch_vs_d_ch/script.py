@@ -12,12 +12,13 @@ H162: sh-stem positional paradigm in A — does bare sh / d+sh / y+sh follow sam
 H163: A inter-line continuation — do y+ch and d+ch openers appear at different rates
       depending on the PRECEDING line's closing word onset?
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 import os
 from collections import defaultdict, Counter
 
-DATA_PATH = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+DATA_PATH = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 
 def folio_base(folio):

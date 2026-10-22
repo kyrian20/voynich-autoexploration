@@ -9,11 +9,12 @@ Both need positional decomposition (LF→pos1, pos1→pos2, MID_inner, pre_LL→
 and word-level analysis to identify drivers.
 Also check: B s→ol (E=1.78×, N=39) and A sh→t (E=2.04×, N=30).
 """
+from pathlib import Path as _RepositoryPath
 
 import os, re
 from collections import Counter, defaultdict
 
-DATA_PATH = os.path.expanduser('~/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt')
+DATA_PATH = os.path.expanduser(str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt'))
 
 ONSET_ORDER = [
     ('qok','qok'),('qot','qot'),('qo','qo'),('cth','cth'),

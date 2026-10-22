@@ -7,12 +7,13 @@ H102: Does A have a dominant onset-class trigram structure analogous to B's qoâ†
 H103: Does the sequential grammar differ between A's y-dominant and aiin-dominant registers?
 H104: Does B's line-final onset distribution differ by section?
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 import math
 from collections import Counter, defaultdict
 
-DATA_PATH = "/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt"
+DATA_PATH = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 # Aiin-dominant Herbal A folios (from exp_059/exp_062)
 AIIN_DOM_FOLIOS = {'f6r', 'f6v', 'f7r', 'f7v', 'f8r', 'f8v', 'f9r', 'f9v',

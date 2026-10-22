@@ -13,12 +13,13 @@ Questions:
 3. Generalize: for ALL onset classes, does 'a'-body appear later than 'e'-body?
 4. Compare z-scores: ot (z=2.67) vs ch vs sh vs ok (z=0.75) vs qok
 """
+from pathlib import Path as _RepositoryPath
 
 import os, re
 from collections import Counter, defaultdict
 import statistics
 
-REPO_DIR  = os.path.expanduser('~/voynich-cryptanalyst')
+REPO_DIR  = os.path.expanduser(str(_RepositoryPath(__file__).resolve().parents[2]))
 DATA_PATH = os.path.join(REPO_DIR, 'data/transcriptions/eva_zl3b.txt')
 
 ONSET_ORDER=[

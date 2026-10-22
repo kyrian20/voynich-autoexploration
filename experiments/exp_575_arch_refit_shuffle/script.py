@@ -30,11 +30,12 @@ Key prediction from structural analysis:
 Grid: beta_scale[4] x p_blind[4] x r_lf[4] x r_mid[4] x p_qokch[4] = 1024 combos
 Fast pass (N=3) → top candidates → confirm pass (N=10).
 """
+from pathlib import Path as _RepositoryPath
 
 import os, re, random, math
 from collections import Counter, deque, defaultdict
 
-REPO_DIR = os.path.expanduser('~/voynich-cryptanalyst')
+REPO_DIR = os.path.expanduser(str(_RepositoryPath(__file__).resolve().parents[2]))
 LATIN_CORPUS = os.path.join(REPO_DIR, 'data/reference_corpora/latin/cicero_de_officiis_latin.txt')
 DATA_PATH = os.path.join(REPO_DIR, 'data/transcriptions/eva_zl3b.txt')
 

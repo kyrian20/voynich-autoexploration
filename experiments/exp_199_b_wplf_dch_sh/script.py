@@ -5,11 +5,12 @@ H359: What displaces k at B within-para LF?
 H360: Which specific sh-words follow d+ch lines?
 H361: Is p+ch vs k+ch hierarchy consistent across herbal A folios?
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 from collections import Counter, defaultdict
 
-DATA_PATH = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+DATA_PATH = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 def folio_base(folio): return re.sub(r'\.\d+$', '', folio)
 

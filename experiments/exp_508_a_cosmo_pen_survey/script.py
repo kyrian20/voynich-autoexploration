@@ -4,11 +4,12 @@ exp_508: A cosmo pen grammar survey + ok→a@pen cross-dialect test
 H_new_CO: Does A cosmo (455 lines) have confirmed pen routing rules?
 H_new_CN: Is ok→a@pen (B-dialect CONF F459; A herbal_a dir) present manuscript-wide?
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 from collections import defaultdict, Counter
 
-CORPUS = "/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt"
+CORPUS = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 ONSET_PRIORITY = [
     'qok','qot','qo','cth','ckh','cph','ch','sh','ok','ot','ol',
     'sch','skh','sph','d','s','y','k','t','l','r','p','f','o','e','a','n','m'

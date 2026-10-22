@@ -7,12 +7,13 @@ H208: Are s-onset and d-onset line-openers in complementary or competing distrib
 H210: Do grammar words have lower suffix entropy than content words?
       Quantify the grammar/content distinction via suffix Shannon entropy.
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 import math
 from collections import defaultdict, Counter
 
-DATA_PATH = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+DATA_PATH = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 
 def folio_base(folio):

@@ -3,12 +3,13 @@ exp_044: Scribal Hand Variation in qo-Rate and Suffix Paradigm Preferences
 H050: Do scribal hands 1-5 vary in qo-prefix rate independently of section/dialect?
 Also tests: do hands vary in suffix paradigm preferences (-edy vs -ol vs -ain rates)?
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 import math
 from collections import defaultdict, Counter
 
-DATA_PATH = "/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt"
+DATA_PATH = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 SUFFIXES = ['aiin', 'ain', 'eedy', 'edy', 'chy', 'eey', 'dy', 'ey', 'y',
             'ol', 'or', 'al', 'ar', 'iin', 'in']

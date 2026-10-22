@@ -7,11 +7,12 @@ Method: Compute full 19×19 within-line (pLL→LL) and cross-line (LL→LF) bigr
 matrices. Spearman correlation between pLL→LL E and CL E across all pairs with
 expected N≥2. Also: direct test of whether E_within < 0.8 predicts E_CL > 1.2.
 """
+from pathlib import Path as _RepositoryPath
 import re
 import math
 from collections import defaultdict, Counter
 
-ZL3B = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+ZL3B = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 ONSETS = ['qok','qot','qo','cth','ch','sh','ok','ot','ol','d','s','y','k','t','l','r','p','f','o']
 

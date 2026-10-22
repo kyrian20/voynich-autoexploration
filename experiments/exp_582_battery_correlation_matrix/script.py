@@ -17,11 +17,12 @@ Methods:
 5. Clustering at |r|≥0.7 (count clusters+singletons)
 6. Also report |r|≥0.5 cluster structure
 """
+from pathlib import Path as _RepositoryPath
 
 import os, re, random, math, csv
 from collections import Counter, deque, defaultdict
 
-REPO_DIR     = os.path.expanduser('~/voynich-cryptanalyst')
+REPO_DIR     = os.path.expanduser(str(_RepositoryPath(__file__).resolve().parents[2]))
 LATIN_CORPUS = os.path.join(REPO_DIR, 'data/reference_corpora/latin/cicero_de_officiis_latin.txt')
 DATA_PATH    = os.path.join(REPO_DIR, 'data/transcriptions/eva_zl3b.txt')
 
@@ -572,7 +573,7 @@ def main():
         print(f"{m1:<18} {m2:<18} {r:>+8.4f}")
 
     # Save correlation matrix CSV
-    out_dir = '/Users/asash/voynich-cryptanalyst/state'
+    out_dir = str(_RepositoryPath(__file__).resolve().parents[2] / 'state')
     csv_path = os.path.join(out_dir, 'battery_correlation_matrix.csv')
     with open(csv_path, 'w', newline='') as f:
         writer = csv.writer(f)

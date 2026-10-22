@@ -10,11 +10,12 @@ Part 2: B herbal CL grammar — first CL survey for B herbal section
   Does B herbal have a CL chain analogous to A herbal_a's d→qot→ch→o→sh?
   B herbal's dominant LF classes are different from A herbal_a.
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 from collections import defaultdict, Counter
 
-CORPUS = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+CORPUS = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 ONSET_PRIORITY = [
     'qok','qot','qo','cth','ckh','cph','ch','sh','ok','ot','ol','sch','skh','sph',

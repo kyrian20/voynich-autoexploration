@@ -10,6 +10,7 @@ H252: What specific word pairs drive the aiin→am=4.62× bigram? Is [daiin][dam
 H251: y-prefix class full characterization — what are the 1374 y-words?
       y-stripped stem distribution; dialect/section/position profile; A-y vs B-y sub-types.
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 from collections import defaultdict, Counter
@@ -383,7 +384,7 @@ def analyze_y_prefix(records):
 # ── main ──────────────────────────────────────────────────────────────────────
 
 if __name__ == '__main__':
-    corpus_path = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+    corpus_path = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
     print(f"Loading corpus...")
     records = parse_corpus(corpus_path)
     total_words = sum(len(r['words']) for r in records)

@@ -3,11 +3,12 @@ exp_512: A herbal_a d→qot→ch CL chain verification (H_new_CV)
 Also: ok-LF pos2/pen co-occurrence test (H_new_CU)
 Also: CL scope test in A cosmo and B herbal (H_new_CT)
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 from collections import defaultdict, Counter
 
-CORPUS = "/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt"
+CORPUS = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 ONSET_PRIORITY = [
     'qok','qot','qo','cth','ckh','cph','ch','sh','ok','ot','ol',
     'sch','skh','sph','d','s','y','k','t','l','r','p','f','o','e','a','n','m'

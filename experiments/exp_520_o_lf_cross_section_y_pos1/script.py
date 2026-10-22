@@ -21,6 +21,7 @@ Goals:
    - Full recount with all A herbal_a ot-LF lines: is N_elig exactly 40? Could it be higher?
    - Also check: does ot-LF pos2=y extend to A herbal_b?
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 from collections import defaultdict, Counter
@@ -201,7 +202,7 @@ def compute_pen_enrichment(lines, lf_class, pen_class, min_len=3):
     return obs, N, exp, E, base
 
 # ── main ──────────────────────────────────────────────────────────────────────
-CORPUS = "/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt"
+CORPUS = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 folio_lines = parse_corpus(CORPUS)
 sections = build_sections(folio_lines)

@@ -22,11 +22,12 @@ Grid: COPY_PROB ∈ {0.2, 0.3, 0.4, 0.5} × MODIFY_PROB ∈ {0.3, 0.4, 0.5, 0.6}
 Three-constraint viability:
   -am LL ≥ 5.0×  AND  ss_mean ∈ [1.2, 1.7]  AND  adj_rate ≤ 0.015
 """
+from pathlib import Path as _RepositoryPath
 
 import os, re, random, json, math
 from collections import Counter, deque
 
-REPO_DIR  = os.path.expanduser('~/voynich-cryptanalyst')
+REPO_DIR  = os.path.expanduser(str(_RepositoryPath(__file__).resolve().parents[2]))
 LATIN_CORPUS = os.path.join(REPO_DIR, 'data/reference_corpora/latin/cicero_de_officiis_latin.txt')
 OUT_DIR   = os.path.join(REPO_DIR, 'experiments/exp_179_hybrid_cipher_copy/data')
 os.makedirs(OUT_DIR, exist_ok=True)

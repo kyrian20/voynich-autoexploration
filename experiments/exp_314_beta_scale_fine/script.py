@@ -11,11 +11,12 @@ sweet spot: r_mid 90-97% of VMS without Menzerath r overshoot or edy fragility.
 Architecture baseline: 20-mechanism (exp_312).
 beta_eff(n) = BETA_BASE * beta_scale * (n / MEAN_N) [for word_idx >= IDX_THRESH=2]
 """
+from pathlib import Path as _RepositoryPath
 
 import os, re, random, math
 from collections import Counter, deque, defaultdict
 
-REPO_DIR     = os.path.expanduser('~/voynich-cryptanalyst')
+REPO_DIR     = os.path.expanduser(str(_RepositoryPath(__file__).resolve().parents[2]))
 LATIN_CORPUS = os.path.join(REPO_DIR, 'data/reference_corpora/latin/cicero_de_officiis_latin.txt')
 DATA_PATH    = os.path.join(REPO_DIR, 'data/transcriptions/eva_zl3b.txt')
 

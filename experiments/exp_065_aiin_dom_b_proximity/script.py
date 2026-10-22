@@ -6,12 +6,13 @@ Compare aiin-dominant herbal A folios to:
 3. Currier B overall
 Measure vocabulary Jaccard and frequency-rank Spearman correlation.
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 from collections import Counter, defaultdict
 import math
 
-DATA_PATH = "/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt"
+DATA_PATH = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 AIIN_DOMINANT = {'f20r', 'f22r', 'f30v', 'f32r', 'f32v', 'f35r', 'f42r', 'f42v',
                  'f45r', 'f47r', 'f47v', 'f49r', 'f4r', 'f8v'}

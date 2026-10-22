@@ -17,11 +17,12 @@ Plan:
 5. Compute folio-last line word-by-word position profiles (LF, word 1, word 2, ..., LL)
    to understand the folio-closer as a 4-5 word sequence
 """
+from pathlib import Path as _RepositoryPath
 
 import os, re
 from collections import Counter, defaultdict
 
-REPO_DIR  = os.path.expanduser('~/voynich-cryptanalyst')
+REPO_DIR  = os.path.expanduser(str(_RepositoryPath(__file__).resolve().parents[2]))
 DATA_PATH = os.path.join(REPO_DIR, 'data/transcriptions/eva_zl3b.txt')
 
 def folio_base(folio):

@@ -12,11 +12,12 @@ H176: B k-onset is more concentrated at line-first generally (not just para-star
 H177: Unified cross-dialect gallows grammar model — are the positional functions
       identical across A and B, with different stem preferences as the only difference?
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 from collections import defaultdict, Counter
 
-DATA_PATH = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+DATA_PATH = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 
 def folio_base(folio):

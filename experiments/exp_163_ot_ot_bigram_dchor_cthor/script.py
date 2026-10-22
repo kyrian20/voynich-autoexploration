@@ -7,10 +7,11 @@ H328: Two [dchor@LF][cth@second] lines — is the cth-word cthor both times? [dc
 H329: Three [daiin ... dam] lines — are [daiin][dam] immediate bigrams?
 BONUS: Survey all onset class self-succession enrichments to find systematic same-class chaining.
 """
+from pathlib import Path as _RepositoryPath
 import re
 from collections import Counter, defaultdict
 
-CORPUS = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+CORPUS = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 ONSET_ORDER = ['qok','qot','qo','cth','ch_e','ch','sh','ok','ot','ol','d','s','y','k','t','l','r','p','f']
 

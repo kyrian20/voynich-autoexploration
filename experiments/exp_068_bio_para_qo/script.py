@@ -3,11 +3,12 @@ exp_068: Bio Paragraph Independence (H083) + qo-Onset Morphology (H084)
 H083: Are paragraphs within multi-para bio folios independent vocabulary units?
 H084: Do qo-onset words have a restricted morphological sub-grammar?
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 from collections import Counter, defaultdict
 
-DATA_PATH = "/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt"
+DATA_PATH = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 SUFFIX_LIST = ['aiin', 'ain', 'eedy', 'edy', 'chy', 'eey', 'dy', 'ey', 'y', 'ol', 'or', 'al', 'ar', 'iin', 'in']
 
 def suffix_group(word):

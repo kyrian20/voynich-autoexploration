@@ -19,10 +19,11 @@ fail on positional grammar regardless of vocabulary calibration. If Naibbe fails
 on A-dialect positional metrics (as it fails on B-dialect), the failure is
 attributable to the position-blind mechanism, not just the vocabulary mismatch.
 """
+from pathlib import Path as _RepositoryPath
 
 import os, sys, json, math, numpy as np
 
-REPO_DIR = os.path.expanduser('~/voynich-cryptanalyst')
+REPO_DIR = os.path.expanduser(str(_RepositoryPath(__file__).resolve().parents[2]))
 EXP170_DATA = os.path.join(REPO_DIR, 'experiments/exp_170_naibbe_simulation/data/simulation_results.json')
 OUT_DIR = os.path.join(REPO_DIR, 'experiments/exp_178_naibbe_a_dialect/data')
 os.makedirs(OUT_DIR, exist_ok=True)

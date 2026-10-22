@@ -3,11 +3,12 @@ exp_433: ok→ok self-succession driven by specific ok word types? (H570)
 B: ok→ok=1.32×, A: ok→ok=1.93× (from F363/earlier findings)
 Is this class-level memory or word-level clustering?
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 from collections import Counter, defaultdict
 
-ZL3B = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+ZL3B = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 ONSET_ORDER = ['qok','qot','qo','cth','ch','sh','ok','ot','ol',
                'd','s','y','k','t','l','r','p','f','o']

@@ -10,10 +10,11 @@ Four-part characterization of sh-onset class in both dialects:
 Compare to template class hierarchy (F539): where does sh fit?
 sh→qok (F372 CONF); ch↔sh avoidance (F328); sh→ok CL dir (F509).
 """
+from pathlib import Path as _RepositoryPath
 import re
 from collections import defaultdict, Counter
 
-CORPUS = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+CORPUS = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 ONSET_PRIORITY = ['qok','qot','qo','cth','ckh','cph','ch','sh','ok','ot','ol','sch','skh','sph','d','s','y','k','t','l','r','p','f','o','e','a','n','m']
 
 def get_onset(word):

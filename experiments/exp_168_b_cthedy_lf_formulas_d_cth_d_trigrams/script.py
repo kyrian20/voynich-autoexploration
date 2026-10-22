@@ -6,10 +6,11 @@ H345: B-cthedy/cthey@LF — what second word follows? Any line-opening formula?
 H346: [d][cth][d]=16 onset-trigrams — are these literally [daiin][cth-word][daiin]?
 H347: B-cthdy LL cases — all 7 occurrences, are they at LL?
 """
+from pathlib import Path as _RepositoryPath
 import re
 from collections import Counter, defaultdict
 
-CORPUS = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+CORPUS = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 def get_onset(word):
     w = word.lower()

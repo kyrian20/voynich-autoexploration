@@ -2,11 +2,12 @@
 """
 exp_143: cthor→ot bigram analysis (H283) and cth-runs in A-herbal (H284)
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 from collections import Counter, defaultdict
 
-CORPUS = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+CORPUS = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 SECTION_MAP = {}
 for f in range(1, 58):    SECTION_MAP[f] = 'herbal'

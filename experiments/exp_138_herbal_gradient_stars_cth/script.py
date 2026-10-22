@@ -5,12 +5,13 @@ H272: Is the within-herbal cth gradient (ρ=-0.486) due to B-insertions or A-her
 H273: Why does cth INCREASE within stars (ρ=+0.469)? Which folios drive it?
 H274: What is the full profile of f47 (most deviant A-herbal folio, ch:+20%)?
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 from collections import defaultdict, Counter
 import math
 
-CORPUS_PATH = "/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt"
+CORPUS_PATH = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 SECTION_MAP = {}
 for f in range(1, 58):

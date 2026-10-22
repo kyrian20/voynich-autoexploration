@@ -12,12 +12,13 @@ chains where each edge E≥1.5×. Report percentile rank of real chain vs contro
 
 A herbal_a definition: folios n≤56, P-locus (per exp_511 methodology).
 """
+from pathlib import Path as _RepositoryPath
 
 import re, random
 from collections import defaultdict, Counter
 from math import log
 
-CORPUS = "/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt"
+CORPUS = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 N_SHUFFLES = 200
 CHAIN_THRESHOLD = 1.5  # "directional" E-value threshold for chain search
 SEED = 583000
@@ -358,7 +359,7 @@ def main():
 
     # ── Save CSV ───────────────────────────────────────────────────────────────
     import csv, os
-    out_dir = '/Users/asash/voynich-cryptanalyst/state'
+    out_dir = str(_RepositoryPath(__file__).resolve().parents[2] / 'state')
     csv_path = os.path.join(out_dir, 'chain_null_model_controls.csv')
     with open(csv_path, 'w', newline='') as f:
         writer = csv.writer(f)

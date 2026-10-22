@@ -5,11 +5,12 @@ A herbal_a and B all.
 Focus: y LF enrichment in B; y as pos1 opener for o/ok/ot LF lines; y→ch, y→d coupling.
 Compare y to ch/sh/d/template class profiles for complete major-class taxonomy.
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 from collections import Counter
 
-CORPUS = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+CORPUS = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 ONSET_PRIORITY = [
     'qok','qot','qo','cth','ckh','cph','ch','sh','ok','ot','ol','sch','skh','sph',

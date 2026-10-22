@@ -12,11 +12,12 @@ H171: Internal gallows hierarchy: bare_p > bare_f > bare_t > bare_k?
 H173: Universal stem test — does the gallows-demotion model apply to sh-stems in A?
       p+sh = para-starter? d+sh/y+sh = line-openers? bare sh = mid-line?
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 from collections import defaultdict, Counter
 
-DATA_PATH = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+DATA_PATH = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 
 def folio_base(folio):

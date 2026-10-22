@@ -8,11 +8,12 @@ Parts:
 4. Position of c-gallows→d pairs within lines
 5. Reverse: d→c-gallows routing in A
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 from collections import Counter, defaultdict
 
-CORPUS = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+CORPUS = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 ONSET_PRIORITY = ['qok','qot','qo','cth','ckh','cph','ch','sh','ok','ot','ol','sch','skh','sph',
                   'd','s','y','k','t','l','r','p','f','o','e','a','n','m']
 COMPOUND_GALLOWS = {'cth', 'ckh', 'cph', 'sch'}

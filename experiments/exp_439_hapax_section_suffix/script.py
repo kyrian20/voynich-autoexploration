@@ -4,11 +4,12 @@ exp_439: Hapax Section Distribution (H_new_C) and No-Suffix Hapax Analysis (H_ne
 H_new_C: Are hapax words section-specific? Does B astro/pharma have higher hapax rate?
 H_new_D: Are 'no-suffix' hapaxes (20-22%) concentrated in 'other'-onset words?
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 from collections import Counter, defaultdict
 
-ZL3B = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+ZL3B = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 ONSETS = ['qok', 'qot', 'qo', 'cth', 'ch', 'sh', 'ok', 'ot', 'ol',
           'd', 's', 'y', 'k', 't', 'l', 'r', 'p', 'f', 'o']

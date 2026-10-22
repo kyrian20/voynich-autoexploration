@@ -4,11 +4,12 @@ f6v has 38.1% y-initial lines — far above the herbal A mean (~15%).
 Tests whether this is due to: (a) very long paragraphs, (b) unusual text layout,
 or (c) scribal preference. Compares f6v paragraph lengths to other herbal A folios.
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 from collections import Counter, defaultdict
 
-DATA_PATH = "/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt"
+DATA_PATH = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 def clean_text(text):
     return re.sub(r'<%>|<\$>|<->|\{[^}]+\}|\[[^\]]+\]|@\d+;[a-z]*|@\d+;?', '', text)

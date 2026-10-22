@@ -7,10 +7,11 @@ H339: qok→cth depletion: structural or frequency artifact?
 H340: cth→cth self-succession specific pairs
 H341: f46 dialect analysis vs neighboring folios
 """
+from pathlib import Path as _RepositoryPath
 import re
 from collections import Counter, defaultdict
 
-CORPUS = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+CORPUS = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 def get_onset(word):
     w = word.lower()

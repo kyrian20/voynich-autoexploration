@@ -5,10 +5,11 @@ paralleling B section grammar found in exp_462?
 
 A-dialect sections: herbal_a (f1-56), stars (f57-72), herbal_b (f73-84), cosmo (f85-102), other_a (f103+)
 """
+from pathlib import Path as _RepositoryPath
 import re
 from collections import defaultdict, Counter
 
-ZL3B = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+ZL3B = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 ONSETS = ['qok','qot','qo','cth','ch','sh','ok','ot','ol','d','s','y','k','t','l','r','p','f','o']
 
 def get_onset(word):

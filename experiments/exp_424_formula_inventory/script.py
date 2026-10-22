@@ -23,11 +23,12 @@ Confirmed/candidate types to check:
 New candidates from exp_418:
 - l→ch→qok, d→qok→ol, y→sh→ch, y→o→ch, qok→ch→qo, d→ch→y (RETRACTED), d→ch→y
 """
+from pathlib import Path as _RepositoryPath
 
 import os, re
 from collections import Counter, defaultdict
 
-DATA_PATH = os.path.expanduser('~/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt')
+DATA_PATH = os.path.expanduser(str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt'))
 
 ONSET_ORDER = [
     ('qok','qok'),('qot','qot'),('qo','qo'),('cth','cth'),

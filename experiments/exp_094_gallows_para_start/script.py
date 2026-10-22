@@ -11,11 +11,12 @@ if the gallows-class = para-level marker hypothesis is correct.
 Also test: qo+gallows words (qok, qot) — are they para-start SUPPRESSED?
 And: y+gallows compounds (ykaiin, yteedy) — do they show 0% PS rate like y+ch?
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 from collections import defaultdict, Counter
 
-DATA_PATH = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+DATA_PATH = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 
 def folio_base(folio):

@@ -6,10 +6,11 @@ For B continuation lines with p at LF:
 2. pos3 conditioned on pos2 class (pos2=sh, pos2=qot, etc.)
 3. Full path p→sh→qot→pos3 (small N=8 expected)
 """
+from pathlib import Path as _RepositoryPath
 import re
 from collections import defaultdict, Counter
 
-CORPUS = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+CORPUS = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 ONSET_PRIORITY = ['qok','qot','qo','cth','ckh','cph','ch','sh','ok','ot','ol','sch','skh','sph','d','s','y','k','t','l','r','p','f','o','e','a','n','m']
 
 def get_onset(word):

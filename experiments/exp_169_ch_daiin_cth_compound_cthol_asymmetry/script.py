@@ -6,10 +6,11 @@ H348: Is [ch-word][daiin] a stable compound precursor to cth-words?
 H349: Does cthol have asymmetric d-word preferences (daiin left, non-daiin right)?
 H350: Does cthey specifically attract ch_e-type successor words (beyond LF)?
 """
+from pathlib import Path as _RepositoryPath
 import re
 from collections import Counter, defaultdict
 
-CORPUS = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+CORPUS = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 def get_onset(word):
     w = word.lower()

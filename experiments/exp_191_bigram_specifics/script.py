@@ -10,11 +10,12 @@ H337: B-dialect ch→cth=2.75× (n=8) — what are these 8 B ch→cth bigrams?
 H338: Is B-dialect cthedy/cthdy genuine B-vocabulary or transcription artifacts?
 + [oty][l-onset]: 15.78× in B Stars/Bio — characterize the 6 cases and section distribution
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 from collections import Counter, defaultdict
 
-CORPUS = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+CORPUS = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 def get_onset(word):
     w = word.lower()

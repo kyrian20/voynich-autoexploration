@@ -4,11 +4,12 @@ F360: all-positions combined shows {p,f}→sh-biased, {k,t}→ch-biased.
 Question: Does this split persist in MID_inner positions where
 A-dialect gallows→sh E=1.42× (multi-position) and B-dialect E=1.00× (neutral)?
 """
+from pathlib import Path as _RepositoryPath
 
 import os, re
 from collections import Counter, defaultdict
 
-REPO_DIR  = os.path.expanduser('~/voynich-cryptanalyst')
+REPO_DIR  = os.path.expanduser(str(_RepositoryPath(__file__).resolve().parents[2]))
 DATA_PATH = os.path.join(REPO_DIR, 'data/transcriptions/eva_zl3b.txt')
 
 def folio_base(folio):

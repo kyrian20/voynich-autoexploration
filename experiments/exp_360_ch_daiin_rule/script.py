@@ -4,11 +4,12 @@ F361 (exp_359): ch-onset is dominant predecessor of daiin at pre-LL→LL in A-di
 Is ch→daiin a cross-dialect rule with E significantly above baseline?
 Also: is daiin enriched after ch-onset at ALL positions, or just pre-LL→LL?
 """
+from pathlib import Path as _RepositoryPath
 
 import os, re
 from collections import Counter, defaultdict
 
-REPO_DIR  = os.path.expanduser('~/voynich-cryptanalyst')
+REPO_DIR  = os.path.expanduser(str(_RepositoryPath(__file__).resolve().parents[2]))
 DATA_PATH = os.path.join(REPO_DIR, 'data/transcriptions/eva_zl3b.txt')
 
 def folio_base(folio):

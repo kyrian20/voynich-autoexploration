@@ -4,11 +4,12 @@ H094: Is d→ch coupling the complement of sh→qo? Does d occupy a complementar
 H095: Do three-word medial sequences (qo+ch/sh+word) appear as specific repeated trigrams?
 H096: Is daiin specifically enriched as a ch-predecessor (controlling for d-class frequency)?
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 from collections import Counter, defaultdict
 
-DATA_PATH = "/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt"
+DATA_PATH = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 def clean_text(text):
     return re.sub(r'<%>|<\$>|<->|\{[^}]+\}|\[[^\]]+\]|@\d+;[a-z]*|@\d+;?', '', text)

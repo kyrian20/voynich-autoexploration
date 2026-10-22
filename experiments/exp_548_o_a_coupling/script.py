@@ -6,11 +6,12 @@ exp_548: o→a coupling deep characterization (H_new_FJ)
 4. A section scope: A stars (57-72), A cosmo (73-90 A-dialect)
 5. Positional context: where in lines do o→a pairs occur?
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 from collections import Counter, defaultdict
 
-CORPUS = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+CORPUS = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 ONSET_PRIORITY = [
     'qok','qot','qo','cth','ckh','cph','ch','sh',

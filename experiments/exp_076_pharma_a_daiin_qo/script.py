@@ -8,11 +8,12 @@ H106: Is aiin-dom d→qo=1.55× driven by daiin specifically preceding qo-onset 
 H107: What onset classes make up the "other" category in B Special section line-final words?
 H108: Does B paragraph-final last word differ from within-paragraph last word in onset class?
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 from collections import Counter, defaultdict
 
-DATA_PATH = "/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt"
+DATA_PATH = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 # Aiin-dominant Herbal A folios (from exp_059/exp_062)
 AIIN_DOM_FOLIOS = {'f6r', 'f6v', 'f7r', 'f7v', 'f8r', 'f8v', 'f9r', 'f9v',

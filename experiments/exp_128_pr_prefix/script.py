@@ -9,6 +9,7 @@ H255: r-initial words — is r a morphological PREFIX?
       r-stripped stems; section/dialect/position profile.
       Compared with other prefix classes.
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 from collections import defaultdict, Counter
@@ -219,7 +220,7 @@ def analyze_p_para_starts(records):
     """Analyze p-onset words at paragraph starts vs continuation lines.
     A paragraph start line has locus type starting with '=' (new paragraph)."""
     # Reconstruct locus type from the raw file
-    corpus_path = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+    corpus_path = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
     para_start_loci = set()
     with open(corpus_path, encoding='utf-8') as fh:
@@ -283,7 +284,7 @@ def analyze_p_para_starts(records):
 # ── main ──────────────────────────────────────────────────────────────────────
 
 if __name__ == '__main__':
-    corpus_path = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+    corpus_path = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
     print("Loading corpus...")
     records, global_vocab = parse_corpus(corpus_path)
     total_words = sum(len(r['words']) for r in records)

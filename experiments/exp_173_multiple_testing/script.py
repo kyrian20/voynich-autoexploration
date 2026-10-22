@@ -12,12 +12,13 @@ Test types:
 
 Corrections: Bonferroni (α=0.05/30), BH-FDR (q=0.05).
 """
+from pathlib import Path as _RepositoryPath
 import re, math
 from collections import Counter, defaultdict
 from scipy import stats
 import numpy as np
 
-VMS_CORPUS = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+VMS_CORPUS = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 # ── Onset classifier ──────────────────────────────────────────────────────────
 def get_onset(word):

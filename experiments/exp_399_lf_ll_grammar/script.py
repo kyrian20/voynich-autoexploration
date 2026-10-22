@@ -5,11 +5,12 @@ For B (and A) continuation lines, compute (LF onset, LL onset) pairs.
 Compare to unconditional LL distribution to find LF-conditional LL enrichments.
 Also compute LF→pre_LL→LL trigram to distinguish direct vs pre_LL-mediated LF effects.
 """
+from pathlib import Path as _RepositoryPath
 
 import os, re
 from collections import Counter, defaultdict
 
-DATA_PATH = os.path.expanduser('~/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt')
+DATA_PATH = os.path.expanduser(str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt'))
 
 ONSET_ORDER = [
     ('qok','qok'),('qot','qot'),('qo','qo'),('cth','cth'),

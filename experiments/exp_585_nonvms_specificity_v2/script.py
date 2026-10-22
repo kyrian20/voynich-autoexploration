@@ -22,12 +22,13 @@ PRE-REGISTERED THRESHOLDS (state/preregistration_transliteration_and_specificity
   Partial: R >= 1.0 (one regime)
   Weak:    R < 1.0
 """
+from pathlib import Path as _RepositoryPath
 
 import os, re, random, json, math
 from collections import Counter, deque, defaultdict
 from itertools import product
 
-REPO = os.path.expanduser('~/voynich-cryptanalyst')
+REPO = os.path.expanduser(str(_RepositoryPath(__file__).resolve().parents[2]))
 TRANS = os.path.join(REPO, 'data/transcriptions/eva_zl3b.txt')
 CICERO = os.path.join(REPO, 'data/reference_corpora/latin/cicero_de_officiis_latin.txt')
 DANTE  = os.path.join(REPO, 'data/reference_corpora/italian/dante_divina_commedia.txt')

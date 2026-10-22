@@ -3,11 +3,12 @@ exp_426: B t MID→ot adjacency — compound construction or independent pairing
 H613b: When t-onset word appears in MID followed by ot-onset word, are specific
        tokens involved (compound) or distributed (independent sequential pairing)?
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 from collections import Counter, defaultdict
 
-ZL3B = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+ZL3B = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 ONSET_ORDER = ['qok','qot','qo','cth','ch','sh','ok','ot','ol',
                'd','s','y','k','t','l','r','p','f','o']

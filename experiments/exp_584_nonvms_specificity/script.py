@@ -59,12 +59,13 @@ Pre-registered thresholds:
   Partial: R >= 1.3 (one regime)   → C008 retained with qualification
   Weak:    R < 1.0 (either regime) → C008 must be withdrawn
 """
+from pathlib import Path as _RepositoryPath
 
 import os, re, random, json, math
 from collections import Counter, deque, defaultdict
 from itertools import product
 
-REPO = os.path.expanduser('~/voynich-cryptanalyst')
+REPO = os.path.expanduser(str(_RepositoryPath(__file__).resolve().parents[2]))
 TRANS = os.path.join(REPO, 'data/transcriptions/eva_zl3b.txt')
 CICERO = os.path.join(REPO, 'data/reference_corpora/latin/cicero_de_officiis_latin.txt')
 DANTE  = os.path.join(REPO, 'data/reference_corpora/italian/dante_divina_commedia.txt')

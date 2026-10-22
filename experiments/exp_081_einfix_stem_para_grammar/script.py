@@ -8,13 +8,14 @@ H124: What suffix paradigm do B para-final words use? Is there a morphological c
       between within-para line-final and para-final words?
 H125: Does the grammar-morphology dissociation extend to aiin-dom vs y-dom Herbal A?
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 import sys
 import math
 from collections import defaultdict, Counter
 
-DATA_PATH = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+DATA_PATH = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 AIIN_DOM_FOLIOS = {
     'f1r','f1v','f2r','f2v','f3r','f3v','f4r','f4v','f5r','f5v',

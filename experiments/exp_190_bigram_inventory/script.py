@@ -10,11 +10,12 @@ H330: qot→qot=2.22×, qot→l=2.84× — which qot-words self-chain or precede
 H331: ok→ok=1.96× (54 cases) — which ok-words chain?
 H332: l→l=10.21× (n=3) — what are the three l→l cases in A-dialect?
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 from collections import Counter, defaultdict
 
-CORPUS = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+CORPUS = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 def get_onset(word):
     w = word.lower()

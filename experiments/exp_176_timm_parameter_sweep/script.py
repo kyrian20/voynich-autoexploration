@@ -27,11 +27,12 @@ Report: is there any parameter combination that simultaneously achieves:
 If yes: "Timm-viable zone" exists; falsification qualified.
 If no: falsification holds across full parameter space.
 """
+from pathlib import Path as _RepositoryPath
 
 import os, sys, re, random, json, math
 from collections import Counter, defaultdict
 
-REPO_DIR = os.path.expanduser('~/voynich-cryptanalyst')
+REPO_DIR = os.path.expanduser(str(_RepositoryPath(__file__).resolve().parents[2]))
 VMS_CORPUS = os.path.join(REPO_DIR, 'data/transcriptions/eva_zl3b.txt')
 OUT_DIR = os.path.join(REPO_DIR, 'experiments/exp_176_timm_parameter_sweep/data')
 os.makedirs(OUT_DIR, exist_ok=True)

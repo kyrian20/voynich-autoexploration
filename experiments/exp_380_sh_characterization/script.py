@@ -8,11 +8,12 @@ F369: A sh self-succession=1.41×, B near-baseline.
 This experiment provides full sh vocabulary, positional distribution, self-succession positional,
 and complete outgoing bigram characterization (complement to exp_379/ch).
 """
+from pathlib import Path as _RepositoryPath
 
 import os, re
 from collections import Counter, defaultdict
 
-DATA_PATH = os.path.expanduser('~/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt')
+DATA_PATH = os.path.expanduser(str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt'))
 TARGET = 'sh'  # onset to characterize
 ONSET_LEN = 2  # len('sh')
 

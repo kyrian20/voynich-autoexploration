@@ -7,12 +7,13 @@ Questions:
  2. Are there LINE_MARKER or LIST_ENTRY contamination patterns?
  3. What is the vocabulary and entropy of each label type?
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 import math
 from collections import Counter, defaultdict
 
-ZL3B = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+ZL3B = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 def parse_all_entries(path):
     """Parse all locus-coded entries from ZL3b."""

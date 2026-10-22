@@ -5,12 +5,13 @@ H205: Does the A:-ol/-or vs B:-edy/-eedy paradigm split apply to ALL onset class
 H206: Is s-onset a distinct grammatical class parallel to d-onset?
       Are saiin/sain true line-openers in the s-onset system?
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 import math
 from collections import defaultdict, Counter
 
-DATA_PATH = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+DATA_PATH = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 
 def folio_base(folio):

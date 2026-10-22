@@ -3,11 +3,12 @@ exp_067: Bio Pool vs Non-Pool Two-Register Test (H082) + pch/tch Quire Distribut
 H082: Do pool folios (multi-paragraph bio) differ in vocabulary/grammar from non-pool bio folios?
 H080: Are pch/tch onset words concentrated in specific Currier B quires?
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 from collections import Counter, defaultdict
 
-DATA_PATH = "/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt"
+DATA_PATH = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 SUFFIX_LIST = ['aiin', 'ain', 'eedy', 'edy', 'chy', 'eey', 'dy', 'ey', 'y', 'ol', 'or', 'al', 'ar', 'iin', 'in']
 
 # Bio pool folios (multi-paragraph bio): from exp_061

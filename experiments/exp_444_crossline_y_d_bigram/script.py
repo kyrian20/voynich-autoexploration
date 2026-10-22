@@ -7,10 +7,11 @@ Q: Is F326's y→d enrichment (1.37-1.49×) driven by cross-line bigrams
 exp_441 showed within-line y→d E=0.93-0.96× (not enriched).
 This experiment tests the cross-line hypothesis directly.
 """
+from pathlib import Path as _RepositoryPath
 import re
 from collections import defaultdict, Counter
 
-ZL3B = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+ZL3B = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 ONSETS = ['qok','qot','qo','cth','ch','sh','ok','ot','ol','d','s','y','k','t','l','r','p','f','o']
 

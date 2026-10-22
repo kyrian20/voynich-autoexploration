@@ -3,13 +3,14 @@
 exp_580: Label corpus grammar investigation
 Characterizes structural properties of VMS label text vs body text.
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 import sys
 from collections import Counter, defaultdict
 import math
 
-TRANSCRIPTION = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+TRANSCRIPTION = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 # ─── EVA onset classification (canonical, from exp_565/566/etc.) ─────────────
 def get_onset(word):

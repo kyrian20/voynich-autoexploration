@@ -9,11 +9,12 @@ Q012: F470 (B herbal a→a@pos2 dir, E=3.60×/N=6, exp_489) not reproduced in ex
   Hypothesis: exp_489 used len≥2 for pos2 eligibility, including 2-word a-LF lines where pos2=LF=a.
   Test: reproduce exp_489 results with explicit len≥2 vs len≥3 comparison.
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 from collections import defaultdict, Counter
 
-CORPUS = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+CORPUS = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 ONSET_PRIORITY = [
     'qok','qot','qo','cth','ckh','cph','ch','sh','ok','ot','ol','sch','skh','sph',

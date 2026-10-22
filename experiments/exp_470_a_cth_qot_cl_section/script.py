@@ -9,11 +9,12 @@ AND qot(2.07×/N=7, exp_465). This experiment tests:
 3. Word-level verification: diversity check (folio spread, word pairs)
 4. Also: complete A cth LL profile (all CL targets) for context
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 from collections import defaultdict
 
-CORPUS_PATH = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+CORPUS_PATH = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 ONSET_PRIORITY = [
     'cth','ckh','cph',        # cth-class (before ch/c)

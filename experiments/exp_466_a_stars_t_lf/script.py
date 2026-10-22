@@ -4,10 +4,11 @@ Q: Is A stars t-LF elevation (3.3× vs herbal_a) confirmed vs A-dialect overall 
    What t-words dominate? Is there a t→pos2 routing rule (formula-type)?
    Comparison to B astro qok-LF (F431).
 """
+from pathlib import Path as _RepositoryPath
 import re
 from collections import defaultdict, Counter
 
-ZL3B = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+ZL3B = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 ONSETS = ['qok','qot','qo','cth','ch','sh','ok','ot','ol','d','s','y','k','t','l','r','p','f','o']
 
 def get_onset(word):

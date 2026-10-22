@@ -19,11 +19,12 @@ Section mapping (folio number -> section):
   1-66: herbal, 67-73: astro, 74-84: bio (B-dialect only),
   85-86: cosmo, 87-102: pharma, 103+: text/recipe
 """
+from pathlib import Path as _RepositoryPath
 
 import os, re
 from collections import Counter, defaultdict
 
-REPO_DIR  = os.path.expanduser('~/voynich-cryptanalyst')
+REPO_DIR  = os.path.expanduser(str(_RepositoryPath(__file__).resolve().parents[2]))
 DATA_PATH = os.path.join(REPO_DIR, 'data/transcriptions/eva_zl3b.txt')
 
 GALLOWS_ONSETS = {'k', 't', 'p', 'f'}

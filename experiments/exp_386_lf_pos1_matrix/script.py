@@ -4,11 +4,12 @@ exp_386: LF-Formula Class → pos1 Response Matrix (H600)
 Computes the full LF→pos1 bigram matrix for both dialects.
 Identifies which pos1 classes follow each LF-formula class.
 """
+from pathlib import Path as _RepositoryPath
 
 import os, re
 from collections import Counter, defaultdict
 
-DATA_PATH = os.path.expanduser('~/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt')
+DATA_PATH = os.path.expanduser(str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt'))
 
 ONSET_ORDER = [
     ('qok','qok'),('qot','qot'),('qo','qo'),('cth','cth'),

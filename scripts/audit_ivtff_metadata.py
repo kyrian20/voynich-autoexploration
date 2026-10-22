@@ -4,13 +4,17 @@ from __future__ import annotations
 import collections, hashlib, json, re
 from pathlib import Path
 
-SOURCE = Path("data/transcriptions/eva_zl3b.txt")
-HEADER = re.compile(r"^<f(\d+[rv])>\s*(.*)$")
+ROOT = Path(__file__).resolve().parents[1]
+SOURCE = ROOT / "data/transcriptions/eva_zl3b.txt"
+HEADER = re.compile(r"^<(f(?:\d+[rv][1-6]?|Ros))>\s*(.*)$")
 LANGUAGE = re.compile(r"\$L\s*=\s*([AB])(?=\s|>|$)")
 QUIRE = re.compile(r"\$Q\s*=\s*([AB])(?=\s|>|$)")
 
 def parse_currier_language(metadata: str) -> str | None:
     """Return Currier language only from IVTFF $L=A/B; never infer it from $Q or $I."""
+    values = set(re.findall(r"\$L\s*=\s*([^\s>]+)", metadata))
+    if len(values) > 1:
+        raise ValueError(f"Conflicting IVTFF $L assignments: {sorted(values)}")
     match = LANGUAGE.search(metadata)
     return match.group(1) if match else None
 
@@ -32,7 +36,7 @@ def main() -> None:
             q_as_language.append(folio)
     counts = collections.Counter(pages.values())
     result = {
-        "source": str(SOURCE),
+        "source": str(SOURCE.relative_to(ROOT)),
         "source_sha256": hashlib.sha256(raw).hexdigest(),
         "folio_headers": sum(1 for row in text.splitlines() if HEADER.match(row)),
         "folios_with_currier_language": len(pages),

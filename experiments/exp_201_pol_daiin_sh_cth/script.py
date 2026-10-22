@@ -7,11 +7,12 @@ H367: daiin predecessor (A LL) and successor (B LF)
 H368: non-she sh-prefix → cth bigrams — which specific words?
 H369: cosmo B para-final shedy/chedy — spread or concentrated?
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 from collections import defaultdict, Counter
 
-DATA_PATH = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+DATA_PATH = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 
 def folio_base(folio):

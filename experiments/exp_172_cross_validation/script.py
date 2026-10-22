@@ -9,10 +9,11 @@ Three splits:
 For each split, recompute top 20 findings on train, test on held-out.
 Report: train estimate, test estimate, ratio (test/train), PASS (≥50% magnitude) / FAIL.
 """
+from pathlib import Path as _RepositoryPath
 import re, random, math
 from collections import Counter, defaultdict
 
-VMS_CORPUS = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+VMS_CORPUS = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 RANDOM_SEED = 42
 
 # ── Onset classifier ──────────────────────────────────────────────────────────

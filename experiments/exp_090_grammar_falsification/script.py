@@ -5,11 +5,12 @@ H146: Use positional grammar models to PREDICT paragraph structure in held-out s
       Evaluate precision/recall against actual locus-code para-start markers.
 H156/H157: A line structure — onset profiles by position within line; d-onset as A line-closer?
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 from collections import defaultdict, Counter
 
-DATA_PATH = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+DATA_PATH = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 def folio_base(folio):
     return folio.split('.')[0]

@@ -5,11 +5,12 @@ H_new_CC: Do cosmological sections have confirmed pos2 routing rules?
 Completes pos2 survey coverage: herbal_a(strong), herbal(moderate), pharma/astro/stars(weak),
 cosmo(this exp).
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 from collections import defaultdict
 
-ZL3B = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+ZL3B = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 ONSET_PRIORITY = ['qok','qot','qo','cth','ckh','cph','ch','sh','ok','ot','ol',
                   'sch','skh','sph','d','s','y','k','t','l','r','p','f','o','e','a','n','m']

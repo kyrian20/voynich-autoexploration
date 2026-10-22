@@ -11,11 +11,12 @@ This experiment:
 3. A stars full LF class positional survey (d, ch, a, o, sh, ok, ot — all N_elig≥5 classes)
 4. Also: investigate Q011 — examine what exp_466 found for t-LF (if we can determine discrepancy source)
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 from collections import defaultdict, Counter
 
-CORPUS = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+CORPUS = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 ONSET_PRIORITY = [
     'qok','qot','qo','cth','ckh','cph','ch','sh','ok','ot','ol','sch','skh','sph',

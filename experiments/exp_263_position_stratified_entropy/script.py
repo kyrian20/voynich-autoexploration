@@ -15,11 +15,12 @@ Analysis:
 3. Compare last-k char entropy across pools (suffix constraint signal)
 4. Separate A and B dialect for each pool
 """
+from pathlib import Path as _RepositoryPath
 
 import os, re, math
 from collections import Counter, defaultdict
 
-REPO_DIR  = os.path.expanduser('~/voynich-cryptanalyst')
+REPO_DIR  = os.path.expanduser(str(_RepositoryPath(__file__).resolve().parents[2]))
 DATA_PATH = os.path.join(REPO_DIR, 'data/transcriptions/eva_zl3b.txt')
 
 EVA_CHARS = set('acdehiklmnoqrsty')

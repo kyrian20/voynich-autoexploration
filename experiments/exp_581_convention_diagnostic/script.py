@@ -6,12 +6,13 @@ under the committed-claims convention (LF=first word, LL=last word).
 Also tests under the inverted convention (LF=last word, LL=penult) to
 distinguish nomenclatural drift from value-attachment errors.
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 from collections import Counter
 import math
 
-TRANSCRIPTION = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+TRANSCRIPTION = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 # ─── Onset classifier (canonical) ────────────────────────────────────────────
 def get_onset(word):

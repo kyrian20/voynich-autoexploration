@@ -4,10 +4,11 @@ exp_208: H394 B para-opening formula (what opens B paragraphs?);
          H396 complete B paragraph model (line-by-line register analysis);
          H397 -am words at A pf_ll vs WP-LL (is -am the A para-terminal suffix?)
 """
+from pathlib import Path as _RepositoryPath
 import re
 from collections import defaultdict, Counter
 
-DATA_PATH = '/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt'
+DATA_PATH = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 ONSET_ORDER = [
     ('qok', 'qok'), ('qot', 'qot'), ('qo', 'qo'), ('cth', 'cth'),

@@ -10,11 +10,12 @@ Checks:
 3. Self-succession: sh→sh and ch_e→ch_e enrichment in B
 4. B-particle → l-onset transition matrix
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 from collections import defaultdict
 
-CORPUS_PATH = "/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt"
+CORPUS_PATH = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 
 ONSET_CLASSES = [
     ('qok', re.compile(r'^qok')),

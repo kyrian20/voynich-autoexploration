@@ -50,7 +50,9 @@ def check_tokenizers() -> None:
     assert tokens_regex(empty_primary) == expected_empty_primary, tokens_regex(empty_primary)
     assert tokens_scanner(empty_primary) == expected_empty_primary, tokens_scanner(empty_primary)
 
-    # A bracket without alternatives is one primary uncertain reading and is
+    # Historical compatibility behavior only (not normative conformance):
+    # the lossless lexer flags missing alternative separators. This legacy view
+    # treats a bracket without alternatives as one primary reading that is
     # spliced inline. An unmatched bracket is conservatively excluded.
     single_reading = "pre[uncertain]post"
     assert tokens_regex(single_reading) == ["preuncertainpost"], tokens_regex(single_reading)
@@ -102,6 +104,14 @@ def main() -> None:
     # Only A/B are accepted as Currier language values.
     check("<! $L=C>", None)
     check("<! $L=A>", "A")
+    for page in ('f67r1', 'f86v6', 'fRos'):
+        assert HEADER.match(f'<{page}> <! $L=B>') is not None, page
+    try:
+        parse_currier_language('<! $L=A $L=B>')
+    except ValueError:
+        pass
+    else:
+        raise AssertionError('Contradictory Currier labels accepted')
 
     # Report the exact loader file used by this run to diagnose stale-checkout mismatches.
     import scripts.exp590_daiin_position as exp590_module

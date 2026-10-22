@@ -26,11 +26,12 @@ Pre-registration:
 
 Seed: 187000.
 """
+from pathlib import Path as _RepositoryPath
 
 import os, re, random, json
 from collections import Counter, deque
 
-REPO_DIR      = os.path.expanduser('~/voynich-cryptanalyst')
+REPO_DIR      = os.path.expanduser(str(_RepositoryPath(__file__).resolve().parents[2]))
 ITALIAN_CORPUS = os.path.join(REPO_DIR, 'data/reference_corpora/italian/dante_divina_commedia.txt')
 OUT_DIR       = os.path.join(REPO_DIR, 'experiments/exp_187_italian_source/data')
 os.makedirs(OUT_DIR, exist_ok=True)

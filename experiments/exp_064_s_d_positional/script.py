@@ -3,11 +3,12 @@ exp_064: B y-Initial Continuation + p-Onset Para-Start Symmetry (H075)
 Tests whether B has a symmetric two-marker system: p-onset=para-start, y-initial=continuation.
 Also tests H074: s-initial vs d-initial positional distribution.
 """
+from pathlib import Path as _RepositoryPath
 
 import re
 from collections import Counter, defaultdict
 
-DATA_PATH = "/Users/asash/voynich-cryptanalyst/data/transcriptions/eva_zl3b.txt"
+DATA_PATH = str(_RepositoryPath(__file__).resolve().parents[2] / 'data/transcriptions/eva_zl3b.txt')
 SUFFIX_LIST = ['aiin', 'ain', 'eedy', 'edy', 'chy', 'eey', 'dy', 'ey', 'y', 'ol', 'or', 'al', 'ar', 'iin', 'in']
 
 def suffix_group(word):
