@@ -6,7 +6,7 @@ Comparación nueva de lenguaje conocido, cifrado Naibbe y generación propia, co
 - `freeze.json`: hashes previos de fuentes/código externo/parser y protocolo.
 - `implementation-freeze.json`: código de ejecución fijado antes de simular.
 - `data/run-01` y `run-02`: intentos fallidos antes de simulaciones, conservados.
-- `data/run-03`: resultados completos, selección cruda, vistas, secuencias y SHA256.
+- `data/run-03`: resultados y SHA256 publicados; selección cruda, vistas y secuencias ausentes por bloqueo (véase PUBLICACION.md).
 
 Desde la raíz del repositorio, con Python 3.12:
 
@@ -20,4 +20,4 @@ El script rechaza sobrescribir directorios no vacíos y cambios de fuentes conge
 
 Naibbe original, tablas y licencia del commit 719f2f4c4d1eacf95fabf48381cd84fc6cd94279 de greshko/naibbe-cipher. Cita: Greshko (2025), Cryptologia, DOI 10.1080/01611194.2025.2566408. Generadores de copia propios inspirados en controles previos, sin afirmar réplica del programa Timm/Schinner.
 
-**Publicación parcial:** consultar PUBLICACION.md. Tokens y vistas completos conservados localmente, pendientes de autorización específica exigida por revisión automática. La PR contiene sus hashes, código y métricas; CI omite explícitamente el replay del archivo ausente.
+**Publicación parcial:** consultar PUBLICACION.md. La entrega anterior declaró tokens y vistas conservados localmente; no se han localizado en el entorno de continuación. Siguen pendientes de recuperación y de autorización específica exigida por revisión automática. No se han repetido experimentos. La PR contiene sus hashes, código y métricas; CI omite explícitamente el replay del archivo ausente.
