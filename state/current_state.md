@@ -273,3 +273,13 @@ Two workflows that commit generated results to `master` used separate GitHub Act
 - Seven internal GitHub folder-ID collisions (177, 594, 596, 597, 600, 601, 602) remain distinct from the cross-surface mismatches.
 - The Library SHA-256 manifest is deliberately scoped to ten files; complete byte-level pairing across all candidate artifacts is still pending. Do not rename or merge anything until exact references, scripts, JSON, and corpus/parser hashes are reconciled.
 - No new experiment IDs were assigned. The last verified Voynich Check for an earlier state commit succeeded, but the newest state and collision-register commits have new checks to verify before claiming HEAD is green.
+
+
+## Segunda pasada de triage semántico — 2026-10-22
+
+- El registro de colisiones se amplió en el commit `049181b656abe8af8d6643606c8ee6844e779f27` con la comparación de EXP-603–613 y EXP-616–621 entre informes de Biblioteca y protocolos/resultados GitHub.
+- El registro acumula ahora 28 mismatches semánticos identificados por tema/método. Son diferencias de pregunta y/o diseño, no pruebas de que un resultado sea falso ni de duplicación binaria. La reconciliación de los demás grupos solapados continúa pendiente.
+- Se observó una diferencia estructural en GitHub EXP-620: existe `partial_audit.md`, no `result.md` en la ruta esperada. No se clasifica como fallo científico sin revisar el workflow y el artefacto completo.
+- La síntesis de GitHub EXP-621 sobre ch/sh mantiene pendientes el holdout por sección, la revisión completa de multiplicidad y la auditoría independiente del parser. Los análisis de sensibilidad correlacionados no deben contarse como réplicas independientes.
+- No se renombró, fusionó, borró ni sobrescribió ningún original. No se asignó ningún EXP ID nuevo. El SHA-256 manifest sigue limitado a diez archivos; los emparejamientos binarios y la reproducción exacta de EXP-623 siguen abiertos.
+- Tras este commit, comprobar el estado de Actions del HEAD más reciente; no inferir CI verde a partir de ejecuciones anteriores.
