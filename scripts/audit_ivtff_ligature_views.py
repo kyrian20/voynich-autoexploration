@@ -17,7 +17,8 @@ SOURCES = [
     ("ZL3a", ROOT / "data/transcriptions/zl3a.txt"),
     ("IT2a", ROOT / "data/transcriptions/eva_it2a.txt"),
 ]
-TEXT_LINE = re.compile(r"^<f(\d+[rv]\d*)\.(\d+),[^>]*>\s*(.*)$")
+TEXT_LINE = re.compile(r"^<f([^\.>]+)\.(\d+),[^>]*>\s*(.*)$")
+LEGACY_TEXT_LINE = re.compile(r"^<f(\d+[rv])\.(\d+),[^>]*>\s*(.*)$")
 TAG_RE = re.compile(r"<[^>]*>")
 BRACE_RE = re.compile(r"\{[^{}]*\}")
 TOKEN_RE = re.compile(r"[a-z]+")
@@ -137,6 +138,29 @@ def summarize_lines(lines: list[dict]) -> dict:
     }
 
 
+def legacy_parser_coverage(text: str) -> dict:
+    """Reproduce EXP-590's line-ID regex and historical token filter for comparison."""
+    line_count = token_count = daiin_count = initial_daiiin_lines = 0
+    for row in text.splitlines():
+        match = LEGACY_TEXT_LINE.match(row)
+        if not match:
+            continue
+        body = match.group(3)
+        tokens = tokenize_views(body)["historical"]
+        if not tokens:
+            continue
+        line_count += 1
+        token_count += len(tokens)
+        daiin_count += tokens.count(TARGET)
+        initial_daiiin_lines += bool(tokens and tokens[0] == TARGET)
+    return {
+        "nonempty_token_lines": line_count,
+        "tokens": token_count,
+        "exact_daiin_occurrences": daiin_count,
+        "line_initial_daiin_lines": initial_daiiin_lines,
+    }
+
+
 def audit_source(label: str, path: Path) -> dict:
     raw = path.read_bytes()
     text = raw.decode("utf-8-sig")
@@ -171,6 +195,7 @@ def audit_source(label: str, path: Path) -> dict:
         "transcription": label,
         "source": str(path.relative_to(ROOT)),
         "source_sha256": hashlib.sha256(raw).hexdigest(),
+        "legacy_exp590_parser_coverage": legacy_parser_coverage(text),
         "all_noncomment_brace_spans": all_noncomment_spans,
         "non_text_line_brace_spans": non_text_spans,
         "text_record_brace_spans_before_annotation_filter": text_record_brace_spans,
