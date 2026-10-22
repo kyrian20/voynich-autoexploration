@@ -4,7 +4,9 @@ on:
   workflow_dispatch:
   push:
     paths:
-      - 'experiments/exp_605_folio_sequence_gap_audit/**'
+      - 'experiments/exp_605_folio_sequence_gap_audit/script.py'
+      - 'data/transcriptions/eva_zl3b.txt'
+      - 'data/transcriptions/eva_it2a.txt'
       - '.github/workflows/voynich-exp605.yml'
 
 permissions:
