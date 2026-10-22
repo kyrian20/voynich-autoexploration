@@ -139,3 +139,13 @@ Compared six predeclared transitions around known foliation gaps against adjacen
 
 ## Next research direction
 Avoid further repetition of the same `daiin` positional statistic and avoid treating text discontinuity as evidence of lost pages. Prioritize a higher-value linguistic test: evaluate whether the manuscript's token sequences exhibit stable local transition structure beyond frequency and Currier class, with predeclared train/test splits by folio and negative controls. Report failures as well as positive results.
+
+
+## Latest verified addendum — EXP-622/623 (2026-10-22)
+
+The committed outputs for EXP-622 and EXP-623 were inspected directly:
+- **EXP-622 (ZL3b):** 5,162 ch/sh occurrences with both adjacent characters; 472 matched strata across 144 folios. Mean matched-stratum sh−ch vowel contrast was +4.38 percentage points after the digraph and +3.85 points before it. The difference-in-differences was only +0.53 points; two-sided within-stratum permutation p=0.82342 (10,000 draws).
+- **EXP-623 (IT2a):** 5,374 occurrences; 485 matched strata across 149 folios. The contrast was +4.50 points after and +5.41 points before; interaction −0.91 points, p=0.69003 (10,000 draws).
+- **Decision:** the data do not show that the ch/sh vowel contrast is specifically stronger after the digraph than before it. This weakens the outcome-specific/phonetic interpretation; it does not erase the descriptive contrast, but neither experiment establishes sound values, meaning, language identity, or decipherment. IT2a and ZL3b are alternative transcriptions of one manuscript, not independent manuscript samples.
+- **Provenance correction:** the EXP-623 script and generated report/JSON previously contained copy-paste wording incorrectly saying the analysis used ZL3b. The source path and SHA-256 were already IT2a; wording has now been corrected in all three files without changing the statistics.
+- **Still open:** independent parser/IVTFF edge-case audit; section-level holdout using defensible codicological boundaries; and a complete predeclared multiple-testing/control-family review. Do not mark the ch/sh line closed or start another lexical variant scan before those checks.
