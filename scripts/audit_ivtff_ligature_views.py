@@ -25,16 +25,35 @@ UNIT_RE = re.compile(r"\{[^{}]*\}|[a-z]+")
 TARGET = "daiin"
 
 
-def prepare_body(body: str) -> str:
-    """Match the historical baseline's removal of tags and square annotations."""
-    body = TAG_RE.sub(" ", body)
-    body = re.sub(r"\[[^\]]*\]", " ", body)
-    return body.lower()
+def prepare_body_with_offsets(body: str) -> tuple[str, list[int]]:
+    """Remove IVTFF tags/uncertain annotations while mapping chars to raw offsets."""
+    output = []
+    offsets = []
+    i = 0
+    while i < len(body):
+        if body[i] == "<":
+            end = body.find(">", i + 1)
+            if end >= 0:
+                output.append(" ")
+                offsets.append(i)
+                i = end + 1
+                continue
+        if body[i] == "[":
+            end = body.find("]", i + 1)
+            if end >= 0:
+                output.append(" ")
+                offsets.append(i)
+                i = end + 1
+                continue
+        output.append(body[i].lower())
+        offsets.append(i)
+        i += 1
+    return "".join(output), offsets
 
 
 def tokenize_views(body: str) -> dict:
-    """Return historical, atomic-ligature, and expanded views with raw offsets."""
-    prepared = prepare_body(body)
+    """Return three derived views and map atomic units back to raw body offsets."""
+    prepared, offset_map = prepare_body_with_offsets(body)
     historical_text = BRACE_RE.sub(" ", prepared)
     expanded_text = BRACE_RE.sub(lambda m: m.group(0)[1:-1], prepared)
     historical = TOKEN_RE.findall(historical_text)
@@ -50,6 +69,8 @@ def tokenize_views(body: str) -> dict:
                 "content": raw[1:-1],
                 "start": match.start(),
                 "end": match.end(),
+                "raw_start": offset_map[match.start()],
+                "raw_end": offset_map[match.end() - 1] + 1,
             })
         else:
             atomic_units.append({
