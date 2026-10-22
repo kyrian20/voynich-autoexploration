@@ -86,6 +86,9 @@ jobs:
       - name: Cuantificar sensibilidad descriptiva de ligaduras IVTFF
         run: python scripts/audit_ivtff_ligature_views.py
 
+      - name: Probar cobertura de identificadores IVTFF en EXP-590
+        run: python tests/test_exp590_ivtff_line_ids.py
+
       - name: Verificar ruta portable del corpus de EXP-573
         run: python tests/test_exp573_portability.py
 
