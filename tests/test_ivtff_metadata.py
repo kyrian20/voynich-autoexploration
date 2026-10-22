@@ -69,7 +69,7 @@ def check_tokenizers() -> None:
 
 def check_brace_inventory() -> None:
     # Inventory only: letters inside braces are recorded, not presumed lexical.
-    report = audit_text("# editorial note }\\ndai{ch}in {abc def} x} {open")
+    report = audit_text("# editorial note }\ndai{ch}in {abc def} x} {open")
     assert report["brace_span_count"] == 2, report
     assert report["spans_with_ascii_letters"] == 2, report
     assert report["spans_with_whitespace"] == 1, report
