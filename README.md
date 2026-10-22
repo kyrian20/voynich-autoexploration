@@ -4,6 +4,8 @@ Repositorio de trabajo: `kyrian20/voynich-autoexploration` (rama `master`).
 
 ## Estado operativo actual — 22 octubre 2026
 
+**Investigación profesional externa:** [ocho fuentes, conocimiento aplicable y límites de acceso](research/PROFESSIONAL_EXTERNAL_REVIEW_2026-10-22.md), con versiones fijadas de cuatro repositorios de autores. Se incorpora metodología; no se atribuye validación propia a sus conclusiones.
+
 **Sensibilidad ejecutada:** [rejilla de 128 normalizaciones y comparación de EXP-601/607](research/READER_SENSITIVITY_DECISION_2026-10-22.md). El patrón inicial B/P0 y la ventaja del modelo frente a su control conservan el signo bajo los perfiles ensayados; son resultados exploratorios, sin interpretación semántica.
 
 **Revisión intensiva posterior:** [reparaciones, pruebas y límites](research/INTENSIVE_REVIEW_2026-10-22.md): 474 scripts con rutas portables, auditor de 227 cabeceras y capa léxica sin pérdida probada sobre tres transcripciones. EXP-170 sigue bloqueado por inputs externos requeridos; EXP-031 y la parte latina de EXP-436 pasan una ejecución desde otro directorio.

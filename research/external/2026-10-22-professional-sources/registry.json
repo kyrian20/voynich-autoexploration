@@ -1,0 +1,296 @@
+{
+  "schema_version": 1,
+  "review_date": "2026-10-22",
+  "kind": "external_literature_and_reproduction_readiness",
+  "independently_replicated_in_this_review": false,
+  "sources": [
+    {
+      "id": "reddy-knight-2011",
+      "authors": [
+        "Sravana Reddy",
+        "Kevin Knight"
+      ],
+      "year": 2011,
+      "title": "What We Know About The Voynich Manuscript",
+      "publication": "LaTeCH / ACL-HLT, pp. 78–86",
+      "url": "https://aclanthology.org/W11-1511/",
+      "consulted_url": "https://aclanthology.org/W11-1511.pdf",
+      "access_level": "FULL_TEXT_METHOD_SECTIONS",
+      "locators": [
+        "§2 corpus",
+        "§4.2 letter prediction",
+        "§5 word order",
+        "§6 page topicality"
+      ],
+      "status": "PUBLISHED_CONFERENCE_PAPER"
+    },
+    {
+      "id": "bowern-lindemann-2021-review",
+      "authors": [
+        "Claire Bowern",
+        "Luke Lindemann"
+      ],
+      "year": 2021,
+      "title": "The Linguistics of the Voynich Manuscript",
+      "publication": "Annual Review of Linguistics 7:285–308",
+      "doi": "10.1146/annurev-linguistics-011619-030613",
+      "url": "https://www.annualreviews.org/content/journals/10.1146/annurev-linguistics-011619-030613",
+      "access_level": "PUBLISHER_METADATA_AND_ABSTRACT",
+      "status": "PUBLISHED_REVIEW",
+      "access_limit": "Publisher full text not loaded; Yale PDF exceeded retrieval size limit."
+    },
+    {
+      "id": "lindemann-bowern-2021-entropy",
+      "authors": [
+        "Luke Lindemann",
+        "Claire Bowern"
+      ],
+      "year": 2021,
+      "title": "Character Entropy in Modern and Historical Texts: Comparison Metrics for an Undeciphered Manuscript",
+      "url": "https://arxiv.org/abs/2010.14697v2",
+      "version": "v2, 2021-05-18",
+      "access_level": "AUTHOR_ABSTRACT_AND_CORPUS_REPOSITORY_TREE",
+      "status": "ARXIV_VERSION_CONSULTED",
+      "access_limit": "PDF exceeded retrieval size limit; do not claim full-text audit.",
+      "code_repository": "chirila/Voynich-public"
+    },
+    {
+      "id": "montemurro-zanette-2013",
+      "authors": [
+        "Marcelo A. Montemurro",
+        "Damián H. Zanette"
+      ],
+      "year": 2013,
+      "title": "Keywords and Co-Occurrence Patterns in the Voynich Manuscript: An Information-Theoretic Analysis",
+      "publication": "PLOS ONE 8(6):e66344",
+      "doi": "10.1371/journal.pone.0066344",
+      "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0066344",
+      "access_level": "FULL_TEXT_METHOD_SECTIONS",
+      "locators": [
+        "Results opening corpus-order statement",
+        "Materials and Methods",
+        "Word-space Similarity Analysis"
+      ],
+      "status": "PUBLISHED_PEER_REVIEWED_RESEARCH"
+    },
+    {
+      "id": "sterneck-polish-bowern-2021",
+      "authors": [
+        "Rachel Sterneck",
+        "Annie Polish",
+        "Claire Bowern"
+      ],
+      "year": 2021,
+      "title": "Topic Modeling in the Voynich Manuscript",
+      "url": "https://arxiv.org/abs/2107.02858v1",
+      "consulted_url": "https://arxiv.org/pdf/2107.02858",
+      "version": "v1, 2021-07-06",
+      "access_level": "FULL_TEXT_METHOD_SECTIONS",
+      "locators": [
+        "§2.2 metadata alignment",
+        "§3 Data and Methods",
+        "§4 topic-model comparisons"
+      ],
+      "status": "ARXIV_VERSION_CONSULTED",
+      "code_repository": "rachelsterneck/voynich-topic-modeling"
+    },
+    {
+      "id": "greshko-2025-naibbe",
+      "authors": [
+        "Michael A. Greshko"
+      ],
+      "year": 2025,
+      "title": "The Naibbe cipher: a substitution cipher that encrypts Latin and Italian as Voynich Manuscript-like ciphertext",
+      "publication": "Cryptologia",
+      "doi": "10.1080/01611194.2025.2566408",
+      "url": "https://doi.org/10.1080/01611194.2025.2566408",
+      "consulted_url": "https://github.com/greshko/naibbe-cipher",
+      "access_level": "AUTHOR_REPOSITORY_README_AND_NAIBBE_V2_SOURCE",
+      "status": "JOURNAL_PUBLICATION_IDENTIFIED_AUTHOR_ARTIFACTS_INSPECTED",
+      "access_limit": "Publisher full text returned 403.",
+      "code_repository": "greshko/naibbe-cipher"
+    },
+    {
+      "id": "timm-schinner-2020",
+      "authors": [
+        "Torsten Timm",
+        "Andreas Schinner"
+      ],
+      "year": 2020,
+      "title": "A possible generating algorithm of the Voynich manuscript",
+      "publication": "Cryptologia 44(1)",
+      "doi": "10.1080/01611194.2019.1596999",
+      "url": "https://doi.org/10.1080/01611194.2019.1596999",
+      "consulted_url": "https://github.com/TorstenTimm/SelfCitationTextgenerator",
+      "access_level": "PUBLISHER_SEARCH_METADATA_AND_AUTHOR_REPOSITORY",
+      "status": "JOURNAL_PUBLICATION_IDENTIFIED_ARTIFACT_INVENTORY_ONLY",
+      "access_limit": "Publisher returned 403; generator not executed.",
+      "code_repository": "TorstenTimm/SelfCitationTextgenerator"
+    },
+    {
+      "id": "parisel-2026-direction-v2",
+      "authors": [
+        "Christophe Parisel"
+      ],
+      "year": 2026,
+      "title": "Evidence of Layered Positional and Directional Constraints in the Voynich Manuscript: Implications for Cipher-Like Structure",
+      "url": "https://arxiv.org/abs/2604.19762v2",
+      "consulted_url": "https://arxiv.org/pdf/2604.19762",
+      "version": "v2, 2026-06-16",
+      "access_level": "FULL_TEXT_METHOD_SECTIONS",
+      "locators": [
+        "§3.4 Markov simulation",
+        "§4.2 Markov results",
+        "§5.1 analytical pivot",
+        "§3.5 and §4.3 calibrated generator comparisons"
+      ],
+      "status": "PREPRINT_NOT_INDEPENDENT_CONFIRMATION"
+    }
+  ],
+  "blocked_current_leads": [
+    {
+      "doi": "10.1080/01611194.2026.2697318",
+      "title": "The Voynich Manuscript’s positional entropy collapse: comparative evidence from languages and ciphers",
+      "status": "SEARCH_LEAD_ONLY_FULL_TEXT_403_NO_CONCLUSION_IMPORTED"
+    },
+    {
+      "doi": "10.1080/01611194.2026.2693462",
+      "title": "The challenge of analyzing a dynamic text: why the Voynich manuscript resists conventional interpretation",
+      "status": "SEARCH_LEAD_ONLY_FULL_TEXT_403_NO_CONCLUSION_IMPORTED"
+    },
+    {
+      "url": "https://journals.openedition.org/digitalmedievalist/2331",
+      "status": "ALREADY_TRACKED_2026_10_21_CURRENT_RETRIEVAL_BLOCKED_ANUBIS_NOT_REVERIFIED",
+      "existing_note": "research/EXTERNAL_RESEARCH_MEMO_SINGULION_STRUCTURE_2026-10-21.md"
+    }
+  ],
+  "external_repositories": [
+    {
+      "repository": "greshko/naibbe-cipher",
+      "commit": "719f2f4c4d1eacf95fabf48381cd84fc6cd94279",
+      "tree_listing_complete": true,
+      "execution_performed": false,
+      "files": [
+        {
+          "path": "README.md",
+          "git_blob_sha1": "486782221285186c0f78dd9474b676e067cd4bea",
+          "bytes": 3227,
+          "url": "https://github.com/greshko/naibbe-cipher/blob/719f2f4c4d1eacf95fabf48381cd84fc6cd94279/README.md"
+        },
+        {
+          "path": "LICENSE",
+          "git_blob_sha1": "6570cbe139bc3530b7d5f6f73d9aa8bc796950e5",
+          "bytes": 1064,
+          "url": "https://github.com/greshko/naibbe-cipher/blob/719f2f4c4d1eacf95fabf48381cd84fc6cd94279/LICENSE"
+        },
+        {
+          "path": "naibbe_v2.py",
+          "git_blob_sha1": "b566ad82e4b6ff0782ecdddebf77718dac44f292",
+          "bytes": 11626,
+          "url": "https://github.com/greshko/naibbe-cipher/blob/719f2f4c4d1eacf95fabf48381cd84fc6cd94279/naibbe_v2.py"
+        },
+        {
+          "path": "references/naibbe_tables.csv",
+          "git_blob_sha1": "5cd34fb81d80faf3b4d57dbf1719c05ffde25302",
+          "bytes": 8913,
+          "url": "https://github.com/greshko/naibbe-cipher/blob/719f2f4c4d1eacf95fabf48381cd84fc6cd94279/references/naibbe_tables.csv"
+        },
+        {
+          "path": "input/examples/divina_commedia.txt",
+          "git_blob_sha1": "2f57181cca66ab61d8719e35778d6b06688ee8be",
+          "bytes": 1112569,
+          "url": "https://github.com/greshko/naibbe-cipher/blob/719f2f4c4d1eacf95fabf48381cd84fc6cd94279/input/examples/divina_commedia.txt"
+        }
+      ],
+      "license_status": "LICENSE_PRESENT_SOURCE_HEADER_ADDS_PUBLICATION_CITATION_REQUIREMENT"
+    },
+    {
+      "repository": "chirila/Voynich-public",
+      "commit": "decc4caaa6515b86e42a219d1da8d81114736f2e",
+      "tree_listing_complete": true,
+      "execution_performed": false,
+      "files": [
+        {
+          "path": "README.md",
+          "git_blob_sha1": "c163c97ecdfbe87eab520fc390a281f059ad93c3",
+          "bytes": 2111,
+          "url": "https://github.com/chirila/Voynich-public/blob/decc4caaa6515b86e42a219d1da8d81114736f2e/README.md"
+        },
+        {
+          "path": "Python code/make_wiki_corpus_short.py",
+          "git_blob_sha1": "ca2e1ec96b6d80ca046b08072ab566877747706c",
+          "bytes": 1470,
+          "url": "https://github.com/chirila/Voynich-public/blob/decc4caaa6515b86e42a219d1da8d81114736f2e/Python%20code/make_wiki_corpus_short.py"
+        },
+        {
+          "path": "Python code/make_wikis2.py",
+          "git_blob_sha1": "3336d4de5652361e6b7e12775f75e283a172abd3",
+          "bytes": 1234,
+          "url": "https://github.com/chirila/Voynich-public/blob/decc4caaa6515b86e42a219d1da8d81114736f2e/Python%20code/make_wikis2.py"
+        }
+      ],
+      "license_status": "NO_LICENSE_FILE_FOUND_IN_COMPLETE_TREE_REUSE_NOT_AUTHORIZED_BY_PUBLIC_ACCESS"
+    },
+    {
+      "repository": "rachelsterneck/voynich-topic-modeling",
+      "commit": "7e26476a624415cd628cfeb81816669e5262df49",
+      "tree_listing_complete": true,
+      "execution_performed": false,
+      "files": [
+        {
+          "path": "README.md",
+          "git_blob_sha1": "d81e8adbb4360e20d310041d8d0ee48395659f65",
+          "bytes": 1321,
+          "url": "https://github.com/rachelsterneck/voynich-topic-modeling/blob/7e26476a624415cd628cfeb81816669e5262df49/README.md"
+        },
+        {
+          "path": "vms_vectorize.py",
+          "git_blob_sha1": "0f00555376a998c9b1989fbcff1d7b6d456b62e2",
+          "bytes": 2924,
+          "url": "https://github.com/rachelsterneck/voynich-topic-modeling/blob/7e26476a624415cd628cfeb81816669e5262df49/vms_vectorize.py"
+        },
+        {
+          "path": "topic_modeling.py",
+          "git_blob_sha1": "7edef686f9403b95ffefc9976899c1e08dbfaf62",
+          "bytes": 2536,
+          "url": "https://github.com/rachelsterneck/voynich-topic-modeling/blob/7e26476a624415cd628cfeb81816669e5262df49/topic_modeling.py"
+        },
+        {
+          "path": "lda.py",
+          "git_blob_sha1": "0ce2e5c0c0c617b8b2af8c534c2087c2553152aa",
+          "bytes": 2299,
+          "url": "https://github.com/rachelsterneck/voynich-topic-modeling/blob/7e26476a624415cd628cfeb81816669e5262df49/lda.py"
+        }
+      ],
+      "license_status": "NO_LICENSE_FILE_FOUND_IN_COMPLETE_TREE_REUSE_NOT_AUTHORIZED_BY_PUBLIC_ACCESS"
+    },
+    {
+      "repository": "TorstenTimm/SelfCitationTextgenerator",
+      "commit": "a6ede2202dd7ad6285ce2c007bf22c2a0e7709b7",
+      "tree_listing_complete": true,
+      "execution_performed": false,
+      "files": [
+        {
+          "path": "README.md",
+          "git_blob_sha1": "46ac4bc20e1108dc294d77387919f447a45596b4",
+          "bytes": 96987,
+          "url": "https://github.com/TorstenTimm/SelfCitationTextgenerator/blob/a6ede2202dd7ad6285ce2c007bf22c2a0e7709b7/README.md"
+        },
+        {
+          "path": "LICENSE",
+          "git_blob_sha1": "6b1bd09317974964cf197605719fc6e33a823d94",
+          "bytes": 1069,
+          "url": "https://github.com/TorstenTimm/SelfCitationTextgenerator/blob/a6ede2202dd7ad6285ce2c007bf22c2a0e7709b7/LICENSE"
+        },
+        {
+          "path": "executable/text-generator.jar",
+          "git_blob_sha1": "7fa14434f896420d6ef626e229f17a453756c9cb",
+          "bytes": 194341,
+          "url": "https://github.com/TorstenTimm/SelfCitationTextgenerator/blob/a6ede2202dd7ad6285ce2c007bf22c2a0e7709b7/executable/text-generator.jar"
+        }
+      ],
+      "license_status": "LICENSE_PRESENT_NOT_FULLY_AUDITED"
+    }
+  ],
+  "interpretation_policy": "Author-reported findings and inspected methods are not newly validated findings of this project. No semantic assignments imported."
+}
