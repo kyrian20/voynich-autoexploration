@@ -88,6 +88,9 @@ jobs:
       - name: Verificar ruta portable del corpus de EXP-573
         run: python tests/test_exp573_portability.py
 
+      - name: Reproducir reconciliación metodológica EXP-573
+        run: python experiments/exp_573_c007_reconciliation/script.py
+
       - name: Probar regresiones de identificadores de página y locus IVTFF
         run: python tests/test_ivtff_page_locus_ids.py
 
