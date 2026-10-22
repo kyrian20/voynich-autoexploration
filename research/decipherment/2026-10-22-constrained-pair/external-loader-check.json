@@ -1,0 +1,35 @@
+{
+  "revision": "66f8adaadc120f93e8a4c906685ba66a9d3ab847",
+  "records": [
+    {
+      "path": "herbal/culpeper_en.txt",
+      "start_marker_offset": 974,
+      "end_marker_offset": 1475356,
+      "legacy_retains_end_marker": true,
+      "legacy_token_count": 253664,
+      "recomputed_offset_token_count": 253501
+    },
+    {
+      "path": "italian/27608.txt",
+      "start_marker_offset": 523,
+      "end_marker_offset": 666416,
+      "legacy_retains_end_marker": true,
+      "legacy_token_count": 102260,
+      "recomputed_offset_token_count": 102173
+    },
+    {
+      "path": "italian/26166.txt",
+      "start_marker_offset": 522,
+      "end_marker_offset": 126619,
+      "legacy_retains_end_marker": true,
+      "legacy_token_count": 18999,
+      "recomputed_offset_token_count": 18910
+    }
+  ],
+  "analysis_prefix_tokens": 33582,
+  "analyzed_prefix_unchanged_by_offset_fix": {
+    "Culpeper": true,
+    "Italian_combined": true
+  },
+  "scope": "Observed loader defect in full streams; no effect on these two selected prefixes. No revised external headline asserted."
+}

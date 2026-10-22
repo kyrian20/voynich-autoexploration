@@ -1,0 +1,118 @@
+{
+  "repository": "https://github.com/lrozanova/voynich-units",
+  "commit": "66f8adaadc120f93e8a4c906685ba66a9d3ab847",
+  "command": "python revision/token_syntax_test.py",
+  "cwd": "external repository root at pinned commit",
+  "exit_code": 0,
+  "python": "3.12.14",
+  "numpy": "2.3.5",
+  "inputs_and_code": [
+    {
+      "path": "revision/token_syntax_test.py",
+      "bytes": 6522,
+      "sha256": "ae6100cfc54abdc080c9f1ba4e966d035c33571be01c28c2d12df6b25896d1e7"
+    },
+    {
+      "path": "revision/token_syntax_output.txt",
+      "bytes": 2479,
+      "sha256": "8a71f310c4a31c7e2b8bd125856fc20e89ea6533efc41807ab97934fec976e58"
+    },
+    {
+      "path": "ZL3b.txt",
+      "bytes": 410325,
+      "sha256": "8384ef2572444d076a9dfb22bb069808e331546832e0b456a4507adb376e7657"
+    },
+    {
+      "path": "herbal/culpeper_en.txt",
+      "bytes": 1532157,
+      "sha256": "cbe03f3355763d355fbe9dea59b25ce973fa73c61eb16ce4f293dd66df84bbd8"
+    },
+    {
+      "path": "italian/27608.txt",
+      "bytes": 697312,
+      "sha256": "b5d110c9e3aaee179c579829a2337ba7d9f00cf9b1aa9f61df0eda60356b55ed"
+    },
+    {
+      "path": "italian/26166.txt",
+      "bytes": 148219,
+      "sha256": "b3ed20f08ef7304a2dcf09600288894366e3bb79264ebb0ab1c6324eb80091d6"
+    },
+    {
+      "path": "english_corpus.txt",
+      "bytes": 1372208,
+      "sha256": "18c9bfe7b83cd82b22200bf5f17601744d85f79150b6eabce631acf2a1c0c7c7"
+    },
+    {
+      "path": "herbal/pliny_the_elder.naturalis_historia.part.4.books_16-20.tess",
+      "bytes": 502458,
+      "sha256": "c573ad885e6285f7b173ec0b72e0fc0d02ed4f6a8068131cef0ad93679b17f38"
+    },
+    {
+      "path": "herbal/pliny_the_elder.naturalis_historia.part.5.books_21-25.tess",
+      "bytes": 346821,
+      "sha256": "8931c2e8ce7a2a3649941ed729ed9dc7602c0efb3fad6afae8e76f0befbfbbd5"
+    },
+    {
+      "path": "herbal/pliny_the_elder.naturalis_historia.part.6.books_26-30.tess",
+      "bytes": 347515,
+      "sha256": "11590f966405c5461b428357bde301c45c44e275bb928ed37c5ffa6869e549ee"
+    },
+    {
+      "path": "latin/caesar.de_bello_gallico.part.1.tess",
+      "bytes": 64010,
+      "sha256": "18a55ce454c3990efc0d103c5cca3c93dab00b496a5a4a0078a0b37955b3183d"
+    },
+    {
+      "path": "latin/caesar.de_bello_gallico.part.2.tess",
+      "bytes": 33443,
+      "sha256": "1ab5b11185703aea048177f5af1b4e1d88109ca8c5d54b2d8e24470f0768a2fd"
+    },
+    {
+      "path": "latin/caesar.de_bello_gallico.part.3.tess",
+      "bytes": 29322,
+      "sha256": "9c5ec2ec362e958e3db2a6fe33775ed99002e6d31dbe7bc95387cf2862936720"
+    },
+    {
+      "path": "latin/celsus.de_medicina.part.1.tess",
+      "bytes": 52060,
+      "sha256": "8015edceab63af08657345c802c161fe4a159425f82869266cef9603f6e8d5d9"
+    },
+    {
+      "path": "latin/celsus.de_medicina.part.2.tess",
+      "bytes": 90099,
+      "sha256": "1774843dbae2fc60b52388f5af6fabbe7e540d16abe6b6a97b6b7499bb12a697"
+    },
+    {
+      "path": "latin/celsus.de_medicina.part.3.tess",
+      "bytes": 90559,
+      "sha256": "7d86d582d812b4d9d7adfb59dde22ab054b583ff5e35bb97bda0ab6d3f2e477c"
+    },
+    {
+      "path": "latin/celsus.de_medicina.part.4.tess",
+      "bytes": 75283,
+      "sha256": "428eecc4a9c4b4209bf6bdaee12245e35e40ffad0a135b03ee10835509cc2e63"
+    },
+    {
+      "path": "latin/celsus.de_medicina.part.5.tess",
+      "bytes": 120382,
+      "sha256": "e4f7324ffa58cf289a807a6b1c8c4faad5f1d77e1cfd7143ff86f98359423c1f"
+    }
+  ],
+  "stdout_sha256": "8a71f310c4a31c7e2b8bd125856fc20e89ea6533efc41807ab97934fec976e58",
+  "exact_match_archived_stdout": true,
+  "scope": "One archived 25-shuffle driver, not the entire arXiv package or independent implementation. No external code/data imported into the production corpus.",
+  "missing_claimed_driver_names": [
+    "reproduce_headlines.py",
+    "reproduce_edge_order.py",
+    "reproduce_scale_transition.py"
+  ],
+  "review_limit": "The pinned tree contains 298 entries and is not truncated. Paper-named drivers not found anywhere in this tree; related older drivers exist.",
+  "loader_review": "A footer-offset defect is verified in all three full Gutenberg streams. The compared 33,582-token Culpeper and combined Italian prefixes are unchanged by recalculating the offset; this defect does not alter those reported comparisons. See external-loader-check.json and scripts/check_external_loader_offsets.py.",
+  "reproduction_steps": [
+    "git clone https://github.com/lrozanova/voynich-units.git external-voynich-units",
+    "git -C external-voynich-units checkout --detach 66f8adaadc120f93e8a4c906685ba66a9d3ab847",
+    "From external root: python revision/token_syntax_test.py > rerun.stdout.txt",
+    "Compare rerun.stdout.txt with revision/token_syntax_output.txt byte for byte",
+    "From our repo: python scripts/check_external_loader_offsets.py --repo /absolute/path/to/external-voynich-units"
+  ]
+}

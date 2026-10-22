@@ -144,6 +144,12 @@ jobs:
           python scripts/audit_daiin_dam_exact.py > daiin-dam-exact.json
           python scripts/check_audit_snapshot.py research/maintenance/2026-10-22-precision-review/exact-results.json daiin-dam-exact.json
 
+      - name: Probar controles de posición y bordes de la pareja EVA
+        run: |
+          python tests/test_constrained_pair.py
+          python scripts/audit_constrained_pair.py > constrained-pair.json
+          python scripts/check_audit_snapshot.py research/decipherment/2026-10-22-constrained-pair/results.json constrained-pair.json
+
       - name: Probar evidencias de anclas y reproducir concordancias
         run: |
           python tests/test_decipherment_anchor_evidence.py
@@ -170,6 +176,7 @@ jobs:
             partial-sound-rule-feasibility.json
             daiin-dam-control.json
             daiin-dam-exact.json
+            constrained-pair.json
           if-no-files-found: error
           retention-days: 90
 

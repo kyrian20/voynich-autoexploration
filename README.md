@@ -4,6 +4,8 @@ Repositorio de trabajo: `kyrian20/voynich-autoexploration` (rama `master`).
 
 ## Estado operativo actual — 22 octubre 2026
 
+**Contraste científico con fuentes externas:** [controles exactos de posición/bordes y reproducción de un driver publicado](research/decipherment/2026-10-22-constrained-pair/REPORT.md). La pareja daiin→dam no se admite como ancla semántica: al conservar bordes el control espera 7–7,5 de las ocho apariciones, con muy poca variación residual.
+
 **Revisión de precisión:** [validación estricta del manifiesto y distribución exacta del control local](research/maintenance/2026-10-22-precision-review/REPORT.md). Se conservan los cálculos Monte Carlo anteriores como históricos; la selección retrospectiva sigue limitando la inferencia.
 
 **Continuidad auditada:** [identidad de 14 corpus, duplicados por bytes y control de contaminación EXP-607](research/maintenance/2026-10-22-duplicate-control/REPORT.md). [Primer control local de daiin→dam con denominadores](research/decipherment/2026-10-22-daiin-dam-control/REPORT.md): exploratorio, sin significado asignado.

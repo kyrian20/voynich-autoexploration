@@ -1,0 +1,35 @@
+Voynichese: 3884 lines, 33582 tokens
+
+========================================================================================================
+MUTUAL INFORMATION BETWEEN ADJACENT TOKENS, AGAINST A WITHIN-LINE SHUFFLE
+========================================================================================================
+                       corpus |  types |     H1 |     MI |   null |  excess | as % of H1
+--------------------------------------------------------------------------------------------------------
+                   Voynichese |   7160 |  10.26 |  5.707 |  5.855 |  -0.148 |   -1.4%
+      Pliny botanical (Latin) |  11263 |  11.56 |  8.406 |  8.288 |  +0.118 |    1.0%
+      Celsus + Caesar (Latin) |   8698 |  11.00 |  7.440 |  7.234 |  +0.206 |    1.9%
+    Culpeper herbal (English) |   3488 |   8.79 |  4.457 |  3.715 |  +0.742 |    8.4%
+                Italian prose |   7581 |  10.35 |  6.464 |  6.101 |  +0.363 |    3.5%
+                English prose |   2025 |   8.28 |  4.351 |  2.943 |  +1.409 |   17.0%
+
+vocabulary-matched variant: each corpus reduced to its 2000 commonest
+types, all others replaced by a single placeholder, so that estimation
+bias is comparable across corpora
+--------------------------------------------------------------------------------------------------------
+                   Voynichese |   2001 |   8.31 |  3.152 |  3.084 |  +0.068 |    0.8%
+      Pliny botanical (Latin) |   2001 |   7.26 |  2.720 |  2.577 |  +0.143 |    2.0%
+      Celsus + Caesar (Latin) |   2001 |   7.91 |  3.243 |  2.997 |  +0.246 |    3.1%
+    Culpeper herbal (English) |   2001 |   8.33 |  3.845 |  3.042 |  +0.803 |    9.6%
+                Italian prose |   2001 |   7.98 |  3.478 |  2.918 |  +0.560 |    7.0%
+                English prose |   2001 |   8.27 |  4.344 |  2.936 |  +1.408 |   17.0%
+
+========================================================================================================
+READING
+========================================================================================================
+  order-borne information as a share of unigram entropy, vocabulary-matched:
+    Voynichese 0.8%; controls 2.0% to 17.0%
+  A token whose identity constrains its neighbour carries order-borne
+  information; a token cut from a stream at positions unrelated to
+  lexical identity carries little. The comparison is against the
+  shuffle null, not against zero, because the plug-in estimator is
+  biased upward at this vocabulary size.
