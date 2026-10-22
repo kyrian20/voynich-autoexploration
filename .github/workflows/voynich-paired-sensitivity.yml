@@ -15,7 +15,6 @@ permissions:
 concurrency:
   group: voynich-master-writes
   cancel-in-progress: false
-  cancel-in-progress: false
 
 jobs:
   paired-sensitivity:
