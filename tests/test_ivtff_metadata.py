@@ -13,6 +13,7 @@ sys.path.insert(0, str(ROOT))
 from scripts.audit_ivtff_metadata import HEADER, parse_currier_language
 from scripts.exp590_daiin_position import load_lines
 from experiments.exp_602_independent_ivtff_parser_audit.script import tokens_regex, tokens_scanner
+from scripts.audit_ivtff_brace_spans import audit_text
 
 
 def check(metadata: str, expected: str | None) -> None:
@@ -66,6 +67,17 @@ def check_tokenizers() -> None:
     assert tokens_scanner(marked) == expected_marked, tokens_scanner(marked)
 
 
+def check_brace_inventory() -> None:
+    # Inventory only: letters inside braces are recorded, not presumed lexical.
+    report = audit_text("dai{ch}in {abc def} x} {open")
+    assert report["brace_span_count"] == 2, report
+    assert report["spans_with_ascii_letters"] == 2, report
+    assert report["spans_with_whitespace"] == 1, report
+    assert report["unmatched_close_brace_count"] == 1, report
+    assert report["unmatched_open_brace_count"] == 1, report
+    assert report["distinct_contents"] == 2, report
+
+
 def main() -> None:
     # $L wins even when $Q contradicts it; $Q means quire, not Currier language.
     check("<! $Q=A $L=B>", "B")
@@ -105,6 +117,7 @@ def main() -> None:
     assert rows[1]["currier"] == "unknown", rows[1]
 
     check_tokenizers()
+    check_brace_inventory()
     print("IVTFF metadata and tokenizer regression tests passed.")
 
 
