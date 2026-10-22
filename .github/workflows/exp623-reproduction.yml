@@ -1,0 +1,71 @@
+name: EXP-623 isolated reproduction
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - master
+    paths:
+      - "research/reproduction/exp623_order_null.py"
+      - "research/reproduction/exp623_shuffle_holdout.py"
+      - "data/transcriptions/eva_zl3b.txt"
+      - "data/transcriptions/eva_it2a.txt"
+      - ".github/workflows/exp623-reproduction.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  reproduce:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout exact repository revision
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Verify the exact source transcription blobs used in the pilot
+        shell: bash
+        run: |
+          set -euo pipefail
+          ZL3B="$(git hash-object data/transcriptions/eva_zl3b.txt)"
+          IT2A="$(git hash-object data/transcriptions/eva_it2a.txt)"
+          echo "ZL3b git blob: $ZL3B"
+          echo "IT2a git blob: $IT2A"
+          test "$ZL3B" = "2a4533ab9bdfa85db9bad602d590978953055df1"
+          test "$IT2A" = "4d6d3f2537b1f507a257529b49c94af7d6e03446"
+
+      - name: Check reproduction scripts compile
+        run: python -m py_compile research/reproduction/exp623_order_null.py research/reproduction/exp623_shuffle_holdout.py
+
+      - name: Run endpoint-preserving interior shuffle
+        run: |
+          python research/reproduction/exp623_order_null.py \
+            --zl3b data/transcriptions/eva_zl3b.txt \
+            --it2a data/transcriptions/eva_it2a.txt \
+            --seeds 623,701,809,907,1009,1103,1201,1301,1409,1511 \
+            --permutations 39 \
+            --output research/results/exp623_order_null_reproduced.json
+
+      - name: Run all-token within-locus shuffle
+        run: |
+          python research/reproduction/exp623_shuffle_holdout.py \
+            --zl3b data/transcriptions/eva_zl3b.txt \
+            --it2a data/transcriptions/eva_it2a.txt \
+            --splits 20 \
+            --shuffles 50 \
+            --output research/results/exp623_shuffle_holdout_reproduced.json
+
+      - name: Upload immutable reproduction outputs
+        uses: actions/upload-artifact@v4
+        with:
+          name: exp623-reproduction-${{ github.sha }}
+          path: |
+            research/results/exp623_order_null_reproduced.json
+            research/results/exp623_shuffle_holdout_reproduced.json
+          if-no-files-found: error
+          retention-days: 90
