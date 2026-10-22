@@ -8,7 +8,6 @@ on:
       - "data/transcriptions/eva_zl3b.txt"
       - "data/transcriptions/eva_it2a.txt"
       - ".github/workflows/voynich-exp603.yml"
-      - '.github/workflows/voynich-exp603.yml'
 
 permissions:
   contents: write
