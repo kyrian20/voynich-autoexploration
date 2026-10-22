@@ -2,44 +2,44 @@
   "experiment": "EXP-590",
   "title": "daiin line-initial positional baseline",
   "date_utc": "2026-10-22",
-  "source": "data/transcriptions/eva_zl3b.txt",
+  "source": "/home/runner/work/voynich-autoexploration/voynich-autoexploration/data/transcriptions/eva_zl3b.txt",
   "source_sha256": "bf5b6d4ac1e3a51b1847a9c388318d609020441ccd56984c901c32b09beccafc",
   "tokenization": "lowercase ASCII alphabetic runs after removing IVTFF tags, braces and square-bracket annotations",
   "target": "daiin",
   "metrics": {
-    "tokens": 32732,
-    "lines": 4188,
-    "target_occurrences": 726,
-    "line_initial_occurrences": 133,
-    "line_final_occurrences": 118,
-    "initial_rate_per_target_occurrence": 0.18319559228650137,
-    "final_rate_per_target_occurrence": 0.162534435261708,
+    "tokens": 39594,
+    "lines": 5376,
+    "target_occurrences": 853,
+    "line_initial_occurrences": 161,
+    "line_final_occurrences": 134,
+    "initial_rate_per_target_occurrence": 0.18874560375146543,
+    "final_rate_per_target_occurrence": 0.1570926143024619,
     "currier": {
       "A": {
-        "target_occurrences": 440,
-        "line_initial_lines": 50,
-        "line_final_lines": 97,
-        "lines": 1567
+        "target_occurrences": 502,
+        "line_initial_lines": 60,
+        "line_final_lines": 104,
+        "lines": 1815
       },
       "B": {
-        "target_occurrences": 278,
-        "line_initial_lines": 80,
-        "line_final_lines": 21,
-        "lines": 2418
+        "target_occurrences": 314,
+        "line_initial_lines": 91,
+        "line_final_lines": 27,
+        "lines": 2806
       },
       "unknown": {
-        "target_occurrences": 8,
-        "line_initial_lines": 3,
-        "line_final_lines": 0,
-        "lines": 203
+        "target_occurrences": 37,
+        "line_initial_lines": 10,
+        "line_final_lines": 3,
+        "lines": 755
       }
     }
   },
   "permutation_test": {
     "permutations": 5000,
     "seed": 20261020,
-    "null_mean_initial_lines": 94.6282,
-    "null_sd_initial_lines": 8.625471857237725,
+    "null_mean_initial_lines": 109.1582,
+    "null_sd_initial_lines": 9.355339264826263,
     "empirical_one_sided_p": 0.0001999600079984003,
     "null_ge_observed": 0,
     "interpretation": "Exploratory positional test; not a decipherment claim."
