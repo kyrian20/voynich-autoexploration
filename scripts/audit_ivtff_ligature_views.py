@@ -141,18 +141,36 @@ def audit_source(label: str, path: Path) -> dict:
     raw = path.read_bytes()
     text = raw.decode("utf-8-sig")
     lines = []
-    for row in text.splitlines():
+    all_noncomment_spans = 0
+    non_text_spans = 0
+    non_text_examples = []
+    for source_line_no, row in enumerate(text.splitlines(), start=1):
+        if row.lstrip().startswith("#"):
+            continue
+        spans_on_line = BRACE_RE.findall(row)
+        all_noncomment_spans += len(spans_on_line)
         match = TEXT_LINE.match(row)
         if match:
             folio, line_no, body = match.groups()
             if body.strip():
                 lines.append({"folio": folio, "line": int(line_no), "body": body})
+        elif spans_on_line:
+            non_text_spans += len(spans_on_line)
+            if len(non_text_examples) < 20:
+                non_text_examples.append({
+                    "source_line": source_line_no,
+                    "brace_spans": spans_on_line,
+                    "line_prefix": row[:180],
+                })
     if not lines:
         raise RuntimeError(f"No transcription text lines parsed from {path}")
     return {
         "transcription": label,
         "source": str(path.relative_to(ROOT)),
         "source_sha256": hashlib.sha256(raw).hexdigest(),
+        "all_noncomment_brace_spans": all_noncomment_spans,
+        "non_text_line_brace_spans": non_text_spans,
+        "non_text_line_brace_examples": non_text_examples,
         **summarize_lines(lines),
     }
 
