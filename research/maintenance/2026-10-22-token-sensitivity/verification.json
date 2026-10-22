@@ -1,0 +1,66 @@
+{
+  "tests": [
+    {
+      "test": "tests/test_exp573_portability.py",
+      "returncode": 0,
+      "stdout": "EXP-573 repository-relative corpus path smoke test passed.\n",
+      "stderr": ""
+    },
+    {
+      "test": "tests/test_exp590_folio_cluster_sensitivity.py",
+      "returncode": 0,
+      "stdout": "Folio-level daiin sensitivity regression tests passed.\n",
+      "stderr": ""
+    },
+    {
+      "test": "tests/test_exp590_ivtff_line_ids.py",
+      "returncode": 0,
+      "stdout": "EXP-590 IVTFF page-ID and permutation-null regression tests passed.\n",
+      "stderr": ""
+    },
+    {
+      "test": "tests/test_ivtff_ligature_views.py",
+      "returncode": 0,
+      "stdout": "IVTFF ligature view regression tests passed.\n",
+      "stderr": ""
+    },
+    {
+      "test": "tests/test_ivtff_lossless.py",
+      "returncode": 0,
+      "stdout": "16 named fixtures plus policy, malformed-input, offset and continuation checks passed.\n",
+      "stderr": ""
+    },
+    {
+      "test": "tests/test_ivtff_metadata.py",
+      "returncode": 0,
+      "stdout": "EXP-590 loader under test: /workspace/scratch/52bf8f3d5221/voynich-autoexploration/scripts/exp590_daiin_position.py\nIVTFF metadata and tokenizer regression tests passed.\n",
+      "stderr": ""
+    },
+    {
+      "test": "tests/test_ivtff_page_locus_ids.py",
+      "returncode": 0,
+      "stdout": "IVTFF page/locus identifier regression tests passed.\n",
+      "stderr": ""
+    },
+    {
+      "test": "tests/test_repository_operations.py",
+      "returncode": 0,
+      "stdout": "Publication guards and exact record-ID reconciliation passed.\n",
+      "stderr": ""
+    },
+    {
+      "test": "tests/test_token_policy_sensitivity.py",
+      "returncode": 0,
+      "stdout": "Sensitivity endpoints, masked characters, factor interactions and exact expectations passed.\n",
+      "stderr": ""
+    }
+  ],
+  "python_syntax_files": 597,
+  "source_inputs_modified": false,
+  "new_experiment_ids": false,
+  "result_sha256": {
+    "exp601-paired-bootstrap.json": "97afdf5c3646d2aba330093ac32c0414bd77adecbe9f61adcce605a2889ad91d",
+    "results.json": "7bc720c9ade828af1aa6497663878ae40961f0d0fc6d55fb093ba00d490a7d8a",
+    "exp607-results.json": "0b5562aaf84dcf3390f9206ee9e6998814e7978552da74ac724770aa85c5b3b3"
+  }
+}

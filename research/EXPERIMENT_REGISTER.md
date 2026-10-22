@@ -131,3 +131,8 @@ Se añadió un análisis de sensibilidad descriptivo por folio sin asignar un nu
 - Resultados preliminares calculados sobre ZL3b: A 60/423 líneas con daiin empiezan por daiin; B 91/283. Diferencia de medias por folio A−B = −0,179871; intervalo percentil del 95 % [−0,271083; −0,090770].
 - El run [39742385683](https://github.com/kyrian20/voynich-autoexploration/actions/runs/39742385683) ejecuta el test y genera artefactos JSON/Markdown. No marcar como reproducido por CI hasta que el run concluya en `success`.
 - Interpretación: diferencia descriptiva bajo la tokenización declarada, no significado lingüístico ni desciframiento. La selección histórica de daiin no está corregida y ZL3a/ZL3b/IT2a no son muestras independientes.
+
+
+## Seguimiento sin ID nuevo — sensibilidad del lector, 22-10-2026
+
+[Informe y decisión](READER_SENSITIVITY_DECISION_2026-10-22.md). Rejilla descriptiva de 128 normalizaciones, bootstrap pareado del directorio completo `experiments/exp_601_folio_clustered_confirmation/` y sensibilidad del modelo `experiments/exp_607_heldout_bigram_prediction/`. No confundir el primer directorio con `experiments/exp_601_primary_statistic_paired_sensitivity/`. Los tres análisis conservan fuentes y resultados originales, y no ocupan otro número EXP.

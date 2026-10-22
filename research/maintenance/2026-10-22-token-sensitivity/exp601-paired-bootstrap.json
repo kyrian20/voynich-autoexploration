@@ -1,0 +1,42 @@
+{
+  "audit": "EXP601_paired_reader_bootstrap_sensitivity",
+  "version": 1,
+  "source_sha256": "bf5b6d4ac1e3a51b1847a9c388318d609020441ccd56984c901c32b09beccafc",
+  "common_lines": 2325,
+  "common_folios": 81,
+  "replicates": 20000,
+  "seed": 60120261019,
+  "historical_bootstrap_interval_reproduced": true,
+  "effects": {
+    "native": {
+      "observed": 88,
+      "expected": 31.27922443054022,
+      "enrichment": 2.8133689885890867
+    },
+    "candidate": {
+      "observed": 88,
+      "expected": 31.344930946246738,
+      "enrichment": 2.807471490395393
+    }
+  },
+  "percentile_95_intervals": {
+    "native": [
+      2.115595580049283,
+      3.5931701023270315
+    ],
+    "candidate": [
+      2.1114309301313656,
+      3.585361193978114
+    ],
+    "candidate_minus_native": [
+      -0.02195988371078513,
+      0.007782775553653619
+    ]
+  },
+  "limitations": [
+    "Exploratory sensitivity on the same previously observed folios; not an independent confirmatory test.",
+    "The same folio draws are used in both views; no source or historical result is overwritten.",
+    "No new p-values; intervals quantify the declared folio resampling procedure.",
+    "No full IVTFF certification or semantic inference."
+  ]
+}

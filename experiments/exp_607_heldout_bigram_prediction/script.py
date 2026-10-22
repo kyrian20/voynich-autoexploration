@@ -17,7 +17,8 @@ def load(label, rel):
     path=ROOT/rel
     pages={}
     for line in path.read_text(encoding="latin-1").splitlines():
-        # Do not include page headers, comments, labels or cross-line transitions.
+        # Basic-page text loci only; labels with >=2 cleaned tokens are included.
+        # Transition counting below stays within each locus.
         m=ROW_RE.match(line.strip())
         if not m: continue
         folio, body=m.groups()

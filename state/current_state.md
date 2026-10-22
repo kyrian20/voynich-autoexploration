@@ -330,3 +330,14 @@ Esta sección sustituye cualquier nota anterior que describa la reproducción co
 ## Intensive maintenance follow-up — 2026-10-22
 
 See `research/INTENSIVE_REVIEW_2026-10-22.md`. Repaired 491 machine-root literals in 474 historical scripts, preserving normalized algorithm ASTs and verifying runtime path resolution. Metadata audit now covers 227 ZL3b headers. A separate lossless lexical layer round-trips 15,989 records with nested offsets; candidate projections remain separate from production outputs. Usage-level review confirms only EXP-170 is blocked by the required missing cipher/plaintext. EXP-031 has an unused missing LATIN constant; EXP-436 skips an optional Italian comparison. Both latter scripts executed successfully from /tmp; see historical-smoke-results.json. No new EXP, no scientific claim promoted, no source or historical output overwritten. Generic word-order prediction already exists as EXP-607 and two LIB-EXP-623 protocols; avoid repeating it without a distinct sensitivity question. Verify the new commit in Actions before claiming its CI green.
+
+
+## Reader-policy sensitivity completed locally — 2026-10-22
+
+See research/READER_SENSITIVITY_DECISION_2026-10-22.md and its separately saved outputs. Exhaustive 128-policy grid on three transcriptions reproduced the ASCII/candidate endpoints record by record. B/P0 positional enrichment stays above one and A/P0 below one within this finite grid; common eligible records are unchanged. Exact global daiin count changes are traced to implementation factors, not interpreted as meaning.
+
+The native experiments/exp_601_folio_clustered_confirmation bootstrap interval reproduced; paired candidate-reader sensitivity on the same 2,325 lines/81 folios gives ratio 2.807471 and interval [2.111431, 3.585361], versus native 2.813369. This is previously observed data and exploratory sensitivity, not fresh confirmation or a new p-value.
+
+The existing EXP-607 scores reproduced. On common records with frozen model/split/control seed, real-minus-shuffled-control gains remain positive in the native and conservative candidate views. Absolute cross-reader losses are not the same estimand. Corrected only a misleading code comment: the original basic-page loader includes label loci; no executable model code changed.
+
+No new EXP IDs, no original results overwritten, no committed_claims/findings/failed_approaches edited. New CI steps compare full audit snapshots with exact counts and 1e-12 finite-float tolerance. Verify the new commit/run before claiming remote reproduction. Independent full IVTFF adjudication remains open before confirmatory migration.

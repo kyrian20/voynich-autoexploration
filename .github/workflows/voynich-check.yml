@@ -97,6 +97,35 @@ jobs:
           if-no-files-found: error
           retention-days: 90
 
+      - name: Probar controles de sensibilidad de tokenización
+        run: python tests/test_token_policy_sensitivity.py
+
+      - name: Reproducir rejilla factorial y comparar snapshot
+        run: |
+          python scripts/audit_token_policy_sensitivity.py > token-policy-sensitivity.json
+          python scripts/check_audit_snapshot.py research/maintenance/2026-10-22-token-sensitivity/results.json token-policy-sensitivity.json
+
+      - name: Reproducir sensibilidad del modelo EXP-607
+        run: |
+          python scripts/audit_exp607_reader_sensitivity.py > exp607-reader-sensitivity.json
+          python scripts/check_audit_snapshot.py research/maintenance/2026-10-22-token-sensitivity/exp607-results.json exp607-reader-sensitivity.json
+
+      - name: Reproducir bootstrap pareado de EXP-601
+        run: |
+          python scripts/audit_exp601_paired_reader_bootstrap.py > exp601-paired-reader-bootstrap.json
+          python scripts/check_audit_snapshot.py research/maintenance/2026-10-22-token-sensitivity/exp601-paired-bootstrap.json exp601-paired-reader-bootstrap.json
+
+      - name: Conservar auditorías de sensibilidad reproducidas
+        uses: actions/upload-artifact@v4
+        with:
+          name: token-policy-sensitivity-${{ github.run_id }}
+          path: |
+            token-policy-sensitivity.json
+            exp607-reader-sensitivity.json
+            exp601-paired-reader-bootstrap.json
+          if-no-files-found: error
+          retention-days: 90
+
       - name: Probar regresiones de metadatos IVTFF
         run: python tests/test_ivtff_metadata.py
 
