@@ -31,6 +31,7 @@ jobs:
           required = [
               Path("data/transcriptions/eva_zl3b.txt"),
               Path("data/transcriptions/eva_it2a.txt"),
+              Path("data/transcriptions/zl3a.txt"),
           ]
           failed = False
           for path in required:
