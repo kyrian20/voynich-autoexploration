@@ -87,9 +87,12 @@ def permutation_test(lines, observed, n_perm=N_PERM, seed=SEED):
     for _ in range(n_perm):
         count = 0
         for line in lines:
-            shuffled = line["tokens"].copy()
-            rng.shuffle(shuffled)
-            count += int(bool(shuffled) and shuffled[0] == TARGET)
+            # Only the first token matters for this statistic. Sampling one
+            # uniformly random token is exactly equivalent to shuffling the
+            # line and inspecting position zero, but avoids shuffling every
+            # token in every replicate.
+            toks = line["tokens"]
+            count += int(bool(toks) and rng.choice(toks) == TARGET)
         null.append(count)
     mean = sum(null) / n_perm
     ge = sum(x >= observed for x in null)
