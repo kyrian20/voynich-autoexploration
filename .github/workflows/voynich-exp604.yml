@@ -8,6 +8,11 @@ on:
       - 'data/transcriptions/eva_it2a.txt'
       - '.github/workflows/voynich-exp604.yml'
 
+# Serialize all workflows that write results to master.
+concurrency:
+  group: voynich-master-writes
+  cancel-in-progress: false
+
 permissions:
   contents: write
 
