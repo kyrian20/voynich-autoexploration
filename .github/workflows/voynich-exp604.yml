@@ -4,7 +4,8 @@ on:
   workflow_dispatch:
   push:
     paths:
-      - 'experiments/exp_604_independent_transcription_replication/**'
+      - 'experiments/exp_604_independent_transcription_replication/script.py'
+      - 'data/transcriptions/eva_it2a.txt'
       - '.github/workflows/voynich-exp604.yml'
 
 permissions:
