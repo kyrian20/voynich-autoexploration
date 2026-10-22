@@ -103,6 +103,24 @@ jobs:
           if-no-files-found: error
 
 
+      - name: Probar sensibilidad de daiin agrupada por folio
+        run: python tests/test_exp590_folio_cluster_sensitivity.py
+
+      - name: Ejecutar sensibilidad descriptiva por folio para daiin
+        id: daiin_folio
+        run: |
+          python scripts/exp590_folio_cluster_sensitivity.py
+          echo "date=$(date -u +%F)" >> "$GITHUB_OUTPUT"
+
+      - name: Conservar informe de sensibilidad por folio
+        uses: actions/upload-artifact@v4
+        with:
+          name: daiin-folio-sensitivity-${{ steps.daiin_folio.outputs.date }}
+          path: |
+            research/experiments/${{ steps.daiin_folio.outputs.date }}-daiin-folio-cluster-sensitivity.json
+            research/experiments/${{ steps.daiin_folio.outputs.date }}-daiin-folio-cluster-sensitivity.md
+          if-no-files-found: error
+
       - name: Verificar ruta portable del corpus de EXP-573
         run: python tests/test_exp573_portability.py
 
