@@ -1,0 +1,16 @@
+{
+  "manifest_url": "https://bl.digirati.io/iiif/ark:/81055/vdc_100058663072.0x000001",
+  "manifest_sha256": "b3d45df72bd2bd8dbdfa15e6f94168c7af4aa21c11441f1e42c6c796d7eb5ac4",
+  "rights": "Public Domain in most countries, other than the UK.",
+  "canvas": "https://bl.digirati.io/images/ark:/81055/vdc_100058663074.0x00003e/canvas/c/62",
+  "canvas_label": {
+    "en": [
+      "f.27v"
+    ]
+  },
+  "image_url": "https://bl.digirati.io/images/ark:/81055/vdc_100058663074.0x00003e/full/full/0/default.jpg",
+  "width": 3992,
+  "height": 5835,
+  "image_sha256": "ed7801589da5c34eb82516af2d164d8228b97d3d9e189cf637b8cf27ddb4848c",
+  "image_bytes": 4659878
+}

@@ -1,0 +1,733 @@
+{
+  "audit": "limited_published_sound_rule_feasibility",
+  "version": 1,
+  "source": {
+    "author": "Stephen Bax",
+    "year": 2014,
+    "url": "https://stephenbax.net/wp-content/uploads/2014/01/Voynich-a-provisional-partial-decoding-BAX.pdf",
+    "locator": "Appendix 1, pp. 56–57; f41v pp. 22–25",
+    "access": "Web full-text extraction; direct local PDF download returned 403; no local PDF rendering completed."
+  },
+  "protocol": "research/decipherment/2026-10-22-f41v-feasibility/PROTOCOL.md",
+  "protocol_sha256": "0c53b411f4a0ad2a0d4b8bf117995c3f3b4369e52fd64dd43b7b4c7dcb46e6ed",
+  "rules": {
+    "k": [
+      "k"
+    ],
+    "y": [
+      "n"
+    ],
+    "d": [
+      "t",
+      "d",
+      "θ",
+      "ð"
+    ],
+    "r": [
+      "r",
+      "R_PLUS_UNSPECIFIED_VOWEL"
+    ],
+    "m": [
+      "R_CONTEXT_UNRESOLVED"
+    ],
+    "n": [
+      "r",
+      "R_PLUS_UNSPECIFIED_VOWEL"
+    ],
+    "sh": [
+      "kʰ",
+      "x",
+      "tʃ"
+    ],
+    "s": [
+      "s"
+    ],
+    "o": [
+      "a"
+    ],
+    "a": [
+      "ə",
+      "u",
+      "wa"
+    ],
+    "in": [
+      "ir"
+    ],
+    "iin": [
+      "ur"
+    ],
+    "e": [
+      "o"
+    ]
+  },
+  "implementation_choices": [
+    "Longest available key first, including in/iin/sh; no glyph insertion/deletion.",
+    "Repeated e kept as separate units; duration/coalescence unimplemented.",
+    "Unknown symbols retained at exact offsets; no analogy-based gallows mappings.",
+    "Sound alternatives and undefined contexts remain unresolved.",
+    "No lexicon search, language model ranking or name fitting."
+  ],
+  "targets": [
+    {
+      "token": "ytoail",
+      "units": [
+        {
+          "raw": "y",
+          "start": 0,
+          "end": 1,
+          "kind": "mapped_approximate",
+          "proposed_sounds": [
+            "n"
+          ]
+        },
+        {
+          "raw": "t",
+          "start": 1,
+          "end": 2,
+          "kind": "unmapped",
+          "proposed_sounds": []
+        },
+        {
+          "raw": "o",
+          "start": 2,
+          "end": 3,
+          "kind": "mapped_approximate",
+          "proposed_sounds": [
+            "a"
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3,
+          "end": 4,
+          "kind": "mapped_approximate",
+          "proposed_sounds": [
+            "ə",
+            "u",
+            "wa"
+          ]
+        },
+        {
+          "raw": "i",
+          "start": 4,
+          "end": 5,
+          "kind": "unmapped",
+          "proposed_sounds": []
+        },
+        {
+          "raw": "l",
+          "start": 5,
+          "end": 6,
+          "kind": "unmapped",
+          "proposed_sounds": []
+        }
+      ],
+      "unmapped_characters": [
+        "i",
+        "l",
+        "t"
+      ],
+      "positions_with_multiple_proposals": [
+        3
+      ],
+      "unresolved_context_positions": [],
+      "repeated_e_duration_not_decided": false,
+      "plaintext": null,
+      "status": "UNVALIDATED_PARTIAL_SOUND_PROJECTION"
+    },
+    {
+      "token": "keeredal",
+      "units": [
+        {
+          "raw": "k",
+          "start": 0,
+          "end": 1,
+          "kind": "mapped_approximate",
+          "proposed_sounds": [
+            "k"
+          ]
+        },
+        {
+          "raw": "e",
+          "start": 1,
+          "end": 2,
+          "kind": "mapped_approximate",
+          "proposed_sounds": [
+            "o"
+          ]
+        },
+        {
+          "raw": "e",
+          "start": 2,
+          "end": 3,
+          "kind": "mapped_approximate",
+          "proposed_sounds": [
+            "o"
+          ]
+        },
+        {
+          "raw": "r",
+          "start": 3,
+          "end": 4,
+          "kind": "mapped_approximate",
+          "proposed_sounds": [
+            "r",
+            "R_PLUS_UNSPECIFIED_VOWEL"
+          ]
+        },
+        {
+          "raw": "e",
+          "start": 4,
+          "end": 5,
+          "kind": "mapped_approximate",
+          "proposed_sounds": [
+            "o"
+          ]
+        },
+        {
+          "raw": "d",
+          "start": 5,
+          "end": 6,
+          "kind": "mapped_approximate",
+          "proposed_sounds": [
+            "t",
+            "d",
+            "θ",
+            "ð"
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 6,
+          "end": 7,
+          "kind": "mapped_approximate",
+          "proposed_sounds": [
+            "ə",
+            "u",
+            "wa"
+          ]
+        },
+        {
+          "raw": "l",
+          "start": 7,
+          "end": 8,
+          "kind": "unmapped",
+          "proposed_sounds": []
+        }
+      ],
+      "unmapped_characters": [
+        "l"
+      ],
+      "positions_with_multiple_proposals": [
+        3,
+        5,
+        6
+      ],
+      "unresolved_context_positions": [
+        3
+      ],
+      "repeated_e_duration_not_decided": true,
+      "plaintext": null,
+      "status": "UNVALIDATED_PARTIAL_SOUND_PROJECTION"
+    },
+    {
+      "token": "keerodal",
+      "units": [
+        {
+          "raw": "k",
+          "start": 0,
+          "end": 1,
+          "kind": "mapped_approximate",
+          "proposed_sounds": [
+            "k"
+          ]
+        },
+        {
+          "raw": "e",
+          "start": 1,
+          "end": 2,
+          "kind": "mapped_approximate",
+          "proposed_sounds": [
+            "o"
+          ]
+        },
+        {
+          "raw": "e",
+          "start": 2,
+          "end": 3,
+          "kind": "mapped_approximate",
+          "proposed_sounds": [
+            "o"
+          ]
+        },
+        {
+          "raw": "r",
+          "start": 3,
+          "end": 4,
+          "kind": "mapped_approximate",
+          "proposed_sounds": [
+            "r",
+            "R_PLUS_UNSPECIFIED_VOWEL"
+          ]
+        },
+        {
+          "raw": "o",
+          "start": 4,
+          "end": 5,
+          "kind": "mapped_approximate",
+          "proposed_sounds": [
+            "a"
+          ]
+        },
+        {
+          "raw": "d",
+          "start": 5,
+          "end": 6,
+          "kind": "mapped_approximate",
+          "proposed_sounds": [
+            "t",
+            "d",
+            "θ",
+            "ð"
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 6,
+          "end": 7,
+          "kind": "mapped_approximate",
+          "proposed_sounds": [
+            "ə",
+            "u",
+            "wa"
+          ]
+        },
+        {
+          "raw": "l",
+          "start": 7,
+          "end": 8,
+          "kind": "unmapped",
+          "proposed_sounds": []
+        }
+      ],
+      "unmapped_characters": [
+        "l"
+      ],
+      "positions_with_multiple_proposals": [
+        3,
+        5,
+        6
+      ],
+      "unresolved_context_positions": [
+        3
+      ],
+      "repeated_e_duration_not_decided": true,
+      "plaintext": null,
+      "status": "UNVALIDATED_PARTIAL_SOUND_PROJECTION"
+    },
+    {
+      "token": "otaim",
+      "units": [
+        {
+          "raw": "o",
+          "start": 0,
+          "end": 1,
+          "kind": "mapped_approximate",
+          "proposed_sounds": [
+            "a"
+          ]
+        },
+        {
+          "raw": "t",
+          "start": 1,
+          "end": 2,
+          "kind": "unmapped",
+          "proposed_sounds": []
+        },
+        {
+          "raw": "a",
+          "start": 2,
+          "end": 3,
+          "kind": "mapped_approximate",
+          "proposed_sounds": [
+            "ə",
+            "u",
+            "wa"
+          ]
+        },
+        {
+          "raw": "i",
+          "start": 3,
+          "end": 4,
+          "kind": "unmapped",
+          "proposed_sounds": []
+        },
+        {
+          "raw": "m",
+          "start": 4,
+          "end": 5,
+          "kind": "mapped_approximate",
+          "proposed_sounds": [
+            "R_CONTEXT_UNRESOLVED"
+          ]
+        }
+      ],
+      "unmapped_characters": [
+        "i",
+        "t"
+      ],
+      "positions_with_multiple_proposals": [
+        2
+      ],
+      "unresolved_context_positions": [
+        4
+      ],
+      "repeated_e_duration_not_decided": false,
+      "plaintext": null,
+      "status": "UNVALIDATED_PARTIAL_SOUND_PROJECTION"
+    },
+    {
+      "token": "dam",
+      "units": [
+        {
+          "raw": "d",
+          "start": 0,
+          "end": 1,
+          "kind": "mapped_approximate",
+          "proposed_sounds": [
+            "t",
+            "d",
+            "θ",
+            "ð"
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1,
+          "end": 2,
+          "kind": "mapped_approximate",
+          "proposed_sounds": [
+            "ə",
+            "u",
+            "wa"
+          ]
+        },
+        {
+          "raw": "m",
+          "start": 2,
+          "end": 3,
+          "kind": "mapped_approximate",
+          "proposed_sounds": [
+            "R_CONTEXT_UNRESOLVED"
+          ]
+        }
+      ],
+      "unmapped_characters": [],
+      "positions_with_multiple_proposals": [
+        0,
+        1
+      ],
+      "unresolved_context_positions": [
+        2
+      ],
+      "repeated_e_duration_not_decided": false,
+      "plaintext": null,
+      "status": "UNVALIDATED_PARTIAL_SOUND_PROJECTION"
+    },
+    {
+      "token": "alam",
+      "units": [
+        {
+          "raw": "a",
+          "start": 0,
+          "end": 1,
+          "kind": "mapped_approximate",
+          "proposed_sounds": [
+            "ə",
+            "u",
+            "wa"
+          ]
+        },
+        {
+          "raw": "l",
+          "start": 1,
+          "end": 2,
+          "kind": "unmapped",
+          "proposed_sounds": []
+        },
+        {
+          "raw": "a",
+          "start": 2,
+          "end": 3,
+          "kind": "mapped_approximate",
+          "proposed_sounds": [
+            "ə",
+            "u",
+            "wa"
+          ]
+        },
+        {
+          "raw": "m",
+          "start": 3,
+          "end": 4,
+          "kind": "mapped_approximate",
+          "proposed_sounds": [
+            "R_CONTEXT_UNRESOLVED"
+          ]
+        }
+      ],
+      "unmapped_characters": [
+        "l"
+      ],
+      "positions_with_multiple_proposals": [
+        0,
+        2
+      ],
+      "unresolved_context_positions": [
+        3
+      ],
+      "repeated_e_duration_not_decided": false,
+      "plaintext": null,
+      "status": "UNVALIDATED_PARTIAL_SOUND_PROJECTION"
+    },
+    {
+      "token": "otaimdam",
+      "units": [
+        {
+          "raw": "o",
+          "start": 0,
+          "end": 1,
+          "kind": "mapped_approximate",
+          "proposed_sounds": [
+            "a"
+          ]
+        },
+        {
+          "raw": "t",
+          "start": 1,
+          "end": 2,
+          "kind": "unmapped",
+          "proposed_sounds": []
+        },
+        {
+          "raw": "a",
+          "start": 2,
+          "end": 3,
+          "kind": "mapped_approximate",
+          "proposed_sounds": [
+            "ə",
+            "u",
+            "wa"
+          ]
+        },
+        {
+          "raw": "i",
+          "start": 3,
+          "end": 4,
+          "kind": "unmapped",
+          "proposed_sounds": []
+        },
+        {
+          "raw": "m",
+          "start": 4,
+          "end": 5,
+          "kind": "mapped_approximate",
+          "proposed_sounds": [
+            "R_CONTEXT_UNRESOLVED"
+          ]
+        },
+        {
+          "raw": "d",
+          "start": 5,
+          "end": 6,
+          "kind": "mapped_approximate",
+          "proposed_sounds": [
+            "t",
+            "d",
+            "θ",
+            "ð"
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 6,
+          "end": 7,
+          "kind": "mapped_approximate",
+          "proposed_sounds": [
+            "ə",
+            "u",
+            "wa"
+          ]
+        },
+        {
+          "raw": "m",
+          "start": 7,
+          "end": 8,
+          "kind": "mapped_approximate",
+          "proposed_sounds": [
+            "R_CONTEXT_UNRESOLVED"
+          ]
+        }
+      ],
+      "unmapped_characters": [
+        "i",
+        "t"
+      ],
+      "positions_with_multiple_proposals": [
+        2,
+        5,
+        6
+      ],
+      "unresolved_context_positions": [
+        4,
+        7
+      ],
+      "repeated_e_duration_not_decided": false,
+      "plaintext": null,
+      "status": "UNVALIDATED_PARTIAL_SOUND_PROJECTION"
+    },
+    {
+      "token": "kydainy",
+      "units": [
+        {
+          "raw": "k",
+          "start": 0,
+          "end": 1,
+          "kind": "mapped_approximate",
+          "proposed_sounds": [
+            "k"
+          ]
+        },
+        {
+          "raw": "y",
+          "start": 1,
+          "end": 2,
+          "kind": "mapped_approximate",
+          "proposed_sounds": [
+            "n"
+          ]
+        },
+        {
+          "raw": "d",
+          "start": 2,
+          "end": 3,
+          "kind": "mapped_approximate",
+          "proposed_sounds": [
+            "t",
+            "d",
+            "θ",
+            "ð"
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3,
+          "end": 4,
+          "kind": "mapped_approximate",
+          "proposed_sounds": [
+            "ə",
+            "u",
+            "wa"
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 4,
+          "end": 6,
+          "kind": "mapped_approximate",
+          "proposed_sounds": [
+            "ir"
+          ]
+        },
+        {
+          "raw": "y",
+          "start": 6,
+          "end": 7,
+          "kind": "mapped_approximate",
+          "proposed_sounds": [
+            "n"
+          ]
+        }
+      ],
+      "unmapped_characters": [],
+      "positions_with_multiple_proposals": [
+        2,
+        3
+      ],
+      "unresolved_context_positions": [],
+      "repeated_e_duration_not_decided": false,
+      "plaintext": null,
+      "status": "UNVALIDATED_PARTIAL_SOUND_PROJECTION"
+    },
+    {
+      "token": "kydain",
+      "units": [
+        {
+          "raw": "k",
+          "start": 0,
+          "end": 1,
+          "kind": "mapped_approximate",
+          "proposed_sounds": [
+            "k"
+          ]
+        },
+        {
+          "raw": "y",
+          "start": 1,
+          "end": 2,
+          "kind": "mapped_approximate",
+          "proposed_sounds": [
+            "n"
+          ]
+        },
+        {
+          "raw": "d",
+          "start": 2,
+          "end": 3,
+          "kind": "mapped_approximate",
+          "proposed_sounds": [
+            "t",
+            "d",
+            "θ",
+            "ð"
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3,
+          "end": 4,
+          "kind": "mapped_approximate",
+          "proposed_sounds": [
+            "ə",
+            "u",
+            "wa"
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 4,
+          "end": 6,
+          "kind": "mapped_approximate",
+          "proposed_sounds": [
+            "ir"
+          ]
+        }
+      ],
+      "unmapped_characters": [],
+      "positions_with_multiple_proposals": [
+        2,
+        3
+      ],
+      "unresolved_context_positions": [],
+      "repeated_e_duration_not_decided": false,
+      "plaintext": null,
+      "status": "UNVALIDATED_PARTIAL_SOUND_PROJECTION"
+    }
+  ],
+  "limitations": [
+    "This subset is not the full author proposal; failure is conditional on this operationalization.",
+    "The plant identity and exact historical name are not verified.",
+    "Sound coverage or apparent pronounceability does not establish plaintext.",
+    "No held-out semantic prediction or independent decipherment test is performed."
+  ]
+}

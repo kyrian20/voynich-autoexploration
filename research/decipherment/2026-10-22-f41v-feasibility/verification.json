@@ -1,0 +1,23 @@
+{
+  "python": "3.12.14",
+  "implementation_tests": {
+    "tests": 5,
+    "outcome": "passed"
+  },
+  "operational_guard_tests": "passed",
+  "historical_download_script_executed": true,
+  "historical_download_matches_saved_receipt": true,
+  "local_bax_pdf_rendering_completed": false,
+  "bax_direct_download": "HTTP 403",
+  "targets": 9,
+  "plaintext_recoveries": 0,
+  "files": {
+    "scripts/audit_partial_sound_rule_feasibility.py": "dfb65c3b13675072a9137f7fe26588a30f7ec8d3397dda46741fb0655c17ba09",
+    "scripts/fetch_egerton_comparator.py": "c07e52733b36699c18c3544ecbbdff3302043ce68bef7432376c5da8e8bba6dd",
+    "tests/test_partial_sound_rule_feasibility.py": "ff11b68a10597acedcba1875bb371b22865ecf2d04573e1bd53ca7718509314a",
+    ".github/workflows/voynich-check.yml": "0b19407157a2e703ac159b76ac94fe92199a8041222187f1324fc5d2a06d56e4",
+    "research/decipherment/2026-10-22-f41v-feasibility/PROTOCOL.md": "0c53b411f4a0ad2a0d4b8bf117995c3f3b4369e52fd64dd43b7b4c7dcb46e6ed",
+    "research/decipherment/2026-10-22-f41v-feasibility/rule-results.json": "a1055d5e26d33a0b36ab18601fc6f6978cc9156df23eee77a12520fa43bc283b",
+    "research/decipherment/2026-10-22-f41v-feasibility/comparator-sources.json": "83f9a69826478e894405dd1a075961add054bbe4b0c073e9871146aad4ad4b59"
+  }
+}

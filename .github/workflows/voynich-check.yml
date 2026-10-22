@@ -132,6 +132,12 @@ jobs:
           python scripts/audit_decipherment_anchor_concordances.py > decipherment-anchor-concordances.json
           python scripts/check_audit_snapshot.py research/decipherment/2026-10-22-anchor-review/concordances.json decipherment-anchor-concordances.json
 
+      - name: Probar viabilidad limitada de correspondencias publicadas
+        run: |
+          python tests/test_partial_sound_rule_feasibility.py
+          python scripts/audit_partial_sound_rule_feasibility.py > partial-sound-rule-feasibility.json
+          python scripts/check_audit_snapshot.py research/decipherment/2026-10-22-f41v-feasibility/rule-results.json partial-sound-rule-feasibility.json
+
       - name: Conservar auditorías de sensibilidad reproducidas
         uses: actions/upload-artifact@v4
         with:
@@ -143,6 +149,7 @@ jobs:
             exp607-scope-sensitivity.json
             decipherment-anchor-candidates.json
             decipherment-anchor-concordances.json
+            partial-sound-rule-feasibility.json
           if-no-files-found: error
           retention-days: 90
 
