@@ -21,6 +21,9 @@
 
 La hipótesis nula permuta el orden de los tokens dentro de cada línea, conservando su multiconjunto exacto. El contraste evalúa si daiin aparece al principio de línea más de lo esperable bajo ese modelo; no prueba significado lingüístico. No se han explorado múltiples palabras en este experimento, pero cualquier búsqueda posterior deberá corregir comparaciones múltiples.
 
+
+**Precaución inferencial:** el valor p es empírico para este contraste concreto, con 5.000 permutaciones. No corrige una posible selección previa de `daiin` entre otras palabras o patrones en la historia de la investigación ni otros análisis de la misma transcripción. Por tanto, debe interpretarse como evidencia exploratoria de posición bajo este modelo nulo, no como una prueba confirmatoria independiente.
+
 ## Distribución por clase de Currier
 
 | Clase | Ocurrencias exactas | Líneas iniciales | Líneas finales | Líneas parseadas |
