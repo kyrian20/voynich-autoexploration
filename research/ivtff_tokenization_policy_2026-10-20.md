@@ -91,3 +91,12 @@ La lectura conjunta de la política declarada y las funciones actuales `tokens_r
 
 Esta observación no demuestra que ningún resultado anterior sea falso; delimita una fuente de incertidumbre de tokenización aún no evaluada.
 
+
+
+## Adjudicación normativa inicial — IVTFF 2.0.2, 2026-10-22
+
+Se ha consultado la especificación oficial publicada por René Zandbergen, *IVTFF – Intermediate Voynich MS Transliteration File Format*, versión 2.0.2 (08-07-2025), §6.6, tabla 10: https://www.voynich.nu/software/ivtt/IVTFF_format.pdf. La norma dice expresamente que `{` inicia una representación de una **ligadura de caracteres Voynichese**, cerrada por `}` en la misma línea; dentro solo se permiten caracteres válidos del alfabeto de transliteración y códigos high-ASCII `@lmn;`. El ejemplo oficial de §8 incluye `yka{ckh'h}` y `{y'}`.
+
+Esto resuelve la pregunta semántica principal: los spans entre llaves no son comentarios editoriales ni deben descartarse como si lo fueran. La norma describe una ligadura representada en la transliteración. No prescribe por sí sola cómo debe representarse esa ligadura en cada estadística concreta; esa decisión analítica debe ser explícita y no destructiva.
+
+**Acción segura inmediata:** conservar la secuencia bruta exacta y sus offsets; añadir un tipo de unidad estructural `ligature`; para análisis que necesiten secuencias de caracteres, permitir una vista derivada que expanda el contenido interno, y comparar con la política histórica que elimina el span. No sobrescribir resultados históricos ni afirmar que la expansión es el único análisis válido hasta comprobar la semántica de los alfabetos EVA/STA y cuantificar los cambios. El inventario de 446/444 spans pasa de «significado por adjudicar» a «ligaduras según §6.6; política de análisis pendiente».
