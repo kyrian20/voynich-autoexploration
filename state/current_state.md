@@ -162,3 +162,10 @@ Two workflows that commit generated results to `master` used separate GitHub Act
 - These are guardrail changes, not a new scientific result. Existing exp_602 result values have not been represented as newly rerun.
 - CI verification remains pending: the available repository status/run lookup returned no status entries or workflow runs for the relevant commits, so this session cannot claim that GitHub Actions passed. Confirm the run in the Actions UI before treating the updated script as execution-verified.
 
+
+## Workflow write-safety audit — 2026-10-22 (follow-up)
+
+- Re-audited all 30 workflows with write capability in `.github/workflows/`. Each now has its own non-cancelling concurrency group (named for that workflow) and a bounded five-attempt rebase/push retry loop; the read-only `voynich-check.yml` remains outside these writer groups. This is deliberately per-workflow rather than one global group: GitHub keeps only one pending run per concurrency group, so a single shared group can cancel other workflows' pending runs.
+- During the initial shared-group change, several pending workflow runs were cancelled by GitHub concurrency semantics. That design was corrected by restoring separate per-workflow groups. Those cancellations are not counted as successful validations; reruns/checks must be assessed by their own run IDs and conclusions.
+- GitHub Actions runs triggered by these commits are still in progress/queued at the time of this note. Several `Voynich Check` runs and workflow-specific checks have already completed successfully, but the latest commit's check and every affected writer workflow have not all reached a final state. Do not claim the entire workflow suite is green until the run list is rechecked.
+- No new EXP ID was allocated and no scientific result was intentionally changed by these workflow edits. The IVTFF conformance/prediction gate, ID collisions, and GitHub-versus-Library hash reconciliation remain separate research blockers.
