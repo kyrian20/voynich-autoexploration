@@ -12,6 +12,7 @@ permissions:
 
 jobs:
   check:
+    timeout-minutes: 15
     runs-on: ubuntu-latest
     steps:
       - name: Descargar repositorio
@@ -21,6 +22,14 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+
+      - name: Instalar lector YAML para auditoría operativa
+        run: python -m pip install PyYAML==6.0.3
+
+      - name: Auditar contratos operativos y cobertura de registros
+        run: |
+          python tests/test_repository_operations.py
+          python scripts/audit_repository_operations.py
 
       - name: Comprobar archivos de investigación
         run: |

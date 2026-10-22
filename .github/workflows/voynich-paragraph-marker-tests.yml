@@ -9,7 +9,7 @@ on:
       - ".github/workflows/voynich-paragraph-marker-tests.yml"
 
 permissions:
-  contents: write
+  contents: read
 
 concurrency:
   group: voynich-paragraph-marker-tests
@@ -21,6 +21,8 @@ jobs:
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
@@ -35,28 +37,3 @@ jobs:
           path: experiments/exp_594_daiin_explicit_paragraph_markers/results.json
           if-no-files-found: error
           retention-days: 90
-      - name: Commit generated results
-        run: |
-          if [ -n "$(git status --porcelain experiments/exp_594_daiin_explicit_paragraph_markers/results.json)" ]; then
-            git config user.name "github-actions[bot]"
-            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add experiments/exp_594_daiin_explicit_paragraph_markers/results.json
-            git commit -m "Record exp_594 paragraph marker results"
-            for attempt in 1 2 3 4 5; do
-              git fetch origin master:refs/remotes/origin/master
-              if ! git rebase origin/master; then
-                git rebase --abort || true
-                echo "Rebase conflict; refusing to overwrite results." >&2
-                exit 1
-              fi
-              if git push origin HEAD:master; then
-                exit 0
-              fi
-              echo "Push race on attempt $attempt; retrying after refresh."
-              sleep "$((attempt * 2))"
-            done
-            echo "Push failed after five attempts." >&2
-            exit 1
-          else
-            echo "No changes to results."
-          fi

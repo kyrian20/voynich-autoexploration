@@ -10,10 +10,10 @@ on:
       - ".github/workflows/voynich-exp603.yml"
 
 permissions:
-  contents: write
+  contents: read
 
 # Per-workflow concurrency prevents overlapping runs of this workflow only.
-# Cross-workflow push races are handled by the bounded rebase/push retry below.
+# Results are retained as Actions artifacts; only voynich-agent publishes to master.
 concurrency:
   group: voynich-exp603
   cancel-in-progress: false
@@ -21,33 +21,21 @@ concurrency:
 jobs:
   exp603:
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
         with:
           persist-credentials: true
       - name: Run fixed-split evaluation
         run: python experiments/exp_603_stratified_heldout_prediction/script.py
-      - name: Commit results safely
-        shell: bash
-        run: |
-          set -euo pipefail
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add experiments/exp_603_stratified_heldout_prediction/results.json experiments/exp_603_stratified_heldout_prediction/result.md
-          if git diff --cached --quiet; then
-            echo "No result changes to commit."
-            exit 0
-          fi
-          git commit -m "Record exp603 held-out stratified prediction results"
-          # Never force-push. Rebase and retry boundedly on a non-fast-forward race.
-          for attempt in 1 2 3 4 5; do
-            git pull --rebase origin "${GITHUB_REF_NAME:-master}"
-            if git push; then
-              echo "Results pushed successfully (attempt ${attempt})."
-              exit 0
-            fi
-            echo "Push race on attempt ${attempt}; retrying."
-            sleep $((attempt * 2))
-          done
-          echo "Could not push results after 5 attempts." >&2
-          exit 1
+      - name: Conservar resultados reproducidos
+        uses: actions/upload-artifact@v4
+        with:
+          name: voynich-exp603-results
+          path: |
+            experiments/exp_603_stratified_heldout_prediction/results.json
+            experiments/exp_603_stratified_heldout_prediction/result.md
+          if-no-files-found: error
+          retention-days: 90
