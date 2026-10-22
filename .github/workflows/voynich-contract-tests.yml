@@ -6,6 +6,7 @@ on:
       - "scripts/exp622_ch_sh_specificity.py"
       - "scripts/exp623_it2a_ch_sh_specificity.py"
       - "tests/test_exp622_exp623_contract.py"
+      - "tests/test_exp622_exp623_parser_smoke.py"
       - ".github/workflows/voynich-contract-tests.yml"
   workflow_dispatch:
 
@@ -22,6 +23,6 @@ jobs:
         with:
           python-version: "3.12"
       - name: Syntax check
-        run: python -m py_compile scripts/exp622_ch_sh_specificity.py scripts/exp623_it2a_ch_sh_specificity.py tests/test_exp622_exp623_contract.py
+        run: python -m py_compile scripts/exp622_ch_sh_specificity.py scripts/exp623_it2a_ch_sh_specificity.py tests/test_exp622_exp623_contract.py tests/test_exp622_exp623_parser_smoke.py
       - name: Synthetic contract checks
-        run: python -m unittest discover -s tests -p 'test_exp622_exp623_contract.py' -v
+        run: python -m unittest discover -s tests -p 'test_exp622_exp623_*.py' -v
