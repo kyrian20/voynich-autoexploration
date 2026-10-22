@@ -292,3 +292,12 @@ Two workflows that commit generated results to `master` used separate GitHub Act
 - EXP-594, EXP-596 y EXP-597 tienen además más de una carpeta GitHub bajo el mismo número; no fusionar las carpetas. Persisten siete IDs de carpeta duplicados internamente: 177, 594, 596, 597, 600, 601 y 602.
 - No se modificaron ni renombraron artefactos experimentales originales; no se asignó ningún ID nuevo. El manifiesto SHA-256 sigue siendo un checkpoint de diez archivos, no una cobertura total.
 - El nuevo commit de cierre del registro debe pasar su propio Voynich Check antes de considerar CI del HEAD verde.
+
+
+## EXP-623 reproducción aislada en curso — 2026-10-22
+
+- Se copiaron a rutas de reproducción separadas los dos scripts de Biblioteca sin modificar los originales: `research/reproduction/exp623_order_null.py` (nulo que preserva extremos) y `research/reproduction/exp623_shuffle_holdout.py` (barajado de todos los tokens dentro del locus).
+- Se añadió `.github/workflows/exp623-reproduction.yml`, que comprueba los Git blob IDs de las fuentes ZL3b e IT2a antes de ejecutar ambos análisis y publica los JSON como artefactos de Actions. No sustituye los resultados históricos ni asigna un nuevo EXP ID.
+- Ejecución inicial del workflow: [39729111827](https://github.com/kyrian20/voynich-autoexploration/actions/runs/39729111827), iniciada en el commit `40e636cd7815f0b2de5d10d5ea6b7a47f1ad645d`; al redactar esta nota, el paso del primer análisis seguía en curso. No declarar reproducción completa hasta que termine y se comparen los outputs con los JSON piloto.
+- El workflow de comprobaciones ordinarias para ese mismo commit es [39729111832](https://github.com/kyrian20/voynich-autoexploration/actions/runs/39729111832), observado completado con éxito. La reproducción científica es un control separado y aún no se considera validada.
+- Los scripts compilan en Python 3.12. Esto solo valida sintaxis; no constituye por sí mismo reproducción de resultados.
