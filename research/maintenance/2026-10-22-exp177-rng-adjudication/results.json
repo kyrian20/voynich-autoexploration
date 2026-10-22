@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "source_commit": "75f126df8a358f9d048ec8c1065b8ede82b99c5e",
+  "scope": "Read-only AST audit; no historical simulation, parser, or corpus executed",
+  "input_sha256": {
+    "experiments/exp_177_position_sensitive_cipher/script.py": "1f86425de839dc1abef530810f36521649b2a55771312066dfdb3e44388a8057",
+    "experiments/exp_177_verify/script.py": "fb8b780b3455bf53ab5c170d6938ea20cb23abd69f107e1139d5a66a44217d84",
+    "experiments/exp_177_position_sensitive_cipher/data/cipher_results.json": "ba489f719f8e92189443166020f8251526b284ba1ddcc1dfbc1960a3a98fe527",
+    "experiments/exp_177_verify/data/verify_results.json": "547912de067e70e1716d617a2136c3af5dff661d3ff3b35cbcd965f6e27c1b22"
+  },
+  "checks": {
+    "EXP-177": {
+      "python_hash_used_in_simulation_seed": true,
+      "word_core_uses_global_random_not_local_rng": true,
+      "plaintext_word_order_shuffled_before_encoding": true,
+      "global_random_seed_42_present": true
+    },
+    "EXP-177-verify": {
+      "python_hash_used_in_simulation_seed": false,
+      "word_core_uses_global_random_not_local_rng": true,
+      "plaintext_word_order_shuffled_before_encoding": true,
+      "global_random_seed_42_present": true
+    }
+  }
+}
