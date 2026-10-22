@@ -13,7 +13,8 @@ permissions:
   contents: write
 
 concurrency:
-  group: voynich-paired-sensitivity
+  group: voynich-master-writes
+  cancel-in-progress: false
   cancel-in-progress: false
 
 jobs:
