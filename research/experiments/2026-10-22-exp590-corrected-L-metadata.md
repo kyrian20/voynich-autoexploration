@@ -36,3 +36,14 @@ La hipótesis nula permuta el orden de los tokens dentro de cada línea, conserv
 - La clasificación Currier se lee de cabeceras de folio cuando está disponible; los casos sin clasificación quedan como unknown.
 - Esto es una línea base exploratoria reproducible, no una traducción ni una afirmación de desciframiento.
 - Datos completos y hash de entrada están en el JSON de este experimento.
+
+## Impacto de la corrección de cobertura
+
+| Métrica | Parser histórico | Parser corregido | Cambio absoluto | Cambio relativo aprox. |
+|---|---:|---:|---:|---:|
+| Líneas con tokens | 4.188 | 5.376 | +1.188 | +28,4 % |
+| Tokens | 32.732 | 39.594 | +6.862 | +21,0 % |
+| Ocurrencias exactas de `daiin` | 726 | 853 | +127 | +17,5 % |
+| Líneas con `daiin` inicial | 133 | 161 | +28 | +21,1 % |
+
+Las dos columnas proceden de ejecuciones con distinta cobertura de identificadores de página. Los valores históricos se conservan para trazabilidad, pero no deben compararse como si describieran idéntica población. La diferencia no demuestra una propiedad lingüística nueva por sí sola; obliga a basar análisis futuros en la población corregida y a registrar siempre la versión del parser.
