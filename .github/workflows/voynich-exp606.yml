@@ -4,7 +4,10 @@ on:
   workflow_dispatch:
   push:
     paths:
-      - 'experiments/exp_606_gap_boundary_lexical_audit/**'
+      - 'experiments/exp_606_gap_boundary_lexical_audit/script.py'
+      - 'data/transcriptions/eva_zl3b.txt'
+      - 'data/transcriptions/eva_it2a.txt'
+      - 'scripts/audit_ivtff_metadata.py'
       - '.github/workflows/voynich-exp606.yml'
 
 permissions:
