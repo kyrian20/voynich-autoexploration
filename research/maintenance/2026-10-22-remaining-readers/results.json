@@ -1,0 +1,173 @@
+{
+  "source_commit": "aa9ec5399e7a5cdf8d1b2890fa657f1358825b41",
+  "cases": [
+    {
+      "experiment_path": "experiments/exp_267_word_length_position/script.py",
+      "script_sha256": "f4197d8c18802d9d54def8d13f5ab83967d94c82f78427e77b67d92720ba4f44",
+      "reader_ast_sha256": "713cae9e5ec5713699984789ae733476215f6caf3fe4103317dee1ffde94005b",
+      "corpus": "data/reference_corpora/latin/cicero_de_officiis_latin.txt",
+      "corpus_sha256": "3a33a076d3dda42673ec7ab0331ae7e58fc150e7e92751c0adf6d1db7297b670",
+      "status": "ISOLATED_READER_REPLAY_MATCHED",
+      "selected_units": 105892,
+      "unit": "tokens",
+      "sequence_sha256": "4890c4ebac33304bd96dba5b573fed221b40ed187427ae28bf6fa849e5ed0cb4",
+      "first_units": [
+        "START",
+        "OF",
+        "THE",
+        "PROJECT",
+        "GUTENBERG"
+      ],
+      "last_units": [
+        "OF",
+        "THE",
+        "PROJECT",
+        "GUTENBERG",
+        "EBOOK"
+      ],
+      "adjudicated_language": "Latin and English",
+      "identity_issue": "BILINGUAL_REQUIRES_FILTER_AUDIT"
+    },
+    {
+      "experiment_path": "experiments/exp_288_stolfi_onset_decomp/script.py",
+      "script_sha256": "913ae5a8c5abd34f4bd7966aa36950e1b4d96835d5ad06f7f5aad628e27c8b32",
+      "reader_ast_sha256": "d7f9d7b7c7a76c592ba1be95416cb52da2b6de847969aa830b777e85e089a56c",
+      "corpus": "data/reference_corpora/latin/cicero_de_officiis_latin.txt",
+      "corpus_sha256": "3a33a076d3dda42673ec7ab0331ae7e58fc150e7e92751c0adf6d1db7297b670",
+      "status": "ISOLATED_READER_REPLAY_MATCHED",
+      "selected_units": 87754,
+      "unit": "onset_records",
+      "sequence_sha256": "b75d6917e075847709af9c5500b570f4ff16e52fafe78536e17eb6cd2e2e22ec",
+      "first_units": [
+        {
+          "onset": "st",
+          "wlen": 5,
+          "blen": 3,
+          "mlen": 1
+        },
+        {
+          "onset": "th",
+          "wlen": 3,
+          "blen": 1,
+          "mlen": 0
+        },
+        {
+          "onset": "pr",
+          "wlen": 7,
+          "blen": 5,
+          "mlen": 3
+        },
+        {
+          "onset": "g",
+          "wlen": 9,
+          "blen": 8,
+          "mlen": 6
+        },
+        {
+          "onset": "b",
+          "wlen": 5,
+          "blen": 3,
+          "mlen": 1
+        }
+      ],
+      "last_units": [
+        {
+          "onset": "nd",
+          "wlen": 3,
+          "blen": 0,
+          "mlen": 0
+        },
+        {
+          "onset": "th",
+          "wlen": 3,
+          "blen": 1,
+          "mlen": 0
+        },
+        {
+          "onset": "pr",
+          "wlen": 7,
+          "blen": 5,
+          "mlen": 3
+        },
+        {
+          "onset": "g",
+          "wlen": 9,
+          "blen": 8,
+          "mlen": 6
+        },
+        {
+          "onset": "b",
+          "wlen": 5,
+          "blen": 3,
+          "mlen": 1
+        }
+      ],
+      "adjudicated_language": "Latin and English",
+      "identity_issue": "BILINGUAL_REQUIRES_FILTER_AUDIT"
+    },
+    {
+      "experiment_path": "experiments/exp_001_word_initial_entropy/script.py",
+      "script_sha256": "91cb9febee7752d56fe91eeaa43155590b405b46cdd18330acb9271fd7816f59",
+      "reader_ast_sha256": "374fea893a5b660e71b396c370c3f86a8363214a5ed5d0b91d1e38f199e4c669",
+      "corpus": "data/reference_corpora/latin/vulgate.txt",
+      "corpus_sha256": "d63b1b81824e259b1cf92ba8a6e5cbbf783e2a83214cf2c3db2ecd1459165bfe",
+      "status": "ISOLATED_READER_REPLAY_MATCHED",
+      "selected_units": 991553,
+      "unit": "tokens",
+      "sequence_sha256": "f468b3d4668142281a8ef945fe52e32e40106e8101a7090aea7c3c43ecf6bcbc",
+      "first_units": [
+        "the",
+        "project",
+        "gutenberg",
+        "ebook",
+        "the"
+      ],
+      "last_units": [
+        "paying",
+        "royalties",
+        "for",
+        "use",
+        "of"
+      ],
+      "gutenberg_coordinate_check": {
+        "start_marker_end": 832,
+        "end_marker_start": 5493442,
+        "historical_selected_characters": 5493442,
+        "coordinate_corrected_characters": 5492610,
+        "coordinate_corrected_tokens": 991420,
+        "token_delta": 133,
+        "note": "Coordinate correction only; the remainder of the START title line is still retained. No clean-body claim."
+      },
+      "adjudicated_language": "English",
+      "identity_issue": "WRONG_LANGUAGE_FOR_LATIN"
+    },
+    {
+      "experiment_path": "experiments/exp_170_naibbe_simulation/script.py",
+      "script_sha256": "8fe0f7d153211b320b34ca8543dac1ba029e629c4413c203fb2df0031063721c",
+      "reader_ast_sha256": "75c115ea1abfdb393d55d0d47d9cceb2f11083ded4fef3d28cc280c84ef384da",
+      "corpus": "data/reference_corpora/latin/vulgate.txt",
+      "corpus_sha256": "d63b1b81824e259b1cf92ba8a6e5cbbf783e2a83214cf2c3db2ecd1459165bfe",
+      "status": "ISOLATED_READER_REPLAY_MATCHED",
+      "selected_units": 97164,
+      "unit": "lines",
+      "sequence_sha256": "dd90c28e2fac06169f70bfe04bbcae32713fafce7136906fc89eec371a092bcd",
+      "first_units": [
+        "﻿The Project Gutenberg eBook of The Bible, Douay-Rheims, Complete",
+        "This eBook is for the use of anyone anywhere in the United States and",
+        "most other parts of the world at no cost and with almost no restrictions",
+        "whatsoever. You may copy it, give it away or re-use it under the terms",
+        "of the Project Gutenberg License included with this eBook or online"
+      ],
+      "last_units": [
+        "facility: www.gutenberg.org.",
+        "This website includes information about Project Gutenberg,",
+        "including how to make donations to the Project Gutenberg Literary",
+        "Archive Foundation, how to help produce our new eBooks, and how to",
+        "subscribe to our email newsletter to hear about new eBooks."
+      ],
+      "adjudicated_language": "English",
+      "identity_issue": "WRONG_LANGUAGE_FOR_LATIN"
+    }
+  ],
+  "scope": "Input readers only; no manuscript parser, metrics, simulations or historical conclusions revalidated. Cicero remains bilingual and excluded from monolingual baselines. Vulgate identity remains subject to the corpus review."
+}

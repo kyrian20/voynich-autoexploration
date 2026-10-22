@@ -4,6 +4,8 @@ Repositorio de trabajo: `kyrian20/voynich-autoexploration` (rama `master`).
 
 ## Estado operativo actual — 22 octubre 2026
 
+**Cuatro lectores restantes reproducidos:** [selección efectiva de EXP-267/288/001/170 y defecto de coordenadas de EXP-001](research/maintenance/2026-10-22-remaining-readers/REPORT.md). Coincidencia de secuencias, hashes y seis controles en CI; las entradas bilingües o inglesas siguen excluidas como bases monolingües latinas. No valida los experimentos completos.
+
 **Investigación abierta unificada:** [bloque de orden residual integrado con corpus y lector canónicos](research/analysis/2026-10-22-residual-order/README.md), con reproducción conjunta en CI. [Informe](research/analysis/2026-10-22-residual-order/REPORT.md) y [revisión de identidad de corpus](research/CORPUS_IDENTITY_REVIEW.json). Los análisis históricos que dependan de corpus mal identificados siguen pendientes de adjudicación; no se declara validación científica global.
 
 **Contraste científico con fuentes externas:** [controles exactos de posición/bordes y reproducción de un driver publicado](research/decipherment/2026-10-22-constrained-pair/REPORT.md). La pareja daiin→dam no se admite como ancla semántica: al conservar bordes el control espera 7–7,5 de las ocho apariciones, con muy poca variación residual.

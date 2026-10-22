@@ -27,7 +27,7 @@ def main():
   files.append(row)
  for path in sorted(root.rglob('*.py')):
   if '.git' in path.parts or path.is_relative_to(Path(__file__).resolve().parent):continue
-  if path == root/'scripts/audit_historical_latin_loaders.py':continue  # Diagnostic, not historical corpus use
+  if path in {root/'scripts/audit_historical_latin_loaders.py', root/'scripts/audit_remaining_reference_loaders.py'}:continue  # Explicit diagnostic exclusions, not historical corpus use
   text=path.read_text(encoding='utf-8',errors='replace')
   for name,(issue,_,_) in ISSUES.items():
    hits=[i for i,line in enumerate(text.splitlines(),1) if Path(name).name in line]
