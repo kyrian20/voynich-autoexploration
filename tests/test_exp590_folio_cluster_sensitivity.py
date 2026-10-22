@@ -28,6 +28,8 @@ def main():
     assert by_folio["f1r"]["lines_containing_target"] == 2
     assert by_folio["f1r"]["target_bearing_lines_starting_target"] == 1
     assert by_folio["f1r"]["target_bearing_lines_ending_target"] == 2
+    assert abs(by_folio["f1r"]["conditional_expected_initial"] - (2/3 + 1/2)) < 1e-12
+    assert by_folio["f1r"]["conditional_initial_variance"] > 0
     first = bootstrap_difference([1.0, 0.0], [0.0, 0.0], n=1000, seed=42)
     second = bootstrap_difference([1.0, 0.0], [0.0, 0.0], n=1000, seed=42)
     assert first == second
