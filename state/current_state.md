@@ -234,3 +234,11 @@ Two workflows that commit generated results to `master` used separate GitHub Act
 - The two Library EXP-623 reports remain distinct null-model analyses. Neither is the GitHub EXP-623 ch/sh-context experiment. Do not merge their results or reuse the EXP number as if these were the same experiment.
 - Verified the previously pending Voynich Check run [39727424359](https://github.com/kyrian20/voynich-autoexploration/actions/runs/39727424359) for commit `6b72a09891d7be30d5121c2875fdf6dd7fe11881`: conclusion `success`. The new manifest commit creates a newer check that must be verified separately.
 - No original Library files were edited, no collision was renumbered, and no new scientific experiment ID was allocated. Remaining blockers: GitHub/Library pairwise reconciliation, EXP-623 script/JSON provenance, and independent IVTFF parser conformance.
+
+
+## Cross-surface ID collision extension — 2026-10-22
+
+- Directly compared the topics of the selected Library reports with current GitHub experiment definitions. Two more same-number mismatches are confirmed: Library EXP-590 is an external-model audit, unlike GitHub EXP-590's coarse folio-range stratification; Library EXP-593 is a zodiac-denominator report, unlike GitHub EXP-593's IVTFF locator-stratified `daiin` analysis and dated corrected-`L)-metadata follow-ups.
+- Registered stable descriptive aliases and the distinction in `research/ARTIFACT_COLLISION_REGISTER.md`. The hash manifest provides raw-byte SHA-256 values for the selected Library artifacts; pairwise identity with GitHub files is still unverified, and the EXP-623 report-to-script/JSON mapping remains open.
+- The Library list is now fully paginated (501 items, six pages, no warnings). The next gap is content mapping and corpus/parser provenance, not missing pages in that listing.
+- No originals changed, no IDs were renumbered, and no new scientific experiment was created. The collision-register commit and this state update each trigger a new Voynich Check; verify the latest run after the final commit before claiming HEAD is green.
