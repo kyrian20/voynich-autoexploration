@@ -163,3 +163,12 @@ Ambos análisis usan un parser deliberadamente sencillo y un emparejamiento que 
 El árbol recursivo actual de GitHub devuelve 2.127 rutas y 624 carpetas `experiments/exp_NNN_…`, correspondientes a 617 IDs numéricos únicos. Se vuelven a observar siete colisiones de ID: 177, 594, 596, 597, 600, 601 y 602. Se conservan como hallazgos de inventario; no se fusiona, renombra ni elimina ninguna carpeta sin rastrear antes sus referencias históricas.
 
 La ejecución autónoma #26 había completado EXP-590, EXP-593 y EXP-622 con éxito y estaba ejecutando EXP-623 cuando se consultó. Su resultado final y la publicación de artefactos siguen pendientes de confirmación en Actions.
+
+
+## Contraste de parsers y puerta de validación — 2026-10-22
+
+Se volvió a leer el resultado versionado `experiments/exp_602_independent_ivtff_parser_audit/results_v7.json`. Para ZL3b, ambos parsers registran 5.385 filas y 227 cabeceras; para ZL3a, 5.389 filas y 227 cabeceras. En ambos casos el informe declara cero IDs exclusivos de un parser, cero campos discrepantes y ninguna fila sin interpretar. Los resúmenes de la estadística primaria también coinciden entre las dos implementaciones.
+
+Esto respalda **consistencia entre estas dos implementaciones concretas**, pero no equivale a validación oficial completa de IVTFF 2.0.2: el propio resultado documenta que ambas implementaciones tuvieron que corregirse en versiones previas y que la conformidad requiere fixtures independientes adjudicados contra la especificación. La auditoría ligera `exp_600_ivtff_parser_conformance` informa cero anomalías estructurales de las categorías que comprueba en ZL3b, ZL3a e IT2a, pero declara explícitamente que no es un validador oficial completo.
+
+**Decisión de control:** no se desbloquea todavía el uso del parser como fundamento único para conclusiones científicas confirmatorias. Mantener los resultados exploratorios con sus hashes, y exigir fixtures de delimitadores, alternativas vacías/no vacías, spans de incertidumbre, comentarios `<!…>`, continuaciones y cabeceras antes de elevar el estado de validación.
