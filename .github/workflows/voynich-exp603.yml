@@ -26,8 +26,6 @@ jobs:
       - uses: actions/checkout@v4
         with:
           persist-credentials: false
-        with:
-          persist-credentials: true
       - name: Run fixed-split evaluation
         run: python experiments/exp_603_stratified_heldout_prediction/script.py
       - name: Conservar resultados reproducidos

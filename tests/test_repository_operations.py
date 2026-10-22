@@ -28,6 +28,9 @@ def main():
         reader.write_text(original.replace('contents: read', 'contents: write'))
         must_reject(directory)
         reader.write_text(original)
+        reader.write_text(original.replace('          persist-credentials: false', '          persist-credentials: false\n        with:\n          persist-credentials: true'))
+        must_reject(directory)
+        reader.write_text(original)
         publisher = directory / 'voynich-agent.yml'
         publisher.write_text(publisher.read_text().replace('git push origin', 'git push --force origin'))
         must_reject(directory)

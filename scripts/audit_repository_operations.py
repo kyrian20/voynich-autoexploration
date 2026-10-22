@@ -16,6 +16,23 @@ import yaml
 ROOT = Path(__file__).resolve().parents[1]
 
 
+class UniqueKeyLoader(yaml.SafeLoader):
+    """Reject duplicate YAML keys, which GitHub rejects but safe_load ignores."""
+
+
+def unique_mapping(loader, node, deep=False):
+    mapping = {}
+    for key_node, value_node in node.value:
+        key = loader.construct_object(key_node, deep=deep)
+        if key in mapping:
+            raise ValueError(f'Duplicate YAML key {key!r} at line {key_node.start_mark.line + 1}')
+        mapping[key] = loader.construct_object(value_node, deep=deep)
+    return mapping
+
+
+UniqueKeyLoader.add_constructor(yaml.resolver.BaseResolver.DEFAULT_MAPPING_TAG, unique_mapping)
+
+
 def audit_workflows(directory: Path) -> dict:
     errors, writers, readers = [], [], []
     paths = sorted([*directory.glob('*.yml'), *directory.glob('*.yaml')])
@@ -23,7 +40,7 @@ def audit_workflows(directory: Path) -> dict:
         raise ValueError('No workflows found')
     for path in paths:
         text = path.read_text(encoding='utf-8')
-        data = yaml.safe_load(text)
+        data = yaml.load(text, Loader=UniqueKeyLoader)
         if not isinstance(data, dict) or not data.get('jobs'):
             errors.append(f'{path.name}: missing jobs')
             continue
