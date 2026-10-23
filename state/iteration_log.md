@@ -569,3 +569,5 @@
 2026-10-22 — Sensibilidad de referencia EXP259: 12 filas marginales y 11 condicionales históricas reproducidas; alfabeto observado 26, frente a 23 declarado; tres vistas cuantificadas y dos implementaciones concordantes. Sin nuevo EXP ni reinterpretación del manuscrito.
 
 - 2026-10-22 — BC-2026-10-22 (`experiments/common_battery_2026_10_22`): 21 brazos/201 evaluaciones con tokens y hashes; perfil primario no discrimina permutaciones, tres alertas C001 con soporte documentado; autoauditoría realizada y adjudicación pendiente, sin modificar resultados históricos.
+
+2026-10-23 | Sin EXP nuevo: reproducción local conjunta V1/V2 y diagnóstico de distancias 2/3, 12 brazos/192 controles, partición por folio. Sensibilidad insuficiente en controles: no concluyente, sin significado asignado. Autoauditoría en research/analysis/2026-10-23-lag-screen/REPORT.md.
