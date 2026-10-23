@@ -44,14 +44,19 @@ def audit_workflows(directory: Path) -> dict:
         if not isinstance(data, dict) or not data.get('jobs'):
             errors.append(f'{path.name}: missing jobs')
             continue
-        permissions = data.get('permissions', {})
+        permissions = data.get('permissions')
         writer = isinstance(permissions, dict) and permissions.get('contents') == 'write'
         (writers if writer else readers).append(path.name)
-        if not isinstance(permissions, dict) or permissions.get('contents') not in {'read', 'write'}:
-            errors.append(f'{path.name}: contents permission must be explicit')
-        for job in data['jobs'].values():
-            if job.get('permissions', {}).get('contents') == 'write' and not writer:
-                errors.append(f'{path.name}: hidden job-level writer')
+        # Only the single publisher may write. Other write scopes (actions,
+        # issues, pull-requests, id-token, etc.) must not bypass this contract.
+        required_scope = {'contents': 'write' if writer else 'read'}
+        if permissions != required_scope:
+            errors.append(f'{path.name}: workflow permissions must be exactly {required_scope!r}')
+        allowed_job_scopes = ({'contents': 'read'}, {'contents': 'write'}) if writer else ({'contents': 'read'},)
+        for job_name, job in data['jobs'].items():
+            override = job.get('permissions')
+            if override is not None and override not in allowed_job_scopes:
+                errors.append(f'{path.name}: unexpected job-level permissions in {job_name}')
             for step in job.get('steps', []):
                 run = step.get('run', '')
                 if not writer and re.search(r'\bgit\s+(?:push|commit)\b', run):
