@@ -46,3 +46,8 @@ Publicar hashes, versiones, licencia, código, fixtures del lector IVTFF, semill
 - El informe documenta 1.087 líneas de etiquetas y 1.442 tokens, 1.036 tipos de etiqueta, 7.030 tipos del cuerpo, 489 compartidos y 547 exclusivos. Son **valores archivados, no recalculados en esta rama**.
 - Se debe cotejar la clasificación de secciones del script: incluye reglas basadas en locus y rangos de folio, y una condición `Lz` duplicada. No extrapolar la clasificación histórica a referentes visuales seguros.
 - La ruta genérica `experiments/exp_580/` era incorrecta; no se ha perdido el experimento. El registro canónico de rutas evita repetir esta falsa incidencia.
+
+## Verificación automatizada del recuento histórico (2026-10-23)
+
+GitHub Actions [Voynich Check #711](https://github.com/kyrian20/voynich-autoexploration/actions/runs/40023875649) ha completado satisfactoriamente los pasos «Reproducir recuentos archivados de etiquetas EXP-580» y «Conservar trazabilidad de recuentos EXP-580». El replay compara las seis cifras publicadas, comprueba la identidad aritmética 1036 − 489 = 547 y registra hashes de script/corpus. **Alcance:** reproducción automatizada del script original, no verificación independiente de clasificación IVTFF, identidad semántica ni replicación en IT2a. La ejecución completa #711 aún estaba en curso al documentar este resultado. El bloqueo de etapa 0 sobre auditoría independiente de etiquetas y loci permanece vigente.
+
