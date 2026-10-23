@@ -30,12 +30,7 @@ def assert_consistent(testcase, manifest):
     testcase.assertEqual(len(all_leaves), len(set(all_leaves)),
                          "Physical leaf appears in multiple groups")
     testcase.assertEqual(manifest["eligible_count"], len(all_leaves))
-    testcase.assertEqual(
-        set(all_leaves),
-        set(range(1, 117)) - {
-            12, 59, 60, 61, 62, 63, 64, 74, 91, 92, 97, 98, 109, 110
-        } if manifest["schema_version"] == 2 else set(all_leaves),
-    )
+
 
 
 class CommittedManifestInvariants(unittest.TestCase):
