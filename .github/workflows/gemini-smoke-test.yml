@@ -1,0 +1,97 @@
+name: Gemini manual connection test
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: gemini-manual-smoke
+  cancel-in-progress: false
+
+jobs:
+  connection:
+    if: github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 3
+    steps:
+      # No checkout: manuscript, corpora and research files are unavailable.
+      - name: Make one synthetic request to the official Gemini API
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        shell: bash
+        run: |
+          set +x
+          python3 - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+          import sys
+          import urllib.error
+          import urllib.request
+
+          class NoRedirect(urllib.request.HTTPRedirectHandler):
+              def redirect_request(self, req, fp, code, msg, headers, newurl):
+                  return None
+
+          def main():
+              report = {"status": "not_started", "attempts": 0,
+                        "model": "gemini-2.5-flash", "manuscript_data_sent": False}
+              code = 1
+              try:
+                  key = os.environ.pop("GEMINI_API_KEY", "")
+                  if not key:
+                      report["status"] = "missing_secret"
+                      return code
+                  payload = {
+                      "contents": [{"role": "user", "parts": [
+                          {"text": "Reply with exactly OK."}]}],
+                      "generationConfig": {"candidateCount": 1, "maxOutputTokens": 32,
+                                           "thinkingConfig": {"thinkingBudget": 0}},
+                  }
+                  request = urllib.request.Request(
+                      "https://generativelanguage.googleapis.com/v1beta/models/"
+                      "gemini-2.5-flash:generateContent",
+                      data=json.dumps(payload).encode("utf-8"),
+                      headers={"Content-Type": "application/json", "x-goog-api-key": key},
+                      method="POST",
+                  )
+                  # Exactly one attempt; no retry, fallback model or redirect.
+                  opener = urllib.request.build_opener(NoRedirect())
+                  report["attempts"] = 1
+                  with opener.open(request, timeout=30) as response:
+                      report["http_status"] = response.status
+                      result = json.loads(response.read(65536))
+                  candidates = result.get("candidates", [])
+                  text = "".join(part.get("text", "") for part in
+                                 candidates[0].get("content", {}).get("parts", [])
+                                 if not part.get("thought")) if candidates else ""
+                  if text.strip() == "OK":
+                      report["status"] = "connected"
+                      code = 0
+                  else:
+                      report["status"] = "unexpected_response"
+              except urllib.error.HTTPError as error:
+                  report.update(status="http_error", http_status=error.code)
+                  error.close()
+              except Exception:
+                  # Never print exceptions, headers, response bodies or credentials.
+                  report["status"] = "request_or_response_error"
+              finally:
+                  Path(os.environ["RUNNER_TEMP"], "gemini-smoke-status.json").write_text(
+                      json.dumps(report, indent=2) + "\n", encoding="utf-8")
+                  print("Gemini connection test status: " + report["status"])
+              return code
+
+          sys.exit(main())
+          PY
+
+      - name: Preserve sanitized connection status
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: gemini-smoke-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/gemini-smoke-status.json
+          if-no-files-found: warn
+          retention-days: 7
