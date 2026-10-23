@@ -103,7 +103,7 @@ def check_repeated_page_header_conflicts() -> None:
             for i in range(1, 102)
         ]
         headers.append("<f1r> <! $L=A>")
-        source.write_text("\\n".join(headers) + "\\n", encoding="utf-8")
+        source.write_text("\n".join(headers) + "\n", encoding="utf-8")
         output = io.StringIO()
         with (patch.object(metadata_module, "ROOT", root),
               patch.object(metadata_module, "SOURCE", source),
@@ -114,7 +114,7 @@ def check_repeated_page_header_conflicts() -> None:
         assert report["folio_headers"] == 102, report
 
         headers.append("<f1r> <! $L=B>")
-        source.write_text("\\n".join(headers) + "\\n", encoding="utf-8")
+        source.write_text("\n".join(headers) + "\n", encoding="utf-8")
         with (patch.object(metadata_module, "ROOT", root),
               patch.object(metadata_module, "SOURCE", source),
               contextlib.redirect_stdout(io.StringIO())):
