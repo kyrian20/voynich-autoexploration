@@ -4,7 +4,7 @@ Fecha: 23-10-2026. Estado: **PROPOSED** hasta que la CI del commit exacto conclu
 
 ## Defecto real identificado
 
-El lector del manifiesto v1 utilizaba `^<f(\\d+)[rv](?:[.,][^>]*)?>`, que reconoce `<f69r.1>` pero no `<f67r1.1>` ni `<f68r2.1>`. Los sufijos numéricos tras r/v representan paneles de desplegables; son parte del mismo folio físico. En las transcripciones ZL3b e IT2a, un recuento de cabeceras sobre los bytes del repositorio da **92 hojas detectadas por v1 y 102 por la expresión corregida**. Las diez omitidas por v1 son **67, 68, 70, 72, 85, 86, 89, 90, 95 y 102** en ambas ediciones. Este es un error de cobertura, no una señal lingüística.
+El lector del manifiesto v1 utilizaba `^<f(\d+)[rv](?:[.,][^>]*)?>`, que reconoce `<f69r.1>` pero no `<f67r1.1>` ni `<f68r2.1>`. Los sufijos numéricos tras r/v representan paneles de desplegables; son parte del mismo folio físico. En las transcripciones ZL3b e IT2a, un recuento de cabeceras sobre los bytes del repositorio da **92 hojas detectadas por v1 y 102 por la expresión corregida**. Las diez omitidas por v1 son **67, 68, 70, 72, 85, 86, 89, 90, 95 y 102** en ambas ediciones. Este es un error de cobertura, no una señal lingüística.
 
 ## Reparación sin reescribir historia
 
