@@ -1,0 +1,217 @@
+#!/usr/bin/env python3
+"""Exploratory extra-identity prediction with two preceding tokens."""
+import argparse
+from collections import Counter, defaultdict
+import gzip
+import hashlib
+import json
+import math
+from pathlib import Path
+import random
+import sys
+
+ROOT = Path(__file__).resolve().parents[1]
+PRIOR = ROOT / 'research/analysis/2026-10-22-residual-order'
+PACKAGE = ROOT / 'research/analysis/2026-10-23-two-token-residual'
+sys.path.insert(0, str(PRIOR))
+sys.path.insert(0, str(ROOT / 'scripts'))
+from residual_order_calibrated import Calibrated, GRID, bucket
+from residual_order import TAU, shuffled, quantile
+from check_audit_snapshot import compare
+
+
+def triples(rows):
+    return Counter((z, a, b) for row in rows for z, a, b in
+                   zip(row['tokens'], row['tokens'][1:], row['tokens'][2:]))
+
+
+class TwoToken:
+    def __init__(self, train, development):
+        self.base = Calibrated(train, development, 2000)
+        self.tables = [defaultdict(Counter), defaultdict(Counter)]
+        self.totals = [Counter(), Counter()]
+        self.weights = [0.0, 0.0]
+        self.calibration = []
+        for (z, a, b), count in triples(train).items():
+            target = self.base.map(b)
+            for table, total, key in zip(self.tables, self.totals, self.contexts(z, a)):
+                table[key][target] += count
+                total[key] += count
+        dev = triples(development)
+        n = sum(dev.values())
+        if not n:
+            raise ValueError('No development triplets')
+        for layer in range(1):
+            prepared = []
+            for (z, a, b), count in dev.items():
+                parent = self.base.probabilities(a, b)[-1]
+                key = self.contexts(z, a)[layer]
+                raw = (self.tables[layer].get(key, {}).get(self.base.map(b), 0) + TAU*parent)/(self.totals[layer][key]+TAU)
+                prepared.append((parent, raw, count))
+            candidates = [{'weight': w, 'development_bits': -sum(c*math.log2((1-w)*p+w*r)
+                           for p, r, c in prepared)/n} for w in GRID]
+            best = min(candidates, key=lambda r: (r['development_bits'], r['weight']))
+            self.weights[layer] = best['weight']
+            self.calibration.append(candidates)
+        self.identity_cache = {}
+        prepared = []
+        for (z, a, b), count in dev.items():
+            parent = self.parent_probabilities(z, a, b)[1]
+            ratios, delta = self.identity_adjustment(z, a)
+            prepared.append((parent, ratios.get(self.base.map(b), 1.0), delta, count))
+        candidates = [{'weight': w, 'development_bits': -sum(c*math.log2(
+            p*((1-w)+w*ratio)/(1+w*delta)) for p, ratio, delta, c in prepared)/n} for w in GRID]
+        best = min(candidates, key=lambda r: (r['development_bits'], r['weight']))
+        self.weights[1] = best['weight']
+        self.calibration.append(candidates)
+
+    def contexts(self, z, a):
+        prior_identity = self.base.contexts(a)[-1]
+        signature = (z[0], z[-1], len(z))
+        h = (prior_identity, signature)
+        return h, (h, self.base.map(z))
+
+    def parent_probabilities(self, z, a, b):
+        p = self.base.probabilities(a, b)[-1]
+        h = self.contexts(z, a)[0]
+        target = self.base.map(b)
+        raw = (self.tables[0].get(h, {}).get(target, 0)+TAU*p)/(self.totals[0][h]+TAU)
+        return [p, (1-self.weights[0])*p+self.weights[0]*raw]
+
+    def identity_adjustment(self, z, a):
+        h, w = self.contexts(z, a)
+        if w not in self.identity_cache:
+            ratios = {}
+            delta = 0.0
+            if self.totals[0][h] and self.totals[1][w]:
+                for target, count in self.tables[0][h].items():
+                    q = count/self.totals[0][h]
+                    ratio = (self.tables[1][w].get(target, 0)/q+TAU)/(self.totals[1][w]+TAU)
+                    ratios[target] = ratio
+                    delta += self.parent_probabilities(z, a, target)[1]*(ratio-1)
+            self.identity_cache[w] = ratios, delta
+        return self.identity_cache[w]
+
+    def probabilities(self, z, a, b):
+        result = self.parent_probabilities(z, a, b)
+        ratios, delta = self.identity_adjustment(z, a)
+        weight = self.weights[1]
+        ratio = ratios.get(self.base.map(b), 1.0)
+        return result+[result[1]*((1-weight)+weight*ratio)/(1+weight*delta)]
+
+
+def score(model, rows):
+    groups = {}
+    unknown = seen_h = seen_w = 0
+    for row in rows:
+        for z, a, b in zip(row['tokens'], row['tokens'][1:], row['tokens'][2:]):
+            state = groups.setdefault(row['group'], {'n': 0, 'losses': [0.0]*3})
+            probabilities = model.probabilities(z, a, b)
+            if any(not 0 < p <= 1 for p in probabilities):
+                raise ValueError('Invalid probability')
+            for i, p in enumerate(probabilities):
+                state['losses'][i] -= math.log2(p)
+            state['n'] += 1
+            h, w = model.contexts(z, a)
+            seen_h += model.totals[0][h] > 0
+            seen_w += model.totals[1][w] > 0
+            unknown += b not in model.base.vocab
+    n = sum(g['n'] for g in groups.values())
+    if not n:
+        raise ValueError('No evaluation triplets')
+    loss = [sum(g['losses'][i] for g in groups.values())/n for i in range(3)]
+    return {'triplets': n, 'unknown_targets': unknown, 'seen_H2_contexts': seen_h,
+            'seen_W2_contexts': seen_w, 'loss_bits_per_triplet': dict(zip(('W1', 'H2', 'W2'), loss)),
+            'older_edges_gain': loss[0]-loss[1], 'older_identity_gain': loss[1]-loss[2],
+            'total_two_token_gain': loss[0]-loss[2], 'groups': groups}
+
+
+def bootstrap(groups):
+    values = list(groups.values())
+    rng = random.Random(2026102301)
+    gains = []
+    for _ in range(2000):
+        sample = [rng.choice(values) for _ in values]
+        gains.append(sum(g['losses'][1]-g['losses'][2] for g in sample)/sum(g['n'] for g in sample))
+    return {'resamples': 2000, 'seed': 2026102301, 'groups': len(values),
+            'exploratory_paired_group_percentile_95': [quantile(gains, .025), quantile(gains, .975)]}
+
+
+def synthetic(positive):
+    partitions = []
+    for name, repeats in (('train', 50), ('development', 10), ('test', 10)):
+        rows = []
+        for i in range(repeats):
+            pairs = [('aba', 'xx'), ('aca', 'yy')] if positive else [
+                ('aba', 'xx'), ('aba', 'yy'), ('aca', 'xx'), ('aca', 'yy')]
+            rows.extend({'group': f'{name}_{i}', 'tokens': [z, 'mid', b]} for z, b in pairs)
+        partitions.append(rows)
+    model = TwoToken(*partitions[:2])
+    return {'positive': positive, 'weights_H2_W2': model.weights, 'score': score(model, partitions[2])}
+
+
+def audit(source):
+    rows = source['records']
+    train = [r for r in rows if bucket(r['group']) >= 2]
+    dev = [r for r in rows if bucket(r['group']) == 1]
+    test = [r for r in rows if bucket(r['group']) == 0]
+    sets = [{r['group'] for r in part} for part in (train, dev, test)]
+    if any(sets[i] & sets[j] for i, j in ((0, 1), (0, 2), (1, 2))):
+        raise ValueError('Partition leakage')
+    model = TwoToken(train, dev)
+    real = score(model, test)
+    controls = []
+    for i in range(16):
+        seed = int(hashlib.sha256(f'PRIVATE_RESIDUAL_V1:{i}'.encode()).hexdigest()[:16], 16)
+        control = TwoToken(shuffled(train, seed), dev)
+        if control.base.vocab != model.base.vocab:
+            raise ValueError('Vocabulary drift under shuffle')
+        measured = score(control, test)
+        controls.append({'seed': seed, 'base_weights': control.base.weights, 'weights_H2_W2': control.weights,
+                         'older_identity_gain': measured['older_identity_gain'],
+                         'loss_bits_per_triplet': measured['loss_bits_per_triplet']})
+    gains = [c['older_identity_gain'] for c in controls]
+    return {'label': source['label'], 'kind': source['kind'],
+            'train_groups': sorted(sets[0]), 'development_groups': sorted(sets[1]), 'test_groups': sorted(sets[2]),
+            'base_weights': model.base.weights, 'weights_H2_W2': model.weights,
+            'calibration': model.calibration, 'real': real, 'bootstrap': bootstrap(real['groups']),
+            'shuffled_training_controls': controls, 'control_gain_mean': sum(gains)/len(gains),
+            'control_gain_range': [min(gains), max(gains)]}
+
+
+def run():
+    positive, negative = synthetic(True), synthetic(False)
+    if positive['score']['older_identity_gain'] <= .5 or abs(negative['score']['older_identity_gain']) >= 1e-10:
+        raise ValueError('Synthetic sensitivity controls failed; interpretation blocked')
+    inputs = PRIOR / 'inputs.json'
+    data = json.loads(inputs.read_text())
+    paths = [inputs, PRIOR/'residual_order.py', PRIOR/'residual_order_calibrated.py',
+             Path(__file__), PACKAGE/'PROTOCOL.md']
+    results = []
+    for source in data['sources']:
+        result = audit(source)
+        results.append(result)
+        print('Completed '+source['label'], file=sys.stderr, flush=True)
+    return {'status': 'EXPLORATORY_TWO_TOKEN_RESIDUAL',
+            'source_commit': data['source_commit'],
+            'dependencies_sha256': {str(p.relative_to(ROOT)): hashlib.sha256(p.read_bytes()).hexdigest() for p in paths},
+            'synthetic_positive': positive, 'synthetic_negative': negative, 'results': results}
+
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--output', type=Path)
+    parser.add_argument('--check', type=Path)
+    args = parser.parse_args()
+    if bool(args.output) == bool(args.check):
+        parser.error('Choose --output or --check')
+    result = run()
+    if args.check:
+        raw = args.check.read_bytes()
+        compare(json.loads(gzip.decompress(raw) if args.check.suffix == '.gz' else raw), result)
+        print('Two-token snapshot verified')
+    else:
+        args.output.parent.mkdir(parents=True, exist_ok=True)
+        raw = (json.dumps(result, ensure_ascii=False)+'\n').encode()
+        args.output.write_bytes(gzip.compress(raw, mtime=0) if args.output.suffix == '.gz' else raw)
+        print('Two-token results written')

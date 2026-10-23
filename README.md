@@ -2,6 +2,8 @@
 
 Repositorio de trabajo: `kyrian20/voynich-autoexploration` (rama `master`).
 
+**Memoria de dos tokens y reparación de sesgo — 23-10-2026:** [predictor calibrado, intento fallido conservado y controles](research/analysis/2026-10-23-two-token-residual/REPORT.md). Se corrigió una ganancia artificial de suavizado antes del análisis real. La identidad adicional se desactiva en las cuatro vistas Voynich y ofrece señal primaria incierta en los dos controles naturales: no discrimina teorías ni traduce. [Alcance de la revisión de errores](research/maintenance/2026-10-23-repair-scope.md).
+
 **Verificación CI corregida y control alternativo — 23-10-2026:** [evidencia de ejecuciones push satisfactorias](research/CI_VERIFICATION.md) y [control de contexto por folio](research/maintenance/2026-10-23-folio-context-control/REPORT.md). La alternativa permite variar 196 de 325 predecesores de cierres -am en ZL3b, conservando inventario de folio y plantillas de línea, pero relajando el inventario de cada línea. Es otro nulo; no se presenta como prueba semántica.
 
 **Soporte del control de contexto — 23-10-2026:** [oportunidades exactas de intercambio del predecesor final](research/maintenance/2026-10-23-predecessor-opportunities/REPORT.md). Al conservar extremos de línea, inventario, bordes y longitud, solo 16 de 325 cierres -am ZL3b permiten cambiar su predecesor en la vista por defecto. Diagnóstico de soporte, sin contraste semántico ni cálculo de potencia.

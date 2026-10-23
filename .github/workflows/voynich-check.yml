@@ -182,6 +182,11 @@ jobs:
         run: |
           python research/analysis/2026-10-22-residual-order/run_integrated.py --out "$RUNNER_TEMP/residual-order-${{ github.run_id }}"
 
+      - name: Probar y reproducir predictor con dos predecesores
+        run: |
+          python tests/test_two_token_residual.py
+          python scripts/analyze_two_token_residual.py --check research/analysis/2026-10-23-two-token-residual/results.json.gz
+
       - name: Conservar reproducción del bloque integrado
         if: always()
         uses: actions/upload-artifact@v4
