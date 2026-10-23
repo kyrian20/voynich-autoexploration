@@ -49,6 +49,9 @@ jobs:
           python scripts/prepare_prospective_leaf_holdout_v2.py --out prospective-leaf-holdout-v2.json
           cmp research/decipherment/2026-10-23-prospective-leaf-holdout/manifest-v2.json prospective-leaf-holdout-v2.json
 
+      - name: Comprobar independientemente la cobertura y particiones archivadas
+        run: python -m unittest discover -s tests -p 'test_committed_holdout_manifest_invariants.py' -v
+
       - name: Conservar manifiesto v2 corregido con hashes
         uses: actions/upload-artifact@v4
         with:
