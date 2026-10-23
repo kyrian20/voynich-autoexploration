@@ -1,0 +1,29 @@
+{
+  "am_final": {
+    "expected_pooled": 48.47937245787333,
+    "expected_within_line": 46.11747696747697,
+    "expected_within_line_fraction": "8309447/180180",
+    "feature_tokens": 406,
+    "observed": 331,
+    "ratio_pooled": 6.827646135222274,
+    "ratio_within_line": 7.1773223898052425
+  },
+  "limits": "Historical parser; no p-values, clustered interval or semantic inference.",
+  "lines": 2466,
+  "numeric_folios": 40,
+  "pages": 82,
+  "reader_sha256": "91571c5a352cee159b7cd94d4d3ec7b981bb7529127c0b9ebba23fca0bf67671",
+  "singleton_lines": 16,
+  "source_sha256": "bf5b6d4ac1e3a51b1847a9c388318d609020441ccd56984c901c32b09beccafc",
+  "status": "EXPLORATORY_DENOMINATOR_AUDIT",
+  "tokens": 20652,
+  "y_initial": {
+    "expected_pooled": 101.61563044741429,
+    "expected_within_line": 109.9932733932734,
+    "expected_within_line_fraction": "1651549/15015",
+    "feature_tokens": 851,
+    "observed": 355,
+    "ratio_pooled": 3.4935570289426208,
+    "ratio_within_line": 3.22747009020017
+  }
+}
