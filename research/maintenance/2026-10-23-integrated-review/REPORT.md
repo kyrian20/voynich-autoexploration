@@ -38,4 +38,4 @@ Logs locales completos: `execution-logs.zip`, SHA-256 `d658e50058ea80f46ecf00e5b
 - PR #2: [Voynich Check 39981098948](https://github.com/kyrian20/voynich-autoexploration/actions/runs/39981098948), commit `cf53669fa5366f6cba0d92c7f1ede5f2183871bc`.
 - PR #7: [Voynich Check 39981233923](https://github.com/kyrian20/voynich-autoexploration/actions/runs/39981233923), commit `a289cee2995711b1e7dc596f050e78246150b2d7`.
 
-Ambas ejecuciones se iniciaron tras publicar las reparaciones; su resultado debe verificarse en las URLs indicadas. El estado en curso no se cuenta como éxito.
+Ambas ejecuciones terminaron en success, comprobado mediante la API de GitHub tras publicar las reparaciones. La ejecución de PR #7 incluye la reproducción de los controles sintéticos. La documentación posterior de master es adicional y no cambia los árboles científicos ensayados.
