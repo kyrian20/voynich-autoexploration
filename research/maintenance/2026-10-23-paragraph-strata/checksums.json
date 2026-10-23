@@ -1,0 +1,7 @@
+{
+  "research/maintenance/2026-10-23-paragraph-strata/PROTOCOL.md": "3dc868f714e278413e5f3ad1c2b32ab8dc4f41417fbb07d8ee931f5592608da3",
+  "research/maintenance/2026-10-23-paragraph-strata/REPORT.md": "3b55c3decf9d1dfbffe8444e2d9056d3950fbfb3e5cfe646d5a405f71cf5dbe9",
+  "research/maintenance/2026-10-23-paragraph-strata/results.json": "baa896a310a7cb2b79c814789b1441b4cdca51ba201a3098b74b61232661699c",
+  "scripts/audit_exp173_paragraph_strata.py": "ce646d9bfb33fa3519e8d1d55aa3e093364910c292da9e8bb8016cd745df581c",
+  "tests/test_exp173_paragraph_strata.py": "495492d514d40a5e30f1e021c4ba70218fcce81a87a541239bc0b54e40e13092"
+}

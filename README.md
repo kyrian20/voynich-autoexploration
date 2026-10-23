@@ -2,6 +2,8 @@
 
 Repositorio de trabajo: `kyrian20/voynich-autoexploration` (rama `master`).
 
+**Separación de párrafos — 23-10-2026:** [estratos por P0/otros P y marcador explícito de fin](research/maintenance/2026-10-23-paragraph-strata/REPORT.md). En ZL3b, el exceso -am/final persiste en las 1.883 líneas P0 sin marcador bajo las ocho vistas y las 40 retiradas de folio. Ausencia de marcador no se equipara automáticamente con interior de párrafo. Resultado descriptivo, sin significado asignado.
+
 **Avance del 23-10-2026:** [puente de lectores para los patrones -am/final e y/inicial](research/maintenance/2026-10-23-exp173-reader-bridge/REPORT.md): tres transcripciones, ocho políticas completas, poblaciones comunes y sensibilidad al retirar cada folio. Los dos excesos descriptivos persisten dentro de esta rejilla; se documentan las diferencias de extremos y las limitaciones IVTFF. No hay traducción ni nueva significación estadística. Incluye reproducción en CI de las cuatro auditorías acotadas de EXP-173.
 
 La [batería común lenguaje/cifrado/generación](experiments/common_battery_2026_10_22/result.md) conserva EXP-170 y publica protocolo y resultados nuevos; los tokens archivados siguen pendientes de autorización y recuperación (véase PUBLICACION.md del experimento). Su primaria no discrimina barajados; no valida una teoría del manuscrito.
