@@ -39,3 +39,7 @@ Preinscribir si el onset aporta información predictiva de sufijos **más allá 
 **Target-awareness:** selección retrospectiva de afirmaciones, no confirmación. **Destrucción de rasgos:** no se modifica tokenización ni manuscrito. **Extrapolación:** solo dos informes y sus lectores. **Alcance negativo:** interpretaciones particulares, no ausencia de lengua o traducción. **Controles:** rango=0 y MI=1 en el contraejemplo matemático; lectores heredados del bloque reproducido, no ejecutados de nuevo aquí.
 
 **Sin sustituciones de corpus, borrados, nueva numeración EXP ni desciframiento declarado.**
+
+## Cierre de comprobación integral — 23-10-2026
+
+El auditor completo se ha ejecutado en el checkout integrado con master 91c09fa y la corrección EXP-170: retorno 0 y coincidencia exacta del snapshot. Esta comprobación posterior sustituye el pendiente de ejecución local indicado antes; no repite los experimentos históricos. Se enlazan erratas desde los directorios afectados y se añaden controles explícitos al workflow canónico. La CI del commit nuevo requiere comprobación propia.
