@@ -30,6 +30,12 @@ def main() -> None:
         folio, metadata = m.groups()
         lang = parse_currier_language(metadata)
         if lang:
+            previous = pages.get(folio)
+            if previous is not None and previous != lang:
+                raise ValueError(
+                    f"Conflicting Currier $L across headers for {folio}: "
+                    f"{previous} versus {lang}"
+                )
             pages[folio] = lang
         q = QUIRE.search(metadata)
         if q and not lang:
