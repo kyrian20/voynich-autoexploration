@@ -261,7 +261,10 @@ jobs:
         run: python tests/test_ivtff_metadata.py
 
       - name: Validar metadatos Currier desde IVTFF
-        run: python scripts/audit_ivtff_metadata.py
+        run: |
+          python scripts/audit_ivtff_metadata.py
+          python tests/test_ivtff_metadata_strict.py
+          python scripts/audit_ivtff_metadata_strict.py
 
       - name: Inventariar spans entre llaves sin alterar resultados
         run: python scripts/audit_ivtff_brace_spans.py
