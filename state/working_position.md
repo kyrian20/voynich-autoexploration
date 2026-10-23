@@ -1,3 +1,5 @@
+> **Cautela de reutilización — 23-10-2026:** las etiquetas históricas `VALID`, `RULED OUT`, `HIGH` y `LOW` de este archivo no certifican el estado científico actual. Antes de citarlas, contrastar la [revisión de identidad de corpus](../research/CORPUS_IDENTITY_REVIEW.json), el [alcance de reparación](../research/maintenance/2026-10-23-repair-scope.md) y los informes fechados del [índice actual](../README.md). Se conserva el contenido histórico; esta advertencia no reanaliza ni modifica `committed_claims.md`.
+
 > **Archived checkpoint warning — 2026-10-19:** this document is a historical snapshot dated 2026-04-12 and ends at exp_579/574. It is retained for provenance and should not be read as the current status. The current canonical checkpoint is [state/current_state.md](current_state.md); the cross-experiment synthesis for exp_589–599 is [research/synthesis/2026-10-19-daiin-position-synthesis.md](../research/synthesis/2026-10-19-daiin-position-synthesis.md). Do not restart from the experiment number in this archived file without checking those newer records.
 
 ---

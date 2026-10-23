@@ -1,0 +1,296 @@
+[
+  {
+    "step": "Auditar contratos operativos y cobertura de registros",
+    "returncode": 0,
+    "seconds": 0.6,
+    "log": "03.log",
+    "log_sha256": "7db5f92741502c647181b25ab859a77a9d4e96dfea5a1e9d2006057362fca5aa"
+  },
+  {
+    "step": "Comprobar identidad de corpus y control de duplicados",
+    "returncode": 0,
+    "seconds": 0.18,
+    "log": "04.log",
+    "log_sha256": "3fd44c6d4e9aa6c7feebc09606b69931a6805659e8fbb6a73cf5ed905ed90c51"
+  },
+  {
+    "step": "Reproducir auditoría de lectores históricos",
+    "returncode": 0,
+    "seconds": 26.45,
+    "log": "05.log",
+    "log_sha256": "51c44ed5dc3a9f542b82569befa10065a72a86e32629b99b4d61aad10ededf12"
+  },
+  {
+    "step": "Reproducir cuatro lectores de referencia restantes",
+    "returncode": 0,
+    "seconds": 1.92,
+    "log": "06.log",
+    "log_sha256": "98f31fcc9f06f66fef2b7eab5ef30a7b51a1f50ac9514e594d145ec229adb3cc"
+  },
+  {
+    "step": "Reproducir sensibilidad de entropía de referencia",
+    "returncode": 0,
+    "seconds": 0.79,
+    "log": "07.log",
+    "log_sha256": "2aace86abd4c8a0fc5978392fcfdb8b58e773b78e22a9da04e1360dc2929e0d6"
+  },
+  {
+    "step": "Reproducir auditorías acotadas de EXP-173",
+    "returncode": 0,
+    "seconds": 23.87,
+    "log": "08.log",
+    "log_sha256": "de62ed08a3f57dfc806dfa158001f876d7921aac1a3d79289733fc479c2abd6b"
+  },
+  {
+    "step": "Reproducir soporte efectivo de identidad",
+    "returncode": 0,
+    "seconds": 2.24,
+    "log": "09.log",
+    "log_sha256": "bac53c38666b448ec597f4db1067c2ec8cf8116635cfaaf3f24c58c771aa73a5"
+  },
+  {
+    "step": "Probar y reproducir predictor de subunidades con puerta natural",
+    "returncode": 0,
+    "seconds": 7.82,
+    "log": "10.log",
+    "log_sha256": "02e1682b61d1a6477f973aa3dfb9bbaee52b9403d5ca13358f6fc48da99ad5f6"
+  },
+  {
+    "step": "Reproducir incremento de subunidades sobre contexto de carácter",
+    "returncode": 0,
+    "seconds": 10.94,
+    "log": "11.log",
+    "log_sha256": "4dd6c59e09c61d7c194ce7482fd0925f1d78a22d5b0f09bbdd5bf8355fcfa1cd"
+  },
+  {
+    "step": "Comprobar archivos de investigación",
+    "returncode": 0,
+    "seconds": 0.03,
+    "log": "12.log",
+    "log_sha256": "d9531f341c0a72a78b9406916c0d0b2910cb9fcfbd75b67298fcc7e23e26bfb3"
+  },
+  {
+    "step": "Validar sintaxis de todos los scripts Python",
+    "returncode": 0,
+    "seconds": 1.56,
+    "log": "13.log",
+    "log_sha256": "1e808a2101c071a16dba808a95d56034405d66bb4864351eba078537a622d706"
+  },
+  {
+    "step": "Verificar reparación de rutas sin cambios de algoritmo",
+    "returncode": 0,
+    "seconds": 9.98,
+    "log": "14.log",
+    "log_sha256": "fd4d83d7c1ec9ea5e8a224fd137cb4687347c8e41d266f336f3104c8d89d2d9b"
+  },
+  {
+    "step": "Probar capa léxica IVTFF sin pérdida",
+    "returncode": 0,
+    "seconds": 0.04,
+    "log": "15.log",
+    "log_sha256": "446ff6b081dc2a8975c1cbee70b06f715485f077be6b117154afe775e9d472b7"
+  },
+  {
+    "step": "Auditar preservación de información en tres transcripciones",
+    "returncode": 0,
+    "seconds": 0.78,
+    "log": "16.log",
+    "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "step": "Probar controles de sensibilidad de tokenización",
+    "returncode": 0,
+    "seconds": 0.05,
+    "log": "18.log",
+    "log_sha256": "483fb0330c9fc74c629ed9edefcf0f4140e10a4f8a8f30dab61b31f390e8d7d8"
+  },
+  {
+    "step": "Reproducir rejilla factorial y comparar snapshot",
+    "returncode": 0,
+    "seconds": 24.76,
+    "log": "19.log",
+    "log_sha256": "9cca83d434d26f67d41b1c14c0b70e3c33bf2045cee0f2283df6eee03c8cb7ac"
+  },
+  {
+    "step": "Reproducir sensibilidad del modelo EXP-607",
+    "returncode": 0,
+    "seconds": 1.5,
+    "log": "20.log",
+    "log_sha256": "9cca83d434d26f67d41b1c14c0b70e3c33bf2045cee0f2283df6eee03c8cb7ac"
+  },
+  {
+    "step": "Reproducir bootstrap pareado de EXP-601",
+    "returncode": 0,
+    "seconds": 1.32,
+    "log": "21.log",
+    "log_sha256": "9cca83d434d26f67d41b1c14c0b70e3c33bf2045cee0f2283df6eee03c8cb7ac"
+  },
+  {
+    "step": "Probar y reproducir alcance P0 de EXP-607",
+    "returncode": 0,
+    "seconds": 12.63,
+    "log": "22.log",
+    "log_sha256": "bc5b41fc910855f8ad0c8134880008e97e334fee550c5a2bbdce87eef636b276"
+  },
+  {
+    "step": "Reproducir paquete de posibles anclas textuales",
+    "returncode": 0,
+    "seconds": 1.29,
+    "log": "23.log",
+    "log_sha256": "9cca83d434d26f67d41b1c14c0b70e3c33bf2045cee0f2283df6eee03c8cb7ac"
+  },
+  {
+    "step": "Probar y reproducir control exploratorio daiin dam",
+    "returncode": 0,
+    "seconds": 3.89,
+    "log": "24.log",
+    "log_sha256": "24339bd7b9f64fcf173e28407d14ad820c015c9df72d5cffb9c64fdaa439b174"
+  },
+  {
+    "step": "Verificar distribución exacta del control local",
+    "returncode": 0,
+    "seconds": 2.3,
+    "log": "25.log",
+    "log_sha256": "c8c84c49691f14fbd27cd036697b5fa8738bb32299a879c4a287739911cd2ef4"
+  },
+  {
+    "step": "Reproducir bloque integrado de orden residual y corpus",
+    "returncode": 0,
+    "seconds": 51.94,
+    "log": "26.log",
+    "log_sha256": "8de71b2d0e47d53b82d0e357a45c84e007d0ebbb81a3db44da4d5bb7ea01b44d"
+  },
+  {
+    "step": "Probar y reproducir predictor con dos predecesores",
+    "returncode": 0,
+    "seconds": 42.61,
+    "log": "27.log",
+    "log_sha256": "faa2756af39bf23d3b8a9bea727484adc86e688c77a62e3b137f3137b7c09f57"
+  },
+  {
+    "step": "Probar controles de posición y bordes de la pareja EVA",
+    "returncode": 0,
+    "seconds": 2.27,
+    "log": "29.log",
+    "log_sha256": "39c2ed2fb5e77311cdc26f88e8721c5f346d5622550185361ef9161bfdb4efb1"
+  },
+  {
+    "step": "Probar evidencias de anclas y reproducir concordancias",
+    "returncode": 0,
+    "seconds": 1.45,
+    "log": "30.log",
+    "log_sha256": "bc5b41fc910855f8ad0c8134880008e97e334fee550c5a2bbdce87eef636b276"
+  },
+  {
+    "step": "Probar viabilidad limitada de correspondencias publicadas",
+    "returncode": 0,
+    "seconds": 0.14,
+    "log": "31.log",
+    "log_sha256": "814fcfc2f252c7510e2e3b74283bd9675376dc8cc4f2a147315b41c760c2e1a3"
+  },
+  {
+    "step": "Probar regresiones de metadatos IVTFF",
+    "returncode": 0,
+    "seconds": 0.04,
+    "log": "33.log",
+    "log_sha256": "7a02949f1109d6d65d9f44f10ba0240932b35a88e96a607fb026f0543503cd71"
+  },
+  {
+    "step": "Validar metadatos Currier desde IVTFF",
+    "returncode": 0,
+    "seconds": 0.03,
+    "log": "34.log",
+    "log_sha256": "1cde454aec9a70a6e82ec24b4f13773f385aba55e2f11d85b5cfd60ed0cd5603"
+  },
+  {
+    "step": "Inventariar spans entre llaves sin alterar resultados",
+    "returncode": 0,
+    "seconds": 0.08,
+    "log": "35.log",
+    "log_sha256": "4c8b53075cbaf7c2c1502c7709890777a71f747c49ded6127d98e85840587082"
+  },
+  {
+    "step": "Probar vistas alternativas de ligaduras IVTFF",
+    "returncode": 0,
+    "seconds": 0.03,
+    "log": "36.log",
+    "log_sha256": "8a03f76582cd030c3592de1b0f1e718a3568b80cdbc48f9f5835090b8bce52be"
+  },
+  {
+    "step": "Cuantificar sensibilidad descriptiva de ligaduras IVTFF",
+    "returncode": 0,
+    "seconds": 0.46,
+    "log": "37.log",
+    "log_sha256": "6de510d80a350964e5afd9c52beee6570c17f28abb2a5e58dc94c0286a4cef05"
+  },
+  {
+    "step": "Probar cobertura de identificadores IVTFF en EXP-590",
+    "returncode": 0,
+    "seconds": 0.04,
+    "log": "38.log",
+    "log_sha256": "09d31686d4155b488df9da4b063e74f2fb7bf40241803c0f4692e7313b2fcc9c"
+  },
+  {
+    "step": "Reproducir EXP-590 con cobertura ampliada",
+    "returncode": 0,
+    "seconds": 7.79,
+    "log": "39.log",
+    "log_sha256": "98e1ac493be9693ab44df3171bb74b4a76a96afe7c2f6bb8ac69ed545da6db2f"
+  },
+  {
+    "step": "Probar sensibilidad de daiin agrupada por folio",
+    "returncode": 0,
+    "seconds": 0.03,
+    "log": "41.log",
+    "log_sha256": "a5ac60a4efe58c16e314a588ab009f19b88a678b0d216f0cf3a5dca913c26fc2"
+  },
+  {
+    "step": "Ejecutar sensibilidad descriptiva por folio para daiin",
+    "returncode": 0,
+    "seconds": 1.07,
+    "log": "42.log",
+    "log_sha256": "2af44d741d32fdf58fdd81da3af1cf30089e17ffffc8142e6ece07a740e077cf"
+  },
+  {
+    "step": "Verificar ruta portable del corpus de EXP-573",
+    "returncode": 0,
+    "seconds": 0.03,
+    "log": "44.log",
+    "log_sha256": "78a9a759fb62059d26ba02034a88dbe78deae2f9b7579efb85022de3219f6b30"
+  },
+  {
+    "step": "Reproducir reconciliación metodológica EXP-573",
+    "returncode": 0,
+    "seconds": 0.58,
+    "log": "45.log",
+    "log_sha256": "574f945378c71eafed7bad3eec109ed633f7b757ccbfba72e2775d3fd919b961"
+  },
+  {
+    "step": "Probar regresiones de identificadores de página y locus IVTFF",
+    "returncode": 0,
+    "seconds": 0.03,
+    "log": "46.log",
+    "log_sha256": "fe607da5c7474e1c0787f85e6bea9cdd8f05656e82a250fa7a1ce66b71959a74"
+  },
+  {
+    "step": "Auditar cobertura estructural de identificadores IVTFF",
+    "returncode": 0,
+    "seconds": 0.05,
+    "log": "47.log",
+    "log_sha256": "05a55a3d05f80438321312f2913e683bd0cd3423145da92313306abd0dcd866d"
+  },
+  {
+    "step": "Reconstruir batería temporal y verificar hashes históricos",
+    "returncode": 0,
+    "seconds": 43.46,
+    "log": "49.log",
+    "log_sha256": "9ba875091709ceb2906991f062874704e02cc002a1edfc2b62530fb19a964218"
+  },
+  {
+    "step": "Verificar contratos y archivo de batería común (no valida ciencia)",
+    "returncode": 0,
+    "seconds": 5.36,
+    "log": "50.log",
+    "log_sha256": "9a74439c3b2b8f567e5e03646b99a2b113189f77d8f2e96f384af5bfbc964596"
+  }
+]

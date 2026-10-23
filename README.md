@@ -2,6 +2,10 @@
 
 Repositorio de trabajo: `kyrian20/voynich-autoexploration` (rama `master`).
 
+**Estado de revisión — 23-10-2026:** no hay validación global del historial ni traducción validada. Las comprobaciones operativas y reproducciones tienen alcance específico. Consulta el [alcance de reparación](research/maintenance/2026-10-23-repair-scope.md), la [revisión de esta base](research/maintenance/2026-10-23-history-status-review.md) y los informes fechados enlazados abajo antes de reutilizar resultados. Los borradores de PR son propuestas; no forman parte de master mientras no se integren.
+
+**Corrección de EXP-170 — 23-10-2026:** [auditoría de los 400 vectores conservados](research/maintenance/2026-10-22-exp170-audit/REPORT.md) y [tabla corregida](research/maintenance/2026-10-22-exp170-audit/TABLE.md). Corrige 50 componentes numéricos, dos clasificaciones, recuentos y la confusión máximo/media. Los originales se conservan congelados; no se han reproducido las simulaciones ni se validan sus etiquetas de idioma.
+
 **Incremento BPE frente a carácter — 23-10-2026:** [comparación con objetivo idéntico y control de bordes/longitud](research/analysis/2026-10-23-subword-increment/REPORT.md). No se respalda incremento del contexto BPE en las cuatro vistas Voynich; sí se observa en César/Dante. La señal previa también se recupera con un contexto de un carácter. Control estricto de movilidad escasa; no prueba ausencia de lenguaje ni discrimina teorías.
 
 **Dependencia entre subunidades — 23-10-2026:** [predictor BPE con puerta natural y controles](research/analysis/2026-10-23-subword-boundary/REPORT.md). La puerta se supera en César y Dante; las cuatro vistas Voynich también muestran ganancia superior a sus 16 controles de entrenamiento barajado. Resultado exploratorio de orden, sin significado asignado ni discriminación de teorías; intento sintético fallido y reparación conservados.
@@ -65,7 +69,7 @@ La arquitectura de publicación se ha reparado: **un único publicador y 31 work
 - [`research/experiments/2026-10-20-exp590-erratum.md`](research/experiments/2026-10-20-exp590-erratum.md): errata formal para los resultados EXP-590 afectados por el uso histórico de `$Q`.
 - [`state/canonical_methodology.md`](state/canonical_methodology.md): metodología histórica canónica. Puede reflejar convenciones antiguas; contrastar con auditorías recientes.
 - [`state/current_state.md`](state/current_state.md): estado operativo histórico, consultar antes de cambiar decisiones.
-- [`state/working_position.md`](state/working_position.md): síntesis de hipótesis y discriminación teórica.
+- [`state/working_position.md`](state/working_position.md): síntesis histórica archivada; sus etiquetas VALID/RULED OUT y probabilidades no son adjudicaciones actuales. Consultar auditorías posteriores antes de reutilizarlas.
 - [`state/hypothesis_backlog.md`](state/hypothesis_backlog.md): hipótesis pendientes.
 - [`state/findings.md`](state/findings.md): hechos/conclusiones acumuladas; revisar ID y evidencia antes de añadir.
 - [`state/failed_approaches.md`](state/failed_approaches.md): enfoques fallidos o no respaldados.
@@ -124,6 +128,6 @@ Cada conclusión debe apuntar a script, corpus/transcripción, hash, unidad de a
 
 ## Criterio de calidad institucional
 
-El repositorio todavía no se declara completamente limpio: persisten la discrepancia de tokenización, colisiones de IDs entre GitHub y la Biblioteca, y ejecuciones CI cuya confirmación debe comprobarse. La norma de integridad define el orden de cierre. No se borrarán datos históricos ni se publicarán como validados resultados afectados por defectos conocidos.
+El repositorio no se declara completamente validado. El acuerdo de parsers v7 documentado arriba no equivale a conformidad completa IVTFF; quedan casos y adjudicaciones pendientes. Las carpetas históricas ya tienen identificadores inequívocos por ruta, pero faltan reconciliaciones de referencias y artefactos entre GitHub y la Biblioteca. La [guía de verificación CI](research/CI_VERIFICATION.md) explica por qué una consulta filtrada vacía no prueba fallo o ausencia de ejecuciones. Cada commit requiere evidencia propia. No se borran originales ni se consideran válidos resultados afectados por defectos conocidos.
 
 Auditoría del 22-10-2026: [lectores históricos de Cicero, selección efectiva y límites](research/maintenance/2026-10-22-loader-audit/REPORT.md).

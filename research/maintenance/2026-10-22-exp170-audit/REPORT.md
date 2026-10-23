@@ -1,7 +1,7 @@
 # Auditoría limitada de EXP-170 — 22-10-2026
 
 Base: último `master` verificado por el conector GitHub al empezar, `b31492596c3e9a0c3f322c0ece62fa13a84d739d`.
-**Estado: cálculos del archivo reproducidos; simulaciones originales no reproducidas.** No se recuperan inputs externos ni se ejecuta Naibbe. Originales en `experiments/` intactos. Esta auditoría no asigna un EXP nuevo.
+**Estado: cálculos del archivo reproducidos; simulaciones originales no reproducidas.** No se recuperan inputs externos ni se ejecuta Naibbe. Los originales en `experiments/` permanecen intactos. La corrección se enlaza desde CORRECTION.md en el directorio del experimento y desde README.md. Esta auditoría no asigna un EXP nuevo.
 
 ## Resultado principal
 
@@ -68,3 +68,7 @@ python scripts/audit_exp170_archive.py --format markdown
 Siete tests específicos y la suite completa descubierta bajo `tests/` (53 tests, incluidos los siete nuevos) pasan. También pasan la comparación exacta del snapshot, auditoría de contratos operativos/workflows, identidad de 14 corpus, replay de los cuatro lectores restantes y `git diff --check`. La comprobación de identidad mantiene un corpus en cuarentena; no certifica su idioma ni licencia. CI remoto se comprueba después de abrir la PR; no se declara aprobado por anticipado.
 
 [Próximas tres pruebas recomendadas y puertas de dependencia](NEXT_EXPERIMENTS.md). Ninguna se ha ejecutado.
+
+## Integración de la corrección — 23-10-2026
+
+Se añade una errata junto al informe histórico, sin alterar sus bytes ni hashes: otros verificadores dependen de ese original congelado. El intento inicial de añadir una cabecera fue rechazado por la suite y se retiró antes de publicar. Las métricas, conteos y snapshot permanecen idénticos. Se integra con master 91c09fa2fa1db3714ddc7cab962d390b3b2a29b8; las comprobaciones de esta integración se documentan en la PR.
