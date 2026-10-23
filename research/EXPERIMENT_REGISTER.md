@@ -140,3 +140,7 @@ Se añadió un análisis de sensibilidad descriptivo por folio sin asignar un nu
 ## Auditoría acotada de EXP-170 — 22-10-2026
 
 [Informe, snapshot y tabla corregida](maintenance/2026-10-22-exp170-audit/REPORT.md): reproducidos los cálculos sobre 400 vectores archivados sin ejecutar Naibbe; confirmados error de rotulación P5/P95, intercambios de columnas, recuentos y confusión máximo/media. Originales intactos; C001 remitido a open_questions sin editar el compromiso. [Tres pruebas futuras priorizadas y sus bloqueos](maintenance/2026-10-22-exp170-audit/NEXT_EXPERIMENTS.md), sin EXP nuevo ni ejecución.
+
+## BC-2026-10-22 — batería común, sin EXP numérico
+
+Ruta inequívoca: `experiments/common_battery_2026_10_22`; protocolo previo y comparación nueva. Estado **NEGATIVE** para discriminación de la primaria: también acepta permutaciones. 21 brazos, 201 evaluaciones; corpus latino/italiano de identidad documentada, inglés explícito, Naibbe fijado, copia propia y controles. Originales históricos intactos; tres alertas de umbral C001 pendientes de adjudicación en open_questions. [Informe y autoauditoría](../experiments/common_battery_2026_10_22/result.md). No duplicar auditor PR #2 ni asignar EXP mientras el cotejo con Biblioteca no sea completo.

@@ -1,0 +1,102 @@
+{
+  "schema_version": 1,
+  "status": "EXPLORATORY_DIAGNOSTIC_NOT_EXP173_REPRODUCTION",
+  "unit": "legacy_P_lines_with_nonempty_legacy_tokens",
+  "parser": "EXP-173 historical P-only ASCII-dot split, folio-number edy>=0.05; metadata from exact page header $L=A/B",
+  "rows": 4118,
+  "headers_recognized": 226,
+  "legacy_classified_rows": 4118,
+  "metadata_classified_rows": 4023,
+  "intersection_rows": 4023,
+  "confusion_lines": {
+    "A->A": 1557,
+    "A->B": 25,
+    "A->unknown": 89,
+    "B->B": 2441,
+    "B->unknown": 6
+  },
+  "mismatch_lines": 25,
+  "mismatch_pages": {
+    "f55r": {
+      "legacy": "A",
+      "L": "B",
+      "lines": 13,
+      "words": 116,
+      "am": 2,
+      "amLL": 2,
+      "amLLenrichment": 8.923076923076923,
+      "y": 7,
+      "yLF": 2,
+      "yLFenrichment": 2.5494505494505493
+    },
+    "f55v": {
+      "legacy": "A",
+      "L": "B",
+      "lines": 12,
+      "words": 80,
+      "am": 2,
+      "amLL": 2,
+      "amLLenrichment": 6.666666666666666,
+      "y": 12,
+      "yLF": 4,
+      "yLFenrichment": 2.2222222222222223
+    }
+  },
+  "metadata_unknown_pages": {
+    "f65v": 6,
+    "f67r1": 4,
+    "f67r2": 35,
+    "f67v2": 8,
+    "f68r1": 7,
+    "f68r2": 5,
+    "f68v2": 5,
+    "f68v3": 7,
+    "f69r": 4,
+    "f70r2": 14
+  },
+  "legacy_B": {
+    "lines": 2447,
+    "words": 20490,
+    "am": 402,
+    "amLL": 327,
+    "amLLenrichment": 6.8112949758766455,
+    "y": 836,
+    "yLF": 350,
+    "yLFenrichment": 3.5056596985274417
+  },
+  "metadata_B": {
+    "lines": 2466,
+    "words": 20652,
+    "am": 406,
+    "amLL": 331,
+    "amLLenrichment": 6.827646135222274,
+    "y": 851,
+    "yLF": 355,
+    "yLFenrichment": 3.493557028942621
+  },
+  "intersection_legacy_B": {
+    "lines": 2441,
+    "words": 20456,
+    "am": 402,
+    "amLL": 327,
+    "amLLenrichment": 6.8167071239460215,
+    "y": 832,
+    "yLF": 349,
+    "yLFenrichment": 3.5152404437021394
+  },
+  "intersection_metadata_B": {
+    "lines": 2466,
+    "words": 20652,
+    "am": 406,
+    "amLL": 331,
+    "amLLenrichment": 6.827646135222274,
+    "y": 851,
+    "yLF": 355,
+    "yLFenrichment": 3.493557028942621
+  },
+  "inference": "Descriptive sensitivity only. No p-value, bootstrap, corrected parser, or language identification.",
+  "source": "data/transcriptions/eva_zl3b.txt",
+  "source_sha256": "bf5b6d4ac1e3a51b1847a9c388318d609020441ccd56984c901c32b09beccafc",
+  "legacy_script": "experiments/exp_173_multiple_testing/script.py",
+  "legacy_script_git_blob_sha1": "3fb1eeb92c301d3caf841499571f5e1a8b590bcc"
+}

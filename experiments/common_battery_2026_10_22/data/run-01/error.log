@@ -1,0 +1,18 @@
+Traceback (most recent call last):
+  File "/workspace/voynich-autoexploration/experiments/common_battery_2026_10_22/script.py", line 321, in <module>
+    if __name__ == '__main__': main()
+                               ^^^^^^
+  File "/workspace/voynich-autoexploration/experiments/common_battery_2026_10_22/script.py", line 319, in main
+    args = parser.parse_args(); run(args.out)
+                                ^^^^^^^^^^^^^
+  File "/workspace/voynich-autoexploration/experiments/common_battery_2026_10_22/script.py", line 255, in run
+    text = body((ROOT/path).read_bytes(),anchor)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/voynich-autoexploration/experiments/common_battery_2026_10_22/script.py", line 166, in body
+    text = raw.decode('utf-8-sig')
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/encodings/utf_8_sig.py", line 23, in decode
+    (output, consumed) = codecs.utf_8_decode(input, errors, True)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeDecodeError: 'utf-8' codec can't decode byte 0xe6 in position 21: invalid continuation byte
+decoding with 'utf-8-sig' codec failed

@@ -1,0 +1,221 @@
+#!/usr/bin/env python3
+"""Exploratory train-only BPE boundary predictor with a natural-language gate."""
+import argparse
+from collections import Counter, defaultdict
+import hashlib
+import json
+import math
+from pathlib import Path
+import random
+import sys
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT/'research/analysis/2026-10-22-residual-order'))
+from residual_order_calibrated import bucket, GRID
+from residual_order import quantile
+PACKAGE = ROOT/'research/analysis/2026-10-23-subword-boundary'
+INPUT = ROOT/'research/analysis/2026-10-22-residual-order/inputs.json'
+UNK = '<UNKNOWN_CHAR>'
+
+class BPE:
+    def __init__(self, rows):
+        words = Counter(w for r in rows for w in r['tokens'])
+        if any(UNK in w for w in words):
+            raise ValueError('Reserved marker in data')
+        self.alphabet = set(''.join(words))
+        self.units = set(self.alphabet) | {UNK}
+        self.merges = []
+        encoded = {w: tuple(w) for w in words}
+        for _ in range(64):
+            counts = Counter()
+            for w, units in encoded.items():
+                for pair in zip(units, units[1:]):
+                    counts[pair] += words[w]
+            if not counts or max(counts.values()) < 2:
+                break
+            pair = min(counts, key=lambda p: (-counts[p], p))
+            self.merges.append(pair)
+            self.units.add(''.join(pair))
+            encoded = {w: self.merge(units, pair) for w, units in encoded.items()}
+        self.cache = {}
+
+    @staticmethod
+    def merge(units, pair):
+        out = []
+        i = 0
+        while i < len(units):
+            if i+1 < len(units) and (units[i], units[i+1]) == pair:
+                out.append(''.join(pair)); i += 2
+            else:
+                out.append(units[i]); i += 1
+        return tuple(out)
+
+    def encode(self, word):
+        if word not in self.cache:
+            units = tuple(c if c in self.alphabet else UNK for c in word)
+            for pair in self.merges:
+                units = self.merge(units, pair)
+            if not units:
+                raise ValueError('Empty word')
+            self.cache[word] = units
+        return self.cache[word]
+
+
+def pairs(rows, bpe):
+    for row in rows:
+        words = row['tokens']
+        for i in range(1, len(words)-2):
+            yield row['group'], bpe.encode(words[i])[-1], bpe.encode(words[i+1])[0]
+
+class Predictor:
+    def __init__(self, train, development, bpe, base=None):
+        self.bpe = bpe
+        self.counts = defaultdict(Counter)
+        self.totals = Counter()
+        marginal = Counter()
+        for _, a, b in pairs(train, bpe):
+            self.counts[a][b] += 1; self.totals[a] += 1; marginal[b] += 1
+        if not marginal:
+            raise ValueError('No interior training pairs')
+        self.base = base if base is not None else {
+            b: (marginal[b]+.1)/(sum(marginal.values())+.1*len(bpe.units))
+            for b in sorted(bpe.units)}
+        self.marginal = marginal
+        self.n = sum(marginal.values())
+        self.adjustments = {}
+        self.weight = 0
+        self.calibration = []
+        observations = Counter((a,b) for _,a,b in pairs(development,bpe))
+        n = sum(observations.values())
+        if not n:
+            raise ValueError('No interior development pairs')
+        for w in GRID:
+            loss = -sum(count*math.log2(self.probability(a,b,w)) for (a,b),count in observations.items())/n
+            self.calibration.append({'weight':w,'development_bits':loss})
+        self.weight = min(self.calibration,key=lambda r:(r['development_bits'],r['weight']))['weight']
+
+    def probability(self,a,b,weight=None):
+        w = self.weight if weight is None else weight
+        p = self.base[b]
+        if a not in self.adjustments:
+            ratios = {}
+            if self.totals[a]:
+                for target, count in self.marginal.items():
+                    q = count/self.n
+                    ratios[target] = (self.counts[a].get(target,0)/q+20)/(self.totals[a]+20)
+            delta = sum(self.base[target]*(ratio-1) for target,ratio in ratios.items())
+            self.adjustments[a] = ratios, delta
+        ratios, delta = self.adjustments[a]
+        return p*((1-w)+w*ratios.get(b,1))/(1+w*delta)
+
+
+def score(model, rows):
+    groups = {}
+    seen = unknown = 0
+    for group,a,b in pairs(rows,model.bpe):
+        g=groups.setdefault(group,{'n':0,'base_loss':0.,'model_loss':0.})
+        g['n']+=1
+        g['base_loss']-=math.log2(model.base[b])
+        g['model_loss']-=math.log2(model.probability(a,b))
+        seen+=model.totals[a]>0
+        unknown+=UNK in a or UNK in b
+    n=sum(g['n'] for g in groups.values())
+    if not n:
+        raise ValueError('No evaluation pairs')
+    base=sum(g['base_loss'] for g in groups.values())/n
+    loss=sum(g['model_loss'] for g in groups.values())/n
+    return {'pairs':n,'seen_contexts':seen,'unknown_boundary_pairs':unknown,
+            'base_bits':base,'model_bits':loss,'gain_bits':base-loss,'groups':groups}
+
+
+def interval(groups):
+    rng=random.Random(2026102302)
+    values=list(groups.values()); samples=[]
+    for _ in range(2000):
+        sample=[rng.choice(values) for _ in values]
+        samples.append(sum(g['base_loss']-g['model_loss'] for g in sample)/sum(g['n'] for g in sample))
+    return [quantile(samples,.025),quantile(samples,.975)]
+
+
+def shuffled(rows,seed):
+    rng=random.Random(seed); out=[]
+    for row in rows:
+        words=list(row['tokens']); interior=words[1:-1]; rng.shuffle(interior)
+        out.append({**row,'tokens':words[:1]+interior+words[-1:] if len(words)>1 else words})
+    return out
+
+
+def synthetic_checks():
+    results={}
+    for positive in (True,False):
+        choices=[('aba','xx'),('aca','yy')] if positive else [('aba','xx'),('aba','yy'),('aca','xx'),('aca','yy')]
+        parts=[[{'group':name,'tokens':['edge',a,b,'edge']} for a,b in choices for _ in range(repeats)]
+               for name,repeats in [('train',50),('development',10),('test',10)]]
+        bpe=BPE(parts[0]); model=Predictor(parts[0],parts[1],bpe)
+        result=score(model,parts[2]); gain=result['gain_bits']
+        if (positive and gain<=.5) or (not positive and abs(gain)>=1e-10):
+            raise ValueError('Synthetic sensitivity failed')
+        for context in list(model.totals)+['unseen']:
+            for weight in GRID:
+                assert abs(sum(model.probability(context,b,weight) for b in bpe.units)-1)<1e-12
+        for r in parts[0]:
+            for word in r['tokens']:
+                assert ''.join(bpe.encode(word))==word
+        assert not list(pairs([{'group':'short','tokens':['a','b','c']}],bpe))
+        assert len(list(pairs([{'group':'long','tokens':['edge','aba','xx','edge']}],bpe)))==1
+        results['positive' if positive else 'negative']={'gain_bits':gain,'weight':model.weight}
+    return results
+
+
+def audit(source):
+    rows=source['records']
+    parts=[[r for r in rows if predicate(bucket(r['group']))] for predicate in
+           (lambda b:b>=2,lambda b:b==1,lambda b:b==0)]
+    groups=[{r['group'] for r in part} for part in parts]
+    assert not any(groups[i]&groups[j] for i,j in ((0,1),(0,2),(1,2)))
+    bpe=BPE(parts[0]); model=Predictor(parts[0],parts[1],bpe)
+    real=score(model,parts[2]); ci=interval(real['groups']); controls=[]
+    for i in range(16):
+        seed=2026102300+i
+        control=Predictor(shuffled(parts[0],seed),parts[1],bpe,model.base)
+        measurement=score(control,parts[2])
+        controls.append({'seed':seed,'weight':control.weight,'gain_bits':measurement['gain_bits']})
+    passed=(real['gain_bits']>.005 and real['gain_bits']>max(c['gain_bits'] for c in controls) and ci[0]>0)
+    return {'label':source['label'],'merges':[list(pair) for pair in bpe.merges],'units':sorted(bpe.units),
+            'weight':model.weight,'calibration':model.calibration,'real':real,
+            'exploratory_group_interval_95':ci,'training_controls':controls,
+            'sensitivity_gate_passed':passed,
+            'groups':{'train':sorted(groups[0]),'development':sorted(groups[1]),'test':sorted(groups[2])}}
+
+
+def run():
+    checks=synthetic_checks()
+    sources=json.loads(INPUT.read_text())['sources']
+    natural=[s for s in sources if s['label'] in ('Latin_Caesar_218','Italian_Dante_1012')]
+    assert len(natural)==2
+    results=[]
+    for source in natural:
+        results.append(audit(source)); print('Completed '+source['label'],file=sys.stderr,flush=True)
+    gate=all(r['sensitivity_gate_passed'] for r in results)
+    if gate:
+        for source in sources:
+            if source not in natural:
+                results.append(audit(source)); print('Completed '+source['label'],file=sys.stderr,flush=True)
+    paths=[INPUT,Path(__file__),PACKAGE/'PROTOCOL.md',INPUT.parent/'residual_order.py',INPUT.parent/'residual_order_calibrated.py']
+    return {'status':'EXPLORATORY_GATE_PASSED' if gate else 'SENSITIVITY_GATE_FAILED',
+            'synthetic_controls':checks,'natural_gate_passed':gate,'voynich_processed':gate,
+            'results':results,'sha256':{str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for p in paths}}
+
+
+if __name__=='__main__':
+    parser=argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--check',action='store_true'); args=parser.parse_args()
+    result=run(); path=PACKAGE/'results.json'
+    if args.check:
+        from check_audit_snapshot import compare
+        compare(json.loads(path.read_text()),result)
+        print('Subword boundary snapshot verified')
+    else:
+        path.write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n')
+        print(result['status'])
+        for r in result['results']:
+            print(r['label'],r['real']['gain_bits'],r['exploratory_group_interval_95'],r['sensitivity_gate_passed'])

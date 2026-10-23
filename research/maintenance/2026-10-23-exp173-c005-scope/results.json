@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "scope": "Static C005/EXP-173 claim-method adjudication; no VMS data or p-value recomputation",
+  "historical_git_blob_sha1": {
+    "experiments/exp_173_multiple_testing/script.py": "3fb1eeb92c301d3caf841499571f5e1a8b590bcc",
+    "experiments/exp_173_multiple_testing/result.md": "6c192f887af65e1153435fab1561c52fedb0f608",
+    "state/committed_claims.md": "02cb4c1780aadf4c3d94fd907621ec1416b49bed"
+  },
+  "historical_claim": {
+    "enrichment": 6.811,
+    "reported_p": "6.27e-161",
+    "status": "REPORTED_NOT_REPRODUCED_HERE"
+  },
+  "method_flags": {
+    "currier_class_from_metadata_L": false,
+    "currier_class_from_edy_threshold": true,
+    "line_binomial_uses_within_B_base_rate": true,
+    "folio_cluster_robust_p_calculated": false,
+    "conclusion": "Significance scope unresolved; enrichment magnitude not refuted"
+  },
+  "synthetic_control": {
+    "type": "synthetic_perfect_within_folio_correlation",
+    "folios": 20,
+    "lines_per_folio": 10,
+    "positive_folios": 2,
+    "null_probability": 0.05,
+    "line_level_n": 200,
+    "line_level_k": 20,
+    "line_binomial_p": 0.00266457955,
+    "folio_binomial_p": 0.264160475056
+  }
+}

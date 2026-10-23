@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "/workspace/voynich-autoexploration/experiments/common_battery_2026_10_22/script.py", line 321, in <module>
+    if __name__ == '__main__': main()
+                               ^^^^^^
+  File "/workspace/voynich-autoexploration/experiments/common_battery_2026_10_22/script.py", line 319, in main
+    args = parser.parse_args(); run(args.out)
+                                ^^^^^^^^^^^^^
+  File "/workspace/voynich-autoexploration/experiments/common_battery_2026_10_22/script.py", line 259, in run
+    assert len(words)>=24000
+           ^^^^^^^^^^^^^^^^^
+AssertionError

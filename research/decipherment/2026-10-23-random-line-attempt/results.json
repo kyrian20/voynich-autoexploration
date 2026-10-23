@@ -1,0 +1,4746 @@
+{
+  "status": "NO_JUSTIFIED_TRANSLATION",
+  "selection": {
+    "seed": 20261023,
+    "candidate_count": 3885,
+    "zero_based_index": 1036,
+    "selected": "f44r.6,+P0",
+    "raw_body": "dshor.y,tchol.shy.o.@190;cheekchy.qotchy.otchy.dar"
+  },
+  "sources": [
+    {
+      "path": "eva_zl3b.txt",
+      "sha256": "bf5b6d4ac1e3a51b1847a9c388318d609020441ccd56984c901c32b09beccafc",
+      "raw_body": "dshor.y,tchol.shy.o.@190;cheekchy.qotchy.otchy.dar",
+      "views": {
+        "split": [
+          "dshor",
+          "y",
+          "tchol",
+          "shy",
+          "o",
+          "@190;cheekchy",
+          "qotchy",
+          "otchy",
+          "dar"
+        ],
+        "join": [
+          "dshor",
+          "ytchol",
+          "shy",
+          "o",
+          "@190;cheekchy",
+          "qotchy",
+          "otchy",
+          "dar"
+        ]
+      },
+      "concordances": {
+        "split": {
+          "dshor": {
+            "occurrences": 14,
+            "folio_count": 12,
+            "contexts": [
+              {
+                "id": "f22v.2",
+                "tokens": [
+                  "daiin",
+                  "y",
+                  "kaiin",
+                  "qotchy",
+                  "kchy",
+                  "otchyd",
+                  "dshor",
+                  "ychy"
+                ]
+              },
+              {
+                "id": "f25v.5",
+                "tokens": [
+                  "dar",
+                  "chokeey",
+                  "dshor",
+                  "dshey",
+                  "qochol",
+                  "dol",
+                  "cho",
+                  "daiin",
+                  "daiin"
+                ]
+              },
+              {
+                "id": "f28r.7",
+                "tokens": [
+                  "sho",
+                  "otor",
+                  "shockhy",
+                  "shocthy",
+                  "otoldy",
+                  "dshor",
+                  "dol",
+                  "dar"
+                ]
+              },
+              {
+                "id": "f32r.4",
+                "tokens": [
+                  "schor",
+                  "dshor",
+                  "ytsho",
+                  "dain",
+                  "daiin",
+                  "choddal"
+                ]
+              },
+              {
+                "id": "f37v.4",
+                "tokens": [
+                  "dshor",
+                  "dytory",
+                  "dshor",
+                  "daiin"
+                ]
+              },
+              {
+                "id": "f44r.6",
+                "tokens": [
+                  "dshor",
+                  "y",
+                  "tchol",
+                  "shy",
+                  "o",
+                  "@190;cheekchy",
+                  "qotchy",
+                  "otchy",
+                  "dar"
+                ]
+              },
+              {
+                "id": "f44v.9",
+                "tokens": [
+                  "dshor",
+                  "cthees",
+                  "l",
+                  "o",
+                  "lkeees",
+                  "ckhy",
+                  "chcthy",
+                  "lo"
+                ]
+              },
+              {
+                "id": "f45v.10",
+                "tokens": [
+                  "dshor",
+                  "otshy",
+                  "oky",
+                  "tsholol",
+                  "ytchord"
+                ]
+              }
+            ]
+          },
+          "ytchol": {
+            "occurrences": 4,
+            "folio_count": 4,
+            "contexts": [
+              {
+                "id": "f22v.3",
+                "tokens": [
+                  "qoky",
+                  "kchorl",
+                  "otchy",
+                  "cthy",
+                  "otchyky",
+                  "ytchol",
+                  "otam"
+                ]
+              },
+              {
+                "id": "f28r.9",
+                "tokens": [
+                  "ytchol",
+                  "deey",
+                  "yteol",
+                  "deaiin"
+                ]
+              },
+              {
+                "id": "f86v3.21",
+                "tokens": [
+                  "dshedy",
+                  "kshey",
+                  "tchdy",
+                  "shdy",
+                  "ralkchedy",
+                  "ytchol",
+                  "qoty",
+                  "okshy",
+                  "tam"
+                ]
+              },
+              {
+                "id": "f93v.9",
+                "tokens": [
+                  "odeeeodl",
+                  "cheodar",
+                  "oksho",
+                  "chody",
+                  "okchey",
+                  "cthol",
+                  "oly",
+                  "ytchol",
+                  "sar",
+                  "dar"
+                ]
+              }
+            ]
+          },
+          "shy": {
+            "occurrences": 92,
+            "folio_count": 63,
+            "contexts": [
+              {
+                "id": "f1v.3",
+                "tokens": [
+                  "da",
+                  "ckhy",
+                  "ckhockhy",
+                  "shy",
+                  "dksheey",
+                  "cthy",
+                  "kotchody",
+                  "dal"
+                ]
+              },
+              {
+                "id": "f2v.5",
+                "tokens": [
+                  "kchor",
+                  "shy",
+                  "daiiin",
+                  "chckom",
+                  "s",
+                  "shey",
+                  "dor",
+                  "chol",
+                  "daiin"
+                ]
+              },
+              {
+                "id": "f6v.12",
+                "tokens": [
+                  "ytchos",
+                  "shy",
+                  "qokam",
+                  "cthy"
+                ]
+              },
+              {
+                "id": "f8r.1",
+                "tokens": [
+                  "pshol",
+                  "chor",
+                  "otshal",
+                  "chopy",
+                  "cphol",
+                  "chody",
+                  "shy",
+                  "cfhodar",
+                  "shor"
+                ]
+              },
+              {
+                "id": "f8r.3",
+                "tokens": [
+                  "chodar",
+                  "shy",
+                  "sy",
+                  "chodaiin",
+                  "shokchy",
+                  "chor",
+                  "dy"
+                ]
+              },
+              {
+                "id": "f8r.6",
+                "tokens": [
+                  "tosh",
+                  "ckcheey",
+                  "koltoldy",
+                  "shy",
+                  "choety",
+                  "cheeody",
+                  "sol"
+                ]
+              },
+              {
+                "id": "f9r.1",
+                "tokens": [
+                  "tydlo",
+                  "choly",
+                  "cthor",
+                  "orchey",
+                  "s",
+                  "shy",
+                  "odaiin",
+                  "sary",
+                  "shor",
+                  "cthy"
+                ]
+              },
+              {
+                "id": "f10r.6",
+                "tokens": [
+                  "ycheor",
+                  "cthy",
+                  "chor",
+                  "cthaiin",
+                  "qoctholy",
+                  "dy",
+                  "chy",
+                  "taiin",
+                  "shy"
+                ]
+              }
+            ]
+          },
+          "o": {
+            "occurrences": 141,
+            "folio_count": 88,
+            "contexts": [
+              {
+                "id": "f1v.1",
+                "tokens": [
+                  "kchsy",
+                  "chydaiin",
+                  "ol",
+                  "o",
+                  "l",
+                  "tchey",
+                  "char",
+                  "cfhar",
+                  "am"
+                ]
+              },
+              {
+                "id": "f1v.9",
+                "tokens": [
+                  "shor",
+                  "okol",
+                  "chol",
+                  "dol",
+                  "ky",
+                  "dar",
+                  "shol",
+                  "dchor",
+                  "o",
+                  "tcho",
+                  "dar",
+                  "shody"
+                ]
+              },
+              {
+                "id": "f2v.6",
+                "tokens": [
+                  "dor",
+                  "chol",
+                  "chor",
+                  "chol",
+                  "keol",
+                  "chy",
+                  "chty",
+                  "daiin",
+                  "o",
+                  "tchor",
+                  "chan"
+                ]
+              },
+              {
+                "id": "f4v.3",
+                "tokens": [
+                  "sho",
+                  "sho",
+                  "chaiin",
+                  "shaiin",
+                  "daiin",
+                  "qodaiin",
+                  "o",
+                  "aram"
+                ]
+              },
+              {
+                "id": "f5v.1",
+                "tokens": [
+                  "k",
+                  "o",
+                  "cheor",
+                  "chor",
+                  "ytchey",
+                  "pshod",
+                  "chols",
+                  "chodaiin",
+                  "ytoiiin",
+                  "daiin"
+                ]
+              },
+              {
+                "id": "f7v.3",
+                "tokens": [
+                  "qokchy",
+                  "dykchy",
+                  "chkeey",
+                  "kshy",
+                  "ky",
+                  "ty",
+                  "dor",
+                  "cheey",
+                  "o",
+                  "l",
+                  "cheol",
+                  "dy"
+                ]
+              },
+              {
+                "id": "f7v.8",
+                "tokens": [
+                  "qoteeeo",
+                  "r",
+                  "cho",
+                  "cheeody",
+                  "qotchey",
+                  "tey",
+                  "o",
+                  "kcho",
+                  "r",
+                  "daiin"
+                ]
+              },
+              {
+                "id": "f8r.20",
+                "tokens": [
+                  "or",
+                  "cho",
+                  "kesey",
+                  "shey",
+                  "o",
+                  "kal",
+                  "chal"
+                ]
+              }
+            ]
+          },
+          "qotchy": {
+            "occurrences": 62,
+            "folio_count": 48,
+            "contexts": [
+              {
+                "id": "f4r.5",
+                "tokens": [
+                  "pydaiin",
+                  "qotchy",
+                  "dy",
+                  "tydy"
+                ]
+              },
+              {
+                "id": "f7r.3",
+                "tokens": [
+                  "oeeees",
+                  "cheodaiin",
+                  "sheey",
+                  "ytcheey",
+                  "qotchy",
+                  "chald"
+                ]
+              },
+              {
+                "id": "f7v.5",
+                "tokens": [
+                  "dchodaiin",
+                  "qotchy",
+                  "cheey",
+                  "tcheey"
+                ]
+              },
+              {
+                "id": "f10r.3",
+                "tokens": [
+                  "qotor",
+                  "o",
+                  "tchy",
+                  "daiin",
+                  "chocthy",
+                  "qotchy",
+                  "chol",
+                  "or",
+                  "yty",
+                  "dy",
+                  "dy"
+                ]
+              },
+              {
+                "id": "f10r.12",
+                "tokens": [
+                  "@135;odaiin",
+                  "daiin",
+                  "qotchy",
+                  "qotor"
+                ]
+              },
+              {
+                "id": "f10v.5",
+                "tokens": [
+                  "sho",
+                  "ykeey",
+                  "daiin",
+                  "qotchy",
+                  "qotor",
+                  "chol",
+                  "daiin",
+                  "qokchy",
+                  "ky"
+                ]
+              },
+              {
+                "id": "f11r.7",
+                "tokens": [
+                  "qotchy",
+                  "okchol",
+                  "cthy",
+                  "dy"
+                ]
+              },
+              {
+                "id": "f14r.9",
+                "tokens": [
+                  "sody",
+                  "chody",
+                  "otchody",
+                  "qotchy",
+                  "koiin",
+                  "sy",
+                  "sho",
+                  "ty",
+                  "dy"
+                ]
+              }
+            ]
+          },
+          "otchy": {
+            "occurrences": 41,
+            "folio_count": 33,
+            "contexts": [
+              {
+                "id": "f2v.3",
+                "tokens": [
+                  "otchy",
+                  "chor",
+                  "lshy",
+                  "chol",
+                  "chody",
+                  "chodain",
+                  "chcthy",
+                  "daiin"
+                ]
+              },
+              {
+                "id": "f5r.3",
+                "tokens": [
+                  "qoaiin",
+                  "otan",
+                  "chy",
+                  "daiin",
+                  "oteeeb",
+                  "chocthy",
+                  "otchy",
+                  "qotchody"
+                ]
+              },
+              {
+                "id": "f6v.1",
+                "tokens": [
+                  "koary",
+                  "sar",
+                  "cheekar",
+                  "qoor",
+                  "shor",
+                  "chapchy",
+                  "s",
+                  "chear",
+                  "char",
+                  "otchy"
+                ]
+              },
+              {
+                "id": "f7r.2",
+                "tokens": [
+                  "dcheey",
+                  "keo",
+                  "r",
+                  "shor",
+                  "dold",
+                  "dchey",
+                  "kchey",
+                  "otchy",
+                  "cheody"
+                ]
+              },
+              {
+                "id": "f9v.6",
+                "tokens": [
+                  "odol",
+                  "choy",
+                  "ksheody",
+                  "chody",
+                  "dain",
+                  "otchy",
+                  "cthod",
+                  "yko"
+                ]
+              },
+              {
+                "id": "f13v.1",
+                "tokens": [
+                  "koair",
+                  "chtoiin",
+                  "otchy",
+                  "kchod",
+                  "otol",
+                  "otchy",
+                  "octhos"
+                ]
+              },
+              {
+                "id": "f13v.3",
+                "tokens": [
+                  "qokchy",
+                  "qokod",
+                  "chy",
+                  "otchy",
+                  "cthody"
+                ]
+              },
+              {
+                "id": "f13v.8",
+                "tokens": [
+                  "otchy",
+                  "daiin",
+                  "y",
+                  "dain",
+                  "ykol",
+                  "okchy",
+                  "o",
+                  "kald",
+                  "d",
+                  "y",
+                  "taiin"
+                ]
+              }
+            ]
+          },
+          "dar": {
+            "occurrences": 279,
+            "folio_count": 125,
+            "contexts": [
+              {
+                "id": "f1r.18",
+                "tokens": [
+                  "yto",
+                  "shol",
+                  "she",
+                  "kodshey",
+                  "cphealy",
+                  "dar",
+                  "ain",
+                  "dain",
+                  "ckhyds"
+                ]
+              },
+              {
+                "id": "f1r.22",
+                "tokens": [
+                  "cpho",
+                  "shaiin",
+                  "shokcheey",
+                  "chol",
+                  "tshodeesy",
+                  "shey",
+                  "pydeey",
+                  "cha",
+                  "ro",
+                  "dar"
+                ]
+              },
+              {
+                "id": "f1r.23",
+                "tokens": [
+                  "ydoin",
+                  "chol",
+                  "dain",
+                  "cthal",
+                  "dar",
+                  "shear",
+                  "kaiin",
+                  "dar",
+                  "shey",
+                  "cthar"
+                ]
+              },
+              {
+                "id": "f1v.5",
+                "tokens": [
+                  "potoy",
+                  "shol",
+                  "dair",
+                  "cphoal",
+                  "dar",
+                  "chey",
+                  "tody",
+                  "otoaiin",
+                  "shoshy"
+                ]
+              },
+              {
+                "id": "f1v.9",
+                "tokens": [
+                  "shor",
+                  "okol",
+                  "chol",
+                  "dol",
+                  "ky",
+                  "dar",
+                  "shol",
+                  "dchor",
+                  "o",
+                  "tcho",
+                  "dar",
+                  "shody"
+                ]
+              },
+              {
+                "id": "f3v.2",
+                "tokens": [
+                  "daiidy",
+                  "qoteeol",
+                  "okeeor",
+                  "okor",
+                  "olytol",
+                  "dol",
+                  "dar"
+                ]
+              },
+              {
+                "id": "f6r.4",
+                "tokens": [
+                  "dar",
+                  "cho",
+                  "s",
+                  "sheor",
+                  "choithy",
+                  "otcham",
+                  "yaiir",
+                  "chy"
+                ]
+              },
+              {
+                "id": "f6r.9",
+                "tokens": [
+                  "dar",
+                  "sheol",
+                  "skaiiodar",
+                  "otaiin",
+                  "chory"
+                ]
+              }
+            ]
+          },
+          "qotchy_otchy_pair": [
+            "f44r.6"
+          ]
+        },
+        "join": {
+          "dshor": {
+            "occurrences": 14,
+            "folio_count": 12,
+            "contexts": [
+              {
+                "id": "f22v.2",
+                "tokens": [
+                  "daiin",
+                  "ykaiin",
+                  "qotchy",
+                  "kchy",
+                  "otchyd",
+                  "dshor",
+                  "ychy"
+                ]
+              },
+              {
+                "id": "f25v.5",
+                "tokens": [
+                  "dar",
+                  "chokeey",
+                  "dshor",
+                  "dshey",
+                  "qochol",
+                  "dol",
+                  "cho",
+                  "daiin",
+                  "daiin"
+                ]
+              },
+              {
+                "id": "f28r.7",
+                "tokens": [
+                  "sho",
+                  "otor",
+                  "shockhy",
+                  "shocthy",
+                  "otoldy",
+                  "dshor",
+                  "dol",
+                  "dar"
+                ]
+              },
+              {
+                "id": "f32r.4",
+                "tokens": [
+                  "schor",
+                  "dshor",
+                  "ytsho",
+                  "dain",
+                  "daiin",
+                  "choddal"
+                ]
+              },
+              {
+                "id": "f37v.4",
+                "tokens": [
+                  "dshor",
+                  "dytory",
+                  "dshor",
+                  "daiin"
+                ]
+              },
+              {
+                "id": "f44r.6",
+                "tokens": [
+                  "dshor",
+                  "ytchol",
+                  "shy",
+                  "o",
+                  "@190;cheekchy",
+                  "qotchy",
+                  "otchy",
+                  "dar"
+                ]
+              },
+              {
+                "id": "f44v.9",
+                "tokens": [
+                  "dshor",
+                  "cthees",
+                  "lolkeees",
+                  "ckhy",
+                  "chcthy",
+                  "lo"
+                ]
+              },
+              {
+                "id": "f45v.10",
+                "tokens": [
+                  "dshor",
+                  "otshy",
+                  "oky",
+                  "tsholol",
+                  "ytchord"
+                ]
+              }
+            ]
+          },
+          "ytchol": {
+            "occurrences": 5,
+            "folio_count": 5,
+            "contexts": [
+              {
+                "id": "f22v.3",
+                "tokens": [
+                  "qoky",
+                  "kchorl",
+                  "otchy",
+                  "cthy",
+                  "otchyky",
+                  "ytchol",
+                  "otam"
+                ]
+              },
+              {
+                "id": "f28r.9",
+                "tokens": [
+                  "ytchol",
+                  "deey",
+                  "yteol",
+                  "deaiin"
+                ]
+              },
+              {
+                "id": "f44r.6",
+                "tokens": [
+                  "dshor",
+                  "ytchol",
+                  "shy",
+                  "o",
+                  "@190;cheekchy",
+                  "qotchy",
+                  "otchy",
+                  "dar"
+                ]
+              },
+              {
+                "id": "f86v3.21",
+                "tokens": [
+                  "dshedy",
+                  "kshey",
+                  "tchdy",
+                  "shdy",
+                  "ralkchedy",
+                  "ytchol",
+                  "qoty",
+                  "okshy",
+                  "tam"
+                ]
+              },
+              {
+                "id": "f93v.9",
+                "tokens": [
+                  "odeeeodl",
+                  "cheodar",
+                  "oksho",
+                  "chody",
+                  "okchey",
+                  "cthol",
+                  "oly",
+                  "ytchol",
+                  "sar",
+                  "dar"
+                ]
+              }
+            ]
+          },
+          "shy": {
+            "occurrences": 74,
+            "folio_count": 54,
+            "contexts": [
+              {
+                "id": "f1v.3",
+                "tokens": [
+                  "dackhy",
+                  "ckhockhy",
+                  "shy",
+                  "dksheey",
+                  "cthy",
+                  "kotchody",
+                  "dal"
+                ]
+              },
+              {
+                "id": "f2v.5",
+                "tokens": [
+                  "kchor",
+                  "shy",
+                  "daiiin",
+                  "chckom",
+                  "sshey",
+                  "dorcholdaiin"
+                ]
+              },
+              {
+                "id": "f6v.12",
+                "tokens": [
+                  "ytchos",
+                  "shy",
+                  "qokam",
+                  "cthy"
+                ]
+              },
+              {
+                "id": "f8r.1",
+                "tokens": [
+                  "pshol",
+                  "chor",
+                  "otshal",
+                  "chopy",
+                  "cphol",
+                  "chody",
+                  "shy",
+                  "cfhodar",
+                  "shor"
+                ]
+              },
+              {
+                "id": "f8r.3",
+                "tokens": [
+                  "chodar",
+                  "shy",
+                  "sy",
+                  "chodaiin",
+                  "shokchy",
+                  "chor",
+                  "dy"
+                ]
+              },
+              {
+                "id": "f8r.6",
+                "tokens": [
+                  "tosh",
+                  "ckcheey",
+                  "koltoldy",
+                  "shy",
+                  "choety",
+                  "cheeody",
+                  "sol"
+                ]
+              },
+              {
+                "id": "f9r.1",
+                "tokens": [
+                  "tydlo",
+                  "choly",
+                  "cthor",
+                  "orchey",
+                  "s",
+                  "shy",
+                  "odaiin",
+                  "sary",
+                  "shor",
+                  "cthy"
+                ]
+              },
+              {
+                "id": "f10r.6",
+                "tokens": [
+                  "ycheor",
+                  "cthy",
+                  "chor",
+                  "cthaiin",
+                  "qoctholy",
+                  "dy",
+                  "chy",
+                  "taiin",
+                  "shy"
+                ]
+              }
+            ]
+          },
+          "o": {
+            "occurrences": 40,
+            "folio_count": 34,
+            "contexts": [
+              {
+                "id": "f8r.20",
+                "tokens": [
+                  "or",
+                  "chokesey",
+                  "shey",
+                  "o",
+                  "kal",
+                  "chal"
+                ]
+              },
+              {
+                "id": "f14v.7",
+                "tokens": [
+                  "oykshy",
+                  "choty",
+                  "dydyodyd",
+                  "otchy",
+                  "o",
+                  "kchy",
+                  "dshy",
+                  "dardy"
+                ]
+              },
+              {
+                "id": "f17r.9",
+                "tokens": [
+                  "soy",
+                  "chckho",
+                  "o",
+                  "das",
+                  "chypcham"
+                ]
+              },
+              {
+                "id": "f21r.1",
+                "tokens": [
+                  "pchor",
+                  "oeeockhy",
+                  "o",
+                  "fychey",
+                  "ypchey",
+                  "qopcheody",
+                  "otaiin",
+                  "chan"
+                ]
+              },
+              {
+                "id": "f21r.3",
+                "tokens": [
+                  "qotolshy",
+                  "o",
+                  "l",
+                  "cheor",
+                  "chy",
+                  "qokchey",
+                  "chey",
+                  "keey",
+                  "dy"
+                ]
+              },
+              {
+                "id": "f22r.2",
+                "tokens": [
+                  "ol",
+                  "oiin",
+                  "shol",
+                  "o",
+                  "kor",
+                  "qokchol",
+                  "daiin",
+                  "okaiin",
+                  "cthor",
+                  "dain",
+                  "ckhy",
+                  "dom"
+                ]
+              },
+              {
+                "id": "f27v.4",
+                "tokens": [
+                  "okcho",
+                  "chy",
+                  "kcheed",
+                  "chl",
+                  "chol",
+                  "kod",
+                  "o",
+                  "oksho",
+                  "docheesg"
+                ]
+              },
+              {
+                "id": "f28v.2",
+                "tokens": [
+                  "ykcholy",
+                  "qoty",
+                  "chydy",
+                  "qokchol",
+                  "chor",
+                  "tchy",
+                  "qokchody",
+                  "cheor",
+                  "o"
+                ]
+              }
+            ]
+          },
+          "qotchy": {
+            "occurrences": 62,
+            "folio_count": 47,
+            "contexts": [
+              {
+                "id": "f4r.5",
+                "tokens": [
+                  "pydaiin",
+                  "qotchy",
+                  "dytydy"
+                ]
+              },
+              {
+                "id": "f7r.3",
+                "tokens": [
+                  "oeeees",
+                  "cheodaiin",
+                  "sheey",
+                  "ytcheey",
+                  "qotchy",
+                  "chald"
+                ]
+              },
+              {
+                "id": "f7v.5",
+                "tokens": [
+                  "dchodaiin",
+                  "qotchy",
+                  "cheey",
+                  "tcheey"
+                ]
+              },
+              {
+                "id": "f10r.3",
+                "tokens": [
+                  "qotor",
+                  "otchy",
+                  "daiin",
+                  "chocthy",
+                  "qotchy",
+                  "chol",
+                  "or",
+                  "yty",
+                  "dy",
+                  "dy"
+                ]
+              },
+              {
+                "id": "f10r.12",
+                "tokens": [
+                  "@135;odaiin",
+                  "daiin",
+                  "qotchy",
+                  "qotor"
+                ]
+              },
+              {
+                "id": "f10v.5",
+                "tokens": [
+                  "shoykeey",
+                  "daiin",
+                  "qotchy",
+                  "qotor",
+                  "chol",
+                  "daiin",
+                  "qokchyky"
+                ]
+              },
+              {
+                "id": "f11r.7",
+                "tokens": [
+                  "qotchy",
+                  "okchol",
+                  "cthy",
+                  "dy"
+                ]
+              },
+              {
+                "id": "f14v.5",
+                "tokens": [
+                  "okshy",
+                  "daiin",
+                  "okchorchky",
+                  "qotchy",
+                  "daiin",
+                  "cthor",
+                  "oty"
+                ]
+              }
+            ]
+          },
+          "otchy": {
+            "occurrences": 40,
+            "folio_count": 34,
+            "contexts": [
+              {
+                "id": "f2v.3",
+                "tokens": [
+                  "otchy",
+                  "chor",
+                  "lshy",
+                  "chol",
+                  "chody",
+                  "chodain",
+                  "chcthy",
+                  "daiin"
+                ]
+              },
+              {
+                "id": "f5r.3",
+                "tokens": [
+                  "qoaiin",
+                  "otanchy",
+                  "daiin",
+                  "oteeeb",
+                  "chocthy",
+                  "otchy",
+                  "qotchody"
+                ]
+              },
+              {
+                "id": "f6v.1",
+                "tokens": [
+                  "koarysar",
+                  "cheekar",
+                  "qoor",
+                  "shor",
+                  "chapchy",
+                  "s",
+                  "chear",
+                  "char",
+                  "otchy"
+                ]
+              },
+              {
+                "id": "f7r.2",
+                "tokens": [
+                  "dcheey",
+                  "keo",
+                  "r",
+                  "shor",
+                  "dold",
+                  "dchey",
+                  "kchey",
+                  "otchy",
+                  "cheody"
+                ]
+              },
+              {
+                "id": "f9v.6",
+                "tokens": [
+                  "odol",
+                  "choy",
+                  "ksheody",
+                  "chody",
+                  "dain",
+                  "otchy",
+                  "cthod",
+                  "yko"
+                ]
+              },
+              {
+                "id": "f10r.3",
+                "tokens": [
+                  "qotor",
+                  "otchy",
+                  "daiin",
+                  "chocthy",
+                  "qotchy",
+                  "chol",
+                  "or",
+                  "yty",
+                  "dy",
+                  "dy"
+                ]
+              },
+              {
+                "id": "f13v.1",
+                "tokens": [
+                  "koair",
+                  "chtoiin",
+                  "otchy",
+                  "kchod",
+                  "otol",
+                  "otchy",
+                  "octhos"
+                ]
+              },
+              {
+                "id": "f13v.3",
+                "tokens": [
+                  "qokchy",
+                  "qokod",
+                  "chy",
+                  "otchy",
+                  "cthody"
+                ]
+              }
+            ]
+          },
+          "dar": {
+            "occurrences": 240,
+            "folio_count": 113,
+            "contexts": [
+              {
+                "id": "f1r.23",
+                "tokens": [
+                  "ydoin",
+                  "chol",
+                  "dain",
+                  "cthal",
+                  "dar",
+                  "shear",
+                  "kaiin",
+                  "dar",
+                  "shey",
+                  "cthar"
+                ]
+              },
+              {
+                "id": "f1v.5",
+                "tokens": [
+                  "potoy",
+                  "shol",
+                  "dair",
+                  "cphoal",
+                  "dar",
+                  "chey",
+                  "tody",
+                  "otoaiin",
+                  "shoshy"
+                ]
+              },
+              {
+                "id": "f1v.9",
+                "tokens": [
+                  "shor",
+                  "okol",
+                  "chol",
+                  "dolky",
+                  "dar",
+                  "shol",
+                  "dchor",
+                  "otcho",
+                  "dar",
+                  "shody"
+                ]
+              },
+              {
+                "id": "f6r.4",
+                "tokens": [
+                  "dar",
+                  "chos",
+                  "sheor",
+                  "choithy",
+                  "otcham",
+                  "yaiir",
+                  "chy"
+                ]
+              },
+              {
+                "id": "f6r.9",
+                "tokens": [
+                  "dar",
+                  "sheol",
+                  "skaiiodar",
+                  "otaiin",
+                  "chory"
+                ]
+              },
+              {
+                "id": "f8r.16",
+                "tokens": [
+                  "ychey",
+                  "kchekchy",
+                  "chseykchy",
+                  "scheaiin",
+                  "cthaiihar",
+                  "cthy",
+                  "dar"
+                ]
+              },
+              {
+                "id": "f8r.19",
+                "tokens": [
+                  "sair",
+                  "cheain",
+                  "cphol",
+                  "dar",
+                  "shol",
+                  "kaiin",
+                  "shol",
+                  "kaiin",
+                  "daikam"
+                ]
+              },
+              {
+                "id": "f8v.5",
+                "tokens": [
+                  "chol",
+                  "chol",
+                  "dar",
+                  "otchar",
+                  "etaiin",
+                  "cthol",
+                  "dar"
+                ]
+              }
+            ]
+          },
+          "qotchy_otchy_pair": [
+            "f44r.6"
+          ]
+        }
+      }
+    },
+    {
+      "path": "eva_it2a.txt",
+      "sha256": "7f27a8b0feed8f6de0a99900df6bf912dd1d295c38e5f830bac8b41c3f536fb5",
+      "raw_body": "dshor.ytchol.shy.o.ocheeky.qotchy.otchy.dar",
+      "views": {
+        "split": [
+          "dshor",
+          "ytchol",
+          "shy",
+          "o",
+          "ocheeky",
+          "qotchy",
+          "otchy",
+          "dar"
+        ],
+        "join": [
+          "dshor",
+          "ytchol",
+          "shy",
+          "o",
+          "ocheeky",
+          "qotchy",
+          "otchy",
+          "dar"
+        ]
+      },
+      "concordances": {
+        "split": {
+          "dshor": {
+            "occurrences": 14,
+            "folio_count": 12,
+            "contexts": [
+              {
+                "id": "f22v.2",
+                "tokens": [
+                  "daiin",
+                  "ykaiin",
+                  "qotchy",
+                  "kchy",
+                  "ytchyd",
+                  "dshor",
+                  "ychy"
+                ]
+              },
+              {
+                "id": "f25v.5",
+                "tokens": [
+                  "dar",
+                  "chakeey",
+                  "dshor",
+                  "dshey",
+                  "qochol",
+                  "dol",
+                  "cho",
+                  "daiin",
+                  "daiin"
+                ]
+              },
+              {
+                "id": "f28r.7",
+                "tokens": [
+                  "sho",
+                  "otor",
+                  "shockhy",
+                  "shocthy",
+                  "otoldy",
+                  "dshor",
+                  "dol",
+                  "dar"
+                ]
+              },
+              {
+                "id": "f32r.4",
+                "tokens": [
+                  "schor",
+                  "dshor",
+                  "ytsho",
+                  "dain",
+                  "daiin",
+                  "choddal"
+                ]
+              },
+              {
+                "id": "f37v.4",
+                "tokens": [
+                  "dshor",
+                  "dytory",
+                  "dshor",
+                  "daiin"
+                ]
+              },
+              {
+                "id": "f44r.6",
+                "tokens": [
+                  "dshor",
+                  "ytchol",
+                  "shy",
+                  "o",
+                  "ocheeky",
+                  "qotchy",
+                  "otchy",
+                  "dar"
+                ]
+              },
+              {
+                "id": "f44v.9",
+                "tokens": [
+                  "dshor",
+                  "cthees",
+                  "lol",
+                  "keees",
+                  "ckhy",
+                  "chcthy",
+                  "lo"
+                ]
+              },
+              {
+                "id": "f45v.10",
+                "tokens": [
+                  "dshor",
+                  "otshy",
+                  "oky",
+                  "tsholol",
+                  "ytchor",
+                  "d"
+                ]
+              }
+            ]
+          },
+          "ytchol": {
+            "occurrences": 5,
+            "folio_count": 5,
+            "contexts": [
+              {
+                "id": "f22v.3",
+                "tokens": [
+                  "qoky",
+                  "kchorl",
+                  "otchy",
+                  "cthy",
+                  "otchyky",
+                  "ytchol",
+                  "otam"
+                ]
+              },
+              {
+                "id": "f28r.9",
+                "tokens": [
+                  "ytchol",
+                  "deey",
+                  "yteol",
+                  "deaiin"
+                ]
+              },
+              {
+                "id": "f44r.6",
+                "tokens": [
+                  "dshor",
+                  "ytchol",
+                  "shy",
+                  "o",
+                  "ocheeky",
+                  "qotchy",
+                  "otchy",
+                  "dar"
+                ]
+              },
+              {
+                "id": "f86v3.21",
+                "tokens": [
+                  "dshedy",
+                  "kshey",
+                  "tchdy",
+                  "shdy",
+                  "ralkchedy",
+                  "ytchol",
+                  "qoty",
+                  "okshy",
+                  "tam"
+                ]
+              },
+              {
+                "id": "f93v.9",
+                "tokens": [
+                  "odeeeeodl",
+                  "cheodar",
+                  "oksho",
+                  "chody",
+                  "okchey",
+                  "cthol",
+                  "oly",
+                  "ytchol",
+                  "sar",
+                  "dar"
+                ]
+              }
+            ]
+          },
+          "shy": {
+            "occurrences": 97,
+            "folio_count": 64,
+            "contexts": [
+              {
+                "id": "f1v.3",
+                "tokens": [
+                  "do",
+                  "ckhy",
+                  "ckho",
+                  "ckhy",
+                  "shy",
+                  "dksheey",
+                  "cthy",
+                  "kotchody",
+                  "dal"
+                ]
+              },
+              {
+                "id": "f2v.5",
+                "tokens": [
+                  "kchor",
+                  "shy",
+                  "daiiin",
+                  "chckhoy",
+                  "s",
+                  "shey",
+                  "dor",
+                  "chol",
+                  "daiin"
+                ]
+              },
+              {
+                "id": "f6v.12",
+                "tokens": [
+                  "ytchos",
+                  "shy",
+                  "qokam",
+                  "cthy"
+                ]
+              },
+              {
+                "id": "f8r.1",
+                "tokens": [
+                  "pshol",
+                  "chor",
+                  "otshal",
+                  "chopy",
+                  "cphol",
+                  "chody",
+                  "shy",
+                  "cfhodar",
+                  "shor"
+                ]
+              },
+              {
+                "id": "f8r.3",
+                "tokens": [
+                  "chodar",
+                  "shy",
+                  "ry",
+                  "chodaiin",
+                  "shokchy",
+                  "chor",
+                  "dy"
+                ]
+              },
+              {
+                "id": "f8r.6",
+                "tokens": [
+                  "tosh",
+                  "ckcheey",
+                  "koltoldy",
+                  "shy",
+                  "chocty",
+                  "cheeody",
+                  "sol"
+                ]
+              },
+              {
+                "id": "f9r.1",
+                "tokens": [
+                  "tydlo",
+                  "choly",
+                  "cthor",
+                  "orchey",
+                  "s",
+                  "shy",
+                  "odaiin",
+                  "sary",
+                  "shor",
+                  "cthy"
+                ]
+              },
+              {
+                "id": "f10r.6",
+                "tokens": [
+                  "ycheor",
+                  "cthy",
+                  "chor",
+                  "cthaiin",
+                  "qoctholy",
+                  "dy",
+                  "chy",
+                  "taiin",
+                  "shy"
+                ]
+              }
+            ]
+          },
+          "o": {
+            "occurrences": 50,
+            "folio_count": 41,
+            "contexts": [
+              {
+                "id": "f1r.7",
+                "tokens": [
+                  "?",
+                  "odar",
+                  "o",
+                  "y",
+                  "shol",
+                  "cphoy",
+                  "oydar",
+                  "sh",
+                  "s",
+                  "cfhoaiin",
+                  "shodary"
+                ]
+              },
+              {
+                "id": "f2v.1",
+                "tokens": [
+                  "kooiin",
+                  "cheo",
+                  "pchor",
+                  "otaiin",
+                  "o",
+                  "dain",
+                  "chor",
+                  "dair",
+                  "shty"
+                ]
+              },
+              {
+                "id": "f4v.3",
+                "tokens": [
+                  "sho",
+                  "sho",
+                  "chaiin",
+                  "shaiin",
+                  "daiin",
+                  "qodaiin",
+                  "o",
+                  "ar",
+                  "am"
+                ]
+              },
+              {
+                "id": "f14r.2",
+                "tokens": [
+                  "o",
+                  "ykeey",
+                  "soiiin",
+                  "chok",
+                  "qokchy",
+                  "da",
+                  "okol"
+                ]
+              },
+              {
+                "id": "f17r.9",
+                "tokens": [
+                  "soy",
+                  "chckhy",
+                  "o",
+                  "dar",
+                  "chypcham"
+                ]
+              },
+              {
+                "id": "f18r.1",
+                "tokens": [
+                  "pdrairdy",
+                  "darodsf",
+                  "yoar",
+                  "ykchol",
+                  "dar",
+                  "o",
+                  "m",
+                  "chckhy",
+                  "ockhor",
+                  "dal"
+                ]
+              },
+              {
+                "id": "f22r.2",
+                "tokens": [
+                  "ol",
+                  "oiin",
+                  "shol",
+                  "o",
+                  "kor",
+                  "qokchol",
+                  "daiin",
+                  "otaiin",
+                  "cthor",
+                  "dain",
+                  "ckhydom"
+                ]
+              },
+              {
+                "id": "f27v.4",
+                "tokens": [
+                  "okcho",
+                  "chy",
+                  "kcheed",
+                  "chl",
+                  "chol",
+                  "kod",
+                  "o",
+                  "oksho",
+                  "doeeeesm"
+                ]
+              }
+            ]
+          },
+          "qotchy": {
+            "occurrences": 62,
+            "folio_count": 46,
+            "contexts": [
+              {
+                "id": "f4r.5",
+                "tokens": [
+                  "pydaiin",
+                  "qotchy",
+                  "dy",
+                  "tydy"
+                ]
+              },
+              {
+                "id": "f7r.3",
+                "tokens": [
+                  "oeeees",
+                  "cheodaiin",
+                  "sheey",
+                  "ytcheey",
+                  "qotchy",
+                  "chald"
+                ]
+              },
+              {
+                "id": "f7v.5",
+                "tokens": [
+                  "dchodaiin",
+                  "qotchy",
+                  "cheey",
+                  "tcheey"
+                ]
+              },
+              {
+                "id": "f10r.3",
+                "tokens": [
+                  "qotor",
+                  "otchy",
+                  "daiin",
+                  "chocthy",
+                  "qotchy",
+                  "chol",
+                  "or",
+                  "yty",
+                  "dy",
+                  "dy"
+                ]
+              },
+              {
+                "id": "f10r.12",
+                "tokens": [
+                  "rodaiin",
+                  "daiin",
+                  "qotchy",
+                  "qotor"
+                ]
+              },
+              {
+                "id": "f10v.5",
+                "tokens": [
+                  "sho",
+                  "ykeey",
+                  "daiin",
+                  "qotchy",
+                  "qotor",
+                  "chol",
+                  "daiin",
+                  "qokchyky"
+                ]
+              },
+              {
+                "id": "f11r.7",
+                "tokens": [
+                  "qotchy",
+                  "okchol",
+                  "cthy",
+                  "dy"
+                ]
+              },
+              {
+                "id": "f14r.9",
+                "tokens": [
+                  "sody",
+                  "chody",
+                  "otchody",
+                  "qotchy",
+                  "koiin",
+                  "sy",
+                  "shoty",
+                  "dy"
+                ]
+              }
+            ]
+          },
+          "otchy": {
+            "occurrences": 42,
+            "folio_count": 35,
+            "contexts": [
+              {
+                "id": "f2v.3",
+                "tokens": [
+                  "otchy",
+                  "chor",
+                  "lshy",
+                  "chol",
+                  "chody",
+                  "chodain",
+                  "chcthy",
+                  "daiin"
+                ]
+              },
+              {
+                "id": "f5r.3",
+                "tokens": [
+                  "qoaiin",
+                  "otan",
+                  "chy",
+                  "daiin",
+                  "oteeen",
+                  "cho",
+                  "cthy",
+                  "otchy",
+                  "qotcho",
+                  "dy"
+                ]
+              },
+              {
+                "id": "f6v.1",
+                "tokens": [
+                  "koar",
+                  "y",
+                  "sar",
+                  "oheekar",
+                  "qoar",
+                  "shor",
+                  "chapchy",
+                  "s",
+                  "chear",
+                  "char",
+                  "otchy"
+                ]
+              },
+              {
+                "id": "f7r.2",
+                "tokens": [
+                  "dcheey",
+                  "keor",
+                  "shor",
+                  "dold",
+                  "dchey",
+                  "kchey",
+                  "otchy",
+                  "cheody"
+                ]
+              },
+              {
+                "id": "f9v.6",
+                "tokens": [
+                  "odol",
+                  "choy",
+                  "ksheody",
+                  "chody",
+                  "dain",
+                  "otchy",
+                  "cthod",
+                  "yky"
+                ]
+              },
+              {
+                "id": "f10r.3",
+                "tokens": [
+                  "qotor",
+                  "otchy",
+                  "daiin",
+                  "chocthy",
+                  "qotchy",
+                  "chol",
+                  "or",
+                  "yty",
+                  "dy",
+                  "dy"
+                ]
+              },
+              {
+                "id": "f13v.1",
+                "tokens": [
+                  "koair",
+                  "chtoiin",
+                  "otchy",
+                  "kchod",
+                  "otol",
+                  "otchy",
+                  "octhos"
+                ]
+              },
+              {
+                "id": "f13v.3",
+                "tokens": [
+                  "qokchy",
+                  "qokod",
+                  "chy",
+                  "otchy",
+                  "cthody"
+                ]
+              }
+            ]
+          },
+          "dar": {
+            "occurrences": 274,
+            "folio_count": 122,
+            "contexts": [
+              {
+                "id": "f1r.23",
+                "tokens": [
+                  "?doin",
+                  "chol",
+                  "dain",
+                  "cthal",
+                  "dar",
+                  "shear",
+                  "kaiin",
+                  "dar",
+                  "shey",
+                  "cthar"
+                ]
+              },
+              {
+                "id": "f1v.5",
+                "tokens": [
+                  "potoy",
+                  "shol",
+                  "dair",
+                  "cphoal",
+                  "dar",
+                  "chey",
+                  "tody",
+                  "otoaiin",
+                  "shoshy"
+                ]
+              },
+              {
+                "id": "f1v.9",
+                "tokens": [
+                  "shor",
+                  "okol",
+                  "chol",
+                  "dol",
+                  "ky",
+                  "dar",
+                  "shol",
+                  "dchor",
+                  "otcho",
+                  "dar",
+                  "shody"
+                ]
+              },
+              {
+                "id": "f3v.2",
+                "tokens": [
+                  "daiidy",
+                  "qoteeol",
+                  "okchor",
+                  "okor",
+                  "olytol",
+                  "dol",
+                  "dar"
+                ]
+              },
+              {
+                "id": "f6r.3",
+                "tokens": [
+                  "poeear",
+                  "kshor",
+                  "choky",
+                  "os",
+                  "cheoees",
+                  "ykeor",
+                  "ytaiin",
+                  "dar"
+                ]
+              },
+              {
+                "id": "f6r.4",
+                "tokens": [
+                  "dar",
+                  "cho",
+                  "s",
+                  "sheor",
+                  "chocthy",
+                  "otcham",
+                  "yaiir",
+                  "chy"
+                ]
+              },
+              {
+                "id": "f6r.9",
+                "tokens": [
+                  "dar",
+                  "sheeol",
+                  "skaiiodar",
+                  "otaiin",
+                  "chory"
+                ]
+              },
+              {
+                "id": "f8r.16",
+                "tokens": [
+                  "ychey",
+                  "kchokchy",
+                  "chsey",
+                  "kchy",
+                  "scheaiin",
+                  "cthaichar",
+                  "cthy",
+                  "dar"
+                ]
+              }
+            ]
+          },
+          "qotchy_otchy_pair": [
+            "f44r.6"
+          ]
+        },
+        "join": {
+          "dshor": {
+            "occurrences": 14,
+            "folio_count": 12,
+            "contexts": [
+              {
+                "id": "f22v.2",
+                "tokens": [
+                  "daiin",
+                  "ykaiin",
+                  "qotchy",
+                  "kchy",
+                  "ytchyd",
+                  "dshor",
+                  "ychy"
+                ]
+              },
+              {
+                "id": "f25v.5",
+                "tokens": [
+                  "dar",
+                  "chakeey",
+                  "dshor",
+                  "dshey",
+                  "qochol",
+                  "dol",
+                  "cho",
+                  "daiin",
+                  "daiin"
+                ]
+              },
+              {
+                "id": "f28r.7",
+                "tokens": [
+                  "sho",
+                  "otor",
+                  "shockhy",
+                  "shocthy",
+                  "otoldy",
+                  "dshor",
+                  "dol",
+                  "dar"
+                ]
+              },
+              {
+                "id": "f32r.4",
+                "tokens": [
+                  "schor",
+                  "dshor",
+                  "ytsho",
+                  "dain",
+                  "daiin",
+                  "choddal"
+                ]
+              },
+              {
+                "id": "f37v.4",
+                "tokens": [
+                  "dshor",
+                  "dytory",
+                  "dshor",
+                  "daiin"
+                ]
+              },
+              {
+                "id": "f44r.6",
+                "tokens": [
+                  "dshor",
+                  "ytchol",
+                  "shy",
+                  "o",
+                  "ocheeky",
+                  "qotchy",
+                  "otchy",
+                  "dar"
+                ]
+              },
+              {
+                "id": "f44v.9",
+                "tokens": [
+                  "dshor",
+                  "cthees",
+                  "lol",
+                  "keees",
+                  "ckhy",
+                  "chcthy",
+                  "lo"
+                ]
+              },
+              {
+                "id": "f45v.10",
+                "tokens": [
+                  "dshor",
+                  "otshy",
+                  "oky",
+                  "tsholol",
+                  "ytchor",
+                  "d"
+                ]
+              }
+            ]
+          },
+          "ytchol": {
+            "occurrences": 5,
+            "folio_count": 5,
+            "contexts": [
+              {
+                "id": "f22v.3",
+                "tokens": [
+                  "qoky",
+                  "kchorl",
+                  "otchy",
+                  "cthy",
+                  "otchyky",
+                  "ytchol",
+                  "otam"
+                ]
+              },
+              {
+                "id": "f28r.9",
+                "tokens": [
+                  "ytchol",
+                  "deey",
+                  "yteol",
+                  "deaiin"
+                ]
+              },
+              {
+                "id": "f44r.6",
+                "tokens": [
+                  "dshor",
+                  "ytchol",
+                  "shy",
+                  "o",
+                  "ocheeky",
+                  "qotchy",
+                  "otchy",
+                  "dar"
+                ]
+              },
+              {
+                "id": "f86v3.21",
+                "tokens": [
+                  "dshedy",
+                  "kshey",
+                  "tchdy",
+                  "shdy",
+                  "ralkchedy",
+                  "ytchol",
+                  "qoty",
+                  "okshy",
+                  "tam"
+                ]
+              },
+              {
+                "id": "f93v.9",
+                "tokens": [
+                  "odeeeeodl",
+                  "cheodar",
+                  "oksho",
+                  "chody",
+                  "okchey",
+                  "cthol",
+                  "oly",
+                  "ytchol",
+                  "sar",
+                  "dar"
+                ]
+              }
+            ]
+          },
+          "shy": {
+            "occurrences": 97,
+            "folio_count": 64,
+            "contexts": [
+              {
+                "id": "f1v.3",
+                "tokens": [
+                  "do",
+                  "ckhy",
+                  "ckho",
+                  "ckhy",
+                  "shy",
+                  "dksheey",
+                  "cthy",
+                  "kotchody",
+                  "dal"
+                ]
+              },
+              {
+                "id": "f2v.5",
+                "tokens": [
+                  "kchor",
+                  "shy",
+                  "daiiin",
+                  "chckhoy",
+                  "s",
+                  "shey",
+                  "dor",
+                  "chol",
+                  "daiin"
+                ]
+              },
+              {
+                "id": "f6v.12",
+                "tokens": [
+                  "ytchos",
+                  "shy",
+                  "qokam",
+                  "cthy"
+                ]
+              },
+              {
+                "id": "f8r.1",
+                "tokens": [
+                  "pshol",
+                  "chor",
+                  "otshal",
+                  "chopy",
+                  "cphol",
+                  "chody",
+                  "shy",
+                  "cfhodar",
+                  "shor"
+                ]
+              },
+              {
+                "id": "f8r.3",
+                "tokens": [
+                  "chodar",
+                  "shy",
+                  "ry",
+                  "chodaiin",
+                  "shokchy",
+                  "chor",
+                  "dy"
+                ]
+              },
+              {
+                "id": "f8r.6",
+                "tokens": [
+                  "tosh",
+                  "ckcheey",
+                  "koltoldy",
+                  "shy",
+                  "chocty",
+                  "cheeody",
+                  "sol"
+                ]
+              },
+              {
+                "id": "f9r.1",
+                "tokens": [
+                  "tydlo",
+                  "choly",
+                  "cthor",
+                  "orchey",
+                  "s",
+                  "shy",
+                  "odaiin",
+                  "sary",
+                  "shor",
+                  "cthy"
+                ]
+              },
+              {
+                "id": "f10r.6",
+                "tokens": [
+                  "ycheor",
+                  "cthy",
+                  "chor",
+                  "cthaiin",
+                  "qoctholy",
+                  "dy",
+                  "chy",
+                  "taiin",
+                  "shy"
+                ]
+              }
+            ]
+          },
+          "o": {
+            "occurrences": 50,
+            "folio_count": 41,
+            "contexts": [
+              {
+                "id": "f1r.7",
+                "tokens": [
+                  "?",
+                  "odar",
+                  "o",
+                  "y",
+                  "shol",
+                  "cphoy",
+                  "oydar",
+                  "sh",
+                  "s",
+                  "cfhoaiin",
+                  "shodary"
+                ]
+              },
+              {
+                "id": "f2v.1",
+                "tokens": [
+                  "kooiin",
+                  "cheo",
+                  "pchor",
+                  "otaiin",
+                  "o",
+                  "dain",
+                  "chor",
+                  "dair",
+                  "shty"
+                ]
+              },
+              {
+                "id": "f4v.3",
+                "tokens": [
+                  "sho",
+                  "sho",
+                  "chaiin",
+                  "shaiin",
+                  "daiin",
+                  "qodaiin",
+                  "o",
+                  "ar",
+                  "am"
+                ]
+              },
+              {
+                "id": "f14r.2",
+                "tokens": [
+                  "o",
+                  "ykeey",
+                  "soiiin",
+                  "chok",
+                  "qokchy",
+                  "da",
+                  "okol"
+                ]
+              },
+              {
+                "id": "f17r.9",
+                "tokens": [
+                  "soy",
+                  "chckhy",
+                  "o",
+                  "dar",
+                  "chypcham"
+                ]
+              },
+              {
+                "id": "f18r.1",
+                "tokens": [
+                  "pdrairdy",
+                  "darodsf",
+                  "yoar",
+                  "ykchol",
+                  "dar",
+                  "o",
+                  "m",
+                  "chckhy",
+                  "ockhor",
+                  "dal"
+                ]
+              },
+              {
+                "id": "f22r.2",
+                "tokens": [
+                  "ol",
+                  "oiin",
+                  "shol",
+                  "o",
+                  "kor",
+                  "qokchol",
+                  "daiin",
+                  "otaiin",
+                  "cthor",
+                  "dain",
+                  "ckhydom"
+                ]
+              },
+              {
+                "id": "f27v.4",
+                "tokens": [
+                  "okcho",
+                  "chy",
+                  "kcheed",
+                  "chl",
+                  "chol",
+                  "kod",
+                  "o",
+                  "oksho",
+                  "doeeeesm"
+                ]
+              }
+            ]
+          },
+          "qotchy": {
+            "occurrences": 62,
+            "folio_count": 46,
+            "contexts": [
+              {
+                "id": "f4r.5",
+                "tokens": [
+                  "pydaiin",
+                  "qotchy",
+                  "dy",
+                  "tydy"
+                ]
+              },
+              {
+                "id": "f7r.3",
+                "tokens": [
+                  "oeeees",
+                  "cheodaiin",
+                  "sheey",
+                  "ytcheey",
+                  "qotchy",
+                  "chald"
+                ]
+              },
+              {
+                "id": "f7v.5",
+                "tokens": [
+                  "dchodaiin",
+                  "qotchy",
+                  "cheey",
+                  "tcheey"
+                ]
+              },
+              {
+                "id": "f10r.3",
+                "tokens": [
+                  "qotor",
+                  "otchy",
+                  "daiin",
+                  "chocthy",
+                  "qotchy",
+                  "chol",
+                  "or",
+                  "yty",
+                  "dy",
+                  "dy"
+                ]
+              },
+              {
+                "id": "f10r.12",
+                "tokens": [
+                  "rodaiin",
+                  "daiin",
+                  "qotchy",
+                  "qotor"
+                ]
+              },
+              {
+                "id": "f10v.5",
+                "tokens": [
+                  "sho",
+                  "ykeey",
+                  "daiin",
+                  "qotchy",
+                  "qotor",
+                  "chol",
+                  "daiin",
+                  "qokchyky"
+                ]
+              },
+              {
+                "id": "f11r.7",
+                "tokens": [
+                  "qotchy",
+                  "okchol",
+                  "cthy",
+                  "dy"
+                ]
+              },
+              {
+                "id": "f14r.9",
+                "tokens": [
+                  "sody",
+                  "chody",
+                  "otchody",
+                  "qotchy",
+                  "koiin",
+                  "sy",
+                  "shoty",
+                  "dy"
+                ]
+              }
+            ]
+          },
+          "otchy": {
+            "occurrences": 42,
+            "folio_count": 35,
+            "contexts": [
+              {
+                "id": "f2v.3",
+                "tokens": [
+                  "otchy",
+                  "chor",
+                  "lshy",
+                  "chol",
+                  "chody",
+                  "chodain",
+                  "chcthy",
+                  "daiin"
+                ]
+              },
+              {
+                "id": "f5r.3",
+                "tokens": [
+                  "qoaiin",
+                  "otan",
+                  "chy",
+                  "daiin",
+                  "oteeen",
+                  "cho",
+                  "cthy",
+                  "otchy",
+                  "qotcho",
+                  "dy"
+                ]
+              },
+              {
+                "id": "f6v.1",
+                "tokens": [
+                  "koar",
+                  "y",
+                  "sar",
+                  "oheekar",
+                  "qoar",
+                  "shor",
+                  "chapchy",
+                  "s",
+                  "chear",
+                  "char",
+                  "otchy"
+                ]
+              },
+              {
+                "id": "f7r.2",
+                "tokens": [
+                  "dcheey",
+                  "keor",
+                  "shor",
+                  "dold",
+                  "dchey",
+                  "kchey",
+                  "otchy",
+                  "cheody"
+                ]
+              },
+              {
+                "id": "f9v.6",
+                "tokens": [
+                  "odol",
+                  "choy",
+                  "ksheody",
+                  "chody",
+                  "dain",
+                  "otchy",
+                  "cthod",
+                  "yky"
+                ]
+              },
+              {
+                "id": "f10r.3",
+                "tokens": [
+                  "qotor",
+                  "otchy",
+                  "daiin",
+                  "chocthy",
+                  "qotchy",
+                  "chol",
+                  "or",
+                  "yty",
+                  "dy",
+                  "dy"
+                ]
+              },
+              {
+                "id": "f13v.1",
+                "tokens": [
+                  "koair",
+                  "chtoiin",
+                  "otchy",
+                  "kchod",
+                  "otol",
+                  "otchy",
+                  "octhos"
+                ]
+              },
+              {
+                "id": "f13v.3",
+                "tokens": [
+                  "qokchy",
+                  "qokod",
+                  "chy",
+                  "otchy",
+                  "cthody"
+                ]
+              }
+            ]
+          },
+          "dar": {
+            "occurrences": 274,
+            "folio_count": 122,
+            "contexts": [
+              {
+                "id": "f1r.23",
+                "tokens": [
+                  "?doin",
+                  "chol",
+                  "dain",
+                  "cthal",
+                  "dar",
+                  "shear",
+                  "kaiin",
+                  "dar",
+                  "shey",
+                  "cthar"
+                ]
+              },
+              {
+                "id": "f1v.5",
+                "tokens": [
+                  "potoy",
+                  "shol",
+                  "dair",
+                  "cphoal",
+                  "dar",
+                  "chey",
+                  "tody",
+                  "otoaiin",
+                  "shoshy"
+                ]
+              },
+              {
+                "id": "f1v.9",
+                "tokens": [
+                  "shor",
+                  "okol",
+                  "chol",
+                  "dol",
+                  "ky",
+                  "dar",
+                  "shol",
+                  "dchor",
+                  "otcho",
+                  "dar",
+                  "shody"
+                ]
+              },
+              {
+                "id": "f3v.2",
+                "tokens": [
+                  "daiidy",
+                  "qoteeol",
+                  "okchor",
+                  "okor",
+                  "olytol",
+                  "dol",
+                  "dar"
+                ]
+              },
+              {
+                "id": "f6r.3",
+                "tokens": [
+                  "poeear",
+                  "kshor",
+                  "choky",
+                  "os",
+                  "cheoees",
+                  "ykeor",
+                  "ytaiin",
+                  "dar"
+                ]
+              },
+              {
+                "id": "f6r.4",
+                "tokens": [
+                  "dar",
+                  "cho",
+                  "s",
+                  "sheor",
+                  "chocthy",
+                  "otcham",
+                  "yaiir",
+                  "chy"
+                ]
+              },
+              {
+                "id": "f6r.9",
+                "tokens": [
+                  "dar",
+                  "sheeol",
+                  "skaiiodar",
+                  "otaiin",
+                  "chory"
+                ]
+              },
+              {
+                "id": "f8r.16",
+                "tokens": [
+                  "ychey",
+                  "kchokchy",
+                  "chsey",
+                  "kchy",
+                  "scheaiin",
+                  "cthaichar",
+                  "cthy",
+                  "dar"
+                ]
+              }
+            ]
+          },
+          "qotchy_otchy_pair": [
+            "f44r.6"
+          ]
+        }
+      }
+    },
+    {
+      "path": "zl3a.txt",
+      "sha256": "56419297682d338ff1a0a17f5ae251e3ee3e2c5bf05a62db04c5385ef30b36a2",
+      "raw_body": "dshor.y,tchol.shy.o.@190;cheekchy.qotchy.otchy.dar",
+      "views": {
+        "split": [
+          "dshor",
+          "y",
+          "tchol",
+          "shy",
+          "o",
+          "@190;cheekchy",
+          "qotchy",
+          "otchy",
+          "dar"
+        ],
+        "join": [
+          "dshor",
+          "ytchol",
+          "shy",
+          "o",
+          "@190;cheekchy",
+          "qotchy",
+          "otchy",
+          "dar"
+        ]
+      },
+      "concordances": {
+        "split": {
+          "dshor": {
+            "occurrences": 14,
+            "folio_count": 12,
+            "contexts": [
+              {
+                "id": "f22v.2",
+                "tokens": [
+                  "daiin",
+                  "y",
+                  "kaiin",
+                  "qotchy",
+                  "kchy",
+                  "otchyd",
+                  "dshor",
+                  "ychy"
+                ]
+              },
+              {
+                "id": "f25v.5",
+                "tokens": [
+                  "dar",
+                  "chokeey",
+                  "dshor",
+                  "dshey",
+                  "qochol",
+                  "dol",
+                  "cho",
+                  "daiin",
+                  "daiin"
+                ]
+              },
+              {
+                "id": "f28r.7",
+                "tokens": [
+                  "sho",
+                  "otor",
+                  "shockhy",
+                  "shocthy",
+                  "otoldy",
+                  "dshor",
+                  "dol",
+                  "dar"
+                ]
+              },
+              {
+                "id": "f32r.4",
+                "tokens": [
+                  "schor",
+                  "dshor",
+                  "ytsho",
+                  "dain",
+                  "daiin",
+                  "choddal"
+                ]
+              },
+              {
+                "id": "f37v.4",
+                "tokens": [
+                  "dshor",
+                  "dytory",
+                  "dshor",
+                  "daiin"
+                ]
+              },
+              {
+                "id": "f44r.6",
+                "tokens": [
+                  "dshor",
+                  "y",
+                  "tchol",
+                  "shy",
+                  "o",
+                  "@190;cheekchy",
+                  "qotchy",
+                  "otchy",
+                  "dar"
+                ]
+              },
+              {
+                "id": "f44v.9",
+                "tokens": [
+                  "dshor",
+                  "cthees",
+                  "l",
+                  "o",
+                  "lkeees",
+                  "ckhy",
+                  "chcthy",
+                  "lo"
+                ]
+              },
+              {
+                "id": "f45v.10",
+                "tokens": [
+                  "dshor",
+                  "otshy",
+                  "oky",
+                  "tsholol",
+                  "ytchord"
+                ]
+              }
+            ]
+          },
+          "ytchol": {
+            "occurrences": 4,
+            "folio_count": 4,
+            "contexts": [
+              {
+                "id": "f22v.3",
+                "tokens": [
+                  "qoky",
+                  "kchorl",
+                  "otchy",
+                  "cthy",
+                  "otchyky",
+                  "ytchol",
+                  "otam"
+                ]
+              },
+              {
+                "id": "f28r.9",
+                "tokens": [
+                  "ytchol",
+                  "deey",
+                  "yteol",
+                  "deaiin"
+                ]
+              },
+              {
+                "id": "f86v3.21",
+                "tokens": [
+                  "dshedy",
+                  "kshey",
+                  "tchdy",
+                  "shdy",
+                  "ralkchedy",
+                  "ytchol",
+                  "qoty",
+                  "okshy",
+                  "tam"
+                ]
+              },
+              {
+                "id": "f93v.9",
+                "tokens": [
+                  "odeeeodl",
+                  "cheodar",
+                  "oksho",
+                  "chody",
+                  "okchey",
+                  "cthol",
+                  "oly",
+                  "ytchol",
+                  "sar",
+                  "dar"
+                ]
+              }
+            ]
+          },
+          "shy": {
+            "occurrences": 92,
+            "folio_count": 63,
+            "contexts": [
+              {
+                "id": "f1v.3",
+                "tokens": [
+                  "da",
+                  "ckhy",
+                  "ckhockhy",
+                  "shy",
+                  "dksheey",
+                  "cthy",
+                  "kotchody",
+                  "dal"
+                ]
+              },
+              {
+                "id": "f2v.5",
+                "tokens": [
+                  "kchor",
+                  "shy",
+                  "daiiin",
+                  "chckom",
+                  "s",
+                  "shey",
+                  "dor",
+                  "chol",
+                  "daiin"
+                ]
+              },
+              {
+                "id": "f6v.12",
+                "tokens": [
+                  "ytchos",
+                  "shy",
+                  "qokam",
+                  "cthy"
+                ]
+              },
+              {
+                "id": "f8r.1",
+                "tokens": [
+                  "pshol",
+                  "chor",
+                  "otshal",
+                  "chopy",
+                  "cphol",
+                  "chody",
+                  "shy",
+                  "cfhodar",
+                  "shor"
+                ]
+              },
+              {
+                "id": "f8r.3",
+                "tokens": [
+                  "chodar",
+                  "shy",
+                  "sy",
+                  "chodaiin",
+                  "shokchy",
+                  "chor",
+                  "dy"
+                ]
+              },
+              {
+                "id": "f8r.6",
+                "tokens": [
+                  "tosh",
+                  "ckcheey",
+                  "koltoldy",
+                  "shy",
+                  "choety",
+                  "cheeody",
+                  "sol"
+                ]
+              },
+              {
+                "id": "f9r.1",
+                "tokens": [
+                  "tydlo",
+                  "choly",
+                  "cthor",
+                  "orchey",
+                  "s",
+                  "shy",
+                  "odaiin",
+                  "sary",
+                  "shor",
+                  "cthy"
+                ]
+              },
+              {
+                "id": "f10r.6",
+                "tokens": [
+                  "ycheor",
+                  "cthy",
+                  "chor",
+                  "cthaiin",
+                  "qoctholy",
+                  "dy",
+                  "chy",
+                  "taiin",
+                  "shy"
+                ]
+              }
+            ]
+          },
+          "o": {
+            "occurrences": 142,
+            "folio_count": 89,
+            "contexts": [
+              {
+                "id": "f1r.22",
+                "tokens": [
+                  "cpho",
+                  "shaiin",
+                  "shokcheey",
+                  "chol",
+                  "tshodeesy",
+                  "shey",
+                  "pydeey",
+                  "chy",
+                  "r",
+                  "o",
+                  "d"
+                ]
+              },
+              {
+                "id": "f1v.1",
+                "tokens": [
+                  "kchsy",
+                  "chydaiin",
+                  "ol",
+                  "o",
+                  "l",
+                  "tchey",
+                  "char",
+                  "cfhar",
+                  "am"
+                ]
+              },
+              {
+                "id": "f1v.9",
+                "tokens": [
+                  "shor",
+                  "okol",
+                  "chol",
+                  "dol",
+                  "ky",
+                  "dar",
+                  "shol",
+                  "dchor",
+                  "o",
+                  "tcho",
+                  "dar",
+                  "shody"
+                ]
+              },
+              {
+                "id": "f2v.6",
+                "tokens": [
+                  "dor",
+                  "chol",
+                  "chor",
+                  "chol",
+                  "keol",
+                  "chy",
+                  "chty",
+                  "daiin",
+                  "o",
+                  "tchor",
+                  "chan"
+                ]
+              },
+              {
+                "id": "f4v.3",
+                "tokens": [
+                  "sho",
+                  "sho",
+                  "chaiin",
+                  "shaiin",
+                  "daiin",
+                  "qodaiin",
+                  "o",
+                  "aram"
+                ]
+              },
+              {
+                "id": "f5v.1",
+                "tokens": [
+                  "k",
+                  "o",
+                  "cheor",
+                  "chor",
+                  "ytchey",
+                  "pshod",
+                  "chols",
+                  "chodaiin",
+                  "ytoiiin",
+                  "daiin"
+                ]
+              },
+              {
+                "id": "f7v.3",
+                "tokens": [
+                  "qokchy",
+                  "dykchy",
+                  "chkeey",
+                  "kshy",
+                  "ky",
+                  "ty",
+                  "dor",
+                  "cheey",
+                  "o",
+                  "l",
+                  "cheol",
+                  "dy"
+                ]
+              },
+              {
+                "id": "f7v.8",
+                "tokens": [
+                  "qoteeeo",
+                  "r",
+                  "cho",
+                  "cheeody",
+                  "qotchey",
+                  "tey",
+                  "o",
+                  "kcho",
+                  "r",
+                  "daiin"
+                ]
+              }
+            ]
+          },
+          "qotchy": {
+            "occurrences": 62,
+            "folio_count": 48,
+            "contexts": [
+              {
+                "id": "f4r.5",
+                "tokens": [
+                  "pydaiin",
+                  "qotchy",
+                  "dy",
+                  "tydy"
+                ]
+              },
+              {
+                "id": "f7r.3",
+                "tokens": [
+                  "oeeees",
+                  "cheodaiin",
+                  "sheey",
+                  "ytcheey",
+                  "qotchy",
+                  "chald"
+                ]
+              },
+              {
+                "id": "f7v.5",
+                "tokens": [
+                  "dchodaiin",
+                  "qotchy",
+                  "cheey",
+                  "tcheey"
+                ]
+              },
+              {
+                "id": "f10r.3",
+                "tokens": [
+                  "qotor",
+                  "o",
+                  "tchy",
+                  "daiin",
+                  "chocthy",
+                  "qotchy",
+                  "chol",
+                  "or",
+                  "yty",
+                  "dy",
+                  "dy"
+                ]
+              },
+              {
+                "id": "f10r.12",
+                "tokens": [
+                  "@135;odaiin",
+                  "daiin",
+                  "qotchy",
+                  "qotor"
+                ]
+              },
+              {
+                "id": "f10v.5",
+                "tokens": [
+                  "sho",
+                  "ykeey",
+                  "daiin",
+                  "qotchy",
+                  "qotor",
+                  "chol",
+                  "daiin",
+                  "qokchy",
+                  "ky"
+                ]
+              },
+              {
+                "id": "f11r.7",
+                "tokens": [
+                  "qotchy",
+                  "okchol",
+                  "cthy",
+                  "dy"
+                ]
+              },
+              {
+                "id": "f14r.9",
+                "tokens": [
+                  "sody",
+                  "chody",
+                  "otchody",
+                  "qotchy",
+                  "koiin",
+                  "sy",
+                  "sho",
+                  "ty",
+                  "dy"
+                ]
+              }
+            ]
+          },
+          "otchy": {
+            "occurrences": 41,
+            "folio_count": 33,
+            "contexts": [
+              {
+                "id": "f2v.3",
+                "tokens": [
+                  "otchy",
+                  "chor",
+                  "lshy",
+                  "chol",
+                  "chody",
+                  "chodain",
+                  "chcthy",
+                  "daiin"
+                ]
+              },
+              {
+                "id": "f5r.3",
+                "tokens": [
+                  "qoaiin",
+                  "otan",
+                  "chy",
+                  "daiin",
+                  "oteeeb",
+                  "chocthy",
+                  "otchy",
+                  "qotchody"
+                ]
+              },
+              {
+                "id": "f6v.1",
+                "tokens": [
+                  "koary",
+                  "sar",
+                  "cheekar",
+                  "qoor",
+                  "shor",
+                  "chapchy",
+                  "s",
+                  "chear",
+                  "char",
+                  "otchy"
+                ]
+              },
+              {
+                "id": "f7r.2",
+                "tokens": [
+                  "dcheey",
+                  "keo",
+                  "r",
+                  "shor",
+                  "dold",
+                  "dchey",
+                  "kchey",
+                  "otchy",
+                  "cheody"
+                ]
+              },
+              {
+                "id": "f9v.6",
+                "tokens": [
+                  "odol",
+                  "choy",
+                  "ksheody",
+                  "chody",
+                  "dain",
+                  "otchy",
+                  "cthod",
+                  "yko"
+                ]
+              },
+              {
+                "id": "f13v.1",
+                "tokens": [
+                  "koair",
+                  "chtoiin",
+                  "otchy",
+                  "kchod",
+                  "otol",
+                  "otchy",
+                  "octhos"
+                ]
+              },
+              {
+                "id": "f13v.3",
+                "tokens": [
+                  "qokchy",
+                  "qokod",
+                  "chy",
+                  "otchy",
+                  "cthody"
+                ]
+              },
+              {
+                "id": "f13v.8",
+                "tokens": [
+                  "otchy",
+                  "daiin",
+                  "y",
+                  "dain",
+                  "ykol",
+                  "okchy",
+                  "o",
+                  "kald",
+                  "d",
+                  "y",
+                  "taiin"
+                ]
+              }
+            ]
+          },
+          "dar": {
+            "occurrences": 279,
+            "folio_count": 125,
+            "contexts": [
+              {
+                "id": "f1r.18",
+                "tokens": [
+                  "yto",
+                  "shol",
+                  "she",
+                  "kodshey",
+                  "cphealy",
+                  "dar",
+                  "ain",
+                  "dain",
+                  "ckhyds"
+                ]
+              },
+              {
+                "id": "f1r.23",
+                "tokens": [
+                  "??doin",
+                  "chol",
+                  "dain",
+                  "cthal",
+                  "dar",
+                  "shear",
+                  "kaiin",
+                  "dar",
+                  "shey",
+                  "cthar"
+                ]
+              },
+              {
+                "id": "f1v.5",
+                "tokens": [
+                  "potoy",
+                  "shol",
+                  "dair",
+                  "cphoal",
+                  "dar",
+                  "chey",
+                  "tody",
+                  "otoaiin",
+                  "shoshy"
+                ]
+              },
+              {
+                "id": "f1v.9",
+                "tokens": [
+                  "shor",
+                  "okol",
+                  "chol",
+                  "dol",
+                  "ky",
+                  "dar",
+                  "shol",
+                  "dchor",
+                  "o",
+                  "tcho",
+                  "dar",
+                  "shody"
+                ]
+              },
+              {
+                "id": "f3v.2",
+                "tokens": [
+                  "daiidy",
+                  "qoteeol",
+                  "okeeor",
+                  "okor",
+                  "olytol",
+                  "dol",
+                  "dar"
+                ]
+              },
+              {
+                "id": "f6r.4",
+                "tokens": [
+                  "dar",
+                  "cho",
+                  "s",
+                  "sheor",
+                  "choithy",
+                  "otcham",
+                  "yaiir",
+                  "chy"
+                ]
+              },
+              {
+                "id": "f6r.9",
+                "tokens": [
+                  "dar",
+                  "sheol",
+                  "skaiiodar",
+                  "otaiin",
+                  "chory"
+                ]
+              },
+              {
+                "id": "f8r.16",
+                "tokens": [
+                  "ychey",
+                  "kchekchy",
+                  "chsey",
+                  "kchy",
+                  "scheaiin",
+                  "cthaiihar",
+                  "cthy",
+                  "dar"
+                ]
+              }
+            ]
+          },
+          "qotchy_otchy_pair": [
+            "f44r.6"
+          ]
+        },
+        "join": {
+          "dshor": {
+            "occurrences": 14,
+            "folio_count": 12,
+            "contexts": [
+              {
+                "id": "f22v.2",
+                "tokens": [
+                  "daiin",
+                  "ykaiin",
+                  "qotchy",
+                  "kchy",
+                  "otchyd",
+                  "dshor",
+                  "ychy"
+                ]
+              },
+              {
+                "id": "f25v.5",
+                "tokens": [
+                  "dar",
+                  "chokeey",
+                  "dshor",
+                  "dshey",
+                  "qochol",
+                  "dol",
+                  "cho",
+                  "daiin",
+                  "daiin"
+                ]
+              },
+              {
+                "id": "f28r.7",
+                "tokens": [
+                  "sho",
+                  "otor",
+                  "shockhy",
+                  "shocthy",
+                  "otoldy",
+                  "dshor",
+                  "dol",
+                  "dar"
+                ]
+              },
+              {
+                "id": "f32r.4",
+                "tokens": [
+                  "schor",
+                  "dshor",
+                  "ytsho",
+                  "dain",
+                  "daiin",
+                  "choddal"
+                ]
+              },
+              {
+                "id": "f37v.4",
+                "tokens": [
+                  "dshor",
+                  "dytory",
+                  "dshor",
+                  "daiin"
+                ]
+              },
+              {
+                "id": "f44r.6",
+                "tokens": [
+                  "dshor",
+                  "ytchol",
+                  "shy",
+                  "o",
+                  "@190;cheekchy",
+                  "qotchy",
+                  "otchy",
+                  "dar"
+                ]
+              },
+              {
+                "id": "f44v.9",
+                "tokens": [
+                  "dshor",
+                  "cthees",
+                  "lolkeees",
+                  "ckhy",
+                  "chcthy",
+                  "lo"
+                ]
+              },
+              {
+                "id": "f45v.10",
+                "tokens": [
+                  "dshor",
+                  "otshy",
+                  "oky",
+                  "tsholol",
+                  "ytchord"
+                ]
+              }
+            ]
+          },
+          "ytchol": {
+            "occurrences": 5,
+            "folio_count": 5,
+            "contexts": [
+              {
+                "id": "f22v.3",
+                "tokens": [
+                  "qoky",
+                  "kchorl",
+                  "otchy",
+                  "cthy",
+                  "otchyky",
+                  "ytchol",
+                  "otam"
+                ]
+              },
+              {
+                "id": "f28r.9",
+                "tokens": [
+                  "ytchol",
+                  "deey",
+                  "yteol",
+                  "deaiin"
+                ]
+              },
+              {
+                "id": "f44r.6",
+                "tokens": [
+                  "dshor",
+                  "ytchol",
+                  "shy",
+                  "o",
+                  "@190;cheekchy",
+                  "qotchy",
+                  "otchy",
+                  "dar"
+                ]
+              },
+              {
+                "id": "f86v3.21",
+                "tokens": [
+                  "dshedy",
+                  "kshey",
+                  "tchdy",
+                  "shdy",
+                  "ralkchedy",
+                  "ytchol",
+                  "qoty",
+                  "okshy",
+                  "tam"
+                ]
+              },
+              {
+                "id": "f93v.9",
+                "tokens": [
+                  "odeeeodl",
+                  "cheodar",
+                  "oksho",
+                  "chody",
+                  "okchey",
+                  "cthol",
+                  "oly",
+                  "ytchol",
+                  "sar",
+                  "dar"
+                ]
+              }
+            ]
+          },
+          "shy": {
+            "occurrences": 74,
+            "folio_count": 54,
+            "contexts": [
+              {
+                "id": "f1v.3",
+                "tokens": [
+                  "dackhy",
+                  "ckhockhy",
+                  "shy",
+                  "dksheey",
+                  "cthy",
+                  "kotchody",
+                  "dal"
+                ]
+              },
+              {
+                "id": "f2v.5",
+                "tokens": [
+                  "kchor",
+                  "shy",
+                  "daiiin",
+                  "chckom",
+                  "sshey",
+                  "dorcholdaiin"
+                ]
+              },
+              {
+                "id": "f6v.12",
+                "tokens": [
+                  "ytchos",
+                  "shy",
+                  "qokam",
+                  "cthy"
+                ]
+              },
+              {
+                "id": "f8r.1",
+                "tokens": [
+                  "pshol",
+                  "chor",
+                  "otshal",
+                  "chopy",
+                  "cphol",
+                  "chody",
+                  "shy",
+                  "cfhodar",
+                  "shor"
+                ]
+              },
+              {
+                "id": "f8r.3",
+                "tokens": [
+                  "chodar",
+                  "shy",
+                  "sy",
+                  "chodaiin",
+                  "shokchy",
+                  "chor",
+                  "dy"
+                ]
+              },
+              {
+                "id": "f8r.6",
+                "tokens": [
+                  "tosh",
+                  "ckcheey",
+                  "koltoldy",
+                  "shy",
+                  "choety",
+                  "cheeody",
+                  "sol"
+                ]
+              },
+              {
+                "id": "f9r.1",
+                "tokens": [
+                  "tydlo",
+                  "choly",
+                  "cthor",
+                  "orchey",
+                  "s",
+                  "shy",
+                  "odaiin",
+                  "sary",
+                  "shor",
+                  "cthy"
+                ]
+              },
+              {
+                "id": "f10r.6",
+                "tokens": [
+                  "ycheor",
+                  "cthy",
+                  "chor",
+                  "cthaiin",
+                  "qoctholy",
+                  "dy",
+                  "chy",
+                  "taiin",
+                  "shy"
+                ]
+              }
+            ]
+          },
+          "o": {
+            "occurrences": 40,
+            "folio_count": 34,
+            "contexts": [
+              {
+                "id": "f8r.20",
+                "tokens": [
+                  "or",
+                  "chokesey",
+                  "shey",
+                  "o",
+                  "kal",
+                  "chal"
+                ]
+              },
+              {
+                "id": "f14v.7",
+                "tokens": [
+                  "oykshy",
+                  "choty",
+                  "dydyodyd",
+                  "otchy",
+                  "o",
+                  "kchy",
+                  "dshy",
+                  "dardy"
+                ]
+              },
+              {
+                "id": "f17r.9",
+                "tokens": [
+                  "soy",
+                  "chckho",
+                  "o",
+                  "das",
+                  "chypcham"
+                ]
+              },
+              {
+                "id": "f21r.1",
+                "tokens": [
+                  "pchor",
+                  "oeeockhy",
+                  "o",
+                  "fychey",
+                  "ypchey",
+                  "qopcheody",
+                  "otaiin",
+                  "chan"
+                ]
+              },
+              {
+                "id": "f21r.3",
+                "tokens": [
+                  "qotolshy",
+                  "o",
+                  "l",
+                  "cheor",
+                  "chy",
+                  "qokchey",
+                  "chey",
+                  "keey",
+                  "dy"
+                ]
+              },
+              {
+                "id": "f22r.2",
+                "tokens": [
+                  "ol",
+                  "oiin",
+                  "shol",
+                  "o",
+                  "kor",
+                  "qokchol",
+                  "daiin",
+                  "okaiin",
+                  "cthor",
+                  "dain",
+                  "ckhy",
+                  "dom"
+                ]
+              },
+              {
+                "id": "f27v.4",
+                "tokens": [
+                  "okcho",
+                  "chy",
+                  "kcheed",
+                  "chl",
+                  "chol",
+                  "kod",
+                  "o",
+                  "oksho",
+                  "docheesg"
+                ]
+              },
+              {
+                "id": "f28v.2",
+                "tokens": [
+                  "ykcholy",
+                  "qoty",
+                  "chydy",
+                  "qokchol",
+                  "chor",
+                  "tchy",
+                  "qokchody",
+                  "cheor",
+                  "o"
+                ]
+              }
+            ]
+          },
+          "qotchy": {
+            "occurrences": 62,
+            "folio_count": 47,
+            "contexts": [
+              {
+                "id": "f4r.5",
+                "tokens": [
+                  "pydaiin",
+                  "qotchy",
+                  "dytydy"
+                ]
+              },
+              {
+                "id": "f7r.3",
+                "tokens": [
+                  "oeeees",
+                  "cheodaiin",
+                  "sheey",
+                  "ytcheey",
+                  "qotchy",
+                  "chald"
+                ]
+              },
+              {
+                "id": "f7v.5",
+                "tokens": [
+                  "dchodaiin",
+                  "qotchy",
+                  "cheey",
+                  "tcheey"
+                ]
+              },
+              {
+                "id": "f10r.3",
+                "tokens": [
+                  "qotor",
+                  "otchy",
+                  "daiin",
+                  "chocthy",
+                  "qotchy",
+                  "chol",
+                  "or",
+                  "yty",
+                  "dy",
+                  "dy"
+                ]
+              },
+              {
+                "id": "f10r.12",
+                "tokens": [
+                  "@135;odaiin",
+                  "daiin",
+                  "qotchy",
+                  "qotor"
+                ]
+              },
+              {
+                "id": "f10v.5",
+                "tokens": [
+                  "shoykeey",
+                  "daiin",
+                  "qotchy",
+                  "qotor",
+                  "chol",
+                  "daiin",
+                  "qokchyky"
+                ]
+              },
+              {
+                "id": "f11r.7",
+                "tokens": [
+                  "qotchy",
+                  "okchol",
+                  "cthy",
+                  "dy"
+                ]
+              },
+              {
+                "id": "f14v.5",
+                "tokens": [
+                  "okshy",
+                  "daiin",
+                  "okchorchky",
+                  "qotchy",
+                  "daiin",
+                  "cthor",
+                  "oty"
+                ]
+              }
+            ]
+          },
+          "otchy": {
+            "occurrences": 40,
+            "folio_count": 34,
+            "contexts": [
+              {
+                "id": "f2v.3",
+                "tokens": [
+                  "otchy",
+                  "chor",
+                  "lshy",
+                  "chol",
+                  "chody",
+                  "chodain",
+                  "chcthy",
+                  "daiin"
+                ]
+              },
+              {
+                "id": "f5r.3",
+                "tokens": [
+                  "qoaiin",
+                  "otanchy",
+                  "daiin",
+                  "oteeeb",
+                  "chocthy",
+                  "otchy",
+                  "qotchody"
+                ]
+              },
+              {
+                "id": "f6v.1",
+                "tokens": [
+                  "koarysar",
+                  "cheekar",
+                  "qoor",
+                  "shor",
+                  "chapchy",
+                  "s",
+                  "chear",
+                  "char",
+                  "otchy"
+                ]
+              },
+              {
+                "id": "f7r.2",
+                "tokens": [
+                  "dcheey",
+                  "keo",
+                  "r",
+                  "shor",
+                  "dold",
+                  "dchey",
+                  "kchey",
+                  "otchy",
+                  "cheody"
+                ]
+              },
+              {
+                "id": "f9v.6",
+                "tokens": [
+                  "odol",
+                  "choy",
+                  "ksheody",
+                  "chody",
+                  "dain",
+                  "otchy",
+                  "cthod",
+                  "yko"
+                ]
+              },
+              {
+                "id": "f10r.3",
+                "tokens": [
+                  "qotor",
+                  "otchy",
+                  "daiin",
+                  "chocthy",
+                  "qotchy",
+                  "chol",
+                  "or",
+                  "yty",
+                  "dy",
+                  "dy"
+                ]
+              },
+              {
+                "id": "f13v.1",
+                "tokens": [
+                  "koair",
+                  "chtoiin",
+                  "otchy",
+                  "kchod",
+                  "otol",
+                  "otchy",
+                  "octhos"
+                ]
+              },
+              {
+                "id": "f13v.3",
+                "tokens": [
+                  "qokchy",
+                  "qokod",
+                  "chy",
+                  "otchy",
+                  "cthody"
+                ]
+              }
+            ]
+          },
+          "dar": {
+            "occurrences": 241,
+            "folio_count": 113,
+            "contexts": [
+              {
+                "id": "f1r.23",
+                "tokens": [
+                  "??doin",
+                  "chol",
+                  "dain",
+                  "cthal",
+                  "dar",
+                  "shear",
+                  "kaiin",
+                  "dar",
+                  "shey",
+                  "cthar"
+                ]
+              },
+              {
+                "id": "f1v.5",
+                "tokens": [
+                  "potoy",
+                  "shol",
+                  "dair",
+                  "cphoal",
+                  "dar",
+                  "chey",
+                  "tody",
+                  "otoaiin",
+                  "shoshy"
+                ]
+              },
+              {
+                "id": "f1v.9",
+                "tokens": [
+                  "shor",
+                  "okol",
+                  "chol",
+                  "dolky",
+                  "dar",
+                  "shol",
+                  "dchor",
+                  "otcho",
+                  "dar",
+                  "shody"
+                ]
+              },
+              {
+                "id": "f6r.4",
+                "tokens": [
+                  "dar",
+                  "chos",
+                  "sheor",
+                  "choithy",
+                  "otcham",
+                  "yaiir",
+                  "chy"
+                ]
+              },
+              {
+                "id": "f6r.9",
+                "tokens": [
+                  "dar",
+                  "sheol",
+                  "skaiiodar",
+                  "otaiin",
+                  "chory"
+                ]
+              },
+              {
+                "id": "f8r.16",
+                "tokens": [
+                  "ychey",
+                  "kchekchy",
+                  "chseykchy",
+                  "scheaiin",
+                  "cthaiihar",
+                  "cthy",
+                  "dar"
+                ]
+              },
+              {
+                "id": "f8r.19",
+                "tokens": [
+                  "sair",
+                  "cheain",
+                  "cphol",
+                  "dar",
+                  "shol",
+                  "kaiin",
+                  "shol",
+                  "kaiin",
+                  "daikam"
+                ]
+              },
+              {
+                "id": "f8v.5",
+                "tokens": [
+                  "chol",
+                  "chol",
+                  "dar",
+                  "otchar",
+                  "etaiin",
+                  "cthol",
+                  "dar"
+                ]
+              }
+            ]
+          },
+          "qotchy_otchy_pair": [
+            "f44r.6"
+          ]
+        }
+      }
+    }
+  ],
+  "limited_prior_sound_projection": [
+    {
+      "token": "dshor",
+      "units": [
+        {
+          "raw": "d",
+          "start": 0,
+          "end": 1,
+          "kind": "mapped_approximate",
+          "proposed_sounds": [
+            "t",
+            "d",
+            "θ",
+            "ð"
+          ]
+        },
+        {
+          "raw": "sh",
+          "start": 1,
+          "end": 3,
+          "kind": "mapped_approximate",
+          "proposed_sounds": [
+            "kʰ",
+            "x",
+            "tʃ"
+          ]
+        },
+        {
+          "raw": "o",
+          "start": 3,
+          "end": 4,
+          "kind": "mapped_approximate",
+          "proposed_sounds": [
+            "a"
+          ]
+        },
+        {
+          "raw": "r",
+          "start": 4,
+          "end": 5,
+          "kind": "mapped_approximate",
+          "proposed_sounds": [
+            "r",
+            "R_PLUS_UNSPECIFIED_VOWEL"
+          ]
+        }
+      ],
+      "unmapped_characters": [],
+      "positions_with_multiple_proposals": [
+        0,
+        1,
+        4
+      ],
+      "unresolved_context_positions": [
+        4
+      ],
+      "repeated_e_duration_not_decided": false,
+      "plaintext": null,
+      "status": "UNVALIDATED_PARTIAL_SOUND_PROJECTION"
+    },
+    {
+      "token": "ytchol",
+      "units": [
+        {
+          "raw": "y",
+          "start": 0,
+          "end": 1,
+          "kind": "mapped_approximate",
+          "proposed_sounds": [
+            "n"
+          ]
+        },
+        {
+          "raw": "t",
+          "start": 1,
+          "end": 2,
+          "kind": "unmapped",
+          "proposed_sounds": []
+        },
+        {
+          "raw": "c",
+          "start": 2,
+          "end": 3,
+          "kind": "unmapped",
+          "proposed_sounds": []
+        },
+        {
+          "raw": "h",
+          "start": 3,
+          "end": 4,
+          "kind": "unmapped",
+          "proposed_sounds": []
+        },
+        {
+          "raw": "o",
+          "start": 4,
+          "end": 5,
+          "kind": "mapped_approximate",
+          "proposed_sounds": [
+            "a"
+          ]
+        },
+        {
+          "raw": "l",
+          "start": 5,
+          "end": 6,
+          "kind": "unmapped",
+          "proposed_sounds": []
+        }
+      ],
+      "unmapped_characters": [
+        "c",
+        "h",
+        "l",
+        "t"
+      ],
+      "positions_with_multiple_proposals": [],
+      "unresolved_context_positions": [],
+      "repeated_e_duration_not_decided": false,
+      "plaintext": null,
+      "status": "UNVALIDATED_PARTIAL_SOUND_PROJECTION"
+    },
+    {
+      "token": "shy",
+      "units": [
+        {
+          "raw": "sh",
+          "start": 0,
+          "end": 2,
+          "kind": "mapped_approximate",
+          "proposed_sounds": [
+            "kʰ",
+            "x",
+            "tʃ"
+          ]
+        },
+        {
+          "raw": "y",
+          "start": 2,
+          "end": 3,
+          "kind": "mapped_approximate",
+          "proposed_sounds": [
+            "n"
+          ]
+        }
+      ],
+      "unmapped_characters": [],
+      "positions_with_multiple_proposals": [
+        0
+      ],
+      "unresolved_context_positions": [],
+      "repeated_e_duration_not_decided": false,
+      "plaintext": null,
+      "status": "UNVALIDATED_PARTIAL_SOUND_PROJECTION"
+    },
+    {
+      "token": "o",
+      "units": [
+        {
+          "raw": "o",
+          "start": 0,
+          "end": 1,
+          "kind": "mapped_approximate",
+          "proposed_sounds": [
+            "a"
+          ]
+        }
+      ],
+      "unmapped_characters": [],
+      "positions_with_multiple_proposals": [],
+      "unresolved_context_positions": [],
+      "repeated_e_duration_not_decided": false,
+      "plaintext": null,
+      "status": "UNVALIDATED_PARTIAL_SOUND_PROJECTION"
+    },
+    {
+      "token": "qotchy",
+      "units": [
+        {
+          "raw": "q",
+          "start": 0,
+          "end": 1,
+          "kind": "unmapped",
+          "proposed_sounds": []
+        },
+        {
+          "raw": "o",
+          "start": 1,
+          "end": 2,
+          "kind": "mapped_approximate",
+          "proposed_sounds": [
+            "a"
+          ]
+        },
+        {
+          "raw": "t",
+          "start": 2,
+          "end": 3,
+          "kind": "unmapped",
+          "proposed_sounds": []
+        },
+        {
+          "raw": "c",
+          "start": 3,
+          "end": 4,
+          "kind": "unmapped",
+          "proposed_sounds": []
+        },
+        {
+          "raw": "h",
+          "start": 4,
+          "end": 5,
+          "kind": "unmapped",
+          "proposed_sounds": []
+        },
+        {
+          "raw": "y",
+          "start": 5,
+          "end": 6,
+          "kind": "mapped_approximate",
+          "proposed_sounds": [
+            "n"
+          ]
+        }
+      ],
+      "unmapped_characters": [
+        "c",
+        "h",
+        "q",
+        "t"
+      ],
+      "positions_with_multiple_proposals": [],
+      "unresolved_context_positions": [],
+      "repeated_e_duration_not_decided": false,
+      "plaintext": null,
+      "status": "UNVALIDATED_PARTIAL_SOUND_PROJECTION"
+    },
+    {
+      "token": "otchy",
+      "units": [
+        {
+          "raw": "o",
+          "start": 0,
+          "end": 1,
+          "kind": "mapped_approximate",
+          "proposed_sounds": [
+            "a"
+          ]
+        },
+        {
+          "raw": "t",
+          "start": 1,
+          "end": 2,
+          "kind": "unmapped",
+          "proposed_sounds": []
+        },
+        {
+          "raw": "c",
+          "start": 2,
+          "end": 3,
+          "kind": "unmapped",
+          "proposed_sounds": []
+        },
+        {
+          "raw": "h",
+          "start": 3,
+          "end": 4,
+          "kind": "unmapped",
+          "proposed_sounds": []
+        },
+        {
+          "raw": "y",
+          "start": 4,
+          "end": 5,
+          "kind": "mapped_approximate",
+          "proposed_sounds": [
+            "n"
+          ]
+        }
+      ],
+      "unmapped_characters": [
+        "c",
+        "h",
+        "t"
+      ],
+      "positions_with_multiple_proposals": [],
+      "unresolved_context_positions": [],
+      "repeated_e_duration_not_decided": false,
+      "plaintext": null,
+      "status": "UNVALIDATED_PARTIAL_SOUND_PROJECTION"
+    },
+    {
+      "token": "dar",
+      "units": [
+        {
+          "raw": "d",
+          "start": 0,
+          "end": 1,
+          "kind": "mapped_approximate",
+          "proposed_sounds": [
+            "t",
+            "d",
+            "θ",
+            "ð"
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1,
+          "end": 2,
+          "kind": "mapped_approximate",
+          "proposed_sounds": [
+            "ə",
+            "u",
+            "wa"
+          ]
+        },
+        {
+          "raw": "r",
+          "start": 2,
+          "end": 3,
+          "kind": "mapped_approximate",
+          "proposed_sounds": [
+            "r",
+            "R_PLUS_UNSPECIFIED_VOWEL"
+          ]
+        }
+      ],
+      "unmapped_characters": [],
+      "positions_with_multiple_proposals": [
+        0,
+        1,
+        2
+      ],
+      "unresolved_context_positions": [
+        2
+      ],
+      "repeated_e_duration_not_decided": false,
+      "plaintext": null,
+      "status": "UNVALIDATED_PARTIAL_SOUND_PROJECTION"
+    }
+  ],
+  "image": {
+    "url": "https://collections.library.yale.edu/iiif/2/1006160/full/full/0/default.jpg",
+    "folio": "44r",
+    "inspection": "Plant drawing and three text blocks observed; no botanical identification or definitive glyph adjudication."
+  },
+  "plaintext": null,
+  "limits": [
+    "P0 records only; the selection is not uniform over sentences or folios.",
+    "Fixed seed chosen by analyst; repeatable pseudorandom draw, not cryptographic randomness.",
+    "Full projection preserves high-ASCII markers, with primary alternatives/expanded ligatures; not paleographic adjudication.",
+    "The inherited sound rules are a limited unvalidated subset, not a full implementation of Bax.",
+    "Character similarity and distributional counts establish no word meanings."
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "research/maintenance/2026-10-23-exp173-reader-bridge/PROTOCOL.md": "0ca2e3bf579941fcc8620c17338f60338da6f674689759f3ce0a292107197f77",
+  "research/maintenance/2026-10-23-exp173-reader-bridge/REPORT.md": "c47e2e7687796d3c17ad8e64e614c49bbc96fbdc300b8c59f502327499419b85",
+  "research/maintenance/2026-10-23-exp173-reader-bridge/changed-rows.json.gz": "0820396e9496933bf02ed9dc1d5b781e4bfec463964633bdf5cbcb2112a8dedb",
+  "research/maintenance/2026-10-23-exp173-reader-bridge/results.json": "ff681b49bc1a016494979a2481c28e0d260e36d56a711b38784a579af0ad3ffd",
+  "scripts/audit_exp173_reader_bridge.py": "cab48f865203d049f7c5a579146ca340c0cf61100d058792d11dcb29490363f8",
+  "tests/test_exp173_reader_bridge.py": "b1658fbe92f83b08113a0305ca92416bbc19859189538a9fde82a50b85eca2fd"
+}

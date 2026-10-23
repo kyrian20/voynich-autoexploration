@@ -27,3 +27,11 @@ Integración operativa no equivale a validación científica total. V1 permanece
 ## Autoauditoría
 
 Esta integración no selecciona una nueva hipótesis ni ajusta resultados para mejorar una métrica. Se comprueba igualdad de resultados antes de aceptar cambios de metadatos. Se preservan fuentes, intentos fallidos, limitaciones y numeración. Las pruebas de integración rechazan datos alterados, corpus con incidencias, revisiones de identidad ambiguas y cambios de resultados. Solo se permite variar la cadena de versión del intérprete.
+
+## Inventario de referencias al crecer el repositorio
+
+El job 120051444408 del run 39843755694 falló en `$.static_references: lengths differ`: la batería común añade una mención explícita al archivo inglés histórico. El comparador confundía el crecimiento del inventario de código con una modificación de los corpus. Se reprodujo el mismo fallo incorporando únicamente el script público de la PR #3; la diferencia fue una referencia nueva a `latin/vulgate.txt`, en la línea 252.
+
+El runner conserva la comparación exacta de todos los hechos de corpus, hashes, incidencias y referencias históricas. Rechaza referencias históricas ausentes o modificadas, entradas duplicadas y recuentos inconsistentes. Permite referencias adicionales y las registra completas en `static-reference-additions.json`; la auditoría actual completa también queda en la salida. Una mención añadida no se interpreta como prueba de ejecución ni de validez lingüística. Los snapshots históricos y resultados científicos no se actualizan para aceptar la diferencia.
+
+El recibo usa `historical_reference_identity_audit_reproduced` y `new_static_references` para distinguir la reproducción histórica del inventario actual. Las adiciones quedan incluidas en el artefacto que ya conserva el workflow. Los contratos de integración incluyen tanto el caso legítimo de crecimiento como el rechazo de cambios de corpus, cambios o desaparición de referencias antiguas, duplicados y recuentos erróneos. Esta reparación técnica no recupera los tokens ausentes de BC-2026-10-22 ni completa la publicación de la PR #3.
