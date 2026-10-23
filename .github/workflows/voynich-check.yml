@@ -43,6 +43,20 @@ jobs:
           python scripts/prepare_prospective_leaf_holdout.py --out prospective-leaf-holdout.json
           cmp research/decipherment/2026-10-23-prospective-leaf-holdout/manifest.json prospective-leaf-holdout.json
 
+      - name: Verificar corrección de paneles y manifiesto v2 sin alterar v1
+        run: |
+          python -m unittest discover -s tests -p 'test_prospective_leaf_holdout_v2.py' -v
+          python scripts/prepare_prospective_leaf_holdout_v2.py --out prospective-leaf-holdout-v2.json
+          cmp research/decipherment/2026-10-23-prospective-leaf-holdout/manifest-v2.json prospective-leaf-holdout-v2.json
+
+      - name: Conservar manifiesto v2 corregido con hashes
+        uses: actions/upload-artifact@v4
+        with:
+          name: prospective-leaf-holdout-v2-${{ github.run_id }}
+          path: prospective-leaf-holdout-v2.json
+          if-no-files-found: error
+          retention-days: 90
+
       - name: Conservar manifiesto prospectivo con hashes
         uses: actions/upload-artifact@v4
         with:
