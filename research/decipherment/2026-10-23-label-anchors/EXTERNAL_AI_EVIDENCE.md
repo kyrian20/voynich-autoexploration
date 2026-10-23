@@ -13,7 +13,7 @@
 ## Hallazgos que justifican pruebas propias (NO adoptar como hechos confirmados)
 
 1. **F-01/F-04:** las líneas son unidades estructurales y la longitud de palabras muestra ritmo intralínea; el propio equipo informa que verso métrico ordinario también puede mostrarlo. Nuestro contraste deberá incluir controles de verso y prosa, además de modelos nulos que preserven líneas.
-2. **F-20:** pruebas de cribs entre etiquetas y plantas y de etiquetas repetidas no produjeron correspondencias textuales respaldadas. **Advertencia directa para nuestra PR #13:** recuperar el detalle exacto de sus controles, exclusiones y folios antes de diseñar una búsqueda semántica redundante.
+2. **F-20:** el registro de hallazgos describe coincidencias visuales entre ilustraciones farmacéuticas y páginas herbales, pero ausencia de vínculo textual detectado en sus etiquetas. En la prueba `s128-p72` (18 parejas publicadas, comprobadas visualmente por los autores), informan `NO_LINK`, p=0,72, potencia estimada 0,958 y control positivo Egerton 200/200; no son resultados reproducidos por nosotros. En `db-s114`, 239 loci y 27 tipos repetidos, la concordancia por categoría fue 20/31, comparable al nulo (p=0,63); tras una corrección de filas fantasma: 6/15, p=0,745, con independencia de 14/15 parejas restantes sin verificar. **Advertencia para PR #13:** no repetir el mismo contraste imagen farmacéutica↔página herbal ni el mismo control de etiquetas repetidas sin aportar una hipótesis y datos nuevos. Consultar fuentes exactas y folios antes de cualquier prueba.
 3. **F-33:** no encontraron vínculo fuerte entre vocabulario de núcleos y dibujos de plantas; reportan asociación de marcos de afijos con imágenes, con apoyo limitado. No convertir asociación en traducción ni aceptar una segmentación prefijo/núcleo/sufijo como verdad.
 4. **F-28:** no observaron orden antidotario, alfabético o zodiacal bajo las pruebas realizadas. No generalizar a todos los posibles sistemas de ordenación.
 5. **F-06/F-15:** reportan estructura predictiva en núcleos y dependencia entre afijos y núcleos; sus segmentaciones son vulnerables a la suposición X-01, cuyo control sintético falló. Toda comparación deberá repetir con segmentaciones alternativas y controles sintéticos.
@@ -38,3 +38,10 @@
 ## Registro de procedencia
 
 Fecha de consulta: 2026-10-23. Lectura de las páginas públicas README, START-HERE y Atlas. La ficha no representa revisión completa del código fuente, reproducción ni validación de los 51 hallazgos.
+
+## Verificación de integración — 2026-10-23
+
+- Referencia externa primaria para F-20: https://github.com/thisisntjon/voynich/blob/main/FINDINGS.md#f-20 (registro de evidencias, no validación nuestra). F-20 cita `record/results_s53.txt`, `record/results_s53_p4a1_p4e1_anchors_and_errors.txt`, `record/lab/codex_lab/experiments/results_s114_repeated_label_object_consistency.txt` y `record/results_s128_20261019T090659.txt`. La documentación externa advierte que algunas líneas están marcadas POST-HOC o sin verificación y no se computan en su calificación.
+- Compatibilidad interna: esta ficha es bibliografía crítica y se vincula conceptualmente a `PROTOCOL.md`, etapa 0 y controles adversariales. No reemplaza ni modifica `experiments/exp_580_label_corpus_grammar/`, `state/committed_claims.md`, los manifiestos de holdout o los resultados históricos.
+- Puerta de decisión: no iniciar búsqueda semántica confirmatoria hasta (a) reproducir EXP-580, (b) auditar el detalle de F-20, (c) documentar una predicción nueva distinta de sus controles negativos, y (d) fijar referentes visuales sin consultar EVA.
+- Alcance de la comprobación: presencia de archivos y referencias en la rama y contraste documental con FINDINGS.md público; no se ha descargado ni ejecutado el código externo. El resultado de GitHub Actions se verifica por separado; no inferir CI verde de la mera existencia del workflow.
