@@ -569,3 +569,5 @@
 2026-10-22 — Sensibilidad de referencia EXP259: 12 filas marginales y 11 condicionales históricas reproducidas; alfabeto observado 26, frente a 23 declarado; tres vistas cuantificadas y dos implementaciones concordantes. Sin nuevo EXP ni reinterpretación del manuscrito.
 
 - 2026-10-22 — BC-2026-10-22 (`experiments/common_battery_2026_10_22`): 21 brazos/201 evaluaciones con tokens y hashes; perfil primario no discrimina permutaciones, tres alertas C001 con soporte documentado; autoauditoría realizada y adjudicación pendiente, sin modificar resultados históricos.
+
+2026-10-23 | Sin EXP nuevo: representación BPE aprendida solo de entrenamiento, puerta previa superada en César/Dante y ganancia entre palabras interiores en cuatro vistas Voynich frente a 16 entrenamientos barajados por fuente. Intento V1 detenido por sesgo de suavizado sintético, conservado y reparado antes de corpus reales. Autoauditoría y límites en research/analysis/2026-10-23-subword-boundary/REPORT.md. No hay inferencia semántica ni discriminación de teorías.

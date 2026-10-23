@@ -2,6 +2,8 @@
 
 Repositorio de trabajo: `kyrian20/voynich-autoexploration` (rama `master`).
 
+**Dependencia entre subunidades — 23-10-2026:** [predictor BPE con puerta natural y controles](research/analysis/2026-10-23-subword-boundary/REPORT.md). La puerta se supera en César y Dante; las cuatro vistas Voynich también muestran ganancia superior a sus 16 controles de entrenamiento barajado. Resultado exploratorio de orden, sin significado asignado ni discriminación de teorías; intento sintético fallido y reparación conservados.
+
 **Límite de soporte del predictor — 23-10-2026:** [descomposición exacta de contextos](research/maintenance/2026-10-23-identity-support/REPORT.md). Solo 7,29–8,27 % de las tripletas Voynich permiten una corrección de identidad no trivial con las tablas entrenadas; César 0,42 % y Dante 2,95 %. Diagnóstico del instrumento, sin conclusión lingüística ni cambio de pesos.
 
 **Memoria de dos tokens y reparación de sesgo — 23-10-2026:** [predictor calibrado, intento fallido conservado y controles](research/analysis/2026-10-23-two-token-residual/REPORT.md). Se corrigió una ganancia artificial de suavizado antes del análisis real. La identidad adicional se desactiva en las cuatro vistas Voynich y ofrece señal primaria incierta en los dos controles naturales: no discrimina teorías ni traduce. [Alcance de la revisión de errores](research/maintenance/2026-10-23-repair-scope.md).

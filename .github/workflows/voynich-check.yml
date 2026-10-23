@@ -74,6 +74,11 @@ jobs:
       - name: Reproducir soporte efectivo de identidad
         run: python scripts/audit_two_token_identity_support.py --check
 
+      - name: Probar y reproducir predictor de subunidades con puerta natural
+        run: |
+          python tests/test_subword_boundary.py
+          python scripts/analyze_subword_boundary.py --check
+
       - name: Comprobar archivos de investigación
         run: |
           python - <<'PY'
