@@ -17,6 +17,17 @@ def unique_keys(pairs):
     return result
 
 
+def linked_path(root, relative):
+    """Reject links in a corpus path, including links in parent directories.
+
+    A matching checksum is not proof that the tracked path itself is the frozen
+    corpus when its bytes can be redirected outside the repository.
+    """
+    parts = Path(relative).parts
+    return any((root.joinpath(*parts[:i])).is_symlink()
+               for i in range(1, len(parts) + 1))
+
+
 def verify(root, manifest):
     files = manifest.get('files') if isinstance(manifest, dict) else None
     if not isinstance(files, list) or not files:
@@ -46,6 +57,8 @@ def verify(root, manifest):
     actual = {p.relative_to(root).as_posix() for folder in ('data/transcriptions','data/reference_corpora')
               for p in (root/folder).rglob('*.txt') if p.is_file()}
     errors = [f'Unregistered corpus: {p}' for p in sorted(actual-set(expected))]
+    errors += [f'Symlink corpus path forbidden: {p}' for p in sorted(expected)
+               if linked_path(root, p)]
     errors += [f'Missing corpus: {p}' for p in sorted(set(expected)-actual)]
     for name in sorted(actual & set(expected)):
         raw = (root/name).read_bytes()
