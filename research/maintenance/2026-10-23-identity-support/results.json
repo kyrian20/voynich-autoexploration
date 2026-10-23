@@ -1,0 +1,298 @@
+{
+  "status": "DESCRIPTIVE_IMPLEMENTATION_AUDIT",
+  "controls": {
+    "positive": {
+      "triplets": 2,
+      "categories": {
+        "unseen_H2": 0,
+        "unseen_W2": 0,
+        "single_identity": 0,
+        "proportional_distribution": 0,
+        "different_distribution": 2
+      },
+      "different_distribution_training_support": {
+        "at_least_5": 2,
+        "at_least_20": 2
+      },
+      "seen_H2_contexts": 2,
+      "seen_W2_contexts": 2
+    },
+    "negative": {
+      "triplets": 4,
+      "categories": {
+        "unseen_H2": 0,
+        "unseen_W2": 0,
+        "single_identity": 0,
+        "proportional_distribution": 4,
+        "different_distribution": 0
+      },
+      "different_distribution_training_support": {
+        "at_least_5": 0,
+        "at_least_20": 0
+      },
+      "seen_H2_contexts": 4,
+      "seen_W2_contexts": 4
+    },
+    "single_and_unseen": {
+      "triplets": 2,
+      "categories": {
+        "unseen_H2": 1,
+        "unseen_W2": 1,
+        "single_identity": 0,
+        "proportional_distribution": 0,
+        "different_distribution": 0
+      },
+      "different_distribution_training_support": {
+        "at_least_5": 0,
+        "at_least_20": 0
+      },
+      "seen_H2_contexts": 1,
+      "seen_W2_contexts": 0
+    }
+  },
+  "results": [
+    {
+      "label": "ZL3b_split",
+      "development": {
+        "triplets": 5436,
+        "categories": {
+          "unseen_H2": 3581,
+          "unseen_W2": 770,
+          "single_identity": 699,
+          "proportional_distribution": 6,
+          "different_distribution": 380
+        },
+        "different_distribution_training_support": {
+          "at_least_5": 50,
+          "at_least_20": 0
+        },
+        "seen_H2_contexts": 1855,
+        "seen_W2_contexts": 1085
+      },
+      "test": {
+        "triplets": 4927,
+        "categories": {
+          "unseen_H2": 3300,
+          "unseen_W2": 657,
+          "single_identity": 582,
+          "proportional_distribution": 4,
+          "different_distribution": 384
+        },
+        "different_distribution_training_support": {
+          "at_least_5": 74,
+          "at_least_20": 0
+        },
+        "seen_H2_contexts": 1627,
+        "seen_W2_contexts": 970
+      },
+      "unchanged_weights_H2_W2": [
+        0.025,
+        0
+      ]
+    },
+    {
+      "label": "ZL3b_join",
+      "development": {
+        "triplets": 4938,
+        "categories": {
+          "unseen_H2": 3466,
+          "unseen_W2": 681,
+          "single_identity": 469,
+          "proportional_distribution": 3,
+          "different_distribution": 319
+        },
+        "different_distribution_training_support": {
+          "at_least_5": 41,
+          "at_least_20": 0
+        },
+        "seen_H2_contexts": 1472,
+        "seen_W2_contexts": 791
+      },
+      "test": {
+        "triplets": 4457,
+        "categories": {
+          "unseen_H2": 3185,
+          "unseen_W2": 586,
+          "single_identity": 358,
+          "proportional_distribution": 3,
+          "different_distribution": 325
+        },
+        "different_distribution_training_support": {
+          "at_least_5": 54,
+          "at_least_20": 0
+        },
+        "seen_H2_contexts": 1272,
+        "seen_W2_contexts": 686
+      },
+      "unchanged_weights_H2_W2": [
+        0.025,
+        0
+      ]
+    },
+    {
+      "label": "IT2a_split",
+      "development": {
+        "triplets": 5304,
+        "categories": {
+          "unseen_H2": 3579,
+          "unseen_W2": 751,
+          "single_identity": 606,
+          "proportional_distribution": 6,
+          "different_distribution": 362
+        },
+        "different_distribution_training_support": {
+          "at_least_5": 50,
+          "at_least_20": 0
+        },
+        "seen_H2_contexts": 1725,
+        "seen_W2_contexts": 974
+      },
+      "test": {
+        "triplets": 4848,
+        "categories": {
+          "unseen_H2": 3270,
+          "unseen_W2": 682,
+          "single_identity": 495,
+          "proportional_distribution": 0,
+          "different_distribution": 401
+        },
+        "different_distribution_training_support": {
+          "at_least_5": 81,
+          "at_least_20": 0
+        },
+        "seen_H2_contexts": 1578,
+        "seen_W2_contexts": 896
+      },
+      "unchanged_weights_H2_W2": [
+        0.025,
+        0
+      ]
+    },
+    {
+      "label": "IT2a_join",
+      "development": {
+        "triplets": 5304,
+        "categories": {
+          "unseen_H2": 3579,
+          "unseen_W2": 751,
+          "single_identity": 606,
+          "proportional_distribution": 6,
+          "different_distribution": 362
+        },
+        "different_distribution_training_support": {
+          "at_least_5": 50,
+          "at_least_20": 0
+        },
+        "seen_H2_contexts": 1725,
+        "seen_W2_contexts": 974
+      },
+      "test": {
+        "triplets": 4848,
+        "categories": {
+          "unseen_H2": 3270,
+          "unseen_W2": 682,
+          "single_identity": 495,
+          "proportional_distribution": 0,
+          "different_distribution": 401
+        },
+        "different_distribution_training_support": {
+          "at_least_5": 81,
+          "at_least_20": 0
+        },
+        "seen_H2_contexts": 1578,
+        "seen_W2_contexts": 896
+      },
+      "unchanged_weights_H2_W2": [
+        0.025,
+        0
+      ]
+    },
+    {
+      "label": "Latin_Caesar_218",
+      "development": {
+        "triplets": 3225,
+        "categories": {
+          "unseen_H2": 2681,
+          "unseen_W2": 63,
+          "single_identity": 460,
+          "proportional_distribution": 0,
+          "different_distribution": 21
+        },
+        "different_distribution_training_support": {
+          "at_least_5": 0,
+          "at_least_20": 0
+        },
+        "seen_H2_contexts": 544,
+        "seen_W2_contexts": 481
+      },
+      "test": {
+        "triplets": 3065,
+        "categories": {
+          "unseen_H2": 2524,
+          "unseen_W2": 65,
+          "single_identity": 463,
+          "proportional_distribution": 0,
+          "different_distribution": 13
+        },
+        "different_distribution_training_support": {
+          "at_least_5": 0,
+          "at_least_20": 0
+        },
+        "seen_H2_contexts": 541,
+        "seen_W2_contexts": 476
+      },
+      "unchanged_weights_H2_W2": [
+        1,
+        0.5
+      ]
+    },
+    {
+      "label": "Italian_Dante_1012",
+      "development": {
+        "triplets": 4984,
+        "categories": {
+          "unseen_H2": 3058,
+          "unseen_W2": 266,
+          "single_identity": 1501,
+          "proportional_distribution": 3,
+          "different_distribution": 156
+        },
+        "different_distribution_training_support": {
+          "at_least_5": 34,
+          "at_least_20": 7
+        },
+        "seen_H2_contexts": 1926,
+        "seen_W2_contexts": 1660
+      },
+      "test": {
+        "triplets": 6075,
+        "categories": {
+          "unseen_H2": 3822,
+          "unseen_W2": 296,
+          "single_identity": 1778,
+          "proportional_distribution": 0,
+          "different_distribution": 179
+        },
+        "different_distribution_training_support": {
+          "at_least_5": 40,
+          "at_least_20": 7
+        },
+        "seen_H2_contexts": 2253,
+        "seen_W2_contexts": 1957
+      },
+      "unchanged_weights_H2_W2": [
+        0.5,
+        1
+      ]
+    }
+  ],
+  "sha256": {
+    "research/analysis/2026-10-22-residual-order/inputs.json": "c069548868854c29d294efbc3da891a0f5cf7c62878786be78fa13ce5ba5225d",
+    "research/analysis/2026-10-23-two-token-residual/results.json.gz": "98d48dc9b949c5413dafc7a6193d7cceb8b6880088ed6cc71e7720d898870bb6",
+    "scripts/audit_two_token_identity_support.py": "8dab5d28ed3f4fa19694c2bf7c6d3e2989f75d42b7559d97623349b39335ba3b",
+    "research/maintenance/2026-10-23-identity-support/PROTOCOL.md": "a7ab1b278b1d6aeacb9754f213af096ca97f682ef6672bde3218bcefbcfe2200",
+    "scripts/analyze_two_token_residual.py": "ea0b61978ee832f7c5a708e5ac6891227dfc52cc54a794a473de6d1c3a30bd81",
+    "research/analysis/2026-10-22-residual-order/residual_order.py": "19c08029d63ad8f3e3f10aa713b51ff0d6767e0cfa2a1998d05fcb1d8c1d9415",
+    "research/analysis/2026-10-22-residual-order/residual_order_calibrated.py": "0f7d2c00c522e7f98978c7fe0bf03cd5aa6ffad07215a1594a9ff8f0bae099b0"
+  }
+}

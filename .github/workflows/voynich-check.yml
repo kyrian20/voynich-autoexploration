@@ -52,6 +52,38 @@ jobs:
           python tests/test_reference_entropy_sensitivity.py
           python scripts/audit_reference_entropy_sensitivity.py --check research/maintenance/2026-10-22-reference-sensitivity/results.json
 
+      - name: Reproducir auditorías acotadas de EXP-173
+        run: |
+          python tests/test_exp173_c005_scope.py
+          python scripts/audit_exp173_c005_scope.py --check research/maintenance/2026-10-23-exp173-c005-scope/results.json
+          python tests/test_exp173_currier_crosswalk.py
+          python scripts/audit_exp173_currier_crosswalk.py --check research/maintenance/2026-10-23-exp173-currier-crosswalk/results.json
+          python tests/test_exp173_line_null.py
+          python scripts/audit_exp173_line_null.py --check research/maintenance/2026-10-23-exp173-line-null/results.json
+          python tests/test_exp173_reader_bridge.py
+          python scripts/audit_exp173_reader_bridge.py --check research/maintenance/2026-10-23-exp173-reader-bridge
+          python tests/test_exp173_paragraph_strata.py
+          python scripts/audit_exp173_paragraph_strata.py --check research/maintenance/2026-10-23-paragraph-strata/results.json
+          python tests/test_am_lexical_contributions.py
+          python scripts/audit_am_lexical_contributions.py --check research/maintenance/2026-10-23-am-lexical-contributions/results.json.gz
+          python tests/test_predecessor_opportunities.py
+          python scripts/audit_predecessor_opportunities.py --check research/maintenance/2026-10-23-predecessor-opportunities/results.json.gz
+          python tests/test_folio_context_control.py
+          python scripts/audit_folio_context_control.py --check research/maintenance/2026-10-23-folio-context-control/results.json.gz
+
+      - name: Reproducir soporte efectivo de identidad
+        run: python scripts/audit_two_token_identity_support.py --check
+
+      - name: Probar y reproducir predictor de subunidades con puerta natural
+        run: |
+          python tests/test_subword_boundary.py
+          python scripts/analyze_subword_boundary.py --check
+
+      - name: Reproducir incremento de subunidades sobre contexto de carácter
+        run: |
+          python tests/test_subword_increment.py
+          python scripts/analyze_subword_increment.py --check
+
       - name: Comprobar archivos de investigación
         run: |
           python - <<'PY'
@@ -162,6 +194,11 @@ jobs:
       - name: Reproducir bloque integrado de orden residual y corpus
         run: |
           python research/analysis/2026-10-22-residual-order/run_integrated.py --out "$RUNNER_TEMP/residual-order-${{ github.run_id }}"
+
+      - name: Probar y reproducir predictor con dos predecesores
+        run: |
+          python tests/test_two_token_residual.py
+          python scripts/analyze_two_token_residual.py --check research/analysis/2026-10-23-two-token-residual/results.json.gz
 
       - name: Conservar reproducción del bloque integrado
         if: always()

@@ -2,6 +2,24 @@
 
 Repositorio de trabajo: `kyrian20/voynich-autoexploration` (rama `master`).
 
+**Incremento BPE frente a carácter — 23-10-2026:** [comparación con objetivo idéntico y control de bordes/longitud](research/analysis/2026-10-23-subword-increment/REPORT.md). No se respalda incremento del contexto BPE en las cuatro vistas Voynich; sí se observa en César/Dante. La señal previa también se recupera con un contexto de un carácter. Control estricto de movilidad escasa; no prueba ausencia de lenguaje ni discrimina teorías.
+
+**Dependencia entre subunidades — 23-10-2026:** [predictor BPE con puerta natural y controles](research/analysis/2026-10-23-subword-boundary/REPORT.md). La puerta se supera en César y Dante; las cuatro vistas Voynich también muestran ganancia superior a sus 16 controles de entrenamiento barajado. Resultado exploratorio de orden, sin significado asignado ni discriminación de teorías; intento sintético fallido y reparación conservados.
+
+**Límite de soporte del predictor — 23-10-2026:** [descomposición exacta de contextos](research/maintenance/2026-10-23-identity-support/REPORT.md). Solo 7,29–8,27 % de las tripletas Voynich permiten una corrección de identidad no trivial con las tablas entrenadas; César 0,42 % y Dante 2,95 %. Diagnóstico del instrumento, sin conclusión lingüística ni cambio de pesos.
+
+**Memoria de dos tokens y reparación de sesgo — 23-10-2026:** [predictor calibrado, intento fallido conservado y controles](research/analysis/2026-10-23-two-token-residual/REPORT.md). Se corrigió una ganancia artificial de suavizado antes del análisis real. La identidad adicional se desactiva en las cuatro vistas Voynich y ofrece señal primaria incierta en los dos controles naturales: no discrimina teorías ni traduce. [Alcance de la revisión de errores](research/maintenance/2026-10-23-repair-scope.md).
+
+**Verificación CI corregida y control alternativo — 23-10-2026:** [evidencia de ejecuciones push satisfactorias](research/CI_VERIFICATION.md) y [control de contexto por folio](research/maintenance/2026-10-23-folio-context-control/REPORT.md). La alternativa permite variar 196 de 325 predecesores de cierres -am en ZL3b, conservando inventario de folio y plantillas de línea, pero relajando el inventario de cada línea. Es otro nulo; no se presenta como prueba semántica.
+
+**Soporte del control de contexto — 23-10-2026:** [oportunidades exactas de intercambio del predecesor final](research/maintenance/2026-10-23-predecessor-opportunities/REPORT.md). Al conservar extremos de línea, inventario, bordes y longitud, solo 16 de 325 cierres -am ZL3b permiten cambiar su predecesor en la vista por defecto. Diagnóstico de soporte, sin contraste semántico ni cálculo de potencia.
+
+**Contribuciones léxicas de -am — 23-10-2026:** [descomposición exacta y exclusión de una forma cada vez](research/maintenance/2026-10-23-am-lexical-contributions/REPORT.md). En las mismas líneas B/P0 sin marcador explícito, el exceso final persiste tras dejar de contar cualquiera de las formas -am, bajo las ocho políticas de lectura. Sensibilidad descriptiva, sin asignación semántica.
+
+**Separación de párrafos — 23-10-2026:** [estratos por P0/otros P y marcador explícito de fin](research/maintenance/2026-10-23-paragraph-strata/REPORT.md). En ZL3b, el exceso -am/final persiste en las 1.883 líneas P0 sin marcador bajo las ocho vistas y las 40 retiradas de folio. Ausencia de marcador no se equipara automáticamente con interior de párrafo. Resultado descriptivo, sin significado asignado.
+
+**Avance del 23-10-2026:** [puente de lectores para los patrones -am/final e y/inicial](research/maintenance/2026-10-23-exp173-reader-bridge/REPORT.md): tres transcripciones, ocho políticas completas, poblaciones comunes y sensibilidad al retirar cada folio. Los dos excesos descriptivos persisten dentro de esta rejilla; se documentan las diferencias de extremos y las limitaciones IVTFF. No hay traducción ni nueva significación estadística. Incluye reproducción en CI de las cuatro auditorías acotadas de EXP-173.
+
 La [batería común lenguaje/cifrado/generación](experiments/common_battery_2026_10_22/result.md) conserva EXP-170 y publica protocolo y resultados nuevos; los tokens archivados siguen pendientes de autorización y recuperación (véase PUBLICACION.md del experimento). Su primaria no discrimina barajados; no valida una teoría del manuscrito.
 
 ## Estado operativo actual — 23 octubre 2026

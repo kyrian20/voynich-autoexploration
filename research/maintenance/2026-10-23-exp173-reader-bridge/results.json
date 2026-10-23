@@ -1,0 +1,5108 @@
+{
+  "audit": "EXP173_descriptive_reader_bridge",
+  "status": "EXPLORATORY_SENSITIVITY",
+  "base_commit": "29677e387d9c44983a28d61baad2f14e55a42c8e",
+  "policies": {
+    "split/primary/expand": {
+      "uncertain_space": "split",
+      "alternatives": "primary",
+      "ligatures": "expand"
+    },
+    "split/primary/opaque": {
+      "uncertain_space": "split",
+      "alternatives": "primary",
+      "ligatures": "opaque"
+    },
+    "split/exclude_word/expand": {
+      "uncertain_space": "split",
+      "alternatives": "exclude_word",
+      "ligatures": "expand"
+    },
+    "split/exclude_word/opaque": {
+      "uncertain_space": "split",
+      "alternatives": "exclude_word",
+      "ligatures": "opaque"
+    },
+    "join/primary/expand": {
+      "uncertain_space": "join",
+      "alternatives": "primary",
+      "ligatures": "expand"
+    },
+    "join/primary/opaque": {
+      "uncertain_space": "join",
+      "alternatives": "primary",
+      "ligatures": "opaque"
+    },
+    "join/exclude_word/expand": {
+      "uncertain_space": "join",
+      "alternatives": "exclude_word",
+      "ligatures": "expand"
+    },
+    "join/exclude_word/opaque": {
+      "uncertain_space": "join",
+      "alternatives": "exclude_word",
+      "ligatures": "opaque"
+    }
+  },
+  "default_candidate": "split/primary/expand",
+  "dependencies_sha256": {
+    "scripts/audit_exp173_currier_crosswalk.py": "91571c5a352cee159b7cd94d4d3ec7b981bb7529127c0b9ebba23fca0bf67671",
+    "scripts/audit_exp173_line_null.py": "c78ccb7e3d38ff2d79b5a5055cc315cc5a54d5f216a12bdc235472ec4a574d00",
+    "scripts/audit_token_policy_sensitivity.py": "b1bebb1e375c1d0aa64adc46ae0a09cdf11b247554c6cb33eb62b95b54ffc523",
+    "scripts/ivtff_lossless.py": "32ebb9aed11642a760793cf677b8148a4d867351ce4f74f4a7839f32fd180c1f",
+    "scripts/audit_research_readiness.py": "679207e782aa29a618513719520b7ac32a58baa66f6654fb42d630210a3255f6",
+    "scripts/audit_ivtff_metadata.py": "c01c335b1727f53369caba468e366d4d539b63e96c2db84c75a071b2e54c0116"
+  },
+  "files": [
+    {
+      "transcription": "ZL3b",
+      "source": "data/transcriptions/eva_zl3b.txt",
+      "source_sha256": "bf5b6d4ac1e3a51b1847a9c388318d609020441ccd56984c901c32b09beccafc",
+      "historical_population_reconstructed": true,
+      "raw_B_P_records": 2467,
+      "common_nonempty_records": 2466,
+      "common_id_sha256": "1206a6e75420d4bc5f128e1c48058df83e9d5df1a1be5a6cd87fd50409651b19",
+      "profiles": {
+        "historical": {
+          "own_eligible": {
+            "lines": 2466,
+            "tokens": 20652,
+            "singleton_lines": 16,
+            "am_final": {
+              "observed": 331,
+              "feature_tokens": 406,
+              "expected_within_line_fraction": "8309447/180180",
+              "expected_within_line": 46.11747696747697,
+              "expected_pooled": 48.47937245787333,
+              "ratio_within_line": 7.1773223898052425,
+              "ratio_pooled": 6.827646135222274
+            },
+            "y_initial": {
+              "observed": 355,
+              "feature_tokens": 851,
+              "expected_within_line_fraction": "1651549/15015",
+              "expected_within_line": 109.9932733932734,
+              "expected_pooled": 101.61563044741429,
+              "ratio_within_line": 3.22747009020017,
+              "ratio_pooled": 3.4935570289426208
+            }
+          },
+          "common_eligible": {
+            "lines": 2466,
+            "tokens": 20652,
+            "singleton_lines": 16,
+            "am_final": {
+              "observed": 331,
+              "feature_tokens": 406,
+              "expected_within_line_fraction": "8309447/180180",
+              "expected_within_line": 46.11747696747697,
+              "expected_pooled": 48.47937245787333,
+              "ratio_within_line": 7.1773223898052425,
+              "ratio_pooled": 6.827646135222274
+            },
+            "y_initial": {
+              "observed": 355,
+              "feature_tokens": 851,
+              "expected_within_line_fraction": "1651549/15015",
+              "expected_within_line": 109.9932733932734,
+              "expected_pooled": 101.61563044741429,
+              "ratio_within_line": 3.22747009020017,
+              "ratio_pooled": 3.4935570289426208
+            }
+          },
+          "empty_ids": [
+            "f85r2.6"
+          ]
+        },
+        "split/primary/expand": {
+          "own_eligible": {
+            "lines": 2467,
+            "tokens": 23149,
+            "singleton_lines": 15,
+            "am_final": {
+              "observed": 376,
+              "feature_tokens": 468,
+              "expected_within_line_fraction": "35219467/720720",
+              "expected_within_line": 48.86705932955933,
+              "expected_pooled": 49.87498380059614,
+              "ratio_within_line": 7.694344721344023,
+              "ratio_pooled": 7.538849566413409
+            },
+            "y_initial": {
+              "observed": 355,
+              "feature_tokens": 981,
+              "expected_within_line_fraction": "688180609/6126120",
+              "expected_within_line": 112.33547645165292,
+              "expected_pooled": 104.54563912048036,
+              "ratio_within_line": 3.1601770982187034,
+              "ratio_pooled": 3.395646178898876
+            }
+          },
+          "common_eligible": {
+            "lines": 2466,
+            "tokens": 23148,
+            "singleton_lines": 14,
+            "am_final": {
+              "observed": 376,
+              "feature_tokens": 468,
+              "expected_within_line_fraction": "35219467/720720",
+              "expected_within_line": 48.86705932955933,
+              "expected_pooled": 49.856920684292376,
+              "ratio_within_line": 7.694344721344023,
+              "ratio_pooled": 7.541580884646578
+            },
+            "y_initial": {
+              "observed": 355,
+              "feature_tokens": 981,
+              "expected_within_line_fraction": "688180609/6126120",
+              "expected_within_line": 112.33547645165292,
+              "expected_pooled": 104.50777604976672,
+              "ratio_within_line": 3.1601770982187034,
+              "ratio_pooled": 3.396876418372434
+            }
+          },
+          "empty_ids": []
+        },
+        "split/primary/opaque": {
+          "own_eligible": {
+            "lines": 2467,
+            "tokens": 23149,
+            "singleton_lines": 15,
+            "am_final": {
+              "observed": 376,
+              "feature_tokens": 468,
+              "expected_within_line_fraction": "35219467/720720",
+              "expected_within_line": 48.86705932955933,
+              "expected_pooled": 49.87498380059614,
+              "ratio_within_line": 7.694344721344023,
+              "ratio_pooled": 7.538849566413409
+            },
+            "y_initial": {
+              "observed": 355,
+              "feature_tokens": 979,
+              "expected_within_line_fraction": "228996473/2042040",
+              "expected_within_line": 112.14103200720848,
+              "expected_pooled": 104.33249816406756,
+              "ratio_within_line": 3.16565661690344,
+              "ratio_pooled": 3.402583147599384
+            }
+          },
+          "common_eligible": {
+            "lines": 2466,
+            "tokens": 23148,
+            "singleton_lines": 14,
+            "am_final": {
+              "observed": 376,
+              "feature_tokens": 468,
+              "expected_within_line_fraction": "35219467/720720",
+              "expected_within_line": 48.86705932955933,
+              "expected_pooled": 49.856920684292376,
+              "ratio_within_line": 7.694344721344023,
+              "ratio_pooled": 7.541580884646578
+            },
+            "y_initial": {
+              "observed": 355,
+              "feature_tokens": 979,
+              "expected_within_line_fraction": "228996473/2042040",
+              "expected_within_line": 112.14103200720848,
+              "expected_pooled": 104.29471228615863,
+              "ratio_within_line": 3.16565661690344,
+              "ratio_pooled": 3.4038159003302937
+            }
+          },
+          "empty_ids": []
+        },
+        "split/exclude_word/expand": {
+          "own_eligible": {
+            "lines": 2467,
+            "tokens": 22773,
+            "singleton_lines": 15,
+            "am_final": {
+              "observed": 365,
+              "feature_tokens": 455,
+              "expected_within_line_fraction": "1049969/21840",
+              "expected_within_line": 48.075503663003666,
+              "expected_pooled": 49.29016818161858,
+              "ratio_within_line": 7.592224151379708,
+              "ratio_pooled": 7.405127908168038
+            },
+            "y_initial": {
+              "observed": 350,
+              "feature_tokens": 963,
+              "expected_within_line_fraction": "86071823/765765",
+              "expected_within_line": 112.39978714096361,
+              "expected_pooled": 104.32182848109603,
+              "ratio_within_line": 3.1138849005208127,
+              "ratio_pooled": 3.355002544490704
+            }
+          },
+          "common_eligible": {
+            "lines": 2466,
+            "tokens": 22772,
+            "singleton_lines": 14,
+            "am_final": {
+              "observed": 365,
+              "feature_tokens": 455,
+              "expected_within_line_fraction": "1049969/21840",
+              "expected_within_line": 48.075503663003666,
+              "expected_pooled": 49.27235201124188,
+              "ratio_within_line": 7.592224151379708,
+              "ratio_pooled": 7.407805495396736
+            },
+            "y_initial": {
+              "observed": 350,
+              "feature_tokens": 963,
+              "expected_within_line_fraction": "86071823/765765",
+              "expected_within_line": 112.39978714096361,
+              "expected_pooled": 104.28412085016687,
+              "ratio_within_line": 3.1138849005208127,
+              "ratio_pooled": 3.356215664922489
+            }
+          },
+          "empty_ids": []
+        },
+        "split/exclude_word/opaque": {
+          "own_eligible": {
+            "lines": 2467,
+            "tokens": 22773,
+            "singleton_lines": 15,
+            "am_final": {
+              "observed": 365,
+              "feature_tokens": 455,
+              "expected_within_line_fraction": "1049969/21840",
+              "expected_within_line": 48.075503663003666,
+              "expected_pooled": 49.29016818161858,
+              "ratio_within_line": 7.592224151379708,
+              "ratio_pooled": 7.405127908168038
+            },
+            "y_initial": {
+              "observed": 350,
+              "feature_tokens": 961,
+              "expected_within_line_fraction": "114563899/1021020",
+              "expected_within_line": 112.20534269651917,
+              "expected_pooled": 104.10516840117683,
+              "ratio_within_line": 3.119281057290133,
+              "ratio_pooled": 3.3619848598798625
+            }
+          },
+          "common_eligible": {
+            "lines": 2466,
+            "tokens": 22772,
+            "singleton_lines": 14,
+            "am_final": {
+              "observed": 365,
+              "feature_tokens": 455,
+              "expected_within_line_fraction": "1049969/21840",
+              "expected_within_line": 48.075503663003666,
+              "expected_pooled": 49.27235201124188,
+              "ratio_within_line": 7.592224151379708,
+              "ratio_pooled": 7.407805495396736
+            },
+            "y_initial": {
+              "observed": 350,
+              "feature_tokens": 961,
+              "expected_within_line_fraction": "114563899/1021020",
+              "expected_within_line": 112.20534269651917,
+              "expected_pooled": 104.06753908308448,
+              "ratio_within_line": 3.119281057290133,
+              "ratio_pooled": 3.36320050501598
+            }
+          },
+          "empty_ids": []
+        },
+        "join/primary/expand": {
+          "own_eligible": {
+            "lines": 2467,
+            "tokens": 21518,
+            "singleton_lines": 16,
+            "am_final": {
+              "observed": 376,
+              "feature_tokens": 460,
+              "expected_within_line_fraction": "9314119/180180",
+              "expected_within_line": 51.69341214341215,
+              "expected_pooled": 52.738172692629426,
+              "ratio_within_line": 7.273654115864313,
+              "ratio_pooled": 7.12956063516681
+            },
+            "y_initial": {
+              "observed": 355,
+              "feature_tokens": 917,
+              "expected_within_line_fraction": "294337/2574",
+              "expected_within_line": 114.35003885003886,
+              "expected_pooled": 105.1324007807417,
+              "ratio_within_line": 3.104502661914744,
+              "ratio_pooled": 3.376694504868849
+            }
+          },
+          "common_eligible": {
+            "lines": 2466,
+            "tokens": 21517,
+            "singleton_lines": 15,
+            "am_final": {
+              "observed": 376,
+              "feature_tokens": 460,
+              "expected_within_line_fraction": "9314119/180180",
+              "expected_within_line": 51.69341214341215,
+              "expected_pooled": 52.71924524794348,
+              "ratio_within_line": 7.273654115864313,
+              "ratio_pooled": 7.132120314538595
+            },
+            "y_initial": {
+              "observed": 355,
+              "feature_tokens": 917,
+              "expected_within_line_fraction": "294337/2574",
+              "expected_within_line": 114.35003885003886,
+              "expected_pooled": 105.09466933122647,
+              "ratio_within_line": 3.104502661914744,
+              "ratio_pooled": 3.3779068173395914
+            }
+          },
+          "empty_ids": []
+        },
+        "join/primary/opaque": {
+          "own_eligible": {
+            "lines": 2467,
+            "tokens": 21518,
+            "singleton_lines": 16,
+            "am_final": {
+              "observed": 376,
+              "feature_tokens": 460,
+              "expected_within_line_fraction": "9314119/180180",
+              "expected_within_line": 51.69341214341215,
+              "expected_pooled": 52.738172692629426,
+              "ratio_within_line": 7.273654115864313,
+              "ratio_pooled": 7.12956063516681
+            },
+            "y_initial": {
+              "observed": 355,
+              "feature_tokens": 915,
+              "expected_within_line_fraction": "65297/572",
+              "expected_within_line": 114.1555944055944,
+              "expected_pooled": 104.90310437773027,
+              "ratio_within_line": 3.1097906488812654,
+              "ratio_pooled": 3.384075257884956
+            }
+          },
+          "common_eligible": {
+            "lines": 2466,
+            "tokens": 21517,
+            "singleton_lines": 15,
+            "am_final": {
+              "observed": 376,
+              "feature_tokens": 460,
+              "expected_within_line_fraction": "9314119/180180",
+              "expected_within_line": 51.69341214341215,
+              "expected_pooled": 52.71924524794348,
+              "ratio_within_line": 7.273654115864313,
+              "ratio_pooled": 7.132120314538595
+            },
+            "y_initial": {
+              "observed": 355,
+              "feature_tokens": 915,
+              "expected_within_line_fraction": "65297/572",
+              "expected_within_line": 114.1555944055944,
+              "expected_pooled": 104.8654552214528,
+              "ratio_within_line": 3.1097906488812654,
+              "ratio_pooled": 3.3852902202190225
+            }
+          },
+          "empty_ids": []
+        },
+        "join/exclude_word/expand": {
+          "own_eligible": {
+            "lines": 2467,
+            "tokens": 21142,
+            "singleton_lines": 16,
+            "am_final": {
+              "observed": 364,
+              "feature_tokens": 446,
+              "expected_within_line_fraction": "6099199/120120",
+              "expected_within_line": 50.77588245088245,
+              "expected_pooled": 52.04247469492007,
+              "ratio_within_line": 7.168757733597477,
+              "ratio_pooled": 6.99428691917163
+            },
+            "y_initial": {
+              "observed": 349,
+              "feature_tokens": 899,
+              "expected_within_line_fraction": "10316893/90090",
+              "expected_within_line": 114.51762681762682,
+              "expected_pooled": 104.9017595307918,
+              "ratio_within_line": 3.047565773920501,
+              "ratio_pooled": 3.3269222705226227
+            }
+          },
+          "common_eligible": {
+            "lines": 2466,
+            "tokens": 21141,
+            "singleton_lines": 15,
+            "am_final": {
+              "observed": 364,
+              "feature_tokens": 446,
+              "expected_within_line_fraction": "6099199/120120",
+              "expected_within_line": 50.77588245088245,
+              "expected_pooled": 52.02383993188591,
+              "ratio_within_line": 7.168757733597477,
+              "ratio_pooled": 6.996792249026218
+            },
+            "y_initial": {
+              "observed": 349,
+              "feature_tokens": 899,
+              "expected_within_line_fraction": "10316893/90090",
+              "expected_within_line": 114.51762681762682,
+              "expected_pooled": 104.8641975308642,
+              "ratio_within_line": 3.047565773920501,
+              "ratio_pooled": 3.3281139627972687
+            }
+          },
+          "empty_ids": []
+        },
+        "join/exclude_word/opaque": {
+          "own_eligible": {
+            "lines": 2467,
+            "tokens": 21142,
+            "singleton_lines": 16,
+            "am_final": {
+              "observed": 364,
+              "feature_tokens": 446,
+              "expected_within_line_fraction": "6099199/120120",
+              "expected_within_line": 50.77588245088245,
+              "expected_pooled": 52.04247469492007,
+              "ratio_within_line": 7.168757733597477,
+              "ratio_pooled": 6.99428691917163
+            },
+            "y_initial": {
+              "observed": 349,
+              "feature_tokens": 897,
+              "expected_within_line_fraction": "20598751/180180",
+              "expected_within_line": 114.32318237318238,
+              "expected_pooled": 104.6683852048056,
+              "ratio_within_line": 3.0527491691122437,
+              "ratio_pooled": 3.33434015741342
+            }
+          },
+          "common_eligible": {
+            "lines": 2466,
+            "tokens": 21141,
+            "singleton_lines": 15,
+            "am_final": {
+              "observed": 364,
+              "feature_tokens": 446,
+              "expected_within_line_fraction": "6099199/120120",
+              "expected_within_line": 50.77588245088245,
+              "expected_pooled": 52.02383993188591,
+              "ratio_within_line": 7.168757733597477,
+              "ratio_pooled": 6.996792249026218
+            },
+            "y_initial": {
+              "observed": 349,
+              "feature_tokens": 897,
+              "expected_within_line_fraction": "20598751/180180",
+              "expected_within_line": 114.32318237318238,
+              "expected_pooled": 104.6309067688378,
+              "ratio_within_line": 3.0527491691122437,
+              "ratio_pooled": 3.335534506749994
+            }
+          },
+          "empty_ids": []
+        }
+      },
+      "changed_rows": 1903,
+      "default_endpoint_changes": [
+        {
+          "id": "f31v.11",
+          "old_signature_am_y": [
+            false,
+            false
+          ],
+          "new_signature_am_y": [
+            true,
+            false
+          ],
+          "old_first": "saiin",
+          "new_first": "saiin",
+          "old_last": "cheam<$>",
+          "new_last": "cheam"
+        },
+        {
+          "id": "f33r.3",
+          "old_signature_am_y": [
+            false,
+            false
+          ],
+          "new_signature_am_y": [
+            true,
+            false
+          ],
+          "old_first": "laiin",
+          "new_first": "laiin",
+          "old_last": "yka[m:g]",
+          "new_last": "ykam"
+        },
+        {
+          "id": "f33r.5",
+          "old_signature_am_y": [
+            false,
+            false
+          ],
+          "new_signature_am_y": [
+            true,
+            false
+          ],
+          "old_first": "pair",
+          "new_first": "pair",
+          "old_last": "ota[m:g]",
+          "new_last": "otam"
+        },
+        {
+          "id": "f33v.11",
+          "old_signature_am_y": [
+            false,
+            false
+          ],
+          "new_signature_am_y": [
+            true,
+            false
+          ],
+          "old_first": "tar",
+          "new_first": "tar",
+          "old_last": "oram<$>",
+          "new_last": "oram"
+        },
+        {
+          "id": "f34r.8",
+          "old_signature_am_y": [
+            false,
+            false
+          ],
+          "new_signature_am_y": [
+            true,
+            false
+          ],
+          "old_first": "qoky<->olk<->checkhy<~>ys,air",
+          "new_first": "ch'otchy",
+          "old_last": "ta[m:g]",
+          "new_last": "tam"
+        },
+        {
+          "id": "f34v.8",
+          "old_signature_am_y": [
+            false,
+            true
+          ],
+          "new_signature_am_y": [
+            true,
+            true
+          ],
+          "old_first": "ysheos",
+          "new_first": "ysheos",
+          "old_last": "oka[m:g]",
+          "new_last": "okam"
+        },
+        {
+          "id": "f41r.4",
+          "old_signature_am_y": [
+            false,
+            false
+          ],
+          "new_signature_am_y": [
+            true,
+            false
+          ],
+          "old_first": "chdchy",
+          "new_first": "chdchy",
+          "old_last": "da[m:g]",
+          "new_last": "dam"
+        },
+        {
+          "id": "f43r.1",
+          "old_signature_am_y": [
+            false,
+            true
+          ],
+          "new_signature_am_y": [
+            false,
+            false
+          ],
+          "old_first": "ytedy",
+          "new_first": "tarodaiin",
+          "old_last": "dar",
+          "new_last": "dar"
+        },
+        {
+          "id": "f46v.1",
+          "old_signature_am_y": [
+            false,
+            true
+          ],
+          "new_signature_am_y": [
+            false,
+            false
+          ],
+          "old_first": "ypdy,shedy",
+          "new_first": "pody",
+          "old_last": "daiin",
+          "new_last": "daiin"
+        },
+        {
+          "id": "f48r.1",
+          "old_signature_am_y": [
+            false,
+            true
+          ],
+          "new_signature_am_y": [
+            false,
+            false
+          ],
+          "old_first": "ypchdy",
+          "new_first": "pshdaiin",
+          "old_last": "opaldy",
+          "new_last": "opaldy"
+        },
+        {
+          "id": "f48r.9",
+          "old_signature_am_y": [
+            false,
+            true
+          ],
+          "new_signature_am_y": [
+            true,
+            true
+          ],
+          "old_first": "yteched",
+          "new_first": "yteched",
+          "old_last": "okeoam<$>",
+          "new_last": "okeoam"
+        },
+        {
+          "id": "f48v.6",
+          "old_signature_am_y": [
+            false,
+            false
+          ],
+          "new_signature_am_y": [
+            true,
+            false
+          ],
+          "old_first": "shdy",
+          "new_first": "shdy",
+          "old_last": "am<$>",
+          "new_last": "am"
+        },
+        {
+          "id": "f55v.7",
+          "old_signature_am_y": [
+            false,
+            true
+          ],
+          "new_signature_am_y": [
+            false,
+            false
+          ],
+          "old_first": "yk[a:?]in",
+          "new_first": "okchd",
+          "old_last": "dary",
+          "new_last": "dary"
+        },
+        {
+          "id": "f55v.12",
+          "old_signature_am_y": [
+            false,
+            false
+          ],
+          "new_signature_am_y": [
+            true,
+            false
+          ],
+          "old_first": "daiin",
+          "new_first": "daiin",
+          "old_last": "otam<$>",
+          "new_last": "otam"
+        },
+        {
+          "id": "f57r.1",
+          "old_signature_am_y": [
+            false,
+            false
+          ],
+          "new_signature_am_y": [
+            true,
+            false
+          ],
+          "old_first": "odain",
+          "new_first": "poeeockhey",
+          "old_last": "sheody",
+          "new_last": "eodam"
+        },
+        {
+          "id": "f57r.5",
+          "old_signature_am_y": [
+            false,
+            false
+          ],
+          "new_signature_am_y": [
+            true,
+            false
+          ],
+          "old_first": "qok[ch:ee]o",
+          "new_first": "qokcho",
+          "old_last": "cheeodam<$>",
+          "new_last": "cheeodam"
+        },
+        {
+          "id": "f57r.11",
+          "old_signature_am_y": [
+            false,
+            false
+          ],
+          "new_signature_am_y": [
+            true,
+            false
+          ],
+          "old_first": "dshedy",
+          "new_first": "dshedy",
+          "old_last": "cphedam<$>",
+          "new_last": "cphedam"
+        },
+        {
+          "id": "f79v.11",
+          "old_signature_am_y": [
+            false,
+            false
+          ],
+          "new_signature_am_y": [
+            true,
+            false
+          ],
+          "old_first": "olcheey",
+          "new_first": "olcheey",
+          "old_last": "olkam<$>",
+          "new_last": "olkam"
+        },
+        {
+          "id": "f79v.33",
+          "old_signature_am_y": [
+            false,
+            true
+          ],
+          "new_signature_am_y": [
+            false,
+            false
+          ],
+          "old_first": "yteey",
+          "new_first": "por",
+          "old_last": "oral",
+          "new_last": "oral"
+        },
+        {
+          "id": "f81v.11",
+          "old_signature_am_y": [
+            false,
+            false
+          ],
+          "new_signature_am_y": [
+            false,
+            true
+          ],
+          "old_first": "qokeey",
+          "new_first": "yshey",
+          "old_last": "dsholyd",
+          "new_last": "dsholyd"
+        },
+        {
+          "id": "f84r.22",
+          "old_signature_am_y": [
+            false,
+            true
+          ],
+          "new_signature_am_y": [
+            false,
+            false
+          ],
+          "old_first": "ykeedy",
+          "new_first": "qotchsdy",
+          "old_last": "otar,dar",
+          "new_last": "dar"
+        },
+        {
+          "id": "f85r1.12",
+          "old_signature_am_y": [
+            false,
+            false
+          ],
+          "new_signature_am_y": [
+            true,
+            false
+          ],
+          "old_first": "tdain",
+          "new_first": "tdain",
+          "old_last": "am<!raised>",
+          "new_last": "am"
+        },
+        {
+          "id": "f85r1.19",
+          "old_signature_am_y": [
+            false,
+            false
+          ],
+          "new_signature_am_y": [
+            true,
+            false
+          ],
+          "old_first": "okchy",
+          "new_first": "okchy",
+          "old_last": "lam<$>",
+          "new_last": "lam"
+        },
+        {
+          "id": "f85r1.28",
+          "old_signature_am_y": [
+            false,
+            true
+          ],
+          "new_signature_am_y": [
+            false,
+            false
+          ],
+          "old_first": "yteol",
+          "new_first": "kchedar",
+          "old_last": "dal,cphedy",
+          "new_last": "cphedy"
+        },
+        {
+          "id": "f85r2.10",
+          "old_signature_am_y": [
+            false,
+            false
+          ],
+          "new_signature_am_y": [
+            false,
+            true
+          ],
+          "old_first": "qotedar",
+          "new_first": "ytchedy",
+          "old_last": "qotom",
+          "new_last": "qotom"
+        },
+        {
+          "id": "f85r2.14",
+          "old_signature_am_y": [
+            false,
+            false
+          ],
+          "new_signature_am_y": [
+            false,
+            true
+          ],
+          "old_first": "chz[s:r]",
+          "new_first": "ytedar",
+          "old_last": "arody",
+          "new_last": "arody"
+        },
+        {
+          "id": "f85r2.15",
+          "old_signature_am_y": [
+            true,
+            false
+          ],
+          "new_signature_am_y": [
+            true,
+            true
+          ],
+          "old_first": "dar",
+          "new_first": "ypshedy",
+          "old_last": "or,am",
+          "new_last": "am"
+        },
+        {
+          "id": "f86v6.45",
+          "old_signature_am_y": [
+            false,
+            false
+          ],
+          "new_signature_am_y": [
+            true,
+            false
+          ],
+          "old_first": "paiin",
+          "new_first": "paiin",
+          "old_last": "ai[o:a]dam<$>",
+          "new_last": "aiodam"
+        },
+        {
+          "id": "f86v5.11",
+          "old_signature_am_y": [
+            false,
+            false
+          ],
+          "new_signature_am_y": [
+            true,
+            false
+          ],
+          "old_first": "taral",
+          "new_first": "taral",
+          "old_last": "olkam<$>",
+          "new_last": "olkam"
+        },
+        {
+          "id": "f86v5.17",
+          "old_signature_am_y": [
+            false,
+            false
+          ],
+          "new_signature_am_y": [
+            true,
+            false
+          ],
+          "old_first": "ockhedy",
+          "new_first": "ockhedy",
+          "old_last": "olkam<$>",
+          "new_last": "olkam"
+        },
+        {
+          "id": "f86v3.2",
+          "old_signature_am_y": [
+            false,
+            true
+          ],
+          "new_signature_am_y": [
+            false,
+            false
+          ],
+          "old_first": "ychedy",
+          "new_first": "rain",
+          "old_last": "q[y:o],kaiin",
+          "new_last": "kaiin"
+        },
+        {
+          "id": "f86v3.3",
+          "old_signature_am_y": [
+            true,
+            true
+          ],
+          "new_signature_am_y": [
+            true,
+            false
+          ],
+          "old_first": "ytaiin",
+          "new_first": "taiin",
+          "old_last": "am",
+          "new_last": "am"
+        },
+        {
+          "id": "f86v3.4",
+          "old_signature_am_y": [
+            true,
+            false
+          ],
+          "new_signature_am_y": [
+            true,
+            true
+          ],
+          "old_first": "qoeedy",
+          "new_first": "ykaiin",
+          "old_last": "am",
+          "new_last": "am"
+        },
+        {
+          "id": "f86v3.5",
+          "old_signature_am_y": [
+            true,
+            false
+          ],
+          "new_signature_am_y": [
+            true,
+            true
+          ],
+          "old_first": "qotaiin",
+          "new_first": "ych'eey",
+          "old_last": "ytam",
+          "new_last": "ytam"
+        },
+        {
+          "id": "f86v3.7",
+          "old_signature_am_y": [
+            true,
+            true
+          ],
+          "new_signature_am_y": [
+            true,
+            false
+          ],
+          "old_first": "ytaiin",
+          "new_first": "sain",
+          "old_last": "ytam",
+          "new_last": "ytam"
+        },
+        {
+          "id": "f86v3.10",
+          "old_signature_am_y": [
+            true,
+            false
+          ],
+          "new_signature_am_y": [
+            true,
+            true
+          ],
+          "old_first": "olkeeey",
+          "new_first": "ychey",
+          "old_last": "am",
+          "new_last": "am"
+        },
+        {
+          "id": "f86v3.23",
+          "old_signature_am_y": [
+            false,
+            true
+          ],
+          "new_signature_am_y": [
+            false,
+            false
+          ],
+          "old_first": "ypchey",
+          "new_first": "tshedal",
+          "old_last": "qotaiin",
+          "new_last": "qotaiin"
+        },
+        {
+          "id": "f86v3.25",
+          "old_signature_am_y": [
+            true,
+            true
+          ],
+          "new_signature_am_y": [
+            true,
+            false
+          ],
+          "old_first": "y,ochedy",
+          "new_first": "qodaiin",
+          "old_last": "am",
+          "new_last": "am"
+        },
+        {
+          "id": "f86v3.26",
+          "old_signature_am_y": [
+            false,
+            true
+          ],
+          "new_signature_am_y": [
+            false,
+            false
+          ],
+          "old_first": "yteey",
+          "new_first": "shor",
+          "old_last": "aiin",
+          "new_last": "aiin"
+        },
+        {
+          "id": "f86v3.28",
+          "old_signature_am_y": [
+            false,
+            false
+          ],
+          "new_signature_am_y": [
+            false,
+            true
+          ],
+          "old_first": "daii[s:r]",
+          "new_first": "ycheeody",
+          "old_last": "olteey<$>",
+          "new_last": "olteey"
+        },
+        {
+          "id": "f86v3.33",
+          "old_signature_am_y": [
+            true,
+            false
+          ],
+          "new_signature_am_y": [
+            true,
+            true
+          ],
+          "old_first": "otaiin",
+          "new_first": "ytchey",
+          "old_last": "or,am",
+          "new_last": "am"
+        },
+        {
+          "id": "f86v3.34",
+          "old_signature_am_y": [
+            true,
+            false
+          ],
+          "new_signature_am_y": [
+            true,
+            true
+          ],
+          "old_first": "chedy",
+          "new_first": "yteeo",
+          "old_last": "am",
+          "new_last": "am"
+        },
+        {
+          "id": "f86v3.36",
+          "old_signature_am_y": [
+            false,
+            false
+          ],
+          "new_signature_am_y": [
+            false,
+            true
+          ],
+          "old_first": "qoteey",
+          "new_first": "ykeeedy",
+          "old_last": "okeeey<$>",
+          "new_last": "okeeey"
+        },
+        {
+          "id": "f103v.32",
+          "old_signature_am_y": [
+            false,
+            false
+          ],
+          "new_signature_am_y": [
+            true,
+            false
+          ],
+          "old_first": "qokeeey",
+          "new_first": "qokeeey",
+          "old_last": "olkam<$>",
+          "new_last": "olkam"
+        },
+        {
+          "id": "f103v.33",
+          "old_signature_am_y": [
+            false,
+            false
+          ],
+          "new_signature_am_y": [
+            false,
+            true
+          ],
+          "old_first": "lkeey",
+          "new_first": "yshey",
+          "old_last": "oly",
+          "new_last": "oly"
+        },
+        {
+          "id": "f104r.9",
+          "old_signature_am_y": [
+            false,
+            true
+          ],
+          "new_signature_am_y": [
+            true,
+            true
+          ],
+          "old_first": "ycheeoy",
+          "new_first": "ycheeoy",
+          "old_last": "cheeo,dam<$>",
+          "new_last": "dam"
+        },
+        {
+          "id": "f104v.22",
+          "old_signature_am_y": [
+            false,
+            false
+          ],
+          "new_signature_am_y": [
+            false,
+            true
+          ],
+          "old_first": "qokchedy",
+          "new_first": "ytchedy",
+          "old_last": "tal",
+          "new_last": "tal"
+        },
+        {
+          "id": "f104v.37",
+          "old_signature_am_y": [
+            true,
+            true
+          ],
+          "new_signature_am_y": [
+            true,
+            false
+          ],
+          "old_first": "ytedar,chedy",
+          "new_first": "posairy",
+          "old_last": "arodam",
+          "new_last": "arodam"
+        },
+        {
+          "id": "f105r.10",
+          "old_signature_am_y": [
+            false,
+            false
+          ],
+          "new_signature_am_y": [
+            true,
+            false
+          ],
+          "old_first": "sairy",
+          "new_first": "sairy",
+          "old_last": "ytam<$>",
+          "new_last": "ytam"
+        },
+        {
+          "id": "f105r.34",
+          "old_signature_am_y": [
+            false,
+            false
+          ],
+          "new_signature_am_y": [
+            true,
+            false
+          ],
+          "old_first": "dor",
+          "new_first": "dor",
+          "old_last": "alkam<$>",
+          "new_last": "alkam"
+        },
+        {
+          "id": "f105r.35",
+          "old_signature_am_y": [
+            false,
+            false
+          ],
+          "new_signature_am_y": [
+            false,
+            true
+          ],
+          "old_first": "okaiir",
+          "new_first": "ypchedy",
+          "old_last": "ofory",
+          "new_last": "ofory"
+        },
+        {
+          "id": "f105v.9",
+          "old_signature_am_y": [
+            false,
+            false
+          ],
+          "new_signature_am_y": [
+            true,
+            false
+          ],
+          "old_first": "lcheey",
+          "new_first": "lcheey",
+          "old_last": "ail",
+          "new_last": "okam"
+        },
+        {
+          "id": "f105v.19",
+          "old_signature_am_y": [
+            false,
+            true
+          ],
+          "new_signature_am_y": [
+            true,
+            true
+          ],
+          "old_first": "ycheey",
+          "new_first": "ycheey",
+          "old_last": "am<$>",
+          "new_last": "am"
+        },
+        {
+          "id": "f106r.47",
+          "old_signature_am_y": [
+            false,
+            true
+          ],
+          "new_signature_am_y": [
+            true,
+            true
+          ],
+          "old_first": "ycheoar",
+          "new_first": "ycheoar",
+          "old_last": "cheokam<$>",
+          "new_last": "cheokam"
+        },
+        {
+          "id": "f106v.4",
+          "old_signature_am_y": [
+            false,
+            true
+          ],
+          "new_signature_am_y": [
+            true,
+            true
+          ],
+          "old_first": "ycheoto",
+          "new_first": "ycheoto",
+          "old_last": "charam<$>",
+          "new_last": "charam"
+        },
+        {
+          "id": "f106v.14",
+          "old_signature_am_y": [
+            false,
+            false
+          ],
+          "new_signature_am_y": [
+            true,
+            false
+          ],
+          "old_first": "schedy",
+          "new_first": "schedy",
+          "old_last": "alkam<$>",
+          "new_last": "alkam"
+        },
+        {
+          "id": "f106v.31",
+          "old_signature_am_y": [
+            false,
+            false
+          ],
+          "new_signature_am_y": [
+            true,
+            false
+          ],
+          "old_first": "sheeyko",
+          "new_first": "sheeyko",
+          "old_last": "olcham<$>",
+          "new_last": "olcham"
+        },
+        {
+          "id": "f107r.41",
+          "old_signature_am_y": [
+            false,
+            false
+          ],
+          "new_signature_am_y": [
+            true,
+            false
+          ],
+          "old_first": "qokaiin",
+          "new_first": "qokaiin",
+          "old_last": "otam<$>",
+          "new_last": "otam"
+        },
+        {
+          "id": "f108r.43",
+          "old_signature_am_y": [
+            false,
+            false
+          ],
+          "new_signature_am_y": [
+            true,
+            false
+          ],
+          "old_first": "olke?y",
+          "new_first": "olke?y",
+          "old_last": "cheam<!corr?>",
+          "new_last": "cheam"
+        },
+        {
+          "id": "f108r.47",
+          "old_signature_am_y": [
+            false,
+            true
+          ],
+          "new_signature_am_y": [
+            true,
+            true
+          ],
+          "old_first": "yched",
+          "new_first": "yched",
+          "old_last": "keam<$>",
+          "new_last": "keam"
+        },
+        {
+          "id": "f108r.50",
+          "old_signature_am_y": [
+            false,
+            false
+          ],
+          "new_signature_am_y": [
+            true,
+            false
+          ],
+          "old_first": "qokeedy,lchedy",
+          "new_first": "qokeedy",
+          "old_last": "okam<$>",
+          "new_last": "okam"
+        },
+        {
+          "id": "f108v.19",
+          "old_signature_am_y": [
+            false,
+            false
+          ],
+          "new_signature_am_y": [
+            true,
+            false
+          ],
+          "old_first": "qokeeol",
+          "new_first": "qokeeol",
+          "old_last": "lcheam<$>",
+          "new_last": "lcheam"
+        },
+        {
+          "id": "f111r.35",
+          "old_signature_am_y": [
+            false,
+            true
+          ],
+          "new_signature_am_y": [
+            true,
+            true
+          ],
+          "old_first": "y,chedl",
+          "new_first": "y",
+          "old_last": "dam<$>",
+          "new_last": "dam"
+        },
+        {
+          "id": "f111v.37",
+          "old_signature_am_y": [
+            false,
+            true
+          ],
+          "new_signature_am_y": [
+            false,
+            false
+          ],
+          "old_first": "ykain",
+          "new_first": "polchey",
+          "old_last": "r,aldl",
+          "new_last": "aldl"
+        },
+        {
+          "id": "f112r.10",
+          "old_signature_am_y": [
+            false,
+            false
+          ],
+          "new_signature_am_y": [
+            true,
+            false
+          ],
+          "old_first": "dair",
+          "new_first": "dair",
+          "old_last": "dam<$>",
+          "new_last": "dam"
+        },
+        {
+          "id": "f112r.18",
+          "old_signature_am_y": [
+            false,
+            false
+          ],
+          "new_signature_am_y": [
+            true,
+            false
+          ],
+          "old_first": "saiin",
+          "new_first": "saiin",
+          "old_last": "cham<$>",
+          "new_last": "cham"
+        },
+        {
+          "id": "f112r.26",
+          "old_signature_am_y": [
+            false,
+            false
+          ],
+          "new_signature_am_y": [
+            true,
+            false
+          ],
+          "old_first": "tockhy",
+          "new_first": "tockhy",
+          "old_last": "chedam<$>",
+          "new_last": "chedam"
+        },
+        {
+          "id": "f112r.28",
+          "old_signature_am_y": [
+            false,
+            true
+          ],
+          "new_signature_am_y": [
+            true,
+            true
+          ],
+          "old_first": "ysheedy",
+          "new_first": "ysheedy",
+          "old_last": "shara[m:r]",
+          "new_last": "sharam"
+        },
+        {
+          "id": "f112r.36",
+          "old_signature_am_y": [
+            false,
+            false
+          ],
+          "new_signature_am_y": [
+            true,
+            false
+          ],
+          "old_first": "sain",
+          "new_first": "sain",
+          "old_last": "olam<$>",
+          "new_last": "olam"
+        },
+        {
+          "id": "f112v.23",
+          "old_signature_am_y": [
+            false,
+            false
+          ],
+          "new_signature_am_y": [
+            false,
+            true
+          ],
+          "old_first": "olkeeey",
+          "new_first": "ycheol",
+          "old_last": "qotain",
+          "new_last": "qotain"
+        },
+        {
+          "id": "f112v.45",
+          "old_signature_am_y": [
+            true,
+            false
+          ],
+          "new_signature_am_y": [
+            true,
+            true
+          ],
+          "old_first": "chokeey",
+          "new_first": "ycheey",
+          "old_last": "kamdam",
+          "new_last": "kamdam"
+        },
+        {
+          "id": "f113r.1",
+          "old_signature_am_y": [
+            false,
+            true
+          ],
+          "new_signature_am_y": [
+            false,
+            false
+          ],
+          "old_first": "ypcheedy",
+          "new_first": "pches@186;chy",
+          "old_last": "chedy",
+          "new_last": "chedy"
+        },
+        {
+          "id": "f113v.3",
+          "old_signature_am_y": [
+            false,
+            false
+          ],
+          "new_signature_am_y": [
+            true,
+            false
+          ],
+          "old_first": "sar,aiin",
+          "new_first": "sar",
+          "old_last": "olol,olam<$>",
+          "new_last": "olam"
+        },
+        {
+          "id": "f114r.34",
+          "old_signature_am_y": [
+            false,
+            true
+          ],
+          "new_signature_am_y": [
+            true,
+            true
+          ],
+          "old_first": "ytain",
+          "new_first": "ytain",
+          "old_last": "alkam<$>",
+          "new_last": "alkam"
+        },
+        {
+          "id": "f114v.18",
+          "old_signature_am_y": [
+            false,
+            false
+          ],
+          "new_signature_am_y": [
+            true,
+            false
+          ],
+          "old_first": "cheo,aiin",
+          "new_first": "dorkcheky",
+          "old_last": "qoto",
+          "new_last": "@189;shxam"
+        },
+        {
+          "id": "f114v.28",
+          "old_signature_am_y": [
+            false,
+            false
+          ],
+          "new_signature_am_y": [
+            true,
+            false
+          ],
+          "old_first": "tchedy",
+          "new_first": "tchedy",
+          "old_last": "chetam<$>",
+          "new_last": "chetam"
+        },
+        {
+          "id": "f115v.7",
+          "old_signature_am_y": [
+            false,
+            false
+          ],
+          "new_signature_am_y": [
+            true,
+            false
+          ],
+          "old_first": "dchedy",
+          "new_first": "dchedy",
+          "old_last": "chotam<$>",
+          "new_last": "chotam"
+        }
+      ],
+      "leave_one_numeric_folio_out": [
+        {
+          "removed_numeric_folio": 26,
+          "removed_lines": 19,
+          "effects": {
+            "am_final": {
+              "historical": 7.1996245159323,
+              "candidate": 7.71012247138088,
+              "candidate_minus_historical": 0.5104979554485807
+            },
+            "y_initial": {
+              "historical": 3.2560657999938774,
+              "candidate": 3.1966120376257487,
+              "candidate_minus_historical": -0.059453762368128604
+            }
+          }
+        },
+        {
+          "removed_numeric_folio": 31,
+          "removed_lines": 27,
+          "effects": {
+            "am_final": {
+              "historical": 7.221382443928023,
+              "candidate": 7.72093020316957,
+              "candidate_minus_historical": 0.4995477592415467
+            },
+            "y_initial": {
+              "historical": 3.2222571613705764,
+              "candidate": 3.145579705303934,
+              "candidate_minus_historical": -0.07667745606664234
+            }
+          }
+        },
+        {
+          "removed_numeric_folio": 33,
+          "removed_lines": 18,
+          "effects": {
+            "am_final": {
+              "historical": 7.239353290584601,
+              "candidate": 7.7668018408962265,
+              "candidate_minus_historical": 0.5274485503116253
+            },
+            "y_initial": {
+              "historical": 3.2194202685576077,
+              "candidate": 3.1613907436017428,
+              "candidate_minus_historical": -0.058029524955864886
+            }
+          }
+        },
+        {
+          "removed_numeric_folio": 34,
+          "removed_lines": 26,
+          "effects": {
+            "am_final": {
+              "historical": 7.147595251658967,
+              "candidate": 7.664340867490812,
+              "candidate_minus_historical": 0.5167456158318444
+            },
+            "y_initial": {
+              "historical": 3.215724157256753,
+              "candidate": 3.1524540022604617,
+              "candidate_minus_historical": -0.06327015499629152
+            }
+          }
+        },
+        {
+          "removed_numeric_folio": 39,
+          "removed_lines": 30,
+          "effects": {
+            "am_final": {
+              "historical": 7.255444959969686,
+              "candidate": 7.792776072947865,
+              "candidate_minus_historical": 0.5373311129781788
+            },
+            "y_initial": {
+              "historical": 3.257879475786575,
+              "candidate": 3.1930476168806696,
+              "candidate_minus_historical": -0.06483185890590537
+            }
+          }
+        },
+        {
+          "removed_numeric_folio": 40,
+          "removed_lines": 30,
+          "effects": {
+            "am_final": {
+              "historical": 7.230384548668688,
+              "candidate": 7.73414943099412,
+              "candidate_minus_historical": 0.5037648823254317
+            },
+            "y_initial": {
+              "historical": 3.239970575980455,
+              "candidate": 3.1847992349520062,
+              "candidate_minus_historical": -0.05517134102844867
+            }
+          }
+        },
+        {
+          "removed_numeric_folio": 41,
+          "removed_lines": 18,
+          "effects": {
+            "am_final": {
+              "historical": 7.169772051763238,
+              "candidate": 7.681227221452894,
+              "candidate_minus_historical": 0.5114551696896559
+            },
+            "y_initial": {
+              "historical": 3.2525819156589906,
+              "candidate": 3.1950174949303363,
+              "candidate_minus_historical": -0.05756442072865431
+            }
+          }
+        },
+        {
+          "removed_numeric_folio": 43,
+          "removed_lines": 30,
+          "effects": {
+            "am_final": {
+              "historical": 7.185353871177882,
+              "candidate": 7.696288971773514,
+              "candidate_minus_historical": 0.5109351005956322
+            },
+            "y_initial": {
+              "historical": 3.2147658469872797,
+              "candidate": 3.1546872464187516,
+              "candidate_minus_historical": -0.060078600568528095
+            }
+          }
+        },
+        {
+          "removed_numeric_folio": 46,
+          "removed_lines": 28,
+          "effects": {
+            "am_final": {
+              "historical": 7.2567645981019,
+              "candidate": 7.7977164150680895,
+              "candidate_minus_historical": 0.5409518169661895
+            },
+            "y_initial": {
+              "historical": 3.243738782927753,
+              "candidate": 3.1805735175968537,
+              "candidate_minus_historical": -0.06316526533089917
+            }
+          }
+        },
+        {
+          "removed_numeric_folio": 48,
+          "removed_lines": 20,
+          "effects": {
+            "am_final": {
+              "historical": 7.219299280665982,
+              "candidate": 7.751715482998392,
+              "candidate_minus_historical": 0.5324162023324099
+            },
+            "y_initial": {
+              "historical": 3.276123289488206,
+              "candidate": 3.219624859787904,
+              "candidate_minus_historical": -0.056498429700301944
+            }
+          }
+        },
+        {
+          "removed_numeric_folio": 50,
+          "removed_lines": 21,
+          "effects": {
+            "am_final": {
+              "historical": 7.16339561607166,
+              "candidate": 7.674665532498909,
+              "candidate_minus_historical": 0.5112699164272492
+            },
+            "y_initial": {
+              "historical": 3.216190419394313,
+              "candidate": 3.1552967651597683,
+              "candidate_minus_historical": -0.06089365423454485
+            }
+          }
+        },
+        {
+          "removed_numeric_folio": 55,
+          "removed_lines": 25,
+          "effects": {
+            "am_final": {
+              "historical": 7.176545834374249,
+              "candidate": 7.69469457483225,
+              "candidate_minus_historical": 0.5181487404580016
+            },
+            "y_initial": {
+              "historical": 3.2463323780881463,
+              "candidate": 3.1858957279294597,
+              "candidate_minus_historical": -0.0604366501586866
+            }
+          }
+        },
+        {
+          "removed_numeric_folio": 57,
+          "removed_lines": 11,
+          "effects": {
+            "am_final": {
+              "historical": 7.198997081987551,
+              "candidate": 7.770925787658611,
+              "candidate_minus_historical": 0.57192870567106
+            },
+            "y_initial": {
+              "historical": 3.23236791685377,
+              "candidate": 3.163697465922048,
+              "candidate_minus_historical": -0.06867045093172175
+            }
+          }
+        },
+        {
+          "removed_numeric_folio": 66,
+          "removed_lines": 45,
+          "effects": {
+            "am_final": {
+              "historical": 7.20270348657569,
+              "candidate": 7.714222899074415,
+              "candidate_minus_historical": 0.5115194124987257
+            },
+            "y_initial": {
+              "historical": 3.2271781396554267,
+              "candidate": 3.159165326995965,
+              "candidate_minus_historical": -0.06801281265946146
+            }
+          }
+        },
+        {
+          "removed_numeric_folio": 75,
+          "removed_lines": 90,
+          "effects": {
+            "am_final": {
+              "historical": 7.208304534048602,
+              "candidate": 7.697325095070479,
+              "candidate_minus_historical": 0.48902056102187696
+            },
+            "y_initial": {
+              "historical": 3.2379139107473303,
+              "candidate": 3.190193682693028,
+              "candidate_minus_historical": -0.047720228054302094
+            }
+          }
+        },
+        {
+          "removed_numeric_folio": 76,
+          "removed_lines": 88,
+          "effects": {
+            "am_final": {
+              "historical": 7.151322149324607,
+              "candidate": 7.669027386094031,
+              "candidate_minus_historical": 0.5177052367694239
+            },
+            "y_initial": {
+              "historical": 3.2370097494058396,
+              "candidate": 3.1724886837119066,
+              "candidate_minus_historical": -0.06452106569393301
+            }
+          }
+        },
+        {
+          "removed_numeric_folio": 77,
+          "removed_lines": 77,
+          "effects": {
+            "am_final": {
+              "historical": 7.160892603404787,
+              "candidate": 7.682179696641578,
+              "candidate_minus_historical": 0.5212870932367908
+            },
+            "y_initial": {
+              "historical": 3.227089754288604,
+              "candidate": 3.160884513127419,
+              "candidate_minus_historical": -0.06620524116118487
+            }
+          }
+        },
+        {
+          "removed_numeric_folio": 78,
+          "removed_lines": 73,
+          "effects": {
+            "am_final": {
+              "historical": 7.171650174084915,
+              "candidate": 7.684379900590832,
+              "candidate_minus_historical": 0.512729726505917
+            },
+            "y_initial": {
+              "historical": 3.2300168138181418,
+              "candidate": 3.155135870944952,
+              "candidate_minus_historical": -0.07488094287318958
+            }
+          }
+        },
+        {
+          "removed_numeric_folio": 79,
+          "removed_lines": 86,
+          "effects": {
+            "am_final": {
+              "historical": 7.153551464625848,
+              "candidate": 7.6723472356453915,
+              "candidate_minus_historical": 0.5187957710195432
+            },
+            "y_initial": {
+              "historical": 3.1927784018492904,
+              "candidate": 3.1326571771842517,
+              "candidate_minus_historical": -0.060121224665038664
+            }
+          }
+        },
+        {
+          "removed_numeric_folio": 80,
+          "removed_lines": 87,
+          "effects": {
+            "am_final": {
+              "historical": 7.15648829231978,
+              "candidate": 7.672437863441067,
+              "candidate_minus_historical": 0.5159495711212863
+            },
+            "y_initial": {
+              "historical": 3.2227194401575576,
+              "candidate": 3.1491833705275445,
+              "candidate_minus_historical": -0.07353606963001313
+            }
+          }
+        },
+        {
+          "removed_numeric_folio": 81,
+          "removed_lines": 58,
+          "effects": {
+            "am_final": {
+              "historical": 7.1911294649610396,
+              "candidate": 7.704658705574435,
+              "candidate_minus_historical": 0.5135292406133951
+            },
+            "y_initial": {
+              "historical": 3.2332223900041015,
+              "candidate": 3.153234804991245,
+              "candidate_minus_historical": -0.07998758501285641
+            }
+          }
+        },
+        {
+          "removed_numeric_folio": 82,
+          "removed_lines": 66,
+          "effects": {
+            "am_final": {
+              "historical": 7.165568267496374,
+              "candidate": 7.676635989748712,
+              "candidate_minus_historical": 0.5110677222523385
+            },
+            "y_initial": {
+              "historical": 3.216721276687685,
+              "candidate": 3.151663121681699,
+              "candidate_minus_historical": -0.06505815500598588
+            }
+          }
+        },
+        {
+          "removed_numeric_folio": 83,
+          "removed_lines": 82,
+          "effects": {
+            "am_final": {
+              "historical": 7.1703006304214165,
+              "candidate": 7.687994207363968,
+              "candidate_minus_historical": 0.5176935769425519
+            },
+            "y_initial": {
+              "historical": 3.226935416563428,
+              "candidate": 3.1594784279411,
+              "candidate_minus_historical": -0.06745698862232796
+            }
+          }
+        },
+        {
+          "removed_numeric_folio": 84,
+          "removed_lines": 85,
+          "effects": {
+            "am_final": {
+              "historical": 7.193683916864277,
+              "candidate": 7.682173284222815,
+              "candidate_minus_historical": 0.48848936735853776
+            },
+            "y_initial": {
+              "historical": 3.29110568805235,
+              "candidate": 3.2368574973316573,
+              "candidate_minus_historical": -0.05424819072069287
+            }
+          }
+        },
+        {
+          "removed_numeric_folio": 85,
+          "removed_lines": 56,
+          "effects": {
+            "am_final": {
+              "historical": 7.172239813558784,
+              "candidate": 7.678233389787415,
+              "candidate_minus_historical": 0.5059935762286312
+            },
+            "y_initial": {
+              "historical": 3.2392572543127374,
+              "candidate": 3.173908872561388,
+              "candidate_minus_historical": -0.06534838175134938
+            }
+          }
+        },
+        {
+          "removed_numeric_folio": 86,
+          "removed_lines": 125,
+          "effects": {
+            "am_final": {
+              "historical": 7.289713299349101,
+              "candidate": 7.756448023680823,
+              "candidate_minus_historical": 0.46673472433172236
+            },
+            "y_initial": {
+              "historical": 3.511747417679452,
+              "candidate": 3.407924724283574,
+              "candidate_minus_historical": -0.10382269339587813
+            }
+          }
+        },
+        {
+          "removed_numeric_folio": 94,
+          "removed_lines": 21,
+          "effects": {
+            "am_final": {
+              "historical": 7.187273174888371,
+              "candidate": 7.680976501945256,
+              "candidate_minus_historical": 0.4937033270568856
+            },
+            "y_initial": {
+              "historical": 3.2173366451988246,
+              "candidate": 3.158163899445408,
+              "candidate_minus_historical": -0.05917274575341658
+            }
+          }
+        },
+        {
+          "removed_numeric_folio": 95,
+          "removed_lines": 40,
+          "effects": {
+            "am_final": {
+              "historical": 7.143310145866357,
+              "candidate": 7.664694833410289,
+              "candidate_minus_historical": 0.5213846875439323
+            },
+            "y_initial": {
+              "historical": 3.241070062041283,
+              "candidate": 3.1736674883939986,
+              "candidate_minus_historical": -0.0674025736472843
+            }
+          }
+        },
+        {
+          "removed_numeric_folio": 103,
+          "removed_lines": 100,
+          "effects": {
+            "am_final": {
+              "historical": 7.152454403195023,
+              "candidate": 7.691114187554609,
+              "candidate_minus_historical": 0.5386597843595862
+            },
+            "y_initial": {
+              "historical": 3.1970500982554384,
+              "candidate": 3.123598029957057,
+              "candidate_minus_historical": -0.07345206829838125
+            }
+          }
+        },
+        {
+          "removed_numeric_folio": 104,
+          "removed_lines": 89,
+          "effects": {
+            "am_final": {
+              "historical": 7.037579259323324,
+              "candidate": 7.553616806633515,
+              "candidate_minus_historical": 0.5160375473101917
+            },
+            "y_initial": {
+              "historical": 3.1594047675465617,
+              "candidate": 3.0805468304684047,
+              "candidate_minus_historical": -0.07885793707815703
+            }
+          }
+        },
+        {
+          "removed_numeric_folio": 105,
+          "removed_lines": 75,
+          "effects": {
+            "am_final": {
+              "historical": 7.139960699081325,
+              "candidate": 7.645451202126304,
+              "candidate_minus_historical": 0.505490503044979
+            },
+            "y_initial": {
+              "historical": 3.234141475396893,
+              "candidate": 3.147267898356459,
+              "candidate_minus_historical": -0.0868735770404343
+            }
+          }
+        },
+        {
+          "removed_numeric_folio": 106,
+          "removed_lines": 94,
+          "effects": {
+            "am_final": {
+              "historical": 7.161281950496595,
+              "candidate": 7.684839156814344,
+              "candidate_minus_historical": 0.5235572063177489
+            },
+            "y_initial": {
+              "historical": 3.175537036961795,
+              "candidate": 3.0985156653693102,
+              "candidate_minus_historical": -0.07702137159248457
+            }
+          }
+        },
+        {
+          "removed_numeric_folio": 107,
+          "removed_lines": 100,
+          "effects": {
+            "am_final": {
+              "historical": 7.119546923214563,
+              "candidate": 7.645378228155282,
+              "candidate_minus_historical": 0.5258313049407191
+            },
+            "y_initial": {
+              "historical": 3.2375887037179574,
+              "candidate": 3.1553122185366314,
+              "candidate_minus_historical": -0.08227648518132602
+            }
+          }
+        },
+        {
+          "removed_numeric_folio": 108,
+          "removed_lines": 103,
+          "effects": {
+            "am_final": {
+              "historical": 7.16395991957891,
+              "candidate": 7.704303045608549,
+              "candidate_minus_historical": 0.5403431260296392
+            },
+            "y_initial": {
+              "historical": 3.1776552242629297,
+              "candidate": 3.1132900319808936,
+              "candidate_minus_historical": -0.06436519228203608
+            }
+          }
+        },
+        {
+          "removed_numeric_folio": 111,
+          "removed_lines": 105,
+          "effects": {
+            "am_final": {
+              "historical": 7.116124553597876,
+              "candidate": 7.657708360449425,
+              "candidate_minus_historical": 0.5415838068515493
+            },
+            "y_initial": {
+              "historical": 3.1692880633279774,
+              "candidate": 3.109726109380367,
+              "candidate_minus_historical": -0.05956195394761021
+            }
+          }
+        },
+        {
+          "removed_numeric_folio": 112,
+          "removed_lines": 92,
+          "effects": {
+            "am_final": {
+              "historical": 7.256717708679076,
+              "candidate": 7.795992439411365,
+              "candidate_minus_historical": 0.5392747307322887
+            },
+            "y_initial": {
+              "historical": 3.229151500486652,
+              "candidate": 3.1560997061218874,
+              "candidate_minus_historical": -0.07305179436476461
+            }
+          }
+        },
+        {
+          "removed_numeric_folio": 113,
+          "removed_lines": 100,
+          "effects": {
+            "am_final": {
+              "historical": 7.172844797286112,
+              "candidate": 7.689650601127382,
+              "candidate_minus_historical": 0.5168058038412697
+            },
+            "y_initial": {
+              "historical": 3.120650475276843,
+              "candidate": 3.047828531664418,
+              "candidate_minus_historical": -0.07282194361242533
+            }
+          }
+        },
+        {
+          "removed_numeric_folio": 114,
+          "removed_lines": 86,
+          "effects": {
+            "am_final": {
+              "historical": 7.166326044542334,
+              "candidate": 7.686086601550811,
+              "candidate_minus_historical": 0.5197605570084773
+            },
+            "y_initial": {
+              "historical": 3.218477970405198,
+              "candidate": 3.1469694997494453,
+              "candidate_minus_historical": -0.07150847065575272
+            }
+          }
+        },
+        {
+          "removed_numeric_folio": 115,
+          "removed_lines": 90,
+          "effects": {
+            "am_final": {
+              "historical": 7.110586037310767,
+              "candidate": 7.609517962562148,
+              "candidate_minus_historical": 0.4989319252513802
+            },
+            "y_initial": {
+              "historical": 3.1245596519060386,
+              "candidate": 3.049545122955069,
+              "candidate_minus_historical": -0.0750145289509696
+            }
+          }
+        },
+        {
+          "removed_numeric_folio": 116,
+          "removed_lines": 50,
+          "effects": {
+            "am_final": {
+              "historical": 7.116349866754358,
+              "candidate": 7.634767315038577,
+              "candidate_minus_historical": 0.518417448284219
+            },
+            "y_initial": {
+              "historical": 3.2424207117293142,
+              "candidate": 3.1826181666188527,
+              "candidate_minus_historical": -0.05980254511046157
+            }
+          }
+        }
+      ]
+    },
+    {
+      "transcription": "ZL3a",
+      "source": "data/transcriptions/zl3a.txt",
+      "source_sha256": "56419297682d338ff1a0a17f5ae251e3ee3e2c5bf05a62db04c5385ef30b36a2",
+      "historical_population_reconstructed": true,
+      "raw_B_P_records": 2467,
+      "common_nonempty_records": 2466,
+      "common_id_sha256": "1206a6e75420d4bc5f128e1c48058df83e9d5df1a1be5a6cd87fd50409651b19",
+      "profiles": {
+        "historical": {
+          "own_eligible": {
+            "lines": 2466,
+            "tokens": 20652,
+            "singleton_lines": 16,
+            "am_final": {
+              "observed": 331,
+              "feature_tokens": 406,
+              "expected_within_line_fraction": "8309447/180180",
+              "expected_within_line": 46.11747696747697,
+              "expected_pooled": 48.47937245787333,
+              "ratio_within_line": 7.1773223898052425,
+              "ratio_pooled": 6.827646135222274
+            },
+            "y_initial": {
+              "observed": 355,
+              "feature_tokens": 851,
+              "expected_within_line_fraction": "1651549/15015",
+              "expected_within_line": 109.9932733932734,
+              "expected_pooled": 101.61563044741429,
+              "ratio_within_line": 3.22747009020017,
+              "ratio_pooled": 3.4935570289426208
+            }
+          },
+          "common_eligible": {
+            "lines": 2466,
+            "tokens": 20652,
+            "singleton_lines": 16,
+            "am_final": {
+              "observed": 331,
+              "feature_tokens": 406,
+              "expected_within_line_fraction": "8309447/180180",
+              "expected_within_line": 46.11747696747697,
+              "expected_pooled": 48.47937245787333,
+              "ratio_within_line": 7.1773223898052425,
+              "ratio_pooled": 6.827646135222274
+            },
+            "y_initial": {
+              "observed": 355,
+              "feature_tokens": 851,
+              "expected_within_line_fraction": "1651549/15015",
+              "expected_within_line": 109.9932733932734,
+              "expected_pooled": 101.61563044741429,
+              "ratio_within_line": 3.22747009020017,
+              "ratio_pooled": 3.4935570289426208
+            }
+          },
+          "empty_ids": [
+            "f85r2.6"
+          ]
+        },
+        "split/primary/expand": {
+          "own_eligible": {
+            "lines": 2467,
+            "tokens": 23149,
+            "singleton_lines": 15,
+            "am_final": {
+              "observed": 376,
+              "feature_tokens": 468,
+              "expected_within_line_fraction": "35219467/720720",
+              "expected_within_line": 48.86705932955933,
+              "expected_pooled": 49.87498380059614,
+              "ratio_within_line": 7.694344721344023,
+              "ratio_pooled": 7.538849566413409
+            },
+            "y_initial": {
+              "observed": 355,
+              "feature_tokens": 981,
+              "expected_within_line_fraction": "688180609/6126120",
+              "expected_within_line": 112.33547645165292,
+              "expected_pooled": 104.54563912048036,
+              "ratio_within_line": 3.1601770982187034,
+              "ratio_pooled": 3.395646178898876
+            }
+          },
+          "common_eligible": {
+            "lines": 2466,
+            "tokens": 23148,
+            "singleton_lines": 14,
+            "am_final": {
+              "observed": 376,
+              "feature_tokens": 468,
+              "expected_within_line_fraction": "35219467/720720",
+              "expected_within_line": 48.86705932955933,
+              "expected_pooled": 49.856920684292376,
+              "ratio_within_line": 7.694344721344023,
+              "ratio_pooled": 7.541580884646578
+            },
+            "y_initial": {
+              "observed": 355,
+              "feature_tokens": 981,
+              "expected_within_line_fraction": "688180609/6126120",
+              "expected_within_line": 112.33547645165292,
+              "expected_pooled": 104.50777604976672,
+              "ratio_within_line": 3.1601770982187034,
+              "ratio_pooled": 3.396876418372434
+            }
+          },
+          "empty_ids": []
+        },
+        "split/primary/opaque": {
+          "own_eligible": {
+            "lines": 2467,
+            "tokens": 23149,
+            "singleton_lines": 15,
+            "am_final": {
+              "observed": 376,
+              "feature_tokens": 468,
+              "expected_within_line_fraction": "35219467/720720",
+              "expected_within_line": 48.86705932955933,
+              "expected_pooled": 49.87498380059614,
+              "ratio_within_line": 7.694344721344023,
+              "ratio_pooled": 7.538849566413409
+            },
+            "y_initial": {
+              "observed": 355,
+              "feature_tokens": 979,
+              "expected_within_line_fraction": "228996473/2042040",
+              "expected_within_line": 112.14103200720848,
+              "expected_pooled": 104.33249816406756,
+              "ratio_within_line": 3.16565661690344,
+              "ratio_pooled": 3.402583147599384
+            }
+          },
+          "common_eligible": {
+            "lines": 2466,
+            "tokens": 23148,
+            "singleton_lines": 14,
+            "am_final": {
+              "observed": 376,
+              "feature_tokens": 468,
+              "expected_within_line_fraction": "35219467/720720",
+              "expected_within_line": 48.86705932955933,
+              "expected_pooled": 49.856920684292376,
+              "ratio_within_line": 7.694344721344023,
+              "ratio_pooled": 7.541580884646578
+            },
+            "y_initial": {
+              "observed": 355,
+              "feature_tokens": 979,
+              "expected_within_line_fraction": "228996473/2042040",
+              "expected_within_line": 112.14103200720848,
+              "expected_pooled": 104.29471228615863,
+              "ratio_within_line": 3.16565661690344,
+              "ratio_pooled": 3.4038159003302937
+            }
+          },
+          "empty_ids": []
+        },
+        "split/exclude_word/expand": {
+          "own_eligible": {
+            "lines": 2467,
+            "tokens": 22771,
+            "singleton_lines": 15,
+            "am_final": {
+              "observed": 365,
+              "feature_tokens": 455,
+              "expected_within_line_fraction": "1049969/21840",
+              "expected_within_line": 48.075503663003666,
+              "expected_pooled": 49.29449738702736,
+              "ratio_within_line": 7.592224151379708,
+              "ratio_pooled": 7.4044775654017645
+            },
+            "y_initial": {
+              "observed": 350,
+              "feature_tokens": 963,
+              "expected_within_line_fraction": "57409577/510510",
+              "expected_within_line": 112.45534269651917,
+              "expected_pooled": 104.33099117298318,
+              "ratio_within_line": 3.112346568935702,
+              "ratio_pooled": 3.3547078970973443
+            }
+          },
+          "common_eligible": {
+            "lines": 2466,
+            "tokens": 22770,
+            "singleton_lines": 14,
+            "am_final": {
+              "observed": 365,
+              "feature_tokens": 455,
+              "expected_within_line_fraction": "1049969/21840",
+              "expected_within_line": 48.075503663003666,
+              "expected_pooled": 49.276679841897234,
+              "ratio_within_line": 7.592224151379708,
+              "ratio_pooled": 7.407154888906714
+            },
+            "y_initial": {
+              "observed": 350,
+              "feature_tokens": 963,
+              "expected_within_line_fraction": "57409577/510510",
+              "expected_within_line": 112.45534269651917,
+              "expected_pooled": 104.29328063241107,
+              "ratio_within_line": 3.112346568935702,
+              "ratio_pooled": 3.3559208980451904
+            }
+          },
+          "empty_ids": []
+        },
+        "split/exclude_word/opaque": {
+          "own_eligible": {
+            "lines": 2467,
+            "tokens": 22771,
+            "singleton_lines": 15,
+            "am_final": {
+              "observed": 365,
+              "feature_tokens": 455,
+              "expected_within_line_fraction": "1049969/21840",
+              "expected_within_line": 48.075503663003666,
+              "expected_pooled": 49.29449738702736,
+              "ratio_within_line": 7.592224151379708,
+              "ratio_pooled": 7.4044775654017645
+            },
+            "y_initial": {
+              "observed": 350,
+              "feature_tokens": 961,
+              "expected_within_line_fraction": "343861867/3063060",
+              "expected_within_line": 112.26089825207472,
+              "expected_pooled": 104.11431206358965,
+              "ratio_within_line": 3.117737390752898,
+              "ratio_pooled": 3.361689599276527
+            }
+          },
+          "common_eligible": {
+            "lines": 2466,
+            "tokens": 22770,
+            "singleton_lines": 14,
+            "am_final": {
+              "observed": 365,
+              "feature_tokens": 455,
+              "expected_within_line_fraction": "1049969/21840",
+              "expected_within_line": 48.075503663003666,
+              "expected_pooled": 49.276679841897234,
+              "ratio_within_line": 7.592224151379708,
+              "ratio_pooled": 7.407154888906714
+            },
+            "y_initial": {
+              "observed": 350,
+              "feature_tokens": 961,
+              "expected_within_line_fraction": "343861867/3063060",
+              "expected_within_line": 112.26089825207472,
+              "expected_pooled": 104.07667984189723,
+              "ratio_within_line": 3.117737390752898,
+              "ratio_pooled": 3.3629051246800397
+            }
+          },
+          "empty_ids": []
+        },
+        "join/primary/expand": {
+          "own_eligible": {
+            "lines": 2467,
+            "tokens": 21518,
+            "singleton_lines": 16,
+            "am_final": {
+              "observed": 376,
+              "feature_tokens": 460,
+              "expected_within_line_fraction": "9314119/180180",
+              "expected_within_line": 51.69341214341215,
+              "expected_pooled": 52.738172692629426,
+              "ratio_within_line": 7.273654115864313,
+              "ratio_pooled": 7.12956063516681
+            },
+            "y_initial": {
+              "observed": 355,
+              "feature_tokens": 917,
+              "expected_within_line_fraction": "294337/2574",
+              "expected_within_line": 114.35003885003886,
+              "expected_pooled": 105.1324007807417,
+              "ratio_within_line": 3.104502661914744,
+              "ratio_pooled": 3.376694504868849
+            }
+          },
+          "common_eligible": {
+            "lines": 2466,
+            "tokens": 21517,
+            "singleton_lines": 15,
+            "am_final": {
+              "observed": 376,
+              "feature_tokens": 460,
+              "expected_within_line_fraction": "9314119/180180",
+              "expected_within_line": 51.69341214341215,
+              "expected_pooled": 52.71924524794348,
+              "ratio_within_line": 7.273654115864313,
+              "ratio_pooled": 7.132120314538595
+            },
+            "y_initial": {
+              "observed": 355,
+              "feature_tokens": 917,
+              "expected_within_line_fraction": "294337/2574",
+              "expected_within_line": 114.35003885003886,
+              "expected_pooled": 105.09466933122647,
+              "ratio_within_line": 3.104502661914744,
+              "ratio_pooled": 3.3779068173395914
+            }
+          },
+          "empty_ids": []
+        },
+        "join/primary/opaque": {
+          "own_eligible": {
+            "lines": 2467,
+            "tokens": 21518,
+            "singleton_lines": 16,
+            "am_final": {
+              "observed": 376,
+              "feature_tokens": 460,
+              "expected_within_line_fraction": "9314119/180180",
+              "expected_within_line": 51.69341214341215,
+              "expected_pooled": 52.738172692629426,
+              "ratio_within_line": 7.273654115864313,
+              "ratio_pooled": 7.12956063516681
+            },
+            "y_initial": {
+              "observed": 355,
+              "feature_tokens": 915,
+              "expected_within_line_fraction": "65297/572",
+              "expected_within_line": 114.1555944055944,
+              "expected_pooled": 104.90310437773027,
+              "ratio_within_line": 3.1097906488812654,
+              "ratio_pooled": 3.384075257884956
+            }
+          },
+          "common_eligible": {
+            "lines": 2466,
+            "tokens": 21517,
+            "singleton_lines": 15,
+            "am_final": {
+              "observed": 376,
+              "feature_tokens": 460,
+              "expected_within_line_fraction": "9314119/180180",
+              "expected_within_line": 51.69341214341215,
+              "expected_pooled": 52.71924524794348,
+              "ratio_within_line": 7.273654115864313,
+              "ratio_pooled": 7.132120314538595
+            },
+            "y_initial": {
+              "observed": 355,
+              "feature_tokens": 915,
+              "expected_within_line_fraction": "65297/572",
+              "expected_within_line": 114.1555944055944,
+              "expected_pooled": 104.8654552214528,
+              "ratio_within_line": 3.1097906488812654,
+              "ratio_pooled": 3.3852902202190225
+            }
+          },
+          "empty_ids": []
+        },
+        "join/exclude_word/expand": {
+          "own_eligible": {
+            "lines": 2467,
+            "tokens": 21140,
+            "singleton_lines": 16,
+            "am_final": {
+              "observed": 364,
+              "feature_tokens": 446,
+              "expected_within_line_fraction": "6099199/120120",
+              "expected_within_line": 50.77588245088245,
+              "expected_pooled": 52.04739829706717,
+              "ratio_within_line": 7.168757733597477,
+              "ratio_pooled": 6.993625270612443
+            },
+            "y_initial": {
+              "observed": 349,
+              "feature_tokens": 899,
+              "expected_within_line_fraction": "5160949/45045",
+              "expected_within_line": 114.57318237318238,
+              "expected_pooled": 104.91168401135289,
+              "ratio_within_line": 3.0460880353593884,
+              "ratio_pooled": 3.3266075489002103
+            }
+          },
+          "common_eligible": {
+            "lines": 2466,
+            "tokens": 21139,
+            "singleton_lines": 15,
+            "am_final": {
+              "observed": 364,
+              "feature_tokens": 446,
+              "expected_within_line_fraction": "6099199/120120",
+              "expected_within_line": 50.77588245088245,
+              "expected_pooled": 52.02876200387909,
+              "ratio_within_line": 7.168757733597477,
+              "ratio_pooled": 6.996130332158613
+            },
+            "y_initial": {
+              "observed": 349,
+              "feature_tokens": 899,
+              "expected_within_line_fraction": "5160949/45045",
+              "expected_within_line": 114.57318237318238,
+              "expected_pooled": 104.87411892710156,
+              "ratio_within_line": 3.0460880353593884,
+              "ratio_pooled": 3.3277991135505163
+            }
+          },
+          "empty_ids": []
+        },
+        "join/exclude_word/opaque": {
+          "own_eligible": {
+            "lines": 2467,
+            "tokens": 21140,
+            "singleton_lines": 16,
+            "am_final": {
+              "observed": 364,
+              "feature_tokens": 446,
+              "expected_within_line_fraction": "6099199/120120",
+              "expected_within_line": 50.77588245088245,
+              "expected_pooled": 52.04739829706717,
+              "ratio_within_line": 7.168757733597477,
+              "ratio_pooled": 6.993625270612443
+            },
+            "y_initial": {
+              "observed": 349,
+              "feature_tokens": 897,
+              "expected_within_line_fraction": "6869587/60060",
+              "expected_within_line": 114.37873792873793,
+              "expected_pooled": 104.6782876064333,
+              "ratio_within_line": 3.051266400731223,
+              "ratio_pooled": 3.334024734070556
+            }
+          },
+          "common_eligible": {
+            "lines": 2466,
+            "tokens": 21139,
+            "singleton_lines": 15,
+            "am_final": {
+              "observed": 364,
+              "feature_tokens": 446,
+              "expected_within_line_fraction": "6099199/120120",
+              "expected_within_line": 50.77588245088245,
+              "expected_pooled": 52.02876200387909,
+              "ratio_within_line": 7.168757733597477,
+              "ratio_pooled": 6.996130332158613
+            },
+            "y_initial": {
+              "observed": 349,
+              "feature_tokens": 897,
+              "expected_within_line_fraction": "6869587/60060",
+              "expected_within_line": 114.37873792873793,
+              "expected_pooled": 104.64080609300345,
+              "ratio_within_line": 3.051266400731223,
+              "ratio_pooled": 3.335218955498232
+            }
+          },
+          "empty_ids": []
+        }
+      },
+      "changed_rows": 1903,
+      "default_endpoint_changes": [
+        {
+          "id": "f31v.11",
+          "old_signature_am_y": [
+            false,
+            false
+          ],
+          "new_signature_am_y": [
+            true,
+            false
+          ],
+          "old_first": "saiin",
+          "new_first": "saiin",
+          "old_last": "cheam<$>",
+          "new_last": "cheam"
+        },
+        {
+          "id": "f33r.3",
+          "old_signature_am_y": [
+            false,
+            false
+          ],
+          "new_signature_am_y": [
+            true,
+            false
+          ],
+          "old_first": "laiin",
+          "new_first": "laiin",
+          "old_last": "yka[m:g]",
+          "new_last": "ykam"
+        },
+        {
+          "id": "f33r.5",
+          "old_signature_am_y": [
+            false,
+            false
+          ],
+          "new_signature_am_y": [
+            true,
+            false
+          ],
+          "old_first": "pair",
+          "new_first": "pair",
+          "old_last": "ota[m:g]",
+          "new_last": "otam"
+        },
+        {
+          "id": "f33v.11",
+          "old_signature_am_y": [
+            false,
+            false
+          ],
+          "new_signature_am_y": [
+            true,
+            false
+          ],
+          "old_first": "tar",
+          "new_first": "tar",
+          "old_last": "oram<$>",
+          "new_last": "oram"
+        },
+        {
+          "id": "f34r.8",
+          "old_signature_am_y": [
+            false,
+            false
+          ],
+          "new_signature_am_y": [
+            true,
+            false
+          ],
+          "old_first": "qoky<->olk<->checkhy<~>ys,air",
+          "new_first": "ch'otchy",
+          "old_last": "ta[m:g]",
+          "new_last": "tam"
+        },
+        {
+          "id": "f34v.8",
+          "old_signature_am_y": [
+            false,
+            true
+          ],
+          "new_signature_am_y": [
+            true,
+            true
+          ],
+          "old_first": "ysheos",
+          "new_first": "ysheos",
+          "old_last": "oka[m:g]",
+          "new_last": "okam"
+        },
+        {
+          "id": "f41r.4",
+          "old_signature_am_y": [
+            false,
+            false
+          ],
+          "new_signature_am_y": [
+            true,
+            false
+          ],
+          "old_first": "chdchy",
+          "new_first": "chdchy",
+          "old_last": "da[m:g]",
+          "new_last": "dam"
+        },
+        {
+          "id": "f43r.1",
+          "old_signature_am_y": [
+            false,
+            true
+          ],
+          "new_signature_am_y": [
+            false,
+            false
+          ],
+          "old_first": "ytedy",
+          "new_first": "tarodaiin",
+          "old_last": "dar",
+          "new_last": "dar"
+        },
+        {
+          "id": "f46v.1",
+          "old_signature_am_y": [
+            false,
+            true
+          ],
+          "new_signature_am_y": [
+            false,
+            false
+          ],
+          "old_first": "ypdy,shedy",
+          "new_first": "pody",
+          "old_last": "daiin",
+          "new_last": "daiin"
+        },
+        {
+          "id": "f48r.1",
+          "old_signature_am_y": [
+            false,
+            true
+          ],
+          "new_signature_am_y": [
+            false,
+            false
+          ],
+          "old_first": "ypchdy",
+          "new_first": "pshdaiin",
+          "old_last": "opaldy",
+          "new_last": "opaldy"
+        },
+        {
+          "id": "f48r.9",
+          "old_signature_am_y": [
+            false,
+            true
+          ],
+          "new_signature_am_y": [
+            true,
+            true
+          ],
+          "old_first": "yteched",
+          "new_first": "yteched",
+          "old_last": "okeoam<$>",
+          "new_last": "okeoam"
+        },
+        {
+          "id": "f48v.6",
+          "old_signature_am_y": [
+            false,
+            false
+          ],
+          "new_signature_am_y": [
+            true,
+            false
+          ],
+          "old_first": "shdy",
+          "new_first": "shdy",
+          "old_last": "am<$>",
+          "new_last": "am"
+        },
+        {
+          "id": "f55v.7",
+          "old_signature_am_y": [
+            false,
+            true
+          ],
+          "new_signature_am_y": [
+            false,
+            false
+          ],
+          "old_first": "yk[a:?]in",
+          "new_first": "okchd",
+          "old_last": "dary",
+          "new_last": "dary"
+        },
+        {
+          "id": "f55v.12",
+          "old_signature_am_y": [
+            false,
+            false
+          ],
+          "new_signature_am_y": [
+            true,
+            false
+          ],
+          "old_first": "daiin",
+          "new_first": "daiin",
+          "old_last": "otam<$>",
+          "new_last": "otam"
+        },
+        {
+          "id": "f57r.1",
+          "old_signature_am_y": [
+            false,
+            false
+          ],
+          "new_signature_am_y": [
+            true,
+            false
+          ],
+          "old_first": "odain",
+          "new_first": "poeeockhey",
+          "old_last": "sheody",
+          "new_last": "eodam"
+        },
+        {
+          "id": "f57r.5",
+          "old_signature_am_y": [
+            false,
+            false
+          ],
+          "new_signature_am_y": [
+            true,
+            false
+          ],
+          "old_first": "qok[ch:ee]o",
+          "new_first": "qokcho",
+          "old_last": "cheeodam<$>",
+          "new_last": "cheeodam"
+        },
+        {
+          "id": "f57r.11",
+          "old_signature_am_y": [
+            false,
+            false
+          ],
+          "new_signature_am_y": [
+            true,
+            false
+          ],
+          "old_first": "dshedy",
+          "new_first": "dshedy",
+          "old_last": "cphedam<$>",
+          "new_last": "cphedam"
+        },
+        {
+          "id": "f79v.11",
+          "old_signature_am_y": [
+            false,
+            false
+          ],
+          "new_signature_am_y": [
+            true,
+            false
+          ],
+          "old_first": "olcheey",
+          "new_first": "olcheey",
+          "old_last": "olkam<$>",
+          "new_last": "olkam"
+        },
+        {
+          "id": "f79v.33",
+          "old_signature_am_y": [
+            false,
+            true
+          ],
+          "new_signature_am_y": [
+            false,
+            false
+          ],
+          "old_first": "yteey",
+          "new_first": "por",
+          "old_last": "oral",
+          "new_last": "oral"
+        },
+        {
+          "id": "f81v.11",
+          "old_signature_am_y": [
+            false,
+            false
+          ],
+          "new_signature_am_y": [
+            false,
+            true
+          ],
+          "old_first": "qokeey",
+          "new_first": "yshey",
+          "old_last": "dsholyd",
+          "new_last": "dsholyd"
+        },
+        {
+          "id": "f84r.22",
+          "old_signature_am_y": [
+            false,
+            true
+          ],
+          "new_signature_am_y": [
+            false,
+            false
+          ],
+          "old_first": "ykeedy",
+          "new_first": "qotchsdy",
+          "old_last": "otar,dar",
+          "new_last": "dar"
+        },
+        {
+          "id": "f85r1.12",
+          "old_signature_am_y": [
+            false,
+            false
+          ],
+          "new_signature_am_y": [
+            true,
+            false
+          ],
+          "old_first": "tdain",
+          "new_first": "tdain",
+          "old_last": "am<!raised>",
+          "new_last": "am"
+        },
+        {
+          "id": "f85r1.19",
+          "old_signature_am_y": [
+            false,
+            false
+          ],
+          "new_signature_am_y": [
+            true,
+            false
+          ],
+          "old_first": "okchy",
+          "new_first": "okchy",
+          "old_last": "lam<$>",
+          "new_last": "lam"
+        },
+        {
+          "id": "f85r1.28",
+          "old_signature_am_y": [
+            false,
+            true
+          ],
+          "new_signature_am_y": [
+            false,
+            false
+          ],
+          "old_first": "yteol",
+          "new_first": "kchedar",
+          "old_last": "dal,cphedy",
+          "new_last": "cphedy"
+        },
+        {
+          "id": "f85r2.10",
+          "old_signature_am_y": [
+            false,
+            false
+          ],
+          "new_signature_am_y": [
+            false,
+            true
+          ],
+          "old_first": "qotedar",
+          "new_first": "ytchedy",
+          "old_last": "qotom",
+          "new_last": "qotom"
+        },
+        {
+          "id": "f85r2.14",
+          "old_signature_am_y": [
+            false,
+            false
+          ],
+          "new_signature_am_y": [
+            false,
+            true
+          ],
+          "old_first": "chz[s:r]",
+          "new_first": "ytedar",
+          "old_last": "arody",
+          "new_last": "arody"
+        },
+        {
+          "id": "f85r2.15",
+          "old_signature_am_y": [
+            true,
+            false
+          ],
+          "new_signature_am_y": [
+            true,
+            true
+          ],
+          "old_first": "dar",
+          "new_first": "ypshedy",
+          "old_last": "or,am",
+          "new_last": "am"
+        },
+        {
+          "id": "f86v6.45",
+          "old_signature_am_y": [
+            false,
+            false
+          ],
+          "new_signature_am_y": [
+            true,
+            false
+          ],
+          "old_first": "paiin",
+          "new_first": "paiin",
+          "old_last": "ai[o:a]dam<$>",
+          "new_last": "aiodam"
+        },
+        {
+          "id": "f86v5.11",
+          "old_signature_am_y": [
+            false,
+            false
+          ],
+          "new_signature_am_y": [
+            true,
+            false
+          ],
+          "old_first": "taral",
+          "new_first": "taral",
+          "old_last": "olkam<$>",
+          "new_last": "olkam"
+        },
+        {
+          "id": "f86v5.17",
+          "old_signature_am_y": [
+            false,
+            false
+          ],
+          "new_signature_am_y": [
+            true,
+            false
+          ],
+          "old_first": "ockhedy",
+          "new_first": "ockhedy",
+          "old_last": "olkam<$>",
+          "new_last": "olkam"
+        },
+        {
+          "id": "f86v3.2",
+          "old_signature_am_y": [
+            false,
+            true
+          ],
+          "new_signature_am_y": [
+            false,
+            false
+          ],
+          "old_first": "ychedy",
+          "new_first": "rain",
+          "old_last": "q[y:o],kaiin",
+          "new_last": "kaiin"
+        },
+        {
+          "id": "f86v3.3",
+          "old_signature_am_y": [
+            true,
+            true
+          ],
+          "new_signature_am_y": [
+            true,
+            false
+          ],
+          "old_first": "ytaiin",
+          "new_first": "taiin",
+          "old_last": "am",
+          "new_last": "am"
+        },
+        {
+          "id": "f86v3.4",
+          "old_signature_am_y": [
+            true,
+            false
+          ],
+          "new_signature_am_y": [
+            true,
+            true
+          ],
+          "old_first": "qoeedy",
+          "new_first": "ykaiin",
+          "old_last": "am",
+          "new_last": "am"
+        },
+        {
+          "id": "f86v3.5",
+          "old_signature_am_y": [
+            true,
+            false
+          ],
+          "new_signature_am_y": [
+            true,
+            true
+          ],
+          "old_first": "qotaiin",
+          "new_first": "ych'eey",
+          "old_last": "ytam",
+          "new_last": "ytam"
+        },
+        {
+          "id": "f86v3.7",
+          "old_signature_am_y": [
+            true,
+            true
+          ],
+          "new_signature_am_y": [
+            true,
+            false
+          ],
+          "old_first": "ytaiin",
+          "new_first": "sain",
+          "old_last": "ytam",
+          "new_last": "ytam"
+        },
+        {
+          "id": "f86v3.10",
+          "old_signature_am_y": [
+            true,
+            false
+          ],
+          "new_signature_am_y": [
+            true,
+            true
+          ],
+          "old_first": "olkeeey",
+          "new_first": "ychey",
+          "old_last": "am",
+          "new_last": "am"
+        },
+        {
+          "id": "f86v3.23",
+          "old_signature_am_y": [
+            false,
+            true
+          ],
+          "new_signature_am_y": [
+            false,
+            false
+          ],
+          "old_first": "ypchey",
+          "new_first": "tshedal",
+          "old_last": "qotaiin",
+          "new_last": "qotaiin"
+        },
+        {
+          "id": "f86v3.25",
+          "old_signature_am_y": [
+            true,
+            true
+          ],
+          "new_signature_am_y": [
+            true,
+            false
+          ],
+          "old_first": "y,ochedy",
+          "new_first": "qodaiin",
+          "old_last": "am",
+          "new_last": "am"
+        },
+        {
+          "id": "f86v3.26",
+          "old_signature_am_y": [
+            false,
+            true
+          ],
+          "new_signature_am_y": [
+            false,
+            false
+          ],
+          "old_first": "yteey",
+          "new_first": "shor",
+          "old_last": "aiin",
+          "new_last": "aiin"
+        },
+        {
+          "id": "f86v3.28",
+          "old_signature_am_y": [
+            false,
+            false
+          ],
+          "new_signature_am_y": [
+            false,
+            true
+          ],
+          "old_first": "daii[s:r]",
+          "new_first": "ycheeody",
+          "old_last": "olteey<$>",
+          "new_last": "olteey"
+        },
+        {
+          "id": "f86v3.33",
+          "old_signature_am_y": [
+            true,
+            false
+          ],
+          "new_signature_am_y": [
+            true,
+            true
+          ],
+          "old_first": "otaiin",
+          "new_first": "ytchey",
+          "old_last": "or,am",
+          "new_last": "am"
+        },
+        {
+          "id": "f86v3.34",
+          "old_signature_am_y": [
+            true,
+            false
+          ],
+          "new_signature_am_y": [
+            true,
+            true
+          ],
+          "old_first": "chedy",
+          "new_first": "yteeo",
+          "old_last": "am",
+          "new_last": "am"
+        },
+        {
+          "id": "f86v3.36",
+          "old_signature_am_y": [
+            false,
+            false
+          ],
+          "new_signature_am_y": [
+            false,
+            true
+          ],
+          "old_first": "qoteey",
+          "new_first": "ykeeedy",
+          "old_last": "okeeey<$>",
+          "new_last": "okeeey"
+        },
+        {
+          "id": "f103v.32",
+          "old_signature_am_y": [
+            false,
+            false
+          ],
+          "new_signature_am_y": [
+            true,
+            false
+          ],
+          "old_first": "qokeeey",
+          "new_first": "qokeeey",
+          "old_last": "olkam<$>",
+          "new_last": "olkam"
+        },
+        {
+          "id": "f103v.33",
+          "old_signature_am_y": [
+            false,
+            false
+          ],
+          "new_signature_am_y": [
+            false,
+            true
+          ],
+          "old_first": "lkeey",
+          "new_first": "yshey",
+          "old_last": "oly",
+          "new_last": "oly"
+        },
+        {
+          "id": "f104r.9",
+          "old_signature_am_y": [
+            false,
+            true
+          ],
+          "new_signature_am_y": [
+            true,
+            true
+          ],
+          "old_first": "ycheeoy",
+          "new_first": "ycheeoy",
+          "old_last": "cheeo,dam<$>",
+          "new_last": "dam"
+        },
+        {
+          "id": "f104v.22",
+          "old_signature_am_y": [
+            false,
+            false
+          ],
+          "new_signature_am_y": [
+            false,
+            true
+          ],
+          "old_first": "qokchedy",
+          "new_first": "ytchedy",
+          "old_last": "tal",
+          "new_last": "tal"
+        },
+        {
+          "id": "f104v.37",
+          "old_signature_am_y": [
+            true,
+            true
+          ],
+          "new_signature_am_y": [
+            true,
+            false
+          ],
+          "old_first": "ytedar,chedy",
+          "new_first": "posairy",
+          "old_last": "arodam",
+          "new_last": "arodam"
+        },
+        {
+          "id": "f105r.10",
+          "old_signature_am_y": [
+            false,
+            false
+          ],
+          "new_signature_am_y": [
+            true,
+            false
+          ],
+          "old_first": "sairy",
+          "new_first": "sairy",
+          "old_last": "ytam<$>",
+          "new_last": "ytam"
+        },
+        {
+          "id": "f105r.34",
+          "old_signature_am_y": [
+            false,
+            false
+          ],
+          "new_signature_am_y": [
+            true,
+            false
+          ],
+          "old_first": "dor",
+          "new_first": "dor",
+          "old_last": "alkam<$>",
+          "new_last": "alkam"
+        },
+        {
+          "id": "f105r.35",
+          "old_signature_am_y": [
+            false,
+            false
+          ],
+          "new_signature_am_y": [
+            false,
+            true
+          ],
+          "old_first": "okaiir",
+          "new_first": "ypchedy",
+          "old_last": "ofory",
+          "new_last": "ofory"
+        },
+        {
+          "id": "f105v.9",
+          "old_signature_am_y": [
+            false,
+            false
+          ],
+          "new_signature_am_y": [
+            true,
+            false
+          ],
+          "old_first": "lcheey",
+          "new_first": "lcheey",
+          "old_last": "ail",
+          "new_last": "okam"
+        },
+        {
+          "id": "f105v.19",
+          "old_signature_am_y": [
+            false,
+            true
+          ],
+          "new_signature_am_y": [
+            true,
+            true
+          ],
+          "old_first": "ycheey",
+          "new_first": "ycheey",
+          "old_last": "am<$>",
+          "new_last": "am"
+        },
+        {
+          "id": "f106r.47",
+          "old_signature_am_y": [
+            false,
+            true
+          ],
+          "new_signature_am_y": [
+            true,
+            true
+          ],
+          "old_first": "ycheoar",
+          "new_first": "ycheoar",
+          "old_last": "cheokam<$>",
+          "new_last": "cheokam"
+        },
+        {
+          "id": "f106v.4",
+          "old_signature_am_y": [
+            false,
+            true
+          ],
+          "new_signature_am_y": [
+            true,
+            true
+          ],
+          "old_first": "ycheoto",
+          "new_first": "ycheoto",
+          "old_last": "charam<$>",
+          "new_last": "charam"
+        },
+        {
+          "id": "f106v.14",
+          "old_signature_am_y": [
+            false,
+            false
+          ],
+          "new_signature_am_y": [
+            true,
+            false
+          ],
+          "old_first": "schedy",
+          "new_first": "schedy",
+          "old_last": "alkam<$>",
+          "new_last": "alkam"
+        },
+        {
+          "id": "f106v.31",
+          "old_signature_am_y": [
+            false,
+            false
+          ],
+          "new_signature_am_y": [
+            true,
+            false
+          ],
+          "old_first": "sheeyko",
+          "new_first": "sheeyko",
+          "old_last": "olcham<$>",
+          "new_last": "olcham"
+        },
+        {
+          "id": "f107r.41",
+          "old_signature_am_y": [
+            false,
+            false
+          ],
+          "new_signature_am_y": [
+            true,
+            false
+          ],
+          "old_first": "qokaiin",
+          "new_first": "qokaiin",
+          "old_last": "otam<$>",
+          "new_last": "otam"
+        },
+        {
+          "id": "f108r.43",
+          "old_signature_am_y": [
+            false,
+            false
+          ],
+          "new_signature_am_y": [
+            true,
+            false
+          ],
+          "old_first": "olke?y",
+          "new_first": "olke?y",
+          "old_last": "cheam<!corr?>",
+          "new_last": "cheam"
+        },
+        {
+          "id": "f108r.47",
+          "old_signature_am_y": [
+            false,
+            true
+          ],
+          "new_signature_am_y": [
+            true,
+            true
+          ],
+          "old_first": "yched",
+          "new_first": "yched",
+          "old_last": "keam<$>",
+          "new_last": "keam"
+        },
+        {
+          "id": "f108r.50",
+          "old_signature_am_y": [
+            false,
+            false
+          ],
+          "new_signature_am_y": [
+            true,
+            false
+          ],
+          "old_first": "qokeedy,lchedy",
+          "new_first": "qokeedy",
+          "old_last": "okam<$>",
+          "new_last": "okam"
+        },
+        {
+          "id": "f108v.19",
+          "old_signature_am_y": [
+            false,
+            false
+          ],
+          "new_signature_am_y": [
+            true,
+            false
+          ],
+          "old_first": "qokeeol",
+          "new_first": "qokeeol",
+          "old_last": "lcheam<$>",
+          "new_last": "lcheam"
+        },
+        {
+          "id": "f111r.35",
+          "old_signature_am_y": [
+            false,
+            true
+          ],
+          "new_signature_am_y": [
+            true,
+            true
+          ],
+          "old_first": "y,chedl",
+          "new_first": "y",
+          "old_last": "dam<$>",
+          "new_last": "dam"
+        },
+        {
+          "id": "f111v.37",
+          "old_signature_am_y": [
+            false,
+            true
+          ],
+          "new_signature_am_y": [
+            false,
+            false
+          ],
+          "old_first": "ykain",
+          "new_first": "polchey",
+          "old_last": "r,aldl",
+          "new_last": "aldl"
+        },
+        {
+          "id": "f112r.10",
+          "old_signature_am_y": [
+            false,
+            false
+          ],
+          "new_signature_am_y": [
+            true,
+            false
+          ],
+          "old_first": "dair",
+          "new_first": "dair",
+          "old_last": "dam<$>",
+          "new_last": "dam"
+        },
+        {
+          "id": "f112r.18",
+          "old_signature_am_y": [
+            false,
+            false
+          ],
+          "new_signature_am_y": [
+            true,
+            false
+          ],
+          "old_first": "saiin",
+          "new_first": "saiin",
+          "old_last": "cham<$>",
+          "new_last": "cham"
+        },
+        {
+          "id": "f112r.26",
+          "old_signature_am_y": [
+            false,
+            false
+          ],
+          "new_signature_am_y": [
+            true,
+            false
+          ],
+          "old_first": "tockhy",
+          "new_first": "tockhy",
+          "old_last": "chedam<$>",
+          "new_last": "chedam"
+        },
+        {
+          "id": "f112r.28",
+          "old_signature_am_y": [
+            false,
+            true
+          ],
+          "new_signature_am_y": [
+            true,
+            true
+          ],
+          "old_first": "ysheedy",
+          "new_first": "ysheedy",
+          "old_last": "shara[m:r]",
+          "new_last": "sharam"
+        },
+        {
+          "id": "f112r.36",
+          "old_signature_am_y": [
+            false,
+            false
+          ],
+          "new_signature_am_y": [
+            true,
+            false
+          ],
+          "old_first": "sain",
+          "new_first": "sain",
+          "old_last": "olam<$>",
+          "new_last": "olam"
+        },
+        {
+          "id": "f112v.23",
+          "old_signature_am_y": [
+            false,
+            false
+          ],
+          "new_signature_am_y": [
+            false,
+            true
+          ],
+          "old_first": "olkeeey",
+          "new_first": "ycheol",
+          "old_last": "qotain",
+          "new_last": "qotain"
+        },
+        {
+          "id": "f112v.45",
+          "old_signature_am_y": [
+            true,
+            false
+          ],
+          "new_signature_am_y": [
+            true,
+            true
+          ],
+          "old_first": "chokeey",
+          "new_first": "ycheey",
+          "old_last": "kamdam",
+          "new_last": "kamdam"
+        },
+        {
+          "id": "f113r.1",
+          "old_signature_am_y": [
+            false,
+            true
+          ],
+          "new_signature_am_y": [
+            false,
+            false
+          ],
+          "old_first": "ypcheedy",
+          "new_first": "pches@186;chy",
+          "old_last": "chedy",
+          "new_last": "chedy"
+        },
+        {
+          "id": "f113v.3",
+          "old_signature_am_y": [
+            false,
+            false
+          ],
+          "new_signature_am_y": [
+            true,
+            false
+          ],
+          "old_first": "sar,aiin",
+          "new_first": "sar",
+          "old_last": "olol,olam<$>",
+          "new_last": "olam"
+        },
+        {
+          "id": "f114r.34",
+          "old_signature_am_y": [
+            false,
+            true
+          ],
+          "new_signature_am_y": [
+            true,
+            true
+          ],
+          "old_first": "ytain",
+          "new_first": "ytain",
+          "old_last": "alkam<$>",
+          "new_last": "alkam"
+        },
+        {
+          "id": "f114v.18",
+          "old_signature_am_y": [
+            false,
+            false
+          ],
+          "new_signature_am_y": [
+            true,
+            false
+          ],
+          "old_first": "cheo,aiin",
+          "new_first": "dorkcheky",
+          "old_last": "qoto",
+          "new_last": "@189;shxam"
+        },
+        {
+          "id": "f114v.28",
+          "old_signature_am_y": [
+            false,
+            false
+          ],
+          "new_signature_am_y": [
+            true,
+            false
+          ],
+          "old_first": "tchedy",
+          "new_first": "tchedy",
+          "old_last": "chetam<$>",
+          "new_last": "chetam"
+        },
+        {
+          "id": "f115v.7",
+          "old_signature_am_y": [
+            false,
+            false
+          ],
+          "new_signature_am_y": [
+            true,
+            false
+          ],
+          "old_first": "dchedy",
+          "new_first": "dchedy",
+          "old_last": "chotam<$>",
+          "new_last": "chotam"
+        }
+      ]
+    },
+    {
+      "transcription": "IT2a",
+      "source": "data/transcriptions/eva_it2a.txt",
+      "source_sha256": "7f27a8b0feed8f6de0a99900df6bf912dd1d295c38e5f830bac8b41c3f536fb5",
+      "historical_population_reconstructed": true,
+      "raw_B_P_records": 2466,
+      "common_nonempty_records": 2464,
+      "common_id_sha256": "9030c82d347d46c5b6a5cc363d1589391e012f47f7cff9817fc60cc17257e6c8",
+      "profiles": {
+        "historical": {
+          "own_eligible": {
+            "lines": 2464,
+            "tokens": 22110,
+            "singleton_lines": 17,
+            "am_final": {
+              "observed": 340,
+              "feature_tokens": 429,
+              "expected_within_line_fraction": "8150081/180180",
+              "expected_within_line": 45.23299478299478,
+              "expected_pooled": 47.808955223880595,
+              "ratio_within_line": 7.516636951215577,
+              "ratio_pooled": 7.111638361638362
+            },
+            "y_initial": {
+              "observed": 356,
+              "feature_tokens": 892,
+              "expected_within_line_fraction": "19637447/180180",
+              "expected_within_line": 108.98793983793983,
+              "expected_pooled": 99.40696517412935,
+              "ratio_within_line": 3.266416454236643,
+              "ratio_pooled": 3.58123798846893
+            }
+          },
+          "common_eligible": {
+            "lines": 2464,
+            "tokens": 22110,
+            "singleton_lines": 17,
+            "am_final": {
+              "observed": 340,
+              "feature_tokens": 429,
+              "expected_within_line_fraction": "8150081/180180",
+              "expected_within_line": 45.23299478299478,
+              "expected_pooled": 47.808955223880595,
+              "ratio_within_line": 7.516636951215577,
+              "ratio_pooled": 7.111638361638362
+            },
+            "y_initial": {
+              "observed": 356,
+              "feature_tokens": 892,
+              "expected_within_line_fraction": "19637447/180180",
+              "expected_within_line": 108.98793983793983,
+              "expected_pooled": 99.40696517412935,
+              "ratio_within_line": 3.266416454236643,
+              "ratio_pooled": 3.58123798846893
+            }
+          },
+          "empty_ids": [
+            "f84v.42",
+            "f84v.46"
+          ]
+        },
+        "split/primary/expand": {
+          "own_eligible": {
+            "lines": 2466,
+            "tokens": 22823,
+            "singleton_lines": 16,
+            "am_final": {
+              "observed": 376,
+              "feature_tokens": 470,
+              "expected_within_line_fraction": "2987057/60060",
+              "expected_within_line": 49.734548784548785,
+              "expected_pooled": 50.78298207948122,
+              "ratio_within_line": 7.560136950851624,
+              "ratio_pooled": 7.404055150040551
+            },
+            "y_initial": {
+              "observed": 354,
+              "feature_tokens": 941,
+              "expected_within_line_fraction": "5710469/51480",
+              "expected_within_line": 110.92597125097124,
+              "expected_pooled": 101.6740130570039,
+              "ratio_within_line": 3.191317560781785,
+              "ratio_pooled": 3.4817156258160935
+            }
+          },
+          "common_eligible": {
+            "lines": 2464,
+            "tokens": 22821,
+            "singleton_lines": 14,
+            "am_final": {
+              "observed": 376,
+              "feature_tokens": 470,
+              "expected_within_line_fraction": "2987057/60060",
+              "expected_within_line": 49.734548784548785,
+              "expected_pooled": 50.74624249594672,
+              "ratio_within_line": 7.560136950851624,
+              "ratio_pooled": 7.4094155844155845
+            },
+            "y_initial": {
+              "observed": 354,
+              "feature_tokens": 941,
+              "expected_within_line_fraction": "5710469/51480",
+              "expected_within_line": 110.92597125097124,
+              "expected_pooled": 101.60045572060821,
+              "ratio_within_line": 3.191317560781785,
+              "ratio_pooled": 3.484236340174172
+            }
+          },
+          "empty_ids": []
+        },
+        "split/primary/opaque": {
+          "own_eligible": {
+            "lines": 2466,
+            "tokens": 22823,
+            "singleton_lines": 16,
+            "am_final": {
+              "observed": 376,
+              "feature_tokens": 470,
+              "expected_within_line_fraction": "2987057/60060",
+              "expected_within_line": 49.734548784548785,
+              "expected_pooled": 50.78298207948122,
+              "ratio_within_line": 7.560136950851624,
+              "ratio_pooled": 7.404055150040551
+            },
+            "y_initial": {
+              "observed": 354,
+              "feature_tokens": 941,
+              "expected_within_line_fraction": "5710469/51480",
+              "expected_within_line": 110.92597125097124,
+              "expected_pooled": 101.6740130570039,
+              "ratio_within_line": 3.191317560781785,
+              "ratio_pooled": 3.4817156258160935
+            }
+          },
+          "common_eligible": {
+            "lines": 2464,
+            "tokens": 22821,
+            "singleton_lines": 14,
+            "am_final": {
+              "observed": 376,
+              "feature_tokens": 470,
+              "expected_within_line_fraction": "2987057/60060",
+              "expected_within_line": 49.734548784548785,
+              "expected_pooled": 50.74624249594672,
+              "ratio_within_line": 7.560136950851624,
+              "ratio_pooled": 7.4094155844155845
+            },
+            "y_initial": {
+              "observed": 354,
+              "feature_tokens": 941,
+              "expected_within_line_fraction": "5710469/51480",
+              "expected_within_line": 110.92597125097124,
+              "expected_pooled": 101.60045572060821,
+              "ratio_within_line": 3.191317560781785,
+              "ratio_pooled": 3.484236340174172
+            }
+          },
+          "empty_ids": []
+        },
+        "split/exclude_word/expand": {
+          "own_eligible": {
+            "lines": 2466,
+            "tokens": 22823,
+            "singleton_lines": 16,
+            "am_final": {
+              "observed": 376,
+              "feature_tokens": 470,
+              "expected_within_line_fraction": "2987057/60060",
+              "expected_within_line": 49.734548784548785,
+              "expected_pooled": 50.78298207948122,
+              "ratio_within_line": 7.560136950851624,
+              "ratio_pooled": 7.404055150040551
+            },
+            "y_initial": {
+              "observed": 354,
+              "feature_tokens": 941,
+              "expected_within_line_fraction": "5710469/51480",
+              "expected_within_line": 110.92597125097124,
+              "expected_pooled": 101.6740130570039,
+              "ratio_within_line": 3.191317560781785,
+              "ratio_pooled": 3.4817156258160935
+            }
+          },
+          "common_eligible": {
+            "lines": 2464,
+            "tokens": 22821,
+            "singleton_lines": 14,
+            "am_final": {
+              "observed": 376,
+              "feature_tokens": 470,
+              "expected_within_line_fraction": "2987057/60060",
+              "expected_within_line": 49.734548784548785,
+              "expected_pooled": 50.74624249594672,
+              "ratio_within_line": 7.560136950851624,
+              "ratio_pooled": 7.4094155844155845
+            },
+            "y_initial": {
+              "observed": 354,
+              "feature_tokens": 941,
+              "expected_within_line_fraction": "5710469/51480",
+              "expected_within_line": 110.92597125097124,
+              "expected_pooled": 101.60045572060821,
+              "ratio_within_line": 3.191317560781785,
+              "ratio_pooled": 3.484236340174172
+            }
+          },
+          "empty_ids": []
+        },
+        "split/exclude_word/opaque": {
+          "own_eligible": {
+            "lines": 2466,
+            "tokens": 22823,
+            "singleton_lines": 16,
+            "am_final": {
+              "observed": 376,
+              "feature_tokens": 470,
+              "expected_within_line_fraction": "2987057/60060",
+              "expected_within_line": 49.734548784548785,
+              "expected_pooled": 50.78298207948122,
+              "ratio_within_line": 7.560136950851624,
+              "ratio_pooled": 7.404055150040551
+            },
+            "y_initial": {
+              "observed": 354,
+              "feature_tokens": 941,
+              "expected_within_line_fraction": "5710469/51480",
+              "expected_within_line": 110.92597125097124,
+              "expected_pooled": 101.6740130570039,
+              "ratio_within_line": 3.191317560781785,
+              "ratio_pooled": 3.4817156258160935
+            }
+          },
+          "common_eligible": {
+            "lines": 2464,
+            "tokens": 22821,
+            "singleton_lines": 14,
+            "am_final": {
+              "observed": 376,
+              "feature_tokens": 470,
+              "expected_within_line_fraction": "2987057/60060",
+              "expected_within_line": 49.734548784548785,
+              "expected_pooled": 50.74624249594672,
+              "ratio_within_line": 7.560136950851624,
+              "ratio_pooled": 7.4094155844155845
+            },
+            "y_initial": {
+              "observed": 354,
+              "feature_tokens": 941,
+              "expected_within_line_fraction": "5710469/51480",
+              "expected_within_line": 110.92597125097124,
+              "expected_pooled": 101.60045572060821,
+              "ratio_within_line": 3.191317560781785,
+              "ratio_pooled": 3.484236340174172
+            }
+          },
+          "empty_ids": []
+        },
+        "join/primary/expand": {
+          "own_eligible": {
+            "lines": 2466,
+            "tokens": 22823,
+            "singleton_lines": 16,
+            "am_final": {
+              "observed": 376,
+              "feature_tokens": 470,
+              "expected_within_line_fraction": "2987057/60060",
+              "expected_within_line": 49.734548784548785,
+              "expected_pooled": 50.78298207948122,
+              "ratio_within_line": 7.560136950851624,
+              "ratio_pooled": 7.404055150040551
+            },
+            "y_initial": {
+              "observed": 354,
+              "feature_tokens": 941,
+              "expected_within_line_fraction": "5710469/51480",
+              "expected_within_line": 110.92597125097124,
+              "expected_pooled": 101.6740130570039,
+              "ratio_within_line": 3.191317560781785,
+              "ratio_pooled": 3.4817156258160935
+            }
+          },
+          "common_eligible": {
+            "lines": 2464,
+            "tokens": 22821,
+            "singleton_lines": 14,
+            "am_final": {
+              "observed": 376,
+              "feature_tokens": 470,
+              "expected_within_line_fraction": "2987057/60060",
+              "expected_within_line": 49.734548784548785,
+              "expected_pooled": 50.74624249594672,
+              "ratio_within_line": 7.560136950851624,
+              "ratio_pooled": 7.4094155844155845
+            },
+            "y_initial": {
+              "observed": 354,
+              "feature_tokens": 941,
+              "expected_within_line_fraction": "5710469/51480",
+              "expected_within_line": 110.92597125097124,
+              "expected_pooled": 101.60045572060821,
+              "ratio_within_line": 3.191317560781785,
+              "ratio_pooled": 3.484236340174172
+            }
+          },
+          "empty_ids": []
+        },
+        "join/primary/opaque": {
+          "own_eligible": {
+            "lines": 2466,
+            "tokens": 22823,
+            "singleton_lines": 16,
+            "am_final": {
+              "observed": 376,
+              "feature_tokens": 470,
+              "expected_within_line_fraction": "2987057/60060",
+              "expected_within_line": 49.734548784548785,
+              "expected_pooled": 50.78298207948122,
+              "ratio_within_line": 7.560136950851624,
+              "ratio_pooled": 7.404055150040551
+            },
+            "y_initial": {
+              "observed": 354,
+              "feature_tokens": 941,
+              "expected_within_line_fraction": "5710469/51480",
+              "expected_within_line": 110.92597125097124,
+              "expected_pooled": 101.6740130570039,
+              "ratio_within_line": 3.191317560781785,
+              "ratio_pooled": 3.4817156258160935
+            }
+          },
+          "common_eligible": {
+            "lines": 2464,
+            "tokens": 22821,
+            "singleton_lines": 14,
+            "am_final": {
+              "observed": 376,
+              "feature_tokens": 470,
+              "expected_within_line_fraction": "2987057/60060",
+              "expected_within_line": 49.734548784548785,
+              "expected_pooled": 50.74624249594672,
+              "ratio_within_line": 7.560136950851624,
+              "ratio_pooled": 7.4094155844155845
+            },
+            "y_initial": {
+              "observed": 354,
+              "feature_tokens": 941,
+              "expected_within_line_fraction": "5710469/51480",
+              "expected_within_line": 110.92597125097124,
+              "expected_pooled": 101.60045572060821,
+              "ratio_within_line": 3.191317560781785,
+              "ratio_pooled": 3.484236340174172
+            }
+          },
+          "empty_ids": []
+        },
+        "join/exclude_word/expand": {
+          "own_eligible": {
+            "lines": 2466,
+            "tokens": 22823,
+            "singleton_lines": 16,
+            "am_final": {
+              "observed": 376,
+              "feature_tokens": 470,
+              "expected_within_line_fraction": "2987057/60060",
+              "expected_within_line": 49.734548784548785,
+              "expected_pooled": 50.78298207948122,
+              "ratio_within_line": 7.560136950851624,
+              "ratio_pooled": 7.404055150040551
+            },
+            "y_initial": {
+              "observed": 354,
+              "feature_tokens": 941,
+              "expected_within_line_fraction": "5710469/51480",
+              "expected_within_line": 110.92597125097124,
+              "expected_pooled": 101.6740130570039,
+              "ratio_within_line": 3.191317560781785,
+              "ratio_pooled": 3.4817156258160935
+            }
+          },
+          "common_eligible": {
+            "lines": 2464,
+            "tokens": 22821,
+            "singleton_lines": 14,
+            "am_final": {
+              "observed": 376,
+              "feature_tokens": 470,
+              "expected_within_line_fraction": "2987057/60060",
+              "expected_within_line": 49.734548784548785,
+              "expected_pooled": 50.74624249594672,
+              "ratio_within_line": 7.560136950851624,
+              "ratio_pooled": 7.4094155844155845
+            },
+            "y_initial": {
+              "observed": 354,
+              "feature_tokens": 941,
+              "expected_within_line_fraction": "5710469/51480",
+              "expected_within_line": 110.92597125097124,
+              "expected_pooled": 101.60045572060821,
+              "ratio_within_line": 3.191317560781785,
+              "ratio_pooled": 3.484236340174172
+            }
+          },
+          "empty_ids": []
+        },
+        "join/exclude_word/opaque": {
+          "own_eligible": {
+            "lines": 2466,
+            "tokens": 22823,
+            "singleton_lines": 16,
+            "am_final": {
+              "observed": 376,
+              "feature_tokens": 470,
+              "expected_within_line_fraction": "2987057/60060",
+              "expected_within_line": 49.734548784548785,
+              "expected_pooled": 50.78298207948122,
+              "ratio_within_line": 7.560136950851624,
+              "ratio_pooled": 7.404055150040551
+            },
+            "y_initial": {
+              "observed": 354,
+              "feature_tokens": 941,
+              "expected_within_line_fraction": "5710469/51480",
+              "expected_within_line": 110.92597125097124,
+              "expected_pooled": 101.6740130570039,
+              "ratio_within_line": 3.191317560781785,
+              "ratio_pooled": 3.4817156258160935
+            }
+          },
+          "common_eligible": {
+            "lines": 2464,
+            "tokens": 22821,
+            "singleton_lines": 14,
+            "am_final": {
+              "observed": 376,
+              "feature_tokens": 470,
+              "expected_within_line_fraction": "2987057/60060",
+              "expected_within_line": 49.734548784548785,
+              "expected_pooled": 50.74624249594672,
+              "ratio_within_line": 7.560136950851624,
+              "ratio_pooled": 7.4094155844155845
+            },
+            "y_initial": {
+              "observed": 354,
+              "feature_tokens": 941,
+              "expected_within_line_fraction": "5710469/51480",
+              "expected_within_line": 110.92597125097124,
+              "expected_pooled": 101.60045572060821,
+              "ratio_within_line": 3.191317560781785,
+              "ratio_pooled": 3.484236340174172
+            }
+          },
+          "empty_ids": []
+        }
+      },
+      "changed_rows": 1097,
+      "default_endpoint_changes": [
+        {
+          "id": "f31r.15",
+          "old_signature_am_y": [
+            false,
+            true
+          ],
+          "new_signature_am_y": [
+            true,
+            true
+          ],
+          "old_first": "yshedair",
+          "new_first": "yshedair",
+          "old_last": "okedam<$>",
+          "new_last": "okedam"
+        },
+        {
+          "id": "f33v.11",
+          "old_signature_am_y": [
+            false,
+            false
+          ],
+          "new_signature_am_y": [
+            true,
+            false
+          ],
+          "old_first": "tar",
+          "new_first": "tar",
+          "old_last": "oram<$>",
+          "new_last": "oram"
+        },
+        {
+          "id": "f43r.1",
+          "old_signature_am_y": [
+            false,
+            true
+          ],
+          "new_signature_am_y": [
+            false,
+            false
+          ],
+          "old_first": "ytedy",
+          "new_first": "tarodaiin",
+          "old_last": "dar",
+          "new_last": "dar"
+        },
+        {
+          "id": "f48r.1",
+          "old_signature_am_y": [
+            false,
+            true
+          ],
+          "new_signature_am_y": [
+            false,
+            false
+          ],
+          "old_first": "ypchdy",
+          "new_first": "pshdaiin",
+          "old_last": "opaldy",
+          "new_last": "opaldy"
+        },
+        {
+          "id": "f48r.9",
+          "old_signature_am_y": [
+            false,
+            true
+          ],
+          "new_signature_am_y": [
+            true,
+            true
+          ],
+          "old_first": "yteched",
+          "new_first": "yteched",
+          "old_last": "okeoam<$>",
+          "new_last": "okeoam"
+        },
+        {
+          "id": "f48v.6",
+          "old_signature_am_y": [
+            false,
+            false
+          ],
+          "new_signature_am_y": [
+            true,
+            false
+          ],
+          "old_first": "shdy",
+          "new_first": "shdy",
+          "old_last": "am<$>",
+          "new_last": "am"
+        },
+        {
+          "id": "f55v.12",
+          "old_signature_am_y": [
+            false,
+            false
+          ],
+          "new_signature_am_y": [
+            true,
+            false
+          ],
+          "old_first": "daiin",
+          "new_first": "daiin",
+          "old_last": "otam<$>",
+          "new_last": "otam"
+        },
+        {
+          "id": "f57r.5",
+          "old_signature_am_y": [
+            false,
+            false
+          ],
+          "new_signature_am_y": [
+            true,
+            false
+          ],
+          "old_first": "qokcho",
+          "new_first": "qokcho",
+          "old_last": "cheeodam<$>",
+          "new_last": "cheeodam"
+        },
+        {
+          "id": "f79v.11",
+          "old_signature_am_y": [
+            false,
+            false
+          ],
+          "new_signature_am_y": [
+            true,
+            false
+          ],
+          "old_first": "olcheey",
+          "new_first": "olcheey",
+          "old_last": "kam<$>",
+          "new_last": "kam"
+        },
+        {
+          "id": "f85r1.19",
+          "old_signature_am_y": [
+            false,
+            false
+          ],
+          "new_signature_am_y": [
+            true,
+            false
+          ],
+          "old_first": "okchy",
+          "new_first": "okchy",
+          "old_last": "lam<$>",
+          "new_last": "lam"
+        },
+        {
+          "id": "f85r1.28",
+          "old_signature_am_y": [
+            false,
+            true
+          ],
+          "new_signature_am_y": [
+            false,
+            false
+          ],
+          "old_first": "yteol",
+          "new_first": "kchedar",
+          "old_last": "cphedy",
+          "new_last": "cphedy"
+        },
+        {
+          "id": "f86v6.45",
+          "old_signature_am_y": [
+            false,
+            false
+          ],
+          "new_signature_am_y": [
+            true,
+            false
+          ],
+          "old_first": "paiin",
+          "new_first": "paiin",
+          "old_last": "aiodam<$>",
+          "new_last": "aiodam"
+        },
+        {
+          "id": "f86v5.11",
+          "old_signature_am_y": [
+            false,
+            false
+          ],
+          "new_signature_am_y": [
+            true,
+            false
+          ],
+          "old_first": "taral",
+          "new_first": "taral",
+          "old_last": "olkam<$>",
+          "new_last": "olkam"
+        },
+        {
+          "id": "f86v5.17",
+          "old_signature_am_y": [
+            false,
+            false
+          ],
+          "new_signature_am_y": [
+            true,
+            false
+          ],
+          "old_first": "ockhedy",
+          "new_first": "ockhedy",
+          "old_last": "olkam<$>",
+          "new_last": "olkam"
+        },
+        {
+          "id": "f86v5.39",
+          "old_signature_am_y": [
+            false,
+            false
+          ],
+          "new_signature_am_y": [
+            false,
+            true
+          ],
+          "old_first": "chedy",
+          "new_first": "yteody",
+          "old_last": "dy<$>",
+          "new_last": "dy"
+        },
+        {
+          "id": "f86v3.3",
+          "old_signature_am_y": [
+            true,
+            true
+          ],
+          "new_signature_am_y": [
+            true,
+            false
+          ],
+          "old_first": "ytaiin",
+          "new_first": "taiin",
+          "old_last": "am",
+          "new_last": "am"
+        },
+        {
+          "id": "f86v3.23",
+          "old_signature_am_y": [
+            false,
+            true
+          ],
+          "new_signature_am_y": [
+            false,
+            false
+          ],
+          "old_first": "ypchey",
+          "new_first": "tshedal",
+          "old_last": "qotaiin",
+          "new_last": "qotaiin"
+        },
+        {
+          "id": "f94r.8",
+          "old_signature_am_y": [
+            false,
+            true
+          ],
+          "new_signature_am_y": [
+            true,
+            true
+          ],
+          "old_first": "yty",
+          "new_first": "yty",
+          "old_last": "dam<$>",
+          "new_last": "dam"
+        },
+        {
+          "id": "f103v.32",
+          "old_signature_am_y": [
+            false,
+            false
+          ],
+          "new_signature_am_y": [
+            true,
+            false
+          ],
+          "old_first": "qokeeey",
+          "new_first": "qokeeey",
+          "old_last": "olkam<$>",
+          "new_last": "olkam"
+        },
+        {
+          "id": "f103v.33",
+          "old_signature_am_y": [
+            false,
+            false
+          ],
+          "new_signature_am_y": [
+            false,
+            true
+          ],
+          "old_first": "lkeey",
+          "new_first": "yshey",
+          "old_last": "oly",
+          "new_last": "oly"
+        },
+        {
+          "id": "f104r.9",
+          "old_signature_am_y": [
+            false,
+            true
+          ],
+          "new_signature_am_y": [
+            true,
+            true
+          ],
+          "old_first": "ycheeoy",
+          "new_first": "ycheeoy",
+          "old_last": "dam<$>",
+          "new_last": "dam"
+        },
+        {
+          "id": "f104v.22",
+          "old_signature_am_y": [
+            false,
+            false
+          ],
+          "new_signature_am_y": [
+            false,
+            true
+          ],
+          "old_first": "qokchedy",
+          "new_first": "ytchedy",
+          "old_last": "cheytal",
+          "new_last": "cheytal"
+        },
+        {
+          "id": "f104v.37",
+          "old_signature_am_y": [
+            true,
+            true
+          ],
+          "new_signature_am_y": [
+            true,
+            false
+          ],
+          "old_first": "ytedar",
+          "new_first": "posairy",
+          "old_last": "orodam",
+          "new_last": "orodam"
+        },
+        {
+          "id": "f105r.10",
+          "old_signature_am_y": [
+            false,
+            true
+          ],
+          "new_signature_am_y": [
+            true,
+            false
+          ],
+          "old_first": "ytam<$>",
+          "new_first": "sairy",
+          "old_last": "ytam<$>",
+          "new_last": "ytam"
+        },
+        {
+          "id": "f105r.34",
+          "old_signature_am_y": [
+            false,
+            false
+          ],
+          "new_signature_am_y": [
+            true,
+            false
+          ],
+          "old_first": "dor",
+          "new_first": "dor",
+          "old_last": "alkam<$>",
+          "new_last": "alkam"
+        },
+        {
+          "id": "f105r.35",
+          "old_signature_am_y": [
+            false,
+            false
+          ],
+          "new_signature_am_y": [
+            false,
+            true
+          ],
+          "old_first": "okaiir",
+          "new_first": "ypchedy",
+          "old_last": "ofory",
+          "new_last": "ofory"
+        },
+        {
+          "id": "f105v.19",
+          "old_signature_am_y": [
+            false,
+            true
+          ],
+          "new_signature_am_y": [
+            true,
+            true
+          ],
+          "old_first": "ycheey",
+          "new_first": "ycheey",
+          "old_last": "am<$>",
+          "new_last": "am"
+        },
+        {
+          "id": "f106r.47",
+          "old_signature_am_y": [
+            false,
+            true
+          ],
+          "new_signature_am_y": [
+            true,
+            true
+          ],
+          "old_first": "ycheoar",
+          "new_first": "ycheoar",
+          "old_last": "cheokam<$>",
+          "new_last": "cheokam"
+        },
+        {
+          "id": "f106v.4",
+          "old_signature_am_y": [
+            false,
+            true
+          ],
+          "new_signature_am_y": [
+            true,
+            true
+          ],
+          "old_first": "ycheoto",
+          "new_first": "ycheoto",
+          "old_last": "charam<$>",
+          "new_last": "charam"
+        },
+        {
+          "id": "f106v.14",
+          "old_signature_am_y": [
+            false,
+            false
+          ],
+          "new_signature_am_y": [
+            true,
+            false
+          ],
+          "old_first": "schedy",
+          "new_first": "schedy",
+          "old_last": "alkam<$>",
+          "new_last": "alkam"
+        },
+        {
+          "id": "f106v.31",
+          "old_signature_am_y": [
+            false,
+            false
+          ],
+          "new_signature_am_y": [
+            true,
+            false
+          ],
+          "old_first": "sheeey",
+          "new_first": "sheeey",
+          "old_last": "olcham<$>",
+          "new_last": "olcham"
+        },
+        {
+          "id": "f107r.41",
+          "old_signature_am_y": [
+            false,
+            false
+          ],
+          "new_signature_am_y": [
+            true,
+            false
+          ],
+          "old_first": "qokain",
+          "new_first": "qokain",
+          "old_last": "otam<$>",
+          "new_last": "otam"
+        },
+        {
+          "id": "f108r.47",
+          "old_signature_am_y": [
+            false,
+            true
+          ],
+          "new_signature_am_y": [
+            true,
+            true
+          ],
+          "old_first": "yched",
+          "new_first": "yched",
+          "old_last": "keam<$>",
+          "new_last": "keam"
+        },
+        {
+          "id": "f108r.50",
+          "old_signature_am_y": [
+            false,
+            false
+          ],
+          "new_signature_am_y": [
+            true,
+            false
+          ],
+          "old_first": "qokeedy",
+          "new_first": "qokeedy",
+          "old_last": "okam<$>",
+          "new_last": "okam"
+        },
+        {
+          "id": "f108v.19",
+          "old_signature_am_y": [
+            false,
+            false
+          ],
+          "new_signature_am_y": [
+            true,
+            false
+          ],
+          "old_first": "qokeeol",
+          "new_first": "qokeeol",
+          "old_last": "lcheam<$>",
+          "new_last": "lcheam"
+        },
+        {
+          "id": "f108v.27",
+          "old_signature_am_y": [
+            false,
+            false
+          ],
+          "new_signature_am_y": [
+            true,
+            false
+          ],
+          "old_first": "sal",
+          "new_first": "sal",
+          "old_last": "okalam<$>",
+          "new_last": "okalam"
+        },
+        {
+          "id": "f108v.29",
+          "old_signature_am_y": [
+            false,
+            false
+          ],
+          "new_signature_am_y": [
+            true,
+            false
+          ],
+          "old_first": "dar",
+          "new_first": "dar",
+          "old_last": "cheam<$>",
+          "new_last": "cheam"
+        },
+        {
+          "id": "f111r.35",
+          "old_signature_am_y": [
+            false,
+            true
+          ],
+          "new_signature_am_y": [
+            true,
+            true
+          ],
+          "old_first": "ychedl",
+          "new_first": "ychedl",
+          "old_last": "dam<$>",
+          "new_last": "dam"
+        },
+        {
+          "id": "f112r.10",
+          "old_signature_am_y": [
+            false,
+            false
+          ],
+          "new_signature_am_y": [
+            true,
+            false
+          ],
+          "old_first": "dair",
+          "new_first": "dair",
+          "old_last": "dam<$>",
+          "new_last": "dam"
+        },
+        {
+          "id": "f112r.18",
+          "old_signature_am_y": [
+            false,
+            false
+          ],
+          "new_signature_am_y": [
+            true,
+            false
+          ],
+          "old_first": "saiin",
+          "new_first": "saiin",
+          "old_last": "cham<$>",
+          "new_last": "cham"
+        },
+        {
+          "id": "f112r.26",
+          "old_signature_am_y": [
+            false,
+            false
+          ],
+          "new_signature_am_y": [
+            true,
+            false
+          ],
+          "old_first": "tockhy",
+          "new_first": "tockhy",
+          "old_last": "chedam<$>",
+          "new_last": "chedam"
+        },
+        {
+          "id": "f112r.36",
+          "old_signature_am_y": [
+            false,
+            false
+          ],
+          "new_signature_am_y": [
+            true,
+            false
+          ],
+          "old_first": "sain",
+          "new_first": "sain",
+          "old_last": "olam<$>",
+          "new_last": "olam"
+        },
+        {
+          "id": "f112v.23",
+          "old_signature_am_y": [
+            false,
+            false
+          ],
+          "new_signature_am_y": [
+            false,
+            true
+          ],
+          "old_first": "keeor",
+          "new_first": "ycheol",
+          "old_last": "qotain",
+          "new_last": "qotain"
+        },
+        {
+          "id": "f113r.1",
+          "old_signature_am_y": [
+            false,
+            true
+          ],
+          "new_signature_am_y": [
+            false,
+            false
+          ],
+          "old_first": "ypcheedy",
+          "new_first": "pchesfchy",
+          "old_last": "chedy",
+          "new_last": "chedy"
+        },
+        {
+          "id": "f113v.3",
+          "old_signature_am_y": [
+            false,
+            false
+          ],
+          "new_signature_am_y": [
+            true,
+            false
+          ],
+          "old_first": "sar",
+          "new_first": "sar",
+          "old_last": "olam<$>",
+          "new_last": "olam"
+        },
+        {
+          "id": "f114r.34",
+          "old_signature_am_y": [
+            false,
+            false
+          ],
+          "new_signature_am_y": [
+            true,
+            true
+          ],
+          "old_first": "olkaiin",
+          "new_first": "ytain",
+          "old_last": "alkam<$>",
+          "new_last": "alkam"
+        },
+        {
+          "id": "f114v.28",
+          "old_signature_am_y": [
+            false,
+            false
+          ],
+          "new_signature_am_y": [
+            true,
+            false
+          ],
+          "old_first": "tchedy",
+          "new_first": "tchedy",
+          "old_last": "chetam<$>",
+          "new_last": "chetam"
+        },
+        {
+          "id": "f115v.7",
+          "old_signature_am_y": [
+            false,
+            false
+          ],
+          "new_signature_am_y": [
+            true,
+            false
+          ],
+          "old_first": "dchedy",
+          "new_first": "dchedy",
+          "old_last": "chotam<$>",
+          "new_last": "chotam"
+        }
+      ]
+    }
+  ],
+  "limits": [
+    "Related transcriptions are not independent samples.",
+    "Candidate lexical view is not full IVTFF certification.",
+    "Literal features on opaque tokens depend on projection policy.",
+    "No p-values, confidence intervals, model rejection or semantic inference."
+  ]
+}
