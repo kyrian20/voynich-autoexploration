@@ -8,7 +8,7 @@ Fecha: 2026-10-23. Estado: **PROPOSED**. Sin nuevo identificador EXP. No se han 
 
 ## Etapa 0: verificación de insumos (bloqueante)
 
-1. Identificar en el repositorio los scripts, resultados, criterios de «etiqueta» y política de tokenización originales de exp_580/F640/F641. Reconstruir los tipos y las frecuencias, con SHA-256 de las transcripciones ZL3b e IT2a. Si no se reproduce el inventario, **BLOCKED**, sin pasar a la búsqueda de nombres.
+1. **Localización resuelta:** el registro `research/EXPERIMENT_PATH_REGISTRY.json` identifica `GH:experiments/exp_580_label_corpus_grammar` (alias exp_580); están disponibles `script.py` y `result.md`. Reconstruir sus tipos y frecuencias, con SHA-256 de ZL3b e IT2a. El informe histórico afirma 1.036 tipos de etiqueta, 489 compartidos con el cuerpo y 547 exclusivos; estas cifras siguen **pendientes de reproducción independiente**. Si no se reproduce el inventario, **BLOCKED**, sin pasar a la búsqueda de nombres.
 2. Separar etiquetas de cuerpo por identificadores de locus y metadatos comprobados, sin deducir sección o Currier a partir de la grafía. Documentar etiquetas ambiguas, fragmentos, variantes y exclusiones. Conservar los identificadores de folio y localización.
 3. Establecer qué etiquetas tienen un referente visual catalogado de forma independiente, con fuente, folio y grado de certeza. Excluir de la evaluación confirmatoria las imágenes ambiguas. No inferir referentes a partir de supuestas traducciones.
 4. Las dos transcripciones describen el mismo manuscrito: tratarlas como **sensibilidad de lectura**, no como replicaciones independientes. No completar etiquetas ausentes en una transcripción mediante la otra sin registrarlo.
@@ -38,3 +38,11 @@ Si las asociaciones desaparecen al estratificar por sección/longitud, al cambia
 ## Registro, reproducibilidad y auditoría
 
 Publicar hashes, versiones, licencia, código, fixtures del lector IVTFF, semilla, comandos, entorno, JSON de resultados y logs. Auditar según `skills/audit_experiment.md` (conciencia del objetivo, implementación que destruye señales, extrapolación, sobreinterpretación de negativos y controles). Conservar todo resultado negativo y los artefactos originales. No editar `state/committed_claims.md`, `state/findings.md` ni el corpus. Este archivo fija **diseño**, no certifica ejecución ni valor semántico.
+
+## Trazabilidad recuperada — 23-10-2026
+
+- Fuente primaria de los recuentos históricos: `experiments/exp_580_label_corpus_grammar/result.md`, sección 5, «Vocabulary Overlap»; código: `experiments/exp_580_label_corpus_grammar/script.py`.
+- El script usa la transcripción ZL3b y selecciona etiquetas mediante `^[&@*+=~][LR][^P]`; cuerpo mediante `^[&@*+=~]P`. Su lector elimina marcadores y toma la primera alternativa de las lecturas ambiguas; por ello el recuento no es todavía una medida independiente de la política de lectura.
+- El informe documenta 1.087 líneas de etiquetas y 1.442 tokens, 1.036 tipos de etiqueta, 7.030 tipos del cuerpo, 489 compartidos y 547 exclusivos. Son **valores archivados, no recalculados en esta rama**.
+- Se debe cotejar la clasificación de secciones del script: incluye reglas basadas en locus y rangos de folio, y una condición `Lz` duplicada. No extrapolar la clasificación histórica a referentes visuales seguros.
+- La ruta genérica `experiments/exp_580/` era incorrecta; no se ha perdido el experimento. El registro canónico de rutas evita repetir esta falsa incidencia.
