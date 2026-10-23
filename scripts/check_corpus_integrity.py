@@ -61,6 +61,8 @@ def verify(root, manifest):
                if linked_path(root, p)]
     errors += [f'Missing corpus: {p}' for p in sorted(set(expected)-actual)]
     for name in sorted(actual & set(expected)):
+        if linked_path(root, name):
+            continue  # Already reported; never follow an untrusted link to read bytes.
         raw = (root/name).read_bytes()
         entry = expected[name]
         if len(raw) != entry['bytes'] or hashlib.sha256(raw).hexdigest() != entry['sha256']:
