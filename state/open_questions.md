@@ -185,6 +185,10 @@ Standing instruction preserved: when resolving backlog hypotheses, move them to 
 **Why this can't be resolved computationally:** It can — the real Latin files exist and the script needs to be re-run pointing at the correct files.
 **What it would take to resolve it:** Run exp_001's analysis substituting Virgil/Caesar Latin for the Douay-Rheims file. This is a cleanup task, not a new hypothesis; integrate into exp_002.
 
+## Auditoría acotada EXP-170 y redacción de C001 — 22-10-2026
+
+[Informe y cálculo reproducible](../research/maintenance/2026-10-22-exp170-audit/REPORT.md). Reanálisis del mismo JSON: máximo individual `am_ll=1,530686`, mayor media de condición `1,062173`. El «máximo 1,1×» de C001 no es correcto si significa máximo de ejecuciones; `working_position.md` §2.1 da incluso 0,57× para Naibbe+Timm. Requiere adjudicación humana de la redacción pública; no se edita `committed_claims.md`. No se cruzan los disparadores am≥3/y≥2 y la separación de los objetivos VMS archivados permanece. También se confirman intervalos P5–P95 mal rotulados como IC95, intercambios de columnas y resumen incorrecto. No se promueve un finding ni se continúa el ciclo experimental; la auditoría y sus pruebas completan el alcance solicitado.
+
 ## BC-2026-10-22: alertas de umbral C001, pendientes de adjudicación humana
 
 Batería nueva `experiments/common_battery_2026_10_22/result.md`, posterior a protocolo y semillas congeladas. Tres salidas sin posición superan el umbral literal am LL>=3: copia propia carácter, semilla17003, 3,049020 (18 am, 6 finales); IID17003 e IID17012, 4,573529 (solo 2 am y 1 final cada una). No son reproducción ni reanálisis contradictorio de los resultados EXP-170/171/176. El soporte escaso impide tratar máximos como gramática reproducida, pero la regla de C001 obliga a registrar y adjudicar. Se conserva committed_claims sin cambios y no se promueven findings/failed_approaches. La primaria conjunta también acepta 16/16 barajados del Voynich: batería no discriminante, ninguna conclusión científica VALIDATED. No continuar un ciclo automático de búsqueda para resolver esta cuestión sin protocolo nuevo.

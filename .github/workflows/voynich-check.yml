@@ -42,10 +42,22 @@ jobs:
           python tests/test_historical_latin_loaders.py
           python scripts/audit_historical_latin_loaders.py --check research/maintenance/2026-10-22-loader-audit/results.json
 
+      - name: Verificar correcciones de afirmaciones históricas EXP-001/267/288
+        run: |
+          python tests/test_reference_claim_links.py
+          python scripts/audit_reference_claim_links.py --check research/maintenance/2026-10-22-claim-link-adjudication/results.json
+          python tests/test_exp001_claim_scope.py
+          python scripts/audit_exp001_claim_scope.py --check research/maintenance/2026-10-23-exp001-claim-scope/results.json
+
       - name: Reproducir cuatro lectores de referencia restantes
         run: |
           python tests/test_remaining_reference_loaders.py
           python scripts/audit_remaining_reference_loaders.py --check research/maintenance/2026-10-22-remaining-readers/results.json
+
+      - name: Auditar estadísticas archivadas de EXP-170 sin ejecutar el cifrador
+        run: |
+          python tests/test_exp170_archive.py
+          python scripts/audit_exp170_archive.py --check research/maintenance/2026-10-22-exp170-audit/results.json
 
       - name: Reproducir sensibilidad de entropía de referencia
         run: |
