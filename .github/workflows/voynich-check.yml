@@ -303,6 +303,7 @@ jobs:
 
       - name: Exportar inventario histórico de etiquetas EXP-580
         run: |
+          python -m unittest discover -s tests -p 'test_exp580_label_inventory.py' -v
           python scripts/export_exp580_label_inventory.py --out exp580-label-inventory.json
           python -c "import json; d=json.load(open('exp580-label-inventory.json')); assert len(d['inventory']) == 547; assert sum(x['count'] for x in d['inventory']) == d['summary']['exclusive_tokens']"
 
