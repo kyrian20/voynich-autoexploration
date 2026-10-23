@@ -31,8 +31,22 @@ def main():
         reader.write_text(original.replace('          persist-credentials: false', '          persist-credentials: false\n        with:\n          persist-credentials: true'))
         must_reject(directory)
         reader.write_text(original)
+        # Previously accepted: a nominal reader with another write permission.
+        reader.write_text(original.replace('permissions:\n  contents: read',
+                                           'permissions:\n  contents: read\n  actions: write', 1))
+        must_reject(directory)
+        reader.write_text(original)
+        # Previously accepted: a job-level writer for a scope other than contents.
+        reader.write_text(original.replace('  exp604:\n',
+                                           '  exp604:\n    permissions:\n      pull-requests: write\n', 1))
+        must_reject(directory)
+        reader.write_text(original)
         publisher = directory / 'voynich-agent.yml'
-        publisher.write_text(publisher.read_text().replace('git push origin', 'git push --force origin'))
+        publisher_original = publisher.read_text()
+        publisher.write_text(publisher_original.replace('permissions:\n  contents: write',
+                                                        'permissions:\n  contents: write\n  issues: write', 1))
+        must_reject(directory)
+        publisher.write_text(publisher_original.replace('git push origin', 'git push --force origin'))
         must_reject(directory)
     records = reconcile_records()
     assert records['nonempty_raw_records'] - records['nonempty_token_records'] == len(records['excluded_after_token_filter'])
