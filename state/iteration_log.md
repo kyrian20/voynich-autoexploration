@@ -571,3 +571,5 @@
 - 2026-10-22 — BC-2026-10-22 (`experiments/common_battery_2026_10_22`): 21 brazos/201 evaluaciones con tokens y hashes; perfil primario no discrimina permutaciones, tres alertas C001 con soporte documentado; autoauditoría realizada y adjudicación pendiente, sin modificar resultados históricos.
 
 2026-10-23 | Sin EXP nuevo: reproducción local conjunta V1/V2 y diagnóstico de distancias 2/3, 12 brazos/192 controles, partición por folio. Sensibilidad insuficiente en controles: no concluyente, sin significado asignado. Autoauditoría en research/analysis/2026-10-23-lag-screen/REPORT.md.
+
+2026-10-23 | Sin EXP nuevo: 48 brazos sintéticos reproducidos exactamente, 12/12 positivos fuertes detectados, 0/12 IID positivos; bordes identificadores absorben señal. Contextos redundantes pueden cambiar W-EL por regularización; no interpretar como información condicional pura. Autoauditoría y protocolo en research/analysis/2026-10-23-synthetic-sensitivity/.

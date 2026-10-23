@@ -6,6 +6,8 @@ La [batería común lenguaje/cifrado/generación](experiments/common_battery_202
 
 ## Estado operativo actual — 23 octubre 2026
 
+**Sensibilidad técnica:** [48 brazos sintéticos reproducidos](research/analysis/2026-10-23-synthetic-sensitivity/REPORT.md). El residual puede ser cero con dependencia fuerte conocida cuando los bordes ya identifican el token; pequeñas ganancias también pueden reflejar regularización redundante. No es información condicional pura ni evidencia de significado.
+
 **Distancias dos y tres:** [diagnóstico predictivo exploratorio](research/analysis/2026-10-23-lag-screen/REPORT.md), 12 brazos y 192 controles. Sensibilidad insuficiente en Dante y a distancia tres en César: no permite excluir dependencias lingüísticas en Voynich. Reproducción local completa del bloque V1/V2 anterior; no equivale a CI verde.
 
 **Cuatro lectores restantes reproducidos:** [selección efectiva de EXP-267/288/001/170 y defecto de coordenadas de EXP-001](research/maintenance/2026-10-22-remaining-readers/REPORT.md). Coincidencia de secuencias, hashes y seis controles en CI; las entradas bilingües o inglesas siguen excluidas como bases monolingües latinas. No valida los experimentos completos.
