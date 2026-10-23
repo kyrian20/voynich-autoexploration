@@ -2,6 +2,8 @@
 
 Repositorio de trabajo: `kyrian20/voynich-autoexploration` (rama `master`).
 
+**Límite de soporte del predictor — 23-10-2026:** [descomposición exacta de contextos](research/maintenance/2026-10-23-identity-support/REPORT.md). Solo 7,29–8,27 % de las tripletas Voynich permiten una corrección de identidad no trivial con las tablas entrenadas; César 0,42 % y Dante 2,95 %. Diagnóstico del instrumento, sin conclusión lingüística ni cambio de pesos.
+
 **Memoria de dos tokens y reparación de sesgo — 23-10-2026:** [predictor calibrado, intento fallido conservado y controles](research/analysis/2026-10-23-two-token-residual/REPORT.md). Se corrigió una ganancia artificial de suavizado antes del análisis real. La identidad adicional se desactiva en las cuatro vistas Voynich y ofrece señal primaria incierta en los dos controles naturales: no discrimina teorías ni traduce. [Alcance de la revisión de errores](research/maintenance/2026-10-23-repair-scope.md).
 
 **Verificación CI corregida y control alternativo — 23-10-2026:** [evidencia de ejecuciones push satisfactorias](research/CI_VERIFICATION.md) y [control de contexto por folio](research/maintenance/2026-10-23-folio-context-control/REPORT.md). La alternativa permite variar 196 de 325 predecesores de cierres -am en ZL3b, conservando inventario de folio y plantillas de línea, pero relajando el inventario de cada línea. Es otro nulo; no se presenta como prueba semántica.
