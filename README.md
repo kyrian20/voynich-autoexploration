@@ -2,6 +2,8 @@
 
 Repositorio de trabajo: `kyrian20/voynich-autoexploration` (rama `master`).
 
+**Soporte del control de contexto — 23-10-2026:** [oportunidades exactas de intercambio del predecesor final](research/maintenance/2026-10-23-predecessor-opportunities/REPORT.md). Al conservar extremos de línea, inventario, bordes y longitud, solo 16 de 325 cierres -am ZL3b permiten cambiar su predecesor en la vista por defecto. Diagnóstico de soporte, sin contraste semántico ni cálculo de potencia.
+
 **Contribuciones léxicas de -am — 23-10-2026:** [descomposición exacta y exclusión de una forma cada vez](research/maintenance/2026-10-23-am-lexical-contributions/REPORT.md). En las mismas líneas B/P0 sin marcador explícito, el exceso final persiste tras dejar de contar cualquiera de las formas -am, bajo las ocho políticas de lectura. Sensibilidad descriptiva, sin asignación semántica.
 
 **Separación de párrafos — 23-10-2026:** [estratos por P0/otros P y marcador explícito de fin](research/maintenance/2026-10-23-paragraph-strata/REPORT.md). En ZL3b, el exceso -am/final persiste en las 1.883 líneas P0 sin marcador bajo las ocho vistas y las 40 retiradas de folio. Ausencia de marcador no se equipara automáticamente con interior de párrafo. Resultado descriptivo, sin significado asignado.
