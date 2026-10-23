@@ -3,13 +3,18 @@
 Run from the repository root:
     python tests/test_ivtff_metadata.py
 """
+import contextlib
+import io
+import json
 import sys
 import tempfile
 from pathlib import Path
+from unittest.mock import patch
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
+import scripts.audit_ivtff_metadata as metadata_module
 from scripts.audit_ivtff_metadata import HEADER, parse_currier_language
 from scripts.exp590_daiin_position import load_lines
 from experiments.exp_602_independent_ivtff_parser_audit.script import tokens_regex, tokens_scanner
@@ -87,6 +92,40 @@ def check_brace_inventory() -> None:
     assert cross_line["unmatched_close_brace_count"] == 1, cross_line
 
 
+def check_repeated_page_header_conflicts() -> None:
+    # A repeated page with the same $L is harmless; conflicting labels must
+    # fail rather than silently allowing the last header to overwrite the first.
+    with tempfile.TemporaryDirectory() as tmp:
+        root = Path(tmp)
+        source = root / "fixture.ivtff"
+        headers = [
+            f"<f{i}r> <! $L={'A' if i % 2 else 'B'}>"
+            for i in range(1, 102)
+        ]
+        headers.append("<f1r> <! $L=A>")
+        source.write_text("\\n".join(headers) + "\\n", encoding="utf-8")
+        output = io.StringIO()
+        with (patch.object(metadata_module, "ROOT", root),
+              patch.object(metadata_module, "SOURCE", source),
+              contextlib.redirect_stdout(output)):
+            metadata_module.main()
+        report = json.loads(output.getvalue())
+        assert report["folios_with_currier_language"] == 101, report
+        assert report["folio_headers"] == 102, report
+
+        headers.append("<f1r> <! $L=B>")
+        source.write_text("\\n".join(headers) + "\\n", encoding="utf-8")
+        with (patch.object(metadata_module, "ROOT", root),
+              patch.object(metadata_module, "SOURCE", source),
+              contextlib.redirect_stdout(io.StringIO())):
+            try:
+                metadata_module.main()
+            except ValueError as exc:
+                assert "Conflicting Currier $L across headers for f1r" in str(exc), exc
+            else:
+                raise AssertionError("Contradictory page metadata silently overwritten")
+
+
 def main() -> None:
     # $L wins even when $Q contradicts it; $Q means quire, not Currier language.
     check("<! $Q=A $L=B>", "B")
@@ -133,6 +172,7 @@ def main() -> None:
     assert rows[0]["currier"] == "B", rows[0]
     assert rows[1]["currier"] == "unknown", rows[1]
 
+    check_repeated_page_header_conflicts()
     check_tokenizers()
     check_brace_inventory()
     print("IVTFF metadata and tokenizer regression tests passed.")
