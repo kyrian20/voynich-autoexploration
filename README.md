@@ -2,6 +2,8 @@
 
 Repositorio de trabajo: `kyrian20/voynich-autoexploration` (rama `master`).
 
+**Contribuciones léxicas de -am — 23-10-2026:** [descomposición exacta y exclusión de una forma cada vez](research/maintenance/2026-10-23-am-lexical-contributions/REPORT.md). En las mismas líneas B/P0 sin marcador explícito, el exceso final persiste tras dejar de contar cualquiera de las formas -am, bajo las ocho políticas de lectura. Sensibilidad descriptiva, sin asignación semántica.
+
 **Separación de párrafos — 23-10-2026:** [estratos por P0/otros P y marcador explícito de fin](research/maintenance/2026-10-23-paragraph-strata/REPORT.md). En ZL3b, el exceso -am/final persiste en las 1.883 líneas P0 sin marcador bajo las ocho vistas y las 40 retiradas de folio. Ausencia de marcador no se equipara automáticamente con interior de párrafo. Resultado descriptivo, sin significado asignado.
 
 **Avance del 23-10-2026:** [puente de lectores para los patrones -am/final e y/inicial](research/maintenance/2026-10-23-exp173-reader-bridge/REPORT.md): tres transcripciones, ocho políticas completas, poblaciones comunes y sensibilidad al retirar cada folio. Los dos excesos descriptivos persisten dentro de esta rejilla; se documentan las diferencias de extremos y las limitaciones IVTFF. No hay traducción ni nueva significación estadística. Incluye reproducción en CI de las cuatro auditorías acotadas de EXP-173.
