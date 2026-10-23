@@ -24,6 +24,36 @@ class CorpusIntegrity(unittest.TestCase):
             self.assertTrue(verify(root,{'files':[entry]}))
             entry['status']='BLOCKED_EMPTY_DO_NOT_USE'
             self.assertEqual(verify(root,{'files':[entry]}),[])
+    def test_matching_checksum_does_not_authorize_file_symlink(self):
+        with tempfile.TemporaryDirectory() as d:
+            base = Path(d)
+            root = base / 'checkout'
+            folder = root / 'data/transcriptions'
+            folder.mkdir(parents=True)
+            external = base / 'outside.txt'
+            external.write_bytes(b'abc')
+            (folder / 'x.txt').symlink_to(external)
+            entry = {'path': 'data/transcriptions/x.txt', 'bytes': 3,
+                     'sha256': hashlib.sha256(b'abc').hexdigest(),
+                     'status': 'FROZEN_BYTES_NOT_SCIENTIFICALLY_VALIDATED'}
+            errors = verify(root, {'files': [entry]})
+            self.assertIn('Symlink corpus path forbidden: data/transcriptions/x.txt', errors)
+
+    def test_matching_checksum_does_not_authorize_parent_symlink(self):
+        with tempfile.TemporaryDirectory() as d:
+            base = Path(d)
+            root = base / 'checkout'
+            outside = base / 'outside-folder'
+            outside.mkdir()
+            (outside / 'x.txt').write_bytes(b'abc')
+            (root / 'data').mkdir(parents=True)
+            (root / 'data/transcriptions').symlink_to(outside, target_is_directory=True)
+            entry = {'path': 'data/transcriptions/x.txt', 'bytes': 3,
+                     'sha256': hashlib.sha256(b'abc').hexdigest(),
+                     'status': 'FROZEN_BYTES_NOT_SCIENTIFICALLY_VALIDATED'}
+            errors = verify(root, {'files': [entry]})
+            self.assertIn('Symlink corpus path forbidden: data/transcriptions/x.txt', errors)
+
     def test_duplicate_manifest_paths_rejected(self):
         entry={'path':'data/transcriptions/x.txt','bytes':0,'sha256':hashlib.sha256(b'').hexdigest(),'status':'BLOCKED_EMPTY_DO_NOT_USE'}
         with tempfile.TemporaryDirectory() as d:
