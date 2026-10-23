@@ -20,6 +20,28 @@ Una respuesta exactamente `OK` tras retirar espacios indica `connected`.
 Ni el cuerpo de respuesta ni las excepciones se imprimen o archivan.
 El artefacto de siete días contiene solo estado, modelo, número de intentos,
 ausencia de datos del manuscrito y, si está disponible, código HTTP.
+Los errores HTTP incluyen además una categoría fija tanto en el log como en
+el artefacto. Por ejemplo:
+`Gemini connection test status: http_error; http_status=403; error_category=permission_denied`.
+
+| HTTP | Categoría |
+| --- | --- |
+| 400 | `bad_request` |
+| 401 | `authentication_error` |
+| 403 | `permission_denied` |
+| 404 | `not_found` |
+| 408 | `request_timeout` |
+| 429 | `rate_limit_or_quota` |
+| Otros 4xx | `client_error` |
+| 5xx | `server_error` |
+| 3xx | `redirect_blocked` |
+| Otros códigos | `unexpected_http_status` |
+
+Las categorías clasifican el código HTTP; no confirman una causa específica.
+No se lee el cuerpo de errores HTTP ni se registra su mensaje, cabeceras o URL.
+El script Python sigue embebido en el workflow para conservar la ausencia de
+checkout. `tests/test_gemini_smoke.py` ejecuta ese mismo script con el transporte
+simulado, sin conexiones de red; la CI habitual ejecuta estas pruebas.
 El token de GitHub tiene solo permiso explícito `contents: read` conforme al auditor
 del proyecto; no hay escrituras al repositorio.
 
@@ -71,3 +93,18 @@ no se afirma validación con esa herramienta ni ejecución satisfactoria de Acti
 No se han reproducido los experimentos históricos ni validado conclusiones
 científicas. Conexión real, secreto, modelo y facturación pendientes de la
 ejecución manual tras incorporación autorizada del workflow a la rama predeterminada.
+
+## Regresión del diagnóstico HTTP — 24-10-2026
+
+Pruebas automatizadas añadidas en `tests/test_gemini_smoke.py`, ejecutadas también
+por Voynich Check. Cubren 400/401/403/404/408/429, otro 4xx, cuatro 5xx,
+302/307 y un código fuera de las familias previstas; comprueban salida y
+artefacto exactos, una sola llamada, cierre del error sin leer su cuerpo y
+ausencia de una marca sensible inyectada en clave, URL, cabeceras y mensaje.
+También cubren éxito, timeout, error de transporte, JSON inválido, respuesta
+inesperada, secreto ausente y rechazo de redirecciones.
+
+Python 3.12.14: suite completa de 153 pruebas, una omitida (la base tenía
+148 pruebas, una omitida). Auditoría operativa, identidad de corpus y
+`git diff --check`: satisfactorios. Sin petición real a Gemini ni reproducción
+de experimentos históricos; esta corrección es exclusivamente operativa.
