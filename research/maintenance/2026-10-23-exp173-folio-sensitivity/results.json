@@ -1,0 +1,460 @@
+{
+  "schema_version": 1,
+  "status": "EXPLORATORY_FOLIO_SENSITIVITY_NOT_PVALUE",
+  "source_commit": "c70a0ba5a97276edce09d7bfe7b8dc88514a2881",
+  "source": "data/transcriptions/eva_zl3b.txt",
+  "source_sha256": "bf5b6d4ac1e3a51b1847a9c388318d609020441ccd56984c901c32b09beccafc",
+  "parser": "scripts/audit_exp173_currier_crosswalk.py",
+  "parser_git_blob_sha1": "db27baa834a898b2e1b6a78e94a3b8d6d98cff43",
+  "legacy_script_git_blob_sha1": "3fb1eeb92c301d3caf841499571f5e1a8b590bcc",
+  "population": "legacy P-lines; only explicit page-header $L=B; no missing label imputation",
+  "within_line_null": "uniform token permutation within each observed line, conditional on exact token multiset",
+  "jackknife": "delete-one-physical-folio, approximate normal 95%; descriptive sensitivity, NOT confirmatory p",
+  "randomness": "none",
+  "metadata_B_physical_folios": 40,
+  "metadata_B_page_loci": 82,
+  "metadata_B": {
+    "lines": 2466,
+    "words": 20652,
+    "am": 406,
+    "amLL": 331,
+    "y": 851,
+    "yLF": 355
+  },
+  "metrics": {
+    "am": {
+      "enrichment": 6.827646135,
+      "within_line_exchangeable_expected": 46.117476967,
+      "observed": 331,
+      "observed_over_exchangeable_expected": 7.17732239,
+      "folio_excess_positive": 39,
+      "folio_excess_negative": 1,
+      "folio_excess_zero": 0,
+      "leave_one_folio_out_min": 6.725693657,
+      "leave_one_folio_out_max": 6.899439691,
+      "jackknife_se": 0.21482014,
+      "jackknife_normal95_approx": [
+        6.406598661,
+        7.248693609
+      ]
+    },
+    "y": {
+      "enrichment": 3.493557029,
+      "within_line_exchangeable_expected": 109.993273393,
+      "observed": 355,
+      "observed_over_exchangeable_expected": 3.22747009,
+      "folio_excess_positive": 39,
+      "folio_excess_negative": 1,
+      "folio_excess_zero": 0,
+      "leave_one_folio_out_min": 3.372728746,
+      "leave_one_folio_out_max": 3.836282102,
+      "jackknife_se": 0.425459106,
+      "jackknife_normal95_approx": [
+        2.65965718,
+        4.327456878
+      ]
+    }
+  },
+  "folios": {
+    "f103": {
+      "lines": 100,
+      "words": 879,
+      "am": 11,
+      "amLL": 9,
+      "y": 20,
+      "yLF": 11,
+      "amExp": 1.097965923,
+      "yExp": 2.394083694
+    },
+    "f104": {
+      "lines": 89,
+      "words": 824,
+      "am": 24,
+      "amLL": 23,
+      "y": 37,
+      "yLF": 22,
+      "amExp": 2.352428127,
+      "yExp": 4.593672994
+    },
+    "f105": {
+      "lines": 75,
+      "words": 703,
+      "am": 12,
+      "amLL": 10,
+      "y": 48,
+      "yLF": 15,
+      "amExp": 1.159246309,
+      "yExp": 4.86491009
+    },
+    "f106": {
+      "lines": 94,
+      "words": 776,
+      "am": 16,
+      "amLL": 14,
+      "y": 37,
+      "yLF": 21,
+      "amExp": 1.851659452,
+      "yExp": 4.814213564
+    },
+    "f107": {
+      "lines": 100,
+      "words": 851,
+      "am": 15,
+      "amLL": 14,
+      "y": 35,
+      "yLF": 13,
+      "amExp": 1.592171717,
+      "yExp": 4.359102009
+    },
+    "f108": {
+      "lines": 103,
+      "words": 976,
+      "am": 30,
+      "amLL": 23,
+      "y": 23,
+      "yLF": 15,
+      "amExp": 3.124494949,
+      "yExp": 2.996139971
+    },
+    "f111": {
+      "lines": 105,
+      "words": 1077,
+      "am": 25,
+      "amLL": 19,
+      "y": 16,
+      "yLF": 12,
+      "amExp": 2.273387723,
+      "yExp": 1.767074592
+    },
+    "f112": {
+      "lines": 92,
+      "words": 725,
+      "am": 24,
+      "amLL": 18,
+      "y": 21,
+      "yLF": 8,
+      "amExp": 2.98502886,
+      "yExp": 2.534704185
+    },
+    "f113": {
+      "lines": 100,
+      "words": 906,
+      "am": 21,
+      "amLL": 15,
+      "y": 27,
+      "yLF": 22,
+      "amExp": 2.062432012,
+      "yExp": 3.28475136
+    },
+    "f114": {
+      "lines": 86,
+      "words": 742,
+      "am": 12,
+      "amLL": 10,
+      "y": 33,
+      "yLF": 16,
+      "amExp": 1.32465035,
+      "yExp": 4.663983239
+    },
+    "f115": {
+      "lines": 90,
+      "words": 782,
+      "am": 16,
+      "amLL": 15,
+      "y": 33,
+      "yLF": 25,
+      "amExp": 1.676695527,
+      "yExp": 4.378391053
+    },
+    "f116": {
+      "lines": 50,
+      "words": 507,
+      "am": 14,
+      "amLL": 12,
+      "y": 9,
+      "yLF": 1,
+      "amExp": 1.291125541,
+      "yExp": 0.815584416
+    },
+    "f26": {
+      "lines": 19,
+      "words": 147,
+      "am": 1,
+      "amLL": 0,
+      "y": 12,
+      "yLF": 2,
+      "amExp": 0.142857143,
+      "yExp": 1.58023088
+    },
+    "f31": {
+      "lines": 27,
+      "words": 187,
+      "am": 3,
+      "amLL": 2,
+      "y": 12,
+      "yLF": 7,
+      "amExp": 0.558333333,
+      "yExp": 1.994444444
+    },
+    "f33": {
+      "lines": 18,
+      "words": 149,
+      "am": 5,
+      "amLL": 2,
+      "y": 6,
+      "yLF": 3,
+      "amExp": 0.671428571,
+      "yExp": 0.656818182
+    },
+    "f34": {
+      "lines": 26,
+      "words": 219,
+      "am": 9,
+      "amLL": 8,
+      "y": 14,
+      "yLF": 7,
+      "amExp": 0.927453102,
+      "yExp": 1.775036075
+    },
+    "f39": {
+      "lines": 30,
+      "words": 269,
+      "am": 7,
+      "amLL": 2,
+      "y": 17,
+      "yLF": 3,
+      "amExp": 0.772222222,
+      "yExp": 1.947533023
+    },
+    "f40": {
+      "lines": 30,
+      "words": 176,
+      "am": 6,
+      "amLL": 4,
+      "y": 4,
+      "yLF": 2,
+      "amExp": 0.891666667,
+      "yExp": 1.041666667
+    },
+    "f41": {
+      "lines": 18,
+      "words": 130,
+      "am": 1,
+      "amLL": 1,
+      "y": 14,
+      "yLF": 4,
+      "amExp": 0.090909091,
+      "yExp": 2.079004329
+    },
+    "f43": {
+      "lines": 30,
+      "words": 280,
+      "am": 9,
+      "amLL": 6,
+      "y": 30,
+      "yLF": 11,
+      "amExp": 0.886580087,
+      "yExp": 2.987035187
+    },
+    "f46": {
+      "lines": 28,
+      "words": 251,
+      "am": 11,
+      "amLL": 7,
+      "y": 20,
+      "yLF": 6,
+      "amExp": 1.469480519,
+      "yExp": 2.401379176
+    },
+    "f48": {
+      "lines": 20,
+      "words": 182,
+      "am": 7,
+      "amLL": 4,
+      "y": 24,
+      "yLF": 4,
+      "amExp": 0.822222222,
+      "yExp": 2.854448329
+    },
+    "f50": {
+      "lines": 21,
+      "words": 176,
+      "am": 5,
+      "amLL": 5,
+      "y": 11,
+      "yLF": 6,
+      "amExp": 0.608333333,
+      "yExp": 1.47979798
+    },
+    "f55": {
+      "lines": 25,
+      "words": 196,
+      "am": 4,
+      "amLL": 4,
+      "y": 19,
+      "yLF": 6,
+      "amExp": 0.552380952,
+      "yExp": 2.487337662
+    },
+    "f57": {
+      "lines": 11,
+      "words": 72,
+      "am": 3,
+      "amLL": 2,
+      "y": 1,
+      "yLF": 0,
+      "amExp": 0.416666667,
+      "yExp": 0.166666667
+    },
+    "f66": {
+      "lines": 45,
+      "words": 367,
+      "am": 5,
+      "amLL": 4,
+      "y": 18,
+      "yLF": 7,
+      "amExp": 0.717857143,
+      "yExp": 2.159126984
+    },
+    "f75": {
+      "lines": 90,
+      "words": 633,
+      "am": 7,
+      "amLL": 6,
+      "y": 9,
+      "yLF": 7,
+      "amExp": 1.030591631,
+      "yExp": 2.516666667
+    },
+    "f76": {
+      "lines": 88,
+      "words": 872,
+      "am": 4,
+      "amLL": 4,
+      "y": 12,
+      "yLF": 3,
+      "amExp": 0.391666667,
+      "yExp": 1.250937951
+    },
+    "f77": {
+      "lines": 77,
+      "words": 594,
+      "am": 3,
+      "amLL": 3,
+      "y": 7,
+      "yLF": 3,
+      "amExp": 0.313131313,
+      "yExp": 0.916666667
+    },
+    "f78": {
+      "lines": 73,
+      "words": 525,
+      "am": 5,
+      "amLL": 5,
+      "y": 19,
+      "yLF": 8,
+      "amExp": 0.660714286,
+      "yExp": 2.563492063
+    },
+    "f79": {
+      "lines": 86,
+      "words": 665,
+      "am": 8,
+      "amLL": 8,
+      "y": 29,
+      "yLF": 17,
+      "amExp": 0.965079365,
+      "yExp": 4.129365079
+    },
+    "f80": {
+      "lines": 87,
+      "words": 741,
+      "am": 4,
+      "amLL": 4,
+      "y": 13,
+      "yLF": 6,
+      "amExp": 0.424675325,
+      "yExp": 1.69963925
+    },
+    "f81": {
+      "lines": 58,
+      "words": 424,
+      "am": 2,
+      "amLL": 2,
+      "y": 18,
+      "yLF": 7,
+      "amExp": 0.366666667,
+      "yExp": 2.360714286
+    },
+    "f82": {
+      "lines": 66,
+      "words": 534,
+      "am": 4,
+      "amLL": 4,
+      "y": 5,
+      "yLF": 3,
+      "amExp": 0.482575758,
+      "yExp": 0.565079365
+    },
+    "f83": {
+      "lines": 82,
+      "words": 558,
+      "am": 2,
+      "amLL": 2,
+      "y": 2,
+      "yLF": 1,
+      "amExp": 0.233766234,
+      "yExp": 0.291666667
+    },
+    "f84": {
+      "lines": 85,
+      "words": 618,
+      "am": 9,
+      "amLL": 9,
+      "y": 22,
+      "yLF": 11,
+      "amExp": 1.355988456,
+      "yExp": 5.469130869
+    },
+    "f85": {
+      "lines": 56,
+      "words": 390,
+      "am": 12,
+      "amLL": 11,
+      "y": 18,
+      "yLF": 6,
+      "amExp": 1.501010101,
+      "yExp": 2.252525253
+    },
+    "f86": {
+      "lines": 125,
+      "words": 1080,
+      "am": 38,
+      "amLL": 28,
+      "y": 134,
+      "yLF": 26,
+      "amExp": 4.552056277,
+      "yExp": 16.307720058
+    },
+    "f94": {
+      "lines": 21,
+      "words": 147,
+      "am": 5,
+      "amLL": 5,
+      "y": 7,
+      "yLF": 4,
+      "amExp": 0.75952381,
+      "yExp": 0.896825397
+    },
+    "f95": {
+      "lines": 40,
+      "words": 322,
+      "am": 7,
+      "amLL": 7,
+      "y": 15,
+      "yLF": 4,
+      "amExp": 0.760353535,
+      "yExp": 1.695707071
+    }
+  }
+}
