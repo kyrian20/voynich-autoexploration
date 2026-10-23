@@ -68,6 +68,8 @@ jobs:
           python scripts/audit_am_lexical_contributions.py --check research/maintenance/2026-10-23-am-lexical-contributions/results.json.gz
           python tests/test_predecessor_opportunities.py
           python scripts/audit_predecessor_opportunities.py --check research/maintenance/2026-10-23-predecessor-opportunities/results.json.gz
+          python tests/test_folio_context_control.py
+          python scripts/audit_folio_context_control.py --check research/maintenance/2026-10-23-folio-context-control/results.json.gz
 
       - name: Comprobar archivos de investigación
         run: |

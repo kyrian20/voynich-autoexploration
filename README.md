@@ -2,6 +2,8 @@
 
 Repositorio de trabajo: `kyrian20/voynich-autoexploration` (rama `master`).
 
+**Verificación CI corregida y control alternativo — 23-10-2026:** [evidencia de ejecuciones push satisfactorias](research/CI_VERIFICATION.md) y [control de contexto por folio](research/maintenance/2026-10-23-folio-context-control/REPORT.md). La alternativa permite variar 196 de 325 predecesores de cierres -am en ZL3b, conservando inventario de folio y plantillas de línea, pero relajando el inventario de cada línea. Es otro nulo; no se presenta como prueba semántica.
+
 **Soporte del control de contexto — 23-10-2026:** [oportunidades exactas de intercambio del predecesor final](research/maintenance/2026-10-23-predecessor-opportunities/REPORT.md). Al conservar extremos de línea, inventario, bordes y longitud, solo 16 de 325 cierres -am ZL3b permiten cambiar su predecesor en la vista por defecto. Diagnóstico de soporte, sin contraste semántico ni cálculo de potencia.
 
 **Contribuciones léxicas de -am — 23-10-2026:** [descomposición exacta y exclusión de una forma cada vez](research/maintenance/2026-10-23-am-lexical-contributions/REPORT.md). En las mismas líneas B/P0 sin marcador explícito, el exceso final persiste tras dejar de contar cualquiera de las formas -am, bajo las ocho políticas de lectura. Sensibilidad descriptiva, sin asignación semántica.
