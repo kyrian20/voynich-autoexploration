@@ -79,6 +79,11 @@ jobs:
           python tests/test_subword_boundary.py
           python scripts/analyze_subword_boundary.py --check
 
+      - name: Reproducir incremento de subunidades sobre contexto de carácter
+        run: |
+          python tests/test_subword_increment.py
+          python scripts/analyze_subword_increment.py --check
+
       - name: Comprobar archivos de investigación
         run: |
           python - <<'PY'

@@ -2,6 +2,8 @@
 
 Repositorio de trabajo: `kyrian20/voynich-autoexploration` (rama `master`).
 
+**Incremento BPE frente a carácter — 23-10-2026:** [comparación con objetivo idéntico y control de bordes/longitud](research/analysis/2026-10-23-subword-increment/REPORT.md). No se respalda incremento del contexto BPE en las cuatro vistas Voynich; sí se observa en César/Dante. La señal previa también se recupera con un contexto de un carácter. Control estricto de movilidad escasa; no prueba ausencia de lenguaje ni discrimina teorías.
+
 **Dependencia entre subunidades — 23-10-2026:** [predictor BPE con puerta natural y controles](research/analysis/2026-10-23-subword-boundary/REPORT.md). La puerta se supera en César y Dante; las cuatro vistas Voynich también muestran ganancia superior a sus 16 controles de entrenamiento barajado. Resultado exploratorio de orden, sin significado asignado ni discriminación de teorías; intento sintético fallido y reparación conservados.
 
 **Límite de soporte del predictor — 23-10-2026:** [descomposición exacta de contextos](research/maintenance/2026-10-23-identity-support/REPORT.md). Solo 7,29–8,27 % de las tripletas Voynich permiten una corrección de identidad no trivial con las tablas entrenadas; César 0,42 % y Dante 2,95 %. Diagnóstico del instrumento, sin conclusión lingüística ni cambio de pesos.
