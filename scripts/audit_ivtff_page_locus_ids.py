@@ -24,6 +24,9 @@ LOCUS_RE = re.compile(
     r"^(?P<page>f(?:\d+[rv][1-6]?|Ros))\."
     r"(?P<num>\d{1,3}),(?P<code>[^;>]{3})(?:;(?P<transcriber>[^;>]))?$"
 )
+# Catch a damaged locus prefix before the generic non-record skip below.
+# This does not treat arbitrary free-text metadata as an IVTFF record.
+MISSING_OPEN_LOCUS_RE = re.compile(r"^f(?:\d+[rv][1-6]?|Ros)\.\d+,")
 
 
 def audit_text(text: str) -> dict:
@@ -47,7 +50,12 @@ def audit_text(text: str) -> dict:
             continuation_lines += 1
             continue
         if not raw.startswith("<"):
-            # Blank lines and non-record metadata are not treated as loci.
+            # A missing opening bracket must not silently erase a locus row.
+            # Preserve the policy of ignoring unrelated non-record metadata.
+            if MISSING_OPEN_LOCUS_RE.match(raw):
+                malformed_records.append({
+                    "line": line_no, "raw": raw[:180], "reason": "missing opening <",
+                })
             continue
         end = raw.find(">")
         if end < 0:
