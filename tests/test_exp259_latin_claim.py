@@ -35,12 +35,27 @@ class Exp259ComparatorScopeTests(unittest.TestCase):
             scope.json.loads('{"issue":"a","issue":"b"}',
                              object_pairs_hook=scope.strict_object)
 
+    def test_linked_erratum_is_required_and_scope_is_explicit(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            correction = root / scope.CORRECTION
+            with self.assertRaisesRegex(ValueError, "adjacent CORRECTION.md missing"):
+                scope.check_linked_correction(root)
+            correction.parent.mkdir(parents=True)
+            correction.write_text("\\n".join(scope.CORRECTION_MARKERS), encoding="utf-8")
+            self.assertEqual(len(scope.check_linked_correction(root)), 64)
+            correction.write_text("\\n".join(scope.CORRECTION_MARKERS[:-1]), encoding="utf-8")
+            with self.assertRaisesRegex(ValueError, "missing required marker"):
+                scope.check_linked_correction(root)
+
     def test_actual_frozen_reference_and_claims(self):
         result = scope.audit()
         self.assertEqual(result["status"], "INVALID_FOR_CLAIM")
         self.assertEqual(result["historical_reference_tokens_replayed"], 112081)
         self.assertEqual(result["reference_sha256"], scope.CORPUS_SHA256)
         self.assertEqual(result["source_script_git_blob"], scope.SCRIPT_BLOB)
+        self.assertEqual(result["linked_correction_path"], scope.CORRECTION)
+        self.assertEqual(len(result["linked_correction_sha256"]), 64)
 
 
 if __name__ == "__main__":
