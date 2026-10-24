@@ -33,6 +33,16 @@ class AmbiguousReferenceAuditTests(unittest.TestCase):
         text = "EXP-177 exp_177 EXP 177 EXP177 EXP-1777 XEXP-177 EXP-200"
         self.assertEqual([int(m.group(1)) for m in PATTERN.finditer(text)], [177, 177, 177, 177, 1777, 200])
 
+    def test_unreadable_candidate_is_reported_not_silently_ignored(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            (root / "broken.md").write_bytes(b"\\xff\\xfeEXP-177")
+            result = scan(root, self.registry)
+            self.assertFalse(result["coverage_complete_for_selected_files"])
+            self.assertEqual(result["unreadable_files"], [
+                {"path": "broken.md", "error_type": "UnicodeDecodeError"}
+            ])
+
     def test_scan_flags_bare_but_not_explicit_path(self):
         with tempfile.TemporaryDirectory() as temp:
             root = Path(temp)
