@@ -11,8 +11,10 @@ import hashlib
 import json
 from pathlib import Path
 import re
+import sys
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT))
 SOURCE = ROOT / "data/transcriptions/eva_zl3b.txt"
 SOURCE_SHA256 = "bf5b6d4ac1e3a51b1847a9c388318d609020441ccd56984c901c32b09beccafc"
 RECORD = re.compile(
