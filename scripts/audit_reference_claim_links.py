@@ -66,11 +66,11 @@ def entropy(values):
 def parse_position_table(md):
     # Inspect *all* A/B x LF/MID/LL candidate rows, including malformed ones.
     # A permissive numeric-only findall would silently skip bad duplicate rows.
-    candidate = re.compile(r'^\\|\\s*([AB])\\s*\\|\\s*(LF|MID|LL)\\s*\\|')
+    candidate = re.compile(r'^\|\s*([AB])\s*\|\s*(LF|MID|LL)\s*\|')
     complete = re.compile(
-        r'^\\|\\s*([AB])\\s*\\|\\s*(LF|MID|LL)\\s*\\|\\s*'
-        r'(\\d+)\\s*\\|\\s*(\\d+(?:\\.\\d+)?)\\s*\\|\\s*'
-        r'(\\d+(?:\\.\\d+)?)\\s*\\|\\s*$'
+        r'^\|\s*([AB])\s*\|\s*(LF|MID|LL)\s*\|\s*'
+        r'(\d+)\s*\|\s*(\d+(?:\.\d+)?)\s*\|\s*'
+        r'(\d+(?:\.\d+)?)\s*\|\s*$'
     )
     table = {}
     for line in md.splitlines():
