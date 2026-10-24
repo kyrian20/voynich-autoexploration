@@ -64,17 +64,33 @@ def entropy(values):
 
 
 def parse_position_table(md):
-    matches = re.findall(r'^\| ([AB]) \| (LF|MID|LL) \| (\d+) \| ([0-9.]+) \|', md, re.M)
-    # A dict comprehension alone silently overwrites repeated table rows.
-    # Require exactly one source row for every A/B x LF/MID/LL cell.
+    # Inspect *all* A/B x LF/MID/LL candidate rows, including malformed ones.
+    # A permissive numeric-only findall would silently skip bad duplicate rows.
+    candidate = re.compile(r'^\\|\\s*([AB])\\s*\\|\\s*(LF|MID|LL)\\s*\\|')
+    complete = re.compile(
+        r'^\\|\\s*([AB])\\s*\\|\\s*(LF|MID|LL)\\s*\\|\\s*'
+        r'(\\d+)\\s*\\|\\s*(\\d+(?:\\.\\d+)?)\\s*\\|\\s*'
+        r'(\\d+(?:\\.\\d+)?)\\s*\\|\\s*$'
+    )
+    table = {}
+    for line in md.splitlines():
+        if candidate.match(line) is None:
+            continue
+        parsed = complete.fullmatch(line)
+        if parsed is None:
+            raise ValueError(f'Malformed EXP-267 position row: {line}')
+        dialect, position, n, mean, median = parsed.groups()
+        key = (dialect, position)
+        if key in table:
+            raise ValueError('Expected exactly one row per dialect and position in EXP-267 position table')
+        if int(n) == 0:
+            raise ValueError(f'Empty EXP-267 position row: {dialect} {position}')
+        table[key] = float(mean)
     expected = {(dialect, position) for dialect in 'AB'
                 for position in ('LF', 'MID', 'LL')}
-    keys = [(dialect, position) for dialect, position, _, _ in matches]
-    if len(keys) != len(expected) or set(keys) != expected:
+    if set(table) != expected:
         raise ValueError('Expected exactly one row per dialect and position in EXP-267 position table')
-    return {(dialect, position): float(mean)
-            for dialect, position, _, mean in matches}
-
+    return table
 
 def audit(root=ROOT):
     readers = load_json_strict(root / 'research/maintenance/2026-10-22-remaining-readers/results.json')
