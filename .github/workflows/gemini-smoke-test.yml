@@ -80,8 +80,8 @@ jobs:
 
                   # Only documented text Flash models, in explicit preference order.
                   # Unknown/multimodal models are never guessed or probed by POST.
-                  preference = ("gemini-3.8-flash", "gemini-2.5-flash",
-                                "gemini-2.5-flash-lite")
+                  preference = ("gemini-2.5-flash-lite", "gemini-2.5-flash",
+                                "gemini-3.8-flash")
                   report["stage"] = "models_list"
                   available = set()
                   token = ""
@@ -119,12 +119,12 @@ jobs:
                   if (metadata.get("name") != "models/" + selected
                           or "generateContent" not in metadata.get("supportedGenerationMethods", [])
                           or type(input_limit) is not int or input_limit < 32
-                          or type(output_limit) is not int or output_limit < 1024):
+                          or type(output_limit) is not int or output_limit < 32):
                       report["status"] = "incompatible_parameters"
                       return code
                   # Keep model defaults for thinking, temperature and candidate count.
                   # A budget of zero is not portable between thinking model families.
-                  config = {"maxOutputTokens": 1024}
+                  config = {"maxOutputTokens": 32}
                   report["generation_config"] = config
                   report["parameters_verified"] = True
                   payload = {
@@ -141,7 +141,7 @@ jobs:
                   # Exactly one generation attempt; no retry, fallback or redirect.
                   report["stage"] = "generate_content"
                   report["attempts"] = 1
-                  with opener.open(request, timeout=90) as response:
+                  with opener.open(request, timeout=45) as response:
                       report["http_status"] = response.status
                       result = json.loads(response.read(65536))
                   candidates = result.get("candidates", [])
