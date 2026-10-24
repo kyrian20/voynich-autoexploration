@@ -16,6 +16,13 @@ SCRIPT_BLOB = "71bbe2778ca04feec492ca300e7e964566e291f8"
 REPORT_BLOB = "6dc5dca756638adda60275690be66ec0821c0475"
 CORPUS_SHA256 = "3a33a076d3dda42673ec7ab0331ae7e58fc150e7e92751c0adf6d1db7297b670"
 ARCHIVED_REFERENCE_TOKENS = 112081
+CORRECTION = "experiments/exp_259_char_positional_entropy/CORRECTION.md"
+CORRECTION_MARKERS = (
+    "INVALID_FOR_CLAIM",
+    "BILINGUAL_REQUIRES_FILTER_AUDIT",
+    "112081",
+    "2026-10-24-exp259-bilingual-comparator-guard.md",
+)
 CLAIM_MARKERS = (
     "Latin Cicero comparison",
     "VMS Is Substantially More Constrained Than Latin Char-for-Char",
@@ -83,6 +90,22 @@ def load_historical_reader(script_raw):
     return namespace["parse_latin"]
 
 
+def check_linked_correction(root):
+    """Keep the claim-specific erratum discoverable beside frozen EXP-259."""
+    try:
+        raw = (root / CORRECTION).read_bytes()
+    except FileNotFoundError as exc:
+        raise ValueError("EXP-259 adjacent CORRECTION.md missing") from exc
+    try:
+        text = raw.decode("utf-8")
+    except UnicodeDecodeError as exc:
+        raise ValueError("EXP-259 correction is not UTF-8") from exc
+    for marker in CORRECTION_MARKERS:
+        if marker not in text:
+            raise ValueError("EXP-259 correction missing required marker: " + marker)
+    return hashlib.sha256(raw).hexdigest()
+
+
 def audit(root=ROOT):
     script_raw = (root / SCRIPT).read_bytes()
     report_raw = (root / REPORT).read_bytes()
@@ -92,6 +115,7 @@ def audit(root=ROOT):
     for marker in CLAIM_MARKERS:
         if marker not in report:
             raise ValueError("EXP-259 historical claim marker changed: " + marker)
+    correction_sha256 = check_linked_correction(root)
     manifest = json.loads(
         (root / "research/CORPUS_INPUT_MANIFEST.json").read_text(encoding="utf-8"),
         object_pairs_hook=strict_object)
@@ -118,6 +142,8 @@ def audit(root=ROOT):
         "source_script_git_blob": SCRIPT_BLOB,
         "source_script_sha256": hashlib.sha256(script_raw).hexdigest(),
         "source_report_git_blob": REPORT_BLOB,
+        "linked_correction_path": CORRECTION,
+        "linked_correction_sha256": correction_sha256,
         "source_report_sha256": hashlib.sha256(report_raw).hexdigest(),
         "reference_path": CORPUS,
         "reference_sha256": digest,
