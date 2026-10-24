@@ -103,6 +103,20 @@ jobs:
           python tests/test_reference_entropy_sensitivity.py
           python scripts/audit_reference_entropy_sensitivity.py --check research/maintenance/2026-10-22-reference-sensitivity/results.json
 
+      - name: Contrastar estimador MI de EXP-260 con controles exactos
+        run: |
+          python tests/test_exp260_mi_scope.py
+          python scripts/audit_exp260_mi_scope.py --out exp260-mi-scope.json
+          python scripts/check_audit_snapshot.py research/maintenance/2026-10-24-exp260-mi/results.json exp260-mi-scope.json
+
+      - name: Conservar diagnóstico de MI EXP-260
+        uses: actions/upload-artifact@v4
+        with:
+          name: exp260-mi-scope-${{ github.run_id }}
+          path: exp260-mi-scope.json
+          if-no-files-found: error
+          retention-days: 90
+
       - name: Reproducir auditorías acotadas de EXP-173
         run: |
           python tests/test_exp173_c005_scope.py
