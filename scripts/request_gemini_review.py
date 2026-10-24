@@ -13,7 +13,7 @@ import sys
 import urllib.error
 import urllib.request
 
-from validate_gemini_review import validate
+from scripts.validate_gemini_review import validate
 
 PROMPT_PATH = Path(__file__).resolve().parents[1] / "research/protocols/2026-10-24-gemini-ch-sh-review-prompt.md"
 API_ROOT = "https://generativelanguage.googleapis.com/v1beta/models/"
