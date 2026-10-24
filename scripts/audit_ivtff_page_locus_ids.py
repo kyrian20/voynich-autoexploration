@@ -106,6 +106,26 @@ def audit_text(text: str) -> dict:
     }
 
 
+
+def structural_errors(report: dict) -> list[str]:
+    """Reject observed structural anomalies rather than merely listing them."""
+    errors = []
+    for key in (
+        "malformed_header_count",
+        "malformed_record_count",
+        "page_mismatch_count",
+        "locus_number_out_of_range_count",
+        "duplicate_record_tag_count",
+    ):
+        if report[key]:
+            errors.append(f"{key}={report[key]}")
+    if report["page_header_count"] == 0:
+        errors.append("page_header_count=0")
+    if report["record_count"] == 0:
+        errors.append("record_count=0")
+    return errors
+
+
 def main() -> None:
     files = []
     for label, path in SOURCES:
@@ -132,8 +152,13 @@ def main() -> None:
         ],
         "files": files,
     }, indent=2, ensure_ascii=False))
-    if any(item["duplicate_record_tag_count"] for item in files):
-        raise SystemExit("Duplicate IVTFF record tags detected; audit is not clean")
+    failures = [
+        f"{item['transcription']}: {error}"
+        for item in files
+        for error in structural_errors(item)
+    ]
+    if failures:
+        raise SystemExit("IVTFF structural audit failed: " + "; ".join(failures))
 
 
 if __name__ == "__main__":
