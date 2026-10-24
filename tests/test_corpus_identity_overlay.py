@@ -75,9 +75,12 @@ class IdentityOverlayTests(unittest.TestCase):
         # This is a syntactically valid, hash-consistent seventh corpus.
         # Before the guard, the audit returned [] for this fixture.
         name = 'data/reference_corpora/latin/virgil_aeneid_latin.txt'
-        raw = b'Title: English translation\\nLanguage: English\\nEvidence of translation\\n'
-        # Interpret the literal escapes to make the test data explicit.
-        raw = raw.replace(b'\\\\n', b'\\n')
+        raw = bytes([10]).join((
+            b'Title: English translation',
+            b'Language: English',
+            b'Evidence of translation',
+            b'',
+        ))
         path = self.root / name
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_bytes(raw)
