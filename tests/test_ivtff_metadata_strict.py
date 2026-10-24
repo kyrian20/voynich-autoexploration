@@ -49,5 +49,30 @@ class DuplicateLanguageHeaders(unittest.TestCase):
             self.assertEqual(report["consistent_repeated_language_headers"], 0)
 
 
+    def test_invalid_or_malformed_currier_assignment_is_rejected(self):
+        # Previously the legacy reader returned None for unsupported values,
+        # and the strict audit silently skipped those page headers.
+        for field in ("$L=C", "$L=", "$L=A $L=A", "$L=A$L=B"):
+            with self.subTest(field=field), tempfile.TemporaryDirectory() as d:
+                path = Path(d) / "fixture.ivtff"
+                path.write_text(f"<f1r> <! {field}>\\n", encoding="utf-8")
+                with self.assertRaisesRegex(ValueError, r"Invalid Currier \\$L on f1r at line 1"):
+                    validate(path)
+
+    def test_invalid_assignment_cannot_erase_existing_valid_language(self):
+        with tempfile.TemporaryDirectory() as d:
+            path = Path(d) / "fixture.ivtff"
+            path.write_text("<f1r> <! $L=A>\\n<f1r> <! $L=C>\\n", encoding="utf-8")
+            with self.assertRaisesRegex(ValueError, r"Invalid Currier \\$L on f1r at line 2"):
+                validate(path)
+
+    def test_no_currier_field_remains_unclassified(self):
+        with tempfile.TemporaryDirectory() as d:
+            path = Path(d) / "fixture.ivtff"
+            path.write_text("<f1r> <! $Q=A $I=B>\\n", encoding="utf-8")
+            report = validate(path)
+            self.assertEqual(report["folios_with_language"], 0)
+
+
 if __name__ == "__main__":
     unittest.main()
