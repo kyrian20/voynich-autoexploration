@@ -29,6 +29,18 @@ class TestReferenceClaimLinks(unittest.TestCase):
         with self.assertRaises(ValueError):
             audit.parse_position_table('| A | LF | 10 | 5.2 | 5 |')
 
+    def test_position_table_rejects_duplicate_even_if_identical(self):
+        rows = '\n'.join(f'| {d} | {p} | 12 | 5.2 | 5 |'
+                         for d in 'AB' for p in ('LF', 'MID', 'LL'))
+        with self.assertRaisesRegex(ValueError, 'exactly one row'):
+            audit.parse_position_table(rows + '\n| B | LL | 12 | 5.2 | 5 |')
+
+    def test_position_table_rejects_conflicting_duplicate(self):
+        rows = '\n'.join(f'| {d} | {p} | 12 | 5.2 | 5 |'
+                         for d in 'AB' for p in ('LF', 'MID', 'LL'))
+        with self.assertRaisesRegex(ValueError, 'exactly one row'):
+            audit.parse_position_table(rows + '\n| B | LL | 12 | 999.0 | 5 |')
+
 
 if __name__ == '__main__':
     unittest.main()
