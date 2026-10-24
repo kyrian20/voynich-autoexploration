@@ -1,5 +1,7 @@
 """Offline tests for the opt-in Gemini review request boundary."""
 import sys
+import subprocess
+from pathlib import Path
 import unittest
 from unittest.mock import patch
 
@@ -10,6 +12,28 @@ class GeminiReviewRequestTests(unittest.TestCase):
     def test_requires_explicit_execute(self):
         with patch.object(sys, "argv", ["request_gemini_review.py", "--model", "gemini-3.8-flash", "--output-dir", "unused"]):
             self.assertEqual(main(), 0)
+
+    def test_direct_cli_dry_run_without_network_or_secret(self):
+        root = Path(__file__).resolve().parents[1]
+        result = subprocess.run(
+            [sys.executable, str(root / "scripts/request_gemini_review.py"),
+             "--model", "gemini-3.8-flash", "--output-dir", "unused"],
+            cwd=root, capture_output=True, text=True, timeout=10,
+            env={"PATH": "/usr/bin:/bin"},
+        )
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertIn("DRY_RUN_ONLY", result.stdout)
+
+    def test_module_cli_dry_run_without_network_or_secret(self):
+        root = Path(__file__).resolve().parents[1]
+        result = subprocess.run(
+            [sys.executable, "-m", "scripts.request_gemini_review",
+             "--model", "gemini-3.8-flash", "--output-dir", "unused"],
+            cwd=root, capture_output=True, text=True, timeout=10,
+            env={"PATH": "/usr/bin:/bin"},
+        )
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertIn("DRY_RUN_ONLY", result.stdout)
 
     def test_rejects_missing_secret(self):
         with self.assertRaises(ValueError):
