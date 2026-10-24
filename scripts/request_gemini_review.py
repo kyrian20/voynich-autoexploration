@@ -95,7 +95,7 @@ def main(argv=None):
     errors = validate(review)
     args.output_dir.mkdir(parents=True, exist_ok=True)
     (args.output_dir / "api-response-untrusted.json").write_text(
-        json.dumps(envelope, ensure_ascii=False, indent=2) + "\\n", encoding="utf-8")
+        json.dumps(envelope, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     (args.output_dir / "review-untrusted.json").write_text(
         json.dumps(review, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     receipt = {
