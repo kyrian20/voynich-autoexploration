@@ -107,6 +107,7 @@ jobs:
         run: |
           python tests/test_exp260_mi_scope.py
           python scripts/audit_exp260_mi_scope.py --out exp260-mi-scope.json
+          python scripts/check_audit_snapshot.py research/maintenance/2026-10-24-exp260-mi/results.json exp260-mi-scope.json
 
       - name: Conservar diagnóstico de MI EXP-260
         uses: actions/upload-artifact@v4
