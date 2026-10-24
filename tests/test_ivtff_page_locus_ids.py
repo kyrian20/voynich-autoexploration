@@ -112,6 +112,41 @@ def main() -> None:
         "malformed_header_count=1", "page_mismatch_count=1",
     }, indented_header
 
+    # Missing "<" in a page header previously vanished as ordinary text,
+    # even when an otherwise clean file contained valid records.
+    missing_header = audit_text(
+        "<f1r> <! $L=A>\n"
+        "<f1r.1,@P0> daiin\n"
+        "f2r> <! $L=B>\n"
+        "<f2r.1,@P0> chedy\n"
+        " fRos> <! $L=A>\n"
+        "<fRos.23,@L0> or\n"
+    )
+    assert missing_header["page_header_count"] == 1, missing_header
+    assert missing_header["malformed_header_count"] == 2, missing_header
+    assert missing_header["page_mismatch_count"] == 2, missing_header
+    assert [row["reason"] for row in missing_header["malformed_headers"]] == [
+        "missing opening <", "missing opening <"
+    ], missing_header
+    assert set(structural_errors(missing_header)) == {
+        "malformed_header_count=2", "page_mismatch_count=2"
+    }, missing_header
+
+    # Also fail closed if the damaged header is the last line: no following
+    # locus is required for the error to be observable.
+    trailing_header = audit_text(
+        "<f1r> <! $L=A>\n<f1r.1,@P0> daiin\nf86v4> <! $L=B>\n"
+    )
+    assert structural_errors(trailing_header) == [
+        "malformed_header_count=1"
+    ], trailing_header
+
+    # Do not flag arbitrary untagged prose that merely starts with f2r>.
+    free_text = audit_text(
+        "<f1r> <! $L=A>\n<f1r.1,@P0> daiin\nf2r>not-a-header\n"
+    )
+    assert structural_errors(free_text) == [], free_text
+
     # Ordinary untagged metadata must remain ignored, not classified as a row.
     unrelated = audit_text(
         "non-record metadata\n<f1r> <! $L=A>\n<f1r.1,@P0> daiin\n"
