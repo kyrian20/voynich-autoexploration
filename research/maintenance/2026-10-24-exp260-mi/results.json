@@ -1,0 +1,62 @@
+{
+  "status": "INVALID_FOR_CLAIM",
+  "invalid_claim": "EXP-260 legacy 'MI' and ratios as Shannon adjacent-character mutual information",
+  "historical_script_git_blob": "529aba21b65ae010c5fec3eb5fb1e85b220101d2",
+  "historical_script_sha256": "042c1a08558bbde8d0a942cb98d79ee1b8e790b5e8043a1a510fbfc5813d66e4",
+  "historical_report_git_blob": "8f32661cf088c75854aac750bfd13b8b975a2859",
+  "historical_report_sha256": "d5df018720ddc02bf5d6e778a0be075368295507106428bfc1196aafaad9ab8f",
+  "inputs": {
+    "data/transcriptions/eva_zl3b.txt": {
+      "sha256": "bf5b6d4ac1e3a51b1847a9c388318d609020441ccd56984c901c32b09beccafc",
+      "bytes": 411671
+    },
+    "data/reference_corpora/latin/cicero_de_officiis_latin.txt": {
+      "sha256": "3a33a076d3dda42673ec7ab0331ae7e58fc150e7e92751c0adf6d1db7297b670",
+      "bytes": 720407
+    }
+  },
+  "parameters": {
+    "legacy_min_count": 20,
+    "seed": null,
+    "reader": "historical EXP-260 AST-isolated functions",
+    "corrected": "all within-word pairs; pair marginals"
+  },
+  "rows": {
+    "A": {
+      "tokens": 9845,
+      "token_sequence_sha256": "27a8745106787b648529aee1447a26eb6671dc9f7dc9976ec7fe48a3f3e9c5d6",
+      "archived_legacy_bits_rounded": 1.815,
+      "legacy_statistic_bits_replayed": 1.8152738634999803,
+      "correct_pair_mi_bits": 1.5705874685718633,
+      "difference_correct_minus_legacy_bits": -0.24468639492811706,
+      "adjacent_pairs": 43428,
+      "distinct_pairs": 180
+    },
+    "B": {
+      "tokens": 15354,
+      "token_sequence_sha256": "01a79d84c158274f89f63449ba1b865451bf6c0ec6967c255fc6f18ad6dd4102",
+      "archived_legacy_bits_rounded": 2.087,
+      "legacy_statistic_bits_replayed": 2.0870930872660964,
+      "correct_pair_mi_bits": 1.7969538787068147,
+      "difference_correct_minus_legacy_bits": -0.29013920855928177,
+      "adjacent_pairs": 69050,
+      "distinct_pairs": 182
+    },
+    "bilingual_reference": {
+      "tokens": 107590,
+      "token_sequence_sha256": "177e646d83246447fb381e4bed2d68771f7282ce94e85df50f8b29af2944ddf2",
+      "archived_legacy_bits_rounded": 0.781,
+      "legacy_statistic_bits_replayed": 0.7808666871286855,
+      "correct_pair_mi_bits": 0.7298527733115756,
+      "difference_correct_minus_legacy_bits": -0.051013913817109846,
+      "adjacent_pairs": 427471,
+      "distinct_pairs": 473
+    }
+  },
+  "limitations": [
+    "Historical VMS reader and heuristic folio classes retained solely for matched comparison.",
+    "Bilingual reference is not monolingual Latin; no corrected Latin baseline is claimed.",
+    "Correct pair MI is descriptive, not a validated cipher or translation test.",
+    "No new experiment ID and no modification of frozen originals."
+  ]
+}
