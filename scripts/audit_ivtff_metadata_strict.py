@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import re
 from pathlib import Path
 import sys
 
@@ -17,6 +18,28 @@ sys.path.insert(0, str(ROOT))
 from scripts import audit_ivtff_metadata as legacy
 
 SOURCE = legacy.SOURCE
+
+
+def strict_currier_language(metadata: str, page: str, lineno: int) -> str | None:
+    """Fail closed on malformed $L rather than silently treating it as absent.
+
+    IVTFF 2.0.2 table 6 defines $L as Currier A or B. The legacy reader
+    intentionally returns None for unsupported values; keep that reader frozen
+    and add this independent check before interpreting page metadata.
+    """
+    markers = re.findall(r'\\$L\\b', metadata)
+    if not markers:
+        return None
+    values = re.findall(r'\\$L\\s*=\\s*([^\\s>]+)', metadata)
+    if len(markers) != 1 or len(values) != 1 or values[0] not in ('A', 'B'):
+        raise ValueError(
+            f"Invalid Currier $L on {page} at line {lineno}: "
+            "expected exactly one assignment with value A or B"
+        )
+    parsed = legacy.parse_currier_language(metadata)
+    if parsed != values[0]:
+        raise ValueError(f"Currier $L parser disagreement on {page} at line {lineno}")
+    return parsed
 
 
 def validate(source: Path = SOURCE) -> dict:
@@ -30,7 +53,7 @@ def validate(source: Path = SOURCE) -> dict:
             continue
         headers += 1
         page, metadata = match.groups()
-        language = legacy.parse_currier_language(metadata)
+        language = strict_currier_language(metadata, page, lineno)
         if language is None:
             continue
         prior = seen.get(page)
