@@ -43,8 +43,6 @@ def scan(root: Path, registry: dict) -> dict:
             continue
         # Avoid generated inventories and avoid counting this tool's own documentation.
         rel = path.relative_to(root).as_posix()
-        if rel.startswith("research/maintenance/2026-10-24-duplicate-exp-aliases"):
-            continue
         try:
             lines = path.read_text(encoding="utf-8").splitlines()
         except (UnicodeDecodeError, OSError) as exc:
