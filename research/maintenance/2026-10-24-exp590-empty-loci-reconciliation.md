@@ -19,19 +19,19 @@ Ejecución de la rama, commit `4c5d22328dab43afba1e9cbab59d6b0cbbeb2739`: [Voyni
 
 Se descargó e inspeccionó el ZIP del artefacto [`exp590-empty-loci-40076747686`](https://github.com/kyrian20/voynich-autoexploration/actions/runs/40076747686/artifacts/12553244083), conservado 90 días. SHA-256 del ZIP: `51c7a7f3e0a06aae8ff600fdcc57aaeec74fc32a5ae15f083968363c6b2307be`; SHA-256 del JSON interno: `48ec75b77b14e3810143a0720bf8390b182a98843fe6439903fed12df0b8fb46`. El JSON contiene los siguientes **nueve loci** y números de línea de la fuente:
 
-| Locus | Línea fuente | Cuerpo crudo |
-| --- | ---: | --- |
-| `f49v.11,*L0` | 2143 | `@140;` |
-| `f49v.21,*L0` | 2153 | `@192;` |
-| `f49v.27,*L0` | 2160 | `@140;` |
-| `f49v.29,*L0` | 2162 | `@164;` |
-| `f49v.35,*L0` | 2169 | `@192;` |
-| `f49v.41,*L0` | 2175 | `@140;` |
-| `f66r.24,+L0` | 2722 | `@169;` |
-| `f66r.38,+L0` | 2736 | `@172;<!cf f57v?>` |
-| `f66r.42,+L0` | 2740 | `@195;` |
+| Locus | Línea fuente | Cuerpo crudo | SHA-256 del cuerpo UTF-8 |
+| --- | ---: | --- | --- |
+| `f49v.11,*L0` | 2143 | `@140;`  `898cd3811b49bf727139a2997ac090fc5309c1b4eeac9926b6cc0c88136b6c70` |
+| `f49v.21,*L0` | 2153 | `@192;`  `d6683cbad68f0d864183ed9abb4c0350f18c8df4566a12ccdf5c544695836418` |
+| `f49v.27,*L0` | 2160 | `@140;`  `898cd3811b49bf727139a2997ac090fc5309c1b4eeac9926b6cc0c88136b6c70` |
+| `f49v.29,*L0` | 2162 | `@164;`  `0240c4f8af34268531a2de482b6b8a5974f769a532bd1d7f4f7bf347d72d3032` |
+| `f49v.35,*L0` | 2169 | `@192;`  `d6683cbad68f0d864183ed9abb4c0350f18c8df4566a12ccdf5c544695836418` |
+| `f49v.41,*L0` | 2175 | `@140;`  `898cd3811b49bf727139a2997ac090fc5309c1b4eeac9926b6cc0c88136b6c70` |
+| `f66r.24,+L0` | 2722 | `@169;`  `ccd11f74550dbcf50c0cdb731642fe3530855bd3eb011e355dc6b8e65ea99b81` |
+| `f66r.38,+L0` | 2736 | `@172;<!cf f57v?>`  `cc6d69d4e4b605629bb91fc20c1f73495d3cccf19edca8df649ad82b701ac543` |
+| `f66r.42,+L0` | 2740 | `@195;`  `4b27a45f1c54b597ef5b503b1239f33b3b16e8cf01eb219403a1df3e7ac9b7bb` |
 
-Los nueve cuerpos carecen de secuencias `[a-z]+` **después del filtrado histórico**; la anotación `<!cf f57v?>` del octavo se elimina por esa política. El JSON conserva también el SHA-256 individual de cada cuerpo. La diferencia de denominadores queda conciliada para esta vista, no para todas las políticas IVTFF.
+Los nueve cuerpos carecen de secuencias `[a-z]+` **después del filtrado histórico**; la anotación `<!cf f57v?>` del octavo se elimina por esa política. Los SHA-256 individuales se han transcrito del JSON inspeccionado a esta tabla para conservarlos después de que expire el artefacto. La diferencia de denominadores queda conciliada para esta vista, no para todas las políticas IVTFF.
 
 ## Límites y estado científico
 
