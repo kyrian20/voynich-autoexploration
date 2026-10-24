@@ -1,0 +1,16 @@
+{
+  "pair_checks": 100,
+  "redundant_contexts_checked": 256,
+  "weights": [
+    1,
+    0.1,
+    0.1
+  ],
+  "example_probabilities": [
+    0.0026597508233439184,
+    0.4830927681511943,
+    0.5002510901986175,
+    0.5163063772572778
+  ],
+  "explanation": "Identical sufficient counts, different hierarchical shrinkage; tiny W-EL need not represent additional contextual information."
+}
