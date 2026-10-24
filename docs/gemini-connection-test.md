@@ -1,78 +1,70 @@
-# Prueba manual de conexión a Gemini
+# Diagnóstico manual de conexión a Gemini
 
-Prueba operativa, sin experimento científico ni incorporación de Gemini como
-investigador. No modifica ni envía manuscrito, corpus, resultados o estado científico.
+Corrección operativa del 24-10-2026. No es un experimento científico.
+La ejecución [#6](https://github.com/kyrian20/voynich-autoexploration/actions/runs/40101038930)
+(commit `3ade29294582f42ad0d8a5d4e28a58c21b886b26`) devolvió HTTP 404 en
+`generateContent` con `gemini-2.5-flash`. El código HTTP por sí solo no demuestra
+retirada del modelo, invalidez de la clave ni problemas de facturación.
 
-## Funcionamiento y seguridad
+## Procedimiento corregido
 
-`.github/workflows/gemini-smoke-test.yml` solo admite `workflow_dispatch`.
-No se ejecuta por push, PR ni programación. No hace checkout ni instala dependencias.
-El secreto existente `GEMINI_API_KEY` se entrega únicamente al paso de consulta como
-variable de entorno, y se envía como cabecera `x-goog-api-key` por HTTPS con
-validación TLS a la API REST oficial de Google:
-`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent`.
-No aparece en URL, argumentos, archivos, logs ni artefactos.
+El workflow `.github/workflows/gemini-smoke-test.yml` sigue siendo exclusivamente
+manual, sin checkout, dependencias, corpus ni archivos de investigación.
+No cambia `GEMINI_API_KEY`: la usa solo en la cabecera HTTPS `x-goog-api-key`.
+TLS permanece activo. No hay redirecciones ni reintentos.
 
-Cada ejecución manual hace como máximo un POST con el texto fijo
-`Reply with exactly OK.`, una candidatura, máximo 32 tokens de salida y pensamiento
-desactivado. No hay reintentos, redirecciones, modelo alternativo ni otras consultas.
-Una respuesta exactamente `OK` tras retirar espacios indica `connected`.
-Ni el cuerpo de respuesta ni las excepciones se imprimen o archivan.
-El artefacto de siete días contiene solo estado, modelo, número de intentos,
-ausencia de datos del manuscrito y, si está disponible, código HTTP.
-Los errores HTTP incluyen además una categoría fija tanto en el log como en
-el artefacto. Por ejemplo:
-`Gemini connection test status: http_error; http_status=403; error_category=permission_denied`.
+1. GET `https://generativelanguage.googleapis.com/v1beta/models?pageSize=1000`,
+   recorriendo `nextPageToken` (máximo diez páginas; repetición o límite abortan).
+2. Filtrar por `supportedGenerationMethods` que contenga `generateContent` y una
+   lista explícita de modelos Flash de texto documentados. Preferencia:
+   `gemini-3.8-flash`, `gemini-2.5-flash`, `gemini-2.5-flash-lite`.
+   No se prueban modelos desconocidos, audio, imagen, embeddings ni Live.
+   El artefacto contiene solo los nombres de esa lista disponibles para la clave,
+   nunca el catálogo bruto ni descripciones. Si ninguno aparece, abortar.
+3. GET `models/{seleccionado}` para comprobar nombre, método, `inputTokenLimit`
+   entero >=32 y `outputTokenLimit` entero >=1024. Si falla, cero POST.
+4. Un único POST `models/{seleccionado}:generateContent` con el texto fijo
+   `Reply with exactly OK.` y `generationConfig: {maxOutputTokens: 1024}`.
+   Se conservan los valores por defecto de pensamiento, temperatura y candidaturas.
+   Se elimina `thinkingBudget: 0`, que no es portable entre familias. El presupuesto
+   de salida incluye pensamiento; agotarlo sin respuesta no verifica la conexión.
+   No hay modelo alternativo después del POST ni segunda generación.
 
-| HTTP | Categoría |
-| --- | --- |
-| 400 | `bad_request` |
-| 401 | `authentication_error` |
-| 403 | `permission_denied` |
-| 404 | `not_found` |
-| 408 | `request_timeout` |
-| 429 | `rate_limit_or_quota` |
-| Otros 4xx | `client_error` |
-| 5xx | `server_error` |
-| 3xx | `redirect_blocked` |
-| Otros códigos | `unexpected_http_status` |
+Solo una respuesta de texto exactamente `OK` tras retirar espacios marca `connected`.
+El artefacto de siete días guarda estado, etapa, modelo elegido, modelos de texto
+admitidos disponibles, parámetros comprobados, número de GET y número de intentos
+de generación, ausencia de datos del manuscrito y código/categoría HTTP si procede.
+No se muestran cuerpos remotos, excepciones, cabeceras, claves ni tokens de página.
+Las categorías HTTP son etiquetas fijas y no establecen causas: 400 `bad_request`,
+401 `authentication_error`, 403 `permission_denied`, 404 `not_found`,
+408 `request_timeout`, 429 `rate_limit_or_quota`, otros 4xx `client_error`,
+5xx `server_error`, 3xx `redirect_blocked`.
 
-Las categorías clasifican el código HTTP; no confirman una causa específica.
-No se lee el cuerpo de errores HTTP ni se registra su mensaje, cabeceras o URL.
-El script Python sigue embebido en el workflow para conservar la ausencia de
-checkout. `tests/test_gemini_smoke.py` ejecuta ese mismo script con el transporte
-simulado, sin conexiones de red; la CI habitual ejecuta estas pruebas.
-El token de GitHub tiene solo permiso explícito `contents: read` conforme al auditor
-del proyecto; no hay escrituras al repositorio.
+## Fuentes oficiales consultadas
 
-## Ejecución y límites
+- [Models: list, get y metadatos](https://ai.google.dev/api/models).
+- [Catálogo de modelos de Gemini](https://ai.google.dev/gemini-api/docs/models).
+- [generateContent y GenerationConfig](https://ai.google.dev/api/generate-content).
+- [Pensamiento y diferencias entre modelos](https://ai.google.dev/gemini-api/docs/thinking).
 
-GitHub exige que el workflow con `workflow_dispatch` exista en la rama
-predeterminada para aceptar una ejecución manual. Mientras solo esté en esta rama
-independiente, la conexión real queda pendiente. No fusionar con `master` sin
-autorización. Tras una incorporación autorizada: Actions → Gemini manual connection
-test → Run workflow, una sola vez. Comprobar el estado y el artefacto de esa ejecución
-antes de afirmar que la conexión funciona. No pulsar Re-run: generaría otra consulta.
+El catálogo general de la documentación no demuestra acceso de nuestra clave;
+solo las consultas autenticadas del workflow permiten comprobarlo. Los metadatos
+verifican método y límites, no todos los parámetros posibles: por eso se envía
+únicamente el límite de salida y se conservan los demás valores por defecto.
 
-Los secretos de Actions no se pueden leer desde esta sesión. Su existencia declarada
-por el usuario no prueba su validez, acceso al modelo, cuota o configuración de pago.
-La disponibilidad de `gemini-2.5-flash` debe verificarse mediante la prueba; no se ha
-consultado el catálogo ni se garantiza su vigencia. Un 400 puede indicar parámetros
-incompatibles; 401/403, autenticación o permisos; 404, modelo no disponible; 429,
-cuota; 5xx, servicio remoto. No se reintenta automáticamente en ningún caso.
-Un timeout puede ocurrir después de que Google procese la solicitud: no permite
-asegurar que no hubo consumo. Una cancelación abrupta puede impedir el artefacto.
+## Ejecución y alcance
 
-La llamada puede consumir cuota gratuita o generar un cargo según la cuenta de
-Google y sus tarifas vigentes; los límites de tokens no garantizan coste cero.
-También puede consumir minutos/almacenamiento de Actions según el plan de GitHub.
-No hay presupuesto automático, ni gasto periódico, ni tareas de investigación
-activadas. Cualquier ejecución manual adicional vuelve a consumir cuota.
+Ejecutar manualmente el workflow una sola vez sobre la rama de la PR y comprobar
+el commit, el resultado y el artefacto antes de afirmar conexión verificada.
+El workflow ya existe en `master`; se puede seleccionar la rama sin fusionar la PR.
+No usar Re-run: sería otra generación. Los GET de descubrimiento no son pruebas
+de generación. La consulta puede consumir cuota o generar cargos según la cuenta.
+Un timeout no demuestra que Google no procesara la petición.
 
-Referencias oficiales: [API generateContent](https://ai.google.dev/api/generate-content),
-[claves](https://ai.google.dev/gemini-api/docs/api-key),
-[precios](https://ai.google.dev/gemini-api/docs/pricing),
-[ejecución manual de Actions](https://docs.github.com/en/actions/managing-workflow-runs-and-deployments/managing-workflow-runs/manually-running-a-workflow).
+Las pruebas locales ejecutan el Python embebido con transporte simulado y nunca
+llaman a Google. No validan acceso remoto, cuota, facturación ni ciencia.
+
+## Historial de validación anterior (no describe el procedimiento actual)
 
 ## Validación local — 23-10-2026
 
@@ -108,3 +100,21 @@ Python 3.12.14: suite completa de 153 pruebas, una omitida (la base tenía
 148 pruebas, una omitida). Auditoría operativa, identidad de corpus y
 `git diff --check`: satisfactorios. Sin petición real a Gemini ni reproducción
 de experimentos históricos; esta corrección es exclusivamente operativa.
+
+## Validación de esta corrección — 24-10-2026
+
+Base: `561a5f9d4b9af0ae35260c6a89b6e297e0276431`. Python 3.12.14,
+PyYAML 6.0.3. Suite completa: 194 pruebas, una omitida. Once pruebas del
+diagnóstico cubren selección, paginación y codificación de tokens, catálogo vacío,
+método incompatible, parámetros inválidos, errores HTTP por etapa, respuesta
+inesperada, timeout, secreto ausente y ausencia de fugas. Auditoría operativa,
+identidad de corpus y `git diff --check`: satisfactorios.
+
+La llamada a `gh workflow run gemini-smoke-test.yml --ref fix/gemini-model-discovery`
+falló en el GET previo de GitHub con `Forbidden`, antes del dispatch. No se inició
+ninguna ejecución nueva ni se realizó ninguna generación con esta corrección.
+El entorno local tampoco dispone de una vinculación Gemini utilizable; no se
+leyó ni cambió el secreto de Actions. Quedan pendientes el catálogo real para
+nuestra clave, los metadatos efectivos y el único POST sintético. La conexión
+**no está verificada**. No se reproducen experimentos históricos ni se modifican
+corpus o estado científico.

@@ -14,10 +14,10 @@ jobs:
   connection:
     if: github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-24.04
-    timeout-minutes: 3
+    timeout-minutes: 5
     steps:
       # No checkout: manuscript, corpora and research files are unavailable.
-      - name: Make one synthetic request to the official Gemini API
+      - name: Discover models, validate parameters, make one synthetic request
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         shell: bash
@@ -26,10 +26,13 @@ jobs:
           python3 - <<'PY'
           import json
           import os
+          import socket
+          import ssl
           from pathlib import Path
           import sys
           import urllib.error
           import urllib.request
+          import urllib.parse
 
           class NoRedirect(urllib.request.HTTPRedirectHandler):
               def redirect_request(self, req, fp, code, msg, headers, newurl):
@@ -57,30 +60,87 @@ jobs:
 
           def main():
               report = {"status": "not_started", "attempts": 0,
-                        "model": "gemini-2.5-flash", "manuscript_data_sent": False}
+                        "discovery_requests": 0, "stage": "preflight",
+                        "model": None, "manuscript_data_sent": False}
               code = 1
               try:
-                  key = os.environ.pop("GEMINI_API_KEY", "")
+                  key = os.environ.get("GEMINI_API_KEY", "")
                   if not key:
                       report["status"] = "missing_secret"
                       return code
+                  base = "https://generativelanguage.googleapis.com/v1beta/"
+                  opener = urllib.request.build_opener(NoRedirect())
+
+                  def get_json(path):
+                      request = urllib.request.Request(
+                          base + path, headers={"x-goog-api-key": key}, method="GET")
+                      report["discovery_requests"] += 1
+                      with opener.open(request, timeout=15) as response:
+                          return json.loads(response.read(1048576))
+
+                  # Only documented text Flash models, in explicit preference order.
+                  # Unknown/multimodal models are never guessed or probed by POST.
+                  preference = ("gemini-3.5-flash-lite", "gemini-3.8-flash")
+                  report["stage"] = "models_list"
+                  available = set()
+                  token = ""
+                  seen = set()
+                  for page in range(10):
+                      query = {"pageSize": 1000}
+                      if token:
+                          query["pageToken"] = token
+                      catalog = get_json("models?" + urllib.parse.urlencode(query))
+                      for model in catalog["models"]:
+                          for name in preference:
+                              if (model.get("name") == "models/" + name
+                                      and "generateContent" in model.get("supportedGenerationMethods", [])):
+                                  available.add(name)
+                      token = catalog.get("nextPageToken", "")
+                      if not token:
+                          break
+                      if token in seen:
+                          report["status"] = "incomplete_catalog"
+                          return code
+                      seen.add(token)
+                  else:
+                      report["status"] = "incomplete_catalog"
+                      return code
+                  report["available_text_models"] = [n for n in preference if n in available]
+                  if not available:
+                      report["status"] = "no_compatible_model"
+                      return code
+                  selected = next(n for n in preference if n in available)
+                  report["model"] = selected
+                  report["stage"] = "models_get"
+                  metadata = get_json("models/" + selected)
+                  input_limit = metadata.get("inputTokenLimit")
+                  output_limit = metadata.get("outputTokenLimit")
+                  if (metadata.get("name") != "models/" + selected
+                          or "generateContent" not in metadata.get("supportedGenerationMethods", [])
+                          or type(input_limit) is not int or input_limit < 32
+                          or type(output_limit) is not int or output_limit < 32):
+                      report["status"] = "incompatible_parameters"
+                      return code
+                  # Keep model defaults for thinking, temperature and candidate count.
+                  # A budget of zero is not portable between thinking model families.
+                  config = {"maxOutputTokens": 32}
+                  report["generation_config"] = config
+                  report["parameters_verified"] = True
                   payload = {
                       "contents": [{"role": "user", "parts": [
                           {"text": "Reply with exactly OK."}]}],
-                      "generationConfig": {"candidateCount": 1, "maxOutputTokens": 32,
-                                           "thinkingConfig": {"thinkingBudget": 0}},
+                      "generationConfig": config,
                   }
                   request = urllib.request.Request(
-                      "https://generativelanguage.googleapis.com/v1beta/models/"
-                      "gemini-2.5-flash:generateContent",
+                      base + "models/" + selected + ":generateContent",
                       data=json.dumps(payload).encode("utf-8"),
                       headers={"Content-Type": "application/json", "x-goog-api-key": key},
                       method="POST",
                   )
-                  # Exactly one attempt; no retry, fallback model or redirect.
-                  opener = urllib.request.build_opener(NoRedirect())
+                  # Exactly one generation attempt; no retry, fallback or redirect.
+                  report["stage"] = "generate_content"
                   report["attempts"] = 1
-                  with opener.open(request, timeout=30) as response:
+                  with opener.open(request, timeout=45) as response:
                       report["http_status"] = response.status
                       result = json.loads(response.read(65536))
                   candidates = result.get("candidates", [])
@@ -96,9 +156,26 @@ jobs:
                   report.update(status="http_error", http_status=error.code,
                                 error_category=http_error_category(error.code))
                   error.close()
+              except (TimeoutError, socket.timeout):
+                  report["status"] = "request_timeout"
+              except urllib.error.URLError as error:
+                  if isinstance(error.reason, (TimeoutError, socket.timeout)):
+                      report["status"] = "request_timeout"
+                  elif isinstance(error.reason, ssl.SSLError):
+                      report["status"] = "tls_error"
+                  else:
+                      report["status"] = "network_error"
+              except ssl.SSLError:
+                  report["status"] = "tls_error"
+              except (ConnectionError, ConnectionResetError, BrokenPipeError):
+                  report["status"] = "network_error"
+              except json.JSONDecodeError:
+                  report["status"] = "invalid_json_response"
+              except (KeyError, TypeError, AttributeError, IndexError, ValueError):
+                  report["status"] = "invalid_response_structure"
               except Exception:
-                  # Never print exceptions, headers, response bodies or credentials.
-                  report["status"] = "request_or_response_error"
+                  # Keep only a fixed label; never print exception, URL, headers or credentials.
+                  report["status"] = "unexpected_runtime_error"
               finally:
                   Path(os.environ["RUNNER_TEMP"], "gemini-smoke-status.json").write_text(
                       json.dumps(report, indent=2) + "\n", encoding="utf-8")
@@ -106,6 +183,7 @@ jobs:
                   if report["status"] == "http_error":
                       diagnostic += (f"; http_status={report['http_status']}"
                                      f"; error_category={report['error_category']}")
+                  diagnostic += "; stage=" + report["stage"]
                   print(diagnostic)
               return code
 
@@ -120,3 +198,4 @@ jobs:
           path: ${{ runner.temp }}/gemini-smoke-status.json
           if-no-files-found: warn
           retention-days: 7
+
