@@ -71,5 +71,18 @@ class MatchedInteractionContract(unittest.TestCase):
                 self.assertAlmostEqual(sum(x[1] for x in contrasts) / len(contrasts), 0.0)
 
 
+class WorkflowFailurePropagation(unittest.TestCase):
+    def test_contract_step_cannot_mask_unittest_failure_with_tee(self):
+        workflow = (ROOT / ".github/workflows/voynich-contract-tests.yml").read_text(encoding="utf-8")
+        self.assertEqual(workflow.count("- name: Synthetic contract checks"), 1)
+        step = workflow.split("- name: Synthetic contract checks", 1)[1].split(
+            "- name: Archive contract test log", 1
+        )[0]
+        self.assertIn("shell: bash", step)
+        self.assertRegex(step, r"(?m)^\s*set -euo pipefail\s*$")
+        self.assertIn("python -m unittest discover", step)
+        self.assertIn("| tee test-results/contract-tests.log", step)
+
+
 if __name__ == "__main__":
     unittest.main()
