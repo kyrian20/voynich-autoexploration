@@ -150,11 +150,9 @@ def main():
         args.out.parent.mkdir(parents=True, exist_ok=True)
         args.out.write_text(json.dumps(result, indent=2, ensure_ascii=False,
                                        allow_nan=False) + chr(10))
-    print(json.dumps({"status": result["status"],
-                      "mi_bits": {k: {"legacy": v["legacy_statistic_bits_replayed"],
-                                      "corrected": v["correct_pair_mi_bits"]}
-                                  for k, v in result["rows"].items()}},
-                     sort_keys=True))
+    # Full deterministic receipt in CI logs, independent of 90-day artifacts.
+    print("EXP260_RECEIPT=" + json.dumps(result, sort_keys=True,
+                                          ensure_ascii=True, allow_nan=False))
 
 
 if __name__ == "__main__":
