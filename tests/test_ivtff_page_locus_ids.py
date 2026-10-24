@@ -81,6 +81,37 @@ def main() -> None:
     ], missing
     assert structural_errors(missing) == ["malformed_record_count=2"], missing
 
+    # A row with a valid locus ID but an indented opening tag used to
+    # disappear from the audit without contributing to any error counter.
+    indented = audit_text(
+        "<f1r> <! $L=A>\n"
+        "<f1r.1,@P0> daiin\n"
+        " <f1r.2,@P0> chedy\n"
+        "\t<f1r.3,@P0> or\n"
+        "  f1r.4,@P0> y\n"
+    )
+    assert indented["record_count"] == 1, indented
+    assert indented["malformed_record_count"] == 3, indented
+    assert [row["reason"] for row in indented["malformed_records"]] == [
+        "leading whitespace before locus <",
+        "leading whitespace before locus <",
+        "missing opening <",
+    ], indented
+    assert structural_errors(indented) == ["malformed_record_count=3"], indented
+
+    # An indented page header cannot silently leave the previous active
+    # page in force: the subsequent locus must be rejected as unmatched.
+    indented_header = audit_text(
+        "<f1r> <! $L=A>\n"
+        " <f2r> <! $L=B>\n"
+        "<f2r.1,@P0> chedy\n"
+    )
+    assert indented_header["malformed_header_count"] == 1, indented_header
+    assert indented_header["page_mismatch_count"] == 1, indented_header
+    assert set(structural_errors(indented_header)) == {
+        "malformed_header_count=1", "page_mismatch_count=1",
+    }, indented_header
+
     # Ordinary untagged metadata must remain ignored, not classified as a row.
     unrelated = audit_text(
         "non-record metadata\n<f1r> <! $L=A>\n<f1r.1,@P0> daiin\n"
