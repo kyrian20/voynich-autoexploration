@@ -44,6 +44,23 @@ class TestReferenceClaimLinks(unittest.TestCase):
             audit.parse_position_table(rows + '\n| B | LL | 12 | 999.0 | 5 |')
 
 
+
+    def test_position_table_rejects_malformed_duplicate_rows(self):
+        rows = '\n'.join(f'| {d} | {p} | 12 | 5.2 | 5 |'
+                         for d in 'AB' for p in ('LF', 'MID', 'LL'))
+        # Previously the numeric-only findall ignored these rows and
+        # incorrectly returned a complete six-cell table.
+        for bad in ('| B | LL | 12 | n/a | 5 |',
+                    '| B | LL | ? | 999.0 | 5 |'):
+            with self.subTest(bad=bad), self.assertRaisesRegex(ValueError, 'Malformed EXP-267 position row'):
+                audit.parse_position_table(rows + '\n' + bad)
+
+    def test_position_table_rejects_empty_sample(self):
+        rows = '\n'.join(f'| {d} | {p} | {0 if (d, p) == ("B", "LL") else 12} | 5.2 | 5 |'
+                         for d in 'AB' for p in ('LF', 'MID', 'LL'))
+        with self.assertRaisesRegex(ValueError, 'Empty EXP-267 position row'):
+            audit.parse_position_table(rows)
+
     def test_unique_index_accepts_distinct_identifiers(self):
         rows = [{'experiment_path': 'a', 'value': 1}, {'experiment_path': 'b', 'value': 2}]
         self.assertEqual(audit.unique_index(rows, 'experiment_path', 'Reader replay')['b']['value'], 2)
