@@ -35,6 +35,26 @@ jobs:
               def redirect_request(self, req, fp, code, msg, headers, newurl):
                   return None
 
+          def http_error_category(status):
+              # Fixed labels only: never inspect or log remote error details.
+              categories = {
+                  400: "bad_request",
+                  401: "authentication_error",
+                  403: "permission_denied",
+                  404: "not_found",
+                  408: "request_timeout",
+                  429: "rate_limit_or_quota",
+              }
+              if status in categories:
+                  return categories[status]
+              if 300 <= status < 400:
+                  return "redirect_blocked"
+              if 400 <= status < 500:
+                  return "client_error"
+              if 500 <= status < 600:
+                  return "server_error"
+              return "unexpected_http_status"
+
           def main():
               report = {"status": "not_started", "attempts": 0,
                         "model": "gemini-2.5-flash", "manuscript_data_sent": False}
@@ -73,7 +93,8 @@ jobs:
                   else:
                       report["status"] = "unexpected_response"
               except urllib.error.HTTPError as error:
-                  report.update(status="http_error", http_status=error.code)
+                  report.update(status="http_error", http_status=error.code,
+                                error_category=http_error_category(error.code))
                   error.close()
               except Exception:
                   # Never print exceptions, headers, response bodies or credentials.
@@ -81,7 +102,11 @@ jobs:
               finally:
                   Path(os.environ["RUNNER_TEMP"], "gemini-smoke-status.json").write_text(
                       json.dumps(report, indent=2) + "\n", encoding="utf-8")
-                  print("Gemini connection test status: " + report["status"])
+                  diagnostic = "Gemini connection test status: " + report["status"]
+                  if report["status"] == "http_error":
+                      diagnostic += (f"; http_status={report['http_status']}"
+                                     f"; error_category={report['error_category']}")
+                  print(diagnostic)
               return code
 
           sys.exit(main())
