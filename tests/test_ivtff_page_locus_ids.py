@@ -42,7 +42,7 @@ def main() -> None:
     assert report["malformed_header_count"] == 1, report
 
     # Repeated exact tags must remain visible in the structural audit.
-    duplicate = "<f1r> <! $L=A>\\n<f1r.1,@P0> daiin\\n<f1r.1,@P0> chedy\\n"
+    duplicate = "<f1r> <! $L=A>\n<f1r.1,@P0> daiin\n<f1r.1,@P0> chedy\n"
     repeated = audit_text(duplicate)
     assert repeated["record_count"] == 2, repeated
     assert repeated["duplicate_record_tag_count"] == 1, repeated
