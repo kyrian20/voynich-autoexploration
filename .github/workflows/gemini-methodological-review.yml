@@ -27,6 +27,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           persist-credentials: false
+          ref: master
           sparse-checkout: |
             scripts/request_gemini_review.py
             scripts/validate_gemini_review.py
