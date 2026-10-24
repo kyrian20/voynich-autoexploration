@@ -7,6 +7,21 @@ import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+
+
+def reject_duplicate_json_keys(pairs):
+    """Reject duplicate object members at any nesting depth in audit inputs."""
+    result = {}
+    for key, value in pairs:
+        if key in result:
+            raise ValueError(f'Duplicate JSON object key: {key}')
+        result[key] = value
+    return result
+
+
+def load_json_strict(path):
+    return json.loads(path.read_text(encoding='utf-8'),
+                      object_pairs_hook=reject_duplicate_json_keys)
 BASE_COMMIT = 'b31492596c3e9a0c3f322c0ece62fa13a84d739d'
 CASE_IDS = {
     'EXP-267': ('experiments/exp_267_word_length_position/script.py', 105892, 'tokens'),
@@ -62,8 +77,8 @@ def parse_position_table(md):
 
 
 def audit(root=ROOT):
-    readers = json.loads((root / 'research/maintenance/2026-10-22-remaining-readers/results.json').read_text(encoding='utf-8'))
-    identities = json.loads((root / 'research/CORPUS_IDENTITY_REVIEW.json').read_text(encoding='utf-8'))
+    readers = load_json_strict(root / 'research/maintenance/2026-10-22-remaining-readers/results.json')
+    identities = load_json_strict(root / 'research/CORPUS_IDENTITY_REVIEW.json')
     excluded = unique_index(identities['excluded_from_new_language_baselines'], 'path', 'Corpus identity')
     if readers['source_commit'] != 'aa9ec5399e7a5cdf8d1b2890fa657f1358825b41':
         raise ValueError('Reader snapshot changed; re-adjudicate instead of reusing results')
@@ -151,7 +166,7 @@ def main():
     args = parser.parse_args()
     result = audit()
     if args.check:
-        expected = json.loads(args.check.read_text(encoding='utf-8'))
+        expected = load_json_strict(args.check)
         if result != expected:
             raise SystemExit('Snapshot mismatch')
         print('PASS: reference claim adjudication snapshot matches')
