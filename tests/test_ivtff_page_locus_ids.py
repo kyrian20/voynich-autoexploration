@@ -64,6 +64,29 @@ def main() -> None:
         {"tag": "f1r.1,@P0", "first_line": 2, "repeated_line": 3}
     ], repeated
 
+    # A damaged record with no opening "<" was previously ignored entirely:
+    # a clean-looking report could lose a locus while keeping valid rows.
+    damaged = (
+        "<f1r> <! $L=A>\n"
+        "<f1r.1,@P0> daiin\n"
+        "f1r.2,@P0> chedy\n"
+        "<fRos> <! $L=B>\n"
+        "fRos.23,@L0> daiin\n"
+    )
+    missing = audit_text(damaged)
+    assert missing["record_count"] == 1, missing
+    assert missing["malformed_record_count"] == 2, missing
+    assert [row["reason"] for row in missing["malformed_records"]] == [
+        "missing opening <", "missing opening <"
+    ], missing
+    assert structural_errors(missing) == ["malformed_record_count=2"], missing
+
+    # Ordinary untagged metadata must remain ignored, not classified as a row.
+    unrelated = audit_text(
+        "non-record metadata\n<f1r> <! $L=A>\n<f1r.1,@P0> daiin\n"
+    )
+    assert structural_errors(unrelated) == [], unrelated
+
     # The independent parser comparison previously lost the second row.
     with tempfile.TemporaryDirectory(dir=ROOT) as tmp:
         source = Path(tmp) / "duplicate.ivtff"
