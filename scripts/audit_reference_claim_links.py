@@ -33,10 +33,15 @@ def entropy(values):
 
 def parse_position_table(md):
     matches = re.findall(r'^\| ([AB]) \| (LF|MID|LL) \| (\d+) \| ([0-9.]+) \|', md, re.M)
-    result = {(dialect, position): float(mean) for dialect, position, _, mean in matches}
-    if len(result) != 6:
-        raise ValueError('Expected six unique rows in EXP-267 position table')
-    return result
+    # A dict comprehension alone silently overwrites repeated table rows.
+    # Require exactly one source row for every A/B x LF/MID/LL cell.
+    expected = {(dialect, position) for dialect in 'AB'
+                for position in ('LF', 'MID', 'LL')}
+    keys = [(dialect, position) for dialect, position, _, _ in matches]
+    if len(keys) != len(expected) or set(keys) != expected:
+        raise ValueError('Expected exactly one row per dialect and position in EXP-267 position table')
+    return {(dialect, position): float(mean)
+            for dialect, position, _, mean in matches}
 
 
 def audit(root=ROOT):
