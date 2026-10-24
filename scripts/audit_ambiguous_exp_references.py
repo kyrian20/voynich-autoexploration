@@ -16,6 +16,8 @@ REGISTRY = ROOT / "research/EXPERIMENT_PATH_REGISTRY.json"
 PATTERN = re.compile(r"(?<![A-Za-z0-9_])EXP[- _]?(\d{1,4})(?![A-Za-z0-9_])", re.I)
 SKIP_PARTS = {".git", ".venv", "venv", "node_modules", ".pytest_cache"}
 SUFFIXES = {".md", ".rst", ".txt"}
+# Frozen corpus inputs are not historical EXP reports; audit their bytes separately.
+RAW_CORPUS_ROOTS = (("data", "transcriptions"), ("data", "reference_corpora"))
 
 
 def collisions(registry: dict) -> dict[str, list[str]]:
@@ -36,13 +38,25 @@ def scan(root: Path, registry: dict) -> dict:
     duplicates = collisions(registry)
     hits = []
     unreadable_files = []
+    excluded_raw_corpora = []
+    skipped_symlinks = []
     for path in sorted(root.rglob("*")):
-        if not path.is_file() or path.suffix.lower() not in SUFFIXES:
+        relative = path.relative_to(root)
+        if path.suffix.lower() not in SUFFIXES:
             continue
-        if any(part in SKIP_PARTS for part in path.relative_to(root).parts):
+        if any(part in SKIP_PARTS for part in relative.parts):
             continue
-        # Avoid generated inventories and avoid counting this tool's own documentation.
-        rel = path.relative_to(root).as_posix()
+        rel = relative.as_posix()
+        if relative.parts[:2] in RAW_CORPUS_ROOTS:
+            excluded_raw_corpora.append(rel)
+            continue
+        # Never dereference a symlink while constructing a CI artifact.
+        if any(root.joinpath(*relative.parts[:i]).is_symlink()
+               for i in range(1, len(relative.parts) + 1)):
+            skipped_symlinks.append(rel)
+            continue
+        if not path.is_file():
+            continue
         try:
             lines = path.read_text(encoding="utf-8").splitlines()
         except (UnicodeDecodeError, OSError) as exc:
@@ -72,11 +86,15 @@ def scan(root: Path, registry: dict) -> dict:
         "by_alias": dict(sorted(Counter(h["alias"] for h in hits).items(), key=lambda x: int(x[0]))),
         "hits": hits,
         "unreadable_files": unreadable_files,
-        "coverage_complete_for_selected_files": not unreadable_files,
+        "excluded_raw_corpora": excluded_raw_corpora,
+        "skipped_symlinks": skipped_symlinks,
+        "coverage_complete_for_selected_files": not unreadable_files and not skipped_symlinks,
         "caveats": [
             "A bare EXP number can be clear from paragraph context; lexical flag is not proof of an error.",
             "Nearby path is only a heuristic, not scientific validation of the associated claim.",
-            "Only UTF-8 text/Markdown/RST is scanned; code, JSON, PDFs, artifacts and Library files are excluded.",
+            "Only UTF-8 text/Markdown/RST outside frozen data corpora is scanned; code, JSON, PDFs, artifacts and Library files are excluded.",
+            "Frozen corpus files are listed as excluded; byte integrity and encoding require separate audits.",
+            "Symlinks are not dereferenced; skipped links are reported as incomplete selected-file coverage.",
             "Unreadable candidate files are explicitly reported; an empty hit list is not complete coverage if any are unreadable.",
             "No source files or experiment results are modified.",
         ],
