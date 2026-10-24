@@ -1,5 +1,7 @@
 """Pure regression controls for reference claim adjudication (stdlib only)."""
 import importlib.util
+import json
+import tempfile
 import unittest
 from pathlib import Path
 
@@ -40,6 +42,43 @@ class TestReferenceClaimLinks(unittest.TestCase):
                          for d in 'AB' for p in ('LF', 'MID', 'LL'))
         with self.assertRaisesRegex(ValueError, 'exactly one row'):
             audit.parse_position_table(rows + '\n| B | LL | 12 | 999.0 | 5 |')
+
+
+    def test_unique_index_accepts_distinct_identifiers(self):
+        rows = [{'experiment_path': 'a', 'value': 1}, {'experiment_path': 'b', 'value': 2}]
+        self.assertEqual(audit.unique_index(rows, 'experiment_path', 'Reader replay')['b']['value'], 2)
+
+    def test_unique_index_rejects_malformed_or_missing_identifiers(self):
+        for rows in (None, {}, [None], [{}], [{'path': ''}], [{'path': 12}]):
+            with self.subTest(rows=rows), self.assertRaises(ValueError):
+                audit.unique_index(rows, 'path', 'Corpus identity')
+
+    def run_with_metadata(self, readers, identities):
+        # No original corpus or historical script is required: duplicate
+        # metadata must be rejected before any corpus/script reads occur.
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            folder = root / 'research/maintenance/2026-10-22-remaining-readers'
+            folder.mkdir(parents=True)
+            (folder / 'results.json').write_text(json.dumps({
+                'source_commit': 'aa9ec5399e7a5cdf8d1b2890fa657f1358825b41',
+                'cases': readers,
+            }), encoding='utf-8')
+            (root / 'research/CORPUS_IDENTITY_REVIEW.json').write_text(json.dumps({
+                'excluded_from_new_language_baselines': identities,
+            }), encoding='utf-8')
+            return audit.audit(root)
+
+    def test_audit_rejects_duplicate_reader_even_when_same(self):
+        row = {'experiment_path': 'experiments/exp_267_word_length_position/script.py'}
+        with self.assertRaisesRegex(ValueError, 'Reader replay: duplicate experiment_path'):
+            self.run_with_metadata([row, dict(row)], [])
+
+    def test_audit_rejects_conflicting_corpus_identity_duplicates(self):
+        path = 'data/reference_corpora/latin/cicero_de_officiis_latin.txt'
+        with self.assertRaisesRegex(ValueError, 'Corpus identity: duplicate path'):
+            self.run_with_metadata([], [{'path': path, 'adjudicated_language': 'Latin'},
+                                        {'path': path, 'adjudicated_language': 'English'}])
 
 
 if __name__ == '__main__':

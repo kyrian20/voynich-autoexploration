@@ -20,6 +20,23 @@ RESULT_BLOBS = {
 }
 
 
+def unique_index(rows, key_field, source):
+    """Index audited records without silently overwriting duplicate identities."""
+    if not isinstance(rows, list):
+        raise ValueError(f'{source}: expected a list')
+    indexed = {}
+    for offset, row in enumerate(rows):
+        if not isinstance(row, dict):
+            raise ValueError(f'{source}: row {offset} is not an object')
+        key = row.get(key_field)
+        if not isinstance(key, str) or not key:
+            raise ValueError(f'{source}: missing {key_field} in row {offset}')
+        if key in indexed:
+            raise ValueError(f'{source}: duplicate {key_field}: {key}')
+        indexed[key] = row
+    return indexed
+
+
 def git_blob_sha(data):
     return hashlib.sha1(b'blob ' + str(len(data)).encode() + b'\0' + data).hexdigest()
 
@@ -47,10 +64,10 @@ def parse_position_table(md):
 def audit(root=ROOT):
     readers = json.loads((root / 'research/maintenance/2026-10-22-remaining-readers/results.json').read_text(encoding='utf-8'))
     identities = json.loads((root / 'research/CORPUS_IDENTITY_REVIEW.json').read_text(encoding='utf-8'))
-    excluded = {e['path']: e for e in identities['excluded_from_new_language_baselines']}
+    excluded = unique_index(identities['excluded_from_new_language_baselines'], 'path', 'Corpus identity')
     if readers['source_commit'] != 'aa9ec5399e7a5cdf8d1b2890fa657f1358825b41':
         raise ValueError('Reader snapshot changed; re-adjudicate instead of reusing results')
-    cases = {c['experiment_path']: c for c in readers['cases']}
+    cases = unique_index(readers['cases'], 'experiment_path', 'Reader replay')
     if set(cases) != {v[0] for v in CASE_IDS.values()}:
         raise ValueError('Reader set changed')
     summary = {}
