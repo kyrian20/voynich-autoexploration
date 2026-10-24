@@ -94,14 +94,14 @@ def main(argv=None):
         return 1
     errors = validate(review)
     args.output_dir.mkdir(parents=True, exist_ok=True)
-    (args.output_dir / "review-untrusted.json").write_text(
+    (args.output_dir / "api-response-untrusted.json").write_text(\n        json.dumps(envelope, ensure_ascii=False, indent=2) + "\\n", encoding="utf-8")\n    (args.output_dir / "review-untrusted.json").write_text(
         json.dumps(review, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     receipt = {
         "status": "SCHEMA_VALID_ONLY" if not errors else "INVALID_SCHEMA",
         "scientific_status": "PROPOSED_UNVERIFIED",
         "model": args.model,
         "prompt_sha256": hashlib.sha256(prompt.encode("utf-8")).hexdigest(),
-        "response_sha256": hashlib.sha256(text.encode("utf-8")).hexdigest(),
+        "response_sha256": hashlib.sha256(text.encode("utf-8")).hexdigest(),\n        "api_envelope_sha256": hashlib.sha256(raw).hexdigest(),
         "schema_error_count": len(errors),
         "manuscript_corpus_sent": False,
         "api_attempts": 1,
