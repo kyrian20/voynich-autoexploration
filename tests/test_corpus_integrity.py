@@ -54,6 +54,44 @@ class CorpusIntegrity(unittest.TestCase):
             errors = verify(root, {'files': [entry]})
             self.assertIn('Symlink corpus path forbidden: data/transcriptions/x.txt', errors)
 
+    def test_unregistered_dangling_file_symlink_rejected(self):
+        with tempfile.TemporaryDirectory() as d:
+            root = Path(d)
+            folder = root / 'data/transcriptions'
+            folder.mkdir(parents=True)
+            (folder / 'known.txt').write_bytes(b'abc')
+            entry = {'path': 'data/transcriptions/known.txt', 'bytes': 3,
+                     'sha256': hashlib.sha256(b'abc').hexdigest(),
+                     'status': 'FROZEN_BYTES_NOT_SCIENTIFICALLY_VALIDATED'}
+            manifest = {'files': [entry]}
+            self.assertEqual(verify(root, manifest), [])
+            (folder / 'dangling.txt').symlink_to(root / 'missing.txt')
+            errors = verify(root, manifest)
+            self.assertIn(
+                'Unregistered symlink in corpus tree: data/transcriptions/dangling.txt',
+                errors,
+            )
+            self.assertFalse((folder / 'dangling.txt').is_file())
+
+    def test_unregistered_symlink_directory_rejected(self):
+        with tempfile.TemporaryDirectory() as d:
+            root = Path(d)
+            folder = root / 'data/reference_corpora'
+            folder.mkdir(parents=True)
+            (folder / 'known.txt').write_bytes(b'abc')
+            entry = {'path': 'data/reference_corpora/known.txt', 'bytes': 3,
+                     'sha256': hashlib.sha256(b'abc').hexdigest(),
+                     'status': 'FROZEN_BYTES_NOT_SCIENTIFICALLY_VALIDATED'}
+            manifest = {'files': [entry]}
+            self.assertEqual(verify(root, manifest), [])
+            (folder / 'external').symlink_to(root / 'missing-directory',
+                                            target_is_directory=True)
+            errors = verify(root, manifest)
+            self.assertIn(
+                'Unregistered symlink in corpus tree: data/reference_corpora/external',
+                errors,
+            )
+
     def test_duplicate_manifest_paths_rejected(self):
         entry={'path':'data/transcriptions/x.txt','bytes':0,'sha256':hashlib.sha256(b'').hexdigest(),'status':'BLOCKED_EMPTY_DO_NOT_USE'}
         with tempfile.TemporaryDirectory() as d:

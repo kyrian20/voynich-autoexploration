@@ -54,9 +54,18 @@ def verify(root, manifest):
     if schema_errors:
         return schema_errors
     expected = {entry['path']: entry for entry in manifest['files']}
-    actual = {p.relative_to(root).as_posix() for folder in ('data/transcriptions','data/reference_corpora')
+    folders = ('data/transcriptions', 'data/reference_corpora')
+    actual = {p.relative_to(root).as_posix() for folder in folders
               for p in (root/folder).rglob('*.txt') if p.is_file()}
+    # A dangling .txt link fails is_file(), and rglob('*.txt') misses
+    # symlinked directories entirely. Neither is a reviewed corpus addition.
+    # Inventory links independently, without dereferencing their targets.
+    links = {p.relative_to(root).as_posix() for folder in folders
+             for p in (root/folder).rglob('*') if p.is_symlink()}
+    links.update(folder for folder in folders if (root/folder).is_symlink())
     errors = [f'Unregistered corpus: {p}' for p in sorted(actual-set(expected))]
+    errors += [f'Unregistered symlink in corpus tree: {p}'
+               for p in sorted(links-set(expected))]
     errors += [f'Symlink corpus path forbidden: {p}' for p in sorted(expected)
                if linked_path(root, p)]
     errors += [f'Missing corpus: {p}' for p in sorted(set(expected)-actual)]
