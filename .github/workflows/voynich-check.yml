@@ -42,6 +42,17 @@ jobs:
           python -m unittest discover -s tests -p 'test_ambiguous_exp_references.py' -v
           python scripts/audit_repository_operations.py
 
+      - name: Inventariar referencias históricas EXP ambiguas
+        run: python scripts/audit_ambiguous_exp_references.py --out ambiguous-exp-references.json
+
+      - name: Conservar inventario de referencias ambiguas
+        uses: actions/upload-artifact@v4
+        with:
+          name: ambiguous-exp-references-${{ github.run_id }}
+          path: ambiguous-exp-references.json
+          if-no-files-found: error
+          retention-days: 90
+
       - name: Comprobar identidad de corpus y control de duplicados
         run: |
           python tests/test_corpus_integrity.py
