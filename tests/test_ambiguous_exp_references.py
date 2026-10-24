@@ -66,11 +66,13 @@ class AmbiguousReferenceAuditTests(unittest.TestCase):
 
     def test_symlink_cannot_leak_outside_checkout(self):
         with tempfile.TemporaryDirectory() as temp:
-            root = Path(temp)
-            (root / "outside.txt").write_text("EXP-177", encoding="utf-8")
-            (root / "link.txt").symlink_to(root / "outside.txt")
+            root = Path(temp) / "checkout"
+            root.mkdir()
+            outside = Path(temp) / "outside.txt"
+            outside.write_text("EXP-177", encoding="utf-8")
+            (root / "link.txt").symlink_to(outside)
             result = scan(root, self.registry)
-            self.assertEqual(result["occurrences"], 1)
+            self.assertEqual(result["occurrences"], 0)
             self.assertEqual(result["skipped_symlinks"], ["link.txt"])
             self.assertFalse(result["coverage_complete_for_selected_files"])
 
