@@ -30,7 +30,7 @@ class GeminiSmokeTests(unittest.TestCase):
         response.__enter__.return_value = response
         response.status = 200
         response.read.return_value = body
-        model = {"name": "models/gemini-2.5-flash-lite", "supportedGenerationMethods": ["generateContent"],
+        model = {"name": "models/gemini-3.5-flash-lite", "supportedGenerationMethods": ["generateContent"],
                  "inputTokenLimit": 10000, "outputTokenLimit": 8192}
         def reply(value):
             result = unittest.mock.MagicMock()
@@ -85,7 +85,7 @@ class GeminiSmokeTests(unittest.TestCase):
         code, report, output, transport = self.run_script()
         self.assertEqual((code, report["status"], report["attempts"]), (0, "connected", 1))
         request = transport.call_args.args[0]
-        self.assertEqual(request.full_url, "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent")
+        self.assertEqual(request.full_url, "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash-lite:generateContent")
         self.assertEqual(request.method, "POST")
         self.assertEqual(transport.call_args.kwargs, {"timeout": 45})
         self.assertEqual(json.loads(request.data), {
@@ -139,7 +139,7 @@ class GeminiSmokeTests(unittest.TestCase):
             transport.assert_called_once()
 
     def test_no_compatible_model_does_not_generate(self):
-        for models in ([], [{"name": "models/gemini-2.5-flash-lite", "supportedGenerationMethods": ["embedContent"]}],
+        for models in ([], [{"name": "models/gemini-3.5-flash-lite", "supportedGenerationMethods": ["embedContent"]}],
                        [{"name": SENTINEL, "supportedGenerationMethods": ["generateContent"]}]):
             code, report, output, transport = self.run_script(catalog={"models": models})
             self.assertEqual((code, report["status"], report["attempts"]), (1, "no_compatible_model", 0))
@@ -147,7 +147,7 @@ class GeminiSmokeTests(unittest.TestCase):
 
     def test_invalid_metadata_stops_before_post(self):
         for metadata in ({}, {"name": SENTINEL},
-                         {"name": "models/gemini-2.5-flash-lite", "supportedGenerationMethods": ["generateContent"],
+                         {"name": "models/gemini-3.5-flash-lite", "supportedGenerationMethods": ["generateContent"],
                           "inputTokenLimit": 10000, "outputTokenLimit": 16}):
             code, report, output, transport = self.run_script(metadata=metadata)
             self.assertEqual((code, report["status"], report["attempts"]), (1, "incompatible_parameters", 0))
@@ -155,7 +155,7 @@ class GeminiSmokeTests(unittest.TestCase):
             self.assertTrue(all(c.args[0].method == "GET" for c in transport.call_args_list))
 
     def test_catalog_pagination_and_preference(self):
-        model = {"name": "models/gemini-2.5-flash-lite", "supportedGenerationMethods": ["generateContent"]}
+        model = {"name": "models/gemini-3.5-flash-lite", "supportedGenerationMethods": ["generateContent"]}
         code, report, output, transport = self.run_script(pages=[
             {"models": [], "nextPageToken": "page + /?"}, {"models": [model]}])
         self.assertEqual((code, report["status"], report["discovery_requests"]), (0, "connected", 3))
@@ -168,12 +168,26 @@ class GeminiSmokeTests(unittest.TestCase):
         self.assertEqual((code, report["status"], report["attempts"]), (1, "incomplete_catalog", 0))
         self.assertEqual(transport.call_count, 2)
 
-    def test_selects_available_older_text_model_before_any_post(self):
-        model = {"name": "models/gemini-2.5-flash", "supportedGenerationMethods": ["generateContent"],
+    def test_selects_documented_3_8_fallback_before_any_post(self):
+        model = {"name": "models/gemini-3.8-flash", "supportedGenerationMethods": ["generateContent"],
                  "inputTokenLimit": 10000, "outputTokenLimit": 8192}
         code, report, output, transport = self.run_script(catalog={"models": [model]}, metadata=model)
-        self.assertEqual((code, report["model"]), (0, "gemini-2.5-flash"))
-        self.assertTrue(transport.call_args.args[0].full_url.endswith("gemini-2.5-flash:generateContent"))
+        self.assertEqual((code, report["model"]), (0, "gemini-3.8-flash"))
+        self.assertTrue(transport.call_args.args[0].full_url.endswith("gemini-3.8-flash:generateContent"))
+
+    def test_legacy_2_5_models_are_never_selected(self):
+        models = [{"name": "models/" + name, "supportedGenerationMethods": ["generateContent"]}
+                  for name in ("gemini-2.5-flash", "gemini-2.5-flash-lite")]
+        code, report, output, transport = self.run_script(catalog={"models": models})
+        self.assertEqual((code, report["status"], report["attempts"]), (1, "no_compatible_model", 0))
+        transport.assert_called_once()
+
+    def test_prefers_3_5_lite_over_3_8(self):
+        models = [{"name": "models/" + name, "supportedGenerationMethods": ["generateContent"]}
+                  for name in ("gemini-3.8-flash", "gemini-3.5-flash-lite")]
+        code, report, output, transport = self.run_script(catalog={"models": models})
+        self.assertEqual((code, report["model"]), (0, "gemini-3.5-flash-lite"))
+        self.assertTrue(transport.call_args.args[0].full_url.endswith("gemini-3.5-flash-lite:generateContent"))
 
     def test_missing_secret_sends_nothing(self):
         code, report, output, transport = self.run_script(key="")
