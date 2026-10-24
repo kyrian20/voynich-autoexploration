@@ -42,9 +42,9 @@ class Exp259ComparatorScopeTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, "adjacent CORRECTION.md missing"):
                 scope.check_linked_correction(root)
             correction.parent.mkdir(parents=True)
-            correction.write_text("\\n".join(scope.CORRECTION_MARKERS), encoding="utf-8")
+            correction.write_text(" | ".join(scope.CORRECTION_MARKERS), encoding="utf-8")
             self.assertEqual(len(scope.check_linked_correction(root)), 64)
-            correction.write_text("\\n".join(scope.CORRECTION_MARKERS[:-1]), encoding="utf-8")
+            correction.write_text(" | ".join(scope.CORRECTION_MARKERS[:-1]), encoding="utf-8")
             with self.assertRaisesRegex(ValueError, "missing required marker"):
                 scope.check_linked_correction(root)
 
