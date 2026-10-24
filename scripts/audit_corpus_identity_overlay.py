@@ -7,8 +7,10 @@ historical experiments. Frozen corpus bytes and existing decisions stay intact.
 import hashlib
 import json
 import re
+import sys
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from scripts.check_corpus_integrity import linked_path, unique_keys
 
 ROOT = Path(__file__).resolve().parents[1]
