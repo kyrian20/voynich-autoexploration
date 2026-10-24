@@ -30,6 +30,8 @@ def audit_text(text: str) -> dict:
     active_page = None
     headers = []
     records = []
+    seen_record_tags = {}
+    duplicate_record_tags = []
     malformed_headers = []
     malformed_records = []
     page_mismatches = []
@@ -68,6 +70,14 @@ def audit_text(text: str) -> dict:
         rec = match.groupdict()
         rec["line"] = line_no
         records.append(rec)
+        if tag in seen_record_tags:
+            duplicate_record_tags.append({
+                "tag": tag,
+                "first_line": seen_record_tags[tag],
+                "repeated_line": line_no,
+            })
+        else:
+            seen_record_tags[tag] = line_no
         if active_page is None:
             page_mismatches.append({"line": line_no, "id_page": rec["page"], "active_page": None})
         elif rec["page"] != active_page:
@@ -80,6 +90,8 @@ def audit_text(text: str) -> dict:
         "page_header_count": len(headers),
         "distinct_page_headers": len({h["page"] for h in headers}),
         "record_count": len(records),
+        "duplicate_record_tags": duplicate_record_tags[:50],
+        "duplicate_record_tag_count": len(duplicate_record_tags),
         "ignored_comment_lines": ignored_comments,
         "continuation_lines": continuation_lines,
         "malformed_headers": malformed_headers[:50],
@@ -120,6 +132,8 @@ def main() -> None:
         ],
         "files": files,
     }, indent=2, ensure_ascii=False))
+    if any(item["duplicate_record_tag_count"] for item in files):
+        raise SystemExit("Duplicate IVTFF record tags detected; audit is not clean")
 
 
 if __name__ == "__main__":
