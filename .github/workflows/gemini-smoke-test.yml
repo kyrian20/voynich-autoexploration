@@ -26,6 +26,8 @@ jobs:
           python3 - <<'PY'
           import json
           import os
+          import socket
+          import ssl
           from pathlib import Path
           import sys
           import urllib.error
@@ -155,16 +157,26 @@ jobs:
                   report.update(status="http_error", http_status=error.code,
                                 error_category=http_error_category(error.code))
                   error.close()
-              except TimeoutError:
+              except (TimeoutError, socket.timeout):
                   report["status"] = "request_timeout"
               except urllib.error.URLError as error:
-                  report["status"] = ("request_timeout" if isinstance(error.reason, TimeoutError)
-                                      else "network_error")
+                  if isinstance(error.reason, (TimeoutError, socket.timeout)):
+                      report["status"] = "request_timeout"
+                  elif isinstance(error.reason, ssl.SSLError):
+                      report["status"] = "tls_error"
+                  else:
+                      report["status"] = "network_error"
+              except ssl.SSLError:
+                  report["status"] = "tls_error"
+              except (ConnectionError, ConnectionResetError, BrokenPipeError):
+                  report["status"] = "network_error"
               except json.JSONDecodeError:
                   report["status"] = "invalid_json_response"
+              except (KeyError, TypeError, AttributeError, IndexError, ValueError):
+                  report["status"] = "invalid_response_structure"
               except Exception:
-                  # Never print exceptions, headers, response bodies or credentials.
-                  report["status"] = "request_or_response_error"
+                  # Keep only a fixed label; never print exception, URL, headers or credentials.
+                  report["status"] = "unexpected_runtime_error"
               finally:
                   Path(os.environ["RUNNER_TEMP"], "gemini-smoke-status.json").write_text(
                       json.dumps(report, indent=2) + "\n", encoding="utf-8")
