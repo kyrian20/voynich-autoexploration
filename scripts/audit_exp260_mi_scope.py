@@ -30,7 +30,7 @@ def sha256(raw):
 
 
 def git_blob(raw):
-    return hashlib.sha1(b"blob " + str(len(raw)).encode() + b"\\0" + raw).hexdigest()
+    return hashlib.sha1(b"blob " + str(len(raw)).encode() + bytes([0]) + raw).hexdigest()
 
 
 def check_frozen_inputs():
@@ -149,7 +149,7 @@ def main():
     else:
         args.out.parent.mkdir(parents=True, exist_ok=True)
         args.out.write_text(json.dumps(result, indent=2, ensure_ascii=False,
-                                       allow_nan=False) + "\\n")
+                                       allow_nan=False) + chr(10))
     print(json.dumps({"status": result["status"],
                       "mi_bits": {k: {"legacy": v["legacy_statistic_bits_replayed"],
                                       "corrected": v["correct_pair_mi_bits"]}
