@@ -35,6 +35,15 @@ class GeminiReviewRequestTests(unittest.TestCase):
         self.assertEqual(result.returncode, 0, result.stderr)
         self.assertIn("DRY_RUN_ONLY", result.stdout)
 
+    def test_provenance_serialization_is_parseable_json(self):
+        import json
+        from tempfile import TemporaryDirectory
+        sample = {"candidates": [{"content": {"parts": [{"text": "{}"}]}}]}
+        with TemporaryDirectory() as directory:
+            output = Path(directory) / "api-response-untrusted.json"
+            output.write_text(json.dumps(sample, ensure_ascii=False, indent=2) + "\\n", encoding="utf-8")
+            self.assertEqual(json.loads(output.read_text(encoding="utf-8")), sample)
+
     def test_rejects_missing_secret(self):
         with self.assertRaises(ValueError):
             build_request("gemini-3.8-flash", "", "public text")
