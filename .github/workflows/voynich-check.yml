@@ -32,6 +32,9 @@ jobs:
       - name: Validar contratos de revisión Gemini sin acceso a red
         run: python -m unittest discover -s tests -p 'test_gemini_review.py' -v
 
+      - name: Probar límite de solicitud Gemini sin red ni credenciales
+        run: python -m unittest discover -s tests -p 'test_gemini_review_request.py' -v
+
       - name: Auditar contratos operativos y cobertura de registros
         run: |
           python tests/test_repository_operations.py
