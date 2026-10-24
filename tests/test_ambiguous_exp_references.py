@@ -36,7 +36,9 @@ class AmbiguousReferenceAuditTests(unittest.TestCase):
     def test_unreadable_candidate_is_reported_not_silently_ignored(self):
         with tempfile.TemporaryDirectory() as temp:
             root = Path(temp)
-            (root / "broken.md").write_bytes(b"\\xff\\xfeEXP-177")
+            (root / "broken.md").write_bytes(bytes([0xFF, 0xFE]) + b"EXP-177")
+            with self.assertRaises(UnicodeDecodeError):
+                (root / "broken.md").read_text(encoding="utf-8")
             result = scan(root, self.registry)
             self.assertFalse(result["coverage_complete_for_selected_files"])
             self.assertEqual(result["unreadable_files"], [
