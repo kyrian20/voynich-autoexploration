@@ -71,6 +71,33 @@ class IdentityOverlayTests(unittest.TestCase):
         self.row['path'] = 'data/reference_corpora/latin/unknown.txt'
         self.assertTrue(any('missing from frozen manifest' in x for x in self.check()))
 
+    def test_unreviewed_manifest_backed_exclusion_is_rejected(self):
+        # This is a syntactically valid, hash-consistent seventh corpus.
+        # Before the guard, the audit returned [] for this fixture.
+        name = 'data/reference_corpora/latin/virgil_aeneid_latin.txt'
+        raw = b'Title: English translation\\nLanguage: English\\nEvidence of translation\\n'
+        # Interpret the literal escapes to make the test data explicit.
+        raw = raw.replace(b'\\\\n', b'\\n')
+        path = self.root / name
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_bytes(raw)
+        digest = hashlib.sha256(raw).hexdigest()
+        self.manifest['files'].append({
+            'path': name, 'sha256': digest, 'bytes': len(raw),
+            'status': 'FROZEN_BYTES_NOT_SCIENTIFICALLY_VALIDATED',
+        })
+        self.overlay['excluded_from_new_language_baselines'].append({
+            'path': name, 'sha256': digest, 'bytes': len(raw),
+            'header_title': ['Title: English translation'],
+            'header_language': ['Language: English'],
+            'issue': 'WRONG_LANGUAGE_FOR_LATIN',
+            'adjudicated_language': 'English',
+            'adjudicated_work': 'Unreviewed work',
+            'evidence': ['Evidence of translation'],
+        })
+        self.assertTrue(any('Unreviewed corpus exclusion' in error
+                            for error in self.check()))
+
     def test_quarantined_empty_input(self):
         row = next(x for x in self.overlay['excluded_from_new_language_baselines'] if x['issue'] == 'BLOCKED_EMPTY')
         self.assertEqual(self.check(), [])
