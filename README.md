@@ -2,6 +2,8 @@
 
 Repositorio de trabajo: `kyrian20/voynich-autoexploration` (rama `master`).
 
+**Auditoría retrospectiva — 24-10-2026:** [inventario de errores conocidos, PR pendientes y verificaciones no concluidas](research/maintenance/2026-10-24-retrospective-audit-status.md). No equivale a ejecutar ni certificar todo el historial. Las propuestas semánticas recientes son protocolos, no traducciones validadas.
+
 **Estado de revisión — 23-10-2026:** no hay validación global del historial ni traducción validada. Las comprobaciones operativas y reproducciones tienen alcance específico. Consulta el [alcance de reparación](research/maintenance/2026-10-23-repair-scope.md), la [revisión de esta base](research/maintenance/2026-10-23-history-status-review.md) y los informes fechados enlazados abajo antes de reutilizar resultados. Los borradores de PR son propuestas; no forman parte de master mientras no se integren.
 
 **Correcciones de EXP-001/267/288 — 23-10-2026:** [adjudicación de tablas, etiquetas e inferencias](research/maintenance/2026-10-22-claim-link-adjudication/REPORT.md) y [alcance de entropía inicial](research/maintenance/2026-10-23-exp001-claim-scope/REPORT.md), con snapshots comprobados y controles explícitos en CI. Las erratas CORRECTION.md junto a los originales indican qué afirmaciones no deben reutilizarse.
