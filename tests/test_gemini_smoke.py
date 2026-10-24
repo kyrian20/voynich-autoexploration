@@ -75,7 +75,7 @@ class GeminiSmokeTests(unittest.TestCase):
                 self.assertEqual(report["http_status"], status)
                 self.assertEqual(report["error_category"], category)
                 self.assertEqual(report["stage"], "generate_content")
-                self.assertEqual(output, f"Gemini connection test status: http_error; http_status={status}; error_category={category}\n")
+                self.assertEqual(output, f"Gemini connection test status: http_error; http_status={status}; error_category={category}; stage=generate_content\n")
                 self.assertEqual(transport.call_count, 3)
                 self.assertTrue(body.closed)
 
@@ -85,7 +85,7 @@ class GeminiSmokeTests(unittest.TestCase):
         request = transport.call_args.args[0]
         self.assertEqual(request.full_url, "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent")
         self.assertEqual(request.method, "POST")
-        self.assertEqual(transport.call_args.kwargs, {"timeout": 30})
+        self.assertEqual(transport.call_args.kwargs, {"timeout": 90})
         self.assertEqual(json.loads(request.data), {
             "contents": [{"role": "user", "parts": [{"text": "Reply with exactly OK."}]}],
             "generationConfig": {"maxOutputTokens": 1024},
@@ -94,9 +94,10 @@ class GeminiSmokeTests(unittest.TestCase):
 
     def test_other_failures_do_not_leak_or_retry(self):
         for error, body, status in [
-            (TimeoutError(SENTINEL), b"", "request_or_response_error"),
-            (urllib.error.URLError(SENTINEL), b"", "request_or_response_error"),
-            (None, SENTINEL.encode(), "request_or_response_error"),
+            (TimeoutError(SENTINEL), b"", "request_timeout"),
+            (urllib.error.URLError(TimeoutError(SENTINEL)), b"", "request_timeout"),
+            (urllib.error.URLError(SENTINEL), b"", "network_error"),
+            (None, SENTINEL.encode(), "invalid_json_response"),
             (None, json.dumps({"candidates": [{"content": {"parts": [{"text": SENTINEL}]}}]}).encode(), "unexpected_response"),
         ]:
             with self.subTest(status=status, error=type(error).__name__):
@@ -167,3 +168,4 @@ class GeminiSmokeTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
