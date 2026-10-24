@@ -88,6 +88,18 @@ class IdentityOverlayTests(unittest.TestCase):
         self.overlay['excluded_from_new_language_baselines'].remove(self.row)
         self.assertTrue(any('silently removed' in x for x in self.check()))
 
+    def test_changed_adjudicated_work_rejected_even_if_nonempty(self):
+        # The old guard only required a nonempty work label. A fabricated
+        # label therefore passed while the original corpus bytes were intact.
+        self.row['adjudicated_work'] = 'Invented work'
+        self.assertTrue(any('Historical adjudicated work changed' in x
+                            for x in self.check()))
+        # Even another historically documented work must not silently replace
+        # this file's recorded identity.
+        self.row['adjudicated_work'] = 'The Book of Mormon #17'
+        self.assertTrue(any('Historical adjudicated work changed' in x
+                            for x in self.check()))
+
     def test_changed_identity_classification(self):
         self.row['issue'] = 'WRONG_WORK_SAME_LANGUAGE'
         self.assertTrue(any('Historical exclusion issue changed' in x for x in self.check()))
