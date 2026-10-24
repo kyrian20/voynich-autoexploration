@@ -100,3 +100,21 @@ Python 3.12.14: suite completa de 153 pruebas, una omitida (la base tenía
 148 pruebas, una omitida). Auditoría operativa, identidad de corpus y
 `git diff --check`: satisfactorios. Sin petición real a Gemini ni reproducción
 de experimentos históricos; esta corrección es exclusivamente operativa.
+
+## Validación de esta corrección — 24-10-2026
+
+Base: `561a5f9d4b9af0ae35260c6a89b6e297e0276431`. Python 3.12.14,
+PyYAML 6.0.3. Suite completa: 194 pruebas, una omitida. Once pruebas del
+diagnóstico cubren selección, paginación y codificación de tokens, catálogo vacío,
+método incompatible, parámetros inválidos, errores HTTP por etapa, respuesta
+inesperada, timeout, secreto ausente y ausencia de fugas. Auditoría operativa,
+identidad de corpus y `git diff --check`: satisfactorios.
+
+La llamada a `gh workflow run gemini-smoke-test.yml --ref fix/gemini-model-discovery`
+falló en el GET previo de GitHub con `Forbidden`, antes del dispatch. No se inició
+ninguna ejecución nueva ni se realizó ninguna generación con esta corrección.
+El entorno local tampoco dispone de una vinculación Gemini utilizable; no se
+leyó ni cambió el secreto de Actions. Quedan pendientes el catálogo real para
+nuestra clave, los metadatos efectivos y el único POST sintético. La conexión
+**no está verificada**. No se reproducen experimentos históricos ni se modifican
+corpus o estado científico.
