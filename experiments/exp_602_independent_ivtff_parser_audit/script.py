@@ -173,9 +173,29 @@ def summarize(rows):
                      "enrichment":round(first/expected,6) if expected else None}
     return {"body_lines":len(eligible),"stats":stats}
 
+def index_unique_records(rows, label, parser):
+    """Refuse silent data loss when a parser emits repeated record IDs."""
+    indexed = {}
+    duplicates = {}
+    for row in rows:
+        key = row["id"]
+        if key in indexed:
+            duplicates.setdefault(key, [indexed[key]["line"]]).append(row["line"])
+        else:
+            indexed[key] = row
+    if duplicates:
+        sample = dict(list(duplicates.items())[:10])
+        raise ValueError(
+            f"{label} parser {parser}: {len(duplicates)} duplicate record ID(s) "
+            f"at source lines {sample}; refusing lossy comparison"
+        )
+    return indexed
+
+
 def compare(path,label):
     a=parser_a(path);b=parser_b(path)
-    ar={r["id"]:r for r in a["records"]};br={r["id"]:r for r in b["records"]}
+    ar=index_unique_records(a["records"],label,"A")
+    br=index_unique_records(b["records"],label,"B")
     only_a=sorted(set(ar)-set(br));only_b=sorted(set(br)-set(ar))
     mismatch=collections.Counter();examples=[]
     for key in sorted(set(ar)&set(br)):
