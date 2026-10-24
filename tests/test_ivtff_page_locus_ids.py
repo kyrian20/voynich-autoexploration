@@ -51,7 +51,7 @@ def main() -> None:
     ], repeated
 
     # The independent parser comparison previously lost the second row.
-    with tempfile.TemporaryDirectory() as tmp:
+    with tempfile.TemporaryDirectory(dir=ROOT) as tmp:
         source = Path(tmp) / "duplicate.ivtff"
         source.write_text(duplicate, encoding="latin-1")
         try:
