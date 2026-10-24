@@ -27,6 +27,11 @@ LOCUS_RE = re.compile(
 # Catch a damaged locus prefix before the generic non-record skip below.
 # This does not treat arbitrary free-text metadata as an IVTFF record.
 MISSING_OPEN_LOCUS_RE = re.compile(r"^f(?:\d+[rv][1-6]?|Ros)\.\d+,")
+# A page header with a lost opening angle bracket must not vanish silently.
+# Require a plausible header terminator, not arbitrary free-text beginning f2r>.
+MISSING_OPEN_PAGE_RE = re.compile(
+    r"^(?P<page>f(?:\d+[rv][1-6]?|Ros))>(?=\s|<|$)"
+)
 
 
 def audit_text(text: str) -> dict:
@@ -68,6 +73,13 @@ def audit_text(text: str) -> dict:
                 malformed_records.append({
                     "line": line_no, "raw": raw[:180], "reason": "missing opening <",
                 })
+            elif (missing_header := MISSING_OPEN_PAGE_RE.match(stripped)):
+                malformed_headers.append({
+                    "line": line_no, "page": missing_header.group("page"),
+                    "reason": "missing opening <",
+                })
+                # A broken page boundary must not keep the previous page active.
+                active_page = None
             continue
         end = raw.find(">")
         if end < 0:
