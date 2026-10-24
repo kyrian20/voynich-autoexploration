@@ -41,7 +41,7 @@ class GeminiReviewRequestTests(unittest.TestCase):
         sample = {"candidates": [{"content": {"parts": [{"text": "{}"}]}}]}
         with TemporaryDirectory() as directory:
             output = Path(directory) / "api-response-untrusted.json"
-            output.write_text(json.dumps(sample, ensure_ascii=False, indent=2) + "\\n", encoding="utf-8")
+            output.write_text(json.dumps(sample, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
             self.assertEqual(json.loads(output.read_text(encoding="utf-8")), sample)
 
     def test_rejects_missing_secret(self):
