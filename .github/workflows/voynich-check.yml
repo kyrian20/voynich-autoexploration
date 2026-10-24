@@ -40,6 +40,11 @@ jobs:
           python scripts/check_corpus_integrity.py
           python tests/test_duplicate_leakage.py
 
+      - name: Auditar exclusiones de identidad de corpus históricos
+        run: |
+          python -m unittest discover -s tests -p 'test_corpus_identity_overlay.py' -v
+          python scripts/audit_corpus_identity_overlay.py
+
       - name: Verificar partición prospectiva por hoja física
         run: |
           python -m unittest discover -s tests -p 'test_prospective_leaf_holdout.py' -v
