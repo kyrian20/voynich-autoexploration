@@ -53,7 +53,7 @@ def audit_text(text: str) -> dict:
             # Only a column-zero tag is a structural row. Previously an
             # indented, otherwise valid locus/header vanished silently.
             # Do not promote it to a valid row: fail closed and retain evidence.
-            stripped = raw.lstrip(" \\t")
+            stripped = raw.lstrip(" \t")
             if stripped.startswith("<"):
                 candidate = stripped[1:].split(">", 1)[0]
                 if LOCUS_RE.fullmatch(candidate) or MISSING_OPEN_LOCUS_RE.match(candidate):
