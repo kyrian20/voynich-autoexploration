@@ -35,6 +35,7 @@ def collisions(registry: dict) -> dict[str, list[str]]:
 def scan(root: Path, registry: dict) -> dict:
     duplicates = collisions(registry)
     hits = []
+    unreadable_files = []
     for path in sorted(root.rglob("*")):
         if not path.is_file() or path.suffix.lower() not in SUFFIXES:
             continue
@@ -46,7 +47,8 @@ def scan(root: Path, registry: dict) -> dict:
             continue
         try:
             lines = path.read_text(encoding="utf-8").splitlines()
-        except (UnicodeDecodeError, OSError):
+        except (UnicodeDecodeError, OSError) as exc:
+            unreadable_files.append({"path": rel, "error_type": type(exc).__name__})
             continue
         for number, line in enumerate(lines, 1):
             for match in PATTERN.finditer(line):
@@ -71,10 +73,13 @@ def scan(root: Path, registry: dict) -> dict:
         "review_required": sum(h["classification"] == "REVIEW_REQUIRED" for h in hits),
         "by_alias": dict(sorted(Counter(h["alias"] for h in hits).items(), key=lambda x: int(x[0]))),
         "hits": hits,
+        "unreadable_files": unreadable_files,
+        "coverage_complete_for_selected_files": not unreadable_files,
         "caveats": [
             "A bare EXP number can be clear from paragraph context; lexical flag is not proof of an error.",
             "Nearby path is only a heuristic, not scientific validation of the associated claim.",
             "Only UTF-8 text/Markdown/RST is scanned; code, JSON, PDFs, artifacts and Library files are excluded.",
+            "Unreadable candidate files are explicitly reported; an empty hit list is not complete coverage if any are unreadable.",
             "No source files or experiment results are modified.",
         ],
     }
