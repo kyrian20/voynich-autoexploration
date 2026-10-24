@@ -45,6 +45,37 @@ class AmbiguousReferenceAuditTests(unittest.TestCase):
                 {"path": "broken.md", "error_type": "UnicodeDecodeError"}
             ])
 
+    def test_raw_corpora_are_excluded_not_mislabeled_as_broken_reports(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            corpus = root / "data" / "transcriptions" / "v101_claston.txt"
+            corpus.parent.mkdir(parents=True)
+            corpus.write_bytes(bytes([0xFF, 0xFE]) + b"EXP-177")
+            reference = root / "data" / "reference_corpora" / "latin" / "caesar.txt"
+            reference.parent.mkdir(parents=True)
+            reference.write_bytes(bytes([0xFF]) + b"EXP-177")
+            (root / "report.md").write_text("EXP-177", encoding="utf-8")
+            result = scan(root, self.registry)
+            self.assertEqual(result["occurrences"], 1)
+            self.assertEqual(result["unreadable_files"], [])
+            self.assertEqual(result["excluded_raw_corpora"], [
+                "data/reference_corpora/latin/caesar.txt",
+                "data/transcriptions/v101_claston.txt",
+            ])
+            self.assertTrue(result["coverage_complete_for_selected_files"])
+
+    def test_symlink_cannot_leak_outside_checkout(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp) / "checkout"
+            root.mkdir()
+            outside = Path(temp) / "outside.txt"
+            outside.write_text("EXP-177", encoding="utf-8")
+            (root / "link.txt").symlink_to(outside)
+            result = scan(root, self.registry)
+            self.assertEqual(result["occurrences"], 0)
+            self.assertEqual(result["skipped_symlinks"], ["link.txt"])
+            self.assertFalse(result["coverage_complete_for_selected_files"])
+
     def test_scan_flags_bare_but_not_explicit_path(self):
         with tempfile.TemporaryDirectory() as temp:
             root = Path(temp)
