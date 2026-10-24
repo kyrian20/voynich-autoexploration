@@ -3,6 +3,8 @@ import contextlib
 import io
 import json
 import os
+import socket
+import ssl
 from pathlib import Path
 import tempfile
 import unittest
@@ -104,6 +106,29 @@ class GeminiSmokeTests(unittest.TestCase):
                 code, report, output, transport = self.run_script(error=error, body=body)
                 self.assertEqual((code, report["status"], report["attempts"]), (1, status, 1))
                 self.assertEqual(transport.call_count, 3)
+
+    def test_post_failure_categories_are_safe_and_not_retried(self):
+        cases = [
+            (TimeoutError(SENTINEL), "request_timeout"),
+            (socket.timeout(SENTINEL), "request_timeout"),
+            (urllib.error.URLError(socket.timeout(SENTINEL)), "request_timeout"),
+            (urllib.error.URLError(ssl.SSLError(SENTINEL)), "tls_error"),
+            (ssl.SSLError(SENTINEL), "tls_error"),
+            (ConnectionResetError(SENTINEL), "network_error"),
+            (KeyError(SENTINEL), "invalid_response_structure"),
+            (TypeError(SENTINEL), "invalid_response_structure"),
+            (ValueError(SENTINEL), "invalid_response_structure"),
+            (RuntimeError(SENTINEL), "unexpected_runtime_error"),
+        ]
+        for error, status in cases:
+            with self.subTest(status=status, error=type(error).__name__):
+                code, report, output, transport = self.run_script(error=error)
+                self.assertEqual(code, 1)
+                self.assertEqual(report["status"], status)
+                self.assertEqual(report["stage"], "generate_content")
+                self.assertEqual(report["attempts"], 1)
+                self.assertEqual(transport.call_count, 3)
+                self.assertNotIn(SENTINEL, output)
 
     def test_discovery_errors_never_generate_or_leak(self):
         for status in (400, 401, 403, 404, 429, 503, 302):
