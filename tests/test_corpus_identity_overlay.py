@@ -6,7 +6,7 @@ import unittest
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-from scripts.audit_corpus_identity_overlay import audit, EXPECTED_ISSUES
+from scripts.audit_corpus_identity_overlay import audit, EXPECTED_ISSUES, EXPECTED_WORKS
 
 
 class IdentityOverlayTests(unittest.TestCase):
@@ -31,7 +31,7 @@ class IdentityOverlayTests(unittest.TestCase):
                 'issue': issue,
                 'adjudicated_language': ('none' if issue == 'BLOCKED_EMPTY' else
                                         'Latin and English' if issue == 'BILINGUAL_REQUIRES_FILTER_AUDIT' else 'English'),
-                'adjudicated_work': 'empty' if issue == 'BLOCKED_EMPTY' else 'English translation',
+                'adjudicated_work': EXPECTED_WORKS[name],
                 'evidence': [] if issue == 'BLOCKED_EMPTY' else ['Evidence of translation'],
             }
             self.overlay['excluded_from_new_language_baselines'].append(row)
