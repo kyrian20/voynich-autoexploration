@@ -80,6 +80,44 @@ class TestReferenceClaimLinks(unittest.TestCase):
             self.run_with_metadata([], [{'path': path, 'adjudicated_language': 'Latin'},
                                         {'path': path, 'adjudicated_language': 'English'}])
 
+    def test_audit_rejects_duplicate_reader_json_member(self):
+        # The last source_commit is valid, but a conflicting first member
+        # must not be silently overwritten by json.loads.
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            folder = root / 'research/maintenance/2026-10-22-remaining-readers'
+            folder.mkdir(parents=True)
+            (folder / 'results.json').write_text(
+                '{"source_commit":"wrong","source_commit":"aa9ec5399e7a5cdf8d1b2890fa657f1358825b41","cases":[]}',
+                encoding='utf-8')
+            (root / 'research/CORPUS_IDENTITY_REVIEW.json').write_text(
+                '{"excluded_from_new_language_baselines":[]}', encoding='utf-8')
+            with self.assertRaisesRegex(ValueError, 'Duplicate JSON object key: source_commit'):
+                audit.audit(root)
+
+    def test_audit_rejects_duplicate_nested_identity_json_member(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            folder = root / 'research/maintenance/2026-10-22-remaining-readers'
+            folder.mkdir(parents=True)
+            (folder / 'results.json').write_text(
+                '{"source_commit":"aa9ec5399e7a5cdf8d1b2890fa657f1358825b41","cases":[]}',
+                encoding='utf-8')
+            (root / 'research/CORPUS_IDENTITY_REVIEW.json').write_text(
+                '{"excluded_from_new_language_baselines":[{"path":"wrong","path":"valid"}]}',
+                encoding='utf-8')
+            with self.assertRaisesRegex(ValueError, 'Duplicate JSON object key: path'):
+                audit.audit(root)
+
+    def test_strict_snapshot_loader_rejects_duplicate_members(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / 'snapshot.json'
+            path.write_text('{"schema_version":0,"schema_version":1}', encoding='utf-8')
+            with self.assertRaisesRegex(ValueError, 'Duplicate JSON object key: schema_version'):
+                audit.load_json_strict(path)
+            path.write_text('{"schema_version":1,"checks":{}}', encoding='utf-8')
+            self.assertEqual(audit.load_json_strict(path)['schema_version'], 1)
+
 
 if __name__ == '__main__':
     unittest.main()
