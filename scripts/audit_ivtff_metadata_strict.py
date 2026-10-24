@@ -27,10 +27,10 @@ def strict_currier_language(metadata: str, page: str, lineno: int) -> str | None
     intentionally returns None for unsupported values; keep that reader frozen
     and add this independent check before interpreting page metadata.
     """
-    markers = re.findall(r'\\$L\\b', metadata)
+    markers = re.findall(r'\$L\b', metadata)
     if not markers:
         return None
-    values = re.findall(r'\\$L\\s*=\\s*([^\\s>]+)', metadata)
+    values = re.findall(r'\$L\s*=\s*([^\s>]+)', metadata)
     if len(markers) != 1 or len(values) != 1 or values[0] not in ('A', 'B'):
         raise ValueError(
             f"Invalid Currier $L on {page} at line {lineno}: "
