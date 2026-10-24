@@ -80,8 +80,7 @@ jobs:
 
                   # Only documented text Flash models, in explicit preference order.
                   # Unknown/multimodal models are never guessed or probed by POST.
-                  preference = ("gemini-2.5-flash-lite", "gemini-2.5-flash",
-                                "gemini-3.8-flash")
+                  preference = ("gemini-3.5-flash-lite", "gemini-3.8-flash")
                   report["stage"] = "models_list"
                   available = set()
                   token = ""
