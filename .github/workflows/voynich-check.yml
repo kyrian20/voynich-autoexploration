@@ -39,6 +39,7 @@ jobs:
         run: |
           python tests/test_repository_operations.py
           python -m unittest discover -s tests -p 'test_experiment_registry_aliases.py' -v
+          python -m unittest discover -s tests -p 'test_ambiguous_exp_references.py' -v
           python scripts/audit_repository_operations.py
 
       - name: Comprobar identidad de corpus y control de duplicados
