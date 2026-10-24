@@ -73,6 +73,12 @@ def audit(root, manifest, overlay):
         if name not in frozen:
             errors.append(f'Overlay corpus missing from frozen manifest: {name}')
             continue
+        # An additional manifest-backed corpus must not acquire a historical
+        # exclusion merely by copying an allowed issue and plausible evidence.
+        # New adjudications require explicit review of EXPECTED_ISSUES.
+        if name not in EXPECTED_ISSUES:
+            errors.append(f'Unreviewed corpus exclusion: {name}')
+            continue
         entry = frozen[name]
         if row.get('sha256') != entry.get('sha256') or type(row.get('bytes')) is not int or row['bytes'] != entry.get('bytes'):
             errors.append(f'Overlay hash/size disagrees with frozen manifest: {name}')
