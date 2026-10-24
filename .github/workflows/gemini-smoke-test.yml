@@ -139,7 +139,7 @@ jobs:
                   # Exactly one generation attempt; no retry, fallback or redirect.
                   report["stage"] = "generate_content"
                   report["attempts"] = 1
-                  with opener.open(request, timeout=30) as response:
+                  with opener.open(request, timeout=90) as response:
                       report["http_status"] = response.status
                       result = json.loads(response.read(65536))
                   candidates = result.get("candidates", [])
@@ -155,6 +155,13 @@ jobs:
                   report.update(status="http_error", http_status=error.code,
                                 error_category=http_error_category(error.code))
                   error.close()
+              except TimeoutError:
+                  report["status"] = "request_timeout"
+              except urllib.error.URLError as error:
+                  report["status"] = ("request_timeout" if isinstance(error.reason, TimeoutError)
+                                      else "network_error")
+              except json.JSONDecodeError:
+                  report["status"] = "invalid_json_response"
               except Exception:
                   # Never print exceptions, headers, response bodies or credentials.
                   report["status"] = "request_or_response_error"
@@ -165,6 +172,7 @@ jobs:
                   if report["status"] == "http_error":
                       diagnostic += (f"; http_status={report['http_status']}"
                                      f"; error_category={report['error_category']}")
+                  diagnostic += "; stage=" + report["stage"]
                   print(diagnostic)
               return code
 
@@ -179,3 +187,4 @@ jobs:
           path: ${{ runner.temp }}/gemini-smoke-status.json
           if-no-files-found: warn
           retention-days: 7
+
