@@ -50,9 +50,21 @@ def audit_text(text: str) -> dict:
             continuation_lines += 1
             continue
         if not raw.startswith("<"):
-            # A missing opening bracket must not silently erase a locus row.
-            # Preserve the policy of ignoring unrelated non-record metadata.
-            if MISSING_OPEN_LOCUS_RE.match(raw):
+            # Only a column-zero tag is a structural row. Previously an
+            # indented, otherwise valid locus/header vanished silently.
+            # Do not promote it to a valid row: fail closed and retain evidence.
+            stripped = raw.lstrip(" \t")
+            if stripped.startswith("<"):
+                candidate = stripped[1:].split(">", 1)[0]
+                if LOCUS_RE.fullmatch(candidate) or MISSING_OPEN_LOCUS_RE.match(candidate):
+                    malformed_records.append({
+                        "line": line_no, "raw": raw[:180],
+                        "reason": "leading whitespace before locus <",
+                    })
+                elif PAGE_RE.fullmatch(candidate):
+                    malformed_headers.append({"line": line_no, "page": candidate})
+                    active_page = None
+            elif MISSING_OPEN_LOCUS_RE.match(stripped):
                 malformed_records.append({
                     "line": line_no, "raw": raw[:180], "reason": "missing opening <",
                 })
