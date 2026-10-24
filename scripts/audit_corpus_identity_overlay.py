@@ -25,6 +25,16 @@ EXPECTED_ISSUES = {
     'data/reference_corpora/latin/cicero_de_officiis_latin.txt': 'BILINGUAL_REQUIRES_FILTER_AUDIT',
     'data/reference_corpora/latin/vulgate.txt': 'WRONG_LANGUAGE_FOR_LATIN',
 }
+# Recorded work identities are historical adjudications, not inferred by this audit.
+# Keep them explicit so a plausible but incorrect nonempty work label cannot drift.
+EXPECTED_WORKS = {
+    'data/reference_corpora/arabic/quran_arabic.txt': 'Drum-Taps #8801',
+    'data/reference_corpora/english/kjv_bible.txt': 'The Book of Mormon #17',
+    'data/reference_corpora/latin/caesar_gallic_wars.txt': 'De Bello Gallico and Other Commentaries, English translation',
+    'data/reference_corpora/latin/cicero_caesar_latin.txt': 'empty',
+    'data/reference_corpora/latin/cicero_de_officiis_latin.txt': 'De Officiis #47001',
+    'data/reference_corpora/latin/vulgate.txt': 'The Bible, Douay-Rheims, Complete',
+}
 ISSUES = set(EXPECTED_ISSUES.values())
 
 
@@ -75,6 +85,8 @@ def audit(root, manifest, overlay):
             errors.append(f'Missing adjudicated language: {name}')
         if not isinstance(row.get('adjudicated_work'), str) or not row['adjudicated_work'].strip():
             errors.append(f'Missing adjudicated work: {name}')
+        elif name in EXPECTED_WORKS and row['adjudicated_work'] != EXPECTED_WORKS[name]:
+            errors.append(f'Historical adjudicated work changed: {name}')
         if linked_path(root, name):
             errors.append(f'Symlink forbidden in corpus identity audit: {name}')
             continue

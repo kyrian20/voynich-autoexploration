@@ -6,7 +6,7 @@ import unittest
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-from scripts.audit_corpus_identity_overlay import audit, EXPECTED_ISSUES
+from scripts.audit_corpus_identity_overlay import audit, EXPECTED_ISSUES, EXPECTED_WORKS
 
 
 class IdentityOverlayTests(unittest.TestCase):
@@ -31,7 +31,7 @@ class IdentityOverlayTests(unittest.TestCase):
                 'issue': issue,
                 'adjudicated_language': ('none' if issue == 'BLOCKED_EMPTY' else
                                         'Latin and English' if issue == 'BILINGUAL_REQUIRES_FILTER_AUDIT' else 'English'),
-                'adjudicated_work': 'empty' if issue == 'BLOCKED_EMPTY' else 'English translation',
+                'adjudicated_work': EXPECTED_WORKS[name],
                 'evidence': [] if issue == 'BLOCKED_EMPTY' else ['Evidence of translation'],
             }
             self.overlay['excluded_from_new_language_baselines'].append(row)
@@ -87,6 +87,18 @@ class IdentityOverlayTests(unittest.TestCase):
     def test_missing_historical_exclusion(self):
         self.overlay['excluded_from_new_language_baselines'].remove(self.row)
         self.assertTrue(any('silently removed' in x for x in self.check()))
+
+    def test_changed_adjudicated_work_rejected_even_if_nonempty(self):
+        # The old guard only required a nonempty work label. A fabricated
+        # label therefore passed while the original corpus bytes were intact.
+        self.row['adjudicated_work'] = 'Invented work'
+        self.assertTrue(any('Historical adjudicated work changed' in x
+                            for x in self.check()))
+        # Even another historically documented work must not silently replace
+        # this file's recorded identity.
+        self.row['adjudicated_work'] = 'The Book of Mormon #17'
+        self.assertTrue(any('Historical adjudicated work changed' in x
+                            for x in self.check()))
 
     def test_changed_identity_classification(self):
         self.row['issue'] = 'WRONG_WORK_SAME_LANGUAGE'
