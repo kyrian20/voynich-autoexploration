@@ -1,0 +1,174 @@
+"""Exploratory order gate with known-family decoding and abstention."""
+from collections import Counter,defaultdict
+import argparse,gzip,hashlib,json,math,random,sys
+from pathlib import Path
+
+INPUT_SHA='c069548868854c29d294efbc3da891a0f5cf7c62878786be78fa13ce5ba5225d'
+GRID=(0,.1,.25,.5,.75,1)
+SEEDS=tuple(range(2026102710,2026102726))
+
+def sha(raw):return hashlib.sha256(raw).hexdigest()
+def digest(x):return sha(json.dumps(x,ensure_ascii=False,sort_keys=True,separators=(',',':')).encode())
+def bucket(group):return int(hashlib.sha256(group.encode()).hexdigest()[:8],16)%5
+def rotate(word,n):return ''.join(chr((ord(c)-97+n)%26+97) if 'a'<=c<='z' else c for c in word)
+def transform(rows,p,k,inverse=False):
+    return [{**r,'tokens':[rotate(w,(-1 if inverse else 1)*(k+i%p)) for i,w in enumerate(r['tokens'])]} for r in rows]
+def shuffle(rows,seed):
+    rng=random.Random(seed);out=[]
+    for r in rows:
+        words=list(r['tokens']);rng.shuffle(words);out.append({**r,'tokens':words})
+    return out
+def char_cost(rows):
+    c=Counter(x for r in rows for w in r['tokens'] for x in w if 'a'<=x<='z');n=sum(c.values())
+    return {chr(i+97):-math.log2((c[chr(i+97)]+.5)/(n+13)) for i in range(26)}
+
+def choose(ciphertext,costs):
+    candidates=[]
+    for p in range(1,13):
+        c=Counter((i%p,ch) for r in ciphertext for i,w in enumerate(r['tokens']) for ch in w if 'a'<=ch<='z');n=sum(c.values())
+        if not n:return {'status':'NO_IDENTIFICABLE','reason':'NO_ASCII','candidates':[]}
+        for label,cost in sorted(costs.items()):
+            for k in range(26):
+                loss=sum(v*cost[rotate(ch,-k-phase)] for (phase,ch),v in sorted(c.items()))/n
+                candidates.append({'language':label,'period':p,'offset':k,'bits':loss})
+    candidates.sort(key=lambda x:(x['bits'],x['language'],x['period'],x['offset']))
+    margin=candidates[1]['bits']-candidates[0]['bits']
+    return {'status':'KEY_SELECTED' if margin>1e-6 else 'NO_IDENTIFICABLE','reason':'MARGIN' if margin<=1e-6 else None,
+        'best':candidates[0],'margin':margin,'candidates':candidates}
+
+class OrderModel:
+    def __init__(self,train,dev,cap=2000):
+        frequencies=Counter(w for r in train for w in r['tokens'])
+        if '<UNK>' in frequencies:raise ValueError('Reserved token')
+        self.vocab=set(sorted(frequencies,key=lambda w:(-frequencies[w],w))[:cap]);self.events=sorted(self.vocab)+['<UNK>']
+        self.uni=Counter();self.table=defaultdict(Counter);self.total=Counter()
+        for r in train:
+            for a,b in zip(r['tokens'],r['tokens'][1:]):
+                a,b=self.map(a),self.map(b);self.uni[b]+=1;self.table[a][b]+=1;self.total[a]+=1
+        self.n=sum(self.uni.values());self.weight=0
+        self.base={b:(self.uni[b]+.1)/(self.n+.1*len(self.events)) for b in self.events}
+        self.support_mass=sum(self.base[b] for b in self.events if self.uni[b])
+        self.ratio_mass={a:sum(self.base[b]*(count/total)/(self.uni[b]/self.n) for b,count in self.table[a].items()) for a,total in self.total.items()}
+        values=[(self.loss(dev,w),w) for w in GRID]
+        best=min(loss for loss,_ in values)
+        self.weight=min(w for loss,w in values if loss<=best+1e-12);self.calibration=[{'weight':w,'bits':loss} for loss,w in values]
+    def map(self,w):return w if w in self.vocab else '<UNK>'
+    def probabilities(self,a,b,weight=None):
+        a,b=self.map(a),self.map(b);u=self.base[b]
+        w=self.weight if weight is None else weight
+        total=self.total[a]
+        if not total:return u,u
+        strength=w*total/(total+20)
+        q=self.uni[b]/self.n
+        ratio=(self.table[a].get(b,0)/total)/q if q else 1
+        multiplier=1+strength*(ratio-1)
+        normalizer=1+strength*(self.ratio_mass[a]-self.support_mass)
+        return u,u*multiplier/normalizer
+    def loss(self,rows,weight):
+        total=n=0
+        for r in rows:
+            for a,b in zip(r['tokens'],r['tokens'][1:]):
+                total-=math.log2(self.probabilities(a,b,weight)[1]);n+=1
+        if not n:raise ValueError('No transitions')
+        return total/n
+    def score(self,rows):
+        groups={};unknown=0
+        for r in rows:
+            g=groups.setdefault(r['group'],{'n':0,'gain_sum':0.})
+            for a,b in zip(r['tokens'],r['tokens'][1:]):
+                u,w=self.probabilities(a,b);g['n']+=1;g['gain_sum']+=math.log2(w/u);unknown+=b not in self.vocab
+        n=sum(g['n'] for g in groups.values())
+        if not n:raise ValueError('No transitions')
+        return {'gain':sum(g['gain_sum'] for g in groups.values())/n,'coverage':1-unknown/n,'n':n,'groups':groups}
+
+def accuracy(decoded,truth):
+    assert len(decoded)==len(truth)
+    n=correct=0
+    for a,b in zip(decoded,truth):
+        assert a['group']==b['group'] and len(a['tokens'])==len(b['tokens'])
+        for x,y in zip(a['tokens'],b['tokens']):n+=1;correct+=x==y
+    return {'tokens':n,'correct':correct,'accuracy':correct/n}
+
+def evaluate(name,dev,test,costs,models,thresholds,all_candidates,truth=None):
+    selection=choose(dev,costs);all_candidates[name]=selection.pop('candidates')
+    out={'name':name,'selection':selection,'ciphertext_dev_sha256':digest(dev),'ciphertext_test_sha256':digest(test)}
+    if selection['status']!='KEY_SELECTED':out['decision']='NO_IDENTIFICABLE';return out
+    key=selection['best'];decoded=transform(test,key['period'],key['offset'],True)
+    s=models[key['language']].score(decoded);threshold=thresholds[key['language']]
+    out.update(order=s,threshold=threshold,decision='ORDEN_DETECTADO' if s['gain']>threshold and s['coverage']>=.5 else 'NO_IDENTIFICABLE',decoded_sha256=digest(decoded))
+    if truth is not None:out['recovery']=accuracy(decoded,truth)
+    return out
+
+def generate(train,skeleton,seed):
+    uni=Counter(w for r in train for w in r['tokens']);table=defaultdict(Counter)
+    for r in train:
+        for a,b in zip(r['tokens'],r['tokens'][1:]):table[a][b]+=1
+    pool=sorted(uni);weights=[uni[w] for w in pool];rng=random.Random(seed)
+    def draw(counter):
+        words=sorted(counter);return rng.choices(words,weights=[counter[w] for w in words],k=1)[0]
+    out=[]
+    for r in skeleton:
+        tokens=[]
+        for _ in r['tokens']:
+            previous=tokens[-1] if tokens else None;c=table.get(previous,{});n=sum(c.values())
+            token=draw(c) if n and rng.random()<n/(n+20) else rng.choices(pool,weights=weights,k=1)[0]
+            tokens.append(token)
+        out.append({**r,'tokens':tokens})
+    return out
+
+def contrast(original,controls):
+    groups=[]
+    for key,g in original['groups'].items():
+        mean=sum(c['groups'][key]['gain_sum'] for c in controls)/len(controls)
+        groups.append((g['n'],g['gain_sum']-mean))
+    rng=random.Random(2026102603);values=[]
+    for _ in range(2000):
+        selected=[rng.choice(groups) for _ in groups];values.append(sum(g for _,g in selected)/sum(n for n,_ in selected))
+    values.sort()
+    def q(p):
+        x=(len(values)-1)*p;i=int(x);return values[i]+(x-i)*(values[min(i+1,len(values)-1)]-values[i])
+    return {'groups':len(groups),'delta':original['gain']-sum(c['gain'] for c in controls)/len(controls),'percentile95':[q(.025),q(.975)],'resamples':2000}
+
+def run(inputs):
+    raw=inputs.read_bytes()
+    if sha(raw)!=INPUT_SHA:raise ValueError('Input hash mismatch')
+    sources=[s for s in json.loads(raw)['sources'] if s['kind']=='natural_language_control'];assert len(sources)==2
+    parts={}
+    for s in sources:
+        rows=s['records'];p=[[r for r in rows if bucket(r['group'])>=2],[r for r in rows if bucket(r['group'])==1],[r for r in rows if bucket(r['group'])==0]]
+        gs=[{r['group'] for r in x} for x in p];assert all(not gs[a]&gs[b] for a,b in ((0,1),(0,2),(1,2)))
+        parts[s['label']]=p
+    costs={label:char_cost(p[0]) for label,p in parts.items()};models={label:OrderModel(*p[:2]) for label,p in parts.items()};thresholds={};calibration={}
+    for label,p in parts.items():
+        controls=[models[label].score(shuffle(p[1],seed))['gain'] for seed in range(2026102610,2026102626)]
+        thresholds[label]=max(.01,max(controls));calibration[label]={'weight':models[label].weight,'weight_grid':models[label].calibration,'development_shuffle_gains':controls,'threshold':thresholds[label]}
+    candidates={};results=[]
+    for label,(train,dev,test) in parts.items():
+        enc=lambda rows,p=7:transform(rows,p,11)
+        positive=evaluate(label+':positive',enc(dev),enc(test),costs,models,thresholds,candidates,test)
+        negatives=[];original_score=models[label].score(test);control_scores=[]
+        for seed in SEEDS:
+            shuffled_dev=shuffle(dev,seed+10000);shuffled_test=shuffle(test,seed)
+            negatives.append(evaluate(f'{label}:shuffle:{seed}',enc(shuffled_dev),enc(shuffled_test),costs,models,thresholds,candidates,shuffled_test))
+            control_scores.append(models[label].score(shuffled_test))
+        absent=evaluate(label+':absent_period13',enc(dev,13),enc(test,13),costs,models,thresholds,candidates,test)
+        gd=generate(train,dev,2026102607);gt=generate(train,test,2026102608)
+        generated=evaluate(label+':markov',enc(gd),enc(gt),costs,models,thresholds,candidates,gt)
+        entry={'label':label,'calibration':calibration[label],'positive':positive,'shuffled':negatives,'absent_family':absent,'markov':generated,'order_contrast':contrast(original_score,control_scores)}
+        results.append(entry);print(label,'positive',positive['decision'],'shuffles_accepted',sum(x['decision']=='ORDEN_DETECTADO' for x in negatives),'absent',absent['decision'],'markov',generated['decision'],flush=True)
+    uniform={label:{chr(i+97):math.log2(26) for i in range(26)} for label in costs}
+    ambiguity=choose(transform(next(iter(parts.values()))[1],7,11),uniform);candidates['ambiguity']=ambiguity.pop('candidates')
+    gates={'positive_recovery':all(r['positive']['decision']=='ORDEN_DETECTADO' and r['positive']['recovery']['accuracy']==1 and r['positive']['selection']['best']['language']==r['label'] and (r['positive']['selection']['best']['period'],r['positive']['selection']['best']['offset'])==(7,11) for r in results),
+        'all_shuffles_rejected':all(n['decision']=='NO_IDENTIFICABLE' for r in results for n in r['shuffled']),
+        'absent_families_rejected':all(r['absent_family']['decision']=='NO_IDENTIFICABLE' for r in results),
+        'ambiguity_abstains':ambiguity['status']=='NO_IDENTIFICABLE'}
+    return {'status':'REPRODUCED','scope':'Exploratory local-order calibration only; no manuscript or semantic validation.','gates':gates,'ambiguity':ambiguity,'results':results,'input_sha256':INPUT_SHA,'python':sys.version},candidates
+
+if __name__=='__main__':
+    parser=argparse.ArgumentParser();parser.add_argument('--inputs',type=Path,required=True);parser.add_argument('--out-dir',type=Path,required=True);args=parser.parse_args()
+    if args.out_dir.exists():raise SystemExit('Output directory already exists')
+    args.out_dir.mkdir(parents=True);out,candidates=run(args.inputs)
+    root=Path(__file__).parent;out['code_sha256']=sha((root/'run.py').read_bytes());out['protocol_sha256']=sha((root/'PROTOCOL.md').read_bytes())
+    raw=json.dumps(candidates,ensure_ascii=False,separators=(',',':'),sort_keys=True).encode();compressed=gzip.compress(raw,mtime=0)
+    out['candidates_json_sha256']=sha(raw);out['candidates_gzip_sha256']=sha(compressed);out['candidate_challenges']=len(candidates)
+    (args.out_dir/'candidates.json.gz').write_bytes(compressed);(args.out_dir/'results.json').write_text(json.dumps(out,ensure_ascii=False,indent=2)+'\n')

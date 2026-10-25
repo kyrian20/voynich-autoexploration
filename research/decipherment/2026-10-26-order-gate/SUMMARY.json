@@ -1,0 +1,308 @@
+{
+  "status": "NEGATIVE",
+  "scope": "Fails absent-family rejection; not a semantic validator",
+  "gates": {
+    "positive_recovery": true,
+    "all_shuffles_rejected": true,
+    "absent_families_rejected": false,
+    "ambiguity_abstains": true
+  },
+  "results": [
+    {
+      "label": "Latin_Caesar_218",
+      "calibration": {
+        "weight": 0.5,
+        "weight_grid": [
+          {
+            "weight": 0,
+            "bits": 7.338393014049001
+          },
+          {
+            "weight": 0.1,
+            "bits": 7.111935004622085
+          },
+          {
+            "weight": 0.25,
+            "bits": 7.026050541283882
+          },
+          {
+            "weight": 0.5,
+            "bits": 6.9965955093202234
+          },
+          {
+            "weight": 0.75,
+            "bits": 7.050223498175825
+          },
+          {
+            "weight": 1,
+            "bits": 7.366823751587429
+          }
+        ],
+        "development_shuffle_gains": [
+          -0.06786408485859523,
+          -0.07273324587588516,
+          -0.06676040724786038,
+          -0.05639028587093003,
+          -0.09738540992128475,
+          -0.07186613516355471,
+          -0.07904439733391445,
+          -0.05510538901469418,
+          -0.08410853954488359,
+          -0.08391270404184772,
+          -0.09364092340594722,
+          -0.0957023207108518,
+          -0.07631884324233838,
+          -0.07433555707674899,
+          -0.08527011587134971,
+          -0.07500078268435356
+        ],
+        "threshold": 0.01
+      },
+      "order_contrast": {
+        "groups": 21,
+        "delta": 0.4122221793122101,
+        "percentile95": [
+          0.373085004706866,
+          0.45202715786422837
+        ],
+        "resamples": 2000
+      },
+      "shuffles_accepted": 0,
+      "positive": {
+        "name": "Latin_Caesar_218:positive",
+        "selection": {
+          "status": "KEY_SELECTED",
+          "reason": null,
+          "best": {
+            "language": "Latin_Caesar_218",
+            "period": 7,
+            "offset": 11,
+            "bits": 3.9936013466788105
+          },
+          "margin": 0.14054942015143146
+        },
+        "ciphertext_dev_sha256": "a39113c3c214ac4cc8a80bd98c261b50cfb5a732b2fe9944fc78b1ffbf95fffa",
+        "ciphertext_test_sha256": "bcc0e40fef5779482875373f80d6057e792b96477f75859ac11f918b040ade17",
+        "threshold": 0.01,
+        "decision": "ORDEN_DETECTADO",
+        "decoded_sha256": "9638513c8e1d737e214b18f5315b12ebf60def277b8273f66513467e5c077504",
+        "recovery": {
+          "tokens": 4115,
+          "correct": 4115,
+          "accuracy": 1.0
+        },
+        "order": {
+          "gain": 0.32778007953400934,
+          "coverage": 0.705849582172702,
+          "n": 3590
+        }
+      },
+      "absent_family": {
+        "name": "Latin_Caesar_218:absent_period13",
+        "selection": {
+          "status": "KEY_SELECTED",
+          "reason": null,
+          "best": {
+            "language": "Latin_Caesar_218",
+            "period": 12,
+            "offset": 11,
+            "bits": 4.005143610058703
+          },
+          "margin": 0.030673046128739223
+        },
+        "ciphertext_dev_sha256": "2f64ad6c24662a30b0156b668cced5426bba1121490a1aaddf56c7e5fa1f5631",
+        "ciphertext_test_sha256": "6503d472151f8fae6b94d46850f00f20f0e4eba3f491b7501512a193bf95d1ec",
+        "threshold": 0.01,
+        "decision": "ORDEN_DETECTADO",
+        "decoded_sha256": "00a300122fbda70bc485dad8a4852ed6e8116b3dcf435cffce4bfee037ca9c77",
+        "recovery": {
+          "tokens": 4115,
+          "correct": 4096,
+          "accuracy": 0.9953827460510328
+        },
+        "order": {
+          "gain": 0.32617918113618055,
+          "coverage": 0.7027855153203343,
+          "n": 3590
+        }
+      },
+      "markov": {
+        "name": "Latin_Caesar_218:markov",
+        "selection": {
+          "status": "KEY_SELECTED",
+          "reason": null,
+          "best": {
+            "language": "Latin_Caesar_218",
+            "period": 7,
+            "offset": 11,
+            "bits": 3.99670529393034
+          },
+          "margin": 0.1410872223124935
+        },
+        "ciphertext_dev_sha256": "2791e4907ad9058c36343204065b73fdf229629e3789e3322ca89527b66183ab",
+        "ciphertext_test_sha256": "ed5d33490784e6d3d9e96e56c91f32d8a7a87ab1eeeea190997ce047ca12a9f1",
+        "threshold": 0.01,
+        "decision": "ORDEN_DETECTADO",
+        "decoded_sha256": "b1ed7dd4272a7fc2fa8a27a6dc54b1013de583dbc0906e157ba7a0025380b46f",
+        "recovery": {
+          "tokens": 4115,
+          "correct": 4115,
+          "accuracy": 1.0
+        },
+        "order": {
+          "gain": 0.9273605501164985,
+          "coverage": 0.8303621169916434,
+          "n": 3590
+        }
+      }
+    },
+    {
+      "label": "Italian_Dante_1012",
+      "calibration": {
+        "weight": 0.75,
+        "weight_grid": [
+          {
+            "weight": 0,
+            "bits": 7.324632665811257
+          },
+          {
+            "weight": 0.1,
+            "bits": 7.040478394713066
+          },
+          {
+            "weight": 0.25,
+            "bits": 6.870862805384395
+          },
+          {
+            "weight": 0.5,
+            "bits": 6.741191207366791
+          },
+          {
+            "weight": 0.75,
+            "bits": 6.712981620736176
+          },
+          {
+            "weight": 1,
+            "bits": 6.886007557904956
+          }
+        ],
+        "development_shuffle_gains": [
+          -0.32677709840319863,
+          -0.32749742978838176,
+          -0.3506893873327182,
+          -0.3234576464392476,
+          -0.3474630977841807,
+          -0.3606898262953855,
+          -0.3328359895021913,
+          -0.3348379449682034,
+          -0.33255418938552184,
+          -0.34844414649603833,
+          -0.35400250002629813,
+          -0.3295513945243548,
+          -0.33128735414793503,
+          -0.3479321057218393,
+          -0.35585391012927925,
+          -0.33674493720189347
+        ],
+        "threshold": 0.01
+      },
+      "order_contrast": {
+        "groups": 37,
+        "delta": 0.9231128310637173,
+        "percentile95": [
+          0.8705627717526665,
+          0.9741024068569069
+        ],
+        "resamples": 2000
+      },
+      "shuffles_accepted": 0,
+      "positive": {
+        "name": "Italian_Dante_1012:positive",
+        "selection": {
+          "status": "KEY_SELECTED",
+          "reason": null,
+          "best": {
+            "language": "Italian_Dante_1012",
+            "period": 7,
+            "offset": 11,
+            "bits": 4.015938692309724
+          },
+          "margin": 0.1699973526324614
+        },
+        "ciphertext_dev_sha256": "e534528a6aac48a860b149a2d62a784f0c929b3ea30c83e423ae9f0e26d2dd1d",
+        "ciphertext_test_sha256": "5c356a205a3b385bd782fa405dd7e4e37372621faaa5accb6031634a7ce8fb80",
+        "threshold": 0.01,
+        "decision": "ORDEN_DETECTADO",
+        "decoded_sha256": "323a2e6f2aaedba7fb266719f68293148010c79b8e80edb1288a89e90031e786",
+        "recovery": {
+          "tokens": 7925,
+          "correct": 7925,
+          "accuracy": 1.0
+        },
+        "order": {
+          "gain": 0.5741415408615397,
+          "coverage": 0.7874285714285714,
+          "n": 7000
+        }
+      },
+      "absent_family": {
+        "name": "Italian_Dante_1012:absent_period13",
+        "selection": {
+          "status": "KEY_SELECTED",
+          "reason": null,
+          "best": {
+            "language": "Italian_Dante_1012",
+            "period": 12,
+            "offset": 11,
+            "bits": 4.0376803922394515
+          },
+          "margin": 0.05791176233991102
+        },
+        "ciphertext_dev_sha256": "d4b1f71033bf3b1173f8caf9f14ce59cc265ffae6723555d5da396e689860510",
+        "ciphertext_test_sha256": "c89d64f6c4d8f7c1f2e7a761a946e81762ec06f3580b6e406a659c489d2a6d6a",
+        "threshold": 0.01,
+        "decision": "ORDEN_DETECTADO",
+        "decoded_sha256": "82f2c455f7cfe557b9186888de73904f1b096217a71f2d89ca5389fd57557a3d",
+        "recovery": {
+          "tokens": 7925,
+          "correct": 7846,
+          "accuracy": 0.9900315457413249
+        },
+        "order": {
+          "gain": 0.5668249350651058,
+          "coverage": 0.7782857142857142,
+          "n": 7000
+        }
+      },
+      "markov": {
+        "name": "Italian_Dante_1012:markov",
+        "selection": {
+          "status": "KEY_SELECTED",
+          "reason": null,
+          "best": {
+            "language": "Italian_Dante_1012",
+            "period": 7,
+            "offset": 11,
+            "bits": 4.02738171799455
+          },
+          "margin": 0.1676921675135068
+        },
+        "ciphertext_dev_sha256": "56b5f1b63834870ece8f932f8c3a90126b6e9e0e73713438da47389352068989",
+        "ciphertext_test_sha256": "3ef2d628a6d6485ae716bd1f2092e99e070d67a8c7b770a58fea04c2dbf66a44",
+        "threshold": 0.01,
+        "decision": "ORDEN_DETECTADO",
+        "decoded_sha256": "b0361721dc54dffaf678f06c661b445a6b6b06989ae4f030b18a5af4c114f30b",
+        "recovery": {
+          "tokens": 7925,
+          "correct": 7925,
+          "accuracy": 1.0
+        },
+        "order": {
+          "gain": 1.257301480227404,
+          "coverage": 0.8602857142857143,
+          "n": 7000
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,249 @@
+{
+  "status": "REPRODUCED",
+  "scope": "Deterministic mapping support, not a statistical power estimate",
+  "input_sha256": "c069548868854c29d294efbc3da891a0f5cf7c62878786be78fa13ce5ba5225d",
+  "results": [
+    {
+      "label": "Latin_Caesar_218",
+      "maximum_line_tokens": 18,
+      "global_alias_pair": {
+        "p": 18,
+        "q": 19,
+        "records_with_distinguishing_positions": 0,
+        "groups_with_distinguishing_positions": [],
+        "tokens_at_distinguishing_positions": 0,
+        "positions0": [],
+        "mapping_identical_on_all_observed_tokens": true
+      },
+      "partition_support": {
+        "train": {
+          "p": 12,
+          "q": 13,
+          "records_with_distinguishing_positions": 85,
+          "groups_with_distinguishing_positions": [
+            "block0031",
+            "block0035",
+            "block0036",
+            "block0038",
+            "block0043",
+            "block0055",
+            "block0060",
+            "block0061",
+            "block0063",
+            "block0065",
+            "block0067",
+            "block0073",
+            "block0077",
+            "block0078",
+            "block0087",
+            "block0088",
+            "block0091",
+            "block0092",
+            "block0093",
+            "block0098",
+            "block0099"
+          ],
+          "tokens_at_distinguishing_positions": 164,
+          "positions0": [
+            12,
+            13,
+            14,
+            15,
+            16,
+            17
+          ],
+          "mapping_identical_on_all_observed_tokens": false
+        },
+        "development": {
+          "p": 12,
+          "q": 13,
+          "records_with_distinguishing_positions": 21,
+          "groups_with_distinguishing_positions": [
+            "block0020",
+            "block0028",
+            "block0044",
+            "block0045",
+            "block0056",
+            "block0064",
+            "block0086",
+            "block0089"
+          ],
+          "tokens_at_distinguishing_positions": 26,
+          "positions0": [
+            12,
+            13,
+            14
+          ],
+          "mapping_identical_on_all_observed_tokens": false
+        },
+        "test": {
+          "p": 12,
+          "q": 13,
+          "records_with_distinguishing_positions": 12,
+          "groups_with_distinguishing_positions": [
+            "block0030",
+            "block0040",
+            "block0062",
+            "block0094"
+          ],
+          "tokens_at_distinguishing_positions": 19,
+          "positions0": [
+            12,
+            13
+          ],
+          "mapping_identical_on_all_observed_tokens": false
+        }
+      }
+    },
+    {
+      "label": "Italian_Dante_1012",
+      "maximum_line_tokens": 26,
+      "global_alias_pair": {
+        "p": 26,
+        "q": 27,
+        "records_with_distinguishing_positions": 0,
+        "groups_with_distinguishing_positions": [],
+        "tokens_at_distinguishing_positions": 0,
+        "positions0": [],
+        "mapping_identical_on_all_observed_tokens": true
+      },
+      "partition_support": {
+        "train": {
+          "p": 12,
+          "q": 13,
+          "records_with_distinguishing_positions": 174,
+          "groups_with_distinguishing_positions": [
+            "block0031",
+            "block0035",
+            "block0036",
+            "block0038",
+            "block0043",
+            "block0055",
+            "block0060",
+            "block0061",
+            "block0063",
+            "block0065",
+            "block0067",
+            "block0073",
+            "block0077",
+            "block0078",
+            "block0087",
+            "block0088",
+            "block0091",
+            "block0092",
+            "block0093",
+            "block0098",
+            "block0099",
+            "block0109",
+            "block0111",
+            "block0113",
+            "block0114",
+            "block0117",
+            "block0119",
+            "block0121",
+            "block0122",
+            "block0125",
+            "block0126",
+            "block0127",
+            "block0129",
+            "block0130",
+            "block0135",
+            "block0139",
+            "block0142",
+            "block0145",
+            "block0146",
+            "block0147",
+            "block0149",
+            "block0150",
+            "block0153",
+            "block0154"
+          ],
+          "tokens_at_distinguishing_positions": 461,
+          "positions0": [
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25
+          ],
+          "mapping_identical_on_all_observed_tokens": false
+        },
+        "development": {
+          "p": 12,
+          "q": 13,
+          "records_with_distinguishing_positions": 52,
+          "groups_with_distinguishing_positions": [
+            "block0020",
+            "block0028",
+            "block0044",
+            "block0045",
+            "block0056",
+            "block0064",
+            "block0086",
+            "block0089",
+            "block0110",
+            "block0112",
+            "block0120",
+            "block0124",
+            "block0128",
+            "block0132",
+            "block0133",
+            "block0144"
+          ],
+          "tokens_at_distinguishing_positions": 72,
+          "positions0": [
+            12,
+            13,
+            14
+          ],
+          "mapping_identical_on_all_observed_tokens": false
+        },
+        "test": {
+          "p": 12,
+          "q": 13,
+          "records_with_distinguishing_positions": 50,
+          "groups_with_distinguishing_positions": [
+            "block0030",
+            "block0040",
+            "block0062",
+            "block0094",
+            "block0108",
+            "block0115",
+            "block0116",
+            "block0118",
+            "block0123",
+            "block0131",
+            "block0134",
+            "block0136",
+            "block0137",
+            "block0143",
+            "block0152"
+          ],
+          "tokens_at_distinguishing_positions": 79,
+          "positions0": [
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21
+          ],
+          "mapping_identical_on_all_observed_tokens": false
+        }
+      }
+    }
+  ]
+}

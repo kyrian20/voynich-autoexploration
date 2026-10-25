@@ -1,0 +1,12 @@
+test_ambiguity_abstains (test_run.GateTests.test_ambiguity_abstains) ... ok
+test_exact_position_support (test_run.GateTests.test_exact_position_support) ... ok
+test_no_identity_signal_selects_zero_weight (test_run.GateTests.test_no_identity_signal_selects_zero_weight) ... ok
+test_no_vocabulary_leakage_and_roundtrip (test_run.GateTests.test_no_vocabulary_leakage_and_roundtrip) ... ok
+test_positive_dependency (test_run.GateTests.test_positive_dependency) ... ok
+test_probability_normalization_seen_unseen (test_run.GateTests.test_probability_normalization_seen_unseen) ... ok
+test_shuffle_preserves_inventory_and_groups (test_run.GateTests.test_shuffle_preserves_inventory_and_groups) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.009s
+
+OK
