@@ -53,8 +53,8 @@ class HoldoutLocusCoverageTests(unittest.TestCase):
 
     def test_repeated_page_header_does_not_inflate_locus_records(self):
         record = inspect_source(
-            b"<f1r> first\\n<f1r> repeated\\n<f1r.1> a\\n"
-            b"<fRos> header\\n<fRos.1,@L0> b\\n"
+            b"<f1r> first\n<f1r> repeated\n<f1r.1> a\n"
+            b"<fRos> header\n<fRos.1,@L0> b\n"
         )
         self.assertEqual(record["numeric_tag_count"], 3)
         self.assertEqual(record["numeric_page_header_count"], 2)
