@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "status": "APPROVED_FOR_EXACT_SNAPSHOT_COMPARISON_ONLY",
+  "dependency": "scripts/ivtff_lossless.py",
+  "archived_sha256": "32ebb9aed11642a760793cf677b8148a4d867351ce4f74f4a7839f32fd180c1f",
+  "current_sha256": "b677716ef87c1cef2060433c69ae39f0cf89d42cad11143ef365cc02556341a3",
+  "scope": "The auxiliary tokens() implementation now supports independent physical rows. EXP-173 reader bridge calls tokens() on exactly one payload per record; compare all scientific JSON fields and the compressed changed-rows snapshot exactly, permitting only this one pinned dependency-hash difference.",
+  "base_commit": "fb65629f31d61a44fef6b08e61403d20f7d0fa20",
+  "scientific_status": "No reclassification or translation; original archived snapshots are immutable."
+}
