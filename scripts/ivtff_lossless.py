@@ -129,11 +129,17 @@ def tokens(payloads: list[Payload], *, uncertain_space='split', alternatives='pr
         raise ValueError('Unknown analysis policy')
     if any(p.diagnostics for p in payloads):
         raise ValueError('Unresolved lexical diagnostics; refuse analytical projection')
-    # Continuations must form a complete, uninterrupted chain of physical lines.
+    # Continuation pairs must be adjacent, but ordinary independent physical
+    # lines may occur before, between and after complete continuation chains.
+    # Do not concatenate words across an ordinary physical-line boundary.
     for n, payload in enumerate(payloads):
         leading = bool(payload.spans and payload.spans[0].kind == 'continuation')
         trailing = bool(payload.spans and payload.spans[-1].kind == 'continuation')
-        if leading != (n > 0) or trailing != (n < len(payloads) - 1):
+        previous_trailing = bool(n > 0 and payloads[n - 1].spans and
+                                 payloads[n - 1].spans[-1].kind == 'continuation')
+        next_leading = bool(n + 1 < len(payloads) and payloads[n + 1].spans and
+                            payloads[n + 1].spans[0].kind == 'continuation')
+        if leading != previous_trailing or trailing != next_leading:
             raise ValueError('Incomplete or unpaired continuation chain')
     output, word = [], []
     exclude = False
@@ -163,7 +169,9 @@ def tokens(payloads: list[Payload], *, uncertain_space='split', alternatives='pr
             elif span.kind in {'glyph', 'high_ascii', 'unreadable'}:
                 word.append(span.raw)
 
-    for payload in payloads:
+    for n, payload in enumerate(payloads):
+        if n and not (payload.spans and payload.spans[0].kind == 'continuation'):
+            flush()  # ordinary physical-line boundary, not a word continuation
         visit(payload.spans)
     flush()
     return output
