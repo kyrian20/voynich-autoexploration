@@ -96,7 +96,7 @@ def audit_text(text: str) -> dict:
             # active. Classify it separately from a damaged locus, including
             # a header followed by unfinished metadata. This is diagnostic:
             # no incomplete header is accepted as a page.
-            first = raw[1:].strip(" \\t").split(maxsplit=1)
+            first = raw[1:].strip().split(maxsplit=1)
             if first and INDENTED_PAGE_CANDIDATE_RE.fullmatch(first[0]):
                 malformed_headers.append({
                     "line": line_no, "page": raw[1:180], "reason": "missing >",
