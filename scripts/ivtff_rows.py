@@ -47,3 +47,43 @@ def tokens_rows(payloads: list[Payload], **policy) -> list[str]:
         # Empty input still must reject invalid analytical policies.
         tokens([], **policy)
     return output
+
+
+def tokens_scoped_rows(
+    rows: list[tuple[str, str, Payload]], **policy
+) -> list[str]:
+    """Project rows without joining continuations across sources or folios.
+
+    Each input is (source_id, folio_id, lexed_payload), in physical source
+    order. Both IDs are caller-supplied provenance labels, NOT independently
+    authenticated hashes or validated IVTFF metadata. A scope may occur only
+    in one contiguous block; an interrupted scope is rejected, not silently
+    reassembled. This guard does not establish holdout eligibility.
+    """
+    output: list[str] = []
+    scope = None
+    group: list[Payload] = []
+    seen: set[tuple[str, str]] = set()
+
+    for source_id, folio_id, payload in rows:
+        if not all(isinstance(v, str) and v.strip() and v == v.strip()
+                   for v in (source_id, folio_id)):
+            raise ValueError('Nonempty, exact source and folio IDs required')
+        if not isinstance(payload, Payload):
+            raise TypeError('Expected a lexed IVTFF Payload')
+        next_scope = (source_id, folio_id)
+        if next_scope != scope:
+            if next_scope in seen:
+                raise ValueError('Non-contiguous repeated source/folio scope')
+            if group:
+                output.extend(tokens_rows(group, **policy))
+            group = []
+            scope = next_scope
+            seen.add(next_scope)
+        group.append(payload)
+
+    if group:
+        output.extend(tokens_rows(group, **policy))
+    else:
+        tokens_rows([], **policy)  # Validate policies even for empty input.
+    return output
