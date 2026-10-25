@@ -1,0 +1,47 @@
+[
+  {
+    "folio": "f17r",
+    "canvas": "https://collections.library.yale.edu/manifests/oid/2002046/canvas/1006106",
+    "url": "https://collections.library.yale.edu/iiif/2/1006106/full/full/0/default.jpg",
+    "sha256": "9ed091881b24f31504a5daa064c131f06b0bce10e8346f3dbe20de6cdaf2452f",
+    "bytes": 2245151,
+    "decoded_size": [
+      2649,
+      3743
+    ],
+    "declared_size": [
+      2649,
+      3743
+    ]
+  },
+  {
+    "folio": "f49v",
+    "canvas": "https://collections.library.yale.edu/manifests/oid/2002046/canvas/1006171",
+    "url": "https://collections.library.yale.edu/iiif/2/1006171/full/full/0/default.jpg",
+    "sha256": "3c03e0e8b3d3e75f93ba7a7619a029b7ffbe33d7243f32222ad59ac7555dfd96",
+    "bytes": 2665282,
+    "decoded_size": [
+      2935,
+      3769
+    ],
+    "declared_size": [
+      2935,
+      3769
+    ]
+  },
+  {
+    "folio": "f57v",
+    "canvas": "https://collections.library.yale.edu/manifests/oid/2002046/canvas/1006187",
+    "url": "https://collections.library.yale.edu/iiif/2/1006187/full/full/0/default.jpg",
+    "sha256": "2bf46dbeaaaab4a97075f46f503582da0eef2b352eb92277d7a3b6db1a3a0b8c",
+    "bytes": 2470040,
+    "decoded_size": [
+      3028,
+      3769
+    ],
+    "declared_size": [
+      3028,
+      3769
+    ]
+  }
+]
