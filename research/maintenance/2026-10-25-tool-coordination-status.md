@@ -1,5 +1,9 @@
 # Coordinación de herramientas — estado verificado 25-10-2026
 
+**Actualización que sustituye los bloqueos históricos de abajo:** GitHub y Linear operativos; Gemini ha devuelto una revisión real validada de esquema y procedencia en intento 4 del run 40235310859, job 121298599069. JUA-7 cerrado con evidencia. Modelo efectivo gemini-3.8-flash, sin fallback en esa ejecución. [Respuesta y adjudicación](../external-reviews/2026-10-25-gemini-v2/REVIEW.md). La selección de experimento JUA-9 continúa abierta. Disponibilidad futura y validez científica no quedan garantizadas.
+
+Las secciones siguientes conservan la cronología anterior; sus bloqueos de conexión ya no describen el estado actual.
+
 ## Reparto de funciones
 - GitHub: fuente de código, protocolos, resultados, correcciones y comprobaciones.
 - Linear: tareas y bloqueos con enlaces al commit/resultado; sin copiar conclusiones no verificadas como hechos.
