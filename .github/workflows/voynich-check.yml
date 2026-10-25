@@ -24,7 +24,7 @@ jobs:
           python-version: "3.12"
 
       - name: Instalar lector YAML para auditoría operativa
-        run: python -m pip install PyYAML==6.0.3
+        run: python -m pip install PyYAML==6.0.3 Pillow==12.3.0
 
       - name: Probar diagnóstico Gemini con transporte simulado (sin red)
         run: python -m unittest discover -s tests -p 'test_gemini_smoke.py' -v
@@ -116,6 +116,7 @@ jobs:
           python -m unittest discover -s tests -p 'test_visual_annotation_queue.py' -v
           python -m unittest discover -s tests -p 'test_label_partition_coverage.py' -v
           python -m unittest discover -s tests -p 'test_coordinator_mask_preview.py' -v
+          python -m unittest discover -s tests -p 'test_mask_candidate.py' -v
           python scripts/audit_label_partition_coverage.py --out "$RUNNER_TEMP/label-coverage.json"
           cmp research/decipherment/2026-10-25-label-coverage/coverage.json "$RUNNER_TEMP/label-coverage.json"
           python scripts/prepare_visual_annotation_queue.py --out-dir "$RUNNER_TEMP/visual-queue"
