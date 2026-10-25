@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """EXP-593: positional scan of daiin variants with max-statistic correction."""
 from __future__ import annotations
-import collections, hashlib, json, random, re
+import collections, hashlib, json, math, random, re
 from datetime import datetime, timezone
 from pathlib import Path
 import sys
@@ -44,6 +44,73 @@ def archive_paths(date):
             OUT / f"{date}-exp593-corrected-L-metadata.md")
 
 
+def archive_result_complete(saved, report):
+    """Reject metadata-only or truncated results before skipping a scientific run.
+
+    This is a structural/consistency check, not an independent reproduction.
+    In particular, the numeric statistics are not recalculated here.
+    """
+    def count(value):
+        return type(value) is int and value >= 0
+
+    if not all(count(saved.get(k)) and saved[k] > 0 for k in ("lines", "tokens")):
+        return False
+    if not isinstance(saved.get("null_model"), str) or not saved["null_model"].strip():
+        return False
+    if not isinstance(saved.get("limitations"), list) or not saved["limitations"]:
+        return False
+    observed, tests = saved.get("observed"), saved.get("tests")
+    if not isinstance(observed, dict) or not isinstance(tests, dict):
+        return False
+    if set(observed) != set(VARIANTS) or set(tests) != set(VARIANTS):
+        return False
+    if f"- Líneas: {saved['lines']:,}" not in report or f"- Tokens: {saved['tokens']:,}" not in report:
+        return False
+    report_lines = report.splitlines()
+    for word in VARIANTS:
+        row, test = observed[word], tests[word]
+        if not isinstance(row, dict) or not isinstance(test, dict):
+            return False
+        if not all(count(row.get(k)) for k in ("occurrences", "line_initial", "line_final")):
+            return False
+        occurrences, initial, final = (row[k] for k in ("occurrences", "line_initial", "line_final"))
+        if initial > occurrences or final > occurrences:
+            return False
+        fraction = row.get("initial_fraction")
+        expected_fraction = initial / occurrences if occurrences else None
+        if expected_fraction is None:
+            if fraction is not None:
+                return False
+        elif not isinstance(fraction, (int, float)) or not math.isfinite(fraction) or not math.isclose(fraction, expected_fraction, abs_tol=1e-12):
+            return False
+        classes = row.get("by_currier")
+        if not isinstance(classes, dict) or not classes:
+            return False
+        totals = [0, 0, 0]
+        for values in classes.values():
+            if not isinstance(values, dict) or not all(count(values.get(k)) for k in ("occurrences", "line_initial", "line_final")):
+                return False
+            if values["line_initial"] > values["occurrences"] or values["line_final"] > values["occurrences"]:
+                return False
+            for i, key in enumerate(("occurrences", "line_initial", "line_final")):
+                totals[i] += values[key]
+        if totals != [occurrences, initial, final]:
+            return False
+        for key in ("null_mean_initial", "null_sd_initial", "observed_standardized_statistic", "empirical_p", "max_stat_adjusted_p"):
+            value = test.get(key)
+            if type(value) not in (int, float) or not math.isfinite(value):
+                return False
+        if test["null_sd_initial"] < 0:
+            return False
+        if not all(0 < test[key] <= 1 for key in ("empirical_p", "max_stat_adjusted_p")):
+            return False
+        table_row = (f"| {word} | {occurrences} | {initial} | {final} | "
+                     f"{test['empirical_p']:.6f} | {test['max_stat_adjusted_p']:.6f} |")
+        if table_row not in report_lines:
+            return False
+    return True
+
+
 def archive_status(paths, date, source_sha):
     """Return 'new' or 'existing'; fail closed on partial or mismatched archives."""
     if any(path.is_symlink() for path in paths):
@@ -68,6 +135,8 @@ def archive_status(paths, date, source_sha):
                f"- Permutaciones: {N_PERM:,}", f"- Semilla: {SEED}")
     if not all(marker in report for marker in markers):
         raise RuntimeError("EXP-593 existing report provenance differs; refusing replacement")
+    if not archive_result_complete(saved, report):
+        raise RuntimeError("EXP-593 existing result body is incomplete or inconsistent; refusing replacement")
     return "existing"
 
 
