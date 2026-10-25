@@ -10,13 +10,34 @@ from pathlib import Path
 
 def build(inventory, manifest):
     partitions = manifest['partitions']
-    train = set(partitions['train'])
-    if train & (set(partitions['development']) | set(partitions['test'])):
+    sets = {}
+    for name in ('train', 'development', 'test'):
+        values = partitions[name]
+        if (not isinstance(values, list)
+                or any(type(value) is not int or value <= 0 for value in values)):
+            raise ValueError('Invalid physical leaf IDs in ' + name)
+        if len(values) != len(set(values)):
+            raise ValueError('Duplicate physical leaf ID in ' + name)
+        if manifest['counts'][name] != len(values):
+            raise ValueError('Manifest count mismatch in ' + name)
+        sets[name] = set(values)
+    if (sets['train'] & sets['development']
+            or sets['train'] & sets['test']
+            or sets['development'] & sets['test']):
         raise ValueError('Partition overlap')
+    if len(set.union(*sets.values())) != manifest['eligible_count']:
+        raise ValueError('Manifest eligible leaf count mismatch')
+    train = sets['train']
     groups = defaultdict(list)
     for row in inventory['records']:
         match = re.fullmatch(r'f(\d+)[rv]\d*', row['folio'])
         if match and int(match[1]) in train:
+            locator = row.get('id')
+            prefix = row['folio'] + '.'
+            if (not isinstance(locator, str)
+                    or not locator.startswith(prefix)
+                    or len(locator) == len(prefix)):
+                raise ValueError('Train locator/folio mismatch')
             groups[int(match[1])].append(row)
     selected = sorted(groups)[:12]
     leaves = []
