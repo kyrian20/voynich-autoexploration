@@ -1,0 +1,6 @@
+{
+  "scripts/build_label_occurrence_inventory.py": "d388db3cfb62ca5a82ebc11405a020e26604d03502411b1cfc38859c4c0bd7e9",
+  "tests/test_label_occurrence_inventory.py": "e8f1392e5c1c93d4595595dd965244bcae7a334a68361f9c7e1563a31586af13",
+  "research/decipherment/2026-10-25-label-inventory/inventory.json": "0c8da61ebc7162c0d50d37aa6cd9ffbd5a970f0fd4eff3b603577fa46fce72b7",
+  "research/decipherment/2026-10-25-label-inventory/inventory.json.gz": "cc4f79d106e21d9e690a6f1e38436761f5770808713c3fef3aaa51ad0f680ce4"
+}
