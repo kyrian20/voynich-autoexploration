@@ -10,6 +10,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 from scripts.ivtff_lossless import lex, tokens
+from scripts.ivtff_rows import tokens_rows
 
 
 FIXTURES = [
@@ -54,26 +55,38 @@ def main():
     assert tokens([lex('qo{ch}dy')], ligatures='opaque') == ['qo{ch}dy']
     # F08: no artificial word space at the physical wrap. §6.6.
     assert tokens([lex('dai /'), lex('/ in.or')]) == ['daiin', 'or']
-    # Independent IVTFF physical rows are legal and MUST NOT concatenate
-    # adjacent word fragments. The previous implementation rejected them.
-    assert tokens([lex('ab.cd'), lex('ef.gh')]) == ['ab', 'cd', 'ef', 'gh']
-    assert tokens([lex('a'), lex('b/'), lex('/c'), lex('d')]) == ['a', 'bc', 'd']
-    assert tokens([lex('a/'), lex('/b'), lex('c/'), lex('/d')]) == ['ab', 'cd']
-    assert tokens([lex('a/'), lex('/b/'), lex('/c')]) == ['abc']
-    assert tokens([lex('da /'), lex('/ iin.or'), lex('chedy')]) == ['daiin', 'or', 'chedy']
-    assert tokens([lex('a'), lex(''), lex('b')]) == ['a', 'b']
+    # Additive adapter handles independent rows without modifying the frozen
+    # lexer used by historical snapshots. No cross-row word concatenation.
+    assert tokens_rows([lex('ab.cd'), lex('ef.gh')]) == ['ab', 'cd', 'ef', 'gh']
+    assert tokens_rows([lex('a'), lex('b/'), lex('/c'), lex('d')]) == ['a', 'bc', 'd']
+    assert tokens_rows([lex('a/'), lex('/b'), lex('c/'), lex('/d')]) == ['ab', 'cd']
+    assert tokens_rows([lex('a/'), lex('/b/'), lex('/c')]) == ['abc']
+    assert tokens_rows([lex('da /'), lex('/ iin.or'), lex('chedy')]) == ['daiin', 'or', 'chedy']
+    assert tokens_rows([lex('a'), lex(''), lex('b')]) == ['a', 'b']
+    assert tokens_rows([]) == []
+    assert tokens_rows([lex('qo[ke:te]dy'), lex('or,y')], uncertain_space='join') == ['qokedy', 'ory']
+    assert tokens_rows([lex('qo[ke:te]dy'), lex('or,y')], alternatives='exclude_word') == ['or', 'y']
     for broken in (
         [lex('a/'), lex('b')],
         [lex('a'), lex('/b')],
         [lex('a/'), lex('/b'), lex('/c')],
         [lex('a/'), lex('/b/'), lex('c')],
+        [lex('a/')],
+        [lex('/b')],
     ):
         try:
-            tokens(broken)
+            tokens_rows(broken)
         except ValueError:
             pass
         else:
             raise AssertionError('Broken continuation chain accepted')
+    for invalid_policy in ({'uncertain_space': 'invalid'}, {'alternatives': 'invalid'}):
+        try:
+            tokens_rows([], **invalid_policy)
+        except ValueError:
+            pass
+        else:
+            raise AssertionError('Invalid policy accepted for empty input')
 
     invalid = ['qo[te', 'qo{ch', 'q}', '@12;', '@127;', '@256;', '[x]',
                '[a:b:c:d]', '{a.b}', '{a?b}', '<!unclosed', 'or/x', 'a\nb']
