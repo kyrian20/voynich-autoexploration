@@ -64,6 +64,26 @@ def main():
     assert tokens_rows([lex('da /'), lex('/ iin.or'), lex('chedy')]) == ['daiin', 'or', 'chedy']
     assert tokens_rows([lex('a'), lex(''), lex('b')]) == ['a', 'b']
     assert tokens_rows([]) == []
+    # A physical newline hidden inside an angle-bracket comment is swallowed
+    # by the frozen single-row lexer; the additive row APIs must reject it.
+    for malformed_row in ('a<!hidden\ncomment>b', 'a<!hidden\rcomment>b',
+                          'a<!hidden\r\ncomment>b'):
+        for projector in (
+            lambda p: tokens_rows([p]),
+            lambda p: tokens_scoped_rows([('ZL3b', 'f1r', p)]),
+        ):
+            try:
+                projector(lex(malformed_row))
+            except ValueError as exc:
+                assert 'Physical newline' in str(exc), str(exc)
+            else:
+                raise AssertionError('Physical newline hidden in comment accepted')
+    try:
+        tokens_rows(['not-a-payload'])
+    except TypeError:
+        pass
+    else:
+        raise AssertionError('Non-payload input accepted by row adapter')
     # A slash continuation may not bridge physical source/folio scopes.
     assert tokens_scoped_rows([
         ('ZL3b', 'f1r', lex('a/')),
