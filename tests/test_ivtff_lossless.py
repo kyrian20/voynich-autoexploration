@@ -64,6 +64,35 @@ def main():
     assert tokens_rows([lex('da /'), lex('/ iin.or'), lex('chedy')]) == ['daiin', 'or', 'chedy']
     assert tokens_rows([lex('a'), lex(''), lex('b')]) == ['a', 'b']
     assert tokens_rows([]) == []
+    # A Payload is a mutable dataclass: a raw-row edit, changed span, or
+    # discarded diagnostic used to be silently projected as different text.
+    # The adapter must fail closed while the frozen historical lexer stays as-is.
+    stale_raw = lex('ab')
+    stale_raw.raw = 'cd'
+    changed_span = lex('ab')
+    changed_span.spans[0].raw = 'zz'
+    lost_diagnostic = lex('a[bad')
+    assert lost_diagnostic.diagnostics
+    lost_diagnostic.diagnostics.clear()
+    for tampered in (stale_raw, changed_span, lost_diagnostic):
+        for projector in (
+            lambda p: tokens_rows([p]),
+            lambda p: tokens_scoped_rows([('ZL3b', 'f1r', p)]),
+        ):
+            try:
+                projector(tampered)
+            except ValueError as exc:
+                assert 'disagree with raw row' in str(exc), str(exc)
+            else:
+                raise AssertionError('Stale or tampered IVTFF Payload accepted')
+    wrong_raw_type = lex('ab')
+    wrong_raw_type.raw = None
+    try:
+        tokens_rows([wrong_raw_type])
+    except TypeError as exc:
+        assert 'raw row must be text' in str(exc), str(exc)
+    else:
+        raise AssertionError('Non-text IVTFF raw row accepted')
     # A physical newline hidden inside an angle-bracket comment is swallowed
     # by the frozen single-row lexer; the additive row APIs must reject it.
     for malformed_row in ('a<!hidden\ncomment>b', 'a<!hidden\rcomment>b',
