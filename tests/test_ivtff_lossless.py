@@ -10,7 +10,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 from scripts.ivtff_lossless import lex, tokens
-from scripts.ivtff_rows import tokens_rows
+from scripts.ivtff_rows import tokens_rows, tokens_scoped_rows
 
 
 FIXTURES = [
@@ -64,6 +64,41 @@ def main():
     assert tokens_rows([lex('da /'), lex('/ iin.or'), lex('chedy')]) == ['daiin', 'or', 'chedy']
     assert tokens_rows([lex('a'), lex(''), lex('b')]) == ['a', 'b']
     assert tokens_rows([]) == []
+    # A slash continuation may not bridge physical source/folio scopes.
+    assert tokens_scoped_rows([
+        ('ZL3b', 'f1r', lex('a/')),
+        ('ZL3b', 'f1r', lex('/b')),
+        ('ZL3b', 'f1v', lex('c')),
+        ('IT2a', 'f1v', lex('d/')),
+        ('IT2a', 'f1v', lex('/e')),
+    ]) == ['ab', 'c', 'de']
+    assert tokens_scoped_rows([]) == []
+    for invalid_scoped in (
+        [('ZL3b', 'f1r', lex('a/')), ('ZL3b', 'f1v', lex('/b'))],
+        [('ZL3b', 'f1r', lex('a/')), ('IT2a', 'f1r', lex('/b'))],
+        [('ZL3b', 'f1r', lex('a')), ('ZL3b', 'f1v', lex('b')),
+         ('ZL3b', 'f1r', lex('c'))],
+        [('', 'f1r', lex('a'))],
+        [('ZL3b', ' ', lex('a'))],
+    ):
+        try:
+            tokens_scoped_rows(invalid_scoped)
+        except ValueError:
+            pass
+        else:
+            raise AssertionError('Invalid source/folio scope accepted')
+    try:
+        tokens_scoped_rows([], uncertain_space='not-a-policy')
+    except ValueError:
+        pass
+    else:
+        raise AssertionError('Invalid policy accepted for empty scoped input')
+    try:
+        tokens_scoped_rows([('ZL3b', 'f1r', 'not-lexed')])
+    except TypeError:
+        pass
+    else:
+        raise AssertionError('Non-payload input accepted')
     assert tokens_rows([lex('qo[ke:te]dy'), lex('or,y')], uncertain_space='join') == ['qokedy', 'ory']
     assert tokens_rows([lex('qo[ke:te]dy'), lex('or,y')], alternatives='exclude_word') == ['or', 'y']
     for broken in (
