@@ -155,6 +155,30 @@ def main() -> None:
         assert set(structural_errors(indented_invalid_boundary)) == {
             "malformed_header_count=1", "page_mismatch_count=1",
         }, indented_invalid_boundary
+    # A malformed indented page boundary with padding INSIDE the angle
+    # brackets was silently discarded: the previous page stayed active.
+    # This is diagnostic only; no damaged page becomes a valid header.
+    for broken_header in (
+        " <f2r > <! $L=B>",
+        " < f2r> <! $L=B>",
+        "\t<f2r7 > <! $L=B>",
+    ):
+        broken = audit_text(
+            "<f1r> <! $L=A>\n<f1r.1,@P0> daiin\n"
+            + broken_header + "\n<f1r.2,@P0> chedy\n"
+        )
+        assert broken["malformed_header_count"] == 1, broken
+        assert broken["page_mismatch_count"] == 1, broken
+        assert broken["record_count"] == 2, broken
+        assert set(structural_errors(broken)) == {
+            "malformed_header_count=1", "page_mismatch_count=1",
+        }, broken
+    # Unrelated metadata, including padding, must remain unclassified.
+    unrelated_padded = audit_text(
+        "<f1r> <! $L=A>\n <unrelated >\n<f1r.1,@P0> daiin\n"
+    )
+    assert structural_errors(unrelated_padded) == [], unrelated_padded
+
     unrelated_indented_tag = audit_text(
         "<f1r> <! $L=A>\n <unrelated>\n<f1r.1,@P0> daiin\n"
     )
