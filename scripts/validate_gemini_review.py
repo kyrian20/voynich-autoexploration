@@ -55,8 +55,23 @@ def validate(document):
         if isinstance(value, dict):
             if set(value) != set(required):
                 errors.append(f"{field}: incorrect fields")
-            elif any(not isinstance(value[k], (str, list)) or not value[k] for k in required):
-                errors.append(f"{field}: missing content")
+            else:
+                for key in required:
+                    item = value[key]
+                    # A list is allowed for multi-part design fields, but its
+                    # elements must be actual, nonblank text. Previously [None],
+                    # [False] and [""] passed because the list was nonempty.
+                    if isinstance(item, str):
+                        valid = bool(item.strip())
+                    elif isinstance(item, list):
+                        valid = bool(item) and all(
+                            isinstance(part, str) and bool(part.strip())
+                            for part in item
+                        )
+                    else:
+                        valid = False
+                    if not valid:
+                        errors.append(f"{field}.{key}: missing or invalid content")
     return errors
 
 
