@@ -72,7 +72,9 @@ def audit_text(text: str) -> dict:
                         "line": line_no, "raw": raw[:180],
                         "reason": "leading whitespace before locus <",
                     })
-                elif INDENTED_PAGE_CANDIDATE_RE.fullmatch(candidate):
+                # Only for detecting malformed indented headers: allow damage
+                # inside angle brackets, but never normalize accepted IDs.
+                elif INDENTED_PAGE_CANDIDATE_RE.fullmatch(candidate.strip(" \t")):
                     malformed_headers.append({"line": line_no, "page": candidate,
                                               "reason": "leading whitespace or invalid page ID"})
                     active_page = None
