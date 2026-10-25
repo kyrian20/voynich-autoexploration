@@ -92,7 +92,20 @@ def audit_text(text: str) -> dict:
             continue
         end = raw.find(">")
         if end < 0:
-            malformed_records.append({"line": line_no, "raw": raw[:180], "reason": "missing >"})
+            # An unterminated page boundary must not leave the previous page
+            # active. Classify it separately from a damaged locus, including
+            # a header followed by unfinished metadata. This is diagnostic:
+            # no incomplete header is accepted as a page.
+            first = raw[1:].strip().split(maxsplit=1)
+            if first and INDENTED_PAGE_CANDIDATE_RE.fullmatch(first[0]):
+                malformed_headers.append({
+                    "line": line_no, "page": raw[1:180], "reason": "missing >",
+                })
+                active_page = None
+            else:
+                malformed_records.append({
+                    "line": line_no, "raw": raw[:180], "reason": "missing >",
+                })
             continue
         tag = raw[1:end]
         if "," not in tag:
