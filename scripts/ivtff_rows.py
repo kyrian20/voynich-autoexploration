@@ -27,7 +27,11 @@ def tokens_rows(payloads: list[Payload], **policy) -> list[str]:
             raise TypeError('Expected a lexed IVTFF Payload')
         if not isinstance(payload.raw, str):
             raise TypeError('IVTFF Payload raw row must be text')
-        if '\n' in payload.raw or '\r' in payload.raw:
+        # Python splitlines() also treats VT, FF, record separators, NEL and
+        # Unicode line/paragraph separators as physical line boundaries. A
+        # comment can hide these from the frozen single-row lexer, so reject
+        # them here before any analytical projection or continuation joining.
+        if any(mark in payload.raw for mark in '\n\r\v\f\x1c\x1d\x1e\x85\u2028\u2029'):
             raise ValueError('Physical newline inside an IVTFF row')
         # Payload/Span are mutable public dataclasses. A stale raw string,
         # altered span, or discarded diagnostic must never be projected as
