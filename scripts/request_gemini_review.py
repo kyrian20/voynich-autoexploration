@@ -23,6 +23,21 @@ else:
 PROMPT_PATH = Path(__file__).resolve().parents[1] / "research/protocols/2026-10-25-gemini-ch-sh-review-prompt-v2.md"
 API_ROOT = "https://generativelanguage.googleapis.com/v1beta/models/"
 MAX_RESPONSE = 128 * 1024
+REQUEST_TIMEOUT = 180
+
+
+def failure_details(error):
+    """Classify failures without storing exception text, URLs or response bodies."""
+    if isinstance(error, urllib.error.HTTPError):
+        return "HTTP_ERROR", error.code
+    reason = error.reason if isinstance(error, urllib.error.URLError) else error
+    if isinstance(reason, TimeoutError):
+        return "TIMEOUT", None
+    if isinstance(error, urllib.error.URLError):
+        return "TRANSPORT_ERROR", None
+    if isinstance(error, json.JSONDecodeError):
+        return "INVALID_JSON", None
+    return "RESPONSE_OR_IO_ERROR", None
 
 
 class NoRedirect(urllib.request.HTTPRedirectHandler):
@@ -82,14 +97,14 @@ def main(argv=None):
         return 2
     opener = urllib.request.build_opener(NoRedirect())
     try:
-        with opener.open(request, timeout=90) as response:
+        with opener.open(request, timeout=REQUEST_TIMEOUT) as response:
             raw = response.read(MAX_RESPONSE + 1)
             if len(raw) > MAX_RESPONSE:
                 raise ValueError("oversize API response")
             envelope = json.loads(raw)
         text = extract_text(envelope)
         review = json.loads(text)
-    except (urllib.error.URLError, TimeoutError, OSError, ValueError, KeyError, TypeError, json.JSONDecodeError):
+    except (urllib.error.URLError, TimeoutError, OSError, ValueError, KeyError, TypeError, json.JSONDecodeError) as error:
         # Once a POST has been attempted, preserve a sanitized failure receipt.
         # Previously the workflow's always() upload had no files to archive
         # when the API failed or returned malformed JSON. Never persist remote
@@ -97,6 +112,9 @@ def main(argv=None):
         args.output_dir.mkdir(parents=True, exist_ok=True)
         receipt = {
             "status": "API_OR_RESPONSE_ERROR",
+            "error_category": failure_details(error)[0],
+            "http_status": failure_details(error)[1],
+            "timeout_seconds": REQUEST_TIMEOUT,
             "scientific_status": "BLOCKED",
             "model": args.model,
             "prompt_sha256": hashlib.sha256(prompt.encode("utf-8")).hexdigest(),
@@ -109,7 +127,7 @@ def main(argv=None):
         (args.output_dir / "receipt.json").write_text(
             json.dumps(receipt, indent=2) + "\n", encoding="utf-8"
         )
-        print("FAILED: API or response error; sanitized receipt saved")
+        print(f"FAILED: {receipt['error_category']}; sanitized receipt saved")
         return 1
     errors = validate(review)
     args.output_dir.mkdir(parents=True, exist_ok=True)
