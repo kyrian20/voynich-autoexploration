@@ -8,8 +8,10 @@ import sys
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 from scripts.audit_ivtff_metadata import parse_currier_language
-SOURCE = Path("data/transcriptions/eva_zl3b.txt")
-OUT = Path("research/experiments")
+# Resolve inputs and outputs relative to the checked-out repository, never cwd.
+# Keep the historical relative source field in emitted JSON unchanged.
+SOURCE = ROOT / "data/transcriptions/eva_zl3b.txt"
+OUT = ROOT / "research/experiments"
 N_PERM, SEED = 5000, 20261021
 VARIANTS = ("daiin", "dain", "daiiin")
 HEADER = re.compile(r"^<f(\d+[rv])>\s*(.*)$")
@@ -79,7 +81,7 @@ def main():
                   "max_stat_adjusted_p":(sum(x>=zscore(w, observed) for x in max_null_z)+1)/(N_PERM+1)}
     date=datetime.now(timezone.utc).strftime("%Y-%m-%d")
     result={"experiment":"EXP-593","title":"daiiin-family variants with max-statistic correction","date_utc":date,
-      "source":str(SOURCE),"source_sha256":hashlib.sha256(raw).hexdigest(),
+      "source":str(SOURCE.relative_to(ROOT)),"source_sha256":hashlib.sha256(raw).hexdigest(),
       "lines":len(lines),"tokens":sum(len(x["tokens"]) for x in lines),
       "variants":list(VARIANTS),"permutations":N_PERM,"seed":SEED,"observed":obs,"tests":tests,
       "null_model":"Shuffle token order independently within each line; preserves each line token multiset. Family-wise max-T adjustment uses the maximum standardized statistic across the three prespecified variants per permutation; each variant is standardized against its own permutation null because baseline frequencies differ.",
