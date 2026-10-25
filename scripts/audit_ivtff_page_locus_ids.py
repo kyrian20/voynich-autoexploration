@@ -29,6 +29,9 @@ LOCUS_RE = re.compile(
 )
 # Catch a damaged locus prefix before the generic non-record skip below.
 # This does not treat arbitrary free-text metadata as an IVTFF record.
+# A damaged/indented header must not silently preserve the previous page.
+# This broad detector is diagnostic only: PAGE_RE remains the acceptance rule.
+INDENTED_PAGE_CANDIDATE_RE = re.compile(r"^f(?:\\d+[rv]\\d*|Ros)$")
 MISSING_OPEN_LOCUS_RE = re.compile(r"^f(?:\d+[rv][1-6]?|Ros)\.\d+,")
 # A page header with a lost opening angle bracket must not vanish silently.
 # Require a plausible header terminator, not arbitrary free-text beginning f2r>.
@@ -69,8 +72,9 @@ def audit_text(text: str) -> dict:
                         "line": line_no, "raw": raw[:180],
                         "reason": "leading whitespace before locus <",
                     })
-                elif PAGE_RE.fullmatch(candidate):
-                    malformed_headers.append({"line": line_no, "page": candidate})
+                elif INDENTED_PAGE_CANDIDATE_RE.fullmatch(candidate):
+                    malformed_headers.append({"line": line_no, "page": candidate,
+                                              "reason": "leading whitespace or invalid page ID"})
                     active_page = None
             elif MISSING_OPEN_LOCUS_RE.match(stripped):
                 malformed_records.append({
