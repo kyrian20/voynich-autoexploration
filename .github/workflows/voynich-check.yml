@@ -83,6 +83,9 @@ jobs:
         run: |
           python -m unittest discover -s tests -p 'test_holdout_locus_coverage.py' -v
           python scripts/audit_holdout_locus_coverage.py --out holdout-locus-coverage.json
+          python -m unittest discover -s tests -p 'test_holdout_page_crosswalk.py' -v
+          python scripts/audit_holdout_page_crosswalk.py --out holdout-page-crosswalk.json
+          cmp research/maintenance/2026-10-25-holdout-page-crosswalk/results.json holdout-page-crosswalk.json
 
       - name: Conservar cobertura de loci no asignados
         uses: actions/upload-artifact@v4
