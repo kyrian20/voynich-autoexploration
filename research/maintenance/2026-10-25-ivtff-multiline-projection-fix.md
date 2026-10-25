@@ -1,27 +1,21 @@
-# Corrección de proyección IVTFF: filas independientes y continuaciones — 25-10-2026
+# Proyección IVTFF de múltiples filas físicas — 25-10-2026
 
-**Estado:** propuesta de reparación operativa, pendiente de CI específica y revisión. No es un EXP ni una traducción.
+**Estado:** corrección operativa propuesta en PR #43; no es un EXP ni una traducción. El criterio de cierre exige CI verde de la revisión final.
 
-## Defecto reproducible
+## Defecto y solución aditiva
 
-En `scripts/ivtff_lossless.py`, la validación anterior de `tokens(payloads)` exigía que toda fila posterior a la primera empezara por `/` y que toda fila anterior a la última terminara en `/`. Por tanto, dos filas ordinarias consecutivas, como `ab.cd` y `ef.gh`, lanzaban `ValueError('Incomplete or unpaired continuation chain')` aunque no existiera continuación. Una implementación que omitiera la validación y simplemente visitara ambas filas también podría concatenar palabras entre líneas. Esto impide utilizar correctamente la proyección sobre colecciones de filas físicas.
+El auxiliar histórico `scripts/ivtff_lossless.py` expone `tokens(payloads)` para una sola fila o una cadena completa de continuaciones. Al suministrar dos filas físicas ordinarias (`ab.cd` y `ef.gh`), su comprobación de continuidad rechaza la segunda. Concatenarlas manualmente, en cambio, introduciría falsas palabras entre filas. La colección de filas independientes no estaba soportada.
 
-## Cambio y criterio
+Se incorpora `scripts/ivtff_rows.py::tokens_rows` como adaptador **nuevo**: proyecta cada fila independiente por separado y concatena únicamente cadenas explícitas de `/` final + `/` inicial. Rechaza continuaciones huérfanas, conserva las políticas analíticas del lexer y no modifica las fuentes. El llamante sigue siendo responsable de suministrar filas en el orden y ámbito de locus correctos.
 
-El validador exige ahora emparejamiento **local** entre `/` final de una fila y `/` inicial de la siguiente. Las filas ordinarias son independientes y fuerzan un límite de palabra, mientras que las filas unidas por continuaciones preservan la concatenación. No se cambia la lexicación de cada fila, las transcripciones, los hashes originales, las políticas de alternativas/ligaduras ni los tokenizadores históricos.
+`tests/test_ivtff_lossless.py`, ya ejecutado por `Voynich Check`, cubre filas independientes, cadenas de dos y tres filas, cadenas separadas, mezclas, filas vacías, alternativas/comas, políticas inválidas y continuaciones mal emparejadas.
 
-La regresión ejecutada por `Voynich Check` (`python tests/test_ivtff_lossless.py`) cubre dos filas ordinarias, una cadena de continuación completa, dos cadenas separadas, mezcla de filas normales y continuadas, fila vacía y cuatro cadenas mal emparejadas que deben rechazarse.
+## Revisión adversarial y fallo histórico de la primera propuesta
 
-## Alcance científico y limitaciones
+La primera revisión de esta PR modificó directamente `scripts/ivtff_lossless.py`. La CI [40160328721](https://github.com/kyrian20/voynich-autoexploration/actions/runs/40160328721) falló en el control de snapshot de EXP-173 **antes** de ejecutar las pruebas léxicas: `Snapshot mismatch: results.json`. La razón es que el resultado congelado incluye el SHA-256 del código de lexer. La segunda revisión introdujo un comparador que permitía solo una transición de hash; [40160510519](https://github.com/kyrian20/voynich-autoexploration/actions/runs/40160510519) confirmó que los campos científicos del puente EXP-173 y `changed-rows.json.gz` coincidían, pero falló después en `Paragraph strata snapshot mismatch`, otro consumidor con hashes congelados.
 
-Se trata de una reparación de la **proyección léxica auxiliar**. No demuestra conformidad completa con IVTFF 2.0.2, no reinterpreta experimentos archivados y no permite reabrir automáticamente los clasificadores Currier ni la evaluación de folios reservados. La validez de los corpus, etiquetas y reglas de separación sigue requiriendo las adjudicaciones pendientes.
+Para no degradar la trazabilidad histórica ni encadenar excepciones de procedencia, **se ha revertido por completo el cambio al lexer y al puente EXP-173** en la revisión final. Se retiró también el overlay transitorio. La solución definitiva es el adaptador independiente; el lexer y los comparadores históricos quedan byte a byte idénticos a `master`. Los fallos de CI anteriores se conservan en GitHub como evidencia del intento descartado.
 
-No se atribuye ninguna semántica a las cadenas EVA. El cambio no utiliza semillas ni controles estocásticos; es una prueba determinista con entradas sintéticas. Los resultados de CI y el SHA de integración deben comprobarse antes de marcar esta incidencia como cerrada.
+## Alcance y limitaciones
 
-## Fallo de CI observado y reparación de trazabilidad
-
-La ejecución de PR #43 [40160328721](https://github.com/kyrian20/voynich-autoexploration/actions/runs/40160328721) se detuvo antes de llegar al test léxico, en `audit_exp173_reader_bridge.py --check`, por `Snapshot mismatch: results.json`. La causa identificable en el código es que el snapshot congela también el SHA-256 del lector `scripts/ivtff_lossless.py`; cambiar su implementación invalida la igualdad literal de dependencias aunque las salidas por fila individual no cambien. No se ha reemplazado ni regenerado el snapshot histórico.
-
-Se incorpora una superposición de procedencia que fija la transición SHA-256 `32ebb9aed11642a760793cf677b8148a4d867351ce4f74f4a7839f32fd180c1f` → `b677716ef87c1cef2060433c69ae39f0cf89d42cad11143ef365cc02556341a3`. El comparador exige igualdad exacta de todos los demás campos científicos y de `changed-rows.json.gz`; cualquier otra diferencia debe seguir fallando. Se añaden pruebas adversariales para evitar aceptar cambios en conteos, otras dependencias o archivos de detalle.
-
-**Estado de este apartado:** código de conciliación publicado en la PR, pendiente de verificación CI de la nueva revisión. No considerar el resultado anterior como un replay de código idéntico: es una comparación de resultados archivados con dependencia modificada y explícitamente autorizada.
+Esta reparación proporciona una API para secuencias de filas físicas; no acredita conformidad integral con IVTFF 2.0.2 ni reemplaza los lectores históricos. No altera corpus, particiones, semillas, snapshots, resultados negativos ni compromisos científicos. Las entradas sintéticas no utilizan aleatoriedad. No se declara validación en folios reservados ni se asignan significados a EVA. Una nueva ejecución de CI sobre el commit final debe verificar que no hay deriva de snapshots y que pasan las regresiones nuevas.
