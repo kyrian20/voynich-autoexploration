@@ -161,11 +161,11 @@ def main() -> None:
     for broken_header in (
         " <f2r > <! $L=B>",
         " < f2r> <! $L=B>",
-        "\\t<f2r7 > <! $L=B>",
+        "\t<f2r7 > <! $L=B>",
     ):
         broken = audit_text(
-            "<f1r> <! $L=A>\\n<f1r.1,@P0> daiin\\n"
-            + broken_header + "\\n<f1r.2,@P0> chedy\\n"
+            "<f1r> <! $L=A>\n<f1r.1,@P0> daiin\n"
+            + broken_header + "\n<f1r.2,@P0> chedy\n"
         )
         assert broken["malformed_header_count"] == 1, broken
         assert broken["page_mismatch_count"] == 1, broken
@@ -175,7 +175,7 @@ def main() -> None:
         }, broken
     # Unrelated metadata, including padding, must remain unclassified.
     unrelated_padded = audit_text(
-        "<f1r> <! $L=A>\\n <unrelated >\\n<f1r.1,@P0> daiin\\n"
+        "<f1r> <! $L=A>\n <unrelated >\n<f1r.1,@P0> daiin\n"
     )
     assert structural_errors(unrelated_padded) == [], unrelated_padded
 
