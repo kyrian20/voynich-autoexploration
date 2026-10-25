@@ -106,7 +106,31 @@ def archive_result_complete(saved, report):
             return False
         table_row = (f"| {word} | {occurrences} | {initial} | {final} | "
                      f"{test['empirical_p']:.6f} | {test['max_stat_adjusted_p']:.6f} |")
-        if table_row not in report_lines:
+        if report_lines.count(table_row) != 1:
+            return False
+        # A complete archive must preserve the per-Currier breakdown in both
+        # representations. The old guard checked only the global summary row:
+        # changing A to B in JSON (without changing totals) went unnoticed.
+        heading = f"### {word}"
+        if report_lines.count(heading) != 1:
+            return False
+        start = report_lines.index(heading) + 1
+        stop = next(
+            (i for i in range(start, len(report_lines))
+             if report_lines[i].startswith(("## ", "### "))),
+            len(report_lines),
+        )
+        section = report_lines[start:stop]
+        table_header = "| Clase | Ocurrencias | Inicio | Final |"
+        if section.count(table_header) != 1:
+            return False
+        actual_rows = sorted(line for line in section
+                             if line.startswith("| ") and line != table_header)
+        expected_rows = sorted(
+            f"| {name} | {values['occurrences']} | {values['line_initial']} | {values['line_final']} |"
+            for name, values in classes.items()
+        )
+        if actual_rows != expected_rows:
             return False
     return True
 

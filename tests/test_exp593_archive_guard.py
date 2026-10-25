@@ -64,6 +64,14 @@ class Exp593ArchiveGuardTest(unittest.TestCase):
             lines += (f"| {word} | {o['occurrences']} | {o['line_initial']} | "
                       f"{o['line_final']} | {t['empirical_p']:.6f} | "
                       f"{t['max_stat_adjusted_p']:.6f} |\n")
+        lines += "\n## Distribución por clase Currier\n\n"
+        for word in MODULE["VARIANTS"]:
+            lines += (f"### {word}\n\n| Clase | Ocurrencias | Inicio | Final |\n"
+                      "|---|---:|---:|---:|\n")
+            for name, values in payload["observed"][word]["by_currier"].items():
+                lines += (f"| {name} | {values['occurrences']} | "
+                          f"{values['line_initial']} | {values['line_final']} |\n")
+            lines += "\n"
         return lines
 
     def store(self, *, payload=None, report=None):
@@ -115,6 +123,27 @@ class Exp593ArchiveGuardTest(unittest.TestCase):
 
     def test_report_table_must_match_json(self):
         self.store(report=self.report().replace("| daiin | 3 |", "| daiin | 999 |"))
+        with self.assertRaisesRegex(RuntimeError, "result body is incomplete"):
+            MODULE["archive_status"](self.paths, DATE, SOURCE_SHA)
+
+    def test_currier_label_mismatch_with_same_totals_rejected(self):
+        # Before the repair, the report's A row could disagree with JSON's B
+        # label while every aggregate and summary-table check still passed.
+        altered = self.payload()
+        by = altered["observed"]["daiin"]["by_currier"]
+        by["B"] = by.pop("A")
+        self.store(payload=altered)
+        with self.assertRaisesRegex(RuntimeError, "result body is incomplete"):
+            MODULE["archive_status"](self.paths, DATE, SOURCE_SHA)
+
+    def test_missing_currier_report_row_rejected(self):
+        self.store(report=self.report().replace("| A | 3 | 1 | 1 |\n", "", 1))
+        with self.assertRaisesRegex(RuntimeError, "result body is incomplete"):
+            MODULE["archive_status"](self.paths, DATE, SOURCE_SHA)
+
+    def test_duplicate_currier_report_row_rejected(self):
+        row = "| A | 3 | 1 | 1 |\n"
+        self.store(report=self.report().replace(row, row + row, 1))
         with self.assertRaisesRegex(RuntimeError, "result body is incomplete"):
             MODULE["archive_status"](self.paths, DATE, SOURCE_SHA)
 
