@@ -218,8 +218,8 @@ def main() -> None:
     # boundary. Fail closed for both bare and metadata-bearing headers.
     for broken_header in ("<f2r", "<f2r <! $L=B", "<f2r7"):
         truncated = audit_text(
-            "<f1r> <! $L=A>\\n<f1r.1,@P0> daiin\\n"
-            + broken_header + "\\n<f1r.2,@P0> chedy\\n"
+            "<f1r> <! $L=A>\n<f1r.1,@P0> daiin\n"
+            + broken_header + "\n<f1r.2,@P0> chedy\n"
         )
         assert truncated["record_count"] == 2, truncated
         assert truncated["malformed_header_count"] == 1, truncated
@@ -231,15 +231,15 @@ def main() -> None:
 
     # An incomplete locus or unrelated metadata is not a page boundary.
     incomplete_locus = audit_text(
-        "<f1r> <! $L=A>\\n<f1r.1,@P0> daiin\\n"
-        "<f1r.2,@P0\\n<f1r.3,@P0> chedy\\n"
+        "<f1r> <! $L=A>\n<f1r.1,@P0> daiin\n"
+        "<f1r.2,@P0\n<f1r.3,@P0> chedy\n"
     )
     assert incomplete_locus["malformed_record_count"] == 1, incomplete_locus
     assert incomplete_locus["malformed_header_count"] == 0, incomplete_locus
     assert incomplete_locus["page_mismatch_count"] == 0, incomplete_locus
     incomplete_metadata = audit_text(
-        "<f1r> <! $L=A>\\n<f1r.1,@P0> daiin\\n"
-        "<unrelated\\n<f1r.2,@P0> chedy\\n"
+        "<f1r> <! $L=A>\n<f1r.1,@P0> daiin\n"
+        "<unrelated\n<f1r.2,@P0> chedy\n"
     )
     assert incomplete_metadata["malformed_record_count"] == 1, incomplete_metadata
     assert incomplete_metadata["malformed_header_count"] == 0, incomplete_metadata
