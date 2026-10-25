@@ -31,7 +31,7 @@ LOCUS_RE = re.compile(
 # This does not treat arbitrary free-text metadata as an IVTFF record.
 # A damaged/indented header must not silently preserve the previous page.
 # This broad detector is diagnostic only: PAGE_RE remains the acceptance rule.
-INDENTED_PAGE_CANDIDATE_RE = re.compile(r"^f(?:\\d+[rv]\\d*|Ros)$")
+INDENTED_PAGE_CANDIDATE_RE = re.compile(r"^f(?:\d+[rv]\d*|Ros)$")
 MISSING_OPEN_LOCUS_RE = re.compile(r"^f(?:\d+[rv][1-6]?|Ros)\.\d+,")
 # A page header with a lost opening angle bracket must not vanish silently.
 # Require a plausible header terminator, not arbitrary free-text beginning f2r>.
