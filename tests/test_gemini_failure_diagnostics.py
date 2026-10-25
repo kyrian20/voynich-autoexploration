@@ -25,7 +25,7 @@ class FailureDiagnostics(unittest.TestCase):
                 with patch.dict(os.environ, {'GEMINI_API_KEY': secret}):
                     with patch('scripts.request_gemini_review.urllib.request.build_opener') as opener:
                         opener.return_value.open.side_effect = error
-                        self.assertEqual(main(['--model', 'gemini-3.8-flash', '--output-dir', tmp, '--execute']), 1)
+                        self.assertEqual(main(['--model', 'gemini-3.8-flash', '--output-dir', tmp, '--execute', '--no-fallback']), 1)
                         opener.return_value.open.assert_called_once()
                         self.assertEqual(opener.return_value.open.call_args.kwargs['timeout'], REQUEST_TIMEOUT)
                 raw = (Path(tmp)/'receipt.json').read_text()
