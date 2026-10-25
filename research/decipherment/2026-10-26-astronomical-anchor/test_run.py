@@ -1,4 +1,4 @@
-import hashlib,tempfile,unittest
+import hashlib,json,os,tempfile,unittest
 from pathlib import Path
 import run
 
@@ -34,6 +34,18 @@ class AnchorTests(unittest.TestCase):
         self.assertEqual(len(s['unparsed_target_bearing_lines']),1)
         self.assertEqual(s['numeric_records'],1)
 
+    def test_named_page_is_not_a_numeric_page(self):
+        s=self.scan('<f68r3> header\n<f68r3.11,@Ls> doaro\n<fRos> header\n<fRos.1,@L0> dary\n')
+        self.assertEqual(s['parsed_records'],2)
+        self.assertEqual(s['numeric_records'],1)
+        self.assertEqual(s['named_records'],1)
+        self.assertEqual(s['parsed_records'],s['numeric_records']+s['named_records'])
+        self.assertEqual(s['views']['split']['dary']['matches'][0]['page'],'fRos')
+
+    def test_missing_target_locus_refused(self):
+        with self.assertRaisesRegex(ValueError,'target locus'):
+            self.scan('<fRos.1,@L0> dary\n')
+
     def test_duplicate_refused(self):
         with self.assertRaises(ValueError):self.scan('<f68r3.11,@Ls> doaro\n<f68r3.11,@Ls> doary\n')
 
@@ -42,5 +54,17 @@ class AnchorTests(unittest.TestCase):
         spans=s['target_locus']['payload_spans']
         self.assertEqual(''.join(x['raw'] for x in spans),'doaro')
         self.assertEqual(spans[-1],{'kind':'glyph','raw':'o','start':4,'end':5})
+
+    def test_frozen_corpora_preserve_historical_matches_and_split_counts(self):
+        root=Path(os.environ.get('ANCHOR_REPO_ROOT','.')).resolve()
+        historical=json.loads(Path(__file__).with_name('inventory.json').read_text())
+        expected_counts={'eva_zl3b.txt':(5385,5225,160),'eva_it2a.txt':(5215,5215,0)}
+        for old in historical['sources']:
+            with self.subTest(source=old['file']):
+                current=run.inventory(root/'data/transcriptions'/old['file'],self.lex,self.tokens)
+                self.assertEqual((current['parsed_records'],current['numeric_records'],current['named_records']),expected_counts[old['file']])
+                self.assertEqual(current['parsed_records'],old['numeric_records'])
+                for key in ('file','sha256','target_locus','unparsed_target_bearing_lines','views'):
+                    self.assertEqual(current[key],old[key])
 
 if __name__=='__main__':unittest.main()

@@ -1,0 +1,1440 @@
+{
+  "schema_version": 2,
+  "status": "GENERATED",
+  "scope": "Exact-token inventory of numeric locus identifiers on numeric pages and fRos; not semantic evidence",
+  "targets": [
+    "doary",
+    "doaro",
+    "dary"
+  ],
+  "lexer_sha256": "32ebb9aed11642a760793cf677b8148a4d867351ce4f74f4a7839f32fd180c1f",
+  "script_sha256": "2e7ef43022e8a741b77fd462a7d1a7e39203ba383f3214237dc5d07cfd840fbb",
+  "protocol_sha256": "07a786e6a0ab1434541e730a11fd0d035bf1240e9cb4f5b6eedac770ece2b47a",
+  "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+  "sources": [
+    {
+      "file": "eva_zl3b.txt",
+      "sha256": "bf5b6d4ac1e3a51b1847a9c388318d609020441ccd56984c901c32b09beccafc",
+      "parsed_records": 5385,
+      "numeric_records": 5225,
+      "named_records": 160,
+      "target_locus": {
+        "id": "f68r3.11",
+        "source_line": 3179,
+        "locus": "@Ls",
+        "raw": "<f68r3.11,@Ls>    doaro",
+        "payload_spans": [
+          {
+            "kind": "glyph",
+            "raw": "d",
+            "start": 0,
+            "end": 1
+          },
+          {
+            "kind": "glyph",
+            "raw": "o",
+            "start": 1,
+            "end": 2
+          },
+          {
+            "kind": "glyph",
+            "raw": "a",
+            "start": 2,
+            "end": 3
+          },
+          {
+            "kind": "glyph",
+            "raw": "r",
+            "start": 3,
+            "end": 4
+          },
+          {
+            "kind": "glyph",
+            "raw": "o",
+            "start": 4,
+            "end": 5
+          }
+        ]
+      },
+      "unparsed_target_bearing_lines": [],
+      "views": {
+        "split": {
+          "doary": {
+            "count": 0,
+            "matches": []
+          },
+          "doaro": {
+            "count": 1,
+            "matches": [
+              {
+                "id": "f68r3.11",
+                "page": "f68r3",
+                "locus": "@Ls",
+                "source_line": 3179,
+                "token_index0": 0,
+                "body": "doaro",
+                "context": [
+                  "doaro"
+                ]
+              }
+            ]
+          },
+          "dary": {
+            "count": 23,
+            "matches": [
+              {
+                "id": "f9v.9",
+                "page": "f9v",
+                "locus": "+P0",
+                "source_line": 449,
+                "token_index0": 4,
+                "body": "daiin.chy.tor.chyty.dary<->ytoldy",
+                "context": [
+                  "tor",
+                  "chyty",
+                  "dary",
+                  "ytoldy"
+                ]
+              },
+              {
+                "id": "f18r.8",
+                "page": "f18r",
+                "locus": "+P0",
+                "source_line": 762,
+                "token_index0": 5,
+                "body": "qokchor.ckhol.olody.okal,dy<->dary",
+                "context": [
+                  "okal",
+                  "dy",
+                  "dary"
+                ]
+              },
+              {
+                "id": "f29v.2",
+                "page": "f29v",
+                "locus": "+P0",
+                "source_line": 1213,
+                "token_index0": 8,
+                "body": "qotcheaiin.s.chol.chol.cthy.chey.cthold<->ytchor.dary",
+                "context": [
+                  "cthold",
+                  "ytchor",
+                  "dary"
+                ]
+              },
+              {
+                "id": "f32r.9",
+                "page": "f32r",
+                "locus": "+P0",
+                "source_line": 1332,
+                "token_index0": 1,
+                "body": "dytchor.dary",
+                "context": [
+                  "dytchor",
+                  "dary"
+                ]
+              },
+              {
+                "id": "f43v.3",
+                "page": "f43v",
+                "locus": "+P0",
+                "source_line": 1860,
+                "token_index0": 11,
+                "body": "tody.teedy.qot.chocthy.chky.oky.chdy.okedy.ykaiin.chey.ody.dary",
+                "context": [
+                  "chey",
+                  "ody",
+                  "dary"
+                ]
+              },
+              {
+                "id": "f43v.15",
+                "page": "f43v",
+                "locus": "+P0",
+                "source_line": 1874,
+                "token_index0": 7,
+                "body": "oteod.qolkeey.kaldy.chy.darod[y:?].qokeey.kol.dary.taros",
+                "context": [
+                  "qokeey",
+                  "kol",
+                  "dary",
+                  "taros"
+                ]
+              },
+              {
+                "id": "f45r.6",
+                "page": "f45r",
+                "locus": "+P0",
+                "source_line": 1932,
+                "token_index0": 7,
+                "body": "otchar.okchar.daiin.ytchody.tcholol.otar.dal.dary",
+                "context": [
+                  "otar",
+                  "dal",
+                  "dary"
+                ]
+              },
+              {
+                "id": "f55v.7",
+                "page": "f55v",
+                "locus": "+P0",
+                "source_line": 2425,
+                "token_index0": 10,
+                "body": "<%>okchd.yk[a:?]in.[sh:ch]eokey.or.ain<->[ch:?].kchdy.pchal.ar,aldy.dary",
+                "context": [
+                  "ar",
+                  "aldy",
+                  "dary"
+                ]
+              },
+              {
+                "id": "f66r.4",
+                "page": "f66r",
+                "locus": "+L0",
+                "source_line": 2701,
+                "token_index0": 0,
+                "body": "dary",
+                "context": [
+                  "dary"
+                ]
+              },
+              {
+                "id": "f66r.69",
+                "page": "f66r",
+                "locus": "+P0",
+                "source_line": 2771,
+                "token_index0": 6,
+                "body": "tosheo.qokaldy.oky.ol.kcheeky.qoky.dary.okees.oly<$>",
+                "context": [
+                  "kcheeky",
+                  "qoky",
+                  "dary",
+                  "okees",
+                  "oly"
+                ]
+              },
+              {
+                "id": "f67v1.13",
+                "page": "f67v1",
+                "locus": "@Ro",
+                "source_line": 3033,
+                "token_index0": 2,
+                "body": "otorkeol.orsheey.dary",
+                "context": [
+                  "otorkeol",
+                  "orsheey",
+                  "dary"
+                ]
+              },
+              {
+                "id": "f68r1.6",
+                "page": "f68r1",
+                "locus": "+Pb",
+                "source_line": 3066,
+                "token_index0": 0,
+                "body": "dary",
+                "context": [
+                  "dary"
+                ]
+              },
+              {
+                "id": "f68v2.18",
+                "page": "f68v2",
+                "locus": "@Ro",
+                "source_line": 3258,
+                "token_index0": 1,
+                "body": "choteey.dary",
+                "context": [
+                  "choteey",
+                  "dary"
+                ]
+              },
+              {
+                "id": "f69r.29",
+                "page": "f69r",
+                "locus": "@Ro",
+                "source_line": 3323,
+                "token_index0": 0,
+                "body": "<!01:30>dary.dar.aloly",
+                "context": [
+                  "dary",
+                  "dar",
+                  "aloly"
+                ]
+              },
+              {
+                "id": "f75v.30",
+                "page": "f75v",
+                "locus": "@Ln",
+                "source_line": 4081,
+                "token_index0": 0,
+                "body": "dary",
+                "context": [
+                  "dary"
+                ]
+              },
+              {
+                "id": "f77r.32",
+                "page": "f77r",
+                "locus": "+P0",
+                "source_line": 4291,
+                "token_index0": 7,
+                "body": "qor.ain.cheol.ol.chealor.cheey.qet[eiiin:aiin].d[a:y]ry",
+                "context": [
+                  "cheey",
+                  "qeteiiin",
+                  "dary"
+                ]
+              },
+              {
+                "id": "f77r.47",
+                "page": "f77r",
+                "locus": "+P0",
+                "source_line": 4307,
+                "token_index0": 6,
+                "body": "ysheey.dal.saiis[o:a]l.sal.dalo.tain.dary.dalo",
+                "context": [
+                  "dalo",
+                  "tain",
+                  "dary",
+                  "dalo"
+                ]
+              },
+              {
+                "id": "f77v.35",
+                "page": "f77v",
+                "locus": "+P0",
+                "source_line": 4360,
+                "token_index0": 7,
+                "body": "tcho[r:s],sheey.qokain.qokain.sheol.qokeedy.qokal.dary",
+                "context": [
+                  "qokeedy",
+                  "qokal",
+                  "dary"
+                ]
+              },
+              {
+                "id": "f88r.14",
+                "page": "f88r",
+                "locus": "@Lf",
+                "source_line": 5711,
+                "token_index0": 0,
+                "body": "dary",
+                "context": [
+                  "dary"
+                ]
+              },
+              {
+                "id": "f111r.6",
+                "page": "f111r",
+                "locus": "+P0",
+                "source_line": 7640,
+                "token_index0": 12,
+                "body": "<%>dain.shedy.qoky.chedy.qok.shed.olchedy.qokeedy.teedy.chdy.keedy.qotchedy.dary",
+                "context": [
+                  "keedy",
+                  "qotchedy",
+                  "dary"
+                ]
+              },
+              {
+                "id": "f114r.6",
+                "page": "f114r",
+                "locus": "+P0",
+                "source_line": 8136,
+                "token_index0": 10,
+                "body": "qoeedy.okchedy.doiiin.chedy.daiin.ykeedy.okeeedy.chedol.chdaiin.ykar.dary",
+                "context": [
+                  "chdaiin",
+                  "ykar",
+                  "dary"
+                ]
+              },
+              {
+                "id": "f114v.20",
+                "page": "f114v",
+                "locus": "+P0",
+                "source_line": 8237,
+                "token_index0": 9,
+                "body": "<%>tshedain.qotchody.qokol.shedy.qokchedy.daiin.qofchdar.chdor.chdy.dary",
+                "context": [
+                  "chdor",
+                  "chdy",
+                  "dary"
+                ]
+              },
+              {
+                "id": "f115v.45",
+                "page": "f115v",
+                "locus": "+P0",
+                "source_line": 8422,
+                "token_index0": 4,
+                "body": "yk,chedaiin.chody.qokaiin.dary.cholaiim<$>",
+                "context": [
+                  "chody",
+                  "qokaiin",
+                  "dary",
+                  "cholaiim"
+                ]
+              }
+            ]
+          }
+        },
+        "join": {
+          "doary": {
+            "count": 0,
+            "matches": []
+          },
+          "doaro": {
+            "count": 1,
+            "matches": [
+              {
+                "id": "f68r3.11",
+                "page": "f68r3",
+                "locus": "@Ls",
+                "source_line": 3179,
+                "token_index0": 0,
+                "body": "doaro",
+                "context": [
+                  "doaro"
+                ]
+              }
+            ]
+          },
+          "dary": {
+            "count": 23,
+            "matches": [
+              {
+                "id": "f9v.9",
+                "page": "f9v",
+                "locus": "+P0",
+                "source_line": 449,
+                "token_index0": 4,
+                "body": "daiin.chy.tor.chyty.dary<->ytoldy",
+                "context": [
+                  "tor",
+                  "chyty",
+                  "dary",
+                  "ytoldy"
+                ]
+              },
+              {
+                "id": "f18r.8",
+                "page": "f18r",
+                "locus": "+P0",
+                "source_line": 762,
+                "token_index0": 4,
+                "body": "qokchor.ckhol.olody.okal,dy<->dary",
+                "context": [
+                  "olody",
+                  "okaldy",
+                  "dary"
+                ]
+              },
+              {
+                "id": "f29v.2",
+                "page": "f29v",
+                "locus": "+P0",
+                "source_line": 1213,
+                "token_index0": 8,
+                "body": "qotcheaiin.s.chol.chol.cthy.chey.cthold<->ytchor.dary",
+                "context": [
+                  "cthold",
+                  "ytchor",
+                  "dary"
+                ]
+              },
+              {
+                "id": "f32r.9",
+                "page": "f32r",
+                "locus": "+P0",
+                "source_line": 1332,
+                "token_index0": 1,
+                "body": "dytchor.dary",
+                "context": [
+                  "dytchor",
+                  "dary"
+                ]
+              },
+              {
+                "id": "f43v.3",
+                "page": "f43v",
+                "locus": "+P0",
+                "source_line": 1860,
+                "token_index0": 11,
+                "body": "tody.teedy.qot.chocthy.chky.oky.chdy.okedy.ykaiin.chey.ody.dary",
+                "context": [
+                  "chey",
+                  "ody",
+                  "dary"
+                ]
+              },
+              {
+                "id": "f43v.15",
+                "page": "f43v",
+                "locus": "+P0",
+                "source_line": 1874,
+                "token_index0": 7,
+                "body": "oteod.qolkeey.kaldy.chy.darod[y:?].qokeey.kol.dary.taros",
+                "context": [
+                  "qokeey",
+                  "kol",
+                  "dary",
+                  "taros"
+                ]
+              },
+              {
+                "id": "f45r.6",
+                "page": "f45r",
+                "locus": "+P0",
+                "source_line": 1932,
+                "token_index0": 7,
+                "body": "otchar.okchar.daiin.ytchody.tcholol.otar.dal.dary",
+                "context": [
+                  "otar",
+                  "dal",
+                  "dary"
+                ]
+              },
+              {
+                "id": "f55v.7",
+                "page": "f55v",
+                "locus": "+P0",
+                "source_line": 2425,
+                "token_index0": 9,
+                "body": "<%>okchd.yk[a:?]in.[sh:ch]eokey.or.ain<->[ch:?].kchdy.pchal.ar,aldy.dary",
+                "context": [
+                  "pchal",
+                  "araldy",
+                  "dary"
+                ]
+              },
+              {
+                "id": "f66r.4",
+                "page": "f66r",
+                "locus": "+L0",
+                "source_line": 2701,
+                "token_index0": 0,
+                "body": "dary",
+                "context": [
+                  "dary"
+                ]
+              },
+              {
+                "id": "f66r.69",
+                "page": "f66r",
+                "locus": "+P0",
+                "source_line": 2771,
+                "token_index0": 6,
+                "body": "tosheo.qokaldy.oky.ol.kcheeky.qoky.dary.okees.oly<$>",
+                "context": [
+                  "kcheeky",
+                  "qoky",
+                  "dary",
+                  "okees",
+                  "oly"
+                ]
+              },
+              {
+                "id": "f67v1.13",
+                "page": "f67v1",
+                "locus": "@Ro",
+                "source_line": 3033,
+                "token_index0": 2,
+                "body": "otorkeol.orsheey.dary",
+                "context": [
+                  "otorkeol",
+                  "orsheey",
+                  "dary"
+                ]
+              },
+              {
+                "id": "f68r1.6",
+                "page": "f68r1",
+                "locus": "+Pb",
+                "source_line": 3066,
+                "token_index0": 0,
+                "body": "dary",
+                "context": [
+                  "dary"
+                ]
+              },
+              {
+                "id": "f68v2.18",
+                "page": "f68v2",
+                "locus": "@Ro",
+                "source_line": 3258,
+                "token_index0": 1,
+                "body": "choteey.dary",
+                "context": [
+                  "choteey",
+                  "dary"
+                ]
+              },
+              {
+                "id": "f69r.29",
+                "page": "f69r",
+                "locus": "@Ro",
+                "source_line": 3323,
+                "token_index0": 0,
+                "body": "<!01:30>dary.dar.aloly",
+                "context": [
+                  "dary",
+                  "dar",
+                  "aloly"
+                ]
+              },
+              {
+                "id": "f75v.30",
+                "page": "f75v",
+                "locus": "@Ln",
+                "source_line": 4081,
+                "token_index0": 0,
+                "body": "dary",
+                "context": [
+                  "dary"
+                ]
+              },
+              {
+                "id": "f77r.32",
+                "page": "f77r",
+                "locus": "+P0",
+                "source_line": 4291,
+                "token_index0": 7,
+                "body": "qor.ain.cheol.ol.chealor.cheey.qet[eiiin:aiin].d[a:y]ry",
+                "context": [
+                  "cheey",
+                  "qeteiiin",
+                  "dary"
+                ]
+              },
+              {
+                "id": "f77r.47",
+                "page": "f77r",
+                "locus": "+P0",
+                "source_line": 4307,
+                "token_index0": 6,
+                "body": "ysheey.dal.saiis[o:a]l.sal.dalo.tain.dary.dalo",
+                "context": [
+                  "dalo",
+                  "tain",
+                  "dary",
+                  "dalo"
+                ]
+              },
+              {
+                "id": "f77v.35",
+                "page": "f77v",
+                "locus": "+P0",
+                "source_line": 4360,
+                "token_index0": 6,
+                "body": "tcho[r:s],sheey.qokain.qokain.sheol.qokeedy.qokal.dary",
+                "context": [
+                  "qokeedy",
+                  "qokal",
+                  "dary"
+                ]
+              },
+              {
+                "id": "f88r.14",
+                "page": "f88r",
+                "locus": "@Lf",
+                "source_line": 5711,
+                "token_index0": 0,
+                "body": "dary",
+                "context": [
+                  "dary"
+                ]
+              },
+              {
+                "id": "f111r.6",
+                "page": "f111r",
+                "locus": "+P0",
+                "source_line": 7640,
+                "token_index0": 12,
+                "body": "<%>dain.shedy.qoky.chedy.qok.shed.olchedy.qokeedy.teedy.chdy.keedy.qotchedy.dary",
+                "context": [
+                  "keedy",
+                  "qotchedy",
+                  "dary"
+                ]
+              },
+              {
+                "id": "f114r.6",
+                "page": "f114r",
+                "locus": "+P0",
+                "source_line": 8136,
+                "token_index0": 10,
+                "body": "qoeedy.okchedy.doiiin.chedy.daiin.ykeedy.okeeedy.chedol.chdaiin.ykar.dary",
+                "context": [
+                  "chdaiin",
+                  "ykar",
+                  "dary"
+                ]
+              },
+              {
+                "id": "f114v.20",
+                "page": "f114v",
+                "locus": "+P0",
+                "source_line": 8237,
+                "token_index0": 9,
+                "body": "<%>tshedain.qotchody.qokol.shedy.qokchedy.daiin.qofchdar.chdor.chdy.dary",
+                "context": [
+                  "chdor",
+                  "chdy",
+                  "dary"
+                ]
+              },
+              {
+                "id": "f115v.45",
+                "page": "f115v",
+                "locus": "+P0",
+                "source_line": 8422,
+                "token_index0": 3,
+                "body": "yk,chedaiin.chody.qokaiin.dary.cholaiim<$>",
+                "context": [
+                  "chody",
+                  "qokaiin",
+                  "dary",
+                  "cholaiim"
+                ]
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "file": "eva_it2a.txt",
+      "sha256": "7f27a8b0feed8f6de0a99900df6bf912dd1d295c38e5f830bac8b41c3f536fb5",
+      "parsed_records": 5215,
+      "numeric_records": 5215,
+      "named_records": 0,
+      "target_locus": {
+        "id": "f68r3.11",
+        "source_line": 1994,
+        "locus": "@Ls",
+        "raw": "<f68r3.11,@Ls>    doaro",
+        "payload_spans": [
+          {
+            "kind": "glyph",
+            "raw": "d",
+            "start": 0,
+            "end": 1
+          },
+          {
+            "kind": "glyph",
+            "raw": "o",
+            "start": 1,
+            "end": 2
+          },
+          {
+            "kind": "glyph",
+            "raw": "a",
+            "start": 2,
+            "end": 3
+          },
+          {
+            "kind": "glyph",
+            "raw": "r",
+            "start": 3,
+            "end": 4
+          },
+          {
+            "kind": "glyph",
+            "raw": "o",
+            "start": 4,
+            "end": 5
+          }
+        ]
+      },
+      "unparsed_target_bearing_lines": [],
+      "views": {
+        "split": {
+          "doary": {
+            "count": 0,
+            "matches": []
+          },
+          "doaro": {
+            "count": 1,
+            "matches": [
+              {
+                "id": "f68r3.11",
+                "page": "f68r3",
+                "locus": "@Ls",
+                "source_line": 1994,
+                "token_index0": 0,
+                "body": "doaro",
+                "context": [
+                  "doaro"
+                ]
+              }
+            ]
+          },
+          "dary": {
+            "count": 24,
+            "matches": [
+              {
+                "id": "f9v.9",
+                "page": "f9v",
+                "locus": "+P0",
+                "source_line": 266,
+                "token_index0": 4,
+                "body": "daiin.chy.tor.chyty.dary<->ytoldy",
+                "context": [
+                  "tor",
+                  "chyty",
+                  "dary",
+                  "ytoldy"
+                ]
+              },
+              {
+                "id": "f18r.8",
+                "page": "f18r",
+                "locus": "+P0",
+                "source_line": 454,
+                "token_index0": 4,
+                "body": "qokchor.ckhol.olody.okaldy<->dary",
+                "context": [
+                  "olody",
+                  "okaldy",
+                  "dary"
+                ]
+              },
+              {
+                "id": "f29v.2",
+                "page": "f29v",
+                "locus": "+P0",
+                "source_line": 735,
+                "token_index0": 7,
+                "body": "qotcheaiin.schol.chol.cthy.chey.cthold<->ytchor.dary",
+                "context": [
+                  "cthold",
+                  "ytchor",
+                  "dary"
+                ]
+              },
+              {
+                "id": "f32r.9",
+                "page": "f32r",
+                "locus": "+P0",
+                "source_line": 810,
+                "token_index0": 1,
+                "body": "dytchor.dary",
+                "context": [
+                  "dytchor",
+                  "dary"
+                ]
+              },
+              {
+                "id": "f43v.3",
+                "page": "f43v",
+                "locus": "+P0",
+                "source_line": 1140,
+                "token_index0": 11,
+                "body": "tody.teedy.qot.chocthy.chky.oky.chdy.okedy.ykaiin.chey.ody.dary",
+                "context": [
+                  "chey",
+                  "ody",
+                  "dary"
+                ]
+              },
+              {
+                "id": "f43v.15",
+                "page": "f43v",
+                "locus": "+P0",
+                "source_line": 1152,
+                "token_index0": 7,
+                "body": "oteod.qolkeey.kaldy.chy.darod?.qokeey.kol.dary.taros",
+                "context": [
+                  "qokeey",
+                  "kol",
+                  "dary",
+                  "taros"
+                ]
+              },
+              {
+                "id": "f45r.6",
+                "page": "f45r",
+                "locus": "+P0",
+                "source_line": 1186,
+                "token_index0": 7,
+                "body": "otchar.okchar.daiin.ytchody.tcholol.otar.dal.dary",
+                "context": [
+                  "otar",
+                  "dal",
+                  "dary"
+                ]
+              },
+              {
+                "id": "f48v.11",
+                "page": "f48v",
+                "locus": "+P0",
+                "source_line": 1282,
+                "token_index0": 7,
+                "body": "y.keedal.chckhy<->ykal.ytam.or.cheedls.dary<$>",
+                "context": [
+                  "or",
+                  "cheedls",
+                  "dary"
+                ]
+              },
+              {
+                "id": "f55v.7",
+                "page": "f55v",
+                "locus": "+P0",
+                "source_line": 1510,
+                "token_index0": 10,
+                "body": "<%>okchd.daiin.sheokey.or.air<->cs.kchdy.pchal.ar.aldy.dary",
+                "context": [
+                  "ar",
+                  "aldy",
+                  "dary"
+                ]
+              },
+              {
+                "id": "f66r.69",
+                "page": "f66r",
+                "locus": "+P0",
+                "source_line": 1739,
+                "token_index0": 6,
+                "body": "tosheo.qokaldy.oky.ol.kcheeky.qoky.dary.okees.oly<$>",
+                "context": [
+                  "kcheeky",
+                  "qoky",
+                  "dary",
+                  "okees",
+                  "oly"
+                ]
+              },
+              {
+                "id": "f67v1.13",
+                "page": "f67v1",
+                "locus": "@Ro",
+                "source_line": 1896,
+                "token_index0": 3,
+                "body": "otorkeol.or.cheey.dary",
+                "context": [
+                  "or",
+                  "cheey",
+                  "dary"
+                ]
+              },
+              {
+                "id": "f68r1.6",
+                "page": "f68r1",
+                "locus": "+Pb",
+                "source_line": 1919,
+                "token_index0": 0,
+                "body": "dary",
+                "context": [
+                  "dary"
+                ]
+              },
+              {
+                "id": "f69r.29",
+                "page": "f69r",
+                "locus": "@Ro",
+                "source_line": 2085,
+                "token_index0": 0,
+                "body": "dary.dar.aloly",
+                "context": [
+                  "dary",
+                  "dar",
+                  "aloly"
+                ]
+              },
+              {
+                "id": "f70r1.2",
+                "page": "f70r1",
+                "locus": "@Cc",
+                "source_line": 2140,
+                "token_index0": 5,
+                "body": "oteody.choekeeos.alairdy.okol.okeey.dary.otorsheod.okchedy.oteos.okes.okeos.cy.okchol.sair.ody.o.chopcheopchy.chol.air.shekchy.choteody.oteeshs.opcheody.otol.choky.chody.chotey.sheal.ar.ykeody.oteey.chedaiin.chotar.soly",
+                "context": [
+                  "okol",
+                  "okeey",
+                  "dary",
+                  "otorsheod",
+                  "okchedy"
+                ]
+              },
+              {
+                "id": "f75v.30",
+                "page": "f75v",
+                "locus": "@Ln",
+                "source_line": 2609,
+                "token_index0": 0,
+                "body": "dary",
+                "context": [
+                  "dary"
+                ]
+              },
+              {
+                "id": "f77r.32",
+                "page": "f77r",
+                "locus": "+P0",
+                "source_line": 2781,
+                "token_index0": 7,
+                "body": "qor.ain.cheol.ol.chealor.cheey.qetaiin.dary",
+                "context": [
+                  "cheey",
+                  "qetaiin",
+                  "dary"
+                ]
+              },
+              {
+                "id": "f77r.47",
+                "page": "f77r",
+                "locus": "+P0",
+                "source_line": 2796,
+                "token_index0": 6,
+                "body": "ysheey.dal.saiirol.sal.dalo.tain.dary.dalo",
+                "context": [
+                  "dalo",
+                  "tain",
+                  "dary",
+                  "dalo"
+                ]
+              },
+              {
+                "id": "f77v.33",
+                "page": "f77v",
+                "locus": "+P0",
+                "source_line": 2833,
+                "token_index0": 5,
+                "body": "qokaiin.cheky.rar.chedy.qokal.dary.qotal.dal.rain",
+                "context": [
+                  "chedy",
+                  "qokal",
+                  "dary",
+                  "qotal",
+                  "dal"
+                ]
+              },
+              {
+                "id": "f77v.35",
+                "page": "f77v",
+                "locus": "+P0",
+                "source_line": 2835,
+                "token_index0": 7,
+                "body": "tchor.sheey.qokain.qokain.sheol.qokeedy.qokal.dary",
+                "context": [
+                  "qokeedy",
+                  "qokal",
+                  "dary"
+                ]
+              },
+              {
+                "id": "f88r.14",
+                "page": "f88r",
+                "locus": "@Lf",
+                "source_line": 3704,
+                "token_index0": 0,
+                "body": "dary",
+                "context": [
+                  "dary"
+                ]
+              },
+              {
+                "id": "f111r.6",
+                "page": "f111r",
+                "locus": "+P0",
+                "source_line": 4917,
+                "token_index0": 12,
+                "body": "<%>dain.shedy.qoky.chedy.qok.shed.olchedy.qokeedy.teedy.chdy.keedy.qotchedy.dary",
+                "context": [
+                  "keedy",
+                  "qotchedy",
+                  "dary"
+                ]
+              },
+              {
+                "id": "f114r.6",
+                "page": "f114r",
+                "locus": "+P0",
+                "source_line": 5220,
+                "token_index0": 10,
+                "body": "qoeedy.okchedy.daiiin.chedy.daiin.ykeedy.okeeedy.chedol.chdaiin.ykar.dary",
+                "context": [
+                  "chdaiin",
+                  "ykar",
+                  "dary"
+                ]
+              },
+              {
+                "id": "f114v.20",
+                "page": "f114v",
+                "locus": "+P0",
+                "source_line": 5280,
+                "token_index0": 9,
+                "body": "<%>tshedain.qotchody.qokol.shedy.qokchedy.daiin.qofchdar.chdor.chdy.dary",
+                "context": [
+                  "chdor",
+                  "chdy",
+                  "dary"
+                ]
+              },
+              {
+                "id": "f115v.45",
+                "page": "f115v",
+                "locus": "+P0",
+                "source_line": 5393,
+                "token_index0": 3,
+                "body": "ykchedain.chody.qokaiin.dary.cholaiim<$>",
+                "context": [
+                  "chody",
+                  "qokaiin",
+                  "dary",
+                  "cholaiim"
+                ]
+              }
+            ]
+          }
+        },
+        "join": {
+          "doary": {
+            "count": 0,
+            "matches": []
+          },
+          "doaro": {
+            "count": 1,
+            "matches": [
+              {
+                "id": "f68r3.11",
+                "page": "f68r3",
+                "locus": "@Ls",
+                "source_line": 1994,
+                "token_index0": 0,
+                "body": "doaro",
+                "context": [
+                  "doaro"
+                ]
+              }
+            ]
+          },
+          "dary": {
+            "count": 24,
+            "matches": [
+              {
+                "id": "f9v.9",
+                "page": "f9v",
+                "locus": "+P0",
+                "source_line": 266,
+                "token_index0": 4,
+                "body": "daiin.chy.tor.chyty.dary<->ytoldy",
+                "context": [
+                  "tor",
+                  "chyty",
+                  "dary",
+                  "ytoldy"
+                ]
+              },
+              {
+                "id": "f18r.8",
+                "page": "f18r",
+                "locus": "+P0",
+                "source_line": 454,
+                "token_index0": 4,
+                "body": "qokchor.ckhol.olody.okaldy<->dary",
+                "context": [
+                  "olody",
+                  "okaldy",
+                  "dary"
+                ]
+              },
+              {
+                "id": "f29v.2",
+                "page": "f29v",
+                "locus": "+P0",
+                "source_line": 735,
+                "token_index0": 7,
+                "body": "qotcheaiin.schol.chol.cthy.chey.cthold<->ytchor.dary",
+                "context": [
+                  "cthold",
+                  "ytchor",
+                  "dary"
+                ]
+              },
+              {
+                "id": "f32r.9",
+                "page": "f32r",
+                "locus": "+P0",
+                "source_line": 810,
+                "token_index0": 1,
+                "body": "dytchor.dary",
+                "context": [
+                  "dytchor",
+                  "dary"
+                ]
+              },
+              {
+                "id": "f43v.3",
+                "page": "f43v",
+                "locus": "+P0",
+                "source_line": 1140,
+                "token_index0": 11,
+                "body": "tody.teedy.qot.chocthy.chky.oky.chdy.okedy.ykaiin.chey.ody.dary",
+                "context": [
+                  "chey",
+                  "ody",
+                  "dary"
+                ]
+              },
+              {
+                "id": "f43v.15",
+                "page": "f43v",
+                "locus": "+P0",
+                "source_line": 1152,
+                "token_index0": 7,
+                "body": "oteod.qolkeey.kaldy.chy.darod?.qokeey.kol.dary.taros",
+                "context": [
+                  "qokeey",
+                  "kol",
+                  "dary",
+                  "taros"
+                ]
+              },
+              {
+                "id": "f45r.6",
+                "page": "f45r",
+                "locus": "+P0",
+                "source_line": 1186,
+                "token_index0": 7,
+                "body": "otchar.okchar.daiin.ytchody.tcholol.otar.dal.dary",
+                "context": [
+                  "otar",
+                  "dal",
+                  "dary"
+                ]
+              },
+              {
+                "id": "f48v.11",
+                "page": "f48v",
+                "locus": "+P0",
+                "source_line": 1282,
+                "token_index0": 7,
+                "body": "y.keedal.chckhy<->ykal.ytam.or.cheedls.dary<$>",
+                "context": [
+                  "or",
+                  "cheedls",
+                  "dary"
+                ]
+              },
+              {
+                "id": "f55v.7",
+                "page": "f55v",
+                "locus": "+P0",
+                "source_line": 1510,
+                "token_index0": 10,
+                "body": "<%>okchd.daiin.sheokey.or.air<->cs.kchdy.pchal.ar.aldy.dary",
+                "context": [
+                  "ar",
+                  "aldy",
+                  "dary"
+                ]
+              },
+              {
+                "id": "f66r.69",
+                "page": "f66r",
+                "locus": "+P0",
+                "source_line": 1739,
+                "token_index0": 6,
+                "body": "tosheo.qokaldy.oky.ol.kcheeky.qoky.dary.okees.oly<$>",
+                "context": [
+                  "kcheeky",
+                  "qoky",
+                  "dary",
+                  "okees",
+                  "oly"
+                ]
+              },
+              {
+                "id": "f67v1.13",
+                "page": "f67v1",
+                "locus": "@Ro",
+                "source_line": 1896,
+                "token_index0": 3,
+                "body": "otorkeol.or.cheey.dary",
+                "context": [
+                  "or",
+                  "cheey",
+                  "dary"
+                ]
+              },
+              {
+                "id": "f68r1.6",
+                "page": "f68r1",
+                "locus": "+Pb",
+                "source_line": 1919,
+                "token_index0": 0,
+                "body": "dary",
+                "context": [
+                  "dary"
+                ]
+              },
+              {
+                "id": "f69r.29",
+                "page": "f69r",
+                "locus": "@Ro",
+                "source_line": 2085,
+                "token_index0": 0,
+                "body": "dary.dar.aloly",
+                "context": [
+                  "dary",
+                  "dar",
+                  "aloly"
+                ]
+              },
+              {
+                "id": "f70r1.2",
+                "page": "f70r1",
+                "locus": "@Cc",
+                "source_line": 2140,
+                "token_index0": 5,
+                "body": "oteody.choekeeos.alairdy.okol.okeey.dary.otorsheod.okchedy.oteos.okes.okeos.cy.okchol.sair.ody.o.chopcheopchy.chol.air.shekchy.choteody.oteeshs.opcheody.otol.choky.chody.chotey.sheal.ar.ykeody.oteey.chedaiin.chotar.soly",
+                "context": [
+                  "okol",
+                  "okeey",
+                  "dary",
+                  "otorsheod",
+                  "okchedy"
+                ]
+              },
+              {
+                "id": "f75v.30",
+                "page": "f75v",
+                "locus": "@Ln",
+                "source_line": 2609,
+                "token_index0": 0,
+                "body": "dary",
+                "context": [
+                  "dary"
+                ]
+              },
+              {
+                "id": "f77r.32",
+                "page": "f77r",
+                "locus": "+P0",
+                "source_line": 2781,
+                "token_index0": 7,
+                "body": "qor.ain.cheol.ol.chealor.cheey.qetaiin.dary",
+                "context": [
+                  "cheey",
+                  "qetaiin",
+                  "dary"
+                ]
+              },
+              {
+                "id": "f77r.47",
+                "page": "f77r",
+                "locus": "+P0",
+                "source_line": 2796,
+                "token_index0": 6,
+                "body": "ysheey.dal.saiirol.sal.dalo.tain.dary.dalo",
+                "context": [
+                  "dalo",
+                  "tain",
+                  "dary",
+                  "dalo"
+                ]
+              },
+              {
+                "id": "f77v.33",
+                "page": "f77v",
+                "locus": "+P0",
+                "source_line": 2833,
+                "token_index0": 5,
+                "body": "qokaiin.cheky.rar.chedy.qokal.dary.qotal.dal.rain",
+                "context": [
+                  "chedy",
+                  "qokal",
+                  "dary",
+                  "qotal",
+                  "dal"
+                ]
+              },
+              {
+                "id": "f77v.35",
+                "page": "f77v",
+                "locus": "+P0",
+                "source_line": 2835,
+                "token_index0": 7,
+                "body": "tchor.sheey.qokain.qokain.sheol.qokeedy.qokal.dary",
+                "context": [
+                  "qokeedy",
+                  "qokal",
+                  "dary"
+                ]
+              },
+              {
+                "id": "f88r.14",
+                "page": "f88r",
+                "locus": "@Lf",
+                "source_line": 3704,
+                "token_index0": 0,
+                "body": "dary",
+                "context": [
+                  "dary"
+                ]
+              },
+              {
+                "id": "f111r.6",
+                "page": "f111r",
+                "locus": "+P0",
+                "source_line": 4917,
+                "token_index0": 12,
+                "body": "<%>dain.shedy.qoky.chedy.qok.shed.olchedy.qokeedy.teedy.chdy.keedy.qotchedy.dary",
+                "context": [
+                  "keedy",
+                  "qotchedy",
+                  "dary"
+                ]
+              },
+              {
+                "id": "f114r.6",
+                "page": "f114r",
+                "locus": "+P0",
+                "source_line": 5220,
+                "token_index0": 10,
+                "body": "qoeedy.okchedy.daiiin.chedy.daiin.ykeedy.okeeedy.chedol.chdaiin.ykar.dary",
+                "context": [
+                  "chdaiin",
+                  "ykar",
+                  "dary"
+                ]
+              },
+              {
+                "id": "f114v.20",
+                "page": "f114v",
+                "locus": "+P0",
+                "source_line": 5280,
+                "token_index0": 9,
+                "body": "<%>tshedain.qotchody.qokol.shedy.qokchedy.daiin.qofchdar.chdor.chdy.dary",
+                "context": [
+                  "chdor",
+                  "chdy",
+                  "dary"
+                ]
+              },
+              {
+                "id": "f115v.45",
+                "page": "f115v",
+                "locus": "+P0",
+                "source_line": 5393,
+                "token_index0": 3,
+                "body": "ykchedain.chody.qokaiin.dary.cholaiim<$>",
+                "context": [
+                  "chody",
+                  "qokaiin",
+                  "dary",
+                  "cholaiim"
+                ]
+              }
+            ]
+          }
+        }
+      }
+    }
+  ]
+}

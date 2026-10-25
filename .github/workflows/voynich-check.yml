@@ -62,6 +62,22 @@ jobs:
           python scripts/check_corpus_integrity.py
           python tests/test_duplicate_leakage.py
 
+      - name: Verificar inventario astronómico y separar páginas numéricas de Rosettes
+        run: |
+          ANCHOR_REPO_ROOT=. python -m unittest discover -s research/decipherment/2026-10-26-astronomical-anchor -p 'test_run.py' -v
+          ANCHOR_REPO_ROOT=. python -O -m unittest discover -s research/decipherment/2026-10-26-astronomical-anchor -p 'test_run.py' -v
+          python research/decipherment/2026-10-26-astronomical-anchor/run.py --repo-root . --output anchor-inventory-v2-first.json
+          python research/decipherment/2026-10-26-astronomical-anchor/run.py --repo-root . --output anchor-inventory-v2-second.json
+          cmp anchor-inventory-v2-first.json anchor-inventory-v2-second.json
+
+      - name: Conservar inventario astronómico corregido
+        uses: actions/upload-artifact@v4
+        with:
+          name: astronomical-anchor-v2-${{ github.run_id }}
+          path: anchor-inventory-v2-first.json
+          if-no-files-found: error
+          retention-days: 90
+
       - name: Auditar exclusiones de identidad de corpus históricos
         run: |
           python -m unittest discover -s tests -p 'test_corpus_identity_overlay.py' -v
