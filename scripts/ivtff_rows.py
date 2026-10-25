@@ -19,6 +19,15 @@ def tokens_rows(payloads: list[Payload], **policy) -> list[str]:
     Independent rows are projected separately, preserving a word boundary.
     Existing lexer diagnostics and policy validation are delegated unchanged.
     """
+    # The frozen lexer can absorb a physical newline inside an angle-bracket
+    # comment without emitting its usual newline diagnostic. This additive
+    # adapter must fail closed rather than joining two physical rows.
+    for payload in payloads:
+        if not isinstance(payload, Payload):
+            raise TypeError('Expected a lexed IVTFF Payload')
+        if '\n' in payload.raw or '\r' in payload.raw:
+            raise ValueError('Physical newline inside an IVTFF row')
+
     output: list[str] = []
     chain: list[Payload] = []
 
