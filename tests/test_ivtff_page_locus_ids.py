@@ -31,23 +31,23 @@ def main() -> None:
     assert report["locus_number_out_of_range_count"] == 0, report
     assert structural_errors(report) == [], report
 
-    # IVTFF numeric identifiers use ASCII digits. Python's regex \\d
+    # IVTFF numeric identifiers use ASCII digits. Python's regex \d
     # also accepts Unicode decimal numerals; accepting those could create
     # a phantom folio or a malformed record with apparently valid counts.
-    unicode_page = audit_text("<f١r> <! $L=A>\\n<f١r.1,@P0> daiin\\n")
+    unicode_page = audit_text("<f١r> <! $L=A>\n<f١r.1,@P0> daiin\n")
     assert unicode_page["malformed_header_count"] == 1, unicode_page
     assert unicode_page["malformed_record_count"] == 1, unicode_page
     assert structural_errors(unicode_page), unicode_page
 
-    unicode_record = audit_text("<f1r> <! $L=A>\\n<f1r.٢,@P0> daiin\\n")
+    unicode_record = audit_text("<f1r> <! $L=A>\n<f1r.٢,@P0> daiin\n")
     assert unicode_record["malformed_record_count"] == 1, unicode_record
     assert structural_errors(unicode_record), unicode_record
 
     # A damaged page boundary must invalidate the previously active page,
     # not silently attach a later record to the wrong folio.
     unicode_boundary = audit_text(
-        "<f1r> <! $L=A>\\n<f1r.1,@P0> daiin\\n"
-        "<f٢r> <! $L=B>\\n<f1r.2,@P0> chedy\\n"
+        "<f1r> <! $L=A>\n<f1r.1,@P0> daiin\n"
+        "<f٢r> <! $L=B>\n<f1r.2,@P0> chedy\n"
     )
     assert unicode_boundary["malformed_header_count"] == 1, unicode_boundary
     assert unicode_boundary["page_mismatch_count"] == 1, unicode_boundary
@@ -55,8 +55,8 @@ def main() -> None:
     # The broad missing-opening-bracket diagnostic must still catch a
     # Unicode lookalike rather than silently discard the malformed line.
     unicode_missing_opener = audit_text(
-        "<f1r> <! $L=A>\\n<f1r.1,@P0> daiin\\n"
-        "f٢r> <! $L=B>\\n"
+        "<f1r> <! $L=A>\n<f1r.1,@P0> daiin\n"
+        "f٢r> <! $L=B>\n"
     )
     assert unicode_missing_opener["malformed_header_count"] == 1, unicode_missing_opener
 
