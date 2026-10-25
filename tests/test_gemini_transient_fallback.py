@@ -67,6 +67,17 @@ class TransientFallback(unittest.TestCase):
         self.assertEqual(r['api_attempts'],1)
         self.assertEqual(r['fallback_discovery'],'INCOMPATIBLE_METADATA')
 
+    def test_malformed_metadata_is_rejected_without_third_network_call(self):
+        for metadata in [[], {'name':'models/'+FALLBACK_MODEL,
+                             'supportedGenerationMethods':'generateContent',
+                             'outputTokenLimit':8192}]:
+            with self.subTest(metadata=metadata):
+                code,r,calls=self.run_case([TimeoutError(),response(metadata)])
+                self.assertEqual(code,1)
+                self.assertEqual(len(calls),2)
+                self.assertEqual(r['api_attempts'],1)
+                self.assertEqual(r['fallback_discovery'],'INCOMPATIBLE_METADATA')
+
     def test_second_failure_stops_after_two_generations(self):
         metadata={'name':'models/'+FALLBACK_MODEL,'supportedGenerationMethods':['generateContent'],'outputTokenLimit':8192}
         code,r,calls=self.run_case([TimeoutError(),response(metadata),TimeoutError()])

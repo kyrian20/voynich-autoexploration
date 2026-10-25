@@ -64,10 +64,19 @@ def build_request(model, key, prompt):
 
 
 def extract_text(payload):
+    if not isinstance(payload, dict):
+        raise ValueError("invalid API envelope")
     candidates = payload.get("candidates", [])
-    if not candidates:
+    if not isinstance(candidates, list) or not candidates or not isinstance(candidates[0], dict):
         raise ValueError("no candidates")
-    parts = candidates[0].get("content", {}).get("parts", [])
+    content = candidates[0].get("content")
+    if not isinstance(content, dict) or not isinstance(content.get("parts"), list):
+        raise ValueError("invalid content parts")
+    parts = content["parts"]
+    if any(not isinstance(part, dict) or
+           (not part.get("thought") and not isinstance(part.get("text", ""), str))
+           for part in parts):
+        raise ValueError("invalid content part")
     text = "".join(part.get("text", "") for part in parts if not part.get("thought"))
     if not text.strip():
         raise ValueError("empty model response")
@@ -115,7 +124,9 @@ def main(argv=None):
             try:
                 with opener.open(metadata_request, timeout=15) as response:
                     metadata = json.loads(response.read(MAX_RESPONSE + 1))
-                if (metadata.get("name") != "models/" + FALLBACK_MODEL or
+                if (not isinstance(metadata, dict) or
+                        metadata.get("name") != "models/" + FALLBACK_MODEL or
+                        not isinstance(metadata.get("supportedGenerationMethods"), list) or
                         "generateContent" not in metadata.get("supportedGenerationMethods", []) or
                         type(metadata.get("outputTokenLimit")) is not int or
                         metadata["outputTokenLimit"] < 4096):

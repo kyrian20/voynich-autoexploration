@@ -134,6 +134,27 @@ class GeminiReviewRequestTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             extract_text({"candidates": []})
 
+    def test_malformed_envelopes_leave_sanitized_receipt_without_retry(self):
+        import json
+        import os
+        from tempfile import TemporaryDirectory
+        payloads = [[], {"candidates": [None]}, {"candidates": {}},
+                    {"candidates": [{"content": []}]},
+                    {"candidates": [{"content": {"parts": [None]}}]},
+                    {"candidates": [{"content": {"parts": [{"text": 7}]}}]}]
+        for payload in payloads:
+            with self.subTest(payload=payload), TemporaryDirectory() as tmp:
+                with patch.dict(os.environ, {"GEMINI_API_KEY": "synthetic-secret"}):
+                    with patch("scripts.request_gemini_review.urllib.request.build_opener") as opener:
+                        response = opener.return_value.open.return_value.__enter__.return_value
+                        response.read.return_value = json.dumps(payload).encode()
+                        self.assertEqual(main(["--model", "gemini-3.8-flash", "--output-dir", tmp, "--execute"]), 1)
+                        opener.return_value.open.assert_called_once()
+                receipt = json.loads((Path(tmp)/"receipt.json").read_text())
+                self.assertEqual(receipt["api_attempts"], 1)
+                self.assertEqual(receipt["scientific_status"], "BLOCKED")
+                self.assertNotIn("synthetic-secret", json.dumps(receipt))
+
 
 if __name__ == "__main__":
     unittest.main()
