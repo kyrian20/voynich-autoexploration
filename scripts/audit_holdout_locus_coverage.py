@@ -22,8 +22,9 @@ NAMED = re.compile(r"^<f([A-Za-z][A-Za-z0-9_]*)(?:[.,][^>]*)?>")
 
 def inspect_source(raw: bytes) -> dict:
     leaves: set[int] = set()
-    named: Counter[str] = Counter()
-    numeric_records = 0
+    named_headers: Counter[str] = Counter()
+    named_loci: Counter[str] = Counter()
+    numeric_tags = numeric_headers = numeric_loci = 0
     for line_no, line in enumerate(raw.decode("utf-8-sig").splitlines(), 1):
         if not line.startswith("<f"):
             continue
@@ -34,20 +35,33 @@ def inspect_source(raw: bytes) -> dict:
             leaf = int(match.group(1))
             if leaf <= 0:
                 raise ValueError(f"Nonpositive physical leaf at source line {line_no}")
-            numeric_records += 1
+            numeric_tags += 1
+            if '.' in match.group(0) or ',' in match.group(0):
+                numeric_loci += 1
+            else:
+                numeric_headers += 1
             leaves.add(leaf)
         else:
             match = NAMED.match(line)
             if match is None:
                 raise ValueError(f"Unparsed named folio header at source line {line_no}")
-            named[match.group(1)] += 1
+            # A page header is not a locus record. Count both separately.
+            if '.' in match.group(0) or ',' in match.group(0):
+                named_loci[match.group(1)] += 1
+            else:
+                named_headers[match.group(1)] += 1
     if not leaves:
         raise ValueError("No numeric physical leaves found")
     return {
-        "numeric_record_count": numeric_records,
+        "numeric_tag_count": numeric_tags,
+        "numeric_page_header_count": numeric_headers,
+        "numeric_locus_record_count": numeric_loci,
         "numeric_leaves": sorted(leaves),
-        "named_locus_records": dict(sorted(named.items())),
-        "named_locus_record_count": sum(named.values()),
+        "named_tag_count": sum(named_headers.values()) + sum(named_loci.values()),
+        "named_page_headers": dict(sorted(named_headers.items())),
+        "named_page_header_count": sum(named_headers.values()),
+        "named_locus_records": dict(sorted(named_loci.items())),
+        "named_locus_record_count": sum(named_loci.values()),
     }
 
 
