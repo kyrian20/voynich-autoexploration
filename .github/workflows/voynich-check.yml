@@ -111,6 +111,18 @@ jobs:
           if-no-files-found: error
           retention-days: 90
 
+      - name: Verificar cola visual y cobertura de etiquetas sin evaluar semántica
+        run: |
+          python -m unittest discover -s tests -p 'test_visual_annotation_queue.py' -v
+          python -m unittest discover -s tests -p 'test_label_partition_coverage.py' -v
+          python -m unittest discover -s tests -p 'test_coordinator_mask_preview.py' -v
+          python scripts/audit_label_partition_coverage.py --out "$RUNNER_TEMP/label-coverage.json"
+          cmp research/decipherment/2026-10-25-label-coverage/coverage.json "$RUNNER_TEMP/label-coverage.json"
+          python scripts/prepare_visual_annotation_queue.py --out-dir "$RUNNER_TEMP/visual-queue"
+          cmp research/decipherment/2026-10-25-visual-annotation/annotator-queue.json.gz "$RUNNER_TEMP/visual-queue/annotator-queue.json.gz"
+          cmp research/decipherment/2026-10-25-visual-annotation/coordinator-map.json.gz "$RUNNER_TEMP/visual-queue/coordinator-map.json.gz"
+          cmp research/decipherment/2026-10-25-visual-annotation/SHA256.json "$RUNNER_TEMP/visual-queue/SHA256.json"
+
       - name: Reproducir auditoría de lectores históricos
         run: |
           python tests/test_historical_latin_loaders.py

@@ -1,0 +1,6 @@
+{
+  "scripts/audit_label_partition_coverage.py": "bf4c0139e18c381ee139ec6fd9f28203d47d898fe0e72280955ea04aea14dd12",
+  "tests/test_label_partition_coverage.py": "2bf180e4b304deb72cb53931179137807b737b47611d6c0e38a6acf89977e7a3",
+  "research/decipherment/2026-10-25-label-coverage/PROTOCOL.md": "a602f16aff843a432bb15969dae23cfaf47232ceff85274c1e060ee69426d9f1",
+  "research/decipherment/2026-10-25-label-coverage/coverage.json": "4d6585c2bb22d3d69968140f237a48c352f2161d6b25809490e6e6df1b9530b8"
+}
