@@ -95,8 +95,12 @@ def main():
         raise AssertionError('Non-text IVTFF raw row accepted')
     # A physical newline hidden inside an angle-bracket comment is swallowed
     # by the frozen single-row lexer; the additive row APIs must reject it.
-    for malformed_row in ('a<!hidden\ncomment>b', 'a<!hidden\rcomment>b',
-                          'a<!hidden\r\ncomment>b'):
+    physical_breaks = ('\n', '\r', '\r\n', '\v', '\f', '\x1c', '\x1d',
+                       '\x1e', '\x85', '\u2028', '\u2029')
+    malformed_rows = [f'a<!hidden{sep}comment>b' for sep in physical_breaks]
+    malformed_rows += [f'a{sep}b' for sep in physical_breaks]
+    for malformed_row in malformed_rows:
+        assert len(malformed_row.splitlines()) == 2
         for projector in (
             lambda p: tokens_rows([p]),
             lambda p: tokens_scoped_rows([('ZL3b', 'f1r', p)]),

@@ -5,10 +5,31 @@ from pathlib import Path
 import unittest
 from unittest.mock import patch
 
-from scripts.request_gemini_review import build_request, extract_text, main
+from scripts.request_gemini_review import PROMPT_PATH, build_request, extract_text, main
 
 
 class GeminiReviewRequestTests(unittest.TestCase):
+    def test_v2_prompt_defines_quire_currier_and_fixed_holdout(self):
+        prompt = PROMPT_PATH.read_text(encoding="utf-8")
+        self.assertIn("$Q=T", prompt)
+        self.assertIn("cuaderno", prompt)
+        self.assertIn("NO", prompt)
+        self.assertIn("$L=A/B", prompt)
+        self.assertIn("$I", prompt)
+        self.assertIn("train/development/test", prompt)
+        self.assertIn("needs_data", prompt)
+        # The original prompt is immutable provenance for the earlier Gemini run.
+        previous = PROMPT_PATH.with_name("2026-10-24-gemini-ch-sh-review-prompt.md")
+        self.assertTrue(previous.is_file())
+        self.assertNotEqual(previous.read_bytes(), PROMPT_PATH.read_bytes())
+
+    def test_workflow_checks_out_the_same_versioned_prompt(self):
+        root = Path(__file__).resolve().parents[1]
+        selected = PROMPT_PATH.relative_to(root).as_posix()
+        workflow = (root / ".github/workflows/gemini-methodological-review.yml").read_text(encoding="utf-8")
+        self.assertEqual(workflow.count(selected), 2)
+        self.assertNotIn("2026-10-24-gemini-ch-sh-review-prompt.md", workflow)
+
     def test_requires_explicit_execute(self):
         with patch.object(sys, "argv", ["request_gemini_review.py", "--model", "gemini-3.8-flash", "--output-dir", "unused"]):
             self.assertEqual(main(), 0)
@@ -43,6 +64,50 @@ class GeminiReviewRequestTests(unittest.TestCase):
             output = Path(directory) / "api-response-untrusted.json"
             output.write_text(json.dumps(sample, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
             self.assertEqual(json.loads(output.read_text(encoding="utf-8")), sample)
+
+    def test_failed_api_attempt_preserves_sanitized_receipt(self):
+        # A failed manual review must leave verifiable provenance even when
+        # there is no valid Gemini response to upload. No network call occurs.
+        import hashlib
+        import json
+        import os
+        import urllib.error
+        from tempfile import TemporaryDirectory
+
+        for failure in ("offline", "invalid_json"):
+            with self.subTest(failure=failure), TemporaryDirectory() as tmp:
+                destination = Path(tmp) / "review"
+                with patch.dict(os.environ, {"GEMINI_API_KEY": "synthetic-test-key"}):
+                    with patch("scripts.request_gemini_review.urllib.request.build_opener") as opener:
+                        if failure == "offline":
+                            opener.return_value.open.side_effect = urllib.error.URLError(
+                                "synthetic network failure"
+                            )
+                        else:
+                            response = opener.return_value.open.return_value.__enter__.return_value
+                            response.read.return_value = b"not-json"
+                        status = main([
+                            "--model", "gemini-3.8-flash",
+                            "--output-dir", str(destination), "--execute",
+                        ])
+                self.assertEqual(status, 1)
+                opener.return_value.open.assert_called_once()
+                self.assertEqual(sorted(p.name for p in destination.iterdir()), ["receipt.json"])
+                raw = (destination / "receipt.json").read_text(encoding="utf-8")
+                receipt = json.loads(raw)
+                self.assertEqual(receipt["status"], "API_OR_RESPONSE_ERROR")
+                self.assertEqual(receipt["scientific_status"], "BLOCKED")
+                self.assertEqual(receipt["api_attempts"], 1)
+                self.assertEqual(receipt["model"], "gemini-3.8-flash")
+                self.assertFalse(receipt["manuscript_corpus_sent"])
+                self.assertIsNone(receipt["response_sha256"])
+                self.assertIsNone(receipt["api_envelope_sha256"])
+                self.assertEqual(
+                    receipt["prompt_sha256"],
+                    hashlib.sha256(PROMPT_PATH.read_bytes()).hexdigest(),
+                )
+                self.assertNotIn("synthetic-test-key", raw)
+                self.assertNotIn("synthetic network failure", raw)
 
     def test_rejects_missing_secret(self):
         with self.assertRaises(ValueError):

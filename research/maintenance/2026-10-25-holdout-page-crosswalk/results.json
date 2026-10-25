@@ -1,0 +1,1844 @@
+{
+  "edition_only_pages": {
+    "eva_it2a.txt": [],
+    "eva_zl3b.txt": [
+      "f116v",
+      "fRos"
+    ]
+  },
+  "editions": {
+    "eva_it2a.txt": {
+      "continuation_rows": 0,
+      "locus_count": 5215,
+      "page_count": 225,
+      "pages": {
+        "f100r": {
+          "partition": "train",
+          "physical_leaf": 100
+        },
+        "f100v": {
+          "partition": "train",
+          "physical_leaf": 100
+        },
+        "f101r": {
+          "partition": "train",
+          "physical_leaf": 101
+        },
+        "f101v": {
+          "partition": "train",
+          "physical_leaf": 101
+        },
+        "f102r1": {
+          "partition": "train",
+          "physical_leaf": 102
+        },
+        "f102r2": {
+          "partition": "train",
+          "physical_leaf": 102
+        },
+        "f102v1": {
+          "partition": "train",
+          "physical_leaf": 102
+        },
+        "f102v2": {
+          "partition": "train",
+          "physical_leaf": 102
+        },
+        "f103r": {
+          "partition": "test",
+          "physical_leaf": 103
+        },
+        "f103v": {
+          "partition": "test",
+          "physical_leaf": 103
+        },
+        "f104r": {
+          "partition": "train",
+          "physical_leaf": 104
+        },
+        "f104v": {
+          "partition": "train",
+          "physical_leaf": 104
+        },
+        "f105r": {
+          "partition": "train",
+          "physical_leaf": 105
+        },
+        "f105v": {
+          "partition": "train",
+          "physical_leaf": 105
+        },
+        "f106r": {
+          "partition": "train",
+          "physical_leaf": 106
+        },
+        "f106v": {
+          "partition": "train",
+          "physical_leaf": 106
+        },
+        "f107r": {
+          "partition": "development",
+          "physical_leaf": 107
+        },
+        "f107v": {
+          "partition": "development",
+          "physical_leaf": 107
+        },
+        "f108r": {
+          "partition": "train",
+          "physical_leaf": 108
+        },
+        "f108v": {
+          "partition": "train",
+          "physical_leaf": 108
+        },
+        "f10r": {
+          "partition": "train",
+          "physical_leaf": 10
+        },
+        "f10v": {
+          "partition": "train",
+          "physical_leaf": 10
+        },
+        "f111r": {
+          "partition": "train",
+          "physical_leaf": 111
+        },
+        "f111v": {
+          "partition": "train",
+          "physical_leaf": 111
+        },
+        "f112r": {
+          "partition": "train",
+          "physical_leaf": 112
+        },
+        "f112v": {
+          "partition": "train",
+          "physical_leaf": 112
+        },
+        "f113r": {
+          "partition": "train",
+          "physical_leaf": 113
+        },
+        "f113v": {
+          "partition": "train",
+          "physical_leaf": 113
+        },
+        "f114r": {
+          "partition": "train",
+          "physical_leaf": 114
+        },
+        "f114v": {
+          "partition": "train",
+          "physical_leaf": 114
+        },
+        "f115r": {
+          "partition": "development",
+          "physical_leaf": 115
+        },
+        "f115v": {
+          "partition": "development",
+          "physical_leaf": 115
+        },
+        "f116r": {
+          "partition": "train",
+          "physical_leaf": 116
+        },
+        "f11r": {
+          "partition": "test",
+          "physical_leaf": 11
+        },
+        "f11v": {
+          "partition": "test",
+          "physical_leaf": 11
+        },
+        "f13r": {
+          "partition": "train",
+          "physical_leaf": 13
+        },
+        "f13v": {
+          "partition": "train",
+          "physical_leaf": 13
+        },
+        "f14r": {
+          "partition": "train",
+          "physical_leaf": 14
+        },
+        "f14v": {
+          "partition": "train",
+          "physical_leaf": 14
+        },
+        "f15r": {
+          "partition": "development",
+          "physical_leaf": 15
+        },
+        "f15v": {
+          "partition": "development",
+          "physical_leaf": 15
+        },
+        "f16r": {
+          "partition": "train",
+          "physical_leaf": 16
+        },
+        "f16v": {
+          "partition": "train",
+          "physical_leaf": 16
+        },
+        "f17r": {
+          "partition": "train",
+          "physical_leaf": 17
+        },
+        "f17v": {
+          "partition": "train",
+          "physical_leaf": 17
+        },
+        "f18r": {
+          "partition": "train",
+          "physical_leaf": 18
+        },
+        "f18v": {
+          "partition": "train",
+          "physical_leaf": 18
+        },
+        "f19r": {
+          "partition": "train",
+          "physical_leaf": 19
+        },
+        "f19v": {
+          "partition": "train",
+          "physical_leaf": 19
+        },
+        "f1r": {
+          "partition": "train",
+          "physical_leaf": 1
+        },
+        "f1v": {
+          "partition": "train",
+          "physical_leaf": 1
+        },
+        "f20r": {
+          "partition": "train",
+          "physical_leaf": 20
+        },
+        "f20v": {
+          "partition": "train",
+          "physical_leaf": 20
+        },
+        "f21r": {
+          "partition": "development",
+          "physical_leaf": 21
+        },
+        "f21v": {
+          "partition": "development",
+          "physical_leaf": 21
+        },
+        "f22r": {
+          "partition": "train",
+          "physical_leaf": 22
+        },
+        "f22v": {
+          "partition": "train",
+          "physical_leaf": 22
+        },
+        "f23r": {
+          "partition": "train",
+          "physical_leaf": 23
+        },
+        "f23v": {
+          "partition": "train",
+          "physical_leaf": 23
+        },
+        "f24r": {
+          "partition": "test",
+          "physical_leaf": 24
+        },
+        "f24v": {
+          "partition": "test",
+          "physical_leaf": 24
+        },
+        "f25r": {
+          "partition": "development",
+          "physical_leaf": 25
+        },
+        "f25v": {
+          "partition": "development",
+          "physical_leaf": 25
+        },
+        "f26r": {
+          "partition": "train",
+          "physical_leaf": 26
+        },
+        "f26v": {
+          "partition": "train",
+          "physical_leaf": 26
+        },
+        "f27r": {
+          "partition": "train",
+          "physical_leaf": 27
+        },
+        "f27v": {
+          "partition": "train",
+          "physical_leaf": 27
+        },
+        "f28r": {
+          "partition": "development",
+          "physical_leaf": 28
+        },
+        "f28v": {
+          "partition": "development",
+          "physical_leaf": 28
+        },
+        "f29r": {
+          "partition": "test",
+          "physical_leaf": 29
+        },
+        "f29v": {
+          "partition": "test",
+          "physical_leaf": 29
+        },
+        "f2r": {
+          "partition": "train",
+          "physical_leaf": 2
+        },
+        "f2v": {
+          "partition": "train",
+          "physical_leaf": 2
+        },
+        "f30r": {
+          "partition": "train",
+          "physical_leaf": 30
+        },
+        "f30v": {
+          "partition": "train",
+          "physical_leaf": 30
+        },
+        "f31r": {
+          "partition": "train",
+          "physical_leaf": 31
+        },
+        "f31v": {
+          "partition": "train",
+          "physical_leaf": 31
+        },
+        "f32r": {
+          "partition": "train",
+          "physical_leaf": 32
+        },
+        "f32v": {
+          "partition": "train",
+          "physical_leaf": 32
+        },
+        "f33r": {
+          "partition": "test",
+          "physical_leaf": 33
+        },
+        "f33v": {
+          "partition": "test",
+          "physical_leaf": 33
+        },
+        "f34r": {
+          "partition": "train",
+          "physical_leaf": 34
+        },
+        "f34v": {
+          "partition": "train",
+          "physical_leaf": 34
+        },
+        "f35r": {
+          "partition": "train",
+          "physical_leaf": 35
+        },
+        "f35v": {
+          "partition": "train",
+          "physical_leaf": 35
+        },
+        "f36r": {
+          "partition": "test",
+          "physical_leaf": 36
+        },
+        "f36v": {
+          "partition": "test",
+          "physical_leaf": 36
+        },
+        "f37r": {
+          "partition": "train",
+          "physical_leaf": 37
+        },
+        "f37v": {
+          "partition": "train",
+          "physical_leaf": 37
+        },
+        "f38r": {
+          "partition": "development",
+          "physical_leaf": 38
+        },
+        "f38v": {
+          "partition": "development",
+          "physical_leaf": 38
+        },
+        "f39r": {
+          "partition": "train",
+          "physical_leaf": 39
+        },
+        "f39v": {
+          "partition": "train",
+          "physical_leaf": 39
+        },
+        "f3r": {
+          "partition": "test",
+          "physical_leaf": 3
+        },
+        "f3v": {
+          "partition": "test",
+          "physical_leaf": 3
+        },
+        "f40r": {
+          "partition": "test",
+          "physical_leaf": 40
+        },
+        "f40v": {
+          "partition": "test",
+          "physical_leaf": 40
+        },
+        "f41r": {
+          "partition": "train",
+          "physical_leaf": 41
+        },
+        "f41v": {
+          "partition": "train",
+          "physical_leaf": 41
+        },
+        "f42r": {
+          "partition": "train",
+          "physical_leaf": 42
+        },
+        "f42v": {
+          "partition": "train",
+          "physical_leaf": 42
+        },
+        "f43r": {
+          "partition": "train",
+          "physical_leaf": 43
+        },
+        "f43v": {
+          "partition": "train",
+          "physical_leaf": 43
+        },
+        "f44r": {
+          "partition": "development",
+          "physical_leaf": 44
+        },
+        "f44v": {
+          "partition": "development",
+          "physical_leaf": 44
+        },
+        "f45r": {
+          "partition": "train",
+          "physical_leaf": 45
+        },
+        "f45v": {
+          "partition": "train",
+          "physical_leaf": 45
+        },
+        "f46r": {
+          "partition": "test",
+          "physical_leaf": 46
+        },
+        "f46v": {
+          "partition": "test",
+          "physical_leaf": 46
+        },
+        "f47r": {
+          "partition": "train",
+          "physical_leaf": 47
+        },
+        "f47v": {
+          "partition": "train",
+          "physical_leaf": 47
+        },
+        "f48r": {
+          "partition": "test",
+          "physical_leaf": 48
+        },
+        "f48v": {
+          "partition": "test",
+          "physical_leaf": 48
+        },
+        "f49r": {
+          "partition": "train",
+          "physical_leaf": 49
+        },
+        "f49v": {
+          "partition": "train",
+          "physical_leaf": 49
+        },
+        "f4r": {
+          "partition": "development",
+          "physical_leaf": 4
+        },
+        "f4v": {
+          "partition": "development",
+          "physical_leaf": 4
+        },
+        "f50r": {
+          "partition": "test",
+          "physical_leaf": 50
+        },
+        "f50v": {
+          "partition": "test",
+          "physical_leaf": 50
+        },
+        "f51r": {
+          "partition": "train",
+          "physical_leaf": 51
+        },
+        "f51v": {
+          "partition": "train",
+          "physical_leaf": 51
+        },
+        "f52r": {
+          "partition": "train",
+          "physical_leaf": 52
+        },
+        "f52v": {
+          "partition": "train",
+          "physical_leaf": 52
+        },
+        "f53r": {
+          "partition": "train",
+          "physical_leaf": 53
+        },
+        "f53v": {
+          "partition": "train",
+          "physical_leaf": 53
+        },
+        "f54r": {
+          "partition": "test",
+          "physical_leaf": 54
+        },
+        "f54v": {
+          "partition": "test",
+          "physical_leaf": 54
+        },
+        "f55r": {
+          "partition": "train",
+          "physical_leaf": 55
+        },
+        "f55v": {
+          "partition": "train",
+          "physical_leaf": 55
+        },
+        "f56r": {
+          "partition": "train",
+          "physical_leaf": 56
+        },
+        "f56v": {
+          "partition": "train",
+          "physical_leaf": 56
+        },
+        "f57r": {
+          "partition": "train",
+          "physical_leaf": 57
+        },
+        "f57v": {
+          "partition": "train",
+          "physical_leaf": 57
+        },
+        "f58r": {
+          "partition": "test",
+          "physical_leaf": 58
+        },
+        "f58v": {
+          "partition": "test",
+          "physical_leaf": 58
+        },
+        "f5r": {
+          "partition": "development",
+          "physical_leaf": 5
+        },
+        "f5v": {
+          "partition": "development",
+          "physical_leaf": 5
+        },
+        "f65r": {
+          "partition": "train",
+          "physical_leaf": 65
+        },
+        "f65v": {
+          "partition": "train",
+          "physical_leaf": 65
+        },
+        "f66r": {
+          "partition": "test",
+          "physical_leaf": 66
+        },
+        "f66v": {
+          "partition": "test",
+          "physical_leaf": 66
+        },
+        "f67r1": {
+          "partition": "train",
+          "physical_leaf": 67
+        },
+        "f67r2": {
+          "partition": "train",
+          "physical_leaf": 67
+        },
+        "f67v1": {
+          "partition": "train",
+          "physical_leaf": 67
+        },
+        "f67v2": {
+          "partition": "train",
+          "physical_leaf": 67
+        },
+        "f68r1": {
+          "partition": "development",
+          "physical_leaf": 68
+        },
+        "f68r2": {
+          "partition": "development",
+          "physical_leaf": 68
+        },
+        "f68r3": {
+          "partition": "development",
+          "physical_leaf": 68
+        },
+        "f68v1": {
+          "partition": "development",
+          "physical_leaf": 68
+        },
+        "f68v2": {
+          "partition": "development",
+          "physical_leaf": 68
+        },
+        "f68v3": {
+          "partition": "development",
+          "physical_leaf": 68
+        },
+        "f69r": {
+          "partition": "train",
+          "physical_leaf": 69
+        },
+        "f69v": {
+          "partition": "train",
+          "physical_leaf": 69
+        },
+        "f6r": {
+          "partition": "train",
+          "physical_leaf": 6
+        },
+        "f6v": {
+          "partition": "train",
+          "physical_leaf": 6
+        },
+        "f70r1": {
+          "partition": "test",
+          "physical_leaf": 70
+        },
+        "f70r2": {
+          "partition": "test",
+          "physical_leaf": 70
+        },
+        "f70v1": {
+          "partition": "test",
+          "physical_leaf": 70
+        },
+        "f70v2": {
+          "partition": "test",
+          "physical_leaf": 70
+        },
+        "f71r": {
+          "partition": "train",
+          "physical_leaf": 71
+        },
+        "f71v": {
+          "partition": "train",
+          "physical_leaf": 71
+        },
+        "f72r1": {
+          "partition": "test",
+          "physical_leaf": 72
+        },
+        "f72r2": {
+          "partition": "test",
+          "physical_leaf": 72
+        },
+        "f72r3": {
+          "partition": "test",
+          "physical_leaf": 72
+        },
+        "f72v1": {
+          "partition": "test",
+          "physical_leaf": 72
+        },
+        "f72v2": {
+          "partition": "test",
+          "physical_leaf": 72
+        },
+        "f72v3": {
+          "partition": "test",
+          "physical_leaf": 72
+        },
+        "f73r": {
+          "partition": "development",
+          "physical_leaf": 73
+        },
+        "f73v": {
+          "partition": "development",
+          "physical_leaf": 73
+        },
+        "f75r": {
+          "partition": "train",
+          "physical_leaf": 75
+        },
+        "f75v": {
+          "partition": "train",
+          "physical_leaf": 75
+        },
+        "f76r": {
+          "partition": "development",
+          "physical_leaf": 76
+        },
+        "f76v": {
+          "partition": "development",
+          "physical_leaf": 76
+        },
+        "f77r": {
+          "partition": "train",
+          "physical_leaf": 77
+        },
+        "f77v": {
+          "partition": "train",
+          "physical_leaf": 77
+        },
+        "f78r": {
+          "partition": "development",
+          "physical_leaf": 78
+        },
+        "f78v": {
+          "partition": "development",
+          "physical_leaf": 78
+        },
+        "f79r": {
+          "partition": "train",
+          "physical_leaf": 79
+        },
+        "f79v": {
+          "partition": "train",
+          "physical_leaf": 79
+        },
+        "f7r": {
+          "partition": "train",
+          "physical_leaf": 7
+        },
+        "f7v": {
+          "partition": "train",
+          "physical_leaf": 7
+        },
+        "f80r": {
+          "partition": "test",
+          "physical_leaf": 80
+        },
+        "f80v": {
+          "partition": "test",
+          "physical_leaf": 80
+        },
+        "f81r": {
+          "partition": "train",
+          "physical_leaf": 81
+        },
+        "f81v": {
+          "partition": "train",
+          "physical_leaf": 81
+        },
+        "f82r": {
+          "partition": "train",
+          "physical_leaf": 82
+        },
+        "f82v": {
+          "partition": "train",
+          "physical_leaf": 82
+        },
+        "f83r": {
+          "partition": "train",
+          "physical_leaf": 83
+        },
+        "f83v": {
+          "partition": "train",
+          "physical_leaf": 83
+        },
+        "f84r": {
+          "partition": "train",
+          "physical_leaf": 84
+        },
+        "f84v": {
+          "partition": "train",
+          "physical_leaf": 84
+        },
+        "f85r1": {
+          "partition": "development",
+          "physical_leaf": 85
+        },
+        "f85r2": {
+          "partition": "development",
+          "physical_leaf": 85
+        },
+        "f86v3": {
+          "partition": "train",
+          "physical_leaf": 86
+        },
+        "f86v4": {
+          "partition": "train",
+          "physical_leaf": 86
+        },
+        "f86v5": {
+          "partition": "train",
+          "physical_leaf": 86
+        },
+        "f86v6": {
+          "partition": "train",
+          "physical_leaf": 86
+        },
+        "f87r": {
+          "partition": "train",
+          "physical_leaf": 87
+        },
+        "f87v": {
+          "partition": "train",
+          "physical_leaf": 87
+        },
+        "f88r": {
+          "partition": "train",
+          "physical_leaf": 88
+        },
+        "f88v": {
+          "partition": "train",
+          "physical_leaf": 88
+        },
+        "f89r1": {
+          "partition": "train",
+          "physical_leaf": 89
+        },
+        "f89r2": {
+          "partition": "train",
+          "physical_leaf": 89
+        },
+        "f89v1": {
+          "partition": "train",
+          "physical_leaf": 89
+        },
+        "f89v2": {
+          "partition": "train",
+          "physical_leaf": 89
+        },
+        "f8r": {
+          "partition": "train",
+          "physical_leaf": 8
+        },
+        "f8v": {
+          "partition": "train",
+          "physical_leaf": 8
+        },
+        "f90r1": {
+          "partition": "train",
+          "physical_leaf": 90
+        },
+        "f90r2": {
+          "partition": "train",
+          "physical_leaf": 90
+        },
+        "f90v1": {
+          "partition": "train",
+          "physical_leaf": 90
+        },
+        "f90v2": {
+          "partition": "train",
+          "physical_leaf": 90
+        },
+        "f93r": {
+          "partition": "train",
+          "physical_leaf": 93
+        },
+        "f93v": {
+          "partition": "train",
+          "physical_leaf": 93
+        },
+        "f94r": {
+          "partition": "train",
+          "physical_leaf": 94
+        },
+        "f94v": {
+          "partition": "train",
+          "physical_leaf": 94
+        },
+        "f95r1": {
+          "partition": "train",
+          "physical_leaf": 95
+        },
+        "f95r2": {
+          "partition": "train",
+          "physical_leaf": 95
+        },
+        "f95v1": {
+          "partition": "train",
+          "physical_leaf": 95
+        },
+        "f95v2": {
+          "partition": "train",
+          "physical_leaf": 95
+        },
+        "f96r": {
+          "partition": "train",
+          "physical_leaf": 96
+        },
+        "f96v": {
+          "partition": "train",
+          "physical_leaf": 96
+        },
+        "f99r": {
+          "partition": "development",
+          "physical_leaf": 99
+        },
+        "f99v": {
+          "partition": "development",
+          "physical_leaf": 99
+        },
+        "f9r": {
+          "partition": "test",
+          "physical_leaf": 9
+        },
+        "f9v": {
+          "partition": "test",
+          "physical_leaf": 9
+        }
+      },
+      "sha256": "7f27a8b0feed8f6de0a99900df6bf912dd1d295c38e5f830bac8b41c3f536fb5"
+    },
+    "eva_zl3b.txt": {
+      "continuation_rows": 0,
+      "locus_count": 5385,
+      "page_count": 227,
+      "pages": {
+        "f100r": {
+          "partition": "train",
+          "physical_leaf": 100
+        },
+        "f100v": {
+          "partition": "train",
+          "physical_leaf": 100
+        },
+        "f101r": {
+          "partition": "train",
+          "physical_leaf": 101
+        },
+        "f101v": {
+          "partition": "train",
+          "physical_leaf": 101
+        },
+        "f102r1": {
+          "partition": "train",
+          "physical_leaf": 102
+        },
+        "f102r2": {
+          "partition": "train",
+          "physical_leaf": 102
+        },
+        "f102v1": {
+          "partition": "train",
+          "physical_leaf": 102
+        },
+        "f102v2": {
+          "partition": "train",
+          "physical_leaf": 102
+        },
+        "f103r": {
+          "partition": "test",
+          "physical_leaf": 103
+        },
+        "f103v": {
+          "partition": "test",
+          "physical_leaf": 103
+        },
+        "f104r": {
+          "partition": "train",
+          "physical_leaf": 104
+        },
+        "f104v": {
+          "partition": "train",
+          "physical_leaf": 104
+        },
+        "f105r": {
+          "partition": "train",
+          "physical_leaf": 105
+        },
+        "f105v": {
+          "partition": "train",
+          "physical_leaf": 105
+        },
+        "f106r": {
+          "partition": "train",
+          "physical_leaf": 106
+        },
+        "f106v": {
+          "partition": "train",
+          "physical_leaf": 106
+        },
+        "f107r": {
+          "partition": "development",
+          "physical_leaf": 107
+        },
+        "f107v": {
+          "partition": "development",
+          "physical_leaf": 107
+        },
+        "f108r": {
+          "partition": "train",
+          "physical_leaf": 108
+        },
+        "f108v": {
+          "partition": "train",
+          "physical_leaf": 108
+        },
+        "f10r": {
+          "partition": "train",
+          "physical_leaf": 10
+        },
+        "f10v": {
+          "partition": "train",
+          "physical_leaf": 10
+        },
+        "f111r": {
+          "partition": "train",
+          "physical_leaf": 111
+        },
+        "f111v": {
+          "partition": "train",
+          "physical_leaf": 111
+        },
+        "f112r": {
+          "partition": "train",
+          "physical_leaf": 112
+        },
+        "f112v": {
+          "partition": "train",
+          "physical_leaf": 112
+        },
+        "f113r": {
+          "partition": "train",
+          "physical_leaf": 113
+        },
+        "f113v": {
+          "partition": "train",
+          "physical_leaf": 113
+        },
+        "f114r": {
+          "partition": "train",
+          "physical_leaf": 114
+        },
+        "f114v": {
+          "partition": "train",
+          "physical_leaf": 114
+        },
+        "f115r": {
+          "partition": "development",
+          "physical_leaf": 115
+        },
+        "f115v": {
+          "partition": "development",
+          "physical_leaf": 115
+        },
+        "f116r": {
+          "partition": "train",
+          "physical_leaf": 116
+        },
+        "f116v": {
+          "partition": "train",
+          "physical_leaf": 116
+        },
+        "f11r": {
+          "partition": "test",
+          "physical_leaf": 11
+        },
+        "f11v": {
+          "partition": "test",
+          "physical_leaf": 11
+        },
+        "f13r": {
+          "partition": "train",
+          "physical_leaf": 13
+        },
+        "f13v": {
+          "partition": "train",
+          "physical_leaf": 13
+        },
+        "f14r": {
+          "partition": "train",
+          "physical_leaf": 14
+        },
+        "f14v": {
+          "partition": "train",
+          "physical_leaf": 14
+        },
+        "f15r": {
+          "partition": "development",
+          "physical_leaf": 15
+        },
+        "f15v": {
+          "partition": "development",
+          "physical_leaf": 15
+        },
+        "f16r": {
+          "partition": "train",
+          "physical_leaf": 16
+        },
+        "f16v": {
+          "partition": "train",
+          "physical_leaf": 16
+        },
+        "f17r": {
+          "partition": "train",
+          "physical_leaf": 17
+        },
+        "f17v": {
+          "partition": "train",
+          "physical_leaf": 17
+        },
+        "f18r": {
+          "partition": "train",
+          "physical_leaf": 18
+        },
+        "f18v": {
+          "partition": "train",
+          "physical_leaf": 18
+        },
+        "f19r": {
+          "partition": "train",
+          "physical_leaf": 19
+        },
+        "f19v": {
+          "partition": "train",
+          "physical_leaf": 19
+        },
+        "f1r": {
+          "partition": "train",
+          "physical_leaf": 1
+        },
+        "f1v": {
+          "partition": "train",
+          "physical_leaf": 1
+        },
+        "f20r": {
+          "partition": "train",
+          "physical_leaf": 20
+        },
+        "f20v": {
+          "partition": "train",
+          "physical_leaf": 20
+        },
+        "f21r": {
+          "partition": "development",
+          "physical_leaf": 21
+        },
+        "f21v": {
+          "partition": "development",
+          "physical_leaf": 21
+        },
+        "f22r": {
+          "partition": "train",
+          "physical_leaf": 22
+        },
+        "f22v": {
+          "partition": "train",
+          "physical_leaf": 22
+        },
+        "f23r": {
+          "partition": "train",
+          "physical_leaf": 23
+        },
+        "f23v": {
+          "partition": "train",
+          "physical_leaf": 23
+        },
+        "f24r": {
+          "partition": "test",
+          "physical_leaf": 24
+        },
+        "f24v": {
+          "partition": "test",
+          "physical_leaf": 24
+        },
+        "f25r": {
+          "partition": "development",
+          "physical_leaf": 25
+        },
+        "f25v": {
+          "partition": "development",
+          "physical_leaf": 25
+        },
+        "f26r": {
+          "partition": "train",
+          "physical_leaf": 26
+        },
+        "f26v": {
+          "partition": "train",
+          "physical_leaf": 26
+        },
+        "f27r": {
+          "partition": "train",
+          "physical_leaf": 27
+        },
+        "f27v": {
+          "partition": "train",
+          "physical_leaf": 27
+        },
+        "f28r": {
+          "partition": "development",
+          "physical_leaf": 28
+        },
+        "f28v": {
+          "partition": "development",
+          "physical_leaf": 28
+        },
+        "f29r": {
+          "partition": "test",
+          "physical_leaf": 29
+        },
+        "f29v": {
+          "partition": "test",
+          "physical_leaf": 29
+        },
+        "f2r": {
+          "partition": "train",
+          "physical_leaf": 2
+        },
+        "f2v": {
+          "partition": "train",
+          "physical_leaf": 2
+        },
+        "f30r": {
+          "partition": "train",
+          "physical_leaf": 30
+        },
+        "f30v": {
+          "partition": "train",
+          "physical_leaf": 30
+        },
+        "f31r": {
+          "partition": "train",
+          "physical_leaf": 31
+        },
+        "f31v": {
+          "partition": "train",
+          "physical_leaf": 31
+        },
+        "f32r": {
+          "partition": "train",
+          "physical_leaf": 32
+        },
+        "f32v": {
+          "partition": "train",
+          "physical_leaf": 32
+        },
+        "f33r": {
+          "partition": "test",
+          "physical_leaf": 33
+        },
+        "f33v": {
+          "partition": "test",
+          "physical_leaf": 33
+        },
+        "f34r": {
+          "partition": "train",
+          "physical_leaf": 34
+        },
+        "f34v": {
+          "partition": "train",
+          "physical_leaf": 34
+        },
+        "f35r": {
+          "partition": "train",
+          "physical_leaf": 35
+        },
+        "f35v": {
+          "partition": "train",
+          "physical_leaf": 35
+        },
+        "f36r": {
+          "partition": "test",
+          "physical_leaf": 36
+        },
+        "f36v": {
+          "partition": "test",
+          "physical_leaf": 36
+        },
+        "f37r": {
+          "partition": "train",
+          "physical_leaf": 37
+        },
+        "f37v": {
+          "partition": "train",
+          "physical_leaf": 37
+        },
+        "f38r": {
+          "partition": "development",
+          "physical_leaf": 38
+        },
+        "f38v": {
+          "partition": "development",
+          "physical_leaf": 38
+        },
+        "f39r": {
+          "partition": "train",
+          "physical_leaf": 39
+        },
+        "f39v": {
+          "partition": "train",
+          "physical_leaf": 39
+        },
+        "f3r": {
+          "partition": "test",
+          "physical_leaf": 3
+        },
+        "f3v": {
+          "partition": "test",
+          "physical_leaf": 3
+        },
+        "f40r": {
+          "partition": "test",
+          "physical_leaf": 40
+        },
+        "f40v": {
+          "partition": "test",
+          "physical_leaf": 40
+        },
+        "f41r": {
+          "partition": "train",
+          "physical_leaf": 41
+        },
+        "f41v": {
+          "partition": "train",
+          "physical_leaf": 41
+        },
+        "f42r": {
+          "partition": "train",
+          "physical_leaf": 42
+        },
+        "f42v": {
+          "partition": "train",
+          "physical_leaf": 42
+        },
+        "f43r": {
+          "partition": "train",
+          "physical_leaf": 43
+        },
+        "f43v": {
+          "partition": "train",
+          "physical_leaf": 43
+        },
+        "f44r": {
+          "partition": "development",
+          "physical_leaf": 44
+        },
+        "f44v": {
+          "partition": "development",
+          "physical_leaf": 44
+        },
+        "f45r": {
+          "partition": "train",
+          "physical_leaf": 45
+        },
+        "f45v": {
+          "partition": "train",
+          "physical_leaf": 45
+        },
+        "f46r": {
+          "partition": "test",
+          "physical_leaf": 46
+        },
+        "f46v": {
+          "partition": "test",
+          "physical_leaf": 46
+        },
+        "f47r": {
+          "partition": "train",
+          "physical_leaf": 47
+        },
+        "f47v": {
+          "partition": "train",
+          "physical_leaf": 47
+        },
+        "f48r": {
+          "partition": "test",
+          "physical_leaf": 48
+        },
+        "f48v": {
+          "partition": "test",
+          "physical_leaf": 48
+        },
+        "f49r": {
+          "partition": "train",
+          "physical_leaf": 49
+        },
+        "f49v": {
+          "partition": "train",
+          "physical_leaf": 49
+        },
+        "f4r": {
+          "partition": "development",
+          "physical_leaf": 4
+        },
+        "f4v": {
+          "partition": "development",
+          "physical_leaf": 4
+        },
+        "f50r": {
+          "partition": "test",
+          "physical_leaf": 50
+        },
+        "f50v": {
+          "partition": "test",
+          "physical_leaf": 50
+        },
+        "f51r": {
+          "partition": "train",
+          "physical_leaf": 51
+        },
+        "f51v": {
+          "partition": "train",
+          "physical_leaf": 51
+        },
+        "f52r": {
+          "partition": "train",
+          "physical_leaf": 52
+        },
+        "f52v": {
+          "partition": "train",
+          "physical_leaf": 52
+        },
+        "f53r": {
+          "partition": "train",
+          "physical_leaf": 53
+        },
+        "f53v": {
+          "partition": "train",
+          "physical_leaf": 53
+        },
+        "f54r": {
+          "partition": "test",
+          "physical_leaf": 54
+        },
+        "f54v": {
+          "partition": "test",
+          "physical_leaf": 54
+        },
+        "f55r": {
+          "partition": "train",
+          "physical_leaf": 55
+        },
+        "f55v": {
+          "partition": "train",
+          "physical_leaf": 55
+        },
+        "f56r": {
+          "partition": "train",
+          "physical_leaf": 56
+        },
+        "f56v": {
+          "partition": "train",
+          "physical_leaf": 56
+        },
+        "f57r": {
+          "partition": "train",
+          "physical_leaf": 57
+        },
+        "f57v": {
+          "partition": "train",
+          "physical_leaf": 57
+        },
+        "f58r": {
+          "partition": "test",
+          "physical_leaf": 58
+        },
+        "f58v": {
+          "partition": "test",
+          "physical_leaf": 58
+        },
+        "f5r": {
+          "partition": "development",
+          "physical_leaf": 5
+        },
+        "f5v": {
+          "partition": "development",
+          "physical_leaf": 5
+        },
+        "f65r": {
+          "partition": "train",
+          "physical_leaf": 65
+        },
+        "f65v": {
+          "partition": "train",
+          "physical_leaf": 65
+        },
+        "f66r": {
+          "partition": "test",
+          "physical_leaf": 66
+        },
+        "f66v": {
+          "partition": "test",
+          "physical_leaf": 66
+        },
+        "f67r1": {
+          "partition": "train",
+          "physical_leaf": 67
+        },
+        "f67r2": {
+          "partition": "train",
+          "physical_leaf": 67
+        },
+        "f67v1": {
+          "partition": "train",
+          "physical_leaf": 67
+        },
+        "f67v2": {
+          "partition": "train",
+          "physical_leaf": 67
+        },
+        "f68r1": {
+          "partition": "development",
+          "physical_leaf": 68
+        },
+        "f68r2": {
+          "partition": "development",
+          "physical_leaf": 68
+        },
+        "f68r3": {
+          "partition": "development",
+          "physical_leaf": 68
+        },
+        "f68v1": {
+          "partition": "development",
+          "physical_leaf": 68
+        },
+        "f68v2": {
+          "partition": "development",
+          "physical_leaf": 68
+        },
+        "f68v3": {
+          "partition": "development",
+          "physical_leaf": 68
+        },
+        "f69r": {
+          "partition": "train",
+          "physical_leaf": 69
+        },
+        "f69v": {
+          "partition": "train",
+          "physical_leaf": 69
+        },
+        "f6r": {
+          "partition": "train",
+          "physical_leaf": 6
+        },
+        "f6v": {
+          "partition": "train",
+          "physical_leaf": 6
+        },
+        "f70r1": {
+          "partition": "test",
+          "physical_leaf": 70
+        },
+        "f70r2": {
+          "partition": "test",
+          "physical_leaf": 70
+        },
+        "f70v1": {
+          "partition": "test",
+          "physical_leaf": 70
+        },
+        "f70v2": {
+          "partition": "test",
+          "physical_leaf": 70
+        },
+        "f71r": {
+          "partition": "train",
+          "physical_leaf": 71
+        },
+        "f71v": {
+          "partition": "train",
+          "physical_leaf": 71
+        },
+        "f72r1": {
+          "partition": "test",
+          "physical_leaf": 72
+        },
+        "f72r2": {
+          "partition": "test",
+          "physical_leaf": 72
+        },
+        "f72r3": {
+          "partition": "test",
+          "physical_leaf": 72
+        },
+        "f72v1": {
+          "partition": "test",
+          "physical_leaf": 72
+        },
+        "f72v2": {
+          "partition": "test",
+          "physical_leaf": 72
+        },
+        "f72v3": {
+          "partition": "test",
+          "physical_leaf": 72
+        },
+        "f73r": {
+          "partition": "development",
+          "physical_leaf": 73
+        },
+        "f73v": {
+          "partition": "development",
+          "physical_leaf": 73
+        },
+        "f75r": {
+          "partition": "train",
+          "physical_leaf": 75
+        },
+        "f75v": {
+          "partition": "train",
+          "physical_leaf": 75
+        },
+        "f76r": {
+          "partition": "development",
+          "physical_leaf": 76
+        },
+        "f76v": {
+          "partition": "development",
+          "physical_leaf": 76
+        },
+        "f77r": {
+          "partition": "train",
+          "physical_leaf": 77
+        },
+        "f77v": {
+          "partition": "train",
+          "physical_leaf": 77
+        },
+        "f78r": {
+          "partition": "development",
+          "physical_leaf": 78
+        },
+        "f78v": {
+          "partition": "development",
+          "physical_leaf": 78
+        },
+        "f79r": {
+          "partition": "train",
+          "physical_leaf": 79
+        },
+        "f79v": {
+          "partition": "train",
+          "physical_leaf": 79
+        },
+        "f7r": {
+          "partition": "train",
+          "physical_leaf": 7
+        },
+        "f7v": {
+          "partition": "train",
+          "physical_leaf": 7
+        },
+        "f80r": {
+          "partition": "test",
+          "physical_leaf": 80
+        },
+        "f80v": {
+          "partition": "test",
+          "physical_leaf": 80
+        },
+        "f81r": {
+          "partition": "train",
+          "physical_leaf": 81
+        },
+        "f81v": {
+          "partition": "train",
+          "physical_leaf": 81
+        },
+        "f82r": {
+          "partition": "train",
+          "physical_leaf": 82
+        },
+        "f82v": {
+          "partition": "train",
+          "physical_leaf": 82
+        },
+        "f83r": {
+          "partition": "train",
+          "physical_leaf": 83
+        },
+        "f83v": {
+          "partition": "train",
+          "physical_leaf": 83
+        },
+        "f84r": {
+          "partition": "train",
+          "physical_leaf": 84
+        },
+        "f84v": {
+          "partition": "train",
+          "physical_leaf": 84
+        },
+        "f85r1": {
+          "partition": "development",
+          "physical_leaf": 85
+        },
+        "f85r2": {
+          "partition": "development",
+          "physical_leaf": 85
+        },
+        "f86v3": {
+          "partition": "train",
+          "physical_leaf": 86
+        },
+        "f86v4": {
+          "partition": "train",
+          "physical_leaf": 86
+        },
+        "f86v5": {
+          "partition": "train",
+          "physical_leaf": 86
+        },
+        "f86v6": {
+          "partition": "train",
+          "physical_leaf": 86
+        },
+        "f87r": {
+          "partition": "train",
+          "physical_leaf": 87
+        },
+        "f87v": {
+          "partition": "train",
+          "physical_leaf": 87
+        },
+        "f88r": {
+          "partition": "train",
+          "physical_leaf": 88
+        },
+        "f88v": {
+          "partition": "train",
+          "physical_leaf": 88
+        },
+        "f89r1": {
+          "partition": "train",
+          "physical_leaf": 89
+        },
+        "f89r2": {
+          "partition": "train",
+          "physical_leaf": 89
+        },
+        "f89v1": {
+          "partition": "train",
+          "physical_leaf": 89
+        },
+        "f89v2": {
+          "partition": "train",
+          "physical_leaf": 89
+        },
+        "f8r": {
+          "partition": "train",
+          "physical_leaf": 8
+        },
+        "f8v": {
+          "partition": "train",
+          "physical_leaf": 8
+        },
+        "f90r1": {
+          "partition": "train",
+          "physical_leaf": 90
+        },
+        "f90r2": {
+          "partition": "train",
+          "physical_leaf": 90
+        },
+        "f90v1": {
+          "partition": "train",
+          "physical_leaf": 90
+        },
+        "f90v2": {
+          "partition": "train",
+          "physical_leaf": 90
+        },
+        "f93r": {
+          "partition": "train",
+          "physical_leaf": 93
+        },
+        "f93v": {
+          "partition": "train",
+          "physical_leaf": 93
+        },
+        "f94r": {
+          "partition": "train",
+          "physical_leaf": 94
+        },
+        "f94v": {
+          "partition": "train",
+          "physical_leaf": 94
+        },
+        "f95r1": {
+          "partition": "train",
+          "physical_leaf": 95
+        },
+        "f95r2": {
+          "partition": "train",
+          "physical_leaf": 95
+        },
+        "f95v1": {
+          "partition": "train",
+          "physical_leaf": 95
+        },
+        "f95v2": {
+          "partition": "train",
+          "physical_leaf": 95
+        },
+        "f96r": {
+          "partition": "train",
+          "physical_leaf": 96
+        },
+        "f96v": {
+          "partition": "train",
+          "physical_leaf": 96
+        },
+        "f99r": {
+          "partition": "development",
+          "physical_leaf": 99
+        },
+        "f99v": {
+          "partition": "development",
+          "physical_leaf": 99
+        },
+        "f9r": {
+          "partition": "test",
+          "physical_leaf": 9
+        },
+        "f9v": {
+          "partition": "test",
+          "physical_leaf": 9
+        },
+        "fRos": {
+          "partition": "excluded_unassigned",
+          "physical_leaf": null
+        }
+      },
+      "sha256": "bf5b6d4ac1e3a51b1847a9c388318d609020441ccd56984c901c32b09beccafc"
+    }
+  },
+  "limitations": [
+    "Identifier agreement does not authenticate physical binding or page content.",
+    "Named pages remain excluded/unassigned.",
+    "No tokens, predictive metrics, semantic rules or historically blind validation."
+  ],
+  "manifest_hash_policy": "SHA-256 of json.dumps(manifest, sort_keys=True), UTF-8",
+  "manifest_sha256": "aaffa65cb56a76ae7d736645a28c8b61c37a71b3576b0bf390cca417e9ceeb86",
+  "shared_page_count": 225,
+  "status": "IDENTIFIER_CROSSWALK_VERIFIED_NOT_SEMANTIC_VALIDATION"
+}

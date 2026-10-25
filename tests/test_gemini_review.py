@@ -53,6 +53,32 @@ class GeminiReviewSchemaTests(unittest.TestCase):
         response["required_inputs"] = [""]
         self.assertTrue(validate(response))
 
+    def test_rejects_invalid_nested_design_and_preregistration_entries(self):
+        cases = (
+            ("proposed_design", "negative_controls", [None]),
+            ("proposed_design", "negative_controls", [False]),
+            ("proposed_design", "negative_controls", [""]),
+            ("proposed_design", "holdout", ["valid", "  "]),
+            ("proposed_design", "stopping_rule", "  "),
+            ("proposed_design", "test_statistic", 1),
+            ("pre_registration", "decision_rule", [False]),
+            ("pre_registration", "failure_conditions", [" "]),
+            ("pre_registration", "primary_outcome", "  "),
+        )
+        for section, key, bad_value in cases:
+            with self.subTest(section=section, key=key, value=bad_value):
+                response = valid_response()
+                response[section][key] = bad_value
+                self.assertIn(
+                    f"{section}.{key}: missing or invalid content",
+                    validate(response),
+                )
+
+    def test_accepts_nonempty_list_in_nested_design(self):
+        response = valid_response()
+        response["proposed_design"]["holdout"] = ["disjoint physical folios"]
+        self.assertEqual(validate(response), [])
+
     def test_rejects_unexpected_fields(self):
         response = valid_response()
         response["scientifically_validated"] = True

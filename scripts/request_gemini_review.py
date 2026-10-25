@@ -20,7 +20,7 @@ if __package__:
 else:
     from validate_gemini_review import validate
 
-PROMPT_PATH = Path(__file__).resolve().parents[1] / "research/protocols/2026-10-24-gemini-ch-sh-review-prompt.md"
+PROMPT_PATH = Path(__file__).resolve().parents[1] / "research/protocols/2026-10-25-gemini-ch-sh-review-prompt-v2.md"
 API_ROOT = "https://generativelanguage.googleapis.com/v1beta/models/"
 MAX_RESPONSE = 128 * 1024
 
@@ -90,7 +90,26 @@ def main(argv=None):
         text = extract_text(envelope)
         review = json.loads(text)
     except (urllib.error.URLError, TimeoutError, OSError, ValueError, KeyError, TypeError, json.JSONDecodeError):
-        print("FAILED: API or response error (details suppressed)")
+        # Once a POST has been attempted, preserve a sanitized failure receipt.
+        # Previously the workflow's always() upload had no files to archive
+        # when the API failed or returned malformed JSON. Never persist remote
+        # error bodies, credentials, or an unvalidated partial response.
+        args.output_dir.mkdir(parents=True, exist_ok=True)
+        receipt = {
+            "status": "API_OR_RESPONSE_ERROR",
+            "scientific_status": "BLOCKED",
+            "model": args.model,
+            "prompt_sha256": hashlib.sha256(prompt.encode("utf-8")).hexdigest(),
+            "response_sha256": None,
+            "api_envelope_sha256": None,
+            "schema_error_count": None,
+            "manuscript_corpus_sent": False,
+            "api_attempts": 1,
+        }
+        (args.output_dir / "receipt.json").write_text(
+            json.dumps(receipt, indent=2) + "\n", encoding="utf-8"
+        )
+        print("FAILED: API or response error; sanitized receipt saved")
         return 1
     errors = validate(review)
     args.output_dir.mkdir(parents=True, exist_ok=True)
