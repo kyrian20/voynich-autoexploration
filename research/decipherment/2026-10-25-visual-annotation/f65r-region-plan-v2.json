@@ -1,0 +1,45 @@
+{
+  "coordinate_system": "Original source image pixels; x/y from top-left; width/height; masks refer to original not cropped coordinates.",
+  "plans": [
+    {
+      "folio": "f65r",
+      "source_sha256": "dc7a0c45454665f33287804ec56f8eaa952a691540fc6fd434e79d75c7ce597f",
+      "source_size": [
+        2793,
+        3707
+      ],
+      "status": "CANDIDATE_V2_FULL_CANVAS_NOT_INDEPENDENTLY_REVIEWED",
+      "label_locator": "f65r.1",
+      "crop_xywh": [
+        0,
+        0,
+        2793,
+        3707
+      ],
+      "mask_rectangles_xywh": [
+        [
+          370,
+          2510,
+          430,
+          105
+        ],
+        [
+          2160,
+          70,
+          300,
+          180
+        ],
+        [
+          0,
+          0,
+          75,
+          3707
+        ]
+      ],
+      "mask_reviewed_by": null,
+      "annotation_ready": false,
+      "observer_exposure": "Same assistant has seen EVA and prior candidate hypotheses; not a blinded annotator.",
+      "notes": "Full original canvas avoids crop losses. Additional x<75 strip masks adjacent-page writing; verify seam and plant proximity independently. Existing label and foliation masks retained."
+    }
+  ]
+}
