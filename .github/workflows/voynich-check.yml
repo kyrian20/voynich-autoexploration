@@ -33,7 +33,10 @@ jobs:
         run: python -m unittest discover -s tests -p 'test_gemini_review.py' -v
 
       - name: Probar límite de solicitud Gemini sin red ni credenciales
-        run: python -m unittest discover -s tests -p 'test_gemini_review_request.py' -v
+        run: |
+          python -m unittest discover -s tests -p 'test_gemini_review_request.py' -v
+          python -m unittest discover -s tests -p 'test_gemini_failure_diagnostics.py' -v
+          python -m unittest discover -s tests -p 'test_gemini_transient_fallback.py' -v
 
       - name: Auditar contratos operativos y cobertura de registros
         run: |
