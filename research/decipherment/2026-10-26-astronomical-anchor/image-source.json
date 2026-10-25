@@ -1,0 +1,23 @@
+{
+  "url": "https://collections.library.yale.edu/iiif/2/1006196/full/full/0/default.jpg",
+  "image_id": "1006196",
+  "canvas_label": "68r",
+  "dimensions": [
+    7993,
+    3828
+  ],
+  "bytes": 7286292,
+  "sha256": "4b0f31d1e08b8f026886aa599232b7dfcd33417b1eef43a44e619c3ebd21faa5",
+  "manifest_sha256": "317d58fd9ea90392a83d9858a91eada3d0b41416a3c835857dc0154bd123a309",
+  "detail": {
+    "url": "https://collections.library.yale.edu/iiif/2/1006196/5050,1050,800,550/full/0/default.jpg",
+    "region_original_pixels": [
+      5050,
+      1050,
+      800,
+      550
+    ],
+    "sha256": "0bb78ca7958ed71a0d0b482e4034f447c4a3b0d71fb14a5d0f07edc4ca27200e",
+    "status": "provider supplied IIIF region, original full image also inspected"
+  }
+}

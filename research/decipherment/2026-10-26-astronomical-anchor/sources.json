@@ -1,0 +1,36 @@
+{
+  "yale_manifest_url": "https://collections.library.yale.edu/manifests/2002046",
+  "bax": {
+    "url": "https://stephenbax.net/wp-content/uploads/2014/01/Voynich-a-provisional-partial-decoding-BAX.pdf",
+    "version": "January 2014 v1",
+    "pages_consulted": [
+      19,
+      20,
+      21,
+      56
+    ],
+    "rendered_pages": [
+      20,
+      56
+    ],
+    "status": "proposal only"
+  },
+  "historical_transcription": {
+    "url": "https://www.ic.unicamp.br/~stolfi/EXPORT/00-EXPORT/Notes/015/pages-html-old/f68r3.html",
+    "locus": "f68r3.X.1;V",
+    "form": "doary",
+    "date_on_page": "1998-05-06"
+  },
+  "rival_interpretations": {
+    "url": "https://voynich.nu/q09/index.html",
+    "section": "f68r3",
+    "status": "tentative descriptions, not plaintext"
+  },
+  "met_comparator": {
+    "historical_url": "http://www.metmuseum.org/toah/works-of-art/19.68.1",
+    "accession": "19.68.1",
+    "status": "not recovered; not used as evidence"
+  },
+  "discarded_wrong_met_url": "https://www.metmuseum.org/art/collection/search/446164",
+  "new_gemini_review": false
+}

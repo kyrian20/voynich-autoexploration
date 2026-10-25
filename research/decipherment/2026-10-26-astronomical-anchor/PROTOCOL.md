@@ -1,0 +1,17 @@
+# Admisión de una posible ancla astronómica
+
+26-10-2026, Madrid. Auditoría exploratoria, sin EXP nuevo, sin ajuste de clave ni nueva traducción. La propuesta y dos líneas fuente ya se habían visto antes de fijar este inventario; no se presenta descubrimiento ciego o confirmación.
+
+Objetivo: determinar si el candidato del grupo de siete estrellas de f68r3 ofrece texto conocido independiente suficiente para contrastar reglas rivales. Separar transcripción, referente visual, nombre, regla y predicción fuera del origen.
+
+Datos: Yale imagen completa1006196 de canvas68r, compartida por f68r1/2/3. Inspección del original completo y región IIIF5050,1050,800,550, sin seleccionar un recorte para resolver significado. Vincular f68r3.11,@Ls al texto a la derecha del grupo pequeño. El texto de la línea curva constituye otro candidato y no se transfiere entre ambos. La inspección no es transcripción paleográfica ciega ni identificación astronómica independiente.
+
+Inventario: buscar exactamente doary/doaro/dary en todos los registros NUMÉRICOS que acepta el patrón ROW del auditor léxico existente, con lexer canónico scripts/ivtff_lossless.py, alternativas primarias, ligaduras expandidas y comas split/join. Conservar IDs, locus, cuerpo, línea fuente, contexto y hashes. No buscar substrings ni mezclar variantes como si fuesen la misma forma. Registrar todos los renglones no analizados que contengan alguna de esas cadenas como control de cobertura; cualquier coincidencia no resuelta impide una afirmación exhaustiva. No se afirma conformidad IVTFF completa. Las dos transcripciones son del mismo manuscrito.
+
+Fuentes y rivales: contrastar Bax2014 pp19–21 y tabla p56 con Stolfi1998 y descripción de quire9 de Zandbergen. Distinguir como hipótesis el cúmulo de Pléyades, siete planetas, Tauro como región/constelación y otra referencia no identificada. No convertir número de estrellas en una palabra precisa. La semejanza de nombres o una propuesta externa no es dato de entrenamiento y validación simultáneamente.
+
+Puerta de admisión: exigir (1) identidad del locus, (2) transcripción independiente con variantes abiertas resueltas o incluidas, (3) referente e identidad nominativa establecidos sin usar la clave propuesta, (4) forma histórica/idioma justificados, (5) regla completamente congelada y (6) predicción discriminante fuera del dato usado para construirla. Si falta una condición, BLOCKED para usar el candidato como texto conocido; no refutar el nombre propuesto.
+
+Transferencia condicional: si doaro/doary tiene otras ocurrencias, inventariarlas todas sin inferir identidad de objeto por palabra. Solo cuando existan objetos clasificados sin texto por vía independiente y la hipótesis especifique identidad estable del nombre podría comprobarse transferencia. Si no hay repeticiones, no se inventa un test de esa palabra: requerir correspondencias de signos y nombres adicionales establecidos independientemente. El origenf68 ya visto y los paneles de su misma hoja no son holdout independiente.
+
+No se aceptará forzar finaly/o, añadir vocales o escoger idioma para conservar un nombre deseado. No hay p-valores, bootstrap ni ranking probabilístico de significados. Código/protocolo/hash, comparaciones fuente y autoauditoría se conservan. Esta auditoría no garantiza que alguna ancla se vuelva admisible.

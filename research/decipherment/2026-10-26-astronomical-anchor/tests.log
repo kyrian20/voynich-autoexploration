@@ -1,0 +1,10 @@
+test_alternative_and_uncertain_space_explicit (test_run.AnchorTests.test_alternative_and_uncertain_space_explicit) ... ok
+test_duplicate_refused (test_run.AnchorTests.test_duplicate_refused) ... ok
+test_exact_tokens_not_substrings (test_run.AnchorTests.test_exact_tokens_not_substrings) ... ok
+test_excluded_non_numeric_locus_is_reported (test_run.AnchorTests.test_excluded_non_numeric_locus_is_reported) ... ok
+test_raw_glyph_positions_preserved (test_run.AnchorTests.test_raw_glyph_positions_preserved) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.003s
+
+OK

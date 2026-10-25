@@ -1,0 +1,21 @@
+{
+  "semantic_status": "BLOCKED",
+  "inventory_status": "REPRODUCED",
+  "two_runs_byte_identical": true,
+  "tests_passed": 5,
+  "sha256": {
+    "run.py": "d51b9030bf3242d959f8f8841d483699413afb78e0ab69f32239cadb7dec7e45",
+    "PROTOCOL.md": "6e65ce44024e0c533af3652bda69b194d80e08dcfe761522cb14ef8b8f0b458d",
+    "test_run.py": "64183ff3075da3278b9c5ed279cdf795ba133760dc53555879f49af1555a7aab",
+    "REPORT.md": "e06db8480b24f18bd01e1831a4aac725db4191700d240eccf63f7f3281d43a45",
+    "TRANSFER_TEST.md": "884d6baf8e674820818150ea0e90fcd21580f049a93795305e01dae34ed031a5",
+    "inventory.json": "962e30bf619c6ccc6287b3f502fe0a9827097efebb32a2b2d4fe43b9b5d05202",
+    "image-source.json": "343ef525c9b72e74ca5be1bb6b90d9d8ac1e720df193569800e36018c17322c9",
+    "sources.json": "bccfa2062e049461294a0f7f6a06d0cd1996a4ce8633084e19d2ac6367670363",
+    "tests.log": "14b3db423b74c3b71c51da6d0969fd3cf14b60c7ab8e15962f31ae0f578e9c1f",
+    "run-01.log": "57e8c54cf0a339258db6b1918e78c506e1253e25f9c9b95a060a0dd1f2657219",
+    "run-02.log": "57e8c54cf0a339258db6b1918e78c506e1253e25f9c9b95a060a0dd1f2657219"
+  },
+  "independent_semantic_anchor_established": false,
+  "new_plaintext_claim": false
+}
