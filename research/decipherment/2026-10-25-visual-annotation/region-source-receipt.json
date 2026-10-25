@@ -1,0 +1,62 @@
+[
+  {
+    "folio": "f2r",
+    "url": "https://collections.library.yale.edu/iiif/2/1006078/full/full/0/default.jpg",
+    "canvas": "https://collections.library.yale.edu/manifests/oid/2002046/canvas/1006078",
+    "sha256": "826533a0760798acf5a4caa01ac29fe95eb1ed13a9fb26ac82900a8aea11d53f",
+    "size": [
+      2691,
+      3770
+    ]
+  },
+  {
+    "folio": "f41v",
+    "url": "https://collections.library.yale.edu/iiif/2/1006155/full/full/0/default.jpg",
+    "canvas": "https://collections.library.yale.edu/manifests/oid/2002046/canvas/1006155",
+    "sha256": "bc753d5f30cfcbd5ad6479bb16205652d55b94da16fcbba1d78574674e3743ea",
+    "size": [
+      2882,
+      3769
+    ]
+  },
+  {
+    "folio": "f65r",
+    "url": "https://collections.library.yale.edu/iiif/2/1006190/full/full/0/default.jpg",
+    "canvas": "https://collections.library.yale.edu/manifests/oid/2002046/canvas/1006190",
+    "sha256": "dc7a0c45454665f33287804ec56f8eaa952a691540fc6fd434e79d75c7ce597f",
+    "size": [
+      2793,
+      3707
+    ]
+  },
+  {
+    "folio": "f77r",
+    "url": "https://collections.library.yale.edu/iiif/2/1006212/full/full/0/default.jpg",
+    "canvas": "https://collections.library.yale.edu/manifests/oid/2002046/canvas/1006212",
+    "sha256": "9ad387ccea37cd8a25ce9602817eb19af5105c545a238203715efe454e5b24ad",
+    "size": [
+      2793,
+      3752
+    ]
+  },
+  {
+    "folio": "f77v",
+    "url": "https://collections.library.yale.edu/iiif/2/1006213/full/full/0/default.jpg",
+    "canvas": "https://collections.library.yale.edu/manifests/oid/2002046/canvas/1006213",
+    "sha256": "e2e2f629753bfe6a9c111d8157ac63cfc4524966cbf367ddaaffece07cffdab2",
+    "size": [
+      2861,
+      3697
+    ]
+  },
+  {
+    "folio": "f81v",
+    "url": "https://collections.library.yale.edu/iiif/2/1006221/full/full/0/default.jpg",
+    "canvas": "https://collections.library.yale.edu/manifests/oid/2002046/canvas/1006221",
+    "sha256": "bb1a2316e7fc2966f5761f591d79339c75dcfbc6c2c9ab2b88a37e800266d4bf",
+    "size": [
+      2835,
+      3705
+    ]
+  }
+]
