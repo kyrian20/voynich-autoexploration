@@ -50,10 +50,10 @@
       ],
       "mask_rectangles_xywh": [
         [
-          350,
-          2460,
-          510,
-          180
+          370,
+          2510,
+          430,
+          105
         ],
         [
           2160,
@@ -65,7 +65,7 @@
       "mask_reviewed_by": null,
       "annotation_ready": false,
       "observer_exposure": "Same assistant has seen EVA and prior candidate hypotheses; not a blinded annotator.",
-      "notes": "Coarse starting rectangles for lower-left label and upper-right foliation; inspect at full resolution. Check central upper crease and all background marks for remaining text. Crop can remove peripheral detail: not approved for taxonomy."
+      "notes": "Coarse starting rectangles for lower-left label and upper-right foliation; inspect at full resolution. Check central upper crease and all background marks for remaining text. Crop can remove peripheral detail: not approved for taxonomy. Initial lower-left rectangle overlapped a leaf tip in coordinator preview; reduced to [370,2510,430,105]. Still requires full-resolution and independent review."
     }
   ]
 }
