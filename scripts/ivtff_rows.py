@@ -25,7 +25,7 @@ def tokens_rows(payloads: list[Payload], **policy) -> list[str]:
     for payload in payloads:
         if not isinstance(payload, Payload):
             raise TypeError('Expected a lexed IVTFF Payload')
-        if '\\n' in payload.raw or '\\r' in payload.raw:
+        if '\n' in payload.raw or '\r' in payload.raw:
             raise ValueError('Physical newline inside an IVTFF row')
 
     output: list[str] = []
