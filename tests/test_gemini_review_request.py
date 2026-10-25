@@ -65,6 +65,50 @@ class GeminiReviewRequestTests(unittest.TestCase):
             output.write_text(json.dumps(sample, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
             self.assertEqual(json.loads(output.read_text(encoding="utf-8")), sample)
 
+    def test_failed_api_attempt_preserves_sanitized_receipt(self):
+        # A failed manual review must leave verifiable provenance even when
+        # there is no valid Gemini response to upload. No network call occurs.
+        import hashlib
+        import json
+        import os
+        import urllib.error
+        from tempfile import TemporaryDirectory
+
+        for failure in ("offline", "invalid_json"):
+            with self.subTest(failure=failure), TemporaryDirectory() as tmp:
+                destination = Path(tmp) / "review"
+                with patch.dict(os.environ, {"GEMINI_API_KEY": "synthetic-test-key"}):
+                    with patch("scripts.request_gemini_review.urllib.request.build_opener") as opener:
+                        if failure == "offline":
+                            opener.return_value.open.side_effect = urllib.error.URLError(
+                                "synthetic network failure"
+                            )
+                        else:
+                            response = opener.return_value.open.return_value.__enter__.return_value
+                            response.read.return_value = b"not-json"
+                        status = main([
+                            "--model", "gemini-3.8-flash",
+                            "--output-dir", str(destination), "--execute",
+                        ])
+                self.assertEqual(status, 1)
+                opener.return_value.open.assert_called_once()
+                self.assertEqual(sorted(p.name for p in destination.iterdir()), ["receipt.json"])
+                raw = (destination / "receipt.json").read_text(encoding="utf-8")
+                receipt = json.loads(raw)
+                self.assertEqual(receipt["status"], "API_OR_RESPONSE_ERROR")
+                self.assertEqual(receipt["scientific_status"], "BLOCKED")
+                self.assertEqual(receipt["api_attempts"], 1)
+                self.assertEqual(receipt["model"], "gemini-3.8-flash")
+                self.assertFalse(receipt["manuscript_corpus_sent"])
+                self.assertIsNone(receipt["response_sha256"])
+                self.assertIsNone(receipt["api_envelope_sha256"])
+                self.assertEqual(
+                    receipt["prompt_sha256"],
+                    hashlib.sha256(PROMPT_PATH.read_bytes()).hexdigest(),
+                )
+                self.assertNotIn("synthetic-test-key", raw)
+                self.assertNotIn("synthetic network failure", raw)
+
     def test_rejects_missing_secret(self):
         with self.assertRaises(ValueError):
             build_request("gemini-3.8-flash", "", "public text")
