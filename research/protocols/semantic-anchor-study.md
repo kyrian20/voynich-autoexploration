@@ -57,3 +57,6 @@ La evaluación de prueba se hace una vez. Este esquema permanece incompleto hast
 PR #13 estudia recuperación de referentes/nombres con correspondencias: no es este objetivo de categorías amplias. Permanece propuesta, sin fusionarla como un segundo estudio activo ni importar automáticamente sus umbrales. El diseño histórico se conserva en Git.
 No se modifican committed_claims.md ni resultados históricos.
 Comprobación de esta actualización: lectura cruzada de guía, verificación, partición, README, norma de integridad y PR #13. Cambio exclusivamente documental; sin tests, ejecución científica, nueva anotación ni certificación de CI.
+
+## Resultado de viabilidad de la selección inicial — 25-10-2026
+La [comprobación de cobertura ejecutada](../decipherment/2026-10-25-visual-annotation/PILOT_FEASIBILITY.md) seleccionó las primeras 12 hojas de entrenamiento en orden numérico, sin sustituciones. Solo dos contienen registros en el inventario archivado: tres registros/localizadores en total. La selección se pausa por cobertura insuficiente, además de seguir faltando máscaras revisadas y dos anotadores independientes. No es un resultado negativo sobre significado. Cualquier selección restringida primero a hojas con rótulos requiere una enmienda explícita y trazable; no se aplica retrospectivamente para presentar este piloto como viable.
