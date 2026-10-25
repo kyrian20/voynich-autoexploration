@@ -15,8 +15,8 @@ from scripts.audit_holdout_locus_coverage import audit, inspect_source
 class HoldoutLocusCoverageTests(unittest.TestCase):
     def setUp(self):
         self.sources = {
-            "eva_zl3b.txt": b"<f1r.1> a\n<f2v1.2> b\n<f3r.1> c\n<fRos> metadata\n<fRos.1,@L0> d\n",
-            "eva_it2a.txt": b"<f1r.1> a\n<f2v1.2> b\n<f3r.1> c\n",
+            "eva_zl3b.txt": b"<f1r> metadata\n<f1r.1> a\n<f2v1> metadata\n<f2v1.2> b\n<f3r> metadata\n<f3r.1> c\n<fRos> metadata\n<fRos.1,@L0> d\n",
+            "eva_it2a.txt": b"<f1r> metadata\n<f1r.1> a\n<f2v1> metadata\n<f2v1.2> b\n<f3r> metadata\n<f3r.1> c\n",
         }
         self.manifest = {
             "schema_version": 2,
@@ -37,9 +37,31 @@ class HoldoutLocusCoverageTests(unittest.TestCase):
     def test_named_rosettes_excluded_and_explicit(self):
         result = audit(self.sources, self.manifest)
         self.assertEqual(result["eligible_numeric_physical_leaves"], 3)
-        self.assertEqual(result["source_coverage"]["eva_zl3b.txt"]["named_locus_records"], {"Ros": 2})
+        self.assertEqual(result["source_coverage"]["eva_zl3b.txt"]["named_locus_records"], {"Ros": 1})
+        self.assertEqual(result["source_coverage"]["eva_zl3b.txt"]["named_page_headers"], {"Ros": 1})
+        self.assertEqual(result["source_coverage"]["eva_zl3b.txt"]["named_tag_count"], 2)
+        self.assertEqual(result["source_coverage"]["eva_zl3b.txt"]["named_page_header_count"], 1)
+        self.assertEqual(result["source_coverage"]["eva_zl3b.txt"]["named_locus_record_count"], 1)
+        for source in self.sources:
+            counts = result["source_coverage"][source]
+            self.assertEqual(counts["numeric_tag_count"], 6)
+            self.assertEqual(counts["numeric_page_header_count"], 3)
+            self.assertEqual(counts["numeric_locus_record_count"], 3)
+            self.assertEqual(counts["numeric_tag_count"], counts["numeric_page_header_count"] + counts["numeric_locus_record_count"])
         self.assertEqual(result["source_coverage"]["eva_it2a.txt"]["named_locus_record_count"], 0)
         self.assertIn("EXCLUDED", result["named_loci_holdout_status"])
+
+    def test_repeated_page_header_does_not_inflate_locus_records(self):
+        record = inspect_source(
+            b"<f1r> first\n<f1r> repeated\n<f1r.1> a\n"
+            b"<fRos> header\n<fRos.1,@L0> b\n"
+        )
+        self.assertEqual(record["numeric_tag_count"], 3)
+        self.assertEqual(record["numeric_page_header_count"], 2)
+        self.assertEqual(record["numeric_locus_record_count"], 1)
+        self.assertEqual(record["named_tag_count"], 2)
+        self.assertEqual(record["named_page_headers"], {"Ros": 1})
+        self.assertEqual(record["named_locus_records"], {"Ros": 1})
 
     def test_numeric_header_must_parse(self):
         with self.assertRaisesRegex(ValueError, "Unparsed numeric"):
