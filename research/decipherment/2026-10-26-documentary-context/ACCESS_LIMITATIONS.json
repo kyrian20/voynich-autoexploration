@@ -1,0 +1,33 @@
+[
+  {
+    "url": "https://www.fihrist.org.uk/catalog/manuscript_11516",
+    "status": "timeout in browser retrieval; local HTTPError",
+    "consequence": "Not used for new detailed catalogue claims"
+  },
+  {
+    "url": "https://researchonline.jcu.edu.au/28854/14/JCU_28854_Hafez_2010_thesis.pdf",
+    "status": "browser tool size limit; local HTTPError",
+    "consequence": "Author thesis read via partial-volume mirror; no byte identity claim"
+  },
+  {
+    "url": "https://iiif.biblissima.fr/collections/manifest/a4d81f1a0fcd7ea206db2f8b75b620b680f91066",
+    "status": "timeout/HTTPError",
+    "consequence": "No primary Leiden visual inspection claimed"
+  },
+  {
+    "url": "https://gallica.bnf.fr/accueil/fr/html/al-sufi-le-ciel-pour-horizon-12",
+    "status": "browser403",
+    "consequence": "Search snippet not treated as inspected manuscript"
+  },
+  {
+    "service": "Linear",
+    "action": "append progress to JUA-11 and change state to In Progress",
+    "status": "tool call rejected",
+    "consequence": "No retry; no claim issue was updated in this continuation"
+  },
+  {
+    "service": "Gemini",
+    "status": "No new request in this continuation",
+    "consequence": "No independent model review claimed"
+  }
+]

@@ -1,0 +1,66 @@
+[
+  {
+    "claim": "Met comparator identity recovered",
+    "sources": [
+      "M01",
+      "M02"
+    ],
+    "result": "SUPPORTED_FOR_COMPARATOR",
+    "not_claimed": "Voynich name or shared source established"
+  },
+  {
+    "claim": "Moon is not Taurus-specific in five scenes of this folio",
+    "sources": [
+      "M01",
+      "M02"
+    ],
+    "result": "SUPPORTED_IN_SELECTED_SCENES",
+    "not_claimed": "Population-level diagnostic performance"
+  },
+  {
+    "claim": "Pleiades/Taurus/mansion are related but distinct references in the cited testimony",
+    "sources": [
+      "B01",
+      "H01"
+    ],
+    "result": "SUPPORTED_IN_TESTIMONY",
+    "not_claimed": "Doaro names any particular one"
+  },
+  {
+    "claim": "A uniform graphic form for Pleiades is not imposed by these selected reproductions",
+    "sources": [
+      "S01"
+    ],
+    "result": "DESCRIPTIVE_COMPARISON",
+    "not_claimed": "Independent identification of all source manuscripts"
+  },
+  {
+    "claim": "All-label complete literal C28 mapping fails count condition on each f68r panel",
+    "sources": [
+      "Y01"
+    ],
+    "data": "LOCI.json",
+    "result": "NEGATIVE_FOR_LITERAL_MAPPING",
+    "not_claimed": "All lunar-mansion interpretations disproved"
+  },
+  {
+    "claim": "f68r3 twelve-label union does not establish zodiac semantics",
+    "sources": [
+      "Y01"
+    ],
+    "data": "LOCI.json",
+    "result": "COUNT_COMPATIBLE_MEANING_UNIDENTIFIED",
+    "not_claimed": "No zodiac relationship exists"
+  },
+  {
+    "claim": "Exact meaning of f68r3.11 established independently",
+    "sources": [
+      "Y01",
+      "M01",
+      "B01",
+      "H01"
+    ],
+    "result": "NOT_ESTABLISHED",
+    "semantic_admission": "BLOCKED"
+  }
+]

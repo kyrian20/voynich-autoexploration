@@ -1,0 +1,16 @@
+{
+  "scope": "Selected principal query formulations, not an exhaustive systematic-search transcript",
+  "queries": [
+    "Met museum Jajarmi Moon constellation Taurus folio1341",
+    "19.68.1 Taurus",
+    "Leiden Aratea digitalcollections",
+    "Voss.Lat.Q.79 Pleiades",
+    "Harley647 Pleiades",
+    "Marsh144 Taurus page",
+    "Marsh144 Pleiades183",
+    "Hafez2010 28854 fixed stars thesis",
+    "NASA Moon sidereal27.3 synodic29.5"
+  ],
+  "screening": "Use custodians, authored research and explicit provenance; do not treat search snippets as image inspection",
+  "stopping_rule": "Stop this targeted pass once named comparators, rival distinctions and limited count conditions are adjudicated; do not keep collecting sources to rescue a desired reading"
+}

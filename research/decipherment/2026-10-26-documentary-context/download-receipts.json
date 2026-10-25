@@ -1,0 +1,234 @@
+[
+  {
+    "file": "met-906001.jpg",
+    "url": "https://collectionapi.metmuseum.org/api/collection/v1/iiif/447071/906001/main-image",
+    "bytes": 215659,
+    "sha256": "14df0b06394e4c9b9385b81f37d7f489e6f0464d0568d853571d4a4f3c8b0931",
+    "status": "retrieved"
+  },
+  {
+    "file": "met-906007.jpg",
+    "url": "https://collectionapi.metmuseum.org/api/collection/v1/iiif/447071/906007/main-image",
+    "bytes": 191003,
+    "sha256": "64c2b0d480843b0da25467bf0bf63bd1f9d58dfbfc7f4e7cb92e10f04d5d0a34",
+    "status": "retrieved"
+  },
+  {
+    "file": "met-906017.jpg",
+    "url": "https://collectionapi.metmuseum.org/api/collection/v1/iiif/447071/906017/main-image",
+    "bytes": 266131,
+    "sha256": "e89fdc9d988de11485e4dec86f639e1304c309baf549b3758abfb434bc197c15",
+    "status": "retrieved"
+  },
+  {
+    "file": "met-856389.jpg",
+    "url": "https://collectionapi.metmuseum.org/api/collection/v1/iiif/447071/856389/main-image",
+    "bytes": 205433,
+    "sha256": "018f992990ac5dd3b815ccd16788a3fbd99dac6b43d101e36e18eb0079bf962d",
+    "status": "retrieved"
+  },
+  {
+    "file": "carboni-1997.pdf",
+    "url": "https://cdn.sanity.io/files/cctd4ker/production/b38a540bd24c8f600dea01a58d5aa27d4813e064.pdf",
+    "bytes": 6979304,
+    "sha256": "3bf5abfdec8e686f15781a85a01d9c129235af8f798b47d86167f0219ea9f776",
+    "status": "retrieved"
+  },
+  {
+    "file": "marsh144-manifest.json",
+    "url": "https://iiif.bodleian.ox.ac.uk/iiif/manifest/c1caa84c-f6d2-483f-9eb4-2439cccdc801.json",
+    "bytes": 391909,
+    "sha256": "d978867b854e19032aeab20e44ed9fcc2a7da2cc38c2334a54c15dd4a52dee8e",
+    "status": "retrieved"
+  },
+  {
+    "file": "carboni-1994.pdf",
+    "url": "https://cdn.sanity.io/files/cctd4ker/production/271c4529cf2fe454789dfdc6a44d8c2dcc49cb1c.pdf",
+    "bytes": 17745621,
+    "sha256": "61d0da73b5fa3d635061bac87f33fe866b3380c57f85308f862c48b8bbfc488b",
+    "status": "retrieved"
+  },
+  {
+    "file": "leiden-handle.html",
+    "url": "https://hdl.handle.net/1887.1/item:4152891",
+    "resolved_url": "https://catalogue.leidenuniv.nl/nde/fulldisplay?&context=L&vid=31UKB_LEU:UBL_NDE&search_scope=MyInst_and_CI&docid=alma9940437830602711",
+    "bytes": 843,
+    "sha256": "d9c16a2739c445b401b66c15ae7670d194ff37680012741ae2227c185f2779d7",
+    "status": "retrieved"
+  },
+  {
+    "file": "leiden-biblissima.html",
+    "url": "https://iiif.biblissima.fr/collections/manifest/a4d81f1a0fcd7ea206db2f8b75b620b680f91066",
+    "status": "failed",
+    "category": "HTTPError"
+  },
+  {
+    "file": "saxl-pleiades.pdf",
+    "url": "https://www.thesaxlproject.com/assets/Uploads/00-PLeiades-16a-Nov-2025.pdf",
+    "resolved_url": "https://www.thesaxlproject.com/assets/Uploads/00-PLeiades-16a-Nov-2025.pdf",
+    "bytes": 18013921,
+    "sha256": "72583f6311080ce86c905b4b70008ccce42edf26a9e379c7f8128bf2c35bfb13",
+    "status": "retrieved"
+  },
+  {
+    "file": "marsh-p184.jpg",
+    "label": "p. 184",
+    "canvas": "https://iiif.bodleian.ox.ac.uk/iiif/canvas/827b067b-1348-4ed4-b885-256922dc1e66.json",
+    "url": "https://iiif.bodleian.ox.ac.uk/iiif/image/827b067b-1348-4ed4-b885-256922dc1e66/full/1000,/0/default.jpg",
+    "sha256": "cc144f8cfd120efed226db1dba5938ebe2727a8d2f33cff7da3ffe39b9ab4b64",
+    "bytes": 464541,
+    "status": "retrieved"
+  },
+  {
+    "file": "marsh-p186.jpg",
+    "label": "p. 186",
+    "canvas": "https://iiif.bodleian.ox.ac.uk/iiif/canvas/521f6520-2dff-4074-bf7a-621f37a289b0.json",
+    "url": "https://iiif.bodleian.ox.ac.uk/iiif/image/521f6520-2dff-4074-bf7a-621f37a289b0/full/1000,/0/default.jpg",
+    "sha256": "f25a3dca104c31e6a444b26878299f2f4fb2fe090a6e2b08f395bba8e9ddfd0a",
+    "bytes": 456108,
+    "status": "retrieved"
+  },
+  {
+    "file": "marsh-p188.jpg",
+    "label": "p. 188",
+    "canvas": "https://iiif.bodleian.ox.ac.uk/iiif/canvas/4e98a06d-2a35-43ad-ac99-ddbecde244da.json",
+    "url": "https://iiif.bodleian.ox.ac.uk/iiif/image/4e98a06d-2a35-43ad-ac99-ddbecde244da/full/1000,/0/default.jpg",
+    "sha256": "41f26702eb0b51319ba70bf1c3ba2e6fb7a2025d78117c490710b79f43179b81",
+    "bytes": 467574,
+    "status": "retrieved"
+  },
+  {
+    "file": "marsh-p190.jpg",
+    "label": "p. 190",
+    "canvas": "https://iiif.bodleian.ox.ac.uk/iiif/canvas/b2f6a1db-5a2b-405c-8e08-3c4c4e83d6d3.json",
+    "url": "https://iiif.bodleian.ox.ac.uk/iiif/image/b2f6a1db-5a2b-405c-8e08-3c4c4e83d6d3/full/1000,/0/default.jpg",
+    "sha256": "ee52fa1ff3dab5af3f80776ffba51126e566a5dfe061ff9478ca43c55312c5f4",
+    "bytes": 471524,
+    "status": "retrieved"
+  },
+  {
+    "file": "marsh-p192.jpg",
+    "label": "p. 192",
+    "canvas": "https://iiif.bodleian.ox.ac.uk/iiif/canvas/18e018d6-1779-4146-94fe-befbe8f3d9fe.json",
+    "url": "https://iiif.bodleian.ox.ac.uk/iiif/image/18e018d6-1779-4146-94fe-befbe8f3d9fe/full/1000,/0/default.jpg",
+    "sha256": "a1964e20c4980cda1170096dc5ef6f08d686cf084610a1f6039eb0143b58c6ce",
+    "bytes": 470497,
+    "status": "retrieved"
+  },
+  {
+    "file": "hafez-2010-v1-mirror.pdf",
+    "url": "https://www.atlascoelestis.com/Zagrebelsky/28854_Hafez_2010_Chapters_1_to_4_thesis.pdf",
+    "status": "retrieved",
+    "bytes": 11472699,
+    "sha256": "edb5c1cf08e2270119ffc099d3570bc23a8603dec3465e8aa20412185c53b760",
+    "provenance": "mirror of author thesis, not publisher bytes verified"
+  },
+  {
+    "file": "marsh-p198.jpg",
+    "label": "p. 198",
+    "canvas": "https://iiif.bodleian.ox.ac.uk/iiif/canvas/a19290d8-d7aa-4b58-ba49-b766a6ad4095.json",
+    "url": "https://iiif.bodleian.ox.ac.uk/iiif/image/a19290d8-d7aa-4b58-ba49-b766a6ad4095/full/1000,/0/default.jpg",
+    "bytes": 430732,
+    "sha256": "1c9aebcde5acb36d38401f30374fa8772e9e7cf4b4b0337a82b16aa07d27428b",
+    "status": "retrieved"
+  },
+  {
+    "file": "marsh-p200.jpg",
+    "label": "p. 200",
+    "canvas": "https://iiif.bodleian.ox.ac.uk/iiif/canvas/561cdbdc-70a2-4229-8c63-4b0e7c37c507.json",
+    "url": "https://iiif.bodleian.ox.ac.uk/iiif/image/561cdbdc-70a2-4229-8c63-4b0e7c37c507/full/1000,/0/default.jpg",
+    "bytes": 454330,
+    "sha256": "81fa6aa5c9bf31d3377955d79121056883bfff98d1a7ff010f4925c4f97e4515",
+    "status": "retrieved"
+  },
+  {
+    "file": "marsh-p202.jpg",
+    "label": "p. 202",
+    "canvas": "https://iiif.bodleian.ox.ac.uk/iiif/canvas/5c9ce378-27bd-49c0-8e82-deeaa20e3671.json",
+    "url": "https://iiif.bodleian.ox.ac.uk/iiif/image/5c9ce378-27bd-49c0-8e82-deeaa20e3671/full/1000,/0/default.jpg",
+    "bytes": 468125,
+    "sha256": "7d10a4a0290908635ef46579461fd4646cfd4ecc7bdffbc65f1f4efadf9e38ef",
+    "status": "retrieved"
+  },
+  {
+    "file": "marsh-p204.jpg",
+    "label": "p. 204",
+    "canvas": "https://iiif.bodleian.ox.ac.uk/iiif/canvas/1bf9fa98-2ed5-4675-9331-979a1ca53ac1.json",
+    "url": "https://iiif.bodleian.ox.ac.uk/iiif/image/1bf9fa98-2ed5-4675-9331-979a1ca53ac1/full/1000,/0/default.jpg",
+    "bytes": 474363,
+    "sha256": "f7f2b60e015ed11a77c14ca9444df3d2149ea2084041914fd5898ce3f0ebcadb",
+    "status": "retrieved"
+  },
+  {
+    "file": "marsh-p206.jpg",
+    "label": "p. 206",
+    "canvas": "https://iiif.bodleian.ox.ac.uk/iiif/canvas/7fb2a87c-7917-4488-a545-39042bd80989.json",
+    "url": "https://iiif.bodleian.ox.ac.uk/iiif/image/7fb2a87c-7917-4488-a545-39042bd80989/full/1000,/0/default.jpg",
+    "bytes": 470810,
+    "sha256": "1cf5823c0961eebe4d22abc59098712adf829343bd17260153e360900180ea52",
+    "status": "retrieved"
+  },
+  {
+    "file": "marsh-p208.jpg",
+    "label": "p. 208",
+    "canvas": "https://iiif.bodleian.ox.ac.uk/iiif/canvas/5f5a6cce-9b26-4e35-919d-ac2631350be1.json",
+    "url": "https://iiif.bodleian.ox.ac.uk/iiif/image/5f5a6cce-9b26-4e35-919d-ac2631350be1/full/1000,/0/default.jpg",
+    "bytes": 467444,
+    "sha256": "bb6ce41acb5d8e93d0ef6839d6fc2ca09f447cfd8e37ba6698922713da87c14f",
+    "status": "retrieved"
+  },
+  {
+    "file": "marsh-p180.jpg",
+    "label": "p. 180",
+    "canvas": "https://iiif.bodleian.ox.ac.uk/iiif/canvas/16472845-7e7e-4ba7-a57a-ac4711ee9d45.json",
+    "url": "https://iiif.bodleian.ox.ac.uk/iiif/image/16472845-7e7e-4ba7-a57a-ac4711ee9d45/full/1000,/0/default.jpg",
+    "bytes": 454711,
+    "sha256": "8a35fe97cabb84edb679824ecb1ad56fa24b65e08a831c05f6ca9151e566201d",
+    "status": "retrieved"
+  },
+  {
+    "file": "marsh-p181.jpg",
+    "label": "p. 181",
+    "canvas": "https://iiif.bodleian.ox.ac.uk/iiif/canvas/80f3a78f-9bd5-4c95-920d-8a5df14c2fbb.json",
+    "url": "https://iiif.bodleian.ox.ac.uk/iiif/image/80f3a78f-9bd5-4c95-920d-8a5df14c2fbb/full/1000,/0/default.jpg",
+    "bytes": 403471,
+    "sha256": "5800b98f0ad04efb65cc3c71626ca691f929176f3e0cd0fda1b7263de6a6b61d",
+    "status": "retrieved"
+  },
+  {
+    "file": "marsh-p182.jpg",
+    "label": "p. 182",
+    "canvas": "https://iiif.bodleian.ox.ac.uk/iiif/canvas/61b2decf-730a-4e4f-93ee-c9cfe9bf4b07.json",
+    "url": "https://iiif.bodleian.ox.ac.uk/iiif/image/61b2decf-730a-4e4f-93ee-c9cfe9bf4b07/full/1000,/0/default.jpg",
+    "bytes": 424804,
+    "sha256": "4961b441bf0e0121fa1aec4393a70806cc53bdcacf61dbd08725cc065d18b256",
+    "status": "retrieved"
+  },
+  {
+    "file": "marsh-p193.jpg",
+    "label": "p. 193",
+    "canvas": "https://iiif.bodleian.ox.ac.uk/iiif/canvas/bc457ea5-92d4-444c-9f96-465a4876c2f8.json",
+    "url": "https://iiif.bodleian.ox.ac.uk/iiif/image/bc457ea5-92d4-444c-9f96-465a4876c2f8/full/1000,/0/default.jpg",
+    "bytes": 476203,
+    "sha256": "2142a6c64917c48fec811912a6028b5dbd78bdebb2c52c504ddea5fbbb4c18e6",
+    "status": "retrieved"
+  },
+  {
+    "file": "marsh-p196.jpg",
+    "label": "p. 196",
+    "canvas": "https://iiif.bodleian.ox.ac.uk/iiif/canvas/b5cf0701-fd8d-4d24-a6d1-52711b10f2d8.json",
+    "url": "https://iiif.bodleian.ox.ac.uk/iiif/image/b5cf0701-fd8d-4d24-a6d1-52711b10f2d8/full/1000,/0/default.jpg",
+    "bytes": 389738,
+    "sha256": "fe74e1f6fbabbf577f06f291011c21b164458b4048fc6183d7cb95146fc796ef",
+    "status": "retrieved"
+  },
+  {
+    "file": "marsh-p197.jpg",
+    "label": "p. 197",
+    "canvas": "https://iiif.bodleian.ox.ac.uk/iiif/canvas/46dfa9d7-5726-465e-a9aa-b33ba0550fca.json",
+    "url": "https://iiif.bodleian.ox.ac.uk/iiif/image/46dfa9d7-5726-465e-a9aa-b33ba0550fca/full/1000,/0/default.jpg",
+    "bytes": 395078,
+    "sha256": "e935feef3908a90008070796aa07a41050c03a801977ae9b053cbea134bf86f9",
+    "status": "retrieved"
+  }
+]
