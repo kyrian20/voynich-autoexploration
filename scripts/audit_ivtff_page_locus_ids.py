@@ -19,7 +19,10 @@ SOURCES = [
     ("ZL3a", ROOT / "data/transcriptions/zl3a.txt"),
     ("IT2a", ROOT / "data/transcriptions/eva_it2a.txt"),
 ]
-# Only ASCII decimal digits are valid in IVTFF numeric IDs. Python regex \\d\n# also accepts Unicode numerals, which could masquerade as physical leaves.\n# Missing-opener detectors below deliberately remain broader for diagnostics.\nPAGE_RE = re.compile(r"^f(?:[0-9]+[rv][1-6]?|Ros)$")
+# Only ASCII decimal digits are valid in IVTFF numeric IDs. Python regex \d
+# also accepts Unicode numerals, which could masquerade as physical leaves.
+# Missing-opener detectors below deliberately remain broader for diagnostics.
+PAGE_RE = re.compile(r"^f(?:[0-9]+[rv][1-6]?|Ros)$")
 LOCUS_RE = re.compile(
     r"^(?P<page>f(?:[0-9]+[rv][1-6]?|Ros))\."
     r"(?P<num>[0-9]{1,3}),(?P<code>[^;>]{3})(?:;(?P<transcriber>[^;>]))?$"
