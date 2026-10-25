@@ -20,7 +20,7 @@ if __package__:
 else:
     from validate_gemini_review import validate
 
-PROMPT_PATH = Path(__file__).resolve().parents[1] / "research/protocols/2026-10-24-gemini-ch-sh-review-prompt.md"
+PROMPT_PATH = Path(__file__).resolve().parents[1] / "research/protocols/2026-10-25-gemini-ch-sh-review-prompt-v2.md"
 API_ROOT = "https://generativelanguage.googleapis.com/v1beta/models/"
 MAX_RESPONSE = 128 * 1024
 
