@@ -377,6 +377,9 @@ jobs:
 
       - name: Probar cobertura de identificadores IVTFF en EXP-590
         run: python tests/test_exp590_ivtff_line_ids.py
+
+      - name: Comprobar portabilidad EXP-593 desde otro directorio
+        run: python -m unittest discover -s tests -p 'test_exp593_cwd_portability.py' -v
       - name: Conciliar loci no tokenizados de EXP-590 sin reejecutar simulaciones
         run: |
           python -m unittest discover -s tests -p 'test_exp590_empty_loci.py' -v
