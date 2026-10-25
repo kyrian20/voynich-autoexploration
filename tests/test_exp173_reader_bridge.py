@@ -1,13 +1,40 @@
 from pathlib import Path
+import json
 import sys
 import unittest
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'scripts'))
-from audit_exp173_reader_bridge import historical_tokens, metrics, paired_leave_one_out, POLICIES
+from audit_exp173_reader_bridge import historical_tokens, metrics, paired_leave_one_out, POLICIES, verify_snapshot, OVERLAY_PATH
 from ivtff_lossless import lex, tokens
 
 
 class ReaderBridgeTests(unittest.TestCase):
+    def test_dependency_overlay_allows_only_pinned_hash_change(self):
+        overlay = json.loads(OVERLAY_PATH.read_text(encoding='utf-8'))
+        dependency = overlay['dependency']
+        archived = {
+            'dependencies_sha256': {dependency: overlay['archived_sha256'], 'other.py': 'unchanged'},
+            'files': [{'tokens': 12, 'ratio': 0.5}],
+        }
+        current = {
+            'dependencies_sha256': {dependency: overlay['current_sha256'], 'other.py': 'unchanged'},
+            'files': [{'tokens': 12, 'ratio': 0.5}],
+        }
+        self.assertEqual(verify_snapshot('results.json', current, archived, overlay),
+                         'scientific_fields_exact_with_pinned_dependency_change')
+        self.assertEqual(verify_snapshot('results.json', archived, archived, {}),
+                         'exact')
+        with self.assertRaisesRegex(ValueError, 'outside pinned dependency'):
+            verify_snapshot('results.json', {**current, 'files': [{'tokens': 13}]}, archived, overlay)
+        with self.assertRaisesRegex(ValueError, 'Dependency hash differs'):
+            verify_snapshot('results.json', {
+                **current, 'dependencies_sha256': {dependency: 'different', 'other.py': 'unchanged'}
+            }, archived, overlay)
+        with self.assertRaisesRegex(ValueError, 'Snapshot mismatch: changed-rows'):
+            verify_snapshot('changed-rows.json.gz', {'rows': 1}, {'rows': 2}, overlay)
+        with self.assertRaisesRegex(ValueError, 'Unapproved dependency override'):
+            verify_snapshot('results.json', current, archived, {**overlay, 'dependency': 'other.py'})
+
     def test_paragraph_end_not_part_of_word(self):
         body = 'y.xam<$>'
         old = historical_tokens(body)
