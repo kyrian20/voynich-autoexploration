@@ -146,8 +146,8 @@ def main() -> None:
     # The broad candidate detector must not promote either spelling to valid.
     for broken_header in (" <f٢r> <! $L=B>", " <f2r7> <! $L=B>"):
         indented_invalid_boundary = audit_text(
-            "<f1r> <! $L=A>\\n<f1r.1,@P0> daiin\\n"
-            + broken_header + "\\n<f1r.2,@P0> chedy\\n"
+            "<f1r> <! $L=A>\n<f1r.1,@P0> daiin\n"
+            + broken_header + "\n<f1r.2,@P0> chedy\n"
         )
         assert indented_invalid_boundary["record_count"] == 2, indented_invalid_boundary
         assert indented_invalid_boundary["malformed_header_count"] == 1, indented_invalid_boundary
@@ -156,7 +156,7 @@ def main() -> None:
             "malformed_header_count=1", "page_mismatch_count=1",
         }, indented_invalid_boundary
     unrelated_indented_tag = audit_text(
-        "<f1r> <! $L=A>\\n <unrelated>\\n<f1r.1,@P0> daiin\\n"
+        "<f1r> <! $L=A>\n <unrelated>\n<f1r.1,@P0> daiin\n"
     )
     assert structural_errors(unrelated_indented_tag) == [], unrelated_indented_tag
 
