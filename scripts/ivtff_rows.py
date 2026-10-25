@@ -9,7 +9,7 @@ callers must supply rows in source order from the intended scope.
 """
 from __future__ import annotations
 
-from scripts.ivtff_lossless import Payload, tokens
+from scripts.ivtff_lossless import Payload, lex, tokens
 
 
 def tokens_rows(payloads: list[Payload], **policy) -> list[str]:
@@ -25,8 +25,17 @@ def tokens_rows(payloads: list[Payload], **policy) -> list[str]:
     for payload in payloads:
         if not isinstance(payload, Payload):
             raise TypeError('Expected a lexed IVTFF Payload')
+        if not isinstance(payload.raw, str):
+            raise TypeError('IVTFF Payload raw row must be text')
         if '\n' in payload.raw or '\r' in payload.raw:
             raise ValueError('Physical newline inside an IVTFF row')
+        # Payload/Span are mutable public dataclasses. A stale raw string,
+        # altered span, or discarded diagnostic must never be projected as
+        # if it were the exact physical source row. Re-lex without touching
+        # the frozen historical lexer or any archived experiment.
+        checked = lex(payload.raw)
+        if payload.spans != checked.spans or payload.diagnostics != checked.diagnostics:
+            raise ValueError('IVTFF Payload spans/diagnostics disagree with raw row')
 
     output: list[str] = []
     chain: list[Payload] = []
