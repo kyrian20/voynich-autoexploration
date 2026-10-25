@@ -137,12 +137,12 @@ class Exp593ArchiveGuardTest(unittest.TestCase):
             MODULE["archive_status"](self.paths, DATE, SOURCE_SHA)
 
     def test_missing_currier_report_row_rejected(self):
-        self.store(report=self.report().replace("| A | 3 | 1 | 1 |\\n", "", 1))
+        self.store(report=self.report().replace("| A | 3 | 1 | 1 |\n", "", 1))
         with self.assertRaisesRegex(RuntimeError, "result body is incomplete"):
             MODULE["archive_status"](self.paths, DATE, SOURCE_SHA)
 
     def test_duplicate_currier_report_row_rejected(self):
-        row = "| A | 3 | 1 | 1 |\\n"
+        row = "| A | 3 | 1 | 1 |\n"
         self.store(report=self.report().replace(row, row + row, 1))
         with self.assertRaisesRegex(RuntimeError, "result body is incomplete"):
             MODULE["archive_status"](self.paths, DATE, SOURCE_SHA)
