@@ -27,18 +27,44 @@ class Exp593ArchiveGuardTest(unittest.TestCase):
         self.paths = MODULE["archive_paths"](DATE)
 
     def payload(self, *, seed=None):
+        observed = {}
+        tests = {}
+        for word, n, initial, final in (("daiin", 3, 1, 1),
+                                         ("dain", 2, 1, 0),
+                                         ("daiiin", 0, 0, 0)):
+            observed[word] = {
+                "occurrences": n, "line_initial": initial, "line_final": final,
+                "initial_fraction": initial / n if n else None,
+                "by_currier": {"A": {"occurrences": n,
+                                    "line_initial": initial, "line_final": final}},
+            }
+            tests[word] = {"null_mean_initial": 0.5, "null_sd_initial": 0.5,
+                           "observed_standardized_statistic": 1.0,
+                           "empirical_p": 0.2, "max_stat_adjusted_p": 0.3}
         return {"experiment": "EXP-593", "date_utc": DATE,
                 "source": "data/transcriptions/eva_zl3b.txt",
                 "source_sha256": SOURCE_SHA,
                 "seed": MODULE["SEED"] if seed is None else seed,
                 "permutations": MODULE["N_PERM"],
-                "variants": list(MODULE["VARIANTS"])}
+                "variants": list(MODULE["VARIANTS"]),
+                "lines": 4188, "tokens": 32732, "observed": observed,
+                "tests": tests, "null_model": "synthetic test fixture",
+                "limitations": ["synthetic test fixture; no permutations run"]}
 
     def report(self, *, source_sha=SOURCE_SHA):
-        return (f"# EXP-593\n\n- Fecha UTC: {DATE}\n"
-                f"- SHA-256: {source_sha}\n"
-                f"- Permutaciones: {MODULE['N_PERM']:,}\n"
-                f"- Semilla: {MODULE['SEED']}\n")
+        payload = self.payload()
+        lines = (f"# EXP-593\n\n- Fecha UTC: {DATE}\n"
+                 f"- SHA-256: {source_sha}\n"
+                 f"- Líneas: {payload['lines']:,}\n"
+                 f"- Tokens: {payload['tokens']:,}\n"
+                 f"- Permutaciones: {MODULE['N_PERM']:,}\n"
+                 f"- Semilla: {MODULE['SEED']}\n\n")
+        for word in MODULE["VARIANTS"]:
+            o, t = payload["observed"][word], payload["tests"][word]
+            lines += (f"| {word} | {o['occurrences']} | {o['line_initial']} | "
+                      f"{o['line_final']} | {t['empirical_p']:.6f} | "
+                      f"{t['max_stat_adjusted_p']:.6f} |\n")
+        return lines
 
     def store(self, *, payload=None, report=None):
         self.paths[0].write_text(json.dumps(self.payload() if payload is None else payload),
@@ -57,6 +83,46 @@ class Exp593ArchiveGuardTest(unittest.TestCase):
         before = [path.read_bytes() for path in self.paths]
         self.assertEqual(MODULE["archive_status"](self.paths, DATE, SOURCE_SHA), "existing")
         self.assertEqual([path.read_bytes() for path in self.paths], before)
+
+    def test_metadata_only_archive_cannot_be_mistaken_for_complete(self):
+        partial = self.payload()
+        del partial["observed"]
+        del partial["tests"]
+        self.store(payload=partial)
+        with self.assertRaisesRegex(RuntimeError, "result body is incomplete"):
+            MODULE["archive_status"](self.paths, DATE, SOURCE_SHA)
+
+    def test_missing_variant_statistics_rejected(self):
+        partial = self.payload()
+        del partial["tests"]["dain"]
+        self.store(payload=partial)
+        with self.assertRaisesRegex(RuntimeError, "result body is incomplete"):
+            MODULE["archive_status"](self.paths, DATE, SOURCE_SHA)
+
+    def test_invalid_probability_rejected(self):
+        partial = self.payload()
+        partial["tests"]["daiin"]["empirical_p"] = float("nan")
+        self.store(payload=partial)
+        with self.assertRaisesRegex(RuntimeError, "result body is incomplete"):
+            MODULE["archive_status"](self.paths, DATE, SOURCE_SHA)
+
+    def test_mismatched_currier_totals_rejected(self):
+        partial = self.payload()
+        partial["observed"]["daiin"]["by_currier"]["A"]["occurrences"] = 2
+        self.store(payload=partial)
+        with self.assertRaisesRegex(RuntimeError, "result body is incomplete"):
+            MODULE["archive_status"](self.paths, DATE, SOURCE_SHA)
+
+    def test_report_table_must_match_json(self):
+        self.store(report=self.report().replace("| daiin | 3 |", "| daiin | 999 |"))
+        with self.assertRaisesRegex(RuntimeError, "result body is incomplete"):
+            MODULE["archive_status"](self.paths, DATE, SOURCE_SHA)
+
+    def test_historical_oct21_archive_remains_compatible(self):
+        paths = (ROOT / "research/experiments/2026-10-21-exp593-corrected-L-metadata.json",
+                 ROOT / "research/experiments/2026-10-21-exp593-corrected-L-metadata.md")
+        historical_sha = "bf5b6d4ac1e3a51b1847a9c388318d609020441ccd56984c901c32b09beccafc"
+        self.assertEqual(MODULE["archive_status"](paths, "2026-10-21", historical_sha), "existing")
 
     def test_partial_archive_fails_closed(self):
         self.paths[0].write_text("historic-json", encoding="utf-8")
