@@ -132,6 +132,36 @@ def run():
                        'No p-values, confidence intervals, model rejection or semantic inference.']}, changes
 
 
+OVERLAY_PATH = ROOT / 'research/maintenance/2026-10-25-ivtff-multiline-dependency-overlay.json'
+
+
+def verify_snapshot(name, current, archived, overlay):
+    """Compare every archived value, allowing one pinned dependency hash only.
+
+    A lexer implementation change must not be mislabeled as an exact historical
+    code replay. Scientific outputs and changed-row details must still match.
+    """
+    if current == archived:
+        return 'exact'
+    if name != 'results.json':
+        raise ValueError(f'Snapshot mismatch: {name}')
+    if overlay.get('schema_version') != 1 or overlay.get('status') != 'APPROVED_FOR_EXACT_SNAPSHOT_COMPARISON_ONLY':
+        raise ValueError('Invalid dependency provenance overlay')
+    dependency = overlay['dependency']
+    if dependency != 'scripts/ivtff_lossless.py':
+        raise ValueError('Unapproved dependency override')
+    if (archived.get('dependencies_sha256', {}).get(dependency) != overlay['archived_sha256'] or
+            current.get('dependencies_sha256', {}).get(dependency) != overlay['current_sha256'] or
+            overlay['archived_sha256'] == overlay['current_sha256']):
+        raise ValueError('Dependency hash differs from approved historical/current pair')
+    adjusted = dict(current)
+    adjusted['dependencies_sha256'] = dict(current['dependencies_sha256'])
+    adjusted['dependencies_sha256'][dependency] = overlay['archived_sha256']
+    if adjusted != archived:
+        raise ValueError(f'Snapshot mismatch outside pinned dependency: {name}')
+    return 'scientific_fields_exact_with_pinned_dependency_change'
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--output-directory', type=Path)
@@ -142,13 +172,19 @@ def main():
     result, changes = run()
     payloads = {'results.json': result, 'changed-rows.json.gz': changes}
     if args.check:
+        outcomes = {}
         for name, value in payloads.items():
             raw = (args.check / name).read_bytes()
             if name.endswith('.gz'):
                 raw = gzip.decompress(raw)
-            if value != json.loads(raw):
-                raise SystemExit(f'Snapshot mismatch: {name}')
-        print('Reader bridge: both complete snapshots verified')
+            archived = json.loads(raw)
+            overlay = json.loads(OVERLAY_PATH.read_text(encoding='utf-8')) if value != archived else {}
+            try:
+                outcomes[name] = verify_snapshot(name, value, archived, overlay)
+            except ValueError as exc:
+                raise SystemExit(str(exc)) from exc
+        print('Reader bridge: archived scientific fields and changed rows verified; '
+              + json.dumps(outcomes, sort_keys=True))
     else:
         args.output_directory.mkdir(parents=True, exist_ok=True)
         for name, value in payloads.items():
