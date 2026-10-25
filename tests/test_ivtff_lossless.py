@@ -54,6 +54,27 @@ def main():
     assert tokens([lex('qo{ch}dy')], ligatures='opaque') == ['qo{ch}dy']
     # F08: no artificial word space at the physical wrap. §6.6.
     assert tokens([lex('dai /'), lex('/ in.or')]) == ['daiin', 'or']
+    # Independent IVTFF physical rows are legal and MUST NOT concatenate
+    # adjacent word fragments. The previous implementation rejected them.
+    assert tokens([lex('ab.cd'), lex('ef.gh')]) == ['ab', 'cd', 'ef', 'gh']
+    assert tokens([lex('a'), lex('b/'), lex('/c'), lex('d')]) == ['a', 'bc', 'd']
+    assert tokens([lex('a/'), lex('/b'), lex('c/'), lex('/d')]) == ['ab', 'cd']
+    assert tokens([lex('a/'), lex('/b/'), lex('/c')]) == ['abc']
+    assert tokens([lex('da /'), lex('/ iin.or'), lex('chedy')]) == ['daiin', 'or', 'chedy']
+    assert tokens([lex('a'), lex(''), lex('b')]) == ['a', 'b']
+    for broken in (
+        [lex('a/'), lex('b')],
+        [lex('a'), lex('/b')],
+        [lex('a/'), lex('/b'), lex('/c')],
+        [lex('a/'), lex('/b/'), lex('c')],
+    ):
+        try:
+            tokens(broken)
+        except ValueError:
+            pass
+        else:
+            raise AssertionError('Broken continuation chain accepted')
+
     invalid = ['qo[te', 'qo{ch', 'q}', '@12;', '@127;', '@256;', '[x]',
                '[a:b:c:d]', '{a.b}', '{a?b}', '<!unclosed', 'or/x', 'a\nb']
     for raw in invalid:
