@@ -1,5 +1,7 @@
 # Investigación computacional del Manuscrito Voynich
 
+**Decisión de continuidad — 25-10-2026:** concentrar el siguiente esfuerzo en [un único estudio de categorías visuales, con puertas y criterios de cierre](research/protocols/semantic-anchor-study.md). **BLOCKED:** la preparación archivada registra cero tareas listas y cero anotaciones independientes. No entrenar ni evaluar hasta disponer de datos aptos; realizar primero un piloto de viabilidad acotado en entrenamiento. Esta decisión no desactiva automatizaciones existentes ni equivale a un resultado científico.
+
 Repositorio de trabajo: `kyrian20/voynich-autoexploration` (rama `master`).
 
 **Auditoría retrospectiva — 24-10-2026:** [inventario de errores conocidos, PR pendientes y verificaciones no concluidas](research/maintenance/2026-10-24-retrospective-audit-status.md). No equivale a ejecutar ni certificar todo el historial. Las propuestas semánticas recientes son protocolos, no traducciones validadas.
