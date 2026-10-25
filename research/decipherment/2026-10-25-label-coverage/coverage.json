@@ -1,0 +1,2565 @@
+{
+  "status": "METADATA_COVERAGE_ONLY_NO_SEMANTIC_EVALUATION",
+  "source_rows": 2196,
+  "union_locus_ids": 1172,
+  "common_locus_ids": 1024,
+  "type_mismatches": [],
+  "per_source": {
+    "ZL3b": {
+      "selected_rows": 1171,
+      "numeric_leaves": 31,
+      "unassigned_rows": 137
+    },
+    "IT2a": {
+      "selected_rows": 1025,
+      "numeric_leaves": 27,
+      "unassigned_rows": 0
+    }
+  },
+  "strata": [
+    {
+      "edition": "IT2a",
+      "locus": "L0",
+      "partition": "UNASSIGNED",
+      "source_rows": 0,
+      "numeric_leaves": 0,
+      "folios": [],
+      "rows_per_leaf": {},
+      "largest_leaf_share": null
+    },
+    {
+      "edition": "IT2a",
+      "locus": "L0",
+      "partition": "development",
+      "source_rows": 11,
+      "numeric_leaves": 2,
+      "folios": [
+        "f68v3",
+        "f76r"
+      ],
+      "rows_per_leaf": {
+        "68": 2,
+        "76": 9
+      },
+      "largest_leaf_share": 0.8181818181818182
+    },
+    {
+      "edition": "IT2a",
+      "locus": "L0",
+      "partition": "test",
+      "source_rows": 49,
+      "numeric_leaves": 1,
+      "folios": [
+        "f66r"
+      ],
+      "rows_per_leaf": {
+        "66": 49
+      },
+      "largest_leaf_share": 1.0
+    },
+    {
+      "edition": "IT2a",
+      "locus": "L0",
+      "partition": "train",
+      "source_rows": 98,
+      "numeric_leaves": 5,
+      "folios": [
+        "f49v",
+        "f57v",
+        "f67r2",
+        "f67v1",
+        "f69r",
+        "f75v"
+      ],
+      "rows_per_leaf": {
+        "49": 26,
+        "57": 5,
+        "67": 39,
+        "69": 22,
+        "75": 6
+      },
+      "largest_leaf_share": 0.3979591836734694
+    },
+    {
+      "edition": "IT2a",
+      "locus": "La",
+      "partition": "UNASSIGNED",
+      "source_rows": 0,
+      "numeric_leaves": 0,
+      "folios": [],
+      "rows_per_leaf": {},
+      "largest_leaf_share": null
+    },
+    {
+      "edition": "IT2a",
+      "locus": "La",
+      "partition": "development",
+      "source_rows": 1,
+      "numeric_leaves": 1,
+      "folios": [
+        "f68r3"
+      ],
+      "rows_per_leaf": {
+        "68": 1
+      },
+      "largest_leaf_share": 1.0
+    },
+    {
+      "edition": "IT2a",
+      "locus": "La",
+      "partition": "test",
+      "source_rows": 0,
+      "numeric_leaves": 0,
+      "folios": [],
+      "rows_per_leaf": {},
+      "largest_leaf_share": null
+    },
+    {
+      "edition": "IT2a",
+      "locus": "La",
+      "partition": "train",
+      "source_rows": 4,
+      "numeric_leaves": 1,
+      "folios": [
+        "f67v2"
+      ],
+      "rows_per_leaf": {
+        "67": 4
+      },
+      "largest_leaf_share": 1.0
+    },
+    {
+      "edition": "IT2a",
+      "locus": "Lc",
+      "partition": "UNASSIGNED",
+      "source_rows": 0,
+      "numeric_leaves": 0,
+      "folios": [],
+      "rows_per_leaf": {},
+      "largest_leaf_share": null
+    },
+    {
+      "edition": "IT2a",
+      "locus": "Lc",
+      "partition": "development",
+      "source_rows": 8,
+      "numeric_leaves": 1,
+      "folios": [
+        "f99r",
+        "f99v"
+      ],
+      "rows_per_leaf": {
+        "99": 8
+      },
+      "largest_leaf_share": 1.0
+    },
+    {
+      "edition": "IT2a",
+      "locus": "Lc",
+      "partition": "test",
+      "source_rows": 0,
+      "numeric_leaves": 0,
+      "folios": [],
+      "rows_per_leaf": {},
+      "largest_leaf_share": null
+    },
+    {
+      "edition": "IT2a",
+      "locus": "Lc",
+      "partition": "train",
+      "source_rows": 29,
+      "numeric_leaves": 3,
+      "folios": [
+        "f102r1",
+        "f102r2",
+        "f102v1",
+        "f102v2",
+        "f88r",
+        "f88v",
+        "f89r1",
+        "f89r2",
+        "f89v1",
+        "f89v2"
+      ],
+      "rows_per_leaf": {
+        "88": 6,
+        "89": 13,
+        "102": 10
+      },
+      "largest_leaf_share": 0.4482758620689655
+    },
+    {
+      "edition": "IT2a",
+      "locus": "Lf",
+      "partition": "UNASSIGNED",
+      "source_rows": 0,
+      "numeric_leaves": 0,
+      "folios": [],
+      "rows_per_leaf": {},
+      "largest_leaf_share": null
+    },
+    {
+      "edition": "IT2a",
+      "locus": "Lf",
+      "partition": "development",
+      "source_rows": 51,
+      "numeric_leaves": 1,
+      "folios": [
+        "f99r",
+        "f99v"
+      ],
+      "rows_per_leaf": {
+        "99": 51
+      },
+      "largest_leaf_share": 1.0
+    },
+    {
+      "edition": "IT2a",
+      "locus": "Lf",
+      "partition": "test",
+      "source_rows": 0,
+      "numeric_leaves": 0,
+      "folios": [],
+      "rows_per_leaf": {},
+      "largest_leaf_share": null
+    },
+    {
+      "edition": "IT2a",
+      "locus": "Lf",
+      "partition": "train",
+      "source_rows": 144,
+      "numeric_leaves": 5,
+      "folios": [
+        "f100r",
+        "f100v",
+        "f101v",
+        "f102r1",
+        "f102r2",
+        "f102v1",
+        "f102v2",
+        "f88r",
+        "f88v",
+        "f89r1",
+        "f89r2",
+        "f89v1",
+        "f89v2"
+      ],
+      "rows_per_leaf": {
+        "88": 22,
+        "89": 44,
+        "100": 30,
+        "101": 18,
+        "102": 30
+      },
+      "largest_leaf_share": 0.3055555555555556
+    },
+    {
+      "edition": "IT2a",
+      "locus": "Ln",
+      "partition": "UNASSIGNED",
+      "source_rows": 0,
+      "numeric_leaves": 0,
+      "folios": [],
+      "rows_per_leaf": {},
+      "largest_leaf_share": null
+    },
+    {
+      "edition": "IT2a",
+      "locus": "Ln",
+      "partition": "development",
+      "source_rows": 0,
+      "numeric_leaves": 0,
+      "folios": [],
+      "rows_per_leaf": {},
+      "largest_leaf_share": null
+    },
+    {
+      "edition": "IT2a",
+      "locus": "Ln",
+      "partition": "test",
+      "source_rows": 10,
+      "numeric_leaves": 1,
+      "folios": [
+        "f80r"
+      ],
+      "rows_per_leaf": {
+        "80": 10
+      },
+      "largest_leaf_share": 1.0
+    },
+    {
+      "edition": "IT2a",
+      "locus": "Ln",
+      "partition": "train",
+      "source_rows": 53,
+      "numeric_leaves": 5,
+      "folios": [
+        "f75v",
+        "f77r",
+        "f77v",
+        "f82r",
+        "f82v",
+        "f83v",
+        "f84r"
+      ],
+      "rows_per_leaf": {
+        "75": 20,
+        "77": 5,
+        "82": 16,
+        "83": 1,
+        "84": 11
+      },
+      "largest_leaf_share": 0.37735849056603776
+    },
+    {
+      "edition": "IT2a",
+      "locus": "Lp",
+      "partition": "UNASSIGNED",
+      "source_rows": 0,
+      "numeric_leaves": 0,
+      "folios": [],
+      "rows_per_leaf": {},
+      "largest_leaf_share": null
+    },
+    {
+      "edition": "IT2a",
+      "locus": "Lp",
+      "partition": "development",
+      "source_rows": 0,
+      "numeric_leaves": 0,
+      "folios": [],
+      "rows_per_leaf": {},
+      "largest_leaf_share": null
+    },
+    {
+      "edition": "IT2a",
+      "locus": "Lp",
+      "partition": "test",
+      "source_rows": 0,
+      "numeric_leaves": 0,
+      "folios": [],
+      "rows_per_leaf": {},
+      "largest_leaf_share": null
+    },
+    {
+      "edition": "IT2a",
+      "locus": "Lp",
+      "partition": "train",
+      "source_rows": 2,
+      "numeric_leaves": 2,
+      "folios": [
+        "f41v",
+        "f65r"
+      ],
+      "rows_per_leaf": {
+        "41": 1,
+        "65": 1
+      },
+      "largest_leaf_share": 0.5
+    },
+    {
+      "edition": "IT2a",
+      "locus": "Ls",
+      "partition": "UNASSIGNED",
+      "source_rows": 0,
+      "numeric_leaves": 0,
+      "folios": [],
+      "rows_per_leaf": {},
+      "largest_leaf_share": null
+    },
+    {
+      "edition": "IT2a",
+      "locus": "Ls",
+      "partition": "development",
+      "source_rows": 64,
+      "numeric_leaves": 1,
+      "folios": [
+        "f68r1",
+        "f68r2",
+        "f68r3"
+      ],
+      "rows_per_leaf": {
+        "68": 64
+      },
+      "largest_leaf_share": 1.0
+    },
+    {
+      "edition": "IT2a",
+      "locus": "Ls",
+      "partition": "test",
+      "source_rows": 0,
+      "numeric_leaves": 0,
+      "folios": [],
+      "rows_per_leaf": {},
+      "largest_leaf_share": null
+    },
+    {
+      "edition": "IT2a",
+      "locus": "Ls",
+      "partition": "train",
+      "source_rows": 12,
+      "numeric_leaves": 1,
+      "folios": [
+        "f67r2"
+      ],
+      "rows_per_leaf": {
+        "67": 12
+      },
+      "largest_leaf_share": 1.0
+    },
+    {
+      "edition": "IT2a",
+      "locus": "Lt",
+      "partition": "UNASSIGNED",
+      "source_rows": 0,
+      "numeric_leaves": 0,
+      "folios": [],
+      "rows_per_leaf": {},
+      "largest_leaf_share": null
+    },
+    {
+      "edition": "IT2a",
+      "locus": "Lt",
+      "partition": "development",
+      "source_rows": 6,
+      "numeric_leaves": 1,
+      "folios": [
+        "f78r"
+      ],
+      "rows_per_leaf": {
+        "78": 6
+      },
+      "largest_leaf_share": 1.0
+    },
+    {
+      "edition": "IT2a",
+      "locus": "Lt",
+      "partition": "test",
+      "source_rows": 0,
+      "numeric_leaves": 0,
+      "folios": [],
+      "rows_per_leaf": {},
+      "largest_leaf_share": null
+    },
+    {
+      "edition": "IT2a",
+      "locus": "Lt",
+      "partition": "train",
+      "source_rows": 41,
+      "numeric_leaves": 6,
+      "folios": [
+        "f75v",
+        "f77r",
+        "f77v",
+        "f81v",
+        "f82r",
+        "f82v",
+        "f83r",
+        "f83v",
+        "f84r"
+      ],
+      "rows_per_leaf": {
+        "75": 7,
+        "77": 13,
+        "81": 1,
+        "82": 11,
+        "83": 7,
+        "84": 2
+      },
+      "largest_leaf_share": 0.3170731707317073
+    },
+    {
+      "edition": "IT2a",
+      "locus": "Lx",
+      "partition": "UNASSIGNED",
+      "source_rows": 0,
+      "numeric_leaves": 0,
+      "folios": [],
+      "rows_per_leaf": {},
+      "largest_leaf_share": null
+    },
+    {
+      "edition": "IT2a",
+      "locus": "Lx",
+      "partition": "development",
+      "source_rows": 0,
+      "numeric_leaves": 0,
+      "folios": [],
+      "rows_per_leaf": {},
+      "largest_leaf_share": null
+    },
+    {
+      "edition": "IT2a",
+      "locus": "Lx",
+      "partition": "test",
+      "source_rows": 1,
+      "numeric_leaves": 1,
+      "folios": [
+        "f66r"
+      ],
+      "rows_per_leaf": {
+        "66": 1
+      },
+      "largest_leaf_share": 1.0
+    },
+    {
+      "edition": "IT2a",
+      "locus": "Lx",
+      "partition": "train",
+      "source_rows": 0,
+      "numeric_leaves": 0,
+      "folios": [],
+      "rows_per_leaf": {},
+      "largest_leaf_share": null
+    },
+    {
+      "edition": "IT2a",
+      "locus": "Lz",
+      "partition": "UNASSIGNED",
+      "source_rows": 0,
+      "numeric_leaves": 0,
+      "folios": [],
+      "rows_per_leaf": {},
+      "largest_leaf_share": null
+    },
+    {
+      "edition": "IT2a",
+      "locus": "Lz",
+      "partition": "development",
+      "source_rows": 60,
+      "numeric_leaves": 1,
+      "folios": [
+        "f73r",
+        "f73v"
+      ],
+      "rows_per_leaf": {
+        "73": 60
+      },
+      "largest_leaf_share": 1.0
+    },
+    {
+      "edition": "IT2a",
+      "locus": "Lz",
+      "partition": "test",
+      "source_rows": 209,
+      "numeric_leaves": 2,
+      "folios": [
+        "f70v1",
+        "f70v2",
+        "f72r1",
+        "f72r2",
+        "f72r3",
+        "f72v1",
+        "f72v2",
+        "f72v3"
+      ],
+      "rows_per_leaf": {
+        "70": 45,
+        "72": 164
+      },
+      "largest_leaf_share": 0.784688995215311
+    },
+    {
+      "edition": "IT2a",
+      "locus": "Lz",
+      "partition": "train",
+      "source_rows": 30,
+      "numeric_leaves": 1,
+      "folios": [
+        "f71r",
+        "f71v"
+      ],
+      "rows_per_leaf": {
+        "71": 30
+      },
+      "largest_leaf_share": 1.0
+    },
+    {
+      "edition": "IT2a",
+      "locus": "Ri",
+      "partition": "UNASSIGNED",
+      "source_rows": 0,
+      "numeric_leaves": 0,
+      "folios": [],
+      "rows_per_leaf": {},
+      "largest_leaf_share": null
+    },
+    {
+      "edition": "IT2a",
+      "locus": "Ri",
+      "partition": "development",
+      "source_rows": 16,
+      "numeric_leaves": 1,
+      "folios": [
+        "f68r3",
+        "f68v3"
+      ],
+      "rows_per_leaf": {
+        "68": 16
+      },
+      "largest_leaf_share": 1.0
+    },
+    {
+      "edition": "IT2a",
+      "locus": "Ri",
+      "partition": "test",
+      "source_rows": 15,
+      "numeric_leaves": 1,
+      "folios": [
+        "f70r1"
+      ],
+      "rows_per_leaf": {
+        "70": 15
+      },
+      "largest_leaf_share": 1.0
+    },
+    {
+      "edition": "IT2a",
+      "locus": "Ri",
+      "partition": "train",
+      "source_rows": 44,
+      "numeric_leaves": 2,
+      "folios": [
+        "f67r1",
+        "f67v2",
+        "f69v"
+      ],
+      "rows_per_leaf": {
+        "67": 16,
+        "69": 28
+      },
+      "largest_leaf_share": 0.6363636363636364
+    },
+    {
+      "edition": "IT2a",
+      "locus": "Ro",
+      "partition": "UNASSIGNED",
+      "source_rows": 0,
+      "numeric_leaves": 0,
+      "folios": [],
+      "rows_per_leaf": {},
+      "largest_leaf_share": null
+    },
+    {
+      "edition": "IT2a",
+      "locus": "Ro",
+      "partition": "development",
+      "source_rows": 20,
+      "numeric_leaves": 1,
+      "folios": [
+        "f68v1",
+        "f68v2"
+      ],
+      "rows_per_leaf": {
+        "68": 20
+      },
+      "largest_leaf_share": 1.0
+    },
+    {
+      "edition": "IT2a",
+      "locus": "Ro",
+      "partition": "test",
+      "source_rows": 0,
+      "numeric_leaves": 0,
+      "folios": [],
+      "rows_per_leaf": {},
+      "largest_leaf_share": null
+    },
+    {
+      "edition": "IT2a",
+      "locus": "Ro",
+      "partition": "train",
+      "source_rows": 47,
+      "numeric_leaves": 3,
+      "folios": [
+        "f57v",
+        "f67v1",
+        "f67v2",
+        "f69r"
+      ],
+      "rows_per_leaf": {
+        "57": 4,
+        "67": 21,
+        "69": 22
+      },
+      "largest_leaf_share": 0.46808510638297873
+    },
+    {
+      "edition": "ZL3b",
+      "locus": "L0",
+      "partition": "UNASSIGNED",
+      "source_rows": 137,
+      "numeric_leaves": 0,
+      "folios": [
+        "fRos"
+      ],
+      "rows_per_leaf": {},
+      "largest_leaf_share": null
+    },
+    {
+      "edition": "ZL3b",
+      "locus": "L0",
+      "partition": "development",
+      "source_rows": 11,
+      "numeric_leaves": 2,
+      "folios": [
+        "f68v3",
+        "f76r"
+      ],
+      "rows_per_leaf": {
+        "68": 2,
+        "76": 9
+      },
+      "largest_leaf_share": 0.8181818181818182
+    },
+    {
+      "edition": "ZL3b",
+      "locus": "L0",
+      "partition": "test",
+      "source_rows": 50,
+      "numeric_leaves": 2,
+      "folios": [
+        "f11v",
+        "f66r"
+      ],
+      "rows_per_leaf": {
+        "11": 1,
+        "66": 49
+      },
+      "largest_leaf_share": 0.98
+    },
+    {
+      "edition": "ZL3b",
+      "locus": "L0",
+      "partition": "train",
+      "source_rows": 99,
+      "numeric_leaves": 6,
+      "folios": [
+        "f2r",
+        "f49v",
+        "f57v",
+        "f67r2",
+        "f67v1",
+        "f69r",
+        "f75v"
+      ],
+      "rows_per_leaf": {
+        "2": 1,
+        "49": 26,
+        "57": 5,
+        "67": 39,
+        "69": 22,
+        "75": 6
+      },
+      "largest_leaf_share": 0.3939393939393939
+    },
+    {
+      "edition": "ZL3b",
+      "locus": "La",
+      "partition": "UNASSIGNED",
+      "source_rows": 0,
+      "numeric_leaves": 0,
+      "folios": [],
+      "rows_per_leaf": {},
+      "largest_leaf_share": null
+    },
+    {
+      "edition": "ZL3b",
+      "locus": "La",
+      "partition": "development",
+      "source_rows": 1,
+      "numeric_leaves": 1,
+      "folios": [
+        "f68r3"
+      ],
+      "rows_per_leaf": {
+        "68": 1
+      },
+      "largest_leaf_share": 1.0
+    },
+    {
+      "edition": "ZL3b",
+      "locus": "La",
+      "partition": "test",
+      "source_rows": 0,
+      "numeric_leaves": 0,
+      "folios": [],
+      "rows_per_leaf": {},
+      "largest_leaf_share": null
+    },
+    {
+      "edition": "ZL3b",
+      "locus": "La",
+      "partition": "train",
+      "source_rows": 6,
+      "numeric_leaves": 1,
+      "folios": [
+        "f67v2"
+      ],
+      "rows_per_leaf": {
+        "67": 6
+      },
+      "largest_leaf_share": 1.0
+    },
+    {
+      "edition": "ZL3b",
+      "locus": "Lc",
+      "partition": "UNASSIGNED",
+      "source_rows": 0,
+      "numeric_leaves": 0,
+      "folios": [],
+      "rows_per_leaf": {},
+      "largest_leaf_share": null
+    },
+    {
+      "edition": "ZL3b",
+      "locus": "Lc",
+      "partition": "development",
+      "source_rows": 8,
+      "numeric_leaves": 1,
+      "folios": [
+        "f99r",
+        "f99v"
+      ],
+      "rows_per_leaf": {
+        "99": 8
+      },
+      "largest_leaf_share": 1.0
+    },
+    {
+      "edition": "ZL3b",
+      "locus": "Lc",
+      "partition": "test",
+      "source_rows": 0,
+      "numeric_leaves": 0,
+      "folios": [],
+      "rows_per_leaf": {},
+      "largest_leaf_share": null
+    },
+    {
+      "edition": "ZL3b",
+      "locus": "Lc",
+      "partition": "train",
+      "source_rows": 32,
+      "numeric_leaves": 3,
+      "folios": [
+        "f102r1",
+        "f102r2",
+        "f102v1",
+        "f102v2",
+        "f88r",
+        "f88v",
+        "f89r1",
+        "f89r2",
+        "f89v1",
+        "f89v2"
+      ],
+      "rows_per_leaf": {
+        "88": 6,
+        "89": 13,
+        "102": 13
+      },
+      "largest_leaf_share": 0.40625
+    },
+    {
+      "edition": "ZL3b",
+      "locus": "Lf",
+      "partition": "UNASSIGNED",
+      "source_rows": 0,
+      "numeric_leaves": 0,
+      "folios": [],
+      "rows_per_leaf": {},
+      "largest_leaf_share": null
+    },
+    {
+      "edition": "ZL3b",
+      "locus": "Lf",
+      "partition": "development",
+      "source_rows": 51,
+      "numeric_leaves": 1,
+      "folios": [
+        "f99r",
+        "f99v"
+      ],
+      "rows_per_leaf": {
+        "99": 51
+      },
+      "largest_leaf_share": 1.0
+    },
+    {
+      "edition": "ZL3b",
+      "locus": "Lf",
+      "partition": "test",
+      "source_rows": 0,
+      "numeric_leaves": 0,
+      "folios": [],
+      "rows_per_leaf": {},
+      "largest_leaf_share": null
+    },
+    {
+      "edition": "ZL3b",
+      "locus": "Lf",
+      "partition": "train",
+      "source_rows": 143,
+      "numeric_leaves": 5,
+      "folios": [
+        "f100r",
+        "f100v",
+        "f101v",
+        "f102r1",
+        "f102r2",
+        "f102v1",
+        "f102v2",
+        "f88r",
+        "f88v",
+        "f89r1",
+        "f89r2",
+        "f89v1",
+        "f89v2"
+      ],
+      "rows_per_leaf": {
+        "88": 22,
+        "89": 43,
+        "100": 30,
+        "101": 18,
+        "102": 30
+      },
+      "largest_leaf_share": 0.3006993006993007
+    },
+    {
+      "edition": "ZL3b",
+      "locus": "Ln",
+      "partition": "UNASSIGNED",
+      "source_rows": 0,
+      "numeric_leaves": 0,
+      "folios": [],
+      "rows_per_leaf": {},
+      "largest_leaf_share": null
+    },
+    {
+      "edition": "ZL3b",
+      "locus": "Ln",
+      "partition": "development",
+      "source_rows": 0,
+      "numeric_leaves": 0,
+      "folios": [],
+      "rows_per_leaf": {},
+      "largest_leaf_share": null
+    },
+    {
+      "edition": "ZL3b",
+      "locus": "Ln",
+      "partition": "test",
+      "source_rows": 10,
+      "numeric_leaves": 1,
+      "folios": [
+        "f80r"
+      ],
+      "rows_per_leaf": {
+        "80": 10
+      },
+      "largest_leaf_share": 1.0
+    },
+    {
+      "edition": "ZL3b",
+      "locus": "Ln",
+      "partition": "train",
+      "source_rows": 53,
+      "numeric_leaves": 5,
+      "folios": [
+        "f75v",
+        "f77r",
+        "f77v",
+        "f82r",
+        "f82v",
+        "f83v",
+        "f84r"
+      ],
+      "rows_per_leaf": {
+        "75": 20,
+        "77": 5,
+        "82": 16,
+        "83": 1,
+        "84": 11
+      },
+      "largest_leaf_share": 0.37735849056603776
+    },
+    {
+      "edition": "ZL3b",
+      "locus": "Lp",
+      "partition": "UNASSIGNED",
+      "source_rows": 0,
+      "numeric_leaves": 0,
+      "folios": [],
+      "rows_per_leaf": {},
+      "largest_leaf_share": null
+    },
+    {
+      "edition": "ZL3b",
+      "locus": "Lp",
+      "partition": "development",
+      "source_rows": 0,
+      "numeric_leaves": 0,
+      "folios": [],
+      "rows_per_leaf": {},
+      "largest_leaf_share": null
+    },
+    {
+      "edition": "ZL3b",
+      "locus": "Lp",
+      "partition": "test",
+      "source_rows": 0,
+      "numeric_leaves": 0,
+      "folios": [],
+      "rows_per_leaf": {},
+      "largest_leaf_share": null
+    },
+    {
+      "edition": "ZL3b",
+      "locus": "Lp",
+      "partition": "train",
+      "source_rows": 3,
+      "numeric_leaves": 3,
+      "folios": [
+        "f2r",
+        "f41v",
+        "f65r"
+      ],
+      "rows_per_leaf": {
+        "2": 1,
+        "41": 1,
+        "65": 1
+      },
+      "largest_leaf_share": 0.3333333333333333
+    },
+    {
+      "edition": "ZL3b",
+      "locus": "Ls",
+      "partition": "UNASSIGNED",
+      "source_rows": 0,
+      "numeric_leaves": 0,
+      "folios": [],
+      "rows_per_leaf": {},
+      "largest_leaf_share": null
+    },
+    {
+      "edition": "ZL3b",
+      "locus": "Ls",
+      "partition": "development",
+      "source_rows": 64,
+      "numeric_leaves": 1,
+      "folios": [
+        "f68r1",
+        "f68r2",
+        "f68r3"
+      ],
+      "rows_per_leaf": {
+        "68": 64
+      },
+      "largest_leaf_share": 1.0
+    },
+    {
+      "edition": "ZL3b",
+      "locus": "Ls",
+      "partition": "test",
+      "source_rows": 0,
+      "numeric_leaves": 0,
+      "folios": [],
+      "rows_per_leaf": {},
+      "largest_leaf_share": null
+    },
+    {
+      "edition": "ZL3b",
+      "locus": "Ls",
+      "partition": "train",
+      "source_rows": 12,
+      "numeric_leaves": 1,
+      "folios": [
+        "f67r2"
+      ],
+      "rows_per_leaf": {
+        "67": 12
+      },
+      "largest_leaf_share": 1.0
+    },
+    {
+      "edition": "ZL3b",
+      "locus": "Lt",
+      "partition": "UNASSIGNED",
+      "source_rows": 0,
+      "numeric_leaves": 0,
+      "folios": [],
+      "rows_per_leaf": {},
+      "largest_leaf_share": null
+    },
+    {
+      "edition": "ZL3b",
+      "locus": "Lt",
+      "partition": "development",
+      "source_rows": 6,
+      "numeric_leaves": 1,
+      "folios": [
+        "f78r"
+      ],
+      "rows_per_leaf": {
+        "78": 6
+      },
+      "largest_leaf_share": 1.0
+    },
+    {
+      "edition": "ZL3b",
+      "locus": "Lt",
+      "partition": "test",
+      "source_rows": 0,
+      "numeric_leaves": 0,
+      "folios": [],
+      "rows_per_leaf": {},
+      "largest_leaf_share": null
+    },
+    {
+      "edition": "ZL3b",
+      "locus": "Lt",
+      "partition": "train",
+      "source_rows": 41,
+      "numeric_leaves": 6,
+      "folios": [
+        "f75v",
+        "f77r",
+        "f77v",
+        "f81v",
+        "f82r",
+        "f82v",
+        "f83r",
+        "f83v",
+        "f84r"
+      ],
+      "rows_per_leaf": {
+        "75": 7,
+        "77": 13,
+        "81": 1,
+        "82": 11,
+        "83": 7,
+        "84": 2
+      },
+      "largest_leaf_share": 0.3170731707317073
+    },
+    {
+      "edition": "ZL3b",
+      "locus": "Lx",
+      "partition": "UNASSIGNED",
+      "source_rows": 0,
+      "numeric_leaves": 0,
+      "folios": [],
+      "rows_per_leaf": {},
+      "largest_leaf_share": null
+    },
+    {
+      "edition": "ZL3b",
+      "locus": "Lx",
+      "partition": "development",
+      "source_rows": 0,
+      "numeric_leaves": 0,
+      "folios": [],
+      "rows_per_leaf": {},
+      "largest_leaf_share": null
+    },
+    {
+      "edition": "ZL3b",
+      "locus": "Lx",
+      "partition": "test",
+      "source_rows": 1,
+      "numeric_leaves": 1,
+      "folios": [
+        "f66r"
+      ],
+      "rows_per_leaf": {
+        "66": 1
+      },
+      "largest_leaf_share": 1.0
+    },
+    {
+      "edition": "ZL3b",
+      "locus": "Lx",
+      "partition": "train",
+      "source_rows": 2,
+      "numeric_leaves": 2,
+      "folios": [
+        "f116v",
+        "f17r"
+      ],
+      "rows_per_leaf": {
+        "17": 1,
+        "116": 1
+      },
+      "largest_leaf_share": 0.5
+    },
+    {
+      "edition": "ZL3b",
+      "locus": "Lz",
+      "partition": "UNASSIGNED",
+      "source_rows": 0,
+      "numeric_leaves": 0,
+      "folios": [],
+      "rows_per_leaf": {},
+      "largest_leaf_share": null
+    },
+    {
+      "edition": "ZL3b",
+      "locus": "Lz",
+      "partition": "development",
+      "source_rows": 60,
+      "numeric_leaves": 1,
+      "folios": [
+        "f73r",
+        "f73v"
+      ],
+      "rows_per_leaf": {
+        "73": 60
+      },
+      "largest_leaf_share": 1.0
+    },
+    {
+      "edition": "ZL3b",
+      "locus": "Lz",
+      "partition": "test",
+      "source_rows": 209,
+      "numeric_leaves": 2,
+      "folios": [
+        "f70v1",
+        "f70v2",
+        "f72r1",
+        "f72r2",
+        "f72r3",
+        "f72v1",
+        "f72v2",
+        "f72v3"
+      ],
+      "rows_per_leaf": {
+        "70": 45,
+        "72": 164
+      },
+      "largest_leaf_share": 0.784688995215311
+    },
+    {
+      "edition": "ZL3b",
+      "locus": "Lz",
+      "partition": "train",
+      "source_rows": 30,
+      "numeric_leaves": 1,
+      "folios": [
+        "f71r",
+        "f71v"
+      ],
+      "rows_per_leaf": {
+        "71": 30
+      },
+      "largest_leaf_share": 1.0
+    },
+    {
+      "edition": "ZL3b",
+      "locus": "Ri",
+      "partition": "UNASSIGNED",
+      "source_rows": 0,
+      "numeric_leaves": 0,
+      "folios": [],
+      "rows_per_leaf": {},
+      "largest_leaf_share": null
+    },
+    {
+      "edition": "ZL3b",
+      "locus": "Ri",
+      "partition": "development",
+      "source_rows": 16,
+      "numeric_leaves": 1,
+      "folios": [
+        "f68r3",
+        "f68v3"
+      ],
+      "rows_per_leaf": {
+        "68": 16
+      },
+      "largest_leaf_share": 1.0
+    },
+    {
+      "edition": "ZL3b",
+      "locus": "Ri",
+      "partition": "test",
+      "source_rows": 15,
+      "numeric_leaves": 1,
+      "folios": [
+        "f70r1"
+      ],
+      "rows_per_leaf": {
+        "70": 15
+      },
+      "largest_leaf_share": 1.0
+    },
+    {
+      "edition": "ZL3b",
+      "locus": "Ri",
+      "partition": "train",
+      "source_rows": 44,
+      "numeric_leaves": 2,
+      "folios": [
+        "f67r1",
+        "f67v2",
+        "f69v"
+      ],
+      "rows_per_leaf": {
+        "67": 16,
+        "69": 28
+      },
+      "largest_leaf_share": 0.6363636363636364
+    },
+    {
+      "edition": "ZL3b",
+      "locus": "Ro",
+      "partition": "UNASSIGNED",
+      "source_rows": 0,
+      "numeric_leaves": 0,
+      "folios": [],
+      "rows_per_leaf": {},
+      "largest_leaf_share": null
+    },
+    {
+      "edition": "ZL3b",
+      "locus": "Ro",
+      "partition": "development",
+      "source_rows": 20,
+      "numeric_leaves": 1,
+      "folios": [
+        "f68v1",
+        "f68v2"
+      ],
+      "rows_per_leaf": {
+        "68": 20
+      },
+      "largest_leaf_share": 1.0
+    },
+    {
+      "edition": "ZL3b",
+      "locus": "Ro",
+      "partition": "test",
+      "source_rows": 0,
+      "numeric_leaves": 0,
+      "folios": [],
+      "rows_per_leaf": {},
+      "largest_leaf_share": null
+    },
+    {
+      "edition": "ZL3b",
+      "locus": "Ro",
+      "partition": "train",
+      "source_rows": 47,
+      "numeric_leaves": 3,
+      "folios": [
+        "f57v",
+        "f67v1",
+        "f67v2",
+        "f69r"
+      ],
+      "rows_per_leaf": {
+        "57": 4,
+        "67": 21,
+        "69": 22
+      },
+      "largest_leaf_share": 0.46808510638297873
+    }
+  ],
+  "unmatched": [
+    {
+      "edition": "IT2a",
+      "id": "f89v2.26",
+      "locus": "Lf",
+      "other_edition": "ZL3b",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "f102r2.1",
+      "locus": "Lc",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "f102r2.7",
+      "locus": "Lc",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "f102v1.15",
+      "locus": "Lc",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "f116v.1",
+      "locus": "Lx",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "f11v.5",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "f17r.13",
+      "locus": "Lx",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "f2r.14",
+      "locus": "Lp",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "f2r.15",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "f67v2.1",
+      "locus": "La",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "f67v2.21",
+      "locus": "La",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.1",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.10",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.100",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.101",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.102",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.103",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.104",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.105",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.106",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.107",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.108",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.109",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.11",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.110",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.111",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.112",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.115",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.116",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.117",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.118",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.119",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.12",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.120",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.121",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.123",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.124",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.125",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.126",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.127",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.128",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.129",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.13",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.130",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.131",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.132",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.134",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.135",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.136",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.14",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.146",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.147",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.148",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.149",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.15",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.150",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.151",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.152",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.153",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.154",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.155",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.156",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.157",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.158",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.159",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.16",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.160",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.17",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.18",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.19",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.21",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.22",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.23",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.24",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.25",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.26",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.27",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.28",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.29",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.3",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.30",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.31",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.32",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.33",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.34",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.37",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.38",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.4",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.41",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.42",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.43",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.44",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.45",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.46",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.48",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.49",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.5",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.50",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.51",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.52",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.53",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.54",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.55",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.56",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.57",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.58",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.59",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.6",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.60",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.61",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.63",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.64",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.65",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.66",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.67",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.68",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.69",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.7",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.70",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.71",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.72",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.73",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.74",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.75",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.76",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.77",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.78",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.79",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.8",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.80",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.81",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.82",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.83",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.84",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.85",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.86",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.88",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.89",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.9",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.90",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.91",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.92",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.93",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.95",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.96",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.97",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.98",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    },
+    {
+      "edition": "ZL3b",
+      "id": "fRos.99",
+      "locus": "L0",
+      "other_edition": "IT2a",
+      "counterpart_excluded_rows": [],
+      "counterpart_status": "NOT_IN_PARSED_INVENTORY"
+    }
+  ],
+  "limitations": [
+    "L/R subtype does not establish an independently identified object.",
+    "Same locator across editions is a textual pairing, not independently verified image alignment.",
+    "No semantic outcomes inspected; no power or significance calculation.",
+    "Existing holdout has historical exposure; fRos remains unassigned."
+  ],
+  "inputs_sha256": {
+    "inventory_archive": "cc4f79d106e21d9e690a6f1e38436761f5770808713c3fef3aaa51ad0f680ce4",
+    "partition_manifest": "d49ebb458624c890143fd3886629894d043e5b233700955e8260987245af1fa3"
+  }
+}
