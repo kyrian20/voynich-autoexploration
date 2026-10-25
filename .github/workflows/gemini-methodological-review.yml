@@ -31,7 +31,7 @@ jobs:
           sparse-checkout: |
             scripts/request_gemini_review.py
             scripts/validate_gemini_review.py
-            research/protocols/2026-10-24-gemini-ch-sh-review-prompt.md
+            research/protocols/2026-10-25-gemini-ch-sh-review-prompt-v2.md
           sparse-checkout-cone-mode: false
 
       - name: Verify corpus files were not checked out
@@ -41,7 +41,7 @@ jobs:
           test ! -e state
           test ! -e research/experiments
           test -f scripts/request_gemini_review.py
-          test -f research/protocols/2026-10-24-gemini-ch-sh-review-prompt.md
+          test -f research/protocols/2026-10-25-gemini-ch-sh-review-prompt-v2.md
 
       - name: Execute one opt-in methodological review
         env:
