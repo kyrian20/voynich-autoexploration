@@ -1,0 +1,24 @@
+{
+  "inventory_status": "REPRODUCED",
+  "semantic_status": "BLOCKED",
+  "schema_version": 2,
+  "python": "3.12.14",
+  "two_runs_byte_identical": true,
+  "tests_passed_normal": 8,
+  "tests_passed_optimized": 8,
+  "historical_matches_unchanged": true,
+  "original_outputs_preserved": [
+    "inventory.json",
+    "VERIFICATION.json"
+  ],
+  "sha256": {
+    "run.py": "2e7ef43022e8a741b77fd462a7d1a7e39203ba383f3214237dc5d07cfd840fbb",
+    "test_run.py": "495c3d82316c11e67ab5c6a3ad5edafe561bf703079fd7799a79c8166cfc630f",
+    "PROTOCOL.md": "07a786e6a0ab1434541e730a11fd0d035bf1240e9cb4f5b6eedac770ece2b47a",
+    "REPORT.md": "d2cb81de409d5ceb51d3c5edacceaed06f4be1816f62a16e597c0f39d3b505e4",
+    "inventory-v2.json": "17d39f70055d85ea19a2c6dd2436166cd2ac77e921dd4c2a9814115c3c63e10a",
+    "tests-v2.log": "83d51bd6199ee3fe721ec007cfdf318848e1437560a8f398b63d01d2019fcc9d",
+    "tests-optimized-v2.log": "41e822a0c722b86874dcf33571643f78b55a7ff7b0a2763c182d38617fcb23f0",
+    "COUNT_CORRECTION.md": "66c60eca79b48a4ec244a3ef35bc4c2c4df22627e60ae066e3e1a6d874ffca00"
+  }
+}

@@ -2,6 +2,8 @@
 
 26-10-2026, Madrid. Estado **BLOCKED** para utilizar este candidato como texto plano conocido o ejecutar una validación semántica. El inventario léxico limitado se reprodujo byte a byte. No se ajustó una clave ni se afirmó una traducción.
 
+**Corrección posterior de cobertura:** el total ZL3b de 5.385 incluye 5.225 loci en páginas numéricas y 160 en `fRos`. El campo histórico `numeric_records` de `inventory.json` era ambiguo. Se conserva ese archivo; `inventory-v2.json` distingue los tres recuentos. Véase `COUNT_CORRECTION.md` y `VERIFICATION-v2.json`.
+
 ## Qué se comprobó
 
 Se recuperó e inspeccionó la imagen original completa Yale1006196, canvas68r,7993×3828, y una región IIIF de coordenadas5050,1050,800,550. La ubicación del texto a la derecha del pequeño grupo de estrellas es compatible con el locus f68r3.11,@Ls de los archivos consultados. Hay otro texto junto a la línea curva: no se transfiere la propuesta entre ambos. Los tres paneles comparten imagen y hoja física; no son tres muestras independientes.
@@ -14,7 +16,7 @@ Las dos transcripciones actuales coinciden en la secuencia literal doaro en ese 
 | doary | 0/0 | 0/0 | Forma histórica, no localizada aquí con esa grafía exacta |
 | dary | 23/23 | 24/24 | Forma distinta; sus repeticiones no validan doaro/doary |
 
-Se examinaron5385 registros numéricos ZL3b y5215 IT2a, con lexer canónico, alternativas primarias, ligaduras expandidas y dos políticas de coma. No apareció ningún renglón no analizado que contuviera literalmente estas cadenas. No es una enumeración de todas las combinaciones editoriales ni garantía completa de IVTFF. Las dos transcripciones describen el mismo manuscrito.
+Se examinaron 5.385 registros ZL3b (5.225 en páginas numéricas y 160 en `fRos`) y 5.215 IT2a (todos en páginas numéricas), con lexer canónico, alternativas primarias, ligaduras expandidas y dos políticas de coma. No apareció ningún renglón no analizado que contuviera literalmente estas cadenas. No es una enumeración de todas las combinaciones editoriales ni garantía completa de IVTFF. Las dos transcripciones describen el mismo manuscrito.
 
 ## Contraste con la propuesta publicada
 
@@ -45,7 +47,7 @@ Una prueba entre reglas de signos requiere al menos nombres adicionales identifi
 
 ## Trazabilidad y reproducción
 
-image-source.json fija imagen, canvas, dimensiones y hashes; sources.json fija bibliografía, páginas y límites de acceso. No se redistribuyen las imágenes en GitHub: los originales se recuperan desde las URLs del proveedor. inventory.json conserva todas las coincidencias, cuerpos, posiciones y líneas, incluido el locus objetivo y sus cinco signos tal como están en cada archivo. VERIFICATION.json conserva hashes y comprobación de las dos ejecuciones idénticas.
+image-source.json fija imagen, canvas, dimensiones y hashes; sources.json fija bibliografía, páginas y límites de acceso. No se redistribuyen las imágenes en GitHub: los originales se recuperan desde las URLs del proveedor. inventory.json conserva todas las coincidencias, cuerpos, posiciones y líneas, incluido el locus objetivo y sus cinco signos tal como están en cada archivo. VERIFICATION.json conserva hashes y comprobación de las dos ejecuciones históricas idénticas; sus hashes corresponden a la versión original del código y del informe, recuperable en Git, no a la corrección v2.
 
 Desde la raíz del repositorio con Python3.12:
 
@@ -54,7 +56,7 @@ ANCHOR_REPO_ROOT=. python -m unittest discover -s research/decipherment/2026-10-
 python research/decipherment/2026-10-26-astronomical-anchor/run.py --repo-root . --output /tmp/astronomical-anchor-new.json
 ```
 
-El destino debe ser inexistente. Cinco pruebas específicas pasan: coincidencia exacta/no substrings, alternativas y coma, exclusión no numérica visible, duplicados rechazados y preservación de posiciones de signos. No se volvió a ejecutar la suite global localmente. No hay prueba botánica/astronómica de experto, revisión independiente de la lectura, nueva respuesta Gemini ni evaluación semántica sobre material reservado.
+El destino debe ser inexistente. En la ejecución original pasaron cinco pruebas específicas: coincidencia exacta/no substrings, alternativas y coma, exclusión no numérica visible, duplicados rechazados y preservación de posiciones de signos. No se volvió a ejecutar la suite global localmente. No hay prueba botánica/astronómica de experto, revisión independiente de la lectura, nueva respuesta Gemini ni evaluación semántica sobre material reservado.
 
 ## Autoauditoría — skills/audit_experiment.md
 

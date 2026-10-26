@@ -1,0 +1,13 @@
+test_alternative_and_uncertain_space_explicit (test_run.AnchorTests.test_alternative_and_uncertain_space_explicit) ... ok
+test_duplicate_refused (test_run.AnchorTests.test_duplicate_refused) ... ok
+test_exact_tokens_not_substrings (test_run.AnchorTests.test_exact_tokens_not_substrings) ... ok
+test_excluded_non_numeric_locus_is_reported (test_run.AnchorTests.test_excluded_non_numeric_locus_is_reported) ... ok
+test_frozen_corpora_preserve_historical_matches_and_split_counts (test_run.AnchorTests.test_frozen_corpora_preserve_historical_matches_and_split_counts) ... ok
+test_missing_target_locus_refused (test_run.AnchorTests.test_missing_target_locus_refused) ... ok
+test_named_page_is_not_a_numeric_page (test_run.AnchorTests.test_named_page_is_not_a_numeric_page) ... ok
+test_raw_glyph_positions_preserved (test_run.AnchorTests.test_raw_glyph_positions_preserved) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.416s
+
+OK

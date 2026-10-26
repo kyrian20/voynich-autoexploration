@@ -1,0 +1,8 @@
+{
+  "files_checked": 14,
+  "errors": [],
+  "quarantined": [
+    "data/reference_corpora/latin/cicero_caesar_latin.txt"
+  ],
+  "scope": "Byte identity only; provenance, licensing and IVTFF conformance not certified."
+}
