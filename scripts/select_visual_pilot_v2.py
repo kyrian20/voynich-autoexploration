@@ -8,7 +8,64 @@ import re
 from collections import defaultdict
 from pathlib import Path
 
+def check_inventory_provenance(inventory, manifest):
+    """Reject a mismatched edition or row before selecting any train leaves.
+
+    This checks inventory declarations against the frozen manifest. The CLI
+    separately hashes the source files; neither check proves image alignment.
+    """
+    expected = manifest.get('corpora')
+    sources = inventory.get('sources')
+    if not isinstance(expected, dict) or not isinstance(sources, list):
+        raise ValueError('Missing corpus provenance')
+    if len(sources) != len(expected):
+        raise ValueError('Unexpected source edition count')
+    by_edition = {}
+    seen_paths = set()
+    for source in sources:
+        if not isinstance(source, dict):
+            raise ValueError('Malformed source provenance')
+        edition, path, sha = (source.get('edition'), source.get('path'),
+                              source.get('sha256'))
+        if (not isinstance(edition, str) or not edition
+                or not isinstance(path, str) or not isinstance(sha, str)
+                or edition in by_edition or path in seen_paths):
+            raise ValueError('Duplicate or malformed source provenance')
+        reference = expected.get(Path(path).name)
+        if (not reference or reference.get('path') != path
+                or reference.get('sha256') != sha):
+            raise ValueError('Inventory source differs from holdout manifest')
+        by_edition[edition] = sha
+        seen_paths.add(path)
+    if seen_paths != {item['path'] for item in expected.values()}:
+        raise ValueError('Missing or unexpected inventory source')
+    seen_occurrences, seen_loci = set(), set()
+    for row in inventory.get('records', []):
+        if not isinstance(row, dict):
+            raise ValueError('Malformed inventory record')
+        edition = row.get('edition')
+        if edition not in by_edition or row.get('source_sha256') != by_edition[edition]:
+            raise ValueError('Inventory row/source provenance mismatch')
+        occurrence = row.get('occurrence_id')
+        locus = row.get('id')
+        if (not isinstance(occurrence, str) or not occurrence
+                or not isinstance(locus, str) or not locus
+                or occurrence in seen_occurrences or (edition, locus) in seen_loci):
+            raise ValueError('Duplicate or malformed inventory occurrence/locus')
+        seen_occurrences.add(occurrence)
+        seen_loci.add((edition, locus))
+
+
+def check_source_bytes(inventory, root):
+    """Check actual source bytes against the inventory's declared hashes."""
+    for source in inventory['sources']:
+        path = root / source['path']
+        if hashlib.sha256(path.read_bytes()).hexdigest() != source['sha256']:
+            raise ValueError('Source bytes differ from frozen provenance: ' + source['path'])
+
+
 def build(inventory, manifest):
+    check_inventory_provenance(inventory, manifest)
     partitions = manifest['partitions']
     sets = {}
     for name in ('train', 'development', 'test'):
@@ -66,7 +123,11 @@ def main():
     p.add_argument('--out', type=Path, required=True)
     args = p.parse_args()
     raw, manifest_raw = args.inventory.read_bytes(), args.manifest.read_bytes()
-    report = build(json.loads(gzip.decompress(raw)), json.loads(manifest_raw))
+    inventory = json.loads(gzip.decompress(raw))
+    manifest = json.loads(manifest_raw)
+    check_inventory_provenance(inventory, manifest)
+    check_source_bytes(inventory, root)
+    report = build(inventory, manifest)
     report['input_sha256'] = {'inventory_gzip': hashlib.sha256(raw).hexdigest(),
                               'manifest': hashlib.sha256(manifest_raw).hexdigest()}
     args.out.parent.mkdir(parents=True, exist_ok=True)
