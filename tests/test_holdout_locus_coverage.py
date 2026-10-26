@@ -9,14 +9,14 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
-from scripts.audit_holdout_locus_coverage import audit, inspect_source
+from scripts.audit_holdout_locus_coverage import audit, inspect_source, FROZEN_SALT
 
 
 class HoldoutLocusCoverageTests(unittest.TestCase):
     def setUp(self):
         self.sources = {
-            "eva_zl3b.txt": b"<f1r> metadata\n<f1r.1,@P0> a\n<f2v1> metadata\n<f2v1.2,@P0> b\n<f3r> metadata\n<f3r.1,@P0> c\n<fRos> metadata\n<fRos.1,@L0> d\n",
-            "eva_it2a.txt": b"<f1r> metadata\n<f1r.1,@P0> a\n<f2v1> metadata\n<f2v1.2,@P0> b\n<f3r> metadata\n<f3r.1,@P0> c\n",
+            "eva_zl3b.txt": b"<f1r> metadata\n<f1r.1,@P0> a\n<f4v1> metadata\n<f4v1.2,@P0> b\n<f3r> metadata\n<f3r.1,@P0> c\n<fRos> metadata\n<fRos.1,@L0> d\n",
+            "eva_it2a.txt": b"<f1r> metadata\n<f1r.1,@P0> a\n<f4v1> metadata\n<f4v1.2,@P0> b\n<f3r> metadata\n<f3r.1,@P0> c\n",
         }
         self.manifest = {
             "schema_version": 2,
@@ -28,7 +28,8 @@ class HoldoutLocusCoverageTests(unittest.TestCase):
                 }
                 for name, raw in self.sources.items()
             },
-            "partitions": {"train": [1], "development": [2], "test": [3]},
+            "salt": FROZEN_SALT,
+            "partitions": {"train": [1], "development": [4], "test": [3]},
             "counts": {"train": 1, "development": 1, "test": 1},
             "eligible_count": 3,
             "source_only_leaves": {"eva_zl3b.txt": [], "eva_it2a.txt": []},
@@ -101,6 +102,21 @@ class HoldoutLocusCoverageTests(unittest.TestCase):
         self.assertEqual(result["numeric_page_header_count"], 2)
         self.assertEqual(result["numeric_locus_record_count"], 2)
         self.assertEqual(result["named_locus_record_count"], 1)
+
+    def test_same_size_train_test_swap_is_rejected(self):
+        # Previously passed every count/union/provenance check, but changes
+        # which folio is held out and invalidates the locked evaluation.
+        self.manifest["partitions"]["train"] = [3]
+        self.manifest["partitions"]["test"] = [1]
+        with self.assertRaisesRegex(ValueError, "Partition hash assignment mismatch"):
+            audit(self.sources, self.manifest)
+
+    def test_frozen_salt_cannot_be_changed_or_removed(self):
+        for salt in ("different-salt", None):
+            with self.subTest(salt=salt):
+                self.manifest["salt"] = salt
+                with self.assertRaisesRegex(ValueError, "Frozen partition salt mismatch"):
+                    audit(self.sources, self.manifest)
 
     def test_source_provenance_cannot_be_substituted(self):
         tampered = dict(self.sources, **{"eva_zl3b.txt": self.sources["eva_zl3b.txt"] + b"x"})
