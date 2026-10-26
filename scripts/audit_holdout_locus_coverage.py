@@ -16,6 +16,9 @@ import re
 ROOT = Path(__file__).resolve().parents[1]
 MANIFEST = ROOT / "research/decipherment/2026-10-23-prospective-leaf-holdout/manifest-v2.json"
 SOURCE_NAMES = ("eva_zl3b.txt", "eva_it2a.txt")
+# Historical split identity is frozen independently of the manifest and its
+# generator: an internally consistent but reassigned manifest must fail.
+FROZEN_SALT = "VOYNICH-FUTURE-RULES-2026-10-23-v1"
 # Independent IVTFF-shaped tag checks: do not count a prefix match as a
 # complete header or locus. This is a coverage audit, not full IVTFF parsing.
 PAGE_ID = re.compile(r"^f(?:[0-9]+[rv][1-6]?|Ros)$")
@@ -77,9 +80,18 @@ def inspect_source(raw: bytes) -> dict:
     }
 
 
+def locked_partition(leaf: int) -> str:
+    """Independently replay the committed SHA-256 physical-leaf allocation."""
+    digest = hashlib.sha256(f"{FROZEN_SALT}:{leaf}".encode("utf-8")).digest()
+    value = int.from_bytes(digest[:8], "big") % 10000
+    return "train" if value < 7000 else ("development" if value < 8500 else "test")
+
+
 def audit(source_bytes: dict[str, bytes], manifest: dict) -> dict:
     if manifest.get("schema_version") != 2:
         raise ValueError("Requires frozen v2 holdout manifest")
+    if manifest.get("salt") != FROZEN_SALT:
+        raise ValueError("Frozen partition salt mismatch")
     if set(source_bytes) != set(SOURCE_NAMES) or set(manifest["corpora"]) != set(SOURCE_NAMES):
         raise ValueError("Unexpected or missing source edition")
     coverage = {}
@@ -107,6 +119,14 @@ def audit(source_bytes: dict[str, bytes], manifest: dict) -> dict:
         assigned.extend(values)
     if len(assigned) != len(set(assigned)) or set(assigned) != shared:
         raise ValueError("Assigned leaves differ from the intersection of source numeric leaves")
+    # Counts, uniqueness and coverage alone cannot detect a same-size swap
+    # between train and test. Recompute each assignment from the frozen salt.
+    for group in ("train", "development", "test"):
+        if groups[group] != sorted(groups[group]):
+            raise ValueError(f"Unsorted frozen partition: {group}")
+        for leaf in groups[group]:
+            if locked_partition(leaf) != group:
+                raise ValueError(f"Partition hash assignment mismatch: leaf {leaf} in {group}")
     if manifest["eligible_count"] != len(shared):
         raise ValueError("Eligible count mismatch")
     for name in SOURCE_NAMES:
