@@ -109,6 +109,45 @@ class VisualPilotIntegrityTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'locator/folio mismatch'):
             build_pilot(inventory, manifest)
 
+    def test_reject_test_partition_locator_mismatch(self):
+        inventory, manifest = self.fixture()
+        # This was accepted before the fix: only train rows were checked
+        # against their claimed folio, even though test provenance matched.
+        inventory['records'][1]['id'] = 'f2r.99'
+        with self.assertRaisesRegex(ValueError, 'locator/folio mismatch'):
+            build_pilot(inventory, manifest)
+
+    def test_reject_development_partition_locator_mismatch(self):
+        inventory, manifest = self.fixture()
+        inventory['records'].append({
+            'folio': 'f3r', 'id': 'f70r.2',
+            'image_source_archived': None,
+            'edition': 'IT2a', 'source_sha256': 'b' * 64,
+            'occurrence_id': 'IT2a:2',
+        })
+        with self.assertRaisesRegex(ValueError, 'locator/folio mismatch'):
+            build_pilot(inventory, manifest)
+
+    def test_reject_empty_suffix_and_missing_folio_in_nontrain_row(self):
+        inventory, manifest = self.fixture()
+        inventory['records'][1]['id'] = 'f70r.'
+        with self.assertRaisesRegex(ValueError, 'locator/folio mismatch'):
+            build_pilot(inventory, manifest)
+        inventory, manifest = self.fixture()
+        inventory['records'][1].pop('folio')
+        with self.assertRaisesRegex(ValueError, 'locator/folio mismatch'):
+            build_pilot(inventory, manifest)
+
+    def test_matching_named_folio_still_excluded(self):
+        inventory, manifest = self.fixture()
+        inventory['records'].append({
+            'folio': 'fRos', 'id': 'fRos.0a',
+            'image_source_archived': None,
+            'edition': 'ZL3b', 'source_sha256': 'a' * 64,
+            'occurrence_id': 'ZL3b:2',
+        })
+        self.assertEqual(build_pilot(inventory, manifest)['selected_leaves'], [2])
+
     def test_reject_inconsistent_manifest_counts(self):
         inventory, manifest = self.fixture()
         manifest['counts']['train'] = 2
