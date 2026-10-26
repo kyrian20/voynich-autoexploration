@@ -145,6 +145,13 @@ def main():
         ('IT2a', 'f1v', lex('/e')),
     ]) == ['ab', 'c', 'de']
     assert tokens_scoped_rows([]) == []
+    # Scope labels are caller-supplied, but must at least be unambiguous
+    # physical folio identifiers. Previously a composite folio label could
+    # permit a slash continuation across leaves under one invented scope.
+    assert tokens_scoped_rows([
+        ('ZL3b', 'fRos', lex('a')),
+        ('ZL3b', 'f86v6', lex('b')),
+    ]) == ['a', 'b']
     for invalid_scoped in (
         [('ZL3b', 'f1r', lex('a/')), ('ZL3b', 'f1v', lex('/b'))],
         [('ZL3b', 'f1r', lex('a/')), ('IT2a', 'f1r', lex('/b'))],
@@ -152,6 +159,13 @@ def main():
          ('ZL3b', 'f1r', lex('c'))],
         [('', 'f1r', lex('a'))],
         [('ZL3b', ' ', lex('a'))],
+        [('ZL3b', 'f1r-f1v', lex('a/')),
+         ('ZL3b', 'f1r-f1v', lex('/b'))],
+        [('ZL3b', 'f1r\nf1v', lex('a'))],
+        [('ZL3b', 'f1r.1', lex('a'))],
+        [('ZL3b', 'f١r', lex('a'))],
+        [('ZL3b\nIT2a', 'f1r', lex('a'))],
+        [('ZL3b\u200b', 'f1r', lex('a'))],
     ):
         try:
             tokens_scoped_rows(invalid_scoped)
