@@ -31,6 +31,39 @@ def main() -> None:
     assert report["locus_number_out_of_range_count"] == 0, report
     assert structural_errors(report) == [], report
 
+    # A repeated physical page header is an integrity defect even when its
+    # later loci have new record tags: otherwise duplicate-record checks pass
+    # and one folio may be split into disjoint blocks without warning.
+    repeated_page = audit_text(
+        "<f1r> <! $L=A>\n<f1r.1,@P0> daiin\n"
+        "<f2r> <! $L=B>\n<f2r.1,@P0> chedy\n"
+        "<f1r> <! $L=A>\n<f1r.2,@P0> or\n"
+    )
+    assert repeated_page["page_header_count"] == 3, repeated_page
+    assert repeated_page["distinct_page_headers"] == 2, repeated_page
+    assert repeated_page["record_count"] == 3, repeated_page
+    assert repeated_page["duplicate_record_tag_count"] == 0, repeated_page
+    assert repeated_page["page_mismatch_count"] == 0, repeated_page
+    assert repeated_page["duplicate_page_header_count"] == 1, repeated_page
+    assert repeated_page["duplicate_page_headers"] == [
+        {"page": "f1r", "first_line": 1, "repeated_line": 5}
+    ], repeated_page
+    assert structural_errors(repeated_page) == [
+        "duplicate_page_header_count=1"
+    ], repeated_page
+
+    # A second fRos header must also be visible, but must not be rewritten
+    # or silently merged with the first block.
+    repeated_ros = audit_text(
+        "<fRos> <! $L=B>\n<fRos.1,@P0> daiin\n"
+        "<fRos> <! $L=B>\n<fRos.2,@P0> chedy\n"
+    )
+    assert repeated_ros["duplicate_page_header_count"] == 1, repeated_ros
+    assert repeated_ros["duplicate_record_tag_count"] == 0, repeated_ros
+    assert structural_errors(repeated_ros) == [
+        "duplicate_page_header_count=1"
+    ], repeated_ros
+
     # IVTFF numeric identifiers use ASCII digits. Python's regex \d
     # also accepts Unicode decimal numerals; accepting those could create
     # a phantom folio or a malformed record with apparently valid counts.
