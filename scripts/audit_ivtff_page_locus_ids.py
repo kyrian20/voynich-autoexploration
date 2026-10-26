@@ -49,6 +49,8 @@ MISSING_OPEN_PAGE_WITH_METADATA_RE = re.compile(
 def audit_text(text: str) -> dict:
     active_page = None
     headers = []
+    seen_page_headers = {}
+    duplicate_page_headers = []
     records = []
     seen_record_tags = {}
     duplicate_record_tags = []
@@ -136,6 +138,14 @@ def audit_text(text: str) -> dict:
                 active_page = None
             else:
                 active_page = tag
+                if tag in seen_page_headers:
+                    duplicate_page_headers.append({
+                        "page": tag,
+                        "first_line": seen_page_headers[tag],
+                        "repeated_line": line_no,
+                    })
+                else:
+                    seen_page_headers[tag] = line_no
                 headers.append({"line": line_no, "page": tag})
             continue
 
@@ -165,6 +175,8 @@ def audit_text(text: str) -> dict:
     return {
         "page_header_count": len(headers),
         "distinct_page_headers": len({h["page"] for h in headers}),
+        "duplicate_page_headers": duplicate_page_headers[:50],
+        "duplicate_page_header_count": len(duplicate_page_headers),
         "record_count": len(records),
         "duplicate_record_tags": duplicate_record_tags[:50],
         "duplicate_record_tag_count": len(duplicate_record_tags),
@@ -188,6 +200,7 @@ def structural_errors(report: dict) -> list[str]:
     errors = []
     for key in (
         "malformed_header_count",
+        "duplicate_page_header_count",
         "malformed_record_count",
         "page_mismatch_count",
         "locus_number_out_of_range_count",
