@@ -34,9 +34,17 @@ def export_candidate(plan, source):
             raise ValueError('Multiple image frames are not supported')
         if original.getexif().get(274, 1) != 1:
             raise ValueError('Orientation must be adjudicated in source coordinates')
+        # Composite alpha against opaque white BEFORE dropping transparency.
+        # Direct RGBA -> RGB conversion reveals hidden RGB values of fully
+        # transparent pixels and ignores partial transparency. Such pixels
+        # must not become visible in an annotator-facing flattened export.
+        opaque = Image.alpha_composite(
+            Image.new('RGBA', original.size, (255, 255, 255, 255)),
+            original.convert('RGBA'),
+        )
         # A fresh RGB canvas carries no source EXIF, comments, ICC or PNG text.
         canvas = Image.new('RGB', original.size)
-        canvas.paste(original.convert('RGB'))
+        canvas.paste(opaque.convert('RGB'))
     for mx, my, mw, mh in masks:
         canvas.paste((0, 0, 0), (mx, my, mx + mw, my + mh))
     crop = canvas.crop((x, y, x + w, y + h))
