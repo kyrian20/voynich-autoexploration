@@ -178,13 +178,13 @@ def main() -> None:
     # f1r active and silently accepted its next locus as belonging to f1r.
     for broken_header in (
         " <f2r <! $L=B",
-        " \\t<f2r $L=B",
+        " \t<f2r $L=B",
         " <f٢r <! $L=B",
         " <f2r $L=B>",
     ):
         truncated_indented = audit_text(
-            "<f1r> <! $L=A>\\n<f1r.1,@P0> daiin\\n"
-            + broken_header + "\\n<f1r.2,@P0> chedy\\n"
+            "<f1r> <! $L=A>\n<f1r.1,@P0> daiin\n"
+            + broken_header + "\n<f1r.2,@P0> chedy\n"
         )
         assert truncated_indented["malformed_header_count"] == 1, truncated_indented
         assert truncated_indented["page_mismatch_count"] == 1, truncated_indented
@@ -195,7 +195,7 @@ def main() -> None:
 
     # A truncated but unrelated indented metadata tag is not a page boundary.
     unrelated_truncated = audit_text(
-        "<f1r> <! $L=A>\\n <unrelated $L=B\\n<f1r.1,@P0> daiin\\n"
+        "<f1r> <! $L=A>\n <unrelated $L=B\n<f1r.1,@P0> daiin\n"
     )
     assert structural_errors(unrelated_truncated) == [], unrelated_truncated
 
