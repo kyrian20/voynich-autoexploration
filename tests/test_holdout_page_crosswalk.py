@@ -28,11 +28,11 @@ class PageCrosswalkTests(unittest.TestCase):
         self.assertEqual(pages['fRos'], {'physical_leaf': None, 'partition': 'excluded_unassigned'})
 
     def test_wrong_active_page_is_rejected(self):
-        with self.assertRaisesRegex(ValueError, 'strict structural'):
+        with self.assertRaisesRegex(ValueError, 'Orphan or mismatched locus'):
             crosswalk(*fixture('<f67r1>\n<f67v2.1,@P0> a\n'))
 
     def test_broad_numeric_panel_is_rejected(self):
-        with self.assertRaisesRegex(ValueError, 'strict structural'):
+        with self.assertRaisesRegex(ValueError, 'Unparsed numeric folio header'):
             crosswalk(*fixture('<f67r12>\n<f67r12.1,@P0> a\n'))
 
     def test_substituted_source_is_rejected(self):
