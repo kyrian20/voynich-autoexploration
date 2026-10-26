@@ -120,6 +120,16 @@ def audit_text(text: str) -> dict:
                 })
             continue
         tag = raw[1:end]
+        # A damaged page header such as <f2r,> contains a comma and would
+        # otherwise be classified as a malformed locus, leaving the previous
+        # page active. Fail closed before dispatching record-shaped tags.
+        page_candidate, comma, _ = tag.partition(",")
+        if comma and INDENTED_PAGE_CANDIDATE_RE.fullmatch(page_candidate.strip(" \t")):
+            malformed_headers.append({
+                "line": line_no, "page": tag, "reason": "comma in page header",
+            })
+            active_page = None
+            continue
         if "," not in tag:
             if not PAGE_RE.fullmatch(tag):
                 malformed_headers.append({"line": line_no, "page": tag})
