@@ -283,6 +283,19 @@ jobs:
       - name: Probar capa léxica IVTFF sin pérdida
         run: python tests/test_ivtff_lossless.py
 
+      - name: Rechazar dígitos Unicode en filas del lector histórico congelado
+        run: |
+          python -m unittest discover -s tests -p 'test_readiness_ascii_guard.py' -v
+          python scripts/audit_readiness_ascii_guard.py > readiness-ascii-preflight.json
+
+      - name: Conservar preflight ASCII con hashes de corpus
+        uses: actions/upload-artifact@v4
+        with:
+          name: readiness-ascii-preflight-${{ github.run_id }}
+          path: readiness-ascii-preflight.json
+          if-no-files-found: error
+          retention-days: 90
+
       - name: Auditar preservación de información en tres transcripciones
         run: python scripts/audit_research_readiness.py > intensive-readiness.json
 
