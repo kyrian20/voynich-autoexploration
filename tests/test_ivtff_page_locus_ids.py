@@ -116,6 +116,19 @@ def main() -> None:
             "malformed_header_count=1", "page_mismatch_count=1",
         ], comma_boundary
 
+    # A lost opening bracket plus stray comma must not preserve the old folio.
+    for broken in ("f2r,> <! $L=B>", "fRos,> <! $L=B>"):
+        report = audit_text(
+            "<f1r> <! $L=A>\n<f1r.1,@P0> daiin\n"
+            + broken + "\n<f1r.2,@P0> chedy\n"
+        )
+        assert report["malformed_header_count"] == 1, report
+        assert report["page_mismatch_count"] == 1, report
+        assert report["malformed_record_count"] == 0, report
+    # Do not classify untagged prose as a damaged page boundary.
+    prose = audit_text("<f1r>\n<f1r.1,@P0> daiin\nf2r,>commentary\n")
+    assert structural_errors(prose) == [], prose
+
     # A malformed locus containing a comma remains a record error and must
     # not invalidate the active page or be mistaken for a page boundary.
     comma_locus = audit_text(
