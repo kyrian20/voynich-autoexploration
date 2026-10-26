@@ -64,6 +64,25 @@ def main():
     assert tokens_rows([lex('da /'), lex('/ iin.or'), lex('chedy')]) == ['daiin', 'or', 'chedy']
     assert tokens_rows([lex('a'), lex(''), lex('b')]) == ['a', 'b']
     assert tokens_rows([]) == []
+    # The frozen lexer recognizes Unicode decimal digits via Python \\d and
+    # historically projected @١٤٠; as if it were the ASCII code @140;.
+    # The additive adapter must fail closed, including inside ligatures and
+    # unselected alternatives. Comments remain free text, not glyph codes.
+    for malformed_code in ('@١٤٠;', 'qo{@１２８;}dy', 'qo[@1٢8;:ch]dy'):
+        parsed = lex(malformed_code)
+        assert not parsed.diagnostics, parsed.diagnostics
+        for project in (
+            lambda p: tokens_rows([p]),
+            lambda p: tokens_scoped_rows([('ZL3b', 'f1r', p)]),
+        ):
+            try:
+                project(parsed)
+            except ValueError as exc:
+                assert 'Non-ASCII digits' in str(exc), str(exc)
+            else:
+                raise AssertionError('Unicode lookalike high-ASCII code was accepted')
+    assert tokens_rows([lex('qo@140;dy')]) == ['qo@140;dy']
+    assert tokens_rows([lex('qo<!@١٤٠;>dy')]) == ['qody']
     # A Payload is a mutable dataclass: a raw-row edit, changed span, or
     # discarded diagnostic used to be silently projected as different text.
     # The adapter must fail closed while the frozen historical lexer stays as-is.
