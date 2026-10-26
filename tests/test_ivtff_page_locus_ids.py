@@ -31,6 +31,42 @@ def main() -> None:
     assert report["locus_number_out_of_range_count"] == 0, report
     assert structural_errors(report) == [], report
 
+    # The structural auditor must not accept a valid-looking <f...> prefix
+    # followed immediately by text or another tag. Unlike the older reader,
+    # this guard fails closed and invalidates an apparent page transition.
+    for damaged_page in (
+        "<f2r>garbage", "<fRos><! $L=B>",
+        "<f86v4>garbage", "<f٢r>garbage",
+    ):
+        glued = audit_text(
+            "<f1r> <! $L=A>\n<f1r.1,@P0> daiin\n"
+            + damaged_page + "\n<f1r.2,@P0> chedy\n"
+        )
+        assert glued["page_header_count"] == 1, glued
+        assert glued["malformed_header_count"] == 1, glued
+        assert glued["page_mismatch_count"] == 1, glued
+        assert glued["malformed_headers"][0]["reason"] == "missing separator after page tag", glued
+        assert set(structural_errors(glued)) == {
+            "malformed_header_count=1", "page_mismatch_count=1"
+        }, glued
+
+    for damaged_record in (
+        "<f1r.2,@P0>garbage", "<f1r.2,@P0><!comment>",
+    ):
+        glued = audit_text(
+            "<f1r> <! $L=A>\n<f1r.1,@P0> daiin\n" + damaged_record + "\n"
+        )
+        assert glued["record_count"] == 1, glued
+        assert glued["malformed_record_count"] == 1, glued
+        assert structural_errors(glued) == ["malformed_record_count=1"], glued
+
+    # Properly separated tags (space, tab or end of row) remain accepted.
+    separated = audit_text(
+        "<f1r>\t<! $L=A>\n<f1r.1,@P0> daiin\n"
+        "<f2r> <! $L=B>\n<f2r.1,@P0> chedy\n"
+    )
+    assert structural_errors(separated) == [], separated
+
     # A repeated physical page header is an integrity defect even when its
     # later loci have new record tags: otherwise duplicate-record checks pass
     # and one folio may be split into disjoint blocks without warning.
