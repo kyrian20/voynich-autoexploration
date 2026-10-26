@@ -31,3 +31,7 @@ El workflow guarda el JSON y su SHA-256 como artefactos de la ejecución. Las pr
 ## Alcance de cierre
 
 Solo se cerrará la incidencia tras CI satisfactoria del commit de la PR, comprobación del JSON/artefacto y, si se fusiona, CI del nuevo `master`. Esta nota inicial no certifica dichos resultados.
+
+## Historial de ejecución y reparación
+
+La primera CI de PR #73, [run 40277876040](https://github.com/kyrian20/voynich-autoexploration/actions/runs/40277876040), **falló**: siete regresiones sintéticas pasaron, pero la invocación directa del script no encontraba el paquete `scripts` (`ModuleNotFoundError`). La corrección posterior añade la raíz del checkout a `sys.path`, como hace el constructor existente. Se conserva el fallo y no se considera verificado el control sobre el inventario real hasta observar una nueva ejecución. No es un resultado científico negativo.
