@@ -90,7 +90,11 @@ def audit_text(text: str) -> dict:
                     })
                 # Only for detecting malformed indented headers: allow damage
                 # inside angle brackets, but never normalize accepted IDs.
-                elif header_fields and INDENTED_PAGE_CANDIDATE_RE.fullmatch(header_fields[0]):
+                # Match the same comma-damaged page prefix as the column-zero
+                # guard. An indented <f2r,> must not silently retain f1r.
+                elif header_fields and INDENTED_PAGE_CANDIDATE_RE.fullmatch(
+                    header_fields[0].partition(",")[0]
+                ):
                     malformed_headers.append({"line": line_no, "page": candidate,
                                               "reason": "leading whitespace or invalid page ID"})
                     active_page = None
