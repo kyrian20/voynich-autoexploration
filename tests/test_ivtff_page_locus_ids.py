@@ -116,6 +116,32 @@ def main() -> None:
             "malformed_header_count=1", "page_mismatch_count=1",
         ], comma_boundary
 
+    # An indented comma-damaged page boundary previously vanished entirely:
+    # the old f1r scope stayed active and its next locus was accepted.
+    # This is diagnostic only; none of these headers becomes a valid page.
+    for broken_header in (
+        " <f2r,> <! $L=B>",
+        "\t<fRos,> <! $L=B>",
+        " <f86v4,> <! $L=B>",
+        " <f٢r,> <! $L=B>",
+    ):
+        report = audit_text(
+            "<f1r> <! $L=A>\\n<f1r.1,@P0> daiin\\n"
+            + broken_header + "\\n<f1r.2,@P0> chedy\\n"
+        )
+        assert report["record_count"] == 2, report
+        assert report["malformed_header_count"] == 1, report
+        assert report["malformed_record_count"] == 0, report
+        assert report["page_mismatch_count"] == 1, report
+        assert structural_errors(report) == [
+            "malformed_header_count=1", "page_mismatch_count=1",
+        ], report
+    # A non-page indented tag containing a comma is not a page boundary.
+    unrelated_comma = audit_text(
+        "<f1r> <! $L=A>\\n <unrelated,>\\n<f1r.1,@P0> daiin\\n"
+    )
+    assert structural_errors(unrelated_comma) == [], unrelated_comma
+
     # A lost opening bracket plus stray comma must not preserve the old folio.
     for broken in ("f2r,> <! $L=B>", "fRos,> <! $L=B>"):
         report = audit_text(
