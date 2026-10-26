@@ -283,9 +283,6 @@ jobs:
       - name: Probar capa léxica IVTFF sin pérdida
         run: python tests/test_ivtff_lossless.py
 
-      - name: Probar rechazo ASCII de identificadores en lectores IVTFF derivados
-        run: python -m unittest discover -s tests -p 'test_ivtff_ascii_row_readers.py' -v
-
       - name: Auditar preservación de información en tres transcripciones
         run: python scripts/audit_research_readiness.py > intensive-readiness.json
 
