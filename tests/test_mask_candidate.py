@@ -31,6 +31,24 @@ class MaskCandidateTests(unittest.TestCase):
                     self.assertEqual(image.getpixel((x, y)), expected)
         self.assertEqual(data, export_candidate(self.plan, self.source))
 
+    def test_transparent_pixels_cannot_reveal_hidden_rgb(self):
+        # RGBA -> RGB alone exposes RGB bytes beneath alpha=0 and ignores
+        # alpha=128. The candidate must be flattened against opaque white.
+        image = Image.new('RGBA', (12, 10), (100, 150, 200, 255))
+        image.putpixel((2, 1), (233, 1, 3, 0))
+        image.putpixel((3, 1), (0, 0, 255, 128))
+        stream = io.BytesIO()
+        image.save(stream, format='PNG')
+        source = stream.getvalue()
+        self.plan['source_sha256'] = hashlib.sha256(source).hexdigest()
+        data = export_candidate(self.plan, source)
+        with Image.open(io.BytesIO(data)) as result:
+            self.assertEqual(result.mode, 'RGB')
+            self.assertFalse(result.info)
+            self.assertEqual(result.getpixel((0, 0)), (255, 255, 255))
+            self.assertEqual(result.getpixel((1, 0)), (127, 127, 255))
+            self.assertEqual(result.getpixel((2, 0)), (100, 150, 200))
+
     def test_decoded_dimensions_not_just_plan(self):
         self.plan['source_size'] = [13, 10]
         with self.assertRaisesRegex(ValueError, 'Decoded'):
