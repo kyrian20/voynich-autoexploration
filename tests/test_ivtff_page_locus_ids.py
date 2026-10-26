@@ -239,8 +239,8 @@ def main() -> None:
         "  fRos <! $L=B>",
     ):
         damaged_metadata_boundary = audit_text(
-            "<f1r> <! $L=A>\\n<f1r.1,@P0> daiin\\n"
-            + broken_header + "\\n<f1r.2,@P0> chedy\\n"
+            "<f1r> <! $L=A>\n<f1r.1,@P0> daiin\n"
+            + broken_header + "\n<f1r.2,@P0> chedy\n"
         )
         assert damaged_metadata_boundary["malformed_header_count"] == 1, damaged_metadata_boundary
         assert damaged_metadata_boundary["page_mismatch_count"] == 1, damaged_metadata_boundary
@@ -251,7 +251,7 @@ def main() -> None:
 
     # Free text mentioning a folio, without a metadata comment, is not a header.
     prose_folio = audit_text(
-        "<f1r> <! $L=A>\\n<f1r.1,@P0> daiin\\nf2r commentary\\n"
+        "<f1r> <! $L=A>\n<f1r.1,@P0> daiin\nf2r commentary\n"
     )
     assert structural_errors(prose_folio) == [], prose_folio
 
