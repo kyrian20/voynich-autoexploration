@@ -71,8 +71,8 @@ def main() -> None:
         "<f٢r,> <! $L=B>",
     ):
         comma_boundary = audit_text(
-            "<f1r> <! $L=A>\\n<f1r.1,@P0> daiin\\n"
-            + broken_header + "\\n<f1r.2,@P0> chedy\\n"
+            "<f1r> <! $L=A>\n<f1r.1,@P0> daiin\n"
+            + broken_header + "\n<f1r.2,@P0> chedy\n"
         )
         assert comma_boundary["record_count"] == 2, comma_boundary
         assert comma_boundary["malformed_header_count"] == 1, comma_boundary
@@ -86,7 +86,7 @@ def main() -> None:
     # A malformed locus containing a comma remains a record error and must
     # not invalidate the active page or be mistaken for a page boundary.
     comma_locus = audit_text(
-        "<f1r> <! $L=A>\\n<f1r.1,@P0,> daiin\\n<f1r.2,@P0> chedy\\n"
+        "<f1r> <! $L=A>\n<f1r.1,@P0,> daiin\n<f1r.2,@P0> chedy\n"
     )
     assert comma_locus["malformed_record_count"] == 1, comma_locus
     assert comma_locus["malformed_header_count"] == 0, comma_locus
