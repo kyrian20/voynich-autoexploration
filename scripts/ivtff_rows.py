@@ -9,7 +9,13 @@ callers must supply rows in source order from the intended scope.
 """
 from __future__ import annotations
 
+import re
+
 from scripts.ivtff_lossless import Payload, lex, tokens
+
+# Syntax-only guard for caller-supplied physical folio labels. This does not
+# authenticate their association with source rows or the reserved-leaf split.
+FOLIO_LABEL_RE = re.compile(r'f(?:[0-9]+[rv][1-6]?|Ros)')
 
 
 def _reject_non_ascii_high_ascii(spans) -> None:
@@ -107,6 +113,10 @@ def tokens_scoped_rows(
         if not all(isinstance(v, str) and v.strip() and v == v.strip()
                    for v in (source_id, folio_id)):
             raise ValueError('Nonempty, exact source and folio IDs required')
+        if not source_id.isprintable():
+            raise ValueError('Source ID contains control or invisible characters')
+        if not FOLIO_LABEL_RE.fullmatch(folio_id):
+            raise ValueError('Invalid IVTFF physical folio label')
         if not isinstance(payload, Payload):
             raise TypeError('Expected a lexed IVTFF Payload')
         next_scope = (source_id, folio_id)
