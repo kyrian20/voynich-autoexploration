@@ -12,7 +12,7 @@ Criterio previo: rechazar los tres casos anteriores y las etiquetas pegadas; exi
 
 El auditor mantiene expresiones locales (sin importar el parser principal) y valida cada etiqueta completa antes de contabilizarla. Un locus sin cabecera o asociado a otra página se rechaza. Se conserva el tratamiento separado de `fRos`, la exclusión de hojas no numéricas y la detección de hojas no positivas. Los tests sintéticos antiguos se ajustan a loci válidos con código de tres caracteres, sin convertir esas entradas sintéticas en evidencia del manuscrito.
 
-Archivos: `scripts/audit_holdout_locus_coverage.py` y `tests/test_holdout_locus_coverage.py`. Ningún corpus, manifiesto, resultado negativo o script histórico se sobrescribe.
+Archivos: `scripts/audit_holdout_locus_coverage.py`, `tests/test_holdout_locus_coverage.py` y `tests/test_holdout_page_crosswalk.py`. Ningún corpus, manifiesto, resultado negativo o script histórico se sobrescribe.
 
 ## Procedencia y comprobación previa
 
@@ -39,3 +39,7 @@ La comparación de artefactos históricos debe comprobarse si cambia cualquier r
 ## Límites
 
 Esto corrige aceptación de entradas malformadas en el auditor; no demuestra corrupción de las dos fuentes actuales. La cobertura no certifica IVTFF completo, ni que los folios reservados sean históricamente ciegos. No se prueba una hipótesis lingüística ni se recupera texto plano. El piloto semántico continúa BLOCKED por falta de referente y anotadores independientes. La auditoría histórica de corpus y EXP sigue abierta.
+
+## Primera CI y corrección de integración
+
+La primera ejecución PR #86, [40400568302](https://github.com/kyrian20/voynich-autoexploration/actions/runs/40400568302), terminó **failure**. Las 11 pruebas de cobertura pasaron y el script de cobertura informó 102 hojas elegibles, pero dos pruebas del crosswalk esperaban el mensaje `strict structural` de una validación posterior. El nuevo auditor rechaza esas entradas antes, con errores más específicos (`Unparsed numeric folio header` y `Orphan or mismatched locus`). Se ajustaron esas dos aserciones para exigir precisamente el nuevo rechazo temprano; no se eliminó ninguna prueba ni se relajó el criterio de rechazo. La ejecución fallida permanece registrada. Es necesaria una nueva CI satisfactoria antes de considerar esta corrección verificada.
