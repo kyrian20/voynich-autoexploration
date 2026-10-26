@@ -115,6 +115,12 @@ class VisualPilotIntegrityTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'count mismatch'):
             build_pilot(inventory, manifest)
 
+    def test_reject_empty_inventory(self):
+        inventory, manifest = self.fixture()
+        inventory['records'] = []
+        with self.assertRaisesRegex(ValueError, 'Missing inventory records'):
+            build_pilot(inventory, manifest)
+
     def test_reject_missing_or_swapped_source_provenance(self):
         inventory, manifest = self.fixture()
         inventory.pop('sources')
