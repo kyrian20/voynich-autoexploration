@@ -60,6 +60,41 @@ def main() -> None:
     )
     assert unicode_missing_opener["malformed_header_count"] == 1, unicode_missing_opener
 
+    # A stray comma after a physical page ID used to be classified as a
+    # malformed locus. The old page then remained active and a subsequent
+    # old-page record passed the scope check. Diagnose the broken boundary
+    # as a header, without promoting it to a valid page.
+    for broken_header in (
+        "<f2r,> <! $L=B>",
+        "<fRos,> <! $L=B>",
+        "<f86v4 ,> <! $L=B>",
+        "<f٢r,> <! $L=B>",
+    ):
+        comma_boundary = audit_text(
+            "<f1r> <! $L=A>\\n<f1r.1,@P0> daiin\\n"
+            + broken_header + "\\n<f1r.2,@P0> chedy\\n"
+        )
+        assert comma_boundary["record_count"] == 2, comma_boundary
+        assert comma_boundary["malformed_header_count"] == 1, comma_boundary
+        assert comma_boundary["malformed_record_count"] == 0, comma_boundary
+        assert comma_boundary["page_mismatch_count"] == 1, comma_boundary
+        assert comma_boundary["malformed_headers"][0]["reason"] == "comma in page header"
+        assert structural_errors(comma_boundary) == [
+            "malformed_header_count=1", "page_mismatch_count=1",
+        ], comma_boundary
+
+    # A malformed locus containing a comma remains a record error and must
+    # not invalidate the active page or be mistaken for a page boundary.
+    comma_locus = audit_text(
+        "<f1r> <! $L=A>\\n<f1r.1,@P0,> daiin\\n<f1r.2,@P0> chedy\\n"
+    )
+    assert comma_locus["malformed_record_count"] == 1, comma_locus
+    assert comma_locus["malformed_header_count"] == 0, comma_locus
+    assert comma_locus["page_mismatch_count"] == 0, comma_locus
+    assert structural_errors(comma_locus) == [
+        "malformed_record_count=1"
+    ], comma_locus
+
     bad = "\n".join([
         "<f1r> <! $L=A>",
         "<f67r1.5,@Cc> daiin",  # locus page must match active header
