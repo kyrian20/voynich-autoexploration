@@ -18,7 +18,7 @@ sys.path.insert(0, str(ROOT))
 from scripts.ivtff_lossless import lex, tokens
 from scripts.audit_legacy_portability import MANIFEST
 
-ROW = re.compile(r'^<(?P<page>f(?:[0-9]+[rv][1-6]?|Ros))\.(?P<number>[0-9]+),(?P<locus>[^>]*)>\s*(?P<body>.*))
+ROW = re.compile(r'^<(?P<page>f(?:[0-9]+[rv][1-6]?|Ros))\.(?P<number>[0-9]+),(?P<locus>[^>]*)>\s*(?P<body>.*))$'$')
 SOURCES = [('ZL3b', 'eva_zl3b.txt'), ('ZL3a', 'zl3a.txt'), ('IT2a', 'eva_it2a.txt')]
 
 
