@@ -136,7 +136,7 @@ def audit_text(text: str) -> dict:
         # Without this guard, <f2r>junk becomes a valid page boundary and
         # <f1r.2,@P0>junk becomes a valid locus. A malformed page boundary
         # must also invalidate the previous active page, not preserve it.
-        if end + 1 < len(raw) and raw[end + 1] not in " \\t":
+        if end + 1 < len(raw) and raw[end + 1] not in " \t":
             if INDENTED_PAGE_CANDIDATE_RE.fullmatch(tag):
                 malformed_headers.append({
                     "line": line_no, "page": tag,
