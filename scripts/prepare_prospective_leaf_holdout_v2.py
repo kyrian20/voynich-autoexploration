@@ -15,8 +15,10 @@ from pathlib import Path
 
 from prepare_prospective_leaf_holdout import ROOT, SOURCE_NAMES, SALT, partition
 
-# Optional numeric panel after recto/verso; leaf 67r1 and 67r2 are leaf 67.
-HEADER_V2 = re.compile(r"^<f(\d+)[rv]\d*(?:[.,][^>]*)?>")
+# Only exact page headers qualify: a locus record (<f67r1.1,@P0>),
+# damaged page (<f2r,>) or invalid panel (<f2r7>) cannot create a leaf.
+# Recto, verso and valid panels 1-6 still map to the same physical leaf.
+HEADER_V2 = re.compile(r"^<f([0-9]+)[rv][1-6]?>")
 
 
 def leaves_from_bytes(raw: bytes) -> set[int]:
