@@ -13,6 +13,7 @@ def fixture(text):
                 'corpora': {name: {'path': f'data/transcriptions/{name}',
                                   'sha256': hashlib.sha256(raw).hexdigest(), 'leaf_count': 1}
                             for name, raw in sources.items()},
+                'salt': 'VOYNICH-FUTURE-RULES-2026-10-23-v1',
                 'partitions': {'train': [67], 'development': [], 'test': []},
                 'counts': {'train': 1, 'development': 0, 'test': 0},
                 'eligible_count': 1, 'source_only_leaves': {name: [] for name in SOURCE_NAMES}}
