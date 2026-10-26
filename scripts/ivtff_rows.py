@@ -12,6 +12,21 @@ from __future__ import annotations
 from scripts.ivtff_lossless import Payload, lex, tokens
 
 
+def _reject_non_ascii_high_ascii(spans) -> None:
+    """Reject Unicode decimal lookalikes accepted by the frozen lexer.
+
+    The historical lexer uses Python's Unicode-aware \\d. This additive guard
+    checks parsed code spans, including ligatures and *all* alternatives,
+    without rejecting arbitrary digits in free-text IVTFF comments.
+    """
+    for span in spans:
+        if span.kind == 'high_ascii' and not span.raw[1:-1].isascii():
+            raise ValueError('Non-ASCII digits in IVTFF high-ASCII code')
+        _reject_non_ascii_high_ascii(span.children)
+        for option in span.options:
+            _reject_non_ascii_high_ascii(option)
+
+
 def tokens_rows(payloads: list[Payload], **policy) -> list[str]:
     """Project physical rows, joining only explicitly paired slash continuations.
 
@@ -40,6 +55,7 @@ def tokens_rows(payloads: list[Payload], **policy) -> list[str]:
         checked = lex(payload.raw)
         if payload.spans != checked.spans or payload.diagnostics != checked.diagnostics:
             raise ValueError('IVTFF Payload spans/diagnostics disagree with raw row')
+        _reject_non_ascii_high_ascii(checked.spans)
 
     output: list[str] = []
     chain: list[Payload] = []
