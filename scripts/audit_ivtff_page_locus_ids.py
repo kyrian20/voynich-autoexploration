@@ -38,6 +38,12 @@ MISSING_OPEN_LOCUS_RE = re.compile(r"^f(?:\d+[rv][1-6]?|Ros)\.\d+,")
 MISSING_OPEN_PAGE_RE = re.compile(
     r"^(?P<page>f(?:\d+[rv][1-6]?|Ros))>(?=\s|<|$)"
 )
+# Also catch a page whose BOTH delimiters were damaged but whose adjacent
+# IVTFF metadata comment still marks a page boundary. Plain prose such as
+# "f2r commentary" is not enough to classify a structural header.
+MISSING_OPEN_PAGE_WITH_METADATA_RE = re.compile(
+    r"^(?P<page>f(?:\d+[rv]\d*|Ros))\s+<!"
+)
 
 
 def audit_text(text: str) -> dict:
@@ -85,7 +91,10 @@ def audit_text(text: str) -> dict:
                 malformed_records.append({
                     "line": line_no, "raw": raw[:180], "reason": "missing opening <",
                 })
-            elif (missing_header := MISSING_OPEN_PAGE_RE.match(stripped)):
+            elif (missing_header := (
+                MISSING_OPEN_PAGE_RE.match(stripped)
+                or MISSING_OPEN_PAGE_WITH_METADATA_RE.match(stripped)
+            )):
                 malformed_headers.append({
                     "line": line_no, "page": missing_header.group("page"),
                     "reason": "missing opening <",

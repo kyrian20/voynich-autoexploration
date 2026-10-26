@@ -230,6 +230,31 @@ def main() -> None:
         "malformed_header_count=2", "page_mismatch_count=2"
     }, missing_header
 
+    # A page boundary can lose both its opening "<" and closing ">".
+    # The adjacent IVTFF metadata comment is an unambiguous structural cue;
+    # previously the line vanished and the old page remained active.
+    for broken_header in (
+        "f2r <! $L=B>",
+        "f2r <! $L=B",
+        "  fRos <! $L=B>",
+    ):
+        damaged_metadata_boundary = audit_text(
+            "<f1r> <! $L=A>\n<f1r.1,@P0> daiin\n"
+            + broken_header + "\n<f1r.2,@P0> chedy\n"
+        )
+        assert damaged_metadata_boundary["malformed_header_count"] == 1, damaged_metadata_boundary
+        assert damaged_metadata_boundary["page_mismatch_count"] == 1, damaged_metadata_boundary
+        assert damaged_metadata_boundary["record_count"] == 2, damaged_metadata_boundary
+        assert structural_errors(damaged_metadata_boundary) == [
+            "malformed_header_count=1", "page_mismatch_count=1"
+        ], damaged_metadata_boundary
+
+    # Free text mentioning a folio, without a metadata comment, is not a header.
+    prose_folio = audit_text(
+        "<f1r> <! $L=A>\n<f1r.1,@P0> daiin\nf2r commentary\n"
+    )
+    assert structural_errors(prose_folio) == [], prose_folio
+
     # Also fail closed if the damaged header is the last line: no following
     # locus is required for the error to be observable.
     trailing_header = audit_text(
