@@ -67,6 +67,9 @@ def audit_text(text: str) -> dict:
             stripped = raw.lstrip(" \t")
             if stripped.startswith("<"):
                 candidate = stripped[1:].split(">", 1)[0]
+                # An indented, truncated header may contain trailing metadata.
+                # Classify by its first field; never accept it as a valid page.
+                header_fields = candidate.strip(" \t").split(maxsplit=1)
                 if LOCUS_RE.fullmatch(candidate) or MISSING_OPEN_LOCUS_RE.match(candidate):
                     malformed_records.append({
                         "line": line_no, "raw": raw[:180],
@@ -74,7 +77,7 @@ def audit_text(text: str) -> dict:
                     })
                 # Only for detecting malformed indented headers: allow damage
                 # inside angle brackets, but never normalize accepted IDs.
-                elif INDENTED_PAGE_CANDIDATE_RE.fullmatch(candidate.strip(" \t")):
+                elif header_fields and INDENTED_PAGE_CANDIDATE_RE.fullmatch(header_fields[0]):
                     malformed_headers.append({"line": line_no, "page": candidate,
                                               "reason": "leading whitespace or invalid page ID"})
                     active_page = None
