@@ -16,8 +16,12 @@ import re
 ROOT = Path(__file__).resolve().parents[1]
 MANIFEST = ROOT / "research/decipherment/2026-10-23-prospective-leaf-holdout/manifest-v2.json"
 SOURCE_NAMES = ("eva_zl3b.txt", "eva_it2a.txt")
-NUMERIC = re.compile(r"^<f([0-9]+)[rv][0-9]*(?:[.,][^>]*)?>")
-NAMED = re.compile(r"^<f([A-Za-z][A-Za-z0-9_]*)(?:[.,][^>]*)?>")
+# Independent IVTFF-shaped tag checks: do not count a prefix match as a
+# complete header or locus. This is a coverage audit, not full IVTFF parsing.
+PAGE_ID = re.compile(r"^f(?:[0-9]+[rv][1-6]?|Ros)$")
+RECORD_ID = re.compile(
+    r"^(f(?:[0-9]+[rv][1-6]?|Ros))\\.[0-9]{1,3},[^;>]{3}(?:;[^;>])?$"
+)
 
 
 def inspect_source(raw: bytes) -> dict:
@@ -25,31 +29,39 @@ def inspect_source(raw: bytes) -> dict:
     named_headers: Counter[str] = Counter()
     named_loci: Counter[str] = Counter()
     numeric_tags = numeric_headers = numeric_loci = 0
+    active_page = None
     for line_no, line in enumerate(raw.decode("utf-8-sig").splitlines(), 1):
         if not line.startswith("<f"):
             continue
-        if line.startswith("<f") and len(line) > 2 and line[2].isdigit():
-            match = NUMERIC.match(line)
-            if match is None:
-                raise ValueError(f"Unparsed numeric folio header at source line {line_no}")
-            leaf = int(match.group(1))
-            if leaf <= 0:
-                raise ValueError(f"Nonpositive physical leaf at source line {line_no}")
-            numeric_tags += 1
-            if '.' in match.group(0) or ',' in match.group(0):
-                numeric_loci += 1
+        end = line.find(">")
+        if end < 0 or (end + 1 < len(line) and line[end + 1] not in " \\t"):
+            raise ValueError(f"Malformed folio tag boundary at source line {line_no}")
+        tag = line[1:end]
+        is_header = PAGE_ID.fullmatch(tag) is not None
+        locus = RECORD_ID.fullmatch(tag)
+        if not is_header and locus is None:
+            kind = "numeric" if len(line) > 2 and line[2].isdigit() else "named"
+            raise ValueError(f"Unparsed {kind} folio header at source line {line_no}")
+        page = tag if is_header else locus.group(1)
+        if is_header:
+            active_page = page
+        elif page != active_page:
+            raise ValueError(f"Orphan or mismatched locus at source line {line_no}")
+        if page == "fRos":
+            if is_header:
+                named_headers["Ros"] += 1
             else:
-                numeric_headers += 1
-            leaves.add(leaf)
+                named_loci["Ros"] += 1
+            continue
+        leaf = int(re.match(r"^f([0-9]+)", page).group(1))
+        if leaf <= 0:
+            raise ValueError(f"Nonpositive physical leaf at source line {line_no}")
+        numeric_tags += 1
+        if is_header:
+            numeric_headers += 1
         else:
-            match = NAMED.match(line)
-            if match is None:
-                raise ValueError(f"Unparsed named folio header at source line {line_no}")
-            # A page header is not a locus record. Count both separately.
-            if '.' in match.group(0) or ',' in match.group(0):
-                named_loci[match.group(1)] += 1
-            else:
-                named_headers[match.group(1)] += 1
+            numeric_loci += 1
+        leaves.add(leaf)
     if not leaves:
         raise ValueError("No numeric physical leaves found")
     return {
