@@ -34,6 +34,18 @@ class PanelAwareHoldout(unittest.TestCase):
                b"<fRos> named page excluded\n")
         self.assertEqual(v2.leaves_from_bytes(raw), {4})
 
+    def test_page_tag_requires_boundary_after_closing_bracket(self):
+        # Prefix matching previously admitted malformed glued suffixes as
+        # valid page headers, creating phantom eligible leaves.
+        raw = (b"<f67r1>garbage\n"
+               b"<f68r><! $L=B>\n"
+               b"<f69r> <! $L=A>\n"
+               b"<f70r>\n"
+               b"<f71r.1,@P0> orphan locus\n")
+        self.assertEqual(v2.leaves_from_bytes(raw), {69, 70})
+        with self.assertRaisesRegex(ValueError, "No folio headers"):
+            v2.leaves_from_bytes(b"<f67r>garbage\n<f68r><!comment>\n")
+
     def test_orphan_loci_cannot_create_holdout_leaf(self):
         with self.assertRaisesRegex(ValueError, "No folio headers"):
             v2.leaves_from_bytes(b"<f67r1.1,@P0> orphan\n<f69r.2,@P0> orphan\n")
