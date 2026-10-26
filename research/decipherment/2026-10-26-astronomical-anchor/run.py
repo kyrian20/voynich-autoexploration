@@ -3,7 +3,7 @@ import argparse,collections,hashlib,json,re,sys
 from pathlib import Path
 
 TARGETS=('doary','doaro','dary')
-# Pattern copied, unmodified, from scripts/audit_research_readiness.py.
+# Derived from audit_research_readiness.py, but strict ASCII IDs are required here.
 ROW=re.compile(r'^<(?P<page>f(?:[0-9]+[rv][1-6]?|Ros))\.(?P<number>[0-9]+),(?P<locus>[^>]*)>\s*(?P<body>.*)$')
 EXPECTED={'eva_zl3b.txt':'bf5b6d4ac1e3a51b1847a9c388318d609020441ccd56984c901c32b09beccafc','eva_it2a.txt':'7f27a8b0feed8f6de0a99900df6bf912dd1d295c38e5f830bac8b41c3f536fb5'}
 def sha(b):return hashlib.sha256(b).hexdigest()
