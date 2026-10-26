@@ -18,7 +18,10 @@ from prepare_prospective_leaf_holdout import ROOT, SOURCE_NAMES, SALT, partition
 # Only exact page headers qualify: a locus record (<f67r1.1,@P0>),
 # damaged page (<f2r,>) or invalid panel (<f2r7>) cannot create a leaf.
 # Recto, verso and valid panels 1-6 still map to the same physical leaf.
-HEADER_V2 = re.compile(r"^<f([0-9]+)[rv][1-6]?>")
+# The closing > must terminate the tag: a glued suffix such as <f67r>junk
+# or <f67r><!comment> is not an independently delimited header row.
+# Only horizontal whitespace or end-of-row is accepted after the tag.
+HEADER_V2 = re.compile(r"^<f([0-9]+)[rv][1-6]?>(?=[ \t]|$)")
 
 
 def leaves_from_bytes(raw: bytes) -> set[int]:
