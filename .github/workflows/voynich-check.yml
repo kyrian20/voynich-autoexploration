@@ -130,6 +130,22 @@ jobs:
           if-no-files-found: error
           retention-days: 90
 
+      - name: Vincular cada registro del inventario visual con su línea fuente original
+        run: |
+          python -m unittest discover -s tests -p 'test_visual_inventory_source_rows.py' -v
+          python scripts/audit_visual_inventory_source_rows.py --out visual-inventory-source-rows.json
+          sha256sum visual-inventory-source-rows.json > visual-inventory-source-rows.sha256
+
+      - name: Conservar prueba de vinculación de líneas y hash
+        uses: actions/upload-artifact@v4
+        with:
+          name: visual-inventory-source-rows-${{ github.run_id }}
+          path: |
+            visual-inventory-source-rows.json
+            visual-inventory-source-rows.sha256
+          if-no-files-found: error
+          retention-days: 90
+
       - name: Verificar cola visual y cobertura de etiquetas sin evaluar semántica
         run: |
           python -m unittest discover -s tests -p 'test_visual_annotation_queue.py' -v
