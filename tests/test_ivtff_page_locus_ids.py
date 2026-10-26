@@ -39,8 +39,8 @@ def main() -> None:
         "<f86v4>garbage", "<f٢r>garbage",
     ):
         glued = audit_text(
-            "<f1r> <! $L=A>\\n<f1r.1,@P0> daiin\\n"
-            + damaged_page + "\\n<f1r.2,@P0> chedy\\n"
+            "<f1r> <! $L=A>\n<f1r.1,@P0> daiin\n"
+            + damaged_page + "\n<f1r.2,@P0> chedy\n"
         )
         assert glued["page_header_count"] == 1, glued
         assert glued["malformed_header_count"] == 1, glued
@@ -54,7 +54,7 @@ def main() -> None:
         "<f1r.2,@P0>garbage", "<f1r.2,@P0><!comment>",
     ):
         glued = audit_text(
-            "<f1r> <! $L=A>\\n<f1r.1,@P0> daiin\\n" + damaged_record + "\\n"
+            "<f1r> <! $L=A>\n<f1r.1,@P0> daiin\n" + damaged_record + "\n"
         )
         assert glued["record_count"] == 1, glued
         assert glued["malformed_record_count"] == 1, glued
@@ -62,8 +62,8 @@ def main() -> None:
 
     # Properly separated tags (space, tab or end of row) remain accepted.
     separated = audit_text(
-        "<f1r>\\t<! $L=A>\\n<f1r.1,@P0> daiin\\n"
-        "<f2r> <! $L=B>\\n<f2r.1,@P0> chedy\\n"
+        "<f1r>\t<! $L=A>\n<f1r.1,@P0> daiin\n"
+        "<f2r> <! $L=B>\n<f2r.1,@P0> chedy\n"
     )
     assert structural_errors(separated) == [], separated
 
