@@ -65,11 +65,11 @@ class HoldoutLocusCoverageTests(unittest.TestCase):
 
     def test_numeric_header_must_parse(self):
         with self.assertRaisesRegex(ValueError, "Unparsed numeric"):
-            inspect_source(b"<f1r.1,@P0> a\n<f2x.1> invalid\n")
+            inspect_source(b"<f1r> page\n<f2x.1> invalid\n")
 
     def test_named_header_must_parse(self):
         with self.assertRaisesRegex(ValueError, "Unparsed named"):
-            inspect_source(b"<f1r.1,@P0> a\n<fRos broken\n")
+            inspect_source(b"<f1r> page\n<fRosx> invalid\n")
 
     def test_nonpositive_leaf_is_rejected(self):
         with self.assertRaisesRegex(ValueError, "Nonpositive"):
@@ -78,9 +78,9 @@ class HoldoutLocusCoverageTests(unittest.TestCase):
     def test_orphan_and_cross_page_loci_rejected(self):
         # A locus alone must never manufacture an eligible physical leaf.
         with self.assertRaisesRegex(ValueError, "Orphan or mismatched"):
-            inspect_source(b"<f9r.1,@P0> orphan\\n")
+            inspect_source(b"<f9r.1,@P0> orphan\n")
         with self.assertRaisesRegex(ValueError, "Orphan or mismatched"):
-            inspect_source(b"<f1r> page\\n<f2r.1,@P0> wrong page\\n")
+            inspect_source(b"<f1r> page\n<f2r.1,@P0> wrong page\n")
 
     def test_glued_suffix_and_malformed_page_tags_rejected(self):
         # The former prefix-matching regex counted each of these as a page.
@@ -89,13 +89,13 @@ class HoldoutLocusCoverageTests(unittest.TestCase):
                        b"<f9r.1> missing locus metadata"):
             with self.subTest(broken=broken):
                 with self.assertRaisesRegex(ValueError, "Malformed|Unparsed"):
-                    inspect_source(b"<f1r> good\\n" + broken + b"\\n")
+                    inspect_source(b"<f1r> good\n" + broken + b"\n")
 
     def test_valid_header_and_locus_control(self):
         result = inspect_source(
-            b"<f1r> metadata\\n<f1r.1,@P0> body\\n"
-            b"<f2v1> metadata\\n<f2v1.2,+P0> body\\n"
-            b"<fRos> metadata\\n<fRos.1,@L0> label\\n"
+            b"<f1r> metadata\n<f1r.1,@P0> body\n"
+            b"<f2v1> metadata\n<f2v1.2,+P0> body\n"
+            b"<fRos> metadata\n<fRos.1,@L0> label\n"
         )
         self.assertEqual(result["numeric_leaves"], [1, 2])
         self.assertEqual(result["numeric_page_header_count"], 2)
