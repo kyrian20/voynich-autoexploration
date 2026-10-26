@@ -6,9 +6,9 @@
 
 ## Defecto reproducible
 
-El lexer histórico `scripts/ivtff_lossless.py` utiliza `re.match(r'@(\\d{3});', ...)`. En Python, `\\d` reconoce cifras decimales Unicode. Por ejemplo, el patrón acepta tanto `@140;` como `@١٤٠;` (arábigo) y `@１２８;` (ancho completo), y `int()` convierte estas últimas en 140 y 128. Son sustituciones de caracteres que no respetan la grafía decimal ASCII del código high-ASCII IVTFF.
+El lexer histórico `scripts/ivtff_lossless.py` utiliza `re.match(r'@(\d{3});', ...)`. En Python, `\\d` reconoce cifras decimales Unicode. Por ejemplo, el patrón acepta tanto `@140;` como `@١٤٠;` (arábigo) y `@１２８;` (ancho completo), y `int()` convierte estas últimas en 140 y 128. Son sustituciones de caracteres que no respetan la grafía decimal ASCII del código high-ASCII IVTFF.
 
-**Reproducción mínima (Python 3.12):**
+**Reproducción mínima (comprobada localmente con Python 3.13.5; CI usa Python 3.12):**
 
 ```sh
 python - <<'PY'
