@@ -18,19 +18,24 @@ from scripts.ivtff_lossless import Payload, lex, tokens
 FOLIO_LABEL_RE = re.compile(r'f(?:[0-9]+[rv][1-6]?|Ros)')
 
 
-def _reject_non_ascii_high_ascii(spans) -> None:
-    """Reject Unicode decimal lookalikes accepted by the frozen lexer.
+def _reject_non_ascii_ivtff_spans(spans) -> None:
+    """Keep derived transliteration tokens ASCII without policing comments.
 
-    The historical lexer uses Python's Unicode-aware \\d. This additive guard
-    checks parsed code spans, including ligatures and *all* alternatives,
-    without rejecting arbitrary digits in free-text IVTFF comments.
+    The frozen lexer accepts arbitrary Unicode glyphs and whitespace, as well
+    as Unicode decimal lookalikes in high-ASCII codes. Non-ASCII text outside
+    comments can silently change word identities or merge words. Recurse into
+    every alternative (including unselected ones) and ligature.
     """
     for span in spans:
         if span.kind == 'high_ascii' and not span.raw[1:-1].isascii():
             raise ValueError('Non-ASCII digits in IVTFF high-ASCII code')
-        _reject_non_ascii_high_ascii(span.children)
+        # Alternatives/ligatures are containers: inspect their leaves so that
+        # Unicode inside a free-text <!comment> is still allowed.
+        if span.kind not in {'comment', 'alternatives', 'ligature'} and not span.raw.isascii():
+            raise ValueError('Non-ASCII character outside IVTFF comment')
+        _reject_non_ascii_ivtff_spans(span.children)
         for option in span.options:
-            _reject_non_ascii_high_ascii(option)
+            _reject_non_ascii_ivtff_spans(option)
 
 
 def tokens_rows(payloads: list[Payload], **policy) -> list[str]:
@@ -61,7 +66,7 @@ def tokens_rows(payloads: list[Payload], **policy) -> list[str]:
         checked = lex(payload.raw)
         if payload.spans != checked.spans or payload.diagnostics != checked.diagnostics:
             raise ValueError('IVTFF Payload spans/diagnostics disagree with raw row')
-        _reject_non_ascii_high_ascii(checked.spans)
+        _reject_non_ascii_ivtff_spans(checked.spans)
 
     output: list[str] = []
     chain: list[Payload] = []
