@@ -10,6 +10,10 @@ import hashlib
 import json
 from collections import Counter
 from pathlib import Path
+import sys
+
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT))
 
 from scripts.build_label_occurrence_inventory import ROW
 from scripts.select_visual_pilot_v2 import (
@@ -17,7 +21,6 @@ from scripts.select_visual_pilot_v2 import (
     check_source_bytes,
 )
 
-ROOT = Path(__file__).resolve().parents[1]
 INVENTORY = Path("research/decipherment/2026-10-25-label-inventory/inventory.json.gz")
 MANIFEST = Path("research/decipherment/2026-10-23-prospective-leaf-holdout/manifest-v2.json")
 
