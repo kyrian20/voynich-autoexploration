@@ -39,8 +39,11 @@ def check_inventory_provenance(inventory, manifest):
         seen_paths.add(path)
     if seen_paths != {item['path'] for item in expected.values()}:
         raise ValueError('Missing or unexpected inventory source')
+    records = inventory.get('records')
+    if not isinstance(records, list) or not records:
+        raise ValueError('Missing inventory records')
     seen_occurrences, seen_loci = set(), set()
-    for row in inventory.get('records', []):
+    for row in records:
         if not isinstance(row, dict):
             raise ValueError('Malformed inventory record')
         edition = row.get('edition')
