@@ -1,21 +1,21 @@
-# Rechazo de dígitos Unicode en dos lectores IVTFF derivados — 26-10-2026
+# Guard de dígitos ASCII en inventario astronómico IVTFF — 26-10-2026
 
-**Alcance:** mantenimiento de validación de identificadores, sin EXP nuevo ni prueba semántica. Base congelada de la rama: `6bd304c333400c41beadf4c79bc5ed5fd04cd015` (`master`). No reescribir los inventarios anteriores ni sus hashes.
+**Alcance:** una corrección de lectura estructural, sin EXP nuevo ni inferencia semántica. Base: `6bd304c333400c41beadf4c79bc5ed5fd04cd015` (`master`).
 
-## Defecto y criterio
+## Defecto demostrado
 
-`scripts/audit_research_readiness.py` y `research/decipherment/2026-10-26-astronomical-anchor/run.py` conservaban `\\d` en el patrón de aceptación `ROW`, a diferencia del auditor estructural reparado en PR #58. En Python, `\\d` reconoce dígitos decimales Unicode. Por tanto, una línea sintética como `<f68r3.١١,@Ls> doary` podía entrar como registro válido, mientras el auditor estricto rechazaba el identificador. Este es un defecto de contrato entre lectores; no se ha encontrado tal entrada en los corpus originales fijados por hash.
+`research/decipherment/2026-10-26-astronomical-anchor/run.py` aceptaba `\\d` en su patrón `ROW`, que en Python incluye decimales Unicode. Así, el inventario de candidatos podía tratar una fila sintética como `<f68r3.١٢,@Ls> doary` como si su identificador fuese válido, aunque el auditor estricto IVTFF ya exige `[0-9]`. No hay evidencia de que los corpus congelados contengan estos identificadores.
 
-**Corrección:** los dos patrones aceptan exclusivamente `[0-9]`. Si aparece un numeral decimal Unicode en el prefijo de un tag `<f…>`, ambos lectores fallan explícitamente en vez de descartar silenciosamente la fila. No se amplía el universo de registros ni se interpreta el texto.
+**Corrección:** el patrón del inventario astronómico exige `[0-9]` y el lector rechaza explícitamente un numeral decimal Unicode en el prefijo `<f…>` para evitar omisiones silenciosas. El control positivo ASCII permanece en las pruebas existentes. Se añadieron tres fixtures negativos en `test_run.py` (folio numérico, número de locus y locus `fRos`). La CI existente ejecuta esas pruebas en Python normal y `-O`, reproduce dos veces el inventario y compara los resultados.
 
-## Regresiones y verificación requerida
+## Fallo de integración detectado y preservación del historial
 
-`tests/test_ivtff_ascii_row_readers.py` comprueba las dos rutas con entradas sintéticas: página numérica con dígitos árabe-índicos, número de locus con esos dígitos y locus nombrado `fRos` con número no ASCII. Control positivo: `f68r3.11` y `fRos.1` siguen siendo aceptados. La CI ejecuta este archivo antes del inventario de preservación de información y conserva sus auditorías habituales.
+La primera versión de la propuesta también modificaba `scripts/audit_research_readiness.py`. El run [40252066138](https://github.com/kyrian20/voynich-autoexploration/actions/runs/40252066138) falló **antes** de ejecutar los tests nuevos: `scripts/audit_exp173_reader_bridge.py --check` devolvió `Snapshot mismatch: results.json`. La causa comprobable es que ese snapshot congelado incluye el SHA-256 de `audit_research_readiness.py` en `dependencies_sha256`; al cambiar la dependencia, ya no podía llamarse reproducción exacta.
 
-Comando: `python -m unittest discover -s tests -p 'test_ivtff_ascii_row_readers.py' -v`. No hay aleatoriedad, parámetros ajustados, ni semilla. **Pendiente:** revisar CI de la PR, después de integrar comprobar CI del nuevo SHA de `master`. Una suite omitida no cuenta como prueba superada.
+**Decisión:** se restauró `audit_research_readiness.py` byte a byte desde el commit base. Se retiró la prueba general y el paso CI añadido, dejando la reparación **solo** en el inventario astronómico y su suite ya existente. No se alteran los snapshots ni se relaja el comprobador EXP-173. La aceptación Unicode de `audit_research_readiness.py` queda como incidencia separada **BLOCKED** hasta versionar y reproducir explícitamente el puente EXP-173 bajo la nueva dependencia, sin sustituir su archivo histórico.
 
-## Preservación y limitaciones
+## Preservación y criterio de cierre
 
-No se cambian corpus, particiones de hojas, lector léxico congelado, resultados negativos ni inventarios astronómicos `inventory.json`/`inventory-v2.json`. El script astronómico cambia de hash; sus salidas futuras incluirán el hash nuevo y no se deben hacer pasar por reproducciones byte a byte de las salidas archivadas con el script anterior. El inventario histórico v2 conserva su valor documental para las fuentes congeladas; no constituye una validación independiente de la conformidad IVTFF. La identidad semántica de `doaro`/`doary` continúa **BLOCKED**.
+Se conservan transcripciones, manifiestos, lexer congelado, resultados negativos, `inventory.json`, `inventory-v2.json`, logs y checksums anteriores. El script astronómico cambia de SHA-256: sus nuevos artefactos incluyen un hash distinto y no se presentan como reproducciones byte a byte de los artefactos históricos. No hay semillas ni parámetros estocásticos para los fixtures.
 
-El cambio solo prueba un fallo de validación sintético. Quedan por resolver ligaduras, alternativas, procedencia de corpus y auditoría científica global. No se adjudica ninguna traducción.
+**Pendiente de cierre:** CI verde de la rama corregida, revisión del diff, integración y CI del SHA posterior de `master`. Este control no certifica conformidad IVTFF completa ni descifra `doaro`/`doary`.
