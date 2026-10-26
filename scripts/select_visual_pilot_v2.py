@@ -55,6 +55,16 @@ def check_inventory_provenance(inventory, manifest):
                 or not isinstance(locus, str) or not locus
                 or occurrence in seen_occurrences or (edition, locus) in seen_loci):
             raise ValueError('Duplicate or malformed inventory occurrence/locus')
+        # Provenance labels alone do not bind a record to its claimed folio.
+        # Validate ALL partitions, including held-out and named-page records:
+        # a forged test/development locator must not pass merely because it
+        # carries a correct source hash. This is a shape check, not a replay
+        # of the original source line (see maintenance limitations).
+        folio = row.get('folio')
+        if (not isinstance(folio, str) or not folio or folio != folio.strip()
+                or not locus.startswith(folio + '.')
+                or len(locus) <= len(folio) + 1):
+            raise ValueError('Inventory locator/folio mismatch')
         seen_occurrences.add(occurrence)
         seen_loci.add((edition, locus))
 
