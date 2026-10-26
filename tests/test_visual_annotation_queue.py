@@ -1,9 +1,12 @@
 import unittest
+import copy
 import gzip
+import hashlib
 import json
+import tempfile
 from pathlib import Path
 from scripts.prepare_visual_annotation_queue import build, validate_annotation
-from scripts.select_visual_pilot_v2 import build as build_pilot
+from scripts.select_visual_pilot_v2 import build as build_pilot, check_source_bytes
 
 class VisualQueueTests(unittest.TestCase):
     def record(self, edition):
@@ -52,15 +55,28 @@ class VisualQueueTests(unittest.TestCase):
 class VisualPilotIntegrityTests(unittest.TestCase):
     @staticmethod
     def fixture():
+        paths = {'ZL3b': 'data/transcriptions/eva_zl3b.txt',
+                 'IT2a': 'data/transcriptions/eva_it2a.txt'}
+        hashes = {'ZL3b': 'a' * 64, 'IT2a': 'b' * 64}
         manifest = {
             'partitions': {'train': [2], 'development': [3], 'test': [70]},
             'counts': {'train': 1, 'development': 1, 'test': 1},
             'eligible_count': 3,
+            'corpora': {Path(p).name: {'path': p, 'sha256': hashes[e]}
+                        for e, p in paths.items()},
         }
-        inventory = {'records': [
-            {'folio': 'f2r', 'id': 'f2r.14', 'image_source_archived': None},
-            {'folio': 'f70r', 'id': 'f70r.1', 'image_source_archived': None},
-        ]}
+        inventory = {
+            'sources': [{'edition': e, 'path': p, 'sha256': hashes[e]}
+                        for e, p in paths.items()],
+            'records': [
+                {'folio': 'f2r', 'id': 'f2r.14', 'image_source_archived': None,
+                 'edition': 'ZL3b', 'source_sha256': hashes['ZL3b'],
+                 'occurrence_id': 'ZL3b:1'},
+                {'folio': 'f70r', 'id': 'f70r.1', 'image_source_archived': None,
+                 'edition': 'IT2a', 'source_sha256': hashes['IT2a'],
+                 'occurrence_id': 'IT2a:1'},
+            ],
+        }
         return inventory, manifest
 
     def test_valid_pilot_does_not_include_test_or_approve_annotations(self):
@@ -98,6 +114,56 @@ class VisualPilotIntegrityTests(unittest.TestCase):
         manifest['counts']['train'] = 2
         with self.assertRaisesRegex(ValueError, 'count mismatch'):
             build_pilot(inventory, manifest)
+
+    def test_reject_empty_inventory(self):
+        inventory, manifest = self.fixture()
+        inventory['records'] = []
+        with self.assertRaisesRegex(ValueError, 'Missing inventory records'):
+            build_pilot(inventory, manifest)
+
+    def test_reject_missing_or_swapped_source_provenance(self):
+        inventory, manifest = self.fixture()
+        inventory.pop('sources')
+        with self.assertRaisesRegex(ValueError, 'Missing corpus provenance'):
+            build_pilot(inventory, manifest)
+        inventory, manifest = self.fixture()
+        inventory['sources'][0]['sha256'] = 'c' * 64
+        with self.assertRaisesRegex(ValueError, 'differs from holdout'):
+            build_pilot(inventory, manifest)
+
+    def test_reject_mismatched_row_even_outside_train(self):
+        inventory, manifest = self.fixture()
+        inventory['records'][1]['source_sha256'] = 'c' * 64
+        with self.assertRaisesRegex(ValueError, 'row/source provenance'):
+            build_pilot(inventory, manifest)
+
+    def test_reject_duplicate_inventory_rows(self):
+        inventory, manifest = self.fixture()
+        inventory['records'].append(copy.deepcopy(inventory['records'][0]))
+        with self.assertRaisesRegex(ValueError, 'Duplicate or malformed inventory'):
+            build_pilot(inventory, manifest)
+
+    def test_check_real_source_bytes_against_frozen_hashes(self):
+        inventory, manifest = self.fixture()
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            for source in inventory['sources']:
+                raw = (source['edition'] + '\\n').encode()
+                path = root / source['path']
+                path.parent.mkdir(parents=True, exist_ok=True)
+                path.write_bytes(raw)
+                digest = hashlib.sha256(raw).hexdigest()
+                source['sha256'] = digest
+                manifest['corpora'][path.name]['sha256'] = digest
+            for row in inventory['records']:
+                row['source_sha256'] = next(
+                    s['sha256'] for s in inventory['sources']
+                    if s['edition'] == row['edition'])
+            self.assertEqual(build_pilot(inventory, manifest)['selected_leaves'], [2])
+            check_source_bytes(inventory, root)
+            (root / inventory['sources'][0]['path']).write_bytes(b'tampered')
+            with self.assertRaisesRegex(ValueError, 'Source bytes differ'):
+                check_source_bytes(inventory, root)
 
     def test_archived_pilot_selection_is_unchanged(self):
         root = Path(__file__).resolve().parents[1]
