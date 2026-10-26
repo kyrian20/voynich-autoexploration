@@ -83,6 +83,38 @@ def main():
                 raise AssertionError('Unicode lookalike high-ASCII code was accepted')
     assert tokens_rows([lex('qo@140;dy')]) == ['qo@140;dy']
     assert tokens_rows([lex('qo<!@١٤٠;>dy')]) == ['qody']
+    # The frozen lexer also classifies arbitrary Unicode glyphs, invisible
+    # format characters and non-ASCII whitespace without diagnostics. Derived
+    # transliteration views must reject these lookalikes, including inside an
+    # unselected alternative, a ligature and a text tag.
+    non_ascii_transliteration = (
+        'd\u0430iin',           # Cyrillic a: different word identity
+        'da\u200biin',          # zero-width space: invisible extra glyph
+        'da\u00a0iin',          # NBSP: silently ignored by frozen projection
+        'qo{c\u04bb}dy',        # Unicode glyph nested in a ligature
+        'qo[ke:t\u00e9]dy',     # Unicode in unselected alternative
+        '<@L=\u0412>daiin',     # non-ASCII metadata tag value
+    )
+    for raw in non_ascii_transliteration:
+        parsed = lex(raw)
+        assert not parsed.diagnostics, (raw, parsed.diagnostics)
+        for project in (
+            lambda p: tokens_rows([p]),
+            lambda p: tokens_scoped_rows([('ZL3b', 'f1r', p)]),
+        ):
+            try:
+                project(parsed)
+            except ValueError as exc:
+                assert 'Non-ASCII character outside IVTFF comment' in str(exc), (raw, str(exc))
+            else:
+                raise AssertionError(f'Unicode lookalike projected: {raw!r}')
+    # Human-readable comments are not manuscript glyphs: allow Unicode there,
+    # including a comment nested in an alternative.
+    assert tokens_rows([lex('qo<!caf\u00e9>dy')]) == ['qody']
+    assert tokens_rows([lex('qo[ke<!caf\u00e9>:te]dy')]) == ['qokedy']
+    assert tokens_scoped_rows([
+        ('ZL3b', 'f1r', lex('qo<!caf\u00e9>dy')),
+    ]) == ['qody']
     # A Payload is a mutable dataclass: a raw-row edit, changed span, or
     # discarded diagnostic used to be silently projected as different text.
     # The adapter must fail closed while the frozen historical lexer stays as-is.
