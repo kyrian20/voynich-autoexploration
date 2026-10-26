@@ -20,7 +20,7 @@ SOURCE_NAMES = ("eva_zl3b.txt", "eva_it2a.txt")
 # complete header or locus. This is a coverage audit, not full IVTFF parsing.
 PAGE_ID = re.compile(r"^f(?:[0-9]+[rv][1-6]?|Ros)$")
 RECORD_ID = re.compile(
-    r"^(f(?:[0-9]+[rv][1-6]?|Ros))\\.[0-9]{1,3},[^;>]{3}(?:;[^;>])?$"
+    r"^(f(?:[0-9]+[rv][1-6]?|Ros))\.[0-9]{1,3},[^;>]{3}(?:;[^;>])?$"
 )
 
 
@@ -34,7 +34,7 @@ def inspect_source(raw: bytes) -> dict:
         if not line.startswith("<f"):
             continue
         end = line.find(">")
-        if end < 0 or (end + 1 < len(line) and line[end + 1] not in " \\t"):
+        if end < 0 or (end + 1 < len(line) and line[end + 1] not in " \t"):
             raise ValueError(f"Malformed folio tag boundary at source line {line_no}")
         tag = line[1:end]
         is_header = PAGE_ID.fullmatch(tag) is not None
