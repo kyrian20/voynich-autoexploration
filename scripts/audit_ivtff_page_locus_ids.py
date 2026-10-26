@@ -47,7 +47,7 @@ MISSING_OPEN_PAGE_WITH_METADATA_RE = re.compile(
 
 # Detect a page boundary with missing opener and stray comma; do not accept it.
 MISSING_OPEN_COMMA_PAGE_RE = re.compile(
-    r"^(?P<page>f(?:\\d+[rv]\\d*|Ros)),>(?=\\s|<|$)"
+    r"^(?P<page>f(?:[0-9]+[rv][0-9]*|Ros)),>(?=\s|<|$)"
 )
 
 
