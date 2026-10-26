@@ -3,8 +3,8 @@ import argparse,collections,hashlib,json,re,sys
 from pathlib import Path
 
 TARGETS=('doary','doaro','dary')
-# Pattern copied, unmodified, from scripts/audit_research_readiness.py.
-ROW=re.compile(r'^<(?P<page>f(?:\d+[rv][1-6]?|Ros))\.(?P<number>\d+),(?P<locus>[^>]*)>\s*(?P<body>.*)$')
+# Derived from audit_research_readiness.py, but strict ASCII IDs are required here.
+ROW=re.compile(r'^<(?P<page>f(?:[0-9]+[rv][1-6]?|Ros))\.(?P<number>[0-9]+),(?P<locus>[^>]*)>\s*(?P<body>.*)$')
 EXPECTED={'eva_zl3b.txt':'bf5b6d4ac1e3a51b1847a9c388318d609020441ccd56984c901c32b09beccafc','eva_it2a.txt':'7f27a8b0feed8f6de0a99900df6bf912dd1d295c38e5f830bac8b41c3f536fb5'}
 def sha(b):return hashlib.sha256(b).hexdigest()
 
@@ -15,6 +15,13 @@ def inventory(path,lex,tokens):
     for n,line in enumerate(raw.decode('utf-8-sig').splitlines(),1):
         match=ROW.match(line)
         if not match:
+            # Python regex \\d also accepts Unicode decimal digits.
+            # Reject invalid numeric tags instead of silently losing records.
+            if line.startswith('<f') and any(
+                ch.isdecimal() and not ch.isascii()
+                for ch in line.partition('>')[0]
+            ):
+                raise ValueError(f'Non-ASCII decimal digit in IVTFF identifier at source line {n}')
             if any(t in line for t in TARGETS):skipped.append({'source_line':n,'raw':line})
             continue
         r=match.groupdict();identifier=r['page']+'.'+r['number']

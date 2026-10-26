@@ -42,6 +42,19 @@ class AnchorTests(unittest.TestCase):
         self.assertEqual(s['parsed_records'],s['numeric_records']+s['named_records'])
         self.assertEqual(s['views']['split']['dary']['matches'][0]['page'],'fRos')
 
+    def test_non_ascii_decimal_identifiers_fail_closed(self):
+        # The source hashes are frozen, but the reader must reject bad future
+        # IVTFF IDs instead of silently excluding them from exact-token counts.
+        bad_rows = (
+            '<f٦٨r3.12,@Ls> doary\n',
+            '<f68r3.١٢,@Ls> doary\n',
+            '<fRos.١,@L0> doary\n',
+        )
+        for bad in bad_rows:
+            with self.subTest(row=bad):
+                with self.assertRaisesRegex(ValueError, 'Non-ASCII decimal digit'):
+                    self.scan('<f68r3.11,@Ls> doaro\n' + bad)
+
     def test_missing_target_locus_refused(self):
         with self.assertRaisesRegex(ValueError,'target locus'):
             self.scan('<fRos.1,@L0> dary\n')
