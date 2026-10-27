@@ -496,7 +496,10 @@ jobs:
           if-no-files-found: error
           retention-days: 90
 
-      - name: Reproducir EXP-590 con cobertura ampliada
+      - name: Impedir sobrescritura de resultados fechados EXP-590
+        run: python -m unittest discover -s tests -p 'test_exp590_archive_guard.py' -v
+
+      - name: Verificar archivo existente o ejecutar EXP-590 con cobertura ampliada
         id: exp590
         run: |
           python scripts/exp590_daiin_position.py
