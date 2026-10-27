@@ -43,10 +43,11 @@ MISSING_OPEN_PAGE_RE = re.compile(
     r"^(?P<page>f(?:\d+[rv][1-6]?|Ros))>(?=\s|<|$)"
 )
 # Also catch a page whose BOTH delimiters were damaged but whose adjacent
-# IVTFF metadata comment still marks a page boundary. Plain prose such as
+# IVTFF metadata comment still marks a page boundary. This includes a lost
+# separator before <! (f2r<!...), not merely f2r <!.... Plain prose such as
 # "f2r commentary" is not enough to classify a structural header.
 MISSING_OPEN_PAGE_WITH_METADATA_RE = re.compile(
-    r"^(?P<page>f(?:\d+[rv]\d*|Ros))\s+<!"
+    r"^(?P<page>f(?:\d+[rv]\d*|Ros))\s*<!"
 )
 
 # Detect a page boundary with missing opener and stray comma; do not accept it.

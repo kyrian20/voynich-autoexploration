@@ -415,6 +415,35 @@ def main() -> None:
             "malformed_header_count=1", "page_mismatch_count=1"
         ], damaged_metadata_boundary
 
+    # A lost opening '<' AND a lost separator before the IVTFF metadata
+    # comment used to vanish as free text. The next old-page locus was then
+    # silently accepted. Treat this as a broken page boundary, not a page.
+    for broken_header in (
+        "f2r<! $L=B>", "fRos<! $L=B>",
+        "f86v4<! $L=B", "  f٢r<! $L=B>",
+    ):
+        glued_metadata_boundary = audit_text(
+            "<f1r> <! $L=A>\n<f1r.1,@P0> daiin\n"
+            + broken_header + "\n<f1r.2,@P0> chedy\n"
+        )
+        assert glued_metadata_boundary["page_header_count"] == 1, glued_metadata_boundary
+        assert glued_metadata_boundary["record_count"] == 2, glued_metadata_boundary
+        assert glued_metadata_boundary["malformed_header_count"] == 1, glued_metadata_boundary
+        assert glued_metadata_boundary["malformed_record_count"] == 0, glued_metadata_boundary
+        assert glued_metadata_boundary["page_mismatch_count"] == 1, glued_metadata_boundary
+        assert structural_errors(glued_metadata_boundary) == [
+            "malformed_header_count=1", "page_mismatch_count=1",
+        ], glued_metadata_boundary
+
+    # A folio-like prefix with extra letters, or prose before a comment,
+    # is not a plausible page boundary. Avoid false-positive invalidation.
+    for prose in ("f2rnotes<! $L=B>", "f2r commentary <! $L=B>"):
+        unrelated = audit_text(
+            "<f1r> <! $L=A>\n<f1r.1,@P0> daiin\n"
+            + prose + "\n<f1r.2,@P0> chedy\n"
+        )
+        assert structural_errors(unrelated) == [], unrelated
+
     # Free text mentioning a folio, without a metadata comment, is not a header.
     prose_folio = audit_text(
         "<f1r> <! $L=A>\n<f1r.1,@P0> daiin\nf2r commentary\n"
