@@ -88,5 +88,38 @@ class ArchiveAuditTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             audit.report_tables('| Metric | Missing |')
 
+    def test_duplicate_historical_metric_row_fails_closed(self):
+        report = (ROOT/audit.EXP/'result.md').read_text()
+        row = next(line for line in report.splitlines()
+                   if line.startswith('| edy rate (B-dialect marker) |'))
+        with self.assertRaisesRegex(ValueError, 'Duplicate historical metric row'):
+            audit.report_tables(report + '\n' + row + '\n')
+
+    def test_duplicate_historical_count_row_fails_closed(self):
+        report = (ROOT/audit.EXP/'result.md').read_text()
+        row = next(line for line in report.splitlines()
+                   if line.startswith('| INSIDE (cipher consistent) |'))
+        with self.assertRaisesRegex(ValueError, 'Duplicate historical count row'):
+            audit.report_tables(report + '\n' + row + '\n')
+
+    def test_truncated_historical_count_row_fails_closed(self):
+        report = (ROOT/audit.EXP/'result.md').read_text()
+        row = next(line for line in report.splitlines()
+                   if line.startswith('| INSIDE (cipher consistent) |'))
+        cells = row.strip('|').split('|')
+        shortened = '| ' + ' | '.join(cells[:-1]).strip() + ' |'
+        with self.assertRaisesRegex(ValueError, 'Malformed historical count row'):
+            audit.report_tables(report.replace(row, shortened, 1))
+
+    def test_duplicate_archive_json_keys_fail_at_any_depth(self):
+        with self.assertRaisesRegex(ValueError, 'Duplicate EXP-170 archive JSON key'):
+            audit.parse_archive('{"italian_A": [], "italian_A": []}')
+        with self.assertRaisesRegex(ValueError, 'Duplicate EXP-170 archive JSON key'):
+            audit.parse_archive('{"italian_A": [{"edy_rate": 1, "edy_rate": 2}]}')
+
+    def test_original_archive_passes_strict_json_parser(self):
+        raw = (ROOT/audit.EXP/'data/simulation_results.json').read_text()
+        self.assertEqual(audit.parse_archive(raw), json.loads(raw))
+
 if __name__ == '__main__':
     unittest.main()
