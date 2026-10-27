@@ -15,7 +15,7 @@ import sys
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 from scripts.audit_visual_inventory_source_rows import audit as audit_source_binding
-from scripts.select_visual_pilot_v2 import load_unique_inventory
+from scripts.select_visual_pilot_v2 import load_unique_inventory, load_verified_frozen_manifest
 
 INVENTORY = Path('research/decipherment/2026-10-25-label-inventory/inventory.json.gz')
 MANIFEST = Path('research/decipherment/2026-10-23-prospective-leaf-holdout/manifest-v2.json')
@@ -91,7 +91,7 @@ def main():
     root = args.root.resolve()
     inventory_bytes = (root / args.inventory).read_bytes()
     manifest_bytes = (root / args.manifest).read_bytes()
-    report = audit(load_unique_inventory(inventory_bytes), json.loads(manifest_bytes), root)
+    report = audit(load_unique_inventory(inventory_bytes), load_verified_frozen_manifest(manifest_bytes, root), root)
     report['input_sha256'] = {'inventory_gzip': digest(inventory_bytes), 'manifest': digest(manifest_bytes)}
     args.out.parent.mkdir(parents=True, exist_ok=True)
     args.out.write_text(json.dumps(report, indent=2, sort_keys=True) + '\n', encoding='utf-8')
