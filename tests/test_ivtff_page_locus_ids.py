@@ -530,6 +530,37 @@ def main() -> None:
     assert ordinary_slashes["continuation_lines"] == 2, ordinary_slashes
     assert structural_errors(ordinary_slashes) == [], ordinary_slashes
 
+    # Regression: the former [^;>] locator pattern silently accepted
+    # whitespace and non-ASCII lookalikes as valid three-character codes.
+    # These are synthetic mutations, not defects found in the originals.
+    for bad_code in ("   ", "\tP0", "éP0", "@\u200b0", "@P\u200b"):
+        report = audit_text(
+            "<f1r> <! $L=A>\n<f1r.1,@P0> daiin\n"
+            + f"<f1r.2,{bad_code}> chedy\n"
+        )
+        assert report["record_count"] == 1, (bad_code, report)
+        assert report["malformed_record_count"] == 1, (bad_code, report)
+        assert structural_errors(report) == ["malformed_record_count=1"], report
+
+    for bad_transcriber in (" ", "\t", "é", "\u200b"):
+        report = audit_text(
+            "<f1r> <! $L=A>\n<f1r.1,@P0> daiin\n"
+            + f"<f1r.2,@P0;{bad_transcriber}> chedy\n"
+        )
+        assert report["record_count"] == 1, (bad_transcriber, report)
+        assert report["malformed_record_count"] == 1, (bad_transcriber, report)
+
+    # Do not overfit to the most common +P0 code: these are all observed
+    # code spellings in the current ZL3b source, plus an ASCII transcriber.
+    for idx, code in enumerate(("@P0", "+P0", "&Lz", "/L0", "!Lf", "=P0", "~Lt"), 1):
+        report = audit_text(
+            "<f1r> <! $L=A>\n" + f"<f1r.{idx},{code}> daiin\n"
+        )
+        assert structural_errors(report) == [], (code, report)
+    assert structural_errors(audit_text(
+        "<f1r> <! $L=A>\n<f1r.1,@P0;A> daiin\n"
+    )) == []
+
     # Exercise the guard on the three original sources, without changing them.
     for label, source in SOURCES:
         report = audit_text(source.read_text(encoding="utf-8-sig"))
