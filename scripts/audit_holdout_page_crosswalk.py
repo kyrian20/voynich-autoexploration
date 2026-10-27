@@ -10,7 +10,7 @@ import json
 from pathlib import Path
 import re
 
-from audit_holdout_locus_coverage import MANIFEST, ROOT, SOURCE_NAMES, audit
+from audit_holdout_locus_coverage import ROOT, SOURCE_NAMES, audit, load_manifest
 from audit_ivtff_page_locus_ids import audit_text, structural_errors
 
 NUMERIC_PAGE = re.compile(r"f([0-9]+)[rv][1-6]?")
@@ -65,7 +65,7 @@ def main():
     parser.add_argument('--out', type=Path, required=True)
     args = parser.parse_args()
     sources = {name: (ROOT/'data/transcriptions'/name).read_bytes() for name in SOURCE_NAMES}
-    result = crosswalk(sources, json.loads(MANIFEST.read_text()))
+    result = crosswalk(sources, load_manifest())
     args.out.parent.mkdir(parents=True, exist_ok=True)
     args.out.write_text(json.dumps(result, indent=2, sort_keys=True)+'\n')
     print(json.dumps({k: result[k] for k in ('status', 'shared_page_count', 'edition_only_pages')}))

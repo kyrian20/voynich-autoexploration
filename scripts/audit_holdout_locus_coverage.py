@@ -27,6 +27,21 @@ RECORD_ID = re.compile(
 )
 
 
+def _unique_manifest_keys(pairs: list[tuple[str, object]]) -> dict:
+    """Reject duplicate JSON members at every depth before checking a holdout."""
+    result = {}
+    for key, value in pairs:
+        if key in result:
+            raise ValueError(f"Duplicate holdout manifest JSON key: {key}")
+        result[key] = value
+    return result
+
+
+def load_manifest(path: Path = MANIFEST) -> dict:
+    """Parse the frozen manifest without silently accepting overwritten keys."""
+    return json.loads(path.read_text(encoding="utf-8"), object_pairs_hook=_unique_manifest_keys)
+
+
 def inspect_source(raw: bytes) -> dict:
     leaves: set[int] = set()
     named_headers: Counter[str] = Counter()
@@ -155,7 +170,7 @@ def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--out", type=Path)
     args = parser.parse_args()
-    manifest = json.loads(MANIFEST.read_text(encoding="utf-8"))
+    manifest = load_manifest()
     sources = {name: (ROOT / "data/transcriptions" / name).read_bytes() for name in SOURCE_NAMES}
     result = audit(sources, manifest)
     output = json.dumps(result, ensure_ascii=False, sort_keys=True, indent=2) + "\n"
