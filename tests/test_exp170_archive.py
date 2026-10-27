@@ -93,14 +93,14 @@ class ArchiveAuditTests(unittest.TestCase):
         row = next(line for line in report.splitlines()
                    if line.startswith('| edy rate (B-dialect marker) |'))
         with self.assertRaisesRegex(ValueError, 'Duplicate historical metric row'):
-            audit.report_tables(report + '\\n' + row + '\\n')
+            audit.report_tables(report + '\n' + row + '\n')
 
     def test_duplicate_historical_count_row_fails_closed(self):
         report = (ROOT/audit.EXP/'result.md').read_text()
         row = next(line for line in report.splitlines()
                    if line.startswith('| INSIDE (cipher consistent) |'))
         with self.assertRaisesRegex(ValueError, 'Duplicate historical count row'):
-            audit.report_tables(report + '\\n' + row + '\\n')
+            audit.report_tables(report + '\n' + row + '\n')
 
     def test_truncated_historical_count_row_fails_closed(self):
         report = (ROOT/audit.EXP/'result.md').read_text()
