@@ -4,9 +4,12 @@ import hashlib
 import json
 import math
 import re
+import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT))
+from scripts.audit_corpus_identity_overlay import audit as audit_corpus_identity
 
 
 def reject_duplicate_json_keys(pairs):
@@ -33,6 +36,21 @@ RESULT_BLOBS = {
     'EXP-267': ('experiments/exp_267_word_length_position/result.md', '92c47d101d35543dabce569f877cbf98176db246'),
     'EXP-288': ('experiments/exp_288_stolfi_onset_decomp/result.md', 'c2c5711acf98c8779c179088275a4218699d3caf'),
 }
+
+
+def verify_corpus_identity(root, identities, manifest=None):
+    """Independently bind claim metadata to frozen corpus identity and bytes.
+
+    A claim-reader snapshot and its overlay may agree with each other while
+    both misidentify the underlying historical corpus. This guard checks the
+    separate frozen manifest and the recorded adjudications before any claim
+    is reported as reconciled.
+    """
+    if manifest is None:
+        manifest = load_json_strict(root / 'research/CORPUS_INPUT_MANIFEST.json')
+    errors = audit_corpus_identity(root, manifest, identities)
+    if errors:
+        raise ValueError('Independent corpus identity gate failed: ' + '; '.join(errors))
 
 
 def unique_index(rows, key_field, source):
@@ -101,6 +119,9 @@ def audit(root=ROOT):
     cases = unique_index(readers['cases'], 'experiment_path', 'Reader replay')
     if set(cases) != {v[0] for v in CASE_IDS.values()}:
         raise ValueError('Reader set changed')
+    # Do not accept a jointly altered reader snapshot and overlay simply
+    # because their corpus hashes and language labels agree with each other.
+    verify_corpus_identity(root, identities)
     summary = {}
     for key, (script, count, unit) in CASE_IDS.items():
         case = cases[script]

@@ -1,5 +1,6 @@
 """Pure regression controls for reference claim adjudication (stdlib only)."""
 import importlib.util
+from copy import deepcopy
 import json
 import tempfile
 import unittest
@@ -134,6 +135,43 @@ class TestReferenceClaimLinks(unittest.TestCase):
                 audit.load_json_strict(path)
             path.write_text('{"schema_version":1,"checks":{}}', encoding='utf-8')
             self.assertEqual(audit.load_json_strict(path)['schema_version'], 1)
+
+
+    def test_claim_provenance_gate_accepts_frozen_corpus_identities(self):
+        root = MODULE.parents[1]
+        identities = audit.load_json_strict(root / 'research/CORPUS_IDENTITY_REVIEW.json')
+        self.assertIsNone(audit.verify_corpus_identity(root, identities))
+
+    def test_claim_provenance_gate_rejects_jointly_forged_work_label(self):
+        # Previously a reader snapshot and overlay could agree on a fabricated
+        # language/work without checking the separate adjudication.
+        root = MODULE.parents[1]
+        identities = deepcopy(audit.load_json_strict(root / 'research/CORPUS_IDENTITY_REVIEW.json'))
+        target = next(row for row in identities['excluded_from_new_language_baselines']
+                      if row['path'] == 'data/reference_corpora/latin/vulgate.txt')
+        target['adjudicated_work'] = 'Latin Vulgate (fabricated)'
+        with self.assertRaisesRegex(ValueError, 'Historical adjudicated work changed'):
+            audit.verify_corpus_identity(root, identities)
+
+    def test_claim_provenance_gate_rejects_frozen_manifest_drift(self):
+        root = MODULE.parents[1]
+        identities = audit.load_json_strict(root / 'research/CORPUS_IDENTITY_REVIEW.json')
+        manifest = deepcopy(audit.load_json_strict(root / 'research/CORPUS_INPUT_MANIFEST.json'))
+        target = next(row for row in manifest['files']
+                      if row['path'] == 'data/reference_corpora/latin/vulgate.txt')
+        target['sha256'] = '0' * 64
+        with self.assertRaisesRegex(ValueError, 'Overlay hash/size disagrees with frozen manifest'):
+            audit.verify_corpus_identity(root, identities, manifest)
+
+    def test_claim_provenance_gate_rejects_missing_exclusion(self):
+        root = MODULE.parents[1]
+        identities = deepcopy(audit.load_json_strict(root / 'research/CORPUS_IDENTITY_REVIEW.json'))
+        identities['excluded_from_new_language_baselines'] = [
+            row for row in identities['excluded_from_new_language_baselines']
+            if row['path'] != 'data/reference_corpora/latin/vulgate.txt'
+        ]
+        with self.assertRaisesRegex(ValueError, 'Historical exclusion silently removed'):
+            audit.verify_corpus_identity(root, identities)
 
 
 if __name__ == '__main__':
