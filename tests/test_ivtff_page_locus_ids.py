@@ -521,6 +521,51 @@ def main() -> None:
         assert report["continuation_lines"] == 0, report
         assert structural_errors(report) == ["malformed_record_count=1"], report
 
+    # A whitespace-prefixed slash is still a slash continuation; previously
+    # it bypassed both the column-zero slash guard and the indented-tag guard.
+    # These adversarial mutations must not hide a folio boundary or locus.
+    for broken_page in (
+        " /<f2r>", "\t/<fRos>", " \t/ <f86v4,>",
+        " /<f٢r>", " \t/<f2r <! $L=B",
+    ):
+        report = audit_text(
+            "<f1r> <! $L=A>\n<f1r.1,@P0> daiin\n"
+            + broken_page + "\n<f1r.2,@P0> chedy\n"
+        )
+        assert report["page_header_count"] == 1, (broken_page, report)
+        assert report["record_count"] == 2, (broken_page, report)
+        assert report["malformed_header_count"] == 1, (broken_page, report)
+        assert report["page_mismatch_count"] == 1, (broken_page, report)
+        assert report["continuation_lines"] == 0, (broken_page, report)
+        assert report["malformed_headers"][0]["reason"] == (
+            "structural page tag after continuation slash"
+        ), (broken_page, report)
+        assert structural_errors(report) == [
+            "malformed_header_count=1", "page_mismatch_count=1"
+        ], (broken_page, report)
+
+    for broken_record in (
+        " /<f1r.2,@P0> chedy", "\t/ <f1r.2,@P0> chedy",
+    ):
+        report = audit_text(
+            "<f1r> <! $L=A>\n<f1r.1,@P0> daiin\n"
+            + broken_record + "\n"
+        )
+        assert report["record_count"] == 1, (broken_record, report)
+        assert report["malformed_record_count"] == 1, (broken_record, report)
+        assert report["continuation_lines"] == 0, (broken_record, report)
+        assert structural_errors(report) == [
+            "malformed_record_count=1"
+        ], (broken_record, report)
+
+    # Preserve ordinary indented continuation text and inline comments.
+    indented_continuations = audit_text(
+        "<f1r> <! $L=A>\n<f1r.1,@P0> daiin\n"
+        " \t/chedy\n \t/<!free text> daiin\n"
+    )
+    assert indented_continuations["continuation_lines"] == 2, indented_continuations
+    assert structural_errors(indented_continuations) == [], indented_continuations
+
     # Free-form continuation and a slash followed by an inline comment are
     # not structural tags; do not make the audit reject valid continuations.
     ordinary_slashes = audit_text(
