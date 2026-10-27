@@ -4,6 +4,7 @@ import json
 import math
 from pathlib import Path
 import unittest
+from unittest.mock import patch
 
 ROOT = Path(__file__).resolve().parents[1]
 spec = importlib.util.spec_from_file_location('audit', ROOT/'scripts/audit_exp170_archive.py')
@@ -116,6 +117,48 @@ class ArchiveAuditTests(unittest.TestCase):
             audit.parse_archive('{"italian_A": [], "italian_A": []}')
         with self.assertRaisesRegex(ValueError, 'Duplicate EXP-170 archive JSON key'):
             audit.parse_archive('{"italian_A": [{"edy_rate": 1, "edy_rate": 2}]}')
+
+    def test_archive_metric_boolean_is_not_a_number(self):
+        # bool is a subclass of int; an archived true/false must not pass as 1/0.
+        for value in (True, False):
+            with self.subTest(value=value):
+                archive = {c: [{'metric': 1.0} for _ in range(100)]
+                           for c in audit.CONDITIONS}
+                archive['italian_A'][0]['metric'] = value
+                with self.assertRaisesRegex(ValueError, 'Non-finite or non-numeric metric'):
+                    audit.validate_archive(archive, {'metric'})
+
+    def test_legacy_summary_mismatch_fails_in_optimized_mode(self):
+        original = audit.historical_namespace
+
+        def altered_namespace(source):
+            ns, tree = original(source)
+            summarize = ns['summarize_distribution']
+
+            def altered_summary(values):
+                summary = summarize(values)
+                if summary['mean'] is not None:
+                    summary['mean'] += 0.5
+                return summary
+
+            ns['summarize_distribution'] = altered_summary
+            return ns, tree
+
+        with patch.object(audit, 'historical_namespace', side_effect=altered_namespace):
+            with self.assertRaisesRegex(ValueError, 'EXP-170 legacy summary mismatch'):
+                audit.audit()
+
+    def test_legacy_status_mismatch_fails_in_optimized_mode(self):
+        original = audit.historical_namespace
+
+        def altered_namespace(source):
+            ns, tree = original(source)
+            ns['inside_interval'] = lambda *_: 'N/A'
+            return ns, tree
+
+        with patch.object(audit, 'historical_namespace', side_effect=altered_namespace):
+            with self.assertRaisesRegex(ValueError, 'EXP-170 legacy status mismatch'):
+                audit.audit()
 
     def test_original_archive_passes_strict_json_parser(self):
         raw = (ROOT/audit.EXP/'data/simulation_results.json').read_text()
