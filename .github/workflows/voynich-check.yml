@@ -216,7 +216,9 @@ jobs:
       - name: Auditar estadísticas archivadas de EXP-170 sin ejecutar el cifrador
         run: |
           python tests/test_exp170_archive.py
+          python -O tests/test_exp170_archive.py
           python scripts/audit_exp170_archive.py --check research/maintenance/2026-10-22-exp170-audit/results.json
+          python -O scripts/audit_exp170_archive.py --check research/maintenance/2026-10-22-exp170-audit/results.json
 
       - name: Reproducir sensibilidad de entropía de referencia
         run: |

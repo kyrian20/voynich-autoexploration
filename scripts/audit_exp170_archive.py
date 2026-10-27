@@ -135,20 +135,27 @@ def parse_archive(text):
     return json.loads(text, object_pairs_hook=unique_pairs)
 
 
+def validate_archive(archive, expected_keys):
+    """Reject incomplete, ambiguous, or non-numeric archived metric vectors."""
+    if (not isinstance(archive, dict) or set(archive) != set(CONDITIONS)
+            or any(not isinstance(runs, list) or len(runs) != 100
+                   for runs in archive.values())):
+        raise ValueError('Expected four conditions of 100 archived runs')
+    for runs in archive.values():
+        for run in runs:
+            if not isinstance(run, dict) or set(run) != expected_keys:
+                raise ValueError('Metric schema mismatch')
+            if any(v is not None and (type(v) not in (int, float) or not math.isfinite(v))
+                   for v in run.values()):
+                raise ValueError('Non-finite or non-numeric metric')
+
+
 def audit(root=ROOT):
     source = (root/EXP/'script.py').read_text()
     ns, tree = historical_namespace(source)
     targets = baseline(ns, tree, root/'data/transcriptions/eva_zl3b.txt')
     archive = parse_archive((root/EXP/'data/simulation_results.json').read_text())
-    if set(archive) != set(CONDITIONS) or any(len(x) != 100 for x in archive.values()):
-        raise ValueError('Expected four conditions of 100 archived runs')
-    expected_keys = set(targets)
-    for runs in archive.values():
-        for run in runs:
-            if set(run) != expected_keys:
-                raise ValueError('Metric schema mismatch')
-            if any(v is not None and (not isinstance(v, (int, float)) or not math.isfinite(v)) for v in run.values()):
-                raise ValueError('Non-finite or non-numeric metric')
+    validate_archive(archive, set(targets))
     tables, reported_counts = report_tables((root/EXP/'result.md').read_text())
     numeric_errors, status_errors, baseline_errors = [], [], []
     counts = {c: Counter() for c in CONDITIONS}
@@ -161,11 +168,14 @@ def audit(root=ROOT):
             legacy = ns['summarize_distribution'](values)
             for name in ('mean', 'std', 'p5', 'p95'):
                 if stats[name] is None:
-                    assert legacy[name] is None
-                else:
-                    assert math.isclose(stats[name], legacy[name], rel_tol=1e-12, abs_tol=1e-12)
+                    if legacy[name] is not None:
+                        raise ValueError(f'EXP-170 legacy summary mismatch: {key}/{condition}/{name}')
+                elif legacy[name] is None or not math.isclose(
+                        stats[name], legacy[name], rel_tol=1e-12, abs_tol=1e-12):
+                    raise ValueError(f'EXP-170 legacy summary mismatch: {key}/{condition}/{name}')
             verdict = status(targets[key], stats['p5'], stats['p95'])
-            assert verdict == ns['inside_interval'](targets[key], legacy)
+            if verdict != ns['inside_interval'](targets[key], legacy):
+                raise ValueError(f'EXP-170 legacy status mismatch: {key}/{condition}')
             cells[condition] = dict(legacy=stats, status=verdict,
                 min=min(values), max=max(values),
                 linear_p5=quantile(values, .05), linear_p95=quantile(values, .95),
