@@ -74,12 +74,16 @@ def audit_text(text: str) -> dict:
         if raw.startswith("#"):
             ignored_comments += 1
             continue
-        if raw.startswith("/"):
+        # Physical indentation must not hide a slash-prefixed page/locus
+        # tag. Diagnose it using the same fail-closed rules as column-zero
+        # slash rows; never normalize the damaged tag into a valid record.
+        slash_row = raw.lstrip(" \t")
+        if slash_row.startswith("/"):
             # A slash is a continuation marker, not a license to hide a
             # structural page/locus tag. Detect a tag accidentally prefixed
             # by '/' before skipping ordinary continuation payloads.
             # This is diagnostic only: no damaged tag is accepted as valid.
-            remainder = raw[1:].lstrip(" \t")
+            remainder = slash_row[1:].lstrip(" \t")
             if remainder.startswith("<"):
                 candidate = remainder[1:].split(">", 1)[0]
                 first_field = candidate.strip(" \t").split(maxsplit=1)
