@@ -134,6 +134,7 @@ jobs:
 
       - name: Vincular cada registro del inventario visual con su línea fuente original
         run: |
+          python -m unittest discover -s tests -p 'test_visual_inventory_json_integrity.py' -v
           python -m unittest discover -s tests -p 'test_visual_inventory_source_rows.py' -v
           python scripts/audit_visual_inventory_source_rows.py --out visual-inventory-source-rows.json
           sha256sum visual-inventory-source-rows.json > visual-inventory-source-rows.sha256
