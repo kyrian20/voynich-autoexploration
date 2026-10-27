@@ -163,6 +163,22 @@ jobs:
             visual-inventory-completeness.sha256
           if-no-files-found: error
           retention-days: 90
+      - name: Reproducir las ocho proyecciones de cada etiqueta archivada
+        run: |
+          python -m unittest discover -s tests -p 'test_visual_inventory_projections.py' -v
+          python scripts/audit_visual_inventory_projections.py --out visual-inventory-projections.json
+          sha256sum visual-inventory-projections.json > visual-inventory-projections.sha256
+
+      - name: Conservar auditoría de proyecciones y hash
+        uses: actions/upload-artifact@v4
+        with:
+          name: visual-inventory-projections-${{ github.run_id }}
+          path: |
+            visual-inventory-projections.json
+            visual-inventory-projections.sha256
+          if-no-files-found: error
+          retention-days: 90
+
       - name: Verificar cola visual y cobertura de etiquetas sin evaluar semántica
         run: |
           python -m unittest discover -s tests -p 'test_visual_annotation_queue.py' -v
