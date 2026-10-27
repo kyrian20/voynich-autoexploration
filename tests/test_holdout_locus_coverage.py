@@ -3,13 +3,14 @@
 Synthetic fixtures only: original corpus and frozen v2 manifest are never edited.
 """
 import hashlib
+import copy
 import sys
 import unittest
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
-from scripts.audit_holdout_locus_coverage import audit, inspect_source, FROZEN_SALT
+from scripts.audit_holdout_locus_coverage import audit, inspect_source, FROZEN_SALT, FROZEN_CONTRACT
 
 
 class HoldoutLocusCoverageTests(unittest.TestCase):
@@ -19,6 +20,7 @@ class HoldoutLocusCoverageTests(unittest.TestCase):
             "eva_it2a.txt": b"<f1r> metadata\n<f1r.1,@P0> a\n<f4v1> metadata\n<f4v1.2,@P0> b\n<f3r> metadata\n<f3r.1,@P0> c\n",
         }
         self.manifest = {
+            **copy.deepcopy(FROZEN_CONTRACT),
             "schema_version": 2,
             "corpora": {
                 name: {
