@@ -132,6 +132,17 @@ def audit_text(text: str) -> dict:
                 })
             continue
         tag = raw[1:end]
+        # A damaged page header such as <f2r,> contains a comma and would
+        # otherwise be classified as a malformed locus, leaving the previous
+        # page active. Check BEFORE the glued-suffix guard too: <f2r,>junk
+        # must invalidate the old page, not be counted as a malformed locus.
+        page_candidate, comma, _ = tag.partition(",")
+        if comma and INDENTED_PAGE_CANDIDATE_RE.fullmatch(page_candidate.strip(" \t")):
+            malformed_headers.append({
+                "line": line_no, "page": tag, "reason": "comma in page header",
+            })
+            active_page = None
+            continue
         # A complete IVTFF structural tag must be separated from its payload.
         # Without this guard, <f2r>junk becomes a valid page boundary and
         # <f1r.2,@P0>junk becomes a valid locus. A malformed page boundary
@@ -148,16 +159,6 @@ def audit_text(text: str) -> dict:
                     "line": line_no, "tag": tag,
                     "reason": "missing separator after locus tag",
                 })
-            continue
-        # A damaged page header such as <f2r,> contains a comma and would
-        # otherwise be classified as a malformed locus, leaving the previous
-        # page active. Fail closed before dispatching record-shaped tags.
-        page_candidate, comma, _ = tag.partition(",")
-        if comma and INDENTED_PAGE_CANDIDATE_RE.fullmatch(page_candidate.strip(" \t")):
-            malformed_headers.append({
-                "line": line_no, "page": tag, "reason": "comma in page header",
-            })
-            active_page = None
             continue
         if "," not in tag:
             if not PAGE_RE.fullmatch(tag):

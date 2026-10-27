@@ -152,6 +152,29 @@ def main() -> None:
             "malformed_header_count=1", "page_mismatch_count=1",
         ], comma_boundary
 
+    # A malformed page tag with BOTH a comma and glued payload must
+    # invalidate the active folio. The former suffix-first dispatch recorded
+    # a malformed locus and silently accepted the subsequent old-page locus.
+    for glued_header in (
+        "<f2r,>garbage",
+        "<fRos,><! $L=B>",
+        "<f86v4 ,>garbage",
+        "<f٢r,>garbage",
+    ):
+        report = audit_text(
+            "<f1r> <! $L=A>\n<f1r.1,@P0> daiin\n"
+            + glued_header + "\n<f1r.2,@P0> chedy\n"
+        )
+        assert report["page_header_count"] == 1, report
+        assert report["record_count"] == 2, report
+        assert report["malformed_header_count"] == 1, report
+        assert report["malformed_record_count"] == 0, report
+        assert report["page_mismatch_count"] == 1, report
+        assert report["malformed_headers"][0]["reason"] == "comma in page header", report
+        assert structural_errors(report) == [
+            "malformed_header_count=1", "page_mismatch_count=1",
+        ], report
+
     # An indented comma-damaged page boundary previously vanished entirely:
     # the old f1r scope stayed active and its next locus was accepted.
     # This is diagnostic only; none of these headers becomes a valid page.
