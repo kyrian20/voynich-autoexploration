@@ -1,15 +1,16 @@
 import hashlib
+import copy
 import sys
 import unittest
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]/'scripts'))
 from audit_holdout_page_crosswalk import crosswalk
-from audit_holdout_locus_coverage import SOURCE_NAMES
+from audit_holdout_locus_coverage import SOURCE_NAMES, FROZEN_CONTRACT
 
 
 def fixture(text):
     sources = {name: text.encode() for name in SOURCE_NAMES}
-    manifest = {'schema_version': 2,
+    manifest = {**copy.deepcopy(FROZEN_CONTRACT), 'schema_version': 2,
                 'corpora': {name: {'path': f'data/transcriptions/{name}',
                                   'sha256': hashlib.sha256(raw).hexdigest(), 'leaf_count': 1}
                             for name, raw in sources.items()},
