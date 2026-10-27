@@ -108,7 +108,8 @@ def main():
         hashes[name] = sha(data)
     (args.out_dir / 'SHA256.json').write_text(json.dumps(hashes, indent=2)+'\n')
     print(json.dumps({'tasks': len(queue['tasks']), 'ready': 0,
-                      'source_rows': len(inventory['records'])}, sort_keys=True))
+                      'source_rows': sum(len(row['source_occurrence_ids'])
+                                         for row in mapping['tasks'])}, sort_keys=True))
 
 if __name__ == '__main__':
     main()
