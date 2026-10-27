@@ -7,6 +7,30 @@ import json
 import re
 from collections import defaultdict
 from pathlib import Path
+import sys
+
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT))
+from scripts.audit_holdout_locus_coverage import (
+    SOURCE_NAMES, audit as audit_frozen_holdout, load_manifest,
+)
+
+
+def load_verified_frozen_manifest(path: Path, root: Path) -> dict:
+    """Reject altered leaf allocations before a visual pilot can see train rows.
+
+    Reuse the independent frozen-salt/source-hash/coverage auditor, not the
+    pilot's own count-only partition checks. This is an operational gate,
+    not historically blind or semantic validation.
+    """
+    manifest = load_manifest(path)
+    sources = {
+        name: (root / 'data' / 'transcriptions' / name).read_bytes()
+        for name in SOURCE_NAMES
+    }
+    audit_frozen_holdout(sources, manifest)
+    return manifest
+
 
 def check_inventory_provenance(inventory, manifest):
     """Reject a mismatched edition or row before selecting any train leaves.
@@ -137,7 +161,7 @@ def main():
     args = p.parse_args()
     raw, manifest_raw = args.inventory.read_bytes(), args.manifest.read_bytes()
     inventory = json.loads(gzip.decompress(raw))
-    manifest = json.loads(manifest_raw)
+    manifest = load_verified_frozen_manifest(args.manifest, root)
     check_inventory_provenance(inventory, manifest)
     check_source_bytes(inventory, root)
     report = build(inventory, manifest)
