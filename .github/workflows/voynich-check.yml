@@ -465,6 +465,11 @@ jobs:
           python tests/test_ivtff_metadata_strict.py
           python scripts/audit_ivtff_metadata_strict.py
 
+      - name: Rechazar cabeceras físicas IVTFF repetidas sin alterar lectores históricos
+        run: |
+          python -m unittest discover -s tests -p 'test_ivtff_unique_page_headers.py' -v
+          python scripts/audit_ivtff_unique_page_headers.py
+
       - name: Probar alcance de ligaduras y ejecutar inventario sin mutar fuentes
         run: |
           python -m unittest discover -s tests -p 'test_ivtff_brace_spans.py' -v
