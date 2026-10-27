@@ -12,18 +12,19 @@ import sys
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 from scripts.audit_holdout_locus_coverage import (
-    SOURCE_NAMES, audit as audit_frozen_holdout, load_manifest,
+    SOURCE_NAMES, audit as audit_frozen_holdout, _unique_manifest_keys,
 )
 
 
-def load_verified_frozen_manifest(path: Path, root: Path) -> dict:
+def load_verified_frozen_manifest(manifest_bytes: bytes, root: Path) -> dict:
     """Reject altered leaf allocations before a visual pilot can see train rows.
 
     Reuse the independent frozen-salt/source-hash/coverage auditor, not the
     pilot's own count-only partition checks. This is an operational gate,
     not historically blind or semantic validation.
     """
-    manifest = load_manifest(path)
+    # Parse the SAME bytes whose SHA-256 the caller records (no second read).
+    manifest = json.loads(manifest_bytes, object_pairs_hook=_unique_manifest_keys)
     sources = {
         name: (root / 'data' / 'transcriptions' / name).read_bytes()
         for name in SOURCE_NAMES
@@ -161,7 +162,7 @@ def main():
     args = p.parse_args()
     raw, manifest_raw = args.inventory.read_bytes(), args.manifest.read_bytes()
     inventory = json.loads(gzip.decompress(raw))
-    manifest = load_verified_frozen_manifest(args.manifest, root)
+    manifest = load_verified_frozen_manifest(manifest_raw, root)
     check_inventory_provenance(inventory, manifest)
     check_source_bytes(inventory, root)
     report = build(inventory, manifest)
