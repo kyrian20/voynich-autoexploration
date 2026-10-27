@@ -76,6 +76,40 @@ class AmbiguousReferenceAuditTests(unittest.TestCase):
             self.assertEqual(result["skipped_symlinks"], ["link.txt"])
             self.assertFalse(result["coverage_complete_for_selected_files"])
 
+    def test_symlinked_directory_does_not_falsely_certify_coverage(self):
+        # pathlib.rglob does not traverse directory symlinks in Python 3.12.
+        # The old suffix-first filter missed the extensionless link itself.
+        with tempfile.TemporaryDirectory() as temp:
+            parent = Path(temp)
+            root = parent / "checkout"
+            root.mkdir()
+            outside = parent / "reports"
+            outside.mkdir()
+            (outside / "archived.md").write_text("EXP-177", encoding="utf-8")
+            (root / "linked_reports").symlink_to(outside, target_is_directory=True)
+            result = scan(root, self.registry)
+            self.assertEqual(result["occurrences"], 0)
+            self.assertEqual(result["skipped_symlinks"], ["linked_reports"])
+            self.assertFalse(result["coverage_complete_for_selected_files"])
+
+    def test_broken_extensionless_link_fails_closed(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            (root / "missing_reports").symlink_to(root / "absent", target_is_directory=True)
+            result = scan(root, self.registry)
+            self.assertEqual(result["skipped_symlinks"], ["missing_reports"])
+            self.assertFalse(result["coverage_complete_for_selected_files"])
+
+    def test_nonreport_file_symlink_does_not_change_selected_coverage(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            target = root / "script.py"
+            target.write_text("EXP-177", encoding="utf-8")
+            (root / "link.py").symlink_to(target)
+            result = scan(root, self.registry)
+            self.assertEqual(result["skipped_symlinks"], [])
+            self.assertTrue(result["coverage_complete_for_selected_files"])
+
     def test_scan_flags_bare_but_not_explicit_path(self):
         with tempfile.TemporaryDirectory() as temp:
             root = Path(temp)
