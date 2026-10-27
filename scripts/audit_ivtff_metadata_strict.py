@@ -16,6 +16,7 @@ import sys
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 from scripts import audit_ivtff_metadata as legacy
+from scripts.ivtff_physical_rows import checked_physical_lines
 
 SOURCE = legacy.SOURCE
 
@@ -47,7 +48,7 @@ def validate(source: Path = SOURCE) -> dict:
     seen: dict[str, str] = {}
     headers = 0
     repeated_consistent = 0
-    for lineno, line in enumerate(raw.decode("utf-8-sig").splitlines(), 1):
+    for lineno, line in checked_physical_lines(raw.decode("utf-8-sig")):
         match = legacy.HEADER.match(line)
         if not match:
             continue
