@@ -11,6 +11,9 @@ from pathlib import Path
 from unittest.mock import patch
 
 from scripts.audit_label_partition_coverage import load_verified_coverage_inputs
+from scripts.audit_visual_inventory_source_rows import main as source_rows_main
+from scripts.audit_visual_inventory_completeness import main as completeness_main
+from scripts.audit_visual_inventory_projections import main as projections_main
 from scripts.prepare_visual_annotation_queue import prepare_verified_queue
 from scripts.select_visual_pilot_v2 import load_unique_inventory, main as pilot_main
 
@@ -69,6 +72,42 @@ class VisualInventoryJsonIntegrityTests(unittest.TestCase):
             with patch("sys.argv", argv):
                 with self.assertRaisesRegex(ValueError, "Duplicate visual inventory JSON key"):
                     pilot_main()
+            self.assertFalse(output.exists())
+
+
+    def test_audit_clis_reject_duplicate_manifest_keys_before_reporting(self):
+        with tempfile.TemporaryDirectory() as temp:
+            manifest = Path(temp) / "ambiguous-manifest.json"
+            manifest.write_text('{"corpora":{},"corpora":{}}', encoding="utf-8")
+            for name, entrypoint in (
+                ("source_rows", source_rows_main),
+                ("completeness", completeness_main),
+                ("projections", projections_main),
+            ):
+                with self.subTest(entrypoint=name):
+                    output = Path(temp) / (name + ".json")
+                    argv = [name, "--root", str(ROOT), "--manifest", str(manifest),
+                            "--out", str(output)]
+                    with patch("sys.argv", argv):
+                        with self.assertRaisesRegex(ValueError, "Duplicate holdout manifest JSON key"):
+                            entrypoint()
+                    self.assertFalse(output.exists())
+
+    def test_audit_cli_rejects_same_size_train_test_swap(self):
+        manifest = json.loads(MANIFEST.read_bytes())
+        train, test = manifest["partitions"]["train"], manifest["partitions"]["test"]
+        train[0], test[0] = test[0], train[0]
+        train.sort()
+        test.sort()
+        with tempfile.TemporaryDirectory() as temp:
+            altered = Path(temp) / "swapped-manifest.json"
+            output = Path(temp) / "report.json"
+            altered.write_text(json.dumps(manifest), encoding="utf-8")
+            argv = ["source_rows", "--root", str(ROOT), "--manifest", str(altered),
+                    "--out", str(output)]
+            with patch("sys.argv", argv):
+                with self.assertRaisesRegex(ValueError, "Partition hash assignment mismatch"):
+                    source_rows_main()
             self.assertFalse(output.exists())
 
 
