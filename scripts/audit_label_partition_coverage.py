@@ -7,8 +7,12 @@ import hashlib
 import json
 from pathlib import Path
 import re
+import sys
 
 ROOT=Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT))
+from scripts.audit_visual_inventory_completeness import audit as audit_inventory_completeness
+from scripts.select_visual_pilot_v2 import load_verified_frozen_manifest
 INVENTORY=ROOT/'research/decipherment/2026-10-25-label-inventory/inventory.json.gz'
 MANIFEST=ROOT/'research/decipherment/2026-10-23-prospective-leaf-holdout/manifest-v2.json'
 FOLIO=re.compile(r'^f(\d+)[rv][1-6]?$')
@@ -89,10 +93,23 @@ def build(inventory,manifest):
             'No semantic outcomes inspected; no power or significance calculation.',
             'Existing holdout has historical exposure; fRos remains unassigned.']}
 
+def load_verified_coverage_inputs(inventory_bytes, manifest_bytes, root):
+    """Fail closed on altered source rows or frozen leaf allocations.
+
+    This is an operational input gate, not independent IVTFF or semantic
+    validation. Preserve the archived inputs; never rebuild them here.
+    """
+    manifest = load_verified_frozen_manifest(manifest_bytes, root)
+    inventory = json.loads(gzip.decompress(inventory_bytes))
+    audit_inventory_completeness(inventory, manifest, root)
+    return inventory, manifest
+
+
 def main():
     p=argparse.ArgumentParser();p.add_argument('--out',type=Path,required=True);args=p.parse_args()
     archive=INVENTORY.read_bytes();manifest=MANIFEST.read_bytes()
-    result=build(json.loads(gzip.decompress(archive)),json.loads(manifest))
+    inventory, frozen = load_verified_coverage_inputs(archive, manifest, ROOT)
+    result=build(inventory, frozen)
     result['inputs_sha256']={'inventory_archive':hashlib.sha256(archive).hexdigest(),
                             'partition_manifest':hashlib.sha256(manifest).hexdigest()}
     args.out.parent.mkdir(parents=True,exist_ok=True)

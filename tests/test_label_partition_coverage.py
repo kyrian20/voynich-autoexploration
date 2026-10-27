@@ -1,6 +1,11 @@
 import copy
+import gzip
+import json
 import unittest
-from scripts.audit_label_partition_coverage import build, partition_map, leaf_id
+from pathlib import Path
+from scripts.audit_label_partition_coverage import (
+    build, partition_map, leaf_id, load_verified_coverage_inputs
+)
 
 class LabelCoverageTests(unittest.TestCase):
     def fixture(self):
@@ -48,5 +53,57 @@ class LabelCoverageTests(unittest.TestCase):
     def test_type_disagreement_retained(self):
         inv,m=self.fixture();inv['records'][-1]['locus']='L0'
         self.assertEqual(len(build(inv,m)['type_mismatches']),1)
+
+class FrozenLabelCoverageInputTests(unittest.TestCase):
+    """Adversarial copies; the archived inventory and manifest stay unchanged."""
+
+    @classmethod
+    def setUpClass(cls):
+        cls.root = Path(__file__).resolve().parents[1]
+        cls.inventory_bytes = (cls.root / 'research/decipherment/2026-10-25-label-inventory/inventory.json.gz').read_bytes()
+        cls.manifest_bytes = (cls.root / 'research/decipherment/2026-10-23-prospective-leaf-holdout/manifest-v2.json').read_bytes()
+
+    @staticmethod
+    def encode_inventory(value):
+        return gzip.compress(json.dumps(value).encode('utf-8'), mtime=0)
+
+    def test_archived_coverage_unchanged_after_full_input_verification(self):
+        inventory, manifest = load_verified_coverage_inputs(
+            self.inventory_bytes, self.manifest_bytes, self.root)
+        report = build(inventory, manifest)
+        expected = json.loads((self.root / 'research/decipherment/2026-10-25-label-coverage/coverage.json').read_text())
+        expected.pop('inputs_sha256', None)
+        self.assertEqual(report, expected)
+
+    def test_same_size_train_test_swap_is_rejected(self):
+        manifest = json.loads(self.manifest_bytes)
+        train, test = manifest['partitions']['train'], manifest['partitions']['test']
+        train[0], test[0] = test[0], train[0]
+        train.sort()
+        test.sort()
+        self.assertEqual(len(train), manifest['counts']['train'])
+        self.assertEqual(len(test), manifest['counts']['test'])
+        with self.assertRaisesRegex(ValueError, 'Partition hash assignment mismatch'):
+            load_verified_coverage_inputs(self.inventory_bytes, json.dumps(manifest).encode(), self.root)
+
+    def test_duplicate_manifest_keys_are_rejected(self):
+        with self.assertRaisesRegex(ValueError, 'Duplicate holdout manifest JSON key'):
+            load_verified_coverage_inputs(
+                self.inventory_bytes, b'{"salt":"first","salt":"second"}', self.root)
+
+    def test_forged_inventory_source_row_is_rejected(self):
+        inventory = json.loads(gzip.decompress(self.inventory_bytes))
+        inventory['records'][0]['raw_line'] = 'forged source text'
+        with self.assertRaisesRegex(ValueError, 'raw_line differs from original'):
+            load_verified_coverage_inputs(
+                self.encode_inventory(inventory), self.manifest_bytes, self.root)
+
+    def test_omitted_inventory_row_is_rejected(self):
+        inventory = json.loads(gzip.decompress(self.inventory_bytes))
+        inventory['records'].pop()
+        with self.assertRaisesRegex(ValueError, 'L/R selection mismatch'):
+            load_verified_coverage_inputs(
+                self.encode_inventory(inventory), self.manifest_bytes, self.root)
+
 
 if __name__=='__main__':unittest.main()
