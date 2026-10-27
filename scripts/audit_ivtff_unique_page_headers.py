@@ -14,12 +14,13 @@ import sys
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 from scripts.audit_ivtff_metadata import HEADER, SOURCE
+from scripts.ivtff_physical_rows import checked_physical_lines
 
 
 def audit_unique_page_headers(text: str) -> dict:
     """Reject repeated physical page headers before any A/B summary is trusted."""
     first_line: dict[str, int] = {}
-    for line_no, row in enumerate(text.splitlines(), 1):
+    for line_no, row in checked_physical_lines(text):
         match = HEADER.match(row)
         if match is None:
             continue
