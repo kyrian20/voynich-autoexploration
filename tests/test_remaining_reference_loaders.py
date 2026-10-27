@@ -77,7 +77,7 @@ class RemainingReaderProvenanceTests(unittest.TestCase):
             path = self.root / name
             path.parent.mkdir(parents=True, exist_ok=True)
             raw = (b'' if issue == 'BLOCKED_EMPTY' else
-                   b'Title: English translation\\nLanguage: English\\nEvidence of translation\\n')
+                   b'Title: English translation\nLanguage: English\nEvidence of translation\n')
             path.write_bytes(raw)
             digest = hashlib.sha256(raw).hexdigest()
             self.manifest['files'].append({
