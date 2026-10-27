@@ -6,6 +6,12 @@ import hashlib
 import json
 from pathlib import Path
 import re
+import sys
+
+# CLI execution from scripts/ and direct test imports must use the same guard.
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from scripts.audit_corpus_identity_overlay import audit as audit_identity_overlay
+from scripts.check_corpus_integrity import unique_keys
 
 ROOT = Path(__file__).resolve().parents[1]
 BASE = 'aa9ec5399e7a5cdf8d1b2890fa657f1358825b41'
@@ -117,9 +123,25 @@ def replay(experiment, path, corpus):
              'note':'Coordinate correction only; the remainder of the START title line is still retained. No clean-body claim.'}
     return row
 
+def load_verified_reference_metadata(root):
+    """Validate both frozen manifest and identity overlay before replay.
+
+    The old dictionary comprehension silently accepted duplicate paths and
+    unreviewed identity changes when this CLI was used outside the full CI.
+    Do not reclassify a corpus or replace any historical input here.
+    """
+    manifest = json.loads((root/'research/CORPUS_INPUT_MANIFEST.json').read_text(encoding='utf-8'),
+                          object_pairs_hook=unique_keys)
+    review = json.loads((root/'research/CORPUS_IDENTITY_REVIEW.json').read_text(encoding='utf-8'),
+                        object_pairs_hook=unique_keys)
+    errors = audit_identity_overlay(root, manifest, review)
+    if errors:
+        raise ValueError('Frozen reference provenance failed: ' + '; '.join(errors))
+    return {row['path']: row for row in review['excluded_from_new_language_baselines']}
+
+
 def compute():
-    review = json.loads((ROOT/'research/CORPUS_IDENTITY_REVIEW.json').read_text())
-    metadata = {r['path']: r for r in review['excluded_from_new_language_baselines']}
+    metadata = load_verified_reference_metadata(ROOT)
     for corpus in {c for e,c in CASES}:
         if sha((ROOT/corpus).read_bytes()) != metadata[corpus]['sha256']:
             raise ValueError('Frozen corpus changed: '+corpus)
