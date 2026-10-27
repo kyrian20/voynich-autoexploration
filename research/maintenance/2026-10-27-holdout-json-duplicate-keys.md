@@ -10,7 +10,7 @@ Antes de este cambio, tanto `scripts/audit_holdout_locus_coverage.py::main` como
 
 ## Corrección y regresión
 
-Se añade `load_manifest(path)` en el auditor de cobertura, con `object_pairs_hook` que rechaza la primera clave repetida en cualquier profundidad; el auditor de correspondencias entre páginas utiliza el mismo lector. Se mantiene `audit(source_bytes, manifest)` para pruebas de diccionarios ya construidos: no puede detectar claves JSON que un llamador haya descartado previamente. Los consumidores CLI son la superficie protegida.
+Se añade `load_manifest(path)` en el auditor de cobertura, con `object_pairs_hook` que rechaza la primera clave repetida en cualquier profundidad; el auditor de correspondencias entre páginas utiliza el mismo lector. El workflow `Voynich Check` ejecuta ahora explícitamente la nueva regresión en su paso de auditoría de cobertura, además de los controles existentes. Se mantiene `audit(source_bytes, manifest)` para pruebas de diccionarios ya construidos: no puede detectar claves JSON que un llamador haya descartado previamente. Los consumidores CLI son la superficie protegida.
 
 La nueva prueba `tests/test_holdout_manifest_json_integrity.py` contiene cuatro entradas sintéticas adversariales (sal repetida, grupo train repetido, SHA anidado repetido y clave idéntica repetida) y un control positivo del manifiesto v2 congelado (102 hojas, sal histórica). Sin aleatoriedad: **semilla no aplicable**. No se alteran las asignaciones de train/desarrollo/test ni se leen sus tokens para seleccionar reglas.
 
@@ -18,11 +18,10 @@ La nueva prueba `tests/test_holdout_manifest_json_integrity.py` contiene cuatro 
 
 Base exacta: `master` `c3a16c21b675848fac1ac96ada874d91ad73227d`. La CI de esa base: [40425106965](https://github.com/kyrian20/voynich-autoexploration/actions/runs/40425106965), `success` (comprobada antes de abrir la rama). PR abiertas observadas antes del cambio: #5, #7, #13, #66 y #82; no se modifican.
 
-Comandos exigidos en la CI de la propuesta:
+Comandos exigidos en la CI de la propuesta (la suite global no está incluida en este workflow y no debe darse por ejecutada):
 
 ```sh
 python -m unittest discover -s tests -p 'test_holdout_manifest_json_integrity.py' -v
-python -m unittest discover -s tests -v
 python scripts/audit_holdout_locus_coverage.py --out /tmp/holdout-locus-coverage.json
 python scripts/audit_holdout_page_crosswalk.py --out /tmp/holdout-page-crosswalk.json
 python scripts/audit_repository_operations.py
