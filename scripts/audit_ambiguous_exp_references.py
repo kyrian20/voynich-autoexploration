@@ -42,15 +42,25 @@ def scan(root: Path, registry: dict) -> dict:
     skipped_symlinks = []
     for path in sorted(root.rglob("*")):
         relative = path.relative_to(root)
-        if path.suffix.lower() not in SUFFIXES:
-            continue
         if any(part in SKIP_PARTS for part in relative.parts):
             continue
         rel = relative.as_posix()
         if relative.parts[:2] in RAW_CORPUS_ROOTS:
-            excluded_raw_corpora.append(rel)
+            if path.suffix.lower() in SUFFIXES:
+                excluded_raw_corpora.append(rel)
             continue
-        # Never dereference a symlink while constructing a CI artifact.
+        # rglob() does not descend into symlinked directories. Inspect links
+        # before the suffix filter, or a directory link with no extension
+        # silently hides every selected report below it while coverage is true.
+        # A link to an extensionless target is conservatively treated as
+        # potentially containing reports (including a broken directory link).
+        if path.is_symlink():
+            if path.suffix.lower() in SUFFIXES or path.is_dir() or not path.suffix:
+                skipped_symlinks.append(rel)
+            continue
+        if path.suffix.lower() not in SUFFIXES:
+            continue
+        # Defence in depth if traversal semantics change in future Python.
         if any(root.joinpath(*relative.parts[:i]).is_symlink()
                for i in range(1, len(relative.parts) + 1)):
             skipped_symlinks.append(rel)
