@@ -5,7 +5,7 @@ import hashlib
 import json
 import tempfile
 from pathlib import Path
-from scripts.prepare_visual_annotation_queue import build, validate_annotation
+from scripts.prepare_visual_annotation_queue import build, validate_annotation, prepare_verified_queue
 from scripts.select_visual_pilot_v2 import build as build_pilot, check_source_bytes
 
 class VisualQueueTests(unittest.TestCase):
@@ -51,6 +51,63 @@ class VisualQueueTests(unittest.TestCase):
         row['external_referent']='invented name'
         with self.assertRaises(ValueError): validate_annotation(row,tasks)
 
+
+
+class FrozenVisualQueueInputTests(unittest.TestCase):
+    """Adversarial in-memory copies; no changes to the frozen archive."""
+
+    @classmethod
+    def setUpClass(cls):
+        cls.root = Path(__file__).resolve().parents[1]
+        cls.inventory_bytes = (cls.root / 'research/decipherment/2026-10-25-label-inventory/inventory.json.gz').read_bytes()
+        cls.manifest_bytes = (cls.root / 'research/decipherment/2026-10-23-prospective-leaf-holdout/manifest-v2.json').read_bytes()
+
+    @staticmethod
+    def encode_inventory(inventory):
+        return gzip.compress(json.dumps(inventory).encode('utf-8'), mtime=0)
+
+    def verify(self, inventory_bytes=None, manifest_bytes=None):
+        return prepare_verified_queue(
+            self.inventory_bytes if inventory_bytes is None else inventory_bytes,
+            self.manifest_bytes if manifest_bytes is None else manifest_bytes,
+            self.root,
+        )
+
+    def test_archived_queue_and_coordinator_bytes_unchanged(self):
+        queue, mapping = self.verify()
+        archive = self.root / 'research/decipherment/2026-10-25-visual-annotation'
+        for name, payload in [('annotator-queue.json.gz', queue),
+                              ('coordinator-map.json.gz', mapping)]:
+            encoded = gzip.compress(
+                (json.dumps(payload, ensure_ascii=False, sort_keys=True,
+                            separators=(',', ':')) + '\n').encode(), mtime=0)
+            self.assertEqual(encoded, (archive / name).read_bytes(), name)
+
+    def test_reject_same_size_train_test_swap(self):
+        manifest = json.loads(self.manifest_bytes)
+        train = manifest['partitions']['train']
+        test = manifest['partitions']['test']
+        train[0], test[0] = test[0], train[0]
+        train.sort()
+        test.sort()
+        with self.assertRaisesRegex(ValueError, 'Partition hash assignment mismatch'):
+            self.verify(manifest_bytes=json.dumps(manifest).encode())
+
+    def test_reject_duplicate_manifest_json_keys(self):
+        with self.assertRaisesRegex(ValueError, 'Duplicate holdout manifest JSON key'):
+            self.verify(manifest_bytes=b'{"salt":"first","salt":"second"}')
+
+    def test_reject_forged_inventory_source_line(self):
+        inventory = json.loads(gzip.decompress(self.inventory_bytes))
+        inventory['records'][0]['raw_line'] = 'forged source text'
+        with self.assertRaisesRegex(ValueError, 'raw_line differs from original'):
+            self.verify(inventory_bytes=self.encode_inventory(inventory))
+
+    def test_reject_omitted_inventory_row(self):
+        inventory = json.loads(gzip.decompress(self.inventory_bytes))
+        inventory['records'].pop()
+        with self.assertRaisesRegex(ValueError, 'L/R selection mismatch'):
+            self.verify(inventory_bytes=self.encode_inventory(inventory))
 
 class VisualPilotIntegrityTests(unittest.TestCase):
     @staticmethod

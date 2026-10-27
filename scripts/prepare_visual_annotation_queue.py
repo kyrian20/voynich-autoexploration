@@ -5,9 +5,14 @@ import gzip
 import hashlib
 import json
 from pathlib import Path
+import sys
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT))
+from scripts.audit_label_partition_coverage import load_verified_coverage_inputs
+
 INVENTORY = ROOT / 'research/decipherment/2026-10-25-label-inventory/inventory.json.gz'
+MANIFEST = ROOT / 'research/decipherment/2026-10-23-prospective-leaf-holdout/manifest-v2.json'
 CATEGORIES = ('plant_or_plant_part', 'human_or_body', 'animal',
               'astronomical_or_geometric', 'vessel_or_object', 'mixed',
               'no_identifiable_referent', 'uncertain')
@@ -74,15 +79,27 @@ def validate_annotation(row, tasks):
         raise ValueError('Named referent requires a source')
     return True
 
+def prepare_verified_queue(inventory_bytes, manifest_bytes, root):
+    """Verify frozen source rows and leaf partitions before exporting packets.
+
+    The direct build() helper remains fixture-only; this is the CLI input gate.
+    Neither this check nor the queue authorizes visual annotations.
+    """
+    inventory, _ = load_verified_coverage_inputs(inventory_bytes, manifest_bytes, root)
+    queue, mapping = build(inventory)
+    queue['inventory_archive_sha256'] = sha(inventory_bytes)
+    return queue, mapping
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--inventory', type=Path, default=INVENTORY)
+    parser.add_argument('--manifest', type=Path, default=MANIFEST)
     parser.add_argument('--out-dir', type=Path, required=True)
     args = parser.parse_args()
     raw = args.inventory.read_bytes()
-    inventory = json.loads(gzip.decompress(raw))
-    queue, mapping = build(inventory)
-    queue['inventory_archive_sha256'] = sha(raw)
+    manifest_raw = args.manifest.read_bytes()
+    queue, mapping = prepare_verified_queue(raw, manifest_raw, ROOT)
     args.out_dir.mkdir(parents=True, exist_ok=True)
     hashes = {}
     for name, value in [('annotator-queue.json.gz', queue), ('coordinator-map.json.gz', mapping)]:
@@ -91,7 +108,8 @@ def main():
         hashes[name] = sha(data)
     (args.out_dir / 'SHA256.json').write_text(json.dumps(hashes, indent=2)+'\n')
     print(json.dumps({'tasks': len(queue['tasks']), 'ready': 0,
-                      'source_rows': len(inventory['records'])}, sort_keys=True))
+                      'source_rows': sum(len(row['source_occurrence_ids'])
+                                         for row in mapping['tasks'])}, sort_keys=True))
 
 if __name__ == '__main__':
     main()
