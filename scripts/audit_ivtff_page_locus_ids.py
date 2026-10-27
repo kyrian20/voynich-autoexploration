@@ -55,6 +55,11 @@ MISSING_OPEN_COMMA_PAGE_RE = re.compile(
     r"^(?P<page>f(?:[0-9]+[rv][0-9]*|Ros)),>(?=\s|<|$)"
 )
 
+# Python str.splitlines() treats these Unicode/control characters as line
+# boundaries. They are not CR/LF physical IVTFF record delimiters and must
+# never manufacture an apparent folio header or locus from one source row.
+NON_PHYSICAL_SEPARATORS = "\v\f\x1c\x1d\x1e\x85\u2028\u2029"
+
 
 def audit_text(text: str) -> dict:
     active_page = None
@@ -70,8 +75,20 @@ def audit_text(text: str) -> dict:
     out_of_range = []
     ignored_comments = 0
     continuation_lines = 0
+    invalid_physical_separators = []
 
-    for line_no, raw in enumerate(text.splitlines(), 1):
+    # Only CR, LF and CRLF delimit physical records. Do not use splitlines():
+    # U+2028 etc. could otherwise turn a comment into a forged page header.
+    physical_lines = text.replace("\r\n", "\n").replace("\r", "\n").split("\n")
+    for line_no, raw in enumerate(physical_lines, 1):
+        invalid = sorted({f"U+{ord(ch):04X}" for ch in raw if ch in NON_PHYSICAL_SEPARATORS})
+        if invalid:
+            invalid_physical_separators.append({"line": line_no, "codepoints": invalid})
+            # Fail closed: the contaminated row cannot establish a new page,
+            # and the previous active page must not silently remain in force.
+            active_page = None
+            continue
+
         if raw.startswith("#"):
             ignored_comments += 1
             continue
@@ -232,6 +249,8 @@ def audit_text(text: str) -> dict:
             out_of_range.append({"line": line_no, "id": tag, "number": num})
 
     return {
+        "invalid_physical_separators": invalid_physical_separators[:50],
+        "invalid_physical_separator_count": len(invalid_physical_separators),
         "page_header_count": len(headers),
         "distinct_page_headers": len({h["page"] for h in headers}),
         "duplicate_page_headers": duplicate_page_headers[:50],
@@ -258,6 +277,7 @@ def structural_errors(report: dict) -> list[str]:
     """Reject observed structural anomalies rather than merely listing them."""
     errors = []
     for key in (
+        "invalid_physical_separator_count",
         "malformed_header_count",
         "duplicate_page_header_count",
         "malformed_record_count",

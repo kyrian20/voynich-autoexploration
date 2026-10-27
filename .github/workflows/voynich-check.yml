@@ -545,7 +545,9 @@ jobs:
         run: python experiments/exp_573_c007_reconciliation/script.py
 
       - name: Probar regresiones de identificadores de página y locus IVTFF
-        run: python tests/test_ivtff_page_locus_ids.py
+        run: |
+          python tests/test_ivtff_page_locus_ids.py
+          python -m unittest discover -s tests -p 'test_ivtff_physical_row_boundaries.py' -v
 
       - name: Auditar cobertura estructural de identificadores IVTFF
         run: python scripts/audit_ivtff_page_locus_ids.py
