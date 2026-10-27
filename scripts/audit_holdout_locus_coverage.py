@@ -19,6 +19,28 @@ SOURCE_NAMES = ("eva_zl3b.txt", "eva_it2a.txt")
 # Historical split identity is frozen independently of the manifest and its
 # generator: an internally consistent but reassigned manifest must fail.
 FROZEN_SALT = "VOYNICH-FUTURE-RULES-2026-10-23-v1"
+# The frozen split also carries scientific-use restrictions. A manifest with
+# unchanged source hashes and folio assignments must not be allowed to claim
+# VALIDATED status, remove its prior-exposure caveat or change test-use rules.
+# Keep this contract independent of the manifest generator and JSON file.
+FROZEN_CONTRACT = {
+    "status": "PROPOSED_FOR_FUTURE_RULES",
+    "supersedes": "research/decipherment/2026-10-23-prospective-leaf-holdout/manifest.json",
+    "correction": "Include optional numeric panels after r/v in IVTFF folio headers",
+    "unit": "physical_leaf_number; recto and verso and panels grouped",
+    "allocation": {"train": 0.70, "development": 0.15, "test": 0.15},
+    "selection": "shared leaves in both editions; panel-aware header IDs only",
+    "caveat": "Not a historically untouched holdout; previously inspected leaves remain exposed.",
+    "forbidden": [
+        "selecting rules on test folios",
+        "tuning on test outcomes",
+        "claiming a historically independent or semantic validation",
+    ],
+}
+FROZEN_FIELDS = set(FROZEN_CONTRACT) | {
+    "schema_version", "corpora", "salt", "partitions", "counts",
+    "eligible_count", "source_only_leaves",
+}
 # Independent IVTFF-shaped tag checks: do not count a prefix match as a
 # complete header or locus. This is a coverage audit, not full IVTFF parsing.
 PAGE_ID = re.compile(r"^f(?:[0-9]+[rv][1-6]?|Ros)$")
@@ -105,6 +127,11 @@ def locked_partition(leaf: int) -> str:
 def audit(source_bytes: dict[str, bytes], manifest: dict) -> dict:
     if manifest.get("schema_version") != 2:
         raise ValueError("Requires frozen v2 holdout manifest")
+    if set(manifest) != FROZEN_FIELDS:
+        raise ValueError("Frozen holdout manifest fields mismatch")
+    for field, expected in FROZEN_CONTRACT.items():
+        if manifest[field] != expected:
+            raise ValueError(f"Frozen holdout contract mismatch: {field}")
     if manifest.get("salt") != FROZEN_SALT:
         raise ValueError("Frozen partition salt mismatch")
     if set(source_bytes) != set(SOURCE_NAMES) or set(manifest["corpora"]) != set(SOURCE_NAMES):
@@ -121,6 +148,10 @@ def audit(source_bytes: dict[str, bytes], manifest: dict) -> dict:
         coverage[name] = {"sha256": sha, **record}
 
     shared = set(coverage[SOURCE_NAMES[0]]["numeric_leaves"]) & set(coverage[SOURCE_NAMES[1]]["numeric_leaves"])
+    if set(manifest["counts"]) != {"train", "development", "test"}:
+        raise ValueError("Frozen holdout count fields mismatch")
+    if set(manifest["source_only_leaves"]) != set(SOURCE_NAMES):
+        raise ValueError("Frozen holdout source-only edition fields mismatch")
     groups = manifest["partitions"]
     if set(groups) != {"train", "development", "test"}:
         raise ValueError("Partition names differ")
