@@ -74,5 +74,29 @@ class DuplicateLanguageHeaders(unittest.TestCase):
             self.assertEqual(report["folios_with_language"], 0)
 
 
+    def test_fake_line_boundaries_inside_comment_are_rejected(self):
+        # str.splitlines() previously invented a second folio header here.
+        for separator in ("\v", "\f", "\x1c", "\x1d", "\x1e", "\x85", "\u2028", "\u2029"):
+            with self.subTest(separator=repr(separator)), tempfile.TemporaryDirectory() as d:
+                path = Path(d) / "fixture.ivtff"
+                path.write_text(
+                    "<f1r> <! $L=A>\n"
+                    "<!editor" + separator + "<f1r> <! $L=B>\n",
+                    encoding="utf-8",
+                )
+                with self.assertRaisesRegex(ValueError, r"Non-physical IVTFF line separator at line 2"):
+                    validate(path)
+
+    def test_cr_lf_and_crlf_are_valid_physical_boundaries(self):
+        with tempfile.TemporaryDirectory() as d:
+            path = Path(d) / "fixture.ivtff"
+            path.write_bytes(
+                b"<f1r> <! $L=A>\r\n<f2r> <! $L=B>\r<f3r> <! $L=A>\n"
+            )
+            report = validate(path)
+            self.assertEqual(report["folio_headers"], 3)
+            self.assertEqual(report["folios_with_language"], 3)
+
+
 if __name__ == "__main__":
     unittest.main()

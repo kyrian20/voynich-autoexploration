@@ -34,5 +34,19 @@ class UniqueFolioHeaderTests(unittest.TestCase):
         self.assertEqual(result["distinct_folio_ids"], 227)
 
 
+    def test_fake_line_boundaries_inside_comment_are_rejected(self):
+        # Never promote a Unicode/control separator to a physical header.
+        for separator in ("\v", "\f", "\x1c", "\x1d", "\x1e", "\x85", "\u2028", "\u2029"):
+            with self.subTest(separator=repr(separator)):
+                text = "<f1r> <! $L=A>\n<!editor" + separator + "<f2r> <! $L=B>\n"
+                with self.assertRaisesRegex(ValueError, r"Non-physical IVTFF line separator at line 2"):
+                    audit_unique_page_headers(text)
+
+    def test_cr_lf_and_crlf_are_valid_physical_boundaries(self):
+        text = "<f1r> <! $L=A>\r\n<f2r> <! $L=B>\r<f3r> <! $L=A>\n"
+        result = audit_unique_page_headers(text)
+        self.assertEqual(result["folio_headers"], 3)
+
+
 if __name__ == "__main__":
     unittest.main()
