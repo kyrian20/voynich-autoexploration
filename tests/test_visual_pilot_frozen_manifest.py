@@ -15,7 +15,7 @@ from scripts.select_visual_pilot_v2 import load_verified_frozen_manifest
 
 class FrozenVisualPilotManifestTests(unittest.TestCase):
     def test_committed_manifest_passes_independent_frozen_split_audit(self):
-        manifest = load_verified_frozen_manifest(MANIFEST, ROOT)
+        manifest = load_verified_frozen_manifest(MANIFEST.read_bytes(), ROOT)
         self.assertEqual(manifest["schema_version"], 2)
         self.assertEqual(manifest["eligible_count"], 102)
 
@@ -34,14 +34,14 @@ class FrozenVisualPilotManifestTests(unittest.TestCase):
             path = Path(directory) / "swapped.json"
             path.write_text(json.dumps(manifest), encoding="utf-8")
             with self.assertRaisesRegex(ValueError, "Partition hash assignment mismatch"):
-                load_verified_frozen_manifest(path, ROOT)
+                load_verified_frozen_manifest(path.read_bytes(), ROOT)
 
     def test_duplicate_manifest_keys_fail_before_pilot_selection(self):
         with tempfile.TemporaryDirectory() as directory:
             path = Path(directory) / "duplicate.json"
             path.write_text('{"salt":"first","salt":"second"}', encoding="utf-8")
             with self.assertRaisesRegex(ValueError, "Duplicate holdout manifest JSON key"):
-                load_verified_frozen_manifest(path, ROOT)
+                load_verified_frozen_manifest(path.read_bytes(), ROOT)
 
     def test_false_source_hash_fails_before_pilot_selection(self):
         manifest = copy.deepcopy(json.loads(MANIFEST.read_text(encoding="utf-8")))
@@ -51,7 +51,7 @@ class FrozenVisualPilotManifestTests(unittest.TestCase):
             path = Path(directory) / "forged-source.json"
             path.write_text(json.dumps(manifest), encoding="utf-8")
             with self.assertRaisesRegex(ValueError, "Source provenance mismatch"):
-                load_verified_frozen_manifest(path, ROOT)
+                load_verified_frozen_manifest(path.read_bytes(), ROOT)
 
 
 if __name__ == "__main__":
