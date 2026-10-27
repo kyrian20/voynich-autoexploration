@@ -71,6 +71,28 @@ def audit_text(text: str) -> dict:
             ignored_comments += 1
             continue
         if raw.startswith("/"):
+            # A slash is a continuation marker, not a license to hide a
+            # structural page/locus tag. Detect a tag accidentally prefixed
+            # by '/' before skipping ordinary continuation payloads.
+            # This is diagnostic only: no damaged tag is accepted as valid.
+            remainder = raw[1:].lstrip(" \t")
+            if remainder.startswith("<"):
+                candidate = remainder[1:].split(">", 1)[0]
+                first_field = candidate.strip(" \t").split(maxsplit=1)
+                page_part = first_field[0].partition(",")[0] if first_field else ""
+                if INDENTED_PAGE_CANDIDATE_RE.fullmatch(page_part):
+                    malformed_headers.append({
+                        "line": line_no, "page": candidate[:180],
+                        "reason": "structural page tag after continuation slash",
+                    })
+                    active_page = None
+                    continue
+                if MISSING_OPEN_LOCUS_RE.match(candidate):
+                    malformed_records.append({
+                        "line": line_no, "raw": raw[:180],
+                        "reason": "structural locus tag after continuation slash",
+                    })
+                    continue
             continuation_lines += 1
             continue
         if not raw.startswith("<"):

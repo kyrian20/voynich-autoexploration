@@ -493,6 +493,43 @@ def main() -> None:
             "only_A": 0, "only_B": 0, "common": 2
         }, clean
 
+    # A slash-prefixed structural tag is not an ordinary continuation:
+    # silently skipping it can leave the previous folio active. This
+    # regression is synthetic and does not claim an affected source row.
+    for broken_page in ("/<f2r>", "/<fRos>", "/<f86v4,>",
+                        "/<f٢r>", "/<f2r <! $L=B"):
+        report = audit_text(
+            "<f1r> <! $L=A>\n<f1r.1,@P0> daiin\n"
+            + broken_page + "\n<f1r.2,@P0> chedy\n"
+        )
+        assert report["record_count"] == 2, report
+        assert report["malformed_header_count"] == 1, report
+        assert report["page_mismatch_count"] == 1, report
+        assert report["continuation_lines"] == 0, report
+        assert structural_errors(report) == [
+            "malformed_header_count=1", "page_mismatch_count=1"
+        ], report
+
+    for broken_record in ("/<f1r.2,@P0> chedy",
+                          "/ <f1r.2,@P0> chedy"):
+        report = audit_text(
+            "<f1r> <! $L=A>\n<f1r.1,@P0> daiin\n"
+            + broken_record + "\n"
+        )
+        assert report["record_count"] == 1, report
+        assert report["malformed_record_count"] == 1, report
+        assert report["continuation_lines"] == 0, report
+        assert structural_errors(report) == ["malformed_record_count=1"], report
+
+    # Free-form continuation and a slash followed by an inline comment are
+    # not structural tags; do not make the audit reject valid continuations.
+    ordinary_slashes = audit_text(
+        "<f1r> <! $L=A>\n<f1r.1,@P0> daiin\n"
+        "/chedy\n/<!free text> daiin\n"
+    )
+    assert ordinary_slashes["continuation_lines"] == 2, ordinary_slashes
+    assert structural_errors(ordinary_slashes) == [], ordinary_slashes
+
     # Exercise the guard on the three original sources, without changing them.
     for label, source in SOURCES:
         report = audit_text(source.read_text(encoding="utf-8-sig"))
