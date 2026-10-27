@@ -10,7 +10,7 @@ La auditoría `scripts/audit_holdout_locus_coverage.py` ya corregida en trabajos
 
 ## Corrección acotada
 
-La entrada de línea de comandos del piloto ahora llama a `load_verified_frozen_manifest`, que lee el JSON con la protección existente contra claves duplicadas, obtiene los bytes de ambas transcripciones originales y ejecuta `audit_frozen_holdout` **antes** de seleccionar hojas. Si cualquier asignación, contrato, hash o cobertura no coincide, aborta sin generar selección. Se preserva la función `build` para fixtures sintéticos sin manifiesto congelado: invocarla aisladamente **no sustituye** esta guardia de entrada.
+La entrada de línea de comandos del piloto ahora llama a `load_verified_frozen_manifest`, que analiza exactamente los bytes del JSON que se registran mediante SHA-256 (sin segunda lectura), con la protección existente contra claves duplicadas, obtiene los bytes de ambas transcripciones originales y ejecuta `audit_frozen_holdout` **antes** de seleccionar hojas. Si cualquier asignación, contrato, hash o cobertura no coincide, aborta sin generar selección. Se preserva la función `build` para fixtures sintéticos sin manifiesto congelado: invocarla aisladamente **no sustituye** esta guardia de entrada.
 
 La CI ejecuta `tests/test_visual_pilot_frozen_manifest.py` antes de regenerar y comparar el piloto archivado. Las cuatro pruebas verifican: manifiesto original válido; intercambio de hojas train/test manteniendo recuentos; claves JSON duplicadas; y hash de fuente falsificado. Las pruebas solo escriben manifiestos temporales.
 
