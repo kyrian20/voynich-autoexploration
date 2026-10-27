@@ -19,6 +19,8 @@ from scripts.build_label_occurrence_inventory import ROW
 from scripts.select_visual_pilot_v2 import (
     check_inventory_provenance,
     check_source_bytes,
+    load_unique_inventory,
+    load_verified_frozen_manifest,
 )
 
 INVENTORY = Path("research/decipherment/2026-10-25-label-inventory/inventory.json.gz")
@@ -94,8 +96,8 @@ def main():
     root = args.root.resolve()
     inventory_bytes = (root / args.inventory).read_bytes()
     manifest_bytes = (root / args.manifest).read_bytes()
-    inventory = json.loads(gzip.decompress(inventory_bytes))
-    manifest = json.loads(manifest_bytes)
+    inventory = load_unique_inventory(inventory_bytes)
+    manifest = load_verified_frozen_manifest(manifest_bytes, root)
     result = audit(inventory, manifest, root)
     result["input_sha256"] = {
         "inventory_gzip": sha256(inventory_bytes),

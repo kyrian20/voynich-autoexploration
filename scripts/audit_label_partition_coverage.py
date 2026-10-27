@@ -12,7 +12,7 @@ import sys
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 from scripts.audit_visual_inventory_completeness import audit as audit_inventory_completeness
-from scripts.select_visual_pilot_v2 import load_verified_frozen_manifest
+from scripts.select_visual_pilot_v2 import load_verified_frozen_manifest, load_unique_inventory
 INVENTORY=ROOT/'research/decipherment/2026-10-25-label-inventory/inventory.json.gz'
 MANIFEST=ROOT/'research/decipherment/2026-10-23-prospective-leaf-holdout/manifest-v2.json'
 FOLIO=re.compile(r'^f(\d+)[rv][1-6]?$')
@@ -100,7 +100,7 @@ def load_verified_coverage_inputs(inventory_bytes, manifest_bytes, root):
     validation. Preserve the archived inputs; never rebuild them here.
     """
     manifest = load_verified_frozen_manifest(manifest_bytes, root)
-    inventory = json.loads(gzip.decompress(inventory_bytes))
+    inventory = load_unique_inventory(inventory_bytes)
     audit_inventory_completeness(inventory, manifest, root)
     return inventory, manifest
 
