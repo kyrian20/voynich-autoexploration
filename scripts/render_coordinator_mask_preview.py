@@ -52,7 +52,11 @@ def main():
     if len(matches)!=1: raise ValueError('Expected one exact folio plan')
     data=render(matches[0],args.source.read_bytes())
     args.out.parent.mkdir(parents=True,exist_ok=True)
-    args.out.write_bytes(data)
+    # Coordinator previews embed the original source bytes. Never overwrite a
+    # source, plan, previous preview, or independently reviewed artifact.
+    # Exclusive creation also rejects symlinks and hardlinks to existing files.
+    with args.out.open('xb') as output:
+        output.write(data)
     print(json.dumps({'status':'COORDINATOR_PREVIEW_ONLY','output_sha256':hashlib.sha256(data).hexdigest(),
                       'annotation_ready':False,'independent_review':False},sort_keys=True))
 
