@@ -18,27 +18,41 @@ def parse_currier_language(metadata: str) -> str | None:
     match = LANGUAGE.search(metadata)
     return match.group(1) if match else None
 
-def main() -> None:
-    raw = SOURCE.read_bytes()
-    text = raw.decode("utf-8-sig")
-    pages = {}
-    q_as_language = []
-    for row in text.splitlines():
+def collect_folio_languages(text: str) -> tuple[dict[str, str], list[str], int]:
+    """Count each physical folio header once; never silently overwrite its $L.
+
+    Duplicate headers can otherwise change Currier A/B counts depending on
+    source order. This is a metadata guard, not full IVTFF conformance.
+    """
+    pages: dict[str, str] = {}
+    seen: set[str] = set()
+    q_as_language: list[str] = []
+    for line_no, row in enumerate(text.splitlines(), 1):
         m = HEADER.match(row)
         if not m:
             continue
         folio, metadata = m.groups()
+        if folio in seen:
+            raise ValueError(f"Duplicate IVTFF folio header {folio} at line {line_no}")
+        seen.add(folio)
         lang = parse_currier_language(metadata)
         if lang:
             pages[folio] = lang
         q = QUIRE.search(metadata)
         if q and not lang:
             q_as_language.append(folio)
+    return pages, q_as_language, len(seen)
+
+
+def main() -> None:
+    raw = SOURCE.read_bytes()
+    text = raw.decode("utf-8-sig")
+    pages, q_as_language, header_count = collect_folio_languages(text)
     counts = collections.Counter(pages.values())
     result = {
         "source": str(SOURCE.relative_to(ROOT)),
         "source_sha256": hashlib.sha256(raw).hexdigest(),
-        "folio_headers": sum(1 for row in text.splitlines() if HEADER.match(row)),
+        "folio_headers": header_count,
         "folios_with_currier_language": len(pages),
         "language_counts": dict(sorted(counts.items())),
         "headers_with_AB_quire_but_no_language": q_as_language,
