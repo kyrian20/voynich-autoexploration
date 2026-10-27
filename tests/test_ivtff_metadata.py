@@ -91,7 +91,7 @@ def check_duplicate_folio_headers() -> None:
     # A repeated header silently overwrote the previous $L assignment.
     # Detect both conflicting and identical repetitions, even when the first
     # header lacks $L; panels and the named Rosettes page are separate IDs.
-    clean = "<f1r> <! $L=A>\\n<f67r1> <! $L=B>\\n<fRos> <! $Q=A>\\n"
+    clean = "<f1r> <! $L=A>\n<f67r1> <! $L=B>\n<fRos> <! $Q=A>\n"
     pages, missing, count = collect_folio_languages(clean)
     assert pages == {"f1r": "A", "f67r1": "B"}, pages
     assert missing == ["fRos"], missing
@@ -100,7 +100,7 @@ def check_duplicate_folio_headers() -> None:
     for page in ("f1r", "f67r1", "fRos"):
         for first in ("<! $L=A>", "<! $Q=A>"):
             for second in ("<! $L=A>", "<! $L=B>"):
-                duplicated = f"<{page}> {first}\\n<{page}> {second}\\n"
+                duplicated = f"<{page}> {first}\n<{page}> {second}\n"
                 try:
                     collect_folio_languages(duplicated)
                 except ValueError as exc:
