@@ -22,7 +22,7 @@ sys.path.insert(0, str(ROOT))
 from scripts.audit_visual_inventory_completeness import audit as audit_completeness
 from scripts.ivtff_lossless import lex
 from scripts.ivtff_rows import tokens_rows
-from scripts.select_visual_pilot_v2 import load_unique_inventory
+from scripts.select_visual_pilot_v2 import load_unique_inventory, load_verified_frozen_manifest
 
 INVENTORY = Path("research/decipherment/2026-10-25-label-inventory/inventory.json.gz")
 MANIFEST = Path("research/decipherment/2026-10-23-prospective-leaf-holdout/manifest-v2.json")
@@ -113,7 +113,7 @@ def main() -> None:
     inventory_bytes = (root / args.inventory).read_bytes()
     manifest_bytes = (root / args.manifest).read_bytes()
     inventory = load_unique_inventory(inventory_bytes)
-    manifest = json.loads(manifest_bytes)
+    manifest = load_verified_frozen_manifest(manifest_bytes, root)
     result = replay(inventory, manifest, root)
     result["input_sha256"] = {
         "inventory_gzip": sha256(inventory_bytes),
