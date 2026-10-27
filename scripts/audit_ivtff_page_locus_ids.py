@@ -25,7 +25,7 @@ SOURCES = [
 PAGE_RE = re.compile(r"^f(?:[0-9]+[rv][1-6]?|Ros)$")
 LOCUS_RE = re.compile(
     r"^(?P<page>f(?:[0-9]+[rv][1-6]?|Ros))\."
-    r"(?P<num>[0-9]{1,3}),(?P<code>[^;>]{3})(?:;(?P<transcriber>[^;>]))?$"
+    # The previous [^;>] accepted spaces, tabs and Unicode lookalikes as\n    # three-character locator codes (and as optional transcriber IDs).\n    # Restrict this structural census to printable ASCII, excluding the\n    # IVTFF tag delimiters ; < >. This is NOT full locator-code validation.\n    r"(?P<num>[0-9]{1,3}),(?P<code>[!-:=?-~]{3})(?:;(?P<transcriber>[!-:=?-~]))?$"
 )
 # Catch a damaged locus prefix before the generic non-record skip below.
 # This does not treat arbitrary free-text metadata as an IVTFF record.
