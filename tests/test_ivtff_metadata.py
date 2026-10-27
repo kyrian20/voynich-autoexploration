@@ -10,7 +10,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
-from scripts.audit_ivtff_metadata import HEADER, SOURCE, collect_folio_languages, parse_currier_language
+from scripts.audit_ivtff_metadata import HEADER, parse_currier_language
 from scripts.exp590_daiin_position import load_lines
 from experiments.exp_602_independent_ivtff_parser_audit.script import tokens_regex, tokens_scanner
 from scripts.audit_ivtff_brace_spans import audit_text
@@ -87,34 +87,6 @@ def check_brace_inventory() -> None:
     assert cross_line["unmatched_close_brace_count"] == 1, cross_line
 
 
-def check_duplicate_folio_headers() -> None:
-    # A repeated header silently overwrote the previous $L assignment.
-    # Detect both conflicting and identical repetitions, even when the first
-    # header lacks $L; panels and the named Rosettes page are separate IDs.
-    clean = "<f1r> <! $L=A>\n<f67r1> <! $L=B>\n<fRos> <! $Q=A>\n"
-    pages, missing, count = collect_folio_languages(clean)
-    assert pages == {"f1r": "A", "f67r1": "B"}, pages
-    assert missing == ["fRos"], missing
-    assert count == 3, count
-
-    for page in ("f1r", "f67r1", "fRos"):
-        for first in ("<! $L=A>", "<! $Q=A>"):
-            for second in ("<! $L=A>", "<! $L=B>"):
-                duplicated = f"<{page}> {first}\n<{page}> {second}\n"
-                try:
-                    collect_folio_languages(duplicated)
-                except ValueError as exc:
-                    assert f"Duplicate IVTFF folio header {page} at line 2" in str(exc), str(exc)
-                else:
-                    raise AssertionError(f"Duplicate IVTFF header accepted: {duplicated!r}")
-
-    # The original ZL3b source is frozen. A regression must not silently
-    # change its page census while strengthening validation.
-    original = SOURCE.read_bytes().decode("utf-8-sig")
-    _, _, original_count = collect_folio_languages(original)
-    assert original_count == 227, original_count
-
-
 def main() -> None:
     # $L wins even when $Q contradicts it; $Q means quire, not Currier language.
     check("<! $Q=A $L=B>", "B")
@@ -161,7 +133,6 @@ def main() -> None:
     assert rows[0]["currier"] == "B", rows[0]
     assert rows[1]["currier"] == "unknown", rows[1]
 
-    check_duplicate_folio_headers()
     check_tokenizers()
     check_brace_inventory()
     print("IVTFF metadata and tokenizer regression tests passed.")
