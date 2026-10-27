@@ -107,20 +107,39 @@ def report_tables(text):
                 if not m:
                     raise ValueError(f'Malformed cell: {cell}')
                 parsed.append(dict(mean=float(m[1]), p5=float(m[2]), p95=float(m[3]), status=m[4]))
-            rows[ROWS[cells[0]]] = dict(vms=float(cells[1]), conditions=dict(zip(CONDITIONS, parsed)))
+            metric = ROWS[cells[0]]
+            if metric in rows:
+                raise ValueError(f'Duplicate historical metric row: {metric}')
+            rows[metric] = dict(vms=float(cells[1]), conditions=dict(zip(CONDITIONS, parsed)))
         for key in ('INSIDE', 'ABOVE', 'BELOW'):
             if cells[0].startswith(key+' ('):
+                if key in counts:
+                    raise ValueError(f'Duplicate historical count row: {key}')
+                if len(cells) != len(CONDITIONS) + 1:
+                    raise ValueError(f'Malformed historical count row: {key}')
                 counts[key] = dict(zip(CONDITIONS, map(int, cells[1:])))
     if set(rows) != set(ROWS.values()) or set(counts) != {'INSIDE', 'ABOVE', 'BELOW'}:
         raise ValueError('Incomplete historical tables')
     return rows, counts
 
 
+def parse_archive(text):
+    """Reject duplicate JSON keys at every depth before auditing archived vectors."""
+    def unique_pairs(pairs):
+        obj = {}
+        for key, value in pairs:
+            if key in obj:
+                raise ValueError(f'Duplicate EXP-170 archive JSON key: {key}')
+            obj[key] = value
+        return obj
+    return json.loads(text, object_pairs_hook=unique_pairs)
+
+
 def audit(root=ROOT):
     source = (root/EXP/'script.py').read_text()
     ns, tree = historical_namespace(source)
     targets = baseline(ns, tree, root/'data/transcriptions/eva_zl3b.txt')
-    archive = json.loads((root/EXP/'data/simulation_results.json').read_text())
+    archive = parse_archive((root/EXP/'data/simulation_results.json').read_text())
     if set(archive) != set(CONDITIONS) or any(len(x) != 100 for x in archive.values()):
         raise ValueError('Expected four conditions of 100 archived runs')
     expected_keys = set(targets)
