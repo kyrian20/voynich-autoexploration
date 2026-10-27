@@ -16,6 +16,22 @@ from scripts.audit_holdout_locus_coverage import (
 )
 
 
+def _unique_inventory_keys(pairs: list[tuple[str, object]]) -> dict:
+    """Do not silently replace duplicate keys in the frozen visual inventory."""
+    result = {}
+    for key, value in pairs:
+        if key in result:
+            raise ValueError(f"Duplicate visual inventory JSON key: {key}")
+        result[key] = value
+    return result
+
+
+def load_unique_inventory(archive_bytes: bytes) -> dict:
+    """Parse exactly the gzip bytes recorded in provenance, at every JSON depth."""
+    return json.loads(gzip.decompress(archive_bytes),
+                      object_pairs_hook=_unique_inventory_keys)
+
+
 def load_verified_frozen_manifest(manifest_bytes: bytes, root: Path) -> dict:
     """Reject altered leaf allocations before a visual pilot can see train rows.
 
@@ -161,7 +177,7 @@ def main():
     p.add_argument('--out', type=Path, required=True)
     args = p.parse_args()
     raw, manifest_raw = args.inventory.read_bytes(), args.manifest.read_bytes()
-    inventory = json.loads(gzip.decompress(raw))
+    inventory = load_unique_inventory(raw)
     manifest = load_verified_frozen_manifest(manifest_raw, root)
     check_inventory_provenance(inventory, manifest)
     check_source_bytes(inventory, root)
