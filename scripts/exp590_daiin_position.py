@@ -4,6 +4,7 @@ from __future__ import annotations
 import collections
 import hashlib
 import json
+import math
 import random
 import re
 from datetime import datetime, timezone
@@ -107,18 +108,144 @@ def permutation_test(lines, observed, n_perm=N_PERM, seed=SEED):
     }
 
 
+
+def archive_paths(date: str):
+    """Use date-specific historical names without ever overwriting an archive."""
+    return (OUT / f"{date}-exp590-corrected-L-metadata.json",
+            OUT / f"{date}-exp590-corrected-L-metadata.md")
+
+
+def _unique_json_pairs(pairs):
+    """Reject ambiguous JSON even if the duplicate would otherwise be ignored."""
+    result = {}
+    for key, value in pairs:
+        if key in result:
+            raise ValueError(f"Duplicate JSON key: {key}")
+        result[key] = value
+    return result
+
+
+def archive_status(paths, date: str, source_sha: str):
+    """Return new/existing, rejecting incomplete or inconsistent frozen outputs.
+
+    This checks the archive's structure and internal consistency, NOT independent
+    regeneration of its permutation distribution or scientific validity.
+    """
+    if any(path.is_symlink() for path in paths):
+        raise RuntimeError("EXP-590 archive destination is a symlink")
+    present = [path.exists() for path in paths]
+    if not any(present):
+        return "new"
+    if not all(present) or not all(path.is_file() for path in paths):
+        raise RuntimeError("EXP-590 archive is partial or not a regular file; manual adjudication required")
+    try:
+        saved = json.loads(paths[0].read_text(encoding="utf-8"),
+                           object_pairs_hook=_unique_json_pairs)
+        report = paths[1].read_text(encoding="utf-8")
+    except (OSError, UnicodeError, ValueError) as exc:
+        raise RuntimeError("EXP-590 archive is unreadable or ambiguous; refusing replacement") from exc
+    expected = {"experiment": "EXP-590", "date_utc": date,
+                "source": "data/transcriptions/eva_zl3b.txt",
+                "source_sha256": source_sha, "target": TARGET}
+    if not isinstance(saved, dict) or any(saved.get(k) != value for k, value in expected.items()):
+        raise RuntimeError("EXP-590 archived provenance differs; refusing replacement")
+    metrics, perm = saved.get("metrics"), saved.get("permutation_test")
+    if not isinstance(metrics, dict) or not isinstance(perm, dict):
+        raise RuntimeError("EXP-590 archive missing metrics or permutation metadata")
+    if perm.get("seed") != SEED or perm.get("permutations") != N_PERM:
+        raise RuntimeError("EXP-590 archived permutation settings differ")
+    def nonnegative_int(value):
+        return type(value) is int and value >= 0
+    keys = ("tokens", "lines", "target_occurrences",
+            "line_initial_occurrences", "line_final_occurrences")
+    if not all(nonnegative_int(metrics.get(k)) for k in keys):
+        raise RuntimeError("EXP-590 archive has invalid count fields")
+    if metrics["lines"] < 100 or metrics["target_occurrences"] < 20 or metrics["tokens"] < metrics["lines"]:
+        raise RuntimeError("EXP-590 archived population fails sanity checks")
+    occurrences = metrics["target_occurrences"]
+    first, last = metrics["line_initial_occurrences"], metrics["line_final_occurrences"]
+    if first > occurrences or last > occurrences or first > metrics["lines"] or last > metrics["lines"]:
+        raise RuntimeError("EXP-590 archive has impossible positional counts")
+    for key, numerator in (("initial_rate_per_target_occurrence", first),
+                           ("final_rate_per_target_occurrence", last)):
+        value = metrics.get(key)
+        if type(value) not in (int, float) or not math.isfinite(value) or not math.isclose(
+                value, numerator / occurrences, rel_tol=0, abs_tol=1e-12):
+            raise RuntimeError("EXP-590 archived fraction is inconsistent")
+    classes = metrics.get("currier")
+    if not isinstance(classes, dict) or not classes or not set(classes) <= {"A", "B", "unknown"}:
+        raise RuntimeError("EXP-590 archive has invalid Currier classes")
+    totals = [0, 0, 0, 0]
+    table_rows = []
+    for name, row in sorted(classes.items()):
+        if not isinstance(row, dict):
+            raise RuntimeError("EXP-590 archive has invalid Currier row")
+        fields = ("target_occurrences", "line_initial_lines", "line_final_lines", "lines")
+        if not all(nonnegative_int(row.get(k)) for k in fields):
+            raise RuntimeError("EXP-590 archive has invalid Currier counts")
+        n, i, f, line_count = (row[k] for k in fields)
+        if i > n or f > n or i > line_count or f > line_count:
+            raise RuntimeError("EXP-590 archive has impossible Currier positions")
+        for idx, val in enumerate((n, i, f, line_count)):
+            totals[idx] += val
+        table_rows.append(f"| {name} | {n} | {i} | {f} | {line_count} |")
+    if totals != [occurrences, first, last, metrics["lines"]]:
+        raise RuntimeError("EXP-590 Currier totals do not match the archive")
+    p = perm.get("empirical_one_sided_p")
+    mean = perm.get("null_mean_initial_lines")
+    sd = perm.get("null_sd_initial_lines")
+    ge = perm.get("null_ge_observed")
+    if (not all(type(x) in (int, float) and math.isfinite(x) for x in (p, mean, sd))
+            or not nonnegative_int(ge) or ge > N_PERM or sd < 0 or mean < 0
+            or not math.isclose(p, (ge + 1) / (N_PERM + 1), rel_tol=0, abs_tol=1e-12)):
+        raise RuntimeError("EXP-590 archive has inconsistent null statistics")
+    markers = [
+        f"- Fecha UTC: {date}",
+        f"- SHA-256 de la transcripción: {source_sha}",
+        f"- Líneas EVA parseadas: {metrics['lines']:,}",
+        f"- Tokens parseados: {metrics['tokens']:,}",
+        f"- Ocurrencias exactas de daiin: {occurrences:,}",
+        f"- Ocurrencias en primera posición de línea: {first:,}",
+        f"- Ocurrencias en última posición de línea: {last:,}",
+        f"- Permutaciones: {N_PERM:,}",
+        f"- Semilla fija: {SEED}",
+        f"- p empírico unilateral con corrección +1: {p:.6f}",
+        *table_rows,
+    ]
+    if any(report.splitlines().count(marker) != 1 for marker in markers):
+        raise RuntimeError("EXP-590 report disagrees with its JSON or is truncated")
+    return "existing"
+
+
+def write_archive_pair(paths, json_text: str, report: str):
+    """Exclusive create: no existing result may be silently replaced.
+
+    A crash between writes leaves a partial pair requiring human adjudication.
+    """
+    OUT.mkdir(parents=True, exist_ok=True)
+    with paths[0].open("x", encoding="utf-8") as handle:
+        handle.write(json_text)
+    with paths[1].open("x", encoding="utf-8") as handle:
+        handle.write(report)
+
+
 def main():
     if not SOURCE.exists():
         raise SystemExit(f"Missing transcription: {SOURCE}")
     raw, lines = load_lines(SOURCE)
     if len(lines) < 100:
         raise SystemExit(f"Refusing to report: only {len(lines)} parsed text lines.")
+    date = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    digest = hashlib.sha256(raw).hexdigest()
+    paths = archive_paths(date)
+    if archive_status(paths, date, digest) == "existing":
+        print(json.dumps({"experiment": "EXP-590", "status": "skipped_existing",
+                          "date_utc": date, "note": "No permutation rerun; no files replaced."}))
+        return
     metrics = measure(lines)
     if metrics["target_occurrences"] < 20:
         raise SystemExit("Refusing to report: too few exact daiin occurrences.")
     perm = permutation_test(lines, metrics["line_initial_occurrences"])
-    date = datetime.now(timezone.utc).strftime("%Y-%m-%d")
-    digest = hashlib.sha256(raw).hexdigest()
     result = {
         "experiment": "EXP-590",
         "title": "daiin line-initial positional baseline",
@@ -140,8 +267,6 @@ def main():
             "The ASCII-letter token filter does not decode extended glyph codes such as @140; raw source records remain preserved."
         ],
     }
-    OUT.mkdir(parents=True, exist_ok=True)
-    (OUT / f"{date}-exp590-corrected-L-metadata.json").write_text(json.dumps(result, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     p = perm["empirical_one_sided_p"]
     report = f"""# EXP-590 — Posición inicial de daiin
 
@@ -189,7 +314,7 @@ La hipótesis nula permuta el orden de los tokens dentro de cada línea, conserv
     for label, old_key, new_key in [("Líneas con tokens", "nonempty_token_lines", "lines"), ("Tokens", "tokens", "tokens"), ("daiin exactos", "exact_daiin_occurrences", "target_occurrences"), ("Inicios daiin", "line_initial_daiin_lines", "line_initial_occurrences")]:
         report += f"| {label} | {legacy[old_key]} | {metrics[new_key]} |\n"
     report += "\nLas columnas usan distinta cobertura de identificadores; no describen idéntica población. El filtro ASCII no decodifica los códigos de caracteres extendidos @…;. Se conserva la transcripción bruta. Véase la auditoría operativa para el cotejo exacto de registros excluidos.\n"
-    (OUT / f"{date}-exp590-corrected-L-metadata.md").write_text(report, encoding="utf-8")
+    write_archive_pair(paths, json.dumps(result, indent=2, ensure_ascii=False) + "\n", report)
     print(json.dumps({"experiment": "EXP-590", "date_utc": date, "lines": metrics["lines"],
                       "tokens": metrics["tokens"], "daiin": metrics["target_occurrences"],
                       "initial": metrics["line_initial_occurrences"], "p": p,
