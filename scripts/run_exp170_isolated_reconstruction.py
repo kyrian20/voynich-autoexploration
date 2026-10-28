@@ -135,9 +135,16 @@ def run_reconstruction(root, naibbe_dir, italian, hashes, out_dir, execute=False
             )
             stdout, stderr, returncode = proc.stdout, proc.stderr, proc.returncode
         except subprocess.TimeoutExpired as exc:
-            stdout = str(exc.stdout or "")
-            stderr = str(exc.stderr or "") + "\nTIMEOUT"
+            stdout = (exc.stdout or b"")
+            stderr = (exc.stderr or b"")
+            stdout = stdout.decode("utf-8", errors="replace") if isinstance(stdout, bytes) else str(stdout)
+            stderr = stderr.decode("utf-8", errors="replace") if isinstance(stderr, bytes) else str(stderr)
+            stderr += "\nTIMEOUT"
             returncode = 124
+        except OSError as exc:
+            stdout = ""
+            stderr = f"{type(exc).__name__}: {exc}"
+            returncode = 126
         receipt["returncode"] = returncode
         receipt["status"] = "FAILED"
         if returncode == 0:
@@ -165,7 +172,7 @@ def run_reconstruction(root, naibbe_dir, italian, hashes, out_dir, execute=False
             json.dumps(receipt, sort_keys=True, indent=2) + "\n", encoding="utf-8"
         )
         if receipt["status"] == "FAILED":
-            raise RuntimeError(f"Reconstruction failed ({returncode}); logs saved in {out_dir}")
+            raise RuntimeError(f"Reconstruction failed ({receipt['returncode']}); logs saved in {out_dir}")
         return receipt
 
 
