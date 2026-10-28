@@ -230,7 +230,7 @@ class Exp170ReconstructionRunnerTests(unittest.TestCase):
             return real_run([sys.executable, "-c", code], **kwargs)
 
         with patch.object(runner.subprocess, "run", side_effect=synthetic_process):
-            with self.assertRaisesRegex(RuntimeError, r"failed \\(3\\)"):
+            with self.assertRaisesRegex(RuntimeError, r"failed \(3\)"):
                 self.invoke(execute=True)
         receipt = json.loads((self.out / "receipt.json").read_text())
         self.assertEqual(receipt["status"], "FAILED")
@@ -265,12 +265,12 @@ class Exp170ReconstructionRunnerTests(unittest.TestCase):
         self.assertIn(r"\xfe", stderr_log)
         self.assertNotIn("\ufffd", stdout_log + stderr_log)
         self.assertIn("TIMEOUT", stderr_log)
-        self.assertEqual((self.out / "stdout.bin").read_bytes(), b"partial\\xff")
-        self.assertEqual((self.out / "stderr.bin").read_bytes(), b"problem\\xfe")
+        self.assertEqual((self.out / "stdout.bin").read_bytes(), b"partial\xff")
+        self.assertEqual((self.out / "stderr.bin").read_bytes(), b"problem\xfe")
         self.assertEqual(receipt["raw_logs"]["stdout"]["sha256"],
-                         hashlib.sha256(b"partial\\xff").hexdigest())
+                         hashlib.sha256(b"partial\xff").hexdigest())
         self.assertEqual(receipt["raw_logs"]["stderr"]["sha256"],
-                         hashlib.sha256(b"problem\\xfe").hexdigest())
+                         hashlib.sha256(b"problem\xfe").hexdigest())
         self.assertFalse((self.out / "simulation_results.json").exists())
         self.assertEqual(runner.sha256(ROOT / runner.EXP / "data/simulation_results.json"),
                          self.original_sha)
