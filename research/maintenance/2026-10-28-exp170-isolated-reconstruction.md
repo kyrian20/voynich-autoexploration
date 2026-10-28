@@ -29,7 +29,7 @@ La copia temporal es **aislamiento de rutas**, no sandbox de seguridad del siste
 
 ## Regresiones y criterios
 
-`tests/test_exp170_isolated_reconstruction.py` contiene siete pruebas sin cifrado real: preflight sin escritura, destino existente, hash erróneo y symlink, destino dentro del checkout, copia a temporal y publicación nueva con subprocess simulado, fallo de subprocess con logs, y JSON generado incompleto con recibo de error. El test de éxito **copia un JSON histórico como fixture sintético en el temporal** para comprobar el mecanismo de publicación: no es reproducción científica. Se ejecutan tanto con Python normal como con `-O` en la CI canónica. El auditor histórico y sus 18 pruebas siguen separados.
+`tests/test_exp170_isolated_reconstruction.py` contiene ocho pruebas sin cifrado real: preflight sin escritura, destino existente, hash erróneo y symlink, destino dentro del checkout, alteración de bytes durante el copiado posterior al preflight, copia a temporal y publicación nueva con subprocess simulado, fallo de subprocess con logs, y JSON generado incompleto con recibo de error. El test de éxito **copia un JSON histórico como fixture sintético en el temporal** para comprobar el mecanismo de publicación: no es reproducción científica. Se ejecutan tanto con Python normal como con `-O` en la CI canónica. El auditor histórico y sus 18 pruebas siguen separados.
 
 **Aceptación requerida:** CI de la PR en su SHA exacto, revisión de logs y CI de `master` después de la fusión. Ninguna prueba de este bloque autoriza ejecución real de Naibbe. No se modifican corpus, simulaciones, parámetros, semillas, folios reservados ni `state/committed_claims.md`.
 
