@@ -6,7 +6,7 @@
 
 El runner de reconstrucción aislada usaba `subprocess.run(..., text=True, capture_output=True)` con decodificación estricta implícita. Si el simulador emite un byte inválido para UTF-8, `subprocess.run` puede lanzar `UnicodeDecodeError`. Esa excepción no está cubierta por los manejadores de timeout ni OSError: el directorio ya reservado queda sin `receipt.json`, `stdout.log` ni `stderr.log`. No implica que los datos históricos estén alterados ni que el simulador real haya producido ese byte.
 
-**Reproducción independiente mínima (Python 3.13.5, no es la suite del repositorio):** un hijo sintético que emite `b'bad\\xff'` y `b'err\\xfe'` y termina con código 3 provoca `UnicodeDecodeError` con `text=True` sin `errors`; con `encoding='utf-8', errors='backslashreplace'` devuelve código 3 y textos `'bad\\\\xff'`, `'err\\\\xfe'` (representación escapada). Esto no sustituye la CI en Python 3.12.
+**Reproducción independiente mínima (Python 3.13.5, no es la suite del repositorio):** un hijo sintético que emite `b'bad\xff'` y `b'err\xfe'` y termina con código 3 provoca `UnicodeDecodeError` con `text=True` sin `errors`; con `encoding='utf-8', errors='backslashreplace'` devuelve código 3 y textos `'bad\\xff'`, `'err\\xfe'` (representación escapada). Esto no sustituye la CI en Python 3.12.
 
 ## Reparación y regresión
 
