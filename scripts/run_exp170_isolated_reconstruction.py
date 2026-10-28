@@ -142,8 +142,10 @@ def run_reconstruction(root, naibbe_dir, italian, hashes, out_dir, execute=False
         except subprocess.TimeoutExpired as exc:
             stdout = (exc.stdout or b"")
             stderr = (exc.stderr or b"")
-            stdout = stdout.decode("utf-8", errors="replace") if isinstance(stdout, bytes) else str(stdout)
-            stderr = stderr.decode("utf-8", errors="replace") if isinstance(stderr, bytes) else str(stderr)
+            # TimeoutExpired exposes raw bytes even with text=True. Do not
+            # collapse distinct invalid bytes into U+FFFD in diagnostic logs.
+            stdout = stdout.decode("utf-8", errors="backslashreplace") if isinstance(stdout, bytes) else str(stdout)
+            stderr = stderr.decode("utf-8", errors="backslashreplace") if isinstance(stderr, bytes) else str(stderr)
             stderr += "\nTIMEOUT"
             returncode = 124
         except OSError as exc:
