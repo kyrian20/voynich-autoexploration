@@ -188,6 +188,30 @@ class Exp170ReconstructionRunnerTests(unittest.TestCase):
         self.assertEqual(runner.sha256(ROOT / runner.EXP / "data/simulation_results.json"),
                          self.original_sha)
 
+    def test_non_utf8_subprocess_output_preserves_failure_receipt(self):
+        # Run a tiny synthetic child, never the historical 400-run simulator.
+        real_run = runner.subprocess.run
+
+        def synthetic_bytes_process(args, **kwargs):
+            self.assertTrue(str(args[1]).endswith("script.py"))
+            code = ("import sys\n"
+                    "sys.stdout.buffer.write(b'partial\\xff')\n"
+                    "sys.stderr.buffer.write(b'problem\\xfe')\n"
+                    "raise SystemExit(3)\n")
+            return real_run([sys.executable, "-c", code], **kwargs)
+
+        with patch.object(runner.subprocess, "run", side_effect=synthetic_bytes_process):
+            with self.assertRaisesRegex(RuntimeError, r"failed \(3\)"):
+                self.invoke(execute=True)
+        receipt = json.loads((self.out / "receipt.json").read_text())
+        self.assertEqual(receipt["returncode"], 3)
+        self.assertEqual(receipt["status"], "FAILED")
+        self.assertIn(r"\xff", (self.out / "stdout.log").read_text())
+        self.assertIn(r"\xfe", (self.out / "stderr.log").read_text())
+        self.assertFalse((self.out / "simulation_results.json").exists())
+        self.assertEqual(runner.sha256(ROOT / runner.EXP / "data/simulation_results.json"),
+                         self.original_sha)
+
     def test_timeout_with_bytes_keeps_decoded_logs(self):
         error = runner.subprocess.TimeoutExpired(
             cmd=["synthetic"], timeout=1, output=b"partial\xff", stderr=b"problem\xfe")

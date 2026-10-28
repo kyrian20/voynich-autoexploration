@@ -135,6 +135,8 @@ def run_reconstruction(root, naibbe_dir, italian, hashes, out_dir, execute=False
                 [sys.executable, str(stage / EXP / "script.py")],
                 cwd=stage, env=env, text=True, capture_output=True,
                 timeout=timeout, check=False,
+                # Preserve undecodable bytes as \xNN escapes in forensic text logs.
+                encoding="utf-8", errors="backslashreplace",
             )
             stdout, stderr, returncode = proc.stdout, proc.stderr, proc.returncode
         except subprocess.TimeoutExpired as exc:
