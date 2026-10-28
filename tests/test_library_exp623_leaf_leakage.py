@@ -33,10 +33,10 @@ class LibraryExp623LeakageTests(unittest.TestCase):
 
     def test_nonphysical_separators_cannot_forge_folio_headers(self):
         # A phantom page must never be promoted from a comment or locus body.
-        for separator in "\\v\\f\\x1c\\x1d\\x1e\\x85\\u2028\\u2029":
+        for separator in "\v\f\x1c\x1d\x1e\x85\u2028\u2029":
             text = (
-                "<f1r> $L=A\\n<f1r.1,@P0> ab.cd.ef"
-                + separator + "<f2r> $L=B\\n<f2r.1,@P0> ab.cd.ef\\n"
+                "<f1r> $L=A\n<f1r.1,@P0> ab.cd.ef"
+                + separator + "<f2r> $L=B\n<f2r.1,@P0> ab.cd.ef\n"
             )
             for reader in (audit.eligible_a, audit.eligible_b):
                 with self.subTest(separator=ord(separator), reader=reader.__name__):
@@ -44,7 +44,7 @@ class LibraryExp623LeakageTests(unittest.TestCase):
                         reader(text)
 
     def test_only_cr_lf_and_crlf_delimit_physical_rows(self):
-        for newline in ("\\n", "\\r", "\\r\\n"):
+        for newline in ("\n", "\r", "\r\n"):
             with self.subTest(newline=repr(newline)):
                 text = newline.join((
                     "<f1r> $L=A", "<f1r.1,@P0> ab.cd.ef",
