@@ -86,7 +86,7 @@ class Exp170ReconstructionRunnerTests(unittest.TestCase):
         with patch.object(runner.shutil, "copyfile", side_effect=copy_then_mutate):
             with self.assertRaisesRegex(ValueError, "Staged input SHA-256 mismatch: italian"):
                 runner.stage_inputs(stage, ROOT, self.naibbe, self.italian, self.hashes)
-        self.assertEqual(self.italian.read_text(), "testo sintetico\\n")
+        self.assertEqual(self.italian.read_text(), "testo sintetico\n")
 
     def test_staged_success_uses_disposable_paths_and_new_output(self):
         def synthetic_simulator(args, **kwargs):
