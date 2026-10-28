@@ -94,6 +94,34 @@ class HoldoutLocusCoverageTests(unittest.TestCase):
                 with self.assertRaisesRegex(ValueError, "Malformed|Unparsed"):
                     inspect_source(b"<f1r> good\n" + broken + b"\n")
 
+    def test_nonphysical_separator_cannot_forge_a_folio(self):
+        # Before this guard, splitlines() treated these eight characters as
+        # line endings and counted a fake <f2r> inside a physical comment.
+        for separator in ("\\v", "\\f", "\\x1c", "\\x1d", "\\x1e",
+                          "\\x85", "\\u2028", "\\u2029"):
+            with self.subTest(codepoint=f"U+{ord(separator):04X}"):
+                raw = (
+                    "<f1r> metadata\\n<f1r.1,@P0> a\\n"
+                    "# comment" + separator + "<f2r> forged\\n"
+                    "<f2r.1,@P0> b\\n"
+                ).encode("utf-8")
+                with self.assertRaisesRegex(
+                    ValueError, "Non-physical IVTFF line separator"
+                ):
+                    inspect_source(raw)
+
+    def test_physical_cr_lf_crlf_are_accepted(self):
+        for ending in ("\\n", "\\r", "\\r\\n"):
+            with self.subTest(ending=repr(ending)):
+                raw = ending.join((
+                    "<f1r> metadata", "<f1r.1,@P0> a",
+                    "<f2v1> metadata", "<f2v1.1,@P0> b",
+                )).encode("utf-8")
+                result = inspect_source(raw)
+                self.assertEqual(result["numeric_leaves"], [1, 2])
+                self.assertEqual(result["numeric_page_header_count"], 2)
+                self.assertEqual(result["numeric_locus_record_count"], 2)
+
     def test_valid_header_and_locus_control(self):
         result = inspect_source(
             b"<f1r> metadata\n<f1r.1,@P0> body\n"
