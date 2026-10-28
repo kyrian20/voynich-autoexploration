@@ -221,10 +221,17 @@ class Exp170ReconstructionRunnerTests(unittest.TestCase):
         receipt = json.loads((self.out / "receipt.json").read_text())
         self.assertEqual(receipt["returncode"], 124)
         self.assertEqual(receipt["status"], "FAILED")
-        self.assertIn("partial", (self.out / "stdout.log").read_text())
-        self.assertIn("problem", (self.out / "stderr.log").read_text())
-        self.assertIn("TIMEOUT", (self.out / "stderr.log").read_text())
+        stdout_log = (self.out / "stdout.log").read_text(encoding="utf-8")
+        stderr_log = (self.out / "stderr.log").read_text(encoding="utf-8")
+        # TimeoutExpired carries bytes even when subprocess.run(text=True).
+        # Replacement characters would destroy the identity of invalid bytes.
+        self.assertIn(r"\xff", stdout_log)
+        self.assertIn(r"\xfe", stderr_log)
+        self.assertNotIn("\ufffd", stdout_log + stderr_log)
+        self.assertIn("TIMEOUT", stderr_log)
         self.assertFalse((self.out / "simulation_results.json").exists())
+        self.assertEqual(runner.sha256(ROOT / runner.EXP / "data/simulation_results.json"),
+                         self.original_sha)
 
 
 if __name__ == "__main__":
