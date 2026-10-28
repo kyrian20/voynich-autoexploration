@@ -1,6 +1,6 @@
 # Protección contra sobrescritura del manifiesto prospectivo v2 — 28-10-2026
 
-**Clase:** corrección de integridad operativa, no experimento lingüístico ni nuevo EXP. **Base:** `master` `f5d965ef434e4bf5e37b13b49b550f330fac51d0`. **Estado del informe:** propuesta; verificar ejecución y CI antes de declarar integración.
+**Clase:** corrección de integridad operativa, no experimento lingüístico ni nuevo EXP. **Base:** `master` `f5d965ef434e4bf5e37b13b49b550f330fac51d0`. **Estado:** integrado en `master` mediante PR #136; commit de integración `9134d8c872f35602912512b33d27b8e9cc8bff67`. La ejecución `Voynich Check` [40777908118](https://github.com/kyrian20/voynich-autoexploration/actions/runs/40777908118) terminó en `success` para ese commit.
 
 ## Defecto concreto
 
@@ -12,7 +12,11 @@ Se usa `Path.open("x", encoding="utf-8", newline="\\n")` con escritura dentro de
 
 Se añaden dos regresiones a `tests/test_prospective_leaf_holdout_v2.py`: (1) generación nueva con comparación byte a byte contra `manifest-v2.json` congelado; (2) rechazo de archivo preexistente y de enlace simbólico, verificando bytes originales. Las pruebas usan un directorio temporal para no tocar los manifiestos archivados. No hay semillas ni aleatoriedad nuevas.
 
-## Comprobación exigida
+## Verificación integrada
+
+La ejecución de `Voynich Check` para el commit de integración `9134d8c872f35602912512b33d27b8e9cc8bff67` terminó en `success`. El job `check` completó todos sus pasos, incluidos **“Verificar corrección de paneles y manifiesto v2 sin alterar v1”** y **“Comprobar independientemente la cobertura y particiones archivadas”**. Esta verificación acredita el alcance de las comprobaciones configuradas en ese workflow; no valida la independencia histórica de los folios, el modelo predictivo, una lectura semántica ni un desciframiento.
+
+## Reproducción local
 
 ```sh
 python -m unittest discover -s tests -p 'test_prospective_leaf_holdout_v2.py' -v
@@ -21,6 +25,6 @@ python scripts/prepare_prospective_leaf_holdout_v2.py --out prospective-leaf-hol
 cmp research/decipherment/2026-10-23-prospective-leaf-holdout/manifest-v2.json prospective-leaf-holdout-v2.json
 ```
 
-El workflow existente `Voynich Check` ya ejecuta las regresiones normales y la comparación del manifiesto; no se crea otro workflow ni se relanzan ejecuciones ajenas. Verificar el SHA exacto del commit de PR, los pasos y el run de `master` después de fusionar. Conservar los resultados negativos y los artefactos originales.
+## Limitaciones
 
-**Limitaciones:** esta reparación impide sobrescrituras de la salida v2; no certifica IVTFF completo, procedencia de todos los archivos, independencia histórica de los folios reservados, validez predictiva o traducción. El generador v1 permanece congelado. EXP-170 y la conciliación histórica de artefactos continúan pendientes. Evaluación general: 22-11-2026, sin garantía de desciframiento.
+Esta reparación impide sobrescrituras de la salida v2; no certifica IVTFF completo, procedencia de todos los archivos, independencia histórica de los folios reservados, validez predictiva o traducción. El generador v1 permanece congelado. EXP-170 y la conciliación histórica de artefactos continúan pendientes. Próxima evaluación prevista: 22-11-2026. No hay garantía de desciframiento.
