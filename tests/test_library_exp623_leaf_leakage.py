@@ -48,10 +48,38 @@ class LibraryExp623LeakageTests(unittest.TestCase):
         baseline = {name: {method: [{"shared_physical_leaves": list(range(n))} for n in values]
                            for method, values in methods.items()}
                     for name, methods in audit.EXPECTED_OVERLAP.items()}
-        audit.check_expected(baseline)
-        baseline["ZL3b"]["B_interior_tokens"][0]["shared_physical_leaves"].pop()
-        with self.assertRaisesRegex(ValueError, "overlap counts drift"):
+        frozen = {name: {method: audit.split_sha256(rows) for method, rows in methods.items()}
+                  for name, methods in baseline.items()}
+        with patch.dict(audit.EXPECTED_SPLIT_SHA256, frozen, clear=True):
             audit.check_expected(baseline)
+            baseline["ZL3b"]["B_interior_tokens"][0]["shared_physical_leaves"].pop()
+            with self.assertRaisesRegex(ValueError, "overlap counts drift"):
+                audit.check_expected(baseline)
+
+    def test_same_count_membership_and_seed_drift_are_rejected(self):
+        baseline = {name: {method: [{"seed": index, "train_page_ids": 7,
+                                    "test_page_ids": 3,
+                                    "shared_physical_leaves": list(range(n))}
+                                   for index, n in enumerate(values)]
+                           for method, values in methods.items()}
+                    for name, methods in audit.EXPECTED_OVERLAP.items()}
+        frozen = {name: {method: audit.split_sha256(rows) for method, rows in methods.items()}
+                  for name, methods in baseline.items()}
+        with patch.dict(audit.EXPECTED_SPLIT_SHA256, frozen, clear=True):
+            audit.check_expected(baseline)
+            row = baseline["ZL3b"]["A_all_tokens"][0]
+            original = row["shared_physical_leaves"][0]
+            row["shared_physical_leaves"][0] = 999
+            with self.assertRaisesRegex(ValueError, "split evidence drift"):
+                audit.check_expected(baseline)
+            row["shared_physical_leaves"][0] = original
+            row["seed"] += 1
+            with self.assertRaisesRegex(ValueError, "split evidence drift"):
+                audit.check_expected(baseline)
+            row["seed"] -= 1
+            row["train_page_ids"] += 1
+            with self.assertRaisesRegex(ValueError, "split evidence drift"):
+                audit.check_expected(baseline)
 
 
 if __name__ == "__main__":
