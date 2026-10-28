@@ -4,7 +4,9 @@
 
 ## Defecto demostrado
 
-En los ocho registros `results.{ZL3b,IT2a}.leave_out[*]`, la propiedad `removed` contiene las **observaciones que permanecen** tras excluir el bloque, no las observaciones retiradas. Ejemplo ZL3b 103–106: total 280 celdas; `removed.cells=171`; `group_contributions.summary.cells=109`; 171+109=280. IT2a: 283=173+110. El texto del informe histórico ya describe correctamente las celdas restantes. La ambigüedad afecta a consumidores programáticos del JSON.\n\n**Segundo defecto revelado por la regresión inicial:** el campo histórico `folios` tampoco es el número de hojas físicas: registra 23 unidades para los cuatro bloques, que solo contienen 12 números de hoja (4+2+3+3). En 103–106 figuran 8 `folios` para 4 hojas numéricas, coherente con contar las dos caras. Sin las filas y el script originales no se certifica la unidad exacta; el JSON derivado distingue el recuento histórico de los números nominales de hoja y no los equipara.
+En los ocho registros `results.{ZL3b,IT2a}.leave_out[*]`, la propiedad `removed` contiene las **observaciones que permanecen** tras excluir el bloque, no las observaciones retiradas. Ejemplo ZL3b 103–106: total 280 celdas; `removed.cells=171`; `group_contributions.summary.cells=109`; 171+109=280. IT2a: 283=173+110. El texto del informe histórico ya describe correctamente las celdas restantes. La ambigüedad afecta a consumidores programáticos del JSON.
+
+**Segundo defecto revelado por la regresión inicial:** el campo histórico `folios` tampoco es el número de hojas físicas: registra 23 unidades para los cuatro bloques, que solo contienen 12 números de hoja (4+2+3+3). En 103–106 figuran 8 `folios` para 4 hojas numéricas, coherente con contar las dos caras. Sin las filas y el script originales no se certifica la unidad exacta; el JSON derivado distingue el recuento histórico de los números nominales de hoja y no los equipara.
 
 ## Reparación verificable
 
@@ -20,7 +22,9 @@ python scripts/audit_exp616_legacy_schema.py --out exp616-schema-correction.json
 
 ## Limitaciones y autoauditoría
 
-La primera CI de esta rama ([run 40750127958](https://github.com/kyrian20/voynich-autoexploration/actions/runs/40750127958)) falló porque el auditor equiparó indebidamente las 8 unidades `folios` del bloque 103–106 con sus 4 hojas numéricas. Se conserva el fallo y se corrigió el supuesto, añadiendo regresión explícita. La CI del nuevo commit debe comprobarse por separado.\n\nNo existe `script.py` dentro del directorio histórico EXP-616: se verifica **aritmética interna y procedencia**, no la reproducción de las tasas desde las líneas IVTFF. Los bloques 103–106, 107–108, 111–113 y 114–116 son heurísticos, no secciones codicológicas confirmadas. ZL3b e IT2a no son testigos independientes. No se calculan nuevos p-valores ni se interpreta significado lingüístico.
+La primera CI de esta rama ([run 40750127958](https://github.com/kyrian20/voynich-autoexploration/actions/runs/40750127958)) falló porque el auditor equiparó indebidamente las 8 unidades `folios` del bloque 103–106 con sus 4 hojas numéricas. Se conserva el fallo y se corrigió el supuesto, añadiendo regresión explícita. La CI del nuevo commit debe comprobarse por separado.
+
+No existe `script.py` dentro del directorio histórico EXP-616: se verifica **aritmética interna y procedencia**, no la reproducción de las tasas desde las líneas IVTFF. Los bloques 103–106, 107–108, 111–113 y 114–116 son heurísticos, no secciones codicológicas confirmadas. ZL3b e IT2a no son testigos independientes. No se calculan nuevos p-valores ni se interpreta significado lingüístico.
 
 **Target-awareness:** ninguna selección o parámetro se calibra sobre un objetivo Voynich; se conserva la partición histórica. **Feature destruction:** no se altera texto, tokenización ni resultados. **Extrapolación:** únicamente se corrige el nombre semántico de un campo. **Resultado negativo:** no se modifica ninguna conclusión histórica. **Controles:** se exige que las contribuciones excluidas más las restantes reconstruyan exactamente los totales y tasas; las mutaciones sintéticas deben ser rechazadas. No hay inferencia sobre controles de lenguaje.
 
