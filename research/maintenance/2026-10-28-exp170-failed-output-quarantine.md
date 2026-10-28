@@ -14,6 +14,10 @@ El ejecutor aislado descartaba cualquier `simulation_results.json` recién gener
 
 `tests/test_exp170_isolated_reconstruction.py` añade un caso de hijo sintético con retorno 3 y bytes no UTF-8, y refuerza la regresión del esquema inválido. La CI ya ejecuta este archivo con Python normal y `-O`. No se ejecuta Naibbe ni se repiten 400 simulaciones.
 
+## Primer intento de CI y corrección de regresión
+
+El primer run de la PR, [40641944418](https://github.com/kyrian20/voynich-autoexploration/actions/runs/40641944418), terminó en **failure**: la nueva prueba tenía una expresión regular con escapes dobles y no reconocía el mensaje correcto `Reconstruction failed (3)`. El runner sí levantó el fallo esperado y el test de esquema inválido pasó; no se declara validación. Se corrigió exclusivamente la aserción del test y se requiere un run nuevo para cerrar. El fallo anterior se conserva en Actions.
+
 ## Verificación y límites
 
 **Pendiente de comprobación:** CI del commit exacto de esta rama y CI posterior a una eventual fusión. No declarar cierre hasta ambas. El archivo fallido puede contener datos parciales o malformados y no acredita reproducción histórica; sus bytes se preservan exclusivamente para diagnóstico. Si el hijo no genera archivo o el archivo no es regular, no existe resultado recuperable. Esta herramienta no es un sandbox de seguridad. No se modifican corpus, semillas, holdouts, archivos históricos ni `state/committed_claims.md`.
