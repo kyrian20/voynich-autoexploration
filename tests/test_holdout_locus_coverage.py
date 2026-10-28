@@ -97,13 +97,13 @@ class HoldoutLocusCoverageTests(unittest.TestCase):
     def test_nonphysical_separator_cannot_forge_a_folio(self):
         # Before this guard, splitlines() treated these eight characters as
         # line endings and counted a fake <f2r> inside a physical comment.
-        for separator in ("\\v", "\\f", "\\x1c", "\\x1d", "\\x1e",
-                          "\\x85", "\\u2028", "\\u2029"):
+        for separator in ("\v", "\f", "\x1c", "\x1d", "\x1e",
+                          "\x85", "\u2028", "\u2029"):
             with self.subTest(codepoint=f"U+{ord(separator):04X}"):
                 raw = (
-                    "<f1r> metadata\\n<f1r.1,@P0> a\\n"
-                    "# comment" + separator + "<f2r> forged\\n"
-                    "<f2r.1,@P0> b\\n"
+                    "<f1r> metadata\n<f1r.1,@P0> a\n"
+                    "# comment" + separator + "<f2r> forged\n"
+                    "<f2r.1,@P0> b\n"
                 ).encode("utf-8")
                 with self.assertRaisesRegex(
                     ValueError, "Non-physical IVTFF line separator"
@@ -111,7 +111,7 @@ class HoldoutLocusCoverageTests(unittest.TestCase):
                     inspect_source(raw)
 
     def test_physical_cr_lf_crlf_are_accepted(self):
-        for ending in ("\\n", "\\r", "\\r\\n"):
+        for ending in ("\n", "\r", "\r\n"):
             with self.subTest(ending=repr(ending)):
                 raw = ending.join((
                     "<f1r> metadata", "<f1r.1,@P0> a",
