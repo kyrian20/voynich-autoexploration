@@ -60,6 +60,31 @@ class Exp616LegacySchemaTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "source Git blob SHA-1 drift"):
             mod.adjudicate(altered)
 
+    def test_reject_boolean_rate_in_synthetic_summary(self):
+        # Python bool is an int subclass; JSON true/false must not be rates.
+        summary = {
+            "cells": 2, "folios": 1, "ch_n": 1, "sh_n": 1,
+            "ch_rate": 0.25, "sh_rate": 0.75,
+            "difference_sh_minus_ch": 0.5,
+        }
+        mod.check_summary(summary)  # Valid numeric control.
+        for field in ("ch_rate", "sh_rate", "difference_sh_minus_ch"):
+            with self.subTest(field=field):
+                altered = summary.copy()
+                altered[field] = False
+                with self.assertRaisesRegex(ValueError, "Invalid rate"):
+                    mod.check_summary(altered)
+
+    def test_reject_boolean_rate_with_true(self):
+        summary = {
+            "cells": 2, "folios": 1, "ch_n": 1, "sh_n": 1,
+            "ch_rate": True, "sh_rate": 1.0,
+            "difference_sh_minus_ch": 0.0,
+        }
+        # This previously passed because True == 1 and 1.0 - True == 0.
+        with self.assertRaisesRegex(ValueError, "Invalid rate"):
+            mod.check_summary(summary)
+
     def test_reject_invalid_counts(self):
         altered = copy.deepcopy(self.original)
         altered["results"]["ZL3b"]["all"]["ch_n"] = -1
