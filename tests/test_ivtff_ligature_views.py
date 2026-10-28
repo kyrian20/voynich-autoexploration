@@ -63,19 +63,19 @@ def main() -> None:
     with tempfile.TemporaryDirectory() as directory:
         root = Path(directory)
         source = root / "synthetic.ivtff"
-        clean = "<f1r> <! $L=A>\\n<f1r.1,@P0> daiin\\n"
+        clean = "<f1r> <! $L=A>\n<f1r.1,@P0> daiin\n"
         with patch.object(ligature_audit, "ROOT", root):
-            for newline in ("\\n", "\\r\\n", "\\r"):
-                source.write_bytes(clean.replace("\\n", newline).encode("utf-8"))
+            for newline in ("\n", "\r\n", "\r"):
+                source.write_bytes(clean.replace("\n", newline).encode("utf-8"))
                 verified = ligature_audit.audit_source("synthetic", source)
                 assert verified["text_lines"] == 1, verified
                 assert verified["exact_daiin_occurrences"]["historical"] == 1, verified
 
-            for separator in "\\v\\f\\x1c\\x1d\\x1e\\x85\\u2028\\u2029":
+            for separator in "\v\f\x1c\x1d\x1e\x85\u2028\u2029":
                 contaminated = (
-                    "<f1r> <! $L=A>\\n"
-                    "# comment" + separator + "<f1r.1,@P0> daiin\\n"
-                    "<f1r.2,@P0> chedy\\n"
+                    "<f1r> <! $L=A>\n"
+                    "# comment" + separator + "<f1r.1,@P0> daiin\n"
+                    "<f1r.2,@P0> chedy\n"
                 )
                 source.write_bytes(contaminated.encode("utf-8"))
                 try:
@@ -94,7 +94,7 @@ def main() -> None:
             # The historical broad regex matches this malformed tag, but the
             # independent structural audit must reject its missing delimiter.
             source.write_text(
-                "<f1r> <! $L=A>\\n<f1r.1,@P0>garbage\\n", encoding="utf-8"
+                "<f1r> <! $L=A>\n<f1r.1,@P0>garbage\n", encoding="utf-8"
             )
             try:
                 ligature_audit.audit_source("synthetic", source)
