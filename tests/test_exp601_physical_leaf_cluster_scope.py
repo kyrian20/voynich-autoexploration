@@ -21,6 +21,7 @@ class Exp601PhysicalLeafScopeTests(unittest.TestCase):
     def test_real_archive_81_units_are_only_40_numbered_leaves(self):
         audited = mod.audit()
         self.assertEqual(audited["status"], "INVALID_FOR_CLAIM")
+        self.assertEqual(audited["historical_page_ids_sha256"], mod.FROZEN_PAGE_IDS_SHA256)
         crosswalk = audited["crosswalk"]
         self.assertEqual(crosswalk["historical_resampling_units"], 81)
         self.assertEqual(crosswalk["distinct_numbered_physical_leaves"], 40)
@@ -61,7 +62,28 @@ class Exp601PhysicalLeafScopeTests(unittest.TestCase):
     def test_reject_same_count_wrong_page_identity(self):
         altered = copy.deepcopy(self.archive)
         altered["leave_one_folio_out"]["all_folios"][0]["folio"] = "f999r"
-        with self.assertRaisesRegex(ValueError, "crosswalk drift"):
+        with self.assertRaisesRegex(ValueError, "identity or order drift"):
+            mod.adjudicate(altered)
+
+    def test_reject_same_summary_different_historical_panel_id(self):
+        altered = copy.deepcopy(self.archive)
+        original_ids = [row["folio"] for row in self.archive["leave_one_folio_out"]["all_folios"]]
+        altered["leave_one_folio_out"]["all_folios"][0]["folio"] = "f103r1"
+        changed_ids = [row["folio"] for row in altered["leave_one_folio_out"]["all_folios"]]
+        original = mod.classify_units(original_ids)
+        changed = mod.classify_units(changed_ids)
+        # Regression demonstrates why the old aggregate-only guard was insufficient.
+        for key in ("historical_resampling_units", "distinct_numbered_physical_leaves",
+                    "leaves_with_both_sides", "page_panel_units_per_leaf_histogram"):
+            self.assertEqual(original[key], changed[key])
+        with self.assertRaisesRegex(ValueError, "identity or order drift"):
+            mod.adjudicate(altered)
+
+    def test_reject_same_id_set_different_archive_order(self):
+        altered = copy.deepcopy(self.archive)
+        rows = altered["leave_one_folio_out"]["all_folios"]
+        rows[0], rows[1] = rows[1], rows[0]
+        with self.assertRaisesRegex(ValueError, "identity or order drift"):
             mod.adjudicate(altered)
 
     def test_reject_frozen_source_mutation_and_symlink(self):
