@@ -1,11 +1,14 @@
 #!/usr/bin/env python3
 """Regression tests for non-destructive IVTFF ligature views."""
 import sys
+import tempfile
 from pathlib import Path
+from unittest.mock import patch
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
+import scripts.audit_ivtff_ligature_views as ligature_audit
 from scripts.audit_ivtff_ligature_views import tokenize_views, summarize_lines, TEXT_LINE, legacy_parser_coverage
 
 
@@ -53,6 +56,53 @@ def main() -> None:
     assert summary["exact_daiin_occurrences"]["expanded"] == 3, summary
     assert summary["lines_changed_vs_historical"]["atomic"] == 1, summary
     assert summary["lines_changed_vs_historical"]["expanded"] == 1, summary
+    # The old splitlines() reader could promote a record embedded in a
+    # comment via U+2028 (and seven other separators) into a false record.
+    # Verify both the legacy comparator and the full descriptive audit reject
+    # such sources rather than publishing contaminated token counts.
+    with tempfile.TemporaryDirectory() as directory:
+        root = Path(directory)
+        source = root / "synthetic.ivtff"
+        clean = "<f1r> <! $L=A>\\n<f1r.1,@P0> daiin\\n"
+        with patch.object(ligature_audit, "ROOT", root):
+            for newline in ("\\n", "\\r\\n", "\\r"):
+                source.write_bytes(clean.replace("\\n", newline).encode("utf-8"))
+                verified = ligature_audit.audit_source("synthetic", source)
+                assert verified["text_lines"] == 1, verified
+                assert verified["exact_daiin_occurrences"]["historical"] == 1, verified
+
+            for separator in "\\v\\f\\x1c\\x1d\\x1e\\x85\\u2028\\u2029":
+                contaminated = (
+                    "<f1r> <! $L=A>\\n"
+                    "# comment" + separator + "<f1r.1,@P0> daiin\\n"
+                    "<f1r.2,@P0> chedy\\n"
+                )
+                source.write_bytes(contaminated.encode("utf-8"))
+                try:
+                    legacy_parser_coverage(contaminated)
+                except ValueError as exc:
+                    assert "Non-physical IVTFF line separator" in str(exc), exc
+                else:
+                    raise AssertionError("Legacy comparison accepted a forged physical row")
+                try:
+                    ligature_audit.audit_source("synthetic", source)
+                except ValueError as exc:
+                    assert "invalid IVTFF page/locus structure" in str(exc), exc
+                else:
+                    raise AssertionError("Ligature audit accepted a forged IVTFF record")
+
+            # The historical broad regex matches this malformed tag, but the
+            # independent structural audit must reject its missing delimiter.
+            source.write_text(
+                "<f1r> <! $L=A>\\n<f1r.1,@P0>garbage\\n", encoding="utf-8"
+            )
+            try:
+                ligature_audit.audit_source("synthetic", source)
+            except ValueError as exc:
+                assert "invalid IVTFF page/locus structure" in str(exc), exc
+            else:
+                raise AssertionError("Malformed IVTFF locus was counted as text")
+
     print("IVTFF ligature view regression tests passed.")
 
 
