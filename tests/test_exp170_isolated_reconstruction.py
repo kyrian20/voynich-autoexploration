@@ -137,5 +137,34 @@ class Exp170ReconstructionRunnerTests(unittest.TestCase):
         self.assertFalse((self.out / "simulation_results.json").exists())
 
 
+    def test_subprocess_launch_error_keeps_receipt_and_logs(self):
+        with patch.object(runner.subprocess, "run",
+                          side_effect=OSError("synthetic interpreter launch failure")):
+            with self.assertRaisesRegex(RuntimeError, r"failed \\(126\\)"):
+                self.invoke(execute=True)
+        receipt = json.loads((self.out / "receipt.json").read_text())
+        self.assertEqual(receipt["returncode"], 126)
+        self.assertEqual(receipt["status"], "FAILED")
+        self.assertIn("OSError: synthetic interpreter launch failure",
+                      (self.out / "stderr.log").read_text())
+        self.assertFalse((self.out / "simulation_results.json").exists())
+        self.assertEqual(runner.sha256(ROOT / runner.EXP / "data/simulation_results.json"),
+                         self.original_sha)
+
+    def test_timeout_with_bytes_keeps_decoded_logs(self):
+        error = runner.subprocess.TimeoutExpired(
+            cmd=["synthetic"], timeout=1, output=b"partial\\xff", stderr=b"problem\\xfe")
+        with patch.object(runner.subprocess, "run", side_effect=error):
+            with self.assertRaisesRegex(RuntimeError, r"failed \\(124\\)"):
+                self.invoke(execute=True)
+        receipt = json.loads((self.out / "receipt.json").read_text())
+        self.assertEqual(receipt["returncode"], 124)
+        self.assertEqual(receipt["status"], "FAILED")
+        self.assertIn("partial", (self.out / "stdout.log").read_text())
+        self.assertIn("problem", (self.out / "stderr.log").read_text())
+        self.assertIn("TIMEOUT", (self.out / "stderr.log").read_text())
+        self.assertFalse((self.out / "simulation_results.json").exists())
+
+
 if __name__ == "__main__":
     unittest.main()
