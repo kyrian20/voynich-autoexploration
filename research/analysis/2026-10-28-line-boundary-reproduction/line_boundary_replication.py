@@ -1,0 +1,168 @@
+#!/usr/bin/env python3
+"""Deterministic independent reimplementation of the Voynich line-boundary model."""
+from __future__ import annotations
+import collections, hashlib, json, math, re, statistics, random
+from pathlib import Path
+
+ROOT=Path(__file__).resolve().parent
+INPUTS={"ZL3b":ROOT/"eva_zl3b.txt","IT2a":ROOT/"eva_it2a.txt"}
+ROW=re.compile(r"^<(?P<ident>[^>]+)>\s+(?P<body>.*)$")
+UNCERTAIN=re.compile(r"\{[^}]*\}|\?")
+def sha(p):
+ h=hashlib.sha256()
+ with p.open("rb") as f:
+  for b in iter(lambda:f.read(1<<20),b""):h.update(b)
+ return h.hexdigest()
+def tokens(body,policy="primary"):
+ body=re.sub(r"<![^>]*>"," ",body);body=re.sub(r"<[^>]*>"," ",body)
+ body=re.sub(r"\[([^:\]]*):[^\]]*\]",r"\1",body);body=re.sub(r"\[([^\]]*)\]",r"\1",body)
+ out=[]
+ for x in re.split(r"[.\s,]+",body):
+  if not x or (policy=="drop_uncertain_word" and UNCERTAIN.search(x)):continue
+  x=re.sub(r"\{[^}]*\}"," ",x);x=re.sub(r"@\d+;?"," ",x)
+  out.extend(w.lower() for w in re.findall(r"[A-Za-z]+",x))
+ return out
+def parse(path,policy="primary"):
+ pages=collections.defaultdict(list)
+ for lineno,raw in enumerate(path.read_text(encoding="latin-1").splitlines(),1):
+  m=ROW.match(raw.strip())
+  if not m or "," not in m["ident"]:continue
+  ident,locus=m["ident"].split(",",1);parts=ident.split(".")
+  if len(parts)<2:continue
+  page=parts[0]; pm=re.fullmatch(r"f(\d+)[rv][1-6]?",page)
+  loc=re.sub(r"^[+*@=~&!/]+","",locus.strip())
+  if (not pm and page!="fRos") or not re.fullmatch(r"P(?:0|1|b|c|r|t)",loc):continue
+  ws=tokens(m["body"],policy)
+  if ws: pages[page].append({"words":ws,"text":" ".join(ws),"line":lineno,"leaf":int(pm[1]) if pm else None,"loc":loc})
+ return dict(pages)
+def feats(a,b):
+ x=(a[:2],a[-2:],str(min(len(a),12)));y=(b[:2],b[-2:],str(min(len(b),12)))
+ return {"start_only":(x[0],y[0]),"end_only":(x[1],y[1]),"length_only":(x[2],y[2]),
+         "start_end_length_separable":x+y,"full_tuple":(x,y)}
+def candidates(pages,pagenames):
+ rows=[]
+ for page in pagenames:
+  ls=pages[page]
+  for i,line in enumerate(ls):
+   for j in range(len(line["words"])-1):
+    a,b=line["words"][j:j+2]
+    rows.append({"y":0,"f":feats(a,b),"leaf":line["leaf"],"texts":(line["text"],line["text"]),"page":page})
+   if i+1<len(ls):
+    nxt=ls[i+1]
+    rows.append({"y":1,"f":feats(line["words"][-1],nxt["words"][0]),"leaf":line["leaf"],
+                 "texts":(line["text"],nxt["text"]),"page":page})
+ return rows
+def embargo(train,test):
+ # Exclude an exact line from training when that line also occurs in test;
+ # also omit its test instances so identical line strings cannot drive scores.
+ ttexts={t for r in test for t in r["texts"]}
+ rtexts={t for r in train for t in r["texts"]}
+ shared=ttexts&rtexts
+ train=[r for r in train if not any(t in shared for t in r["texts"])]
+ test=[r for r in test if not any(t in shared for t in r["texts"])]
+ return train,test,len(shared)
+def fit(train,key,alpha=.5):
+ yc=collections.Counter(r["y"] for r in train); c={0:[],1:[]}; voc=[]
+ nfeat=len(train[0]["f"][key])
+ for y in (0,1):c[y]=[collections.Counter() for _ in range(nfeat)]
+ for r in train:
+  for i,v in enumerate(r["f"][key]):c[r["y"]][i][v]+=1
+ for i in range(nfeat):
+  voc.append(set(r["f"][key][i] for r in train))
+ return yc,c,voc
+def pred(train,test,key,alpha=.5):
+ yc,c,v=fit(train,key,alpha);n=sum(yc.values());out=[]
+ for r in test:
+  scores=[]
+  for y in (0,1):
+   s=math.log((yc[y]+alpha*2)/(n+alpha*2))
+   for i,val in enumerate(r["f"][key]):
+    s+=math.log((c[y][i][val]+alpha)/(yc[y]+alpha*max(1,len(v[i]))))
+   scores.append(s)
+  m=max(scores);a=math.exp(scores[0]-m);b=math.exp(scores[1]-m);out.append(b/(a+b))
+ return out,yc
+def auc(y,s):
+ n1=sum(y);n0=len(y)-n1
+ if n1==0 or n0==0:return float("nan")
+ order=sorted(range(len(y)),key=lambda i:s[i]);rs=0;i=0
+ while i<len(order):
+  j=i+1
+  while j<len(order) and s[order[j]]==s[order[i]]:j+=1
+  rank=(i+1+j)/2;rs+=rank*sum(y[k] for k in order[i:j]);i=j
+ return (rs-n1*(n1+1)/2)/(n1*n0)
+def ap(y,s):
+ n1=sum(y)
+ if not n1:return float("nan")
+ idx=sorted(range(len(y)),key=lambda i:s[i],reverse=True);hit=0;z=0
+ for rank,i in enumerate(idx,1):
+  if y[i]:hit+=1;z+=hit/rank
+ return z/n1
+def loss(y,p):
+ return -sum(v*math.log2(max(1e-15,q))+(1-v)*math.log2(max(1e-15,1-q)) for v,q in zip(y,p))/len(y)
+def score(train,test,key):
+ if not train or not test:return None
+ p,yc=pred(train,test,key);y=[r["y"] for r in test];base=yc[1]/sum(yc.values())
+ return {"n":len(y),"breaks":sum(y),"auc":auc(y,p),"ap":ap(y,p),
+  "gain":loss(y,[base]*len(y))-loss(y,p),"brier":sum((q-v)**2 for q,v in zip(p,y))/len(y),
+  "baseline_prevalence":base,"y":y,"p":p,"leaf":[r["leaf"] for r in test]}
+def qtl(x,q):
+ x=sorted(x);p=(len(x)-1)*q;i=int(p);j=min(i+1,len(x)-1);return x[i]+(p-i)*(x[j]-x[i])
+def summarize(r):
+ return {k:(round(v,6) if isinstance(v,float) else v) for k,v in r.items() if k not in {"y","p","leaf"}}
+def run(path,label,policy):
+ pages=parse(path,policy);pnames=sorted(pages);leaf={p:pages[p][0]["leaf"] for p in pnames};phys_pages=[p for p in pnames if leaf[p] is not None];leaves=sorted(set(leaf[p] for p in phys_pages))
+ allc=candidates(pages,pnames);physc=candidates(pages,phys_pages);models=("start_only","end_only","length_only","start_end_length_separable","full_tuple")
+ # Original fixed page split, as an implementation calibration.
+ hp=set(pnames[::5]);tr=[r for r in allc if r["page"] not in hp];te=[r for r in allc if r["page"] in hp]
+ tr,te,ndup=embargo(tr,te)
+ page_n=len(te);page_breaks=sum(r["y"] for r in te)
+ page={m:score(tr,te,m) for m in models}
+ page_clean={m:summarize(v) if v else None for m,v in page.items()}
+ # Physical-leaf leave-one-out; both recto/verso and all panels stay together.
+ oof={m:{"y":[],"p":[],"leaf":[]} for m in models}; foldstats={m:[] for m in models}; foldinfo=[]
+ for L in leaves:
+  testpages={p for p in phys_pages if leaf[p]==L}
+  tr=[r for r in physc if r["leaf"]!=L];te=[r for r in physc if r["leaf"]==L]
+  tr,te,nd=embargo(tr,te)
+  foldinfo.append({"leaf":L,"pages":len(testpages),"n":len(te),"breaks":sum(r["y"] for r in te),"duplicate_line_texts_embargoed":nd})
+  for m in models:
+   z=score(tr,te,m)
+   if z:
+    foldstats[m].append({"auc":z["auc"],"gain":z["gain"],"leaf":L})
+    oof[m]["y"].extend(z["y"]);oof[m]["p"].extend(z["p"]);oof[m]["leaf"].extend(z["leaf"])
+ phys={};rng=random.Random(20261028)
+ for m,d in oof.items():
+  y,p=d["y"],d["p"]; leaf_stats=foldstats[m]
+  ba=[];bg=[]
+  byleaf={x["leaf"]:x for x in leaf_stats}
+  for _ in range(1999):
+   sample=[rng.choice(leaves) for __ in leaves]
+   aa=[byleaf[x]["auc"] for x in sample if x in byleaf and math.isfinite(byleaf[x]["auc"])]
+   gg=[byleaf[x]["gain"] for x in sample if x in byleaf]
+   if aa:ba.append(statistics.mean(aa))
+   if gg:bg.append(statistics.mean(gg))
+  phys[m]={"n":len(y),"breaks":sum(y),"auc":auc(y,p),"ap":ap(y,p),
+   "gain_vs_fold_prevalence":statistics.mean(x["gain"] for x in leaf_stats),
+   "brier":sum((q-v)**2 for q,v in zip(p,y))/len(y),
+   "leaf_macro_auc":statistics.mean(x["auc"] for x in leaf_stats if math.isfinite(x["auc"])),
+   "auc_leaf_bootstrap_ci95":[qtl(ba,.025),qtl(ba,.975)],
+   "gain_leaf_bootstrap_ci95":[qtl(bg,.025),qtl(bg,.975)]}
+ source={"sha256":sha(path),"bytes":path.stat().st_size,"body_pages_with_tokens":len(pnames),"numbered_pages_with_tokens":len(phys_pages),"physical_leaves_with_tokens":len(leaves),
+  "unassigned_pages":sorted(set(pnames)-set(phys_pages)),"unassigned_body_lines_with_tokens":sum(len(pages[p]) for p in pnames if leaf[p] is None),
+  "body_lines_with_tokens":sum(len(x) for x in pages.values()),"tokens":sum(len(x["words"]) for ls in pages.values() for x in ls)}
+ return {"transcription":label,"parser_policy":policy,"source":source,
+  "page_split_calibration":{"heldout_pages":len(hp),"test_candidates":page_n,"test_breaks":page_breaks,
+    "duplicate_line_embargo_unique_texts":ndup,"models":page_clean,
+    "expected_from_article":{"pages":207,"lines":4130,"word_like_units":34963,"heldout_pages":42,"test_candidates":6190,"breaks":719,"auc":.843,"gain_bits_per_gap":.114}},
+  "physical_leaf_loso":{"folds":len(leaves),"test_candidates":len(oof["full_tuple"]["y"]),"breaks":sum(oof["full_tuple"]["y"]),
+    "models":{k:{a:(round(b,6) if isinstance(b,float) else [round(q,6) for q in b] if isinstance(b,list) else b) for a,b in v.items()} for k,v in phys.items()}},
+  "folds":foldinfo}
+def main():
+ out={}
+ for label,path in INPUTS.items():
+  out[label]=[run(path,label,policy) for policy in ("primary","drop_uncertain_word")]
+ result={"study":"Zenil & Uthamacumaran 2026, arXiv:2610.08861, Voynich line-boundary analysis","reimplementation":"naive categorical Bayes with alpha=0.5; page split every fifth lexicographically sorted page calibration; physical leaf LOSO; exact line string embargo; fixed seed 20261028; 1,999 bootstrap repetitions over leaves","results":out}
+ (ROOT/"line_boundary_results.json").write_text(json.dumps(result,indent=2,ensure_ascii=False)+"\n",encoding="utf-8")
+ print(json.dumps({k:[{"policy":x["parser_policy"],"source":x["source"],"page":x["page_split_calibration"],"leaf":x["physical_leaf_loso"]} for x in v] for k,v in out.items()},indent=2))
+if __name__=="__main__":main()
+
