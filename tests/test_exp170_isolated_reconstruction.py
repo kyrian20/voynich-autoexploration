@@ -82,7 +82,7 @@ class Exp170ReconstructionRunnerTests(unittest.TestCase):
             return SimpleNamespace(stdout="single caller", stderr="", returncode=3)
 
         with patch.object(runner.subprocess, "run", side_effect=synthetic_failure) as mock:
-            with self.assertRaisesRegex(RuntimeError, r"failed \\(3\\)"):
+            with self.assertRaisesRegex(RuntimeError, r"failed \(3\)"):
                 self.invoke(execute=True)
         self.assertEqual(mock.call_count, 1)
         self.assertEqual((self.out / "stdout.log").read_text(), "single caller")
