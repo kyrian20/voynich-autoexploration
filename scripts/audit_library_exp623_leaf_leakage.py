@@ -15,6 +15,13 @@ import json
 from pathlib import Path
 import re
 
+# Share the strict physical-row contract with other IVTFF metadata auditors.
+# str.splitlines() treats eight non-physical Unicode/control separators as rows.
+if __package__:
+    from .ivtff_physical_rows import checked_physical_lines
+else:
+    from ivtff_physical_rows import checked_physical_lines
+
 ROOT = Path(__file__).resolve().parents[1]
 CORPORA = {
     "ZL3b": ("eva_zl3b.txt", "bf5b6d4ac1e3a51b1847a9c388318d609020441ccd56984c901c32b09beccafc", 623101),
@@ -104,7 +111,7 @@ def shuffled(items: list[str], rng) -> list[str]:
 def eligible_a(text: str) -> list[str]:
     """LIB A: any locus with at least one [a-z]+ token; page-side IDs."""
     pages = set()
-    for line in text.splitlines():
+    for _, line in checked_physical_lines(text):
         match = A_LOCUS.match(line)
         if not match:
             continue
@@ -122,7 +129,7 @@ def eligible_b(text: str) -> tuple[list[str], dict[str, str]]:
     folios = []
     seen = set()
     current_folio = None
-    for line in text.splitlines():
+    for _, line in checked_physical_lines(text):
         header = FOLIO_HEADER.match(line)
         if header:
             current_folio = header.group(1)
