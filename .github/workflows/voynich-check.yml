@@ -62,6 +62,23 @@ jobs:
           python scripts/check_corpus_integrity.py
           python tests/test_duplicate_leakage.py
 
+      - name: Auditar alcance de remuestreo físico histórico EXP-601
+        run: |
+          python -m unittest discover -s tests -p 'test_exp601_physical_leaf_cluster_scope.py' -v
+          python -O -m unittest discover -s tests -p 'test_exp601_physical_leaf_cluster_scope.py' -v
+          python scripts/audit_exp601_physical_leaf_cluster_scope.py --out exp601-physical-leaf-scope.json
+          sha256sum exp601-physical-leaf-scope.json > exp601-physical-leaf-scope.sha256
+
+      - name: Conservar evidencia de unidad de bootstrap EXP-601
+        uses: actions/upload-artifact@v4
+        with:
+          name: exp601-physical-leaf-scope-${{ github.run_id }}
+          path: |
+            exp601-physical-leaf-scope.json
+            exp601-physical-leaf-scope.sha256
+          if-no-files-found: error
+          retention-days: 90
+
       - name: Auditar holdout físico histórico de EXP-607
         run: |
           python -m unittest discover -s tests -p 'test_exp607_physical_leaf_holdout.py' -v
