@@ -185,6 +185,25 @@ def run_reconstruction(root, naibbe_dir, italian, hashes, out_dir, execute=False
             except (ValueError, UnicodeError, KeyError, IndexError) as exc:
                 receipt["validation_error"] = f"{type(exc).__name__}: {exc}"
                 receipt["returncode"] = 65
+        # Preserve partial/invalid newly generated output for failure analysis.
+        # Quarantine under a non-JSON name; never present it as validated output.
+        if receipt["status"] == "FAILED" and (staged_output.exists() or staged_output.is_symlink()):
+            if staged_output.is_symlink() or not staged_output.is_file():
+                receipt["quarantine_error"] = "Generated output is not a regular file"
+            else:
+                try:
+                    failed_bytes = staged_output.read_bytes()
+                    failed_name = "simulation_results.failed.bin"
+                    with (out_dir / failed_name).open("xb") as failed:
+                        failed.write(failed_bytes)
+                    receipt["quarantined_output"] = {
+                        "name": failed_name,
+                        "sha256": hashlib.sha256(failed_bytes).hexdigest(),
+                        "size_bytes": len(failed_bytes),
+                        "status": "UNVALIDATED_FAILED_OUTPUT",
+                    }
+                except OSError as exc:
+                    receipt["quarantine_error"] = f"{type(exc).__name__}: {exc}"
         # Destination was reserved before subprocess; publish only into that directory.
         (out_dir / "stdout.bin").write_bytes(raw_stdout)
         (out_dir / "stderr.bin").write_bytes(raw_stderr)

@@ -159,6 +159,33 @@ class Exp170ReconstructionRunnerTests(unittest.TestCase):
         self.assertEqual(runner.sha256(ROOT / runner.EXP / "data/simulation_results.json"),
                          self.original_sha)
 
+    def test_failed_run_quarantines_exact_partial_output(self):
+        # Synthetic failing child only: preserve negative output, never run Naibbe.
+        payload = b'{"partial": true}\\xff'
+
+        def synthetic_failure(args, **kwargs):
+            generated = Path(kwargs["cwd"]) / runner.EXP / "data/simulation_results.json"
+            generated.write_bytes(payload)
+            return SimpleNamespace(stdout=b"partial", stderr=b"failure", returncode=3)
+
+        with patch.object(runner.subprocess, "run", side_effect=synthetic_failure):
+            with self.assertRaisesRegex(RuntimeError, r"failed"):
+                self.invoke(execute=True)
+        receipt = json.loads((self.out / "receipt.json").read_text())
+        self.assertEqual(receipt["status"], "FAILED")
+        self.assertEqual(receipt["returncode"], 3)
+        quarantined = self.out / "simulation_results.failed.bin"
+        self.assertEqual(quarantined.read_bytes(), payload)
+        self.assertEqual(receipt["quarantined_output"]["status"],
+                         "UNVALIDATED_FAILED_OUTPUT")
+        self.assertEqual(receipt["quarantined_output"]["name"], quarantined.name)
+        self.assertEqual(receipt["quarantined_output"]["size_bytes"], len(payload))
+        self.assertEqual(receipt["quarantined_output"]["sha256"],
+                         hashlib.sha256(payload).hexdigest())
+        self.assertFalse((self.out / "simulation_results.json").exists())
+        self.assertEqual(runner.sha256(ROOT / runner.EXP / "data/simulation_results.json"),
+                         self.original_sha)
+
     def test_invalid_generated_json_keeps_validation_receipt(self):
         def invalid_simulator(args, **kwargs):
             path = Path(kwargs["cwd"]) / runner.EXP / "data/simulation_results.json"
@@ -171,6 +198,10 @@ class Exp170ReconstructionRunnerTests(unittest.TestCase):
         receipt = json.loads((self.out / "receipt.json").read_text())
         self.assertEqual(receipt["returncode"], 65)
         self.assertIn("validation_error", receipt)
+        self.assertEqual((self.out / "simulation_results.failed.bin").read_bytes(),
+                         b'{"italian_A": []}')
+        self.assertEqual(receipt["quarantined_output"]["sha256"],
+                         hashlib.sha256(b'{"italian_A": []}').hexdigest())
         self.assertFalse((self.out / "simulation_results.json").exists())
 
 
