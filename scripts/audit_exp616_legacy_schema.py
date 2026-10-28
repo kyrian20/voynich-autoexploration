@@ -95,9 +95,14 @@ def adjudicate(archive: dict) -> dict:
                         + excluded[side + "_n"] * excluded[side + "_rate"]) / n
                 if not math.isclose(rate, total[side + "_rate"], rel_tol=0, abs_tol=1e-12):
                     raise ValueError(f"{name}/{block}: {side} weighted rate drift")
-            if excluded["folios"] != len(groups[index]["folios"]):
-                raise ValueError(f"{name}/{block}: excluded folio count drift")
-            corrected.append({"block": block, "remaining": remaining, "excluded": excluded})
+            # Legacy 'folios' counts up to two page sides per numbered leaf.
+            # It must NOT be equated with the numeric leaf membership list.
+            numeric_leaf_ids = groups[index]["folios"]
+            if not len(numeric_leaf_ids) <= excluded["folios"] <= 2 * len(numeric_leaf_ids):
+                raise ValueError(f"{name}/{block}: legacy folio-unit range drift")
+            corrected.append({"block": block, "remaining": remaining, "excluded": excluded,
+                              "nominal_numeric_leaf_ids": numeric_leaf_ids,
+                              "nominal_numeric_leaf_count": len(numeric_leaf_ids)})
         for field in COUNT_FIELDS:
             if sum(x["excluded"][field] for x in corrected) != total[field]:
                 raise ValueError(f"{name}: contributions do not partition total {field}")
@@ -107,6 +112,8 @@ def adjudicate(archive: dict) -> dict:
         "experiment": archive["experiment"],
         "legacy_field": "results.*.leave_out[*].removed",
         "legacy_field_actual_meaning": "remaining after excluding the named block",
+        "legacy_folios_field_warning": "The archived folios count is consistent with page sides, not physical leaves; no source-row reconstruction was performed.",
+        "nominal_numeric_leaf_count": len(all_folios),
         "sources": {name: {"path": SOURCES[name][0],
                             "git_blob_sha1": SOURCES[name][1],
                             "sha256": SOURCES[name][2]} for name in SOURCES},
