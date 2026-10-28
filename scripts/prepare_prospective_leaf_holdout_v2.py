@@ -14,6 +14,7 @@ import re
 from pathlib import Path
 
 from prepare_prospective_leaf_holdout import ROOT, SOURCE_NAMES, SALT, partition
+from ivtff_physical_rows import checked_physical_lines
 
 # Only exact page headers qualify: a locus record (<f67r1.1,@P0>),
 # damaged page (<f2r,>) or invalid panel (<f2r7>) cannot create a leaf.
@@ -26,7 +27,7 @@ HEADER_V2 = re.compile(r"^<f([0-9]+)[rv][1-6]?>(?=[ \t]|$)")
 
 def leaves_from_bytes(raw: bytes) -> set[int]:
     leaves = set()
-    for line in raw.decode("utf-8-sig").splitlines():
+    for _, line in checked_physical_lines(raw.decode("utf-8-sig")):
         match = HEADER_V2.match(line)
         if match:
             leaves.add(int(match.group(1)))
