@@ -35,6 +35,85 @@ EXPECTED_WORKS = {
     'data/reference_corpora/latin/cicero_de_officiis_latin.txt': 'De Officiis #47001',
     'data/reference_corpora/latin/vulgate.txt': 'The Bible, Douay-Rheims, Complete',
 }
+# Independent metadata pins: exact documentary evidence recorded in the
+# reviewed overlay. A mere substring match must not permit deleting or
+# weakening the recorded provenance without an explicit adjudication.
+EXPECTED_SOURCE_COMMIT = "b566b6fa461f3a4e6fd8bb3a1aaa6e71f035f190"
+EXPECTED_EVIDENCE = {
+    "data/reference_corpora/arabic/quran_arabic.txt": {
+        "header_title": [
+            "Title: Drum-Taps"
+        ],
+        "header_language": [
+            "Language: English"
+        ],
+        "evidence": [
+            "Title: Drum-Taps",
+            "Language: English"
+        ]
+    },
+    "data/reference_corpora/english/kjv_bible.txt": {
+        "header_title": [
+            "Title: The Book of Mormon"
+        ],
+        "header_language": [
+            "Language: English"
+        ],
+        "evidence": [
+            "Title: The Book of Mormon",
+            "Language: English"
+        ]
+    },
+    "data/reference_corpora/latin/caesar_gallic_wars.txt": {
+        "header_title": [
+            "Title: \"De Bello Gallico\" and Other Commentaries"
+        ],
+        "header_language": [
+            "Language: English"
+        ],
+        "evidence": [
+            "Title: \"De Bello Gallico\" and Other Commentaries",
+            "Language: English"
+        ]
+    },
+    "data/reference_corpora/latin/cicero_caesar_latin.txt": {
+        "header_title": [],
+        "header_language": [],
+        "evidence": []
+    },
+    "data/reference_corpora/latin/cicero_de_officiis_latin.txt": {
+        "header_title": [],
+        "header_language": [],
+        "evidence": [
+            "page, and the English translation on the right. Here, the text is split",
+            "followed by its English translation. The section numbers that appeared in",
+            "  WITH AN ENGLISH TRANSLATION BY"
+        ]
+    },
+    "data/reference_corpora/latin/vulgate.txt": {
+        "header_title": [
+            "Title: The Bible, Douay-Rheims, Complete"
+        ],
+        "header_language": [
+            "Language: English"
+        ],
+        "evidence": [
+            "Title: The Bible, Douay-Rheims, Complete",
+            "Language: English",
+            "First Published by the English College at Douay",
+            "First Published by the English College at Rheims",
+            "Rheims Version of the Holy Bible. In 1568 English exiles, many from",
+            "Oxford, established the English College of Douay (Douai/Doway), Flanders,",
+            "began the work of preparing an English translation of the Bible for",
+            "Catholic readers, the first such translation into Modern English.",
+            "seminary. The translation had been prepared before the appearance of the",
+            "in the translation. In some instances where no English word conveyed the",
+            "words later found common usage in the English language. Spellings of",
+            "archaic in the almost two centuries since the translations were first"
+        ]
+    }
+}
+
 ISSUES = set(EXPECTED_ISSUES.values())
 
 
@@ -45,6 +124,8 @@ def audit(root, manifest, overlay):
         return ['Invalid corpus manifest schema']
     if not isinstance(overlay, dict) or not isinstance(overlay.get('excluded_from_new_language_baselines'), list):
         return ['Invalid corpus identity overlay schema']
+    if overlay.get('source_commit') != EXPECTED_SOURCE_COMMIT:
+        errors.append('Historical corpus identity source commit changed')
     if overlay.get('historical_results') != EXCLUDED:
         errors.append('Historical-result scope changed without adjudication')
     rows = overlay['excluded_from_new_language_baselines']
@@ -80,6 +161,9 @@ def audit(root, manifest, overlay):
             errors.append(f'Unreviewed corpus exclusion: {name}')
             continue
         entry = frozen[name]
+        for evidence_field, expected_evidence in EXPECTED_EVIDENCE[name].items():
+            if row.get(evidence_field) != expected_evidence:
+                errors.append(f'Historical provenance field changed ({evidence_field}): {name}')
         if row.get('sha256') != entry.get('sha256') or type(row.get('bytes')) is not int or row['bytes'] != entry.get('bytes'):
             errors.append(f'Overlay hash/size disagrees with frozen manifest: {name}')
             continue
