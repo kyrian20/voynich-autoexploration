@@ -45,7 +45,8 @@ def check_summary(summary: dict) -> None:
     if not summary["ch_n"] or not summary["sh_n"]:
         raise ValueError("Empty ch/sh denominator")
     for key in RATE_FIELDS:
-        if not isinstance(summary[key], (int, float)) or not math.isfinite(summary[key]):
+        # bool is a subclass of int in Python but is not a numeric JSON rate.
+        if type(summary[key]) not in (int, float) or not math.isfinite(summary[key]):
             raise ValueError(f"Invalid rate: {key}")
     if not 0 <= summary["ch_rate"] <= 1 or not 0 <= summary["sh_rate"] <= 1:
         raise ValueError("Rate outside [0,1]")
