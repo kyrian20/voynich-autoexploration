@@ -6,7 +6,8 @@ import unittest
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-from scripts.audit_corpus_identity_overlay import audit, EXPECTED_ISSUES, EXPECTED_WORKS
+from scripts.audit_corpus_identity_overlay import (audit, EXPECTED_ISSUES, EXPECTED_WORKS,
+                                                  EXPECTED_EVIDENCE, EXPECTED_SOURCE_COMMIT)
 
 
 class IdentityOverlayTests(unittest.TestCase):
@@ -16,23 +17,28 @@ class IdentityOverlayTests(unittest.TestCase):
         self.root = Path(self.tmp.name)
         self.name = 'data/reference_corpora/latin/vulgate.txt'
         self.manifest = {'files': []}
-        self.overlay = {'historical_results': 'PENDING_SCOPE_AUDIT_NOT_AUTOMATICALLY_RETRACTED',
+        self.overlay = {'source_commit': EXPECTED_SOURCE_COMMIT,
+                        'historical_results': 'PENDING_SCOPE_AUDIT_NOT_AUTOMATICALLY_RETRACTED',
                         'excluded_from_new_language_baselines': []}
         for name, issue in EXPECTED_ISSUES.items():
             path = self.root / name
             path.parent.mkdir(parents=True, exist_ok=True)
+            recorded = EXPECTED_EVIDENCE[name]
+            evidence_lines = list(dict.fromkeys(recorded['header_title'] +
+                                                recorded['header_language'] +
+                                                recorded['evidence']))
             raw = (b'' if issue == 'BLOCKED_EMPTY' else
-                   b'Title: English translation\nLanguage: English\nEvidence of translation\n')
+                   ('\n'.join(evidence_lines) + '\n').encode('utf-8'))
             path.write_bytes(raw)
             row = {
                 'path': name, 'sha256': hashlib.sha256(raw).hexdigest(),
-                'bytes': len(raw), 'header_title': [] if issue in ('BLOCKED_EMPTY', 'BILINGUAL_REQUIRES_FILTER_AUDIT') else ['Title: English translation'],
-                'header_language': [] if issue in ('BLOCKED_EMPTY', 'BILINGUAL_REQUIRES_FILTER_AUDIT') else ['Language: English'],
+                'bytes': len(raw), 'header_title': list(recorded['header_title']),
+                'header_language': list(recorded['header_language']),
                 'issue': issue,
                 'adjudicated_language': ('none' if issue == 'BLOCKED_EMPTY' else
                                         'Latin and English' if issue == 'BILINGUAL_REQUIRES_FILTER_AUDIT' else 'English'),
                 'adjudicated_work': EXPECTED_WORKS[name],
-                'evidence': [] if issue == 'BLOCKED_EMPTY' else ['Evidence of translation'],
+                'evidence': list(recorded['evidence']),
             }
             self.overlay['excluded_from_new_language_baselines'].append(row)
             self.manifest['files'].append(dict(path=name, bytes=len(raw),
@@ -60,6 +66,21 @@ class IdentityOverlayTests(unittest.TestCase):
         errors = self.check()
         self.assertTrue(any('Header claim absent' in x for x in errors))
         self.assertTrue(any('Textual evidence not found' in x for x in errors))
+
+    def test_source_commit_drift_is_rejected(self):
+        self.overlay['source_commit'] = '0' * 40
+        self.assertTrue(any('source commit changed' in x for x in self.check()))
+
+    def test_evidence_removed_or_weakened_is_rejected(self):
+        # The old audit accepted evidence deletion as long as some substring
+        # of the frozen text remained. That is not preservation of provenance.
+        self.row['evidence'] = ['Language: English']
+        self.assertTrue(any('Historical provenance field changed (evidence)' in x
+                            for x in self.check()))
+        self.row['evidence'] = list(EXPECTED_EVIDENCE[self.name]['evidence'])
+        self.row['header_title'] = []
+        self.assertTrue(any('Historical provenance field changed (header_title)' in x
+                            for x in self.check()))
 
     def test_drift_in_historical_scope(self):
         self.overlay['historical_results'] = 'VALIDATED'
