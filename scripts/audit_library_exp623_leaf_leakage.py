@@ -36,6 +36,22 @@ EXPECTED_OVERLAP = {
         "B_interior_tokens": (44, 48, 44, 40, 31, 44, 38, 40, 45, 41),
     },
 }
+# Canonical JSON SHA-256 of each full row series in the verified, post-merge
+# PR #126 CI artifact (run 40695242744, artifact 12819575881). Unlike the
+# historical overlap counts, these lock seed, train/test sizes and the exact
+# identities of shared physical leaves. This is an integrity checkpoint of
+# our reconstruction, NOT independent verification of the Library pilots.
+EXPECTED_SPLIT_SHA256 = {
+    "ZL3b": {
+        "A_all_tokens": "cf0300ffdc468930c99c1e4e6622611062467eff9c9a524390bf6dd508f4415d",
+        "B_interior_tokens": "07d3fbfeafdacfa4c8c801ee19fe188ac5d312f3f73b0c0ef302ee031d6435df",
+    },
+    "IT2a": {
+        "A_all_tokens": "48bea7c3f3e07df730ce08830ce4b1f7a6f48ca808b144bb176e6995a144d6b8",
+        "B_interior_tokens": "07d3fbfeafdacfa4c8c801ee19fe188ac5d312f3f73b0c0ef302ee031d6435df",
+    },
+}
+
 FOLIO_HEADER = re.compile(r"^<(f\d+[rv]\d*)>\s*(.*)$", re.I)
 ANY_TAG = re.compile(r"^<([^>]+)>\s*(.*)$")
 A_LOCUS = re.compile(r"^<([^>.]+)\.[^>]*>\s*(.*)$")
@@ -172,12 +188,23 @@ def analyze(name: str, raw: bytes) -> dict:
     }
 
 
+def split_sha256(rows: list[dict]) -> str:
+    """Lock exact row membership and metadata, not just aggregate counts."""
+    canonical = json.dumps(rows, sort_keys=True, separators=(",", ":"), ensure_ascii=False)
+    return hashlib.sha256(canonical.encode("utf-8")).hexdigest()
+
+
 def check_expected(results: dict) -> None:
     for name, methods in EXPECTED_OVERLAP.items():
         for method, expected in methods.items():
-            observed = tuple(len(row["shared_physical_leaves"]) for row in results[name][method])
+            rows = results[name][method]
+            observed = tuple(len(row["shared_physical_leaves"]) for row in rows)
             if observed != expected:
                 raise ValueError(f"{name}/{method}: overlap counts drift: {observed} != {expected}")
+            digest = split_sha256(rows)
+            frozen = EXPECTED_SPLIT_SHA256[name][method]
+            if digest != frozen:
+                raise ValueError(f"{name}/{method}: split evidence drift: {digest} != {frozen}")
 
 
 def main() -> None:
