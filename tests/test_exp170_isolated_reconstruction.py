@@ -46,6 +46,26 @@ class Exp170ReconstructionRunnerTests(unittest.TestCase):
         self.assertFalse(receipt["historical_reproduction"])
         self.assertFalse(self.out.exists())
 
+    def test_direct_api_rejects_invalid_timeouts_without_side_effects(self):
+        # CLI already rejects nonpositive integers; the callable API must too.
+        for invalid in (0, -1, True, 1.5, "2"):
+            with self.subTest(timeout=repr(invalid)):
+                with patch.object(runner, "preflight",
+                                  side_effect=AssertionError("must not preflight")) as pre:
+                    with patch.object(runner.subprocess, "run",
+                                      side_effect=AssertionError("must not launch")) as proc:
+                        with self.assertRaisesRegex(
+                                ValueError, "timeout must be a positive integer"):
+                            runner.run_reconstruction(
+                                ROOT, self.naibbe, self.italian, self.hashes,
+                                self.out, execute=True, timeout=invalid)
+                        pre.assert_not_called()
+                        proc.assert_not_called()
+                self.assertFalse(self.out.exists())
+        self.assertEqual(
+            runner.sha256(ROOT / runner.EXP / "data/simulation_results.json"),
+            self.original_sha)
+
     def test_rejects_existing_output_before_execution(self):
         self.out.mkdir()
         with self.assertRaises(FileExistsError):
@@ -161,7 +181,10 @@ class Exp170ReconstructionRunnerTests(unittest.TestCase):
 
     def test_failed_run_quarantines_exact_partial_output(self):
         # Synthetic failing child only: preserve negative output, never run Naibbe.
-        payload = b'{"partial": true}\\xff'
+        payload = b'{"partial": true}' + bytes([0xff])
+        # The former fixture encoded literal backslash-xff, not byte 0xff.
+        with self.assertRaises(UnicodeDecodeError):
+            payload.decode("utf-8")
 
         def synthetic_failure(args, **kwargs):
             generated = Path(kwargs["cwd"]) / runner.EXP / "data/simulation_results.json"

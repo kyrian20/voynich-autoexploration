@@ -130,6 +130,10 @@ def stage_inputs(stage, root, naibbe_dir, italian, hashes):
 
 def run_reconstruction(root, naibbe_dir, italian, hashes, out_dir, execute=False,
                        timeout=3600):
+    # The direct Python API must enforce the same guard as the CLI. Invalid
+    # timeouts must not reserve a destination or launch any simulator process.
+    if isinstance(timeout, bool) or not isinstance(timeout, int) or timeout < 1:
+        raise ValueError("timeout must be a positive integer")
     receipt = preflight(root, naibbe_dir, italian, hashes, out_dir)
     if not execute:
         return receipt
