@@ -99,6 +99,11 @@ def stage_inputs(stage, root, naibbe_dir, italian):
     if archived.exists():
         raise ValueError("Staged historical output unexpectedly exists")
     archived.parent.mkdir(parents=True, exist_ok=True)
+    # Check copied bytes as well: source files might change during staging.
+    for name, source in inputs.items():
+        target = stage / DESTINATIONS[name]
+        if sha256(target) != sha256(source):
+            raise ValueError(f"Input changed during staging: {name}")
     return archived
 
 
@@ -126,15 +131,19 @@ def run_reconstruction(root, naibbe_dir, italian, hashes, out_dir, execute=False
         receipt["returncode"] = returncode
         receipt["status"] = "FAILED"
         if returncode == 0:
-            if not staged_output.is_file() or staged_output.is_symlink():
-                raise ValueError("Simulator reported success but did not create a regular output")
-            raw = staged_output.read_bytes()
-            archived = parse_archive(raw.decode("utf-8"))
-            frozen = parse_archive((root / EXP / "data" / OUTPUT_NAME).read_text())
-            expected_keys = set(frozen["italian_A"][0])
-            validate_archive(archived, expected_keys)
-            receipt["output_sha256"] = hashlib.sha256(raw).hexdigest()
-            receipt["status"] = "MODERN_RECONSTRUCTION_UNVALIDATED"
+            try:
+                if not staged_output.is_file() or staged_output.is_symlink():
+                    raise ValueError("Simulator reported success but did not create a regular output")
+                raw = staged_output.read_bytes()
+                archived = parse_archive(raw.decode("utf-8"))
+                frozen = parse_archive((root / EXP / "data" / OUTPUT_NAME).read_text())
+                expected_keys = set(frozen["italian_A"][0])
+                validate_archive(archived, expected_keys)
+                receipt["output_sha256"] = hashlib.sha256(raw).hexdigest()
+                receipt["status"] = "MODERN_RECONSTRUCTION_UNVALIDATED"
+            except (ValueError, UnicodeError, KeyError, IndexError) as exc:
+                receipt["validation_error"] = f"{type(exc).__name__}: {exc}"
+                receipt["returncode"] = 65
         # The destination did not exist at preflight. Never overwrite it.
         out_dir.mkdir(mode=0o700, exist_ok=False)
         (out_dir / "stdout.log").write_text(stdout, encoding="utf-8")
