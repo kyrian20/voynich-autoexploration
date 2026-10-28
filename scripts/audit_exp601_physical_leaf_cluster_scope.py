@@ -19,6 +19,9 @@ FROZEN_BLOBS = {
 }
 CORPUS_SHA256 = "bf5b6d4ac1e3a51b1847a9c388318d609020441ccd56984c901c32b09beccafc"
 PAGE_ID = re.compile(r"f([1-9][0-9]*)([rv])([0-9]*)\Z", flags=re.ASCII)
+# SHA-256 of JSON-compact, ASCII-encoded, ordered historical page/panel IDs.
+# Independently reconstructed from frozen results.json; not a corpus digest.
+FROZEN_PAGE_IDS_SHA256 = "03817ab591c91407bb9502f7ae2cf33fc946fc2b43c1cb4228e41ff7bc5d5795"
 
 
 def git_blob_sha1(raw: bytes) -> str:
@@ -91,6 +94,13 @@ def adjudicate(archive: dict) -> dict:
     ids = [r["folio"] for r in rows]
     if archive["sample"]["represented_folios"] != len(ids):
         raise ValueError("Historical resampling-unit count drift")
+    # The previous summary-only guard could accept f103r -> f103r1: same
+    # leaf, side, unit count and histogram, but a different historical ID.
+    identity_sha256 = hashlib.sha256(
+        json.dumps(ids, ensure_ascii=True, separators=(",", ":")).encode("ascii")
+    ).hexdigest()
+    if identity_sha256 != FROZEN_PAGE_IDS_SHA256:
+        raise ValueError("Frozen page/panel identity or order drift")
     result = classify_units(ids)
     if (result["historical_resampling_units"],
         result["distinct_numbered_physical_leaves"],
@@ -111,6 +121,7 @@ def adjudicate(archive: dict) -> dict:
         ],
         "historical_experiment": archive["experiment"],
         "historical_bootstrap_seed": archive["primary_effect"]["bootstrap_seed"],
+        "historical_page_ids_sha256": identity_sha256,
         "historical_bootstrap_replicates": archive["primary_effect"]["bootstrap_replicates"],
         "source_sha256": CORPUS_SHA256,
         "audit_type": "metadata-only; no rebootstrap and no corpus re-tokenization",
