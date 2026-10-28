@@ -57,12 +57,12 @@ class PanelAwareHoldout(unittest.TestCase):
     def test_nonphysical_separator_cannot_forge_page_header(self):
         # splitlines() treats these as record breaks although IVTFF only
         # uses CR, LF and CRLF. A forged folio could enter a held-out split.
-        for separator in ("\\v", "\\f", "\\x1c", "\\x1d", "\\x1e",
-                          "\\x85", "\\u2028", "\\u2029"):
+        for separator in ("\v", "\f", "\x1c", "\x1d", "\x1e",
+                          "\x85", "\u2028", "\u2029"):
             with self.subTest(separator=repr(separator)):
                 source = (
-                    "<f1r> valid\\n"
-                    "<!editor" + separator + "<f2r> forged\\n"
+                    "<f1r> valid\n"
+                    "<!editor" + separator + "<f2r> forged\n"
                 ).encode("utf-8")
                 with self.assertRaisesRegex(
                     ValueError, r"Non-physical IVTFF line separator at line 2"
@@ -70,7 +70,7 @@ class PanelAwareHoldout(unittest.TestCase):
                     v2.leaves_from_bytes(source)
 
     def test_cr_lf_crlf_remain_physical_page_boundaries(self):
-        raw = b"<f1r> first\\r\\n<f2v1> second\\r<f3r> third\\n"
+        raw = b"<f1r> first\r\n<f2v1> second\r<f3r> third\n"
         self.assertEqual(v2.leaves_from_bytes(raw), {1, 2, 3})
 
     def test_no_reassignment_of_v1_folios(self):
