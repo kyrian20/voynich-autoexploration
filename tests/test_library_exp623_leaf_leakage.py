@@ -35,6 +35,12 @@ class LibraryExp623LeakageTests(unittest.TestCase):
         self.assertEqual(audit.overlap({"f67r1", "fRos"}, {"f67v", "f68r"}), [67])
         self.assertEqual(audit.physical_leaf("fRos"), None)
 
+    def test_currier_unknown_stratum_is_not_silently_assigned_to_a_or_b(self):
+        folios = ["f1r", "f2r", "f3r"]
+        counts, unknown = audit.currier_strata(folios, {"f1r": "A", "f2r": "B"})
+        self.assertEqual(counts, {"A": 1, "B": 1, "?": 1})
+        self.assertEqual(unknown, ["f3r"])
+
     def test_source_hash_guard(self):
         raw = b"<f1r> $L=A\n<f1r.1,@P0> aa.bb.cc\n"
         with self.assertRaisesRegex(ValueError, "SHA-256 mismatch"):
@@ -48,7 +54,11 @@ class LibraryExp623LeakageTests(unittest.TestCase):
         baseline = {name: {method: [{"shared_physical_leaves": list(range(n))} for n in values]
                            for method, values in methods.items()}
                     for name, methods in audit.EXPECTED_OVERLAP.items()}
-        frozen = {name: {method: audit.split_sha256(rows) for method, rows in methods.items()}
+        for name in baseline:
+            baseline[name]["B_currier_group_counts"] = dict(audit.EXPECTED_B_STRATA[name]["counts"])
+            baseline[name]["B_unclassified_folios"] = list(audit.EXPECTED_B_STRATA[name]["unclassified"])
+        frozen = {name: {method: audit.split_sha256(rows) for method, rows in methods.items()
+                         if method in ("A_all_tokens", "B_interior_tokens")}
                   for name, methods in baseline.items()}
         with patch.dict(audit.EXPECTED_SPLIT_SHA256, frozen, clear=True):
             audit.check_expected(baseline)
@@ -63,7 +73,11 @@ class LibraryExp623LeakageTests(unittest.TestCase):
                                    for index, n in enumerate(values)]
                            for method, values in methods.items()}
                     for name, methods in audit.EXPECTED_OVERLAP.items()}
-        frozen = {name: {method: audit.split_sha256(rows) for method, rows in methods.items()}
+        for name in baseline:
+            baseline[name]["B_currier_group_counts"] = dict(audit.EXPECTED_B_STRATA[name]["counts"])
+            baseline[name]["B_unclassified_folios"] = list(audit.EXPECTED_B_STRATA[name]["unclassified"])
+        frozen = {name: {method: audit.split_sha256(rows) for method, rows in methods.items()
+                         if method in ("A_all_tokens", "B_interior_tokens")}
                   for name, methods in baseline.items()}
         with patch.dict(audit.EXPECTED_SPLIT_SHA256, frozen, clear=True):
             audit.check_expected(baseline)
@@ -79,6 +93,10 @@ class LibraryExp623LeakageTests(unittest.TestCase):
             row["seed"] -= 1
             row["train_page_ids"] += 1
             with self.assertRaisesRegex(ValueError, "split evidence drift"):
+                audit.check_expected(baseline)
+            row["train_page_ids"] -= 1
+            baseline["ZL3b"]["B_unclassified_folios"].pop()
+            with self.assertRaisesRegex(ValueError, "Currier stratum drift"):
                 audit.check_expected(baseline)
 
 

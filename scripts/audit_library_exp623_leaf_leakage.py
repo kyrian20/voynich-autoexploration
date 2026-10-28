@@ -52,6 +52,18 @@ EXPECTED_SPLIT_SHA256 = {
     },
 }
 
+# Independently checked against the two hash-identified transcriptions.
+# These eight eligible page-sides have no $L= metadata and were included by
+# the historical B pilot as a third '?' stratum, not as Currier A or B.
+EXPECTED_B_STRATA = {
+    name: {
+        "counts": {"A": 114, "B": 81, "?": 8},
+        "unclassified": ["f65v", "f67r1", "f67r2", "f68r1", "f68r2",
+                         "f68v3", "f68v2", "f69r"],
+    }
+    for name in CORPORA
+}
+
 FOLIO_HEADER = re.compile(r"^<(f\d+[rv]\d*)>\s*(.*)$", re.I)
 ANY_TAG = re.compile(r"^<([^>]+)>\s*(.*)$")
 A_LOCUS = re.compile(r"^<([^>.]+)\.[^>]*>\s*(.*)$")
@@ -141,6 +153,18 @@ def overlap(train: set[str], test: set[str]) -> list[int]:
     return sorted(train_leaves & test_leaves)
 
 
+def currier_strata(folios: list[str], labels: dict[str, str]) -> tuple[dict[str, int], list[str]]:
+    """Report every actual B-pilot group; never silently call '?' Currier A/B."""
+    counts: dict[str, int] = {}
+    unknown: list[str] = []
+    for folio in folios:
+        label = labels.get(folio, "?")
+        counts[label] = counts.get(label, 0) + 1
+        if label not in ("A", "B"):
+            unknown.append(folio)
+    return counts, unknown
+
+
 def splits_a(pages: list[str], base_seed: int) -> list[dict]:
     result = []
     for index in range(20):
@@ -179,11 +203,14 @@ def analyze(name: str, raw: bytes) -> dict:
     text = raw.decode("utf-8")
     pages = eligible_a(text)
     folios, labels = eligible_b(text)
+    strata_counts, unclassified = currier_strata(folios, labels)
     a = splits_a(pages, base_seed)
     b = splits_b(folios, labels)
     return {
         "source": f"data/transcriptions/{filename}", "sha256": actual_sha,
         "A_eligible_page_ids": len(pages), "B_eligible_page_ids": len(folios),
+        "B_currier_group_counts": strata_counts,
+        "B_unclassified_folios": unclassified,
         "A_all_tokens": a, "B_interior_tokens": b,
     }
 
@@ -195,6 +222,11 @@ def split_sha256(rows: list[dict]) -> str:
 
 
 def check_expected(results: dict) -> None:
+    for name, expected in EXPECTED_B_STRATA.items():
+        actual = results[name]
+        if (actual.get("B_currier_group_counts") != expected["counts"] or
+                actual.get("B_unclassified_folios") != expected["unclassified"]):
+            raise ValueError(f"{name}: Currier stratum drift (including unclassified folios)")
     for name, methods in EXPECTED_OVERLAP.items():
         for method, expected in methods.items():
             rows = results[name][method]
