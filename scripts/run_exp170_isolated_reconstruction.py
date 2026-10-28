@@ -125,6 +125,9 @@ def run_reconstruction(root, naibbe_dir, italian, hashes, out_dir, execute=False
     with tempfile.TemporaryDirectory(prefix="voynich-exp170-reconstruction-") as temp:
         stage = Path(temp)
         staged_output = stage_inputs(stage, root, naibbe_dir, italian, hashes)
+        # Reserve the destination atomically before the costly 400-run subprocess.
+        # Concurrent callers targeting the same path must fail before simulation.
+        out_dir.mkdir(mode=0o700, exist_ok=False)
         env = os.environ.copy()
         env["PYTHONDONTWRITEBYTECODE"] = "1"
         try:
@@ -161,8 +164,7 @@ def run_reconstruction(root, naibbe_dir, italian, hashes, out_dir, execute=False
             except (ValueError, UnicodeError, KeyError, IndexError) as exc:
                 receipt["validation_error"] = f"{type(exc).__name__}: {exc}"
                 receipt["returncode"] = 65
-        # The destination did not exist at preflight. Never overwrite it.
-        out_dir.mkdir(mode=0o700, exist_ok=False)
+        # Destination was reserved before subprocess; publish only into that directory.
         (out_dir / "stdout.log").write_text(stdout, encoding="utf-8")
         (out_dir / "stderr.log").write_text(stderr, encoding="utf-8")
         if receipt["status"] == "MODERN_RECONSTRUCTION_UNVALIDATED":

@@ -73,6 +73,43 @@ class Exp170ReconstructionRunnerTests(unittest.TestCase):
             runner.preflight(ROOT, self.naibbe, self.italian, self.hashes, inside)
         self.assertFalse(inside.exists())
 
+    def test_output_reserved_before_simulation_rejects_second_caller(self):
+        def synthetic_failure(args, **kwargs):
+            self.assertTrue(self.out.is_dir())
+            self.assertEqual(list(self.out.iterdir()), [])
+            with self.assertRaises(FileExistsError):
+                self.invoke(execute=True)
+            return SimpleNamespace(stdout="single caller", stderr="", returncode=3)
+
+        with patch.object(runner.subprocess, "run", side_effect=synthetic_failure) as mock:
+            with self.assertRaisesRegex(RuntimeError, r"failed \(3\)"):
+                self.invoke(execute=True)
+        self.assertEqual(mock.call_count, 1)
+        self.assertEqual((self.out / "stdout.log").read_text(), "single caller")
+        self.assertEqual(json.loads((self.out / "receipt.json").read_text())["status"],
+                         "FAILED")
+        self.assertEqual(runner.sha256(ROOT / runner.EXP / "data/simulation_results.json"),
+                         self.original_sha)
+
+    def test_destination_created_by_concurrent_caller_prevents_subprocess(self):
+        real_stage = runner.stage_inputs
+
+        def concurrent_reservation(stage, root, naibbe_dir, italian, hashes):
+            staged = real_stage(stage, root, naibbe_dir, italian, hashes)
+            self.out.mkdir()
+            (self.out / "other-run.marker").write_text("concurrent")
+            return staged
+
+        with patch.object(runner, "stage_inputs", side_effect=concurrent_reservation):
+            with patch.object(runner.subprocess, "run",
+                              side_effect=AssertionError("must not run")) as mock:
+                with self.assertRaises(FileExistsError):
+                    self.invoke(execute=True)
+                mock.assert_not_called()
+        self.assertEqual((self.out / "other-run.marker").read_text(), "concurrent")
+        self.assertEqual(runner.sha256(ROOT / runner.EXP / "data/simulation_results.json"),
+                         self.original_sha)
+
     def test_staged_input_drift_is_rejected_against_locked_hash(self):
         stage = self.base / "staging"
         stage.mkdir()
