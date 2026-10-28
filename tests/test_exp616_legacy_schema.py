@@ -22,6 +22,14 @@ class Exp616LegacySchemaTests(unittest.TestCase):
         self.assertEqual(corrected["results"]["ZL3b"]["leave_out"][0]["excluded"]["cells"], 109)
         self.assertEqual(corrected["results"]["IT2a"]["leave_out"][0]["remaining"]["cells"], 173)
 
+    def test_nominal_numeric_leaves_are_not_legacy_folio_units(self):
+        corrected = mod.adjudicate(self.original)
+        self.assertEqual(corrected["nominal_numeric_leaf_count"], 12)
+        self.assertEqual(corrected["results"]["ZL3b"]["all"]["folios"], 23)
+        first = corrected["results"]["ZL3b"]["leave_out"][0]
+        self.assertEqual(first["excluded"]["folios"], 8)
+        self.assertEqual(first["nominal_numeric_leaf_count"], 4)
+
     def test_frozen_corpora_and_archive(self):
         result = mod.audit()
         self.assertEqual(set(result["sources"]), {"ZL3b", "IT2a"})
