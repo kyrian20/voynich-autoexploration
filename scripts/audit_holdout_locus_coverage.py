@@ -13,6 +13,13 @@ import json
 from pathlib import Path
 import re
 
+# Support both `python scripts/...` and `import scripts...` without changing
+# the archived reader or its historical tokenization policy.
+if __package__:
+    from .ivtff_physical_rows import checked_physical_lines
+else:
+    from ivtff_physical_rows import checked_physical_lines
+
 ROOT = Path(__file__).resolve().parents[1]
 MANIFEST = ROOT / "research/decipherment/2026-10-23-prospective-leaf-holdout/manifest-v2.json"
 SOURCE_NAMES = ("eva_zl3b.txt", "eva_it2a.txt")
@@ -70,7 +77,7 @@ def inspect_source(raw: bytes) -> dict:
     named_loci: Counter[str] = Counter()
     numeric_tags = numeric_headers = numeric_loci = 0
     active_page = None
-    for line_no, line in enumerate(raw.decode("utf-8-sig").splitlines(), 1):
+    for line_no, line in checked_physical_lines(raw.decode("utf-8-sig")):
         if not line.startswith("<f"):
             continue
         end = line.find(">")
