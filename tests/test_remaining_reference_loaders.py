@@ -64,20 +64,26 @@ class RemainingReaderProvenanceTests(unittest.TestCase):
     """Adversarial metadata inputs; no historical script or corpus is rewritten."""
 
     def setUp(self):
-        from scripts.audit_corpus_identity_overlay import EXPECTED_ISSUES, EXPECTED_WORKS
+        from scripts.audit_corpus_identity_overlay import (EXPECTED_ISSUES, EXPECTED_WORKS,
+                                                          EXPECTED_EVIDENCE, EXPECTED_SOURCE_COMMIT)
         self.tmp = tempfile.TemporaryDirectory()
         self.addCleanup(self.tmp.cleanup)
         self.root = Path(self.tmp.name)
         self.manifest = {'files': []}
         self.overlay = {
+            'source_commit': EXPECTED_SOURCE_COMMIT,
             'historical_results': 'PENDING_SCOPE_AUDIT_NOT_AUTOMATICALLY_RETRACTED',
             'excluded_from_new_language_baselines': [],
         }
         for name, issue in EXPECTED_ISSUES.items():
             path = self.root / name
             path.parent.mkdir(parents=True, exist_ok=True)
+            recorded = EXPECTED_EVIDENCE[name]
+            evidence_lines = list(dict.fromkeys(recorded['header_title'] +
+                                                recorded['header_language'] +
+                                                recorded['evidence']))
             raw = (b'' if issue == 'BLOCKED_EMPTY' else
-                   b'Title: English translation\nLanguage: English\nEvidence of translation\n')
+                   ('\n'.join(evidence_lines) + '\n').encode('utf-8'))
             path.write_bytes(raw)
             digest = hashlib.sha256(raw).hexdigest()
             self.manifest['files'].append({
@@ -91,11 +97,9 @@ class RemainingReaderProvenanceTests(unittest.TestCase):
                 'adjudicated_language': ('none' if issue == 'BLOCKED_EMPTY' else
                     'Latin and English' if issue == 'BILINGUAL_REQUIRES_FILTER_AUDIT'
                     else 'English'),
-                'header_title': [] if issue in ('BLOCKED_EMPTY', 'BILINGUAL_REQUIRES_FILTER_AUDIT')
-                                else ['Title: English translation'],
-                'header_language': [] if issue in ('BLOCKED_EMPTY', 'BILINGUAL_REQUIRES_FILTER_AUDIT')
-                                   else ['Language: English'],
-                'evidence': [] if issue == 'BLOCKED_EMPTY' else ['Evidence of translation'],
+                'header_title': list(recorded['header_title']),
+                'header_language': list(recorded['header_language']),
+                'evidence': list(recorded['evidence']),
             })
 
     def load(self):
