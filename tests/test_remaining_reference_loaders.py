@@ -171,10 +171,10 @@ class FrozenHistoricalReaderScriptTests(unittest.TestCase):
                     path = root / relative
                     original = path.read_bytes()
                     try:
-                        path.write_bytes(original + b'\\n# adversarial byte drift\\n')
-                        with mock.patch.object(audit, 'ROOT', root), \\
+                        path.write_bytes(original + b'\n# adversarial byte drift\n')
+                        with mock.patch.object(audit, 'ROOT', root), \
                              mock.patch.object(audit, 'load_verified_reference_metadata',
-                                               side_effect=AssertionError('metadata reached')), \\
+                                               side_effect=AssertionError('metadata reached')), \
                              mock.patch.object(audit, 'replay',
                                                side_effect=AssertionError('AST replay reached')):
                             with self.assertRaisesRegex(ValueError, 'Frozen reader script drift'):
