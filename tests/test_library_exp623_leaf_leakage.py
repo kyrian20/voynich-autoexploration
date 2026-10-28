@@ -31,6 +31,30 @@ class LibraryExp623LeakageTests(unittest.TestCase):
         self.assertEqual(audit.overlap({"f1r", "f2v"}, {"f1v", "f2r"}), [1, 2])
         self.assertEqual(audit.overlap({"f1r", "f1v"}, {"f2r", "f2v"}), [])
 
+    def test_nonphysical_separators_cannot_forge_folio_headers(self):
+        # A phantom page must never be promoted from a comment or locus body.
+        for separator in "\\v\\f\\x1c\\x1d\\x1e\\x85\\u2028\\u2029":
+            text = (
+                "<f1r> $L=A\\n<f1r.1,@P0> ab.cd.ef"
+                + separator + "<f2r> $L=B\\n<f2r.1,@P0> ab.cd.ef\\n"
+            )
+            for reader in (audit.eligible_a, audit.eligible_b):
+                with self.subTest(separator=ord(separator), reader=reader.__name__):
+                    with self.assertRaisesRegex(ValueError, "Non-physical IVTFF line separator"):
+                        reader(text)
+
+    def test_only_cr_lf_and_crlf_delimit_physical_rows(self):
+        for newline in ("\\n", "\\r", "\\r\\n"):
+            with self.subTest(newline=repr(newline)):
+                text = newline.join((
+                    "<f1r> $L=A", "<f1r.1,@P0> ab.cd.ef",
+                    "<f2r> $L=B", "<f2r.1,@P0> ab.cd.ef", "",
+                ))
+                self.assertEqual(audit.eligible_a(text), ["f1r", "f2r"])
+                folios, labels = audit.eligible_b(text)
+                self.assertEqual(folios, ["f1r", "f2r"])
+                self.assertEqual(labels, {"f1r": "A", "f2r": "B"})
+
     def test_panels_collapse_to_same_leaf_and_named_excluded(self):
         self.assertEqual(audit.overlap({"f67r1", "fRos"}, {"f67v", "f68r"}), [67])
         self.assertEqual(audit.physical_leaf("fRos"), None)
