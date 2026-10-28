@@ -11,6 +11,15 @@ import json
 import re
 from pathlib import Path
 
+# Both script execution and package imports must use the same strict IVTFF
+# physical-row and structural gates. The historical token views stay frozen.
+if __package__:
+    from .ivtff_physical_rows import checked_physical_lines
+    from .audit_ivtff_page_locus_ids import audit_text, structural_errors
+else:
+    from ivtff_physical_rows import checked_physical_lines
+    from audit_ivtff_page_locus_ids import audit_text, structural_errors
+
 ROOT = Path(__file__).resolve().parents[1]
 SOURCES = [
     ("ZL3b", ROOT / "data/transcriptions/eva_zl3b.txt"),
@@ -141,7 +150,7 @@ def summarize_lines(lines: list[dict]) -> dict:
 def legacy_parser_coverage(text: str) -> dict:
     """Reproduce EXP-590's line-ID regex and historical token filter for comparison."""
     line_count = token_count = daiin_count = initial_daiiin_lines = 0
-    for row in text.splitlines():
+    for _, row in checked_physical_lines(text):
         match = LEGACY_TEXT_LINE.match(row)
         if not match:
             continue
@@ -164,12 +173,19 @@ def legacy_parser_coverage(text: str) -> dict:
 def audit_source(label: str, path: Path) -> dict:
     raw = path.read_bytes()
     text = raw.decode("utf-8-sig")
+    # This descriptive audit formerly ignored malformed page/locus rows and
+    # split on Unicode line separators, potentially counting fabricated text
+    # records. Reject an invalid source before computing any word statistic.
+    structural = audit_text(text)
+    errors = structural_errors(structural)
+    if errors:
+        raise ValueError(f"{label}: invalid IVTFF page/locus structure: {errors}")
     lines = []
     all_noncomment_spans = 0
     non_text_spans = 0
     non_text_examples = []
     text_record_brace_spans = 0
-    for source_line_no, row in enumerate(text.splitlines(), start=1):
+    for source_line_no, row in checked_physical_lines(text):
         if row.lstrip().startswith("#"):
             continue
         spans_on_line = BRACE_RE.findall(row)
