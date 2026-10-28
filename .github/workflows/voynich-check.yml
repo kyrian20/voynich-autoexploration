@@ -620,3 +620,20 @@ jobs:
         env:
           BC_REPLAY_DIR: ${{ runner.temp }}/bc-replay-${{ github.run_id }}-${{ github.run_attempt }}
         run: python tests/test_common_battery.py
+
+      - name: Auditar semántica histórica de removed en EXP-616
+        run: |
+          python -m unittest discover -s tests -p 'test_exp616_legacy_schema.py' -v
+          python -O -m unittest discover -s tests -p 'test_exp616_legacy_schema.py' -v
+          python scripts/audit_exp616_legacy_schema.py --out exp616-schema-correction.json
+          sha256sum exp616-schema-correction.json > exp616-schema-correction.sha256
+
+      - name: Conservar corrección derivada EXP-616 y hash
+        uses: actions/upload-artifact@v4
+        with:
+          name: exp616-schema-correction-${{ github.run_id }}
+          path: |
+            exp616-schema-correction.json
+            exp616-schema-correction.sha256
+          if-no-files-found: error
+          retention-days: 90
