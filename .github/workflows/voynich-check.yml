@@ -220,6 +220,11 @@ jobs:
           python scripts/audit_exp170_archive.py --check research/maintenance/2026-10-22-exp170-audit/results.json
           python -O scripts/audit_exp170_archive.py --check research/maintenance/2026-10-22-exp170-audit/results.json
 
+      - name: Comprobar aislamiento de reconstrucción EXP-170 sin ejecutar cifrador
+        run: |
+          python -m unittest discover -s tests -p 'test_exp170_isolated_reconstruction.py' -v
+          python -O -m unittest discover -s tests -p 'test_exp170_isolated_reconstruction.py' -v
+
       - name: Reproducir sensibilidad de entropía de referencia
         run: |
           python tests/test_reference_entropy_sensitivity.py
