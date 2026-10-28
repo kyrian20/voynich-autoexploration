@@ -62,6 +62,20 @@ jobs:
           python scripts/check_corpus_integrity.py
           python tests/test_duplicate_leakage.py
 
+      - name: Auditar holdout físico histórico de EXP-607
+        run: |
+          python -m unittest discover -s tests -p 'test_exp607_physical_leaf_holdout.py' -v
+          python -O -m unittest discover -s tests -p 'test_exp607_physical_leaf_holdout.py' -v
+          python scripts/audit_exp607_physical_leaf_holdout.py --out exp607-physical-leaf-holdout.json
+
+      - name: Conservar evidencia de partición física EXP-607
+        uses: actions/upload-artifact@v4
+        with:
+          name: exp607-physical-leaf-holdout-${{ github.run_id }}
+          path: exp607-physical-leaf-holdout.json
+          if-no-files-found: error
+          retention-days: 90
+
       - name: Auditar contaminación por hoja física de pilotos LIB-EXP-623
         run: |
           python -m unittest discover -s tests -p 'test_library_exp623_leaf_leakage.py' -v
