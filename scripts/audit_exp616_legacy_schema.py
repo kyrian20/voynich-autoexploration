@@ -24,7 +24,7 @@ RATE_FIELDS = ("ch_rate", "sh_rate", "difference_sh_minus_ch")
 
 
 def git_blob_sha1(raw: bytes) -> str:
-    return hashlib.sha1(b"blob " + str(len(raw)).encode("ascii") + b"\\0" + raw).hexdigest()
+    return hashlib.sha1(b"blob " + str(len(raw)).encode("ascii") + b"\0" + raw).hexdigest()
 
 
 def read_frozen(path: Path, blob_sha1: str, sha256: str | None = None) -> bytes:
@@ -140,7 +140,7 @@ def main() -> None:
     if args.out:
         with args.out.open("x", encoding="utf-8") as handle:
             json.dump(result, handle, ensure_ascii=False, sort_keys=True, indent=2)
-            handle.write("\\n")
+            handle.write("\n")
     print(json.dumps({"status": result["status"],
                       "archive_sha256": result["archive_sha256"],
                       "blocks": {name: len(x["leave_out"]) for name, x in result["results"].items()}},
