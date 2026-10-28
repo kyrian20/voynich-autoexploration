@@ -81,7 +81,7 @@ def preflight(root, naibbe_dir, italian, hashes, out_dir):
             "status": "PREFLIGHT_ONLY", "historical_reproduction": False}
 
 
-def stage_inputs(stage, root, naibbe_dir, italian):
+def stage_inputs(stage, root, naibbe_dir, italian, hashes):
     """Copy only required inputs; never stage the historical output JSON."""
     inputs = {
         "historical_script": root / DESTINATIONS["historical_script"],
@@ -99,11 +99,21 @@ def stage_inputs(stage, root, naibbe_dir, italian):
     if archived.exists():
         raise ValueError("Staged historical output unexpectedly exists")
     archived.parent.mkdir(parents=True, exist_ok=True)
-    # Check copied bytes as well: source files might change during staging.
-    for name, source in inputs.items():
+    # Compare staged bytes to the independent preflight locks, not to a
+    # source that might have changed after preflight (TOCTOU).
+    locked = {
+        "historical_script": FROZEN_INPUT_SHA256[str(DESTINATIONS["historical_script"])],
+        "voynich": FROZEN_INPUT_SHA256[str(DESTINATIONS["voynich"])],
+        "english_historical_latin_label":
+            "d63b1b81824e259b1cf92ba8a6e5cbbf783e2a83214cf2c3db2ecd1459165bfe",
+        "naibbe_code": hashes["naibbe_code"],
+        "naibbe_tables": hashes["naibbe_tables"],
+        "italian": hashes["italian"],
+    }
+    for name in inputs:
         target = stage / DESTINATIONS[name]
-        if sha256(target) != sha256(source):
-            raise ValueError(f"Input changed during staging: {name}")
+        if sha256(target) != locked[name]:
+            raise ValueError(f"Staged input SHA-256 mismatch: {name}")
     return archived
 
 
@@ -114,7 +124,7 @@ def run_reconstruction(root, naibbe_dir, italian, hashes, out_dir, execute=False
         return receipt
     with tempfile.TemporaryDirectory(prefix="voynich-exp170-reconstruction-") as temp:
         stage = Path(temp)
-        staged_output = stage_inputs(stage, root, naibbe_dir, italian)
+        staged_output = stage_inputs(stage, root, naibbe_dir, italian, hashes)
         env = os.environ.copy()
         env["PYTHONDONTWRITEBYTECODE"] = "1"
         try:
