@@ -91,7 +91,10 @@ def main() -> None:
                         sort_keys=True) + "\n"
     if args.out:
         args.out.parent.mkdir(parents=True, exist_ok=True)
-        args.out.write_text(output, encoding="utf-8")
+        # A frozen manifest or pre-existing CI artifact must never be replaced.
+        # Exclusive creation also refuses existing symlinks to archived inputs.
+        with args.out.open("x", encoding="utf-8", newline="\n") as handle:
+            handle.write(output)
     else:
         print(output, end="")
 

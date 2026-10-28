@@ -1,6 +1,8 @@
 """Regression for panel-aware holdout v2; no manuscript text or EXP ID."""
 import json
+import subprocess
 import sys
+import tempfile
 from pathlib import Path
 import unittest
 
@@ -89,6 +91,46 @@ class PanelAwareHoldout(unittest.TestCase):
         self.assertEqual(all_new - old_leaves, MISSING_V1)
         self.assertEqual(sum(new["counts"].values()), 102)
         self.assertEqual(new["salt"], old["salt"])
+
+    def test_cli_creates_new_output_identical_to_frozen_manifest(self):
+        # Existing v2 partition membership must not change.
+        frozen = (V1_MANIFEST.parent / "manifest-v2.json").read_bytes()
+        with tempfile.TemporaryDirectory() as tmp:
+            output = Path(tmp) / "new" / "manifest.json"
+            run = subprocess.run(
+                [sys.executable, str(ROOT / "scripts/prepare_prospective_leaf_holdout_v2.py"),
+                 "--out", str(output)],
+                cwd=ROOT, capture_output=True, text=True, check=False,
+            )
+            self.assertEqual(run.returncode, 0, run.stderr)
+            self.assertEqual(output.read_bytes(), frozen)
+
+    def test_cli_refuses_existing_file_and_symlink_without_changing_bytes(self):
+        # Regression: Path.write_text used to overwrite any --out destination,
+        # including an archived manifest or a symlink to one.
+        with tempfile.TemporaryDirectory() as tmp:
+            protected = Path(tmp) / "frozen-manifest.json"
+            original = b"ARCHIVED ORIGINAL -- MUST NOT CHANGE\\n"
+            protected.write_bytes(original)
+            targets = [protected]
+            link = Path(tmp) / "link-to-archive.json"
+            try:
+                link.symlink_to(protected)
+            except (NotImplementedError, OSError):
+                pass
+            else:
+                targets.append(link)
+            for output in targets:
+                with self.subTest(path=str(output)):
+                    run = subprocess.run(
+                        [sys.executable,
+                         str(ROOT / "scripts/prepare_prospective_leaf_holdout_v2.py"),
+                         "--out", str(output)],
+                        cwd=ROOT, capture_output=True, text=True, check=False,
+                    )
+                    self.assertNotEqual(run.returncode, 0)
+                    self.assertIn("FileExistsError", run.stderr)
+                    self.assertEqual(protected.read_bytes(), original)
 
     def test_reject_missing_source(self):
         with self.assertRaises(ValueError):
