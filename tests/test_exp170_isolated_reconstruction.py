@@ -212,6 +212,42 @@ class Exp170ReconstructionRunnerTests(unittest.TestCase):
         self.assertEqual(runner.sha256(ROOT / runner.EXP / "data/simulation_results.json"),
                          self.original_sha)
 
+    def test_raw_binary_logs_distinguish_literal_escape_from_invalid_byte(self):
+        # Synthetic child only. Escaped text is ambiguous; binary logs are not.
+        real_run = runner.subprocess.run
+        expected_stdout = bytes([92, 120, 102, 102, 124, 255])
+        expected_stderr = bytes([92, 120, 102, 101, 124, 254])
+
+        def synthetic_process(args, **kwargs):
+            self.assertNotIn("text", kwargs)
+            self.assertNotIn("encoding", kwargs)
+            code = (
+                "import sys; "
+                "sys.stdout.buffer.write(bytes([92,120,102,102,124,255])); "
+                "sys.stderr.buffer.write(bytes([92,120,102,101,124,254])); "
+                "sys.exit(3)"
+            )
+            return real_run([sys.executable, "-c", code], **kwargs)
+
+        with patch.object(runner.subprocess, "run", side_effect=synthetic_process):
+            with self.assertRaisesRegex(RuntimeError, r"failed \\(3\\)"):
+                self.invoke(execute=True)
+        receipt = json.loads((self.out / "receipt.json").read_text())
+        self.assertEqual(receipt["status"], "FAILED")
+        self.assertEqual((self.out / "stdout.bin").read_bytes(), expected_stdout)
+        self.assertEqual((self.out / "stderr.bin").read_bytes(), expected_stderr)
+        for name, expected in (("stdout", expected_stdout), ("stderr", expected_stderr)):
+            self.assertEqual(receipt["raw_logs"][name]["size_bytes"], len(expected))
+            self.assertEqual(receipt["raw_logs"][name]["sha256"],
+                             hashlib.sha256(expected).hexdigest())
+        self.assertEqual((self.out / "stdout.log").read_text(),
+                         expected_stdout.decode("utf-8", errors="backslashreplace"))
+        self.assertEqual((self.out / "stderr.log").read_text(),
+                         expected_stderr.decode("utf-8", errors="backslashreplace"))
+        self.assertFalse((self.out / "simulation_results.json").exists())
+        self.assertEqual(runner.sha256(ROOT / runner.EXP / "data/simulation_results.json"),
+                         self.original_sha)
+
     def test_timeout_with_bytes_keeps_decoded_logs(self):
         error = runner.subprocess.TimeoutExpired(
             cmd=["synthetic"], timeout=1, output=b"partial\xff", stderr=b"problem\xfe")
@@ -229,6 +265,12 @@ class Exp170ReconstructionRunnerTests(unittest.TestCase):
         self.assertIn(r"\xfe", stderr_log)
         self.assertNotIn("\ufffd", stdout_log + stderr_log)
         self.assertIn("TIMEOUT", stderr_log)
+        self.assertEqual((self.out / "stdout.bin").read_bytes(), b"partial\\xff")
+        self.assertEqual((self.out / "stderr.bin").read_bytes(), b"problem\\xfe")
+        self.assertEqual(receipt["raw_logs"]["stdout"]["sha256"],
+                         hashlib.sha256(b"partial\\xff").hexdigest())
+        self.assertEqual(receipt["raw_logs"]["stderr"]["sha256"],
+                         hashlib.sha256(b"problem\\xfe").hexdigest())
         self.assertFalse((self.out / "simulation_results.json").exists())
         self.assertEqual(runner.sha256(ROOT / runner.EXP / "data/simulation_results.json"),
                          self.original_sha)
