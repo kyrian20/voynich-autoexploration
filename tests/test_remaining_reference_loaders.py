@@ -6,6 +6,7 @@ import json
 from pathlib import Path
 import tempfile
 import unittest
+from unittest import mock
 
 ROOT = Path(__file__).resolve().parents[1]
 spec=importlib.util.spec_from_file_location('remaining', ROOT/'scripts/audit_remaining_reference_loaders.py')
@@ -144,6 +145,76 @@ class RemainingReaderProvenanceTests(unittest.TestCase):
                         '"excluded_from_new_language_baselines":[]}', encoding='utf-8')
         with self.assertRaisesRegex(ValueError, 'Duplicate JSON key'):
             audit.load_verified_reference_metadata(self.root)
+
+
+class FrozenHistoricalReaderScriptTests(unittest.TestCase):
+    """Exact original scripts must pass before the audit can execute their AST."""
+
+    def copy_scripts(self, root):
+        for relative in audit.FROZEN_READER_SCRIPTS:
+            target = root / relative
+            target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_bytes((ROOT / relative).read_bytes())
+
+    def test_pins_match_archived_snapshot_and_original_files(self):
+        archived = json.loads((ROOT / 'research/maintenance/2026-10-22-remaining-readers/results.json').read_text())
+        recorded = {case['experiment_path']: case['script_sha256'] for case in archived['cases']}
+        self.assertEqual(recorded, audit.FROZEN_READER_SCRIPTS)
+        self.assertIsNone(audit.verify_frozen_reader_scripts(ROOT))
+
+    def test_each_modified_script_is_rejected_before_any_reader(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            self.copy_scripts(root)
+            for relative in audit.FROZEN_READER_SCRIPTS:
+                with self.subTest(script=relative):
+                    path = root / relative
+                    original = path.read_bytes()
+                    try:
+                        path.write_bytes(original + b'\\n# adversarial byte drift\\n')
+                        with mock.patch.object(audit, 'ROOT', root), \\
+                             mock.patch.object(audit, 'load_verified_reference_metadata',
+                                               side_effect=AssertionError('metadata reached')), \\
+                             mock.patch.object(audit, 'replay',
+                                               side_effect=AssertionError('AST replay reached')):
+                            with self.assertRaisesRegex(ValueError, 'Frozen reader script drift'):
+                                audit.compute()
+                    finally:
+                        path.write_bytes(original)
+
+    def test_missing_script_is_rejected(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            self.copy_scripts(root)
+            relative = next(iter(audit.FROZEN_READER_SCRIPTS))
+            (root / relative).unlink()
+            with self.assertRaisesRegex(ValueError, 'Frozen reader script missing'):
+                audit.verify_frozen_reader_scripts(root)
+
+    def test_symlink_to_identical_bytes_is_rejected(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            self.copy_scripts(root)
+            relative = next(iter(audit.FROZEN_READER_SCRIPTS))
+            path = root / relative
+            target = root / 'identical_script.py'
+            target.write_bytes(path.read_bytes())
+            path.unlink()
+            path.symlink_to(target)
+            with self.assertRaisesRegex(ValueError, 'Frozen reader script symlink'):
+                audit.verify_frozen_reader_scripts(root)
+
+    def test_symlinked_parent_directory_is_rejected(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            self.copy_scripts(root)
+            relative = next(iter(audit.FROZEN_READER_SCRIPTS))
+            parent = (root / relative).parent
+            alternate = root / 'relocated_experiment'
+            parent.rename(alternate)
+            parent.symlink_to(alternate, target_is_directory=True)
+            with self.assertRaisesRegex(ValueError, 'Frozen reader script symlink'):
+                audit.verify_frozen_reader_scripts(root)
 
 
 if __name__=='__main__': unittest.main()
