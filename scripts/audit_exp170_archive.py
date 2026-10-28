@@ -18,6 +18,19 @@ EXP = Path('experiments/exp_170_naibbe_simulation')
 CONDITIONS = ('italian_A', 'italian_B', 'latin_A', 'latin_B')
 FUNCTIONS = {'get_onset', 'has_edy', 'parse_vms', 'compute_metrics',
              'summarize_distribution', 'inside_interval'}
+# Independent byte identities from the 2026-10-22 audited snapshot.
+# Never derive these from the files being audited (including the snapshot).
+# This gate runs BEFORE historical AST code is compiled or executed.
+FROZEN_INPUT_SHA256 = {
+    'experiments/exp_170_naibbe_simulation/script.py':
+        '8fe0f7d153211b320b34ca8543dac1ba029e629c4413c203fb2df0031063721c',
+    'experiments/exp_170_naibbe_simulation/result.md':
+        '740e9997559a43529391ba29e339bbf955722aa0a1b8302efb451cb66706f354',
+    'experiments/exp_170_naibbe_simulation/data/simulation_results.json':
+        'c71f7161eb69c6cefa7b7fb6a72c000b6647137200166f331ca920042159e874',
+    'data/transcriptions/eva_zl3b.txt':
+        'bf5b6d4ac1e3a51b1847a9c388318d609020441ccd56984c901c32b09beccafc',
+}
 # Exact table row labels, in report order. qo/sh self-succession are archived
 # but not part of the historical 16-metric comparison.
 ROWS = {
@@ -38,6 +51,18 @@ ROWS = {
     'd self-succession enrichment': 'd_self_succ',
     'qok→ch enrichment': 'qok_ch_enrichment',
 }
+
+
+
+def verify_frozen_inputs(root=ROOT):
+    """Fail closed before evaluating historical AST fragments or metrics."""
+    for relative, expected in FROZEN_INPUT_SHA256.items():
+        path = root / relative
+        if path.is_symlink() or not path.is_file():
+            raise ValueError(f'EXP-170 frozen input absent or symlinked: {relative}')
+        actual = hashlib.sha256(path.read_bytes()).hexdigest()
+        if actual != expected:
+            raise ValueError(f'EXP-170 frozen input SHA-256 mismatch: {relative}')
 
 
 def historical_namespace(source):
@@ -151,6 +176,7 @@ def validate_archive(archive, expected_keys):
 
 
 def audit(root=ROOT):
+    verify_frozen_inputs(root)
     source = (root/EXP/'script.py').read_text()
     ns, tree = historical_namespace(source)
     targets = baseline(ns, tree, root/'data/transcriptions/eva_zl3b.txt')

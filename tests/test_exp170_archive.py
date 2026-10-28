@@ -3,6 +3,8 @@ import importlib.util
 import json
 import math
 from pathlib import Path
+import shutil
+import tempfile
 import unittest
 from unittest.mock import patch
 
@@ -159,6 +161,50 @@ class ArchiveAuditTests(unittest.TestCase):
         with patch.object(audit, 'historical_namespace', side_effect=altered_namespace):
             with self.assertRaisesRegex(ValueError, 'EXP-170 legacy status mismatch'):
                 audit.audit()
+
+    def test_frozen_inputs_match_independent_sha256_lock(self):
+        # The lock is not reconstructed from a mutable audit snapshot.
+        audit.verify_frozen_inputs(ROOT)
+        saved = json.loads((ROOT/'research/maintenance/2026-10-22-exp170-audit/results.json').read_text())
+        self.assertEqual(audit.FROZEN_INPUT_SHA256, saved['sha256'])
+
+    def test_frozen_input_tampering_fails_before_historical_ast_execution(self):
+        # Copy, never modify, the real historical inputs. Exercise each file.
+        with tempfile.TemporaryDirectory() as temp:
+            copy_root = Path(temp)
+            for relative in audit.FROZEN_INPUT_SHA256:
+                dest = copy_root / relative
+                dest.parent.mkdir(parents=True, exist_ok=True)
+                shutil.copyfile(ROOT / relative, dest)
+            audit.verify_frozen_inputs(copy_root)
+            for relative in audit.FROZEN_INPUT_SHA256:
+                with self.subTest(path=relative):
+                    dest = copy_root / relative
+                    original = dest.read_bytes()
+                    try:
+                        dest.write_bytes(original + b'\\n# unexpected mutation')
+                        with patch.object(audit, 'historical_namespace',
+                                          side_effect=AssertionError('historical AST executed')):
+                            with self.assertRaisesRegex(ValueError, 'SHA-256 mismatch'):
+                                audit.audit(root=copy_root)
+                    finally:
+                        dest.write_bytes(original)
+            audit.verify_frozen_inputs(copy_root)
+
+    def test_frozen_input_symlink_is_rejected_before_execution(self):
+        with tempfile.TemporaryDirectory() as temp:
+            copy_root = Path(temp)
+            relative = next(iter(audit.FROZEN_INPUT_SHA256))
+            dest = copy_root / relative
+            dest.parent.mkdir(parents=True, exist_ok=True)
+            try:
+                dest.symlink_to(ROOT / relative)
+            except (OSError, NotImplementedError):
+                self.skipTest('Symlinks unavailable')
+            with patch.object(audit, 'historical_namespace',
+                              side_effect=AssertionError('historical AST executed')):
+                with self.assertRaisesRegex(ValueError, 'symlinked'):
+                    audit.audit(root=copy_root)
 
     def test_original_archive_passes_strict_json_parser(self):
         raw = (ROOT/audit.EXP/'data/simulation_results.json').read_text()
