@@ -41,6 +41,17 @@ def sha256(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
+def raw_log_bytes(data):
+    """Retain exact captured bytes; string inputs are for synthetic test doubles."""
+    if data is None:
+        return b""
+    if isinstance(data, bytes):
+        return data
+    if isinstance(data, str):
+        return data.encode("utf-8")
+    raise TypeError(f"Unsupported subprocess log type: {type(data).__name__}")
+
+
 def checked_source(path, expected):
     if not re.fullmatch(r"[0-9a-f]{64}", expected):
         raise ValueError("Expected an explicit lowercase SHA-256 for every external input")
@@ -130,28 +141,34 @@ def run_reconstruction(root, naibbe_dir, italian, hashes, out_dir, execute=False
         out_dir.mkdir(mode=0o700, exist_ok=False)
         env = os.environ.copy()
         env["PYTHONDONTWRITEBYTECODE"] = "1"
+        launch_error = None
         try:
             proc = subprocess.run(
                 [sys.executable, str(stage / EXP / "script.py")],
-                cwd=stage, env=env, text=True, capture_output=True,
+                cwd=stage, env=env, capture_output=True,
                 timeout=timeout, check=False,
-                # Preserve undecodable bytes as \xNN escapes in forensic text logs.
-                encoding="utf-8", errors="backslashreplace",
+                # Capture bytes first: escaped text cannot distinguish a literal
+                # backslash-x sequence from an invalid UTF-8 byte.
             )
-            stdout, stderr, returncode = proc.stdout, proc.stderr, proc.returncode
+            raw_stdout = raw_log_bytes(proc.stdout)
+            raw_stderr = raw_log_bytes(proc.stderr)
+            returncode = proc.returncode
         except subprocess.TimeoutExpired as exc:
-            stdout = (exc.stdout or b"")
-            stderr = (exc.stderr or b"")
-            # TimeoutExpired exposes raw bytes even with text=True. Do not
-            # collapse distinct invalid bytes into U+FFFD in diagnostic logs.
-            stdout = stdout.decode("utf-8", errors="backslashreplace") if isinstance(stdout, bytes) else str(stdout)
-            stderr = stderr.decode("utf-8", errors="backslashreplace") if isinstance(stderr, bytes) else str(stderr)
-            stderr += "\nTIMEOUT"
+            # Python exposes partial raw bytes on timeout.
+            raw_stdout = raw_log_bytes(exc.stdout)
+            raw_stderr = raw_log_bytes(exc.stderr)
             returncode = 124
         except OSError as exc:
-            stdout = ""
-            stderr = f"{type(exc).__name__}: {exc}"
+            raw_stdout = b""
+            raw_stderr = b""
+            launch_error = f"{type(exc).__name__}: {exc}"
             returncode = 126
+        stdout = raw_stdout.decode("utf-8", errors="backslashreplace")
+        stderr = raw_stderr.decode("utf-8", errors="backslashreplace")
+        if returncode == 124:
+            stderr += "\nTIMEOUT"
+        if launch_error is not None:
+            stderr = launch_error
         receipt["returncode"] = returncode
         receipt["status"] = "FAILED"
         if returncode == 0:
@@ -169,8 +186,16 @@ def run_reconstruction(root, naibbe_dir, italian, hashes, out_dir, execute=False
                 receipt["validation_error"] = f"{type(exc).__name__}: {exc}"
                 receipt["returncode"] = 65
         # Destination was reserved before subprocess; publish only into that directory.
+        (out_dir / "stdout.bin").write_bytes(raw_stdout)
+        (out_dir / "stderr.bin").write_bytes(raw_stderr)
         (out_dir / "stdout.log").write_text(stdout, encoding="utf-8")
         (out_dir / "stderr.log").write_text(stderr, encoding="utf-8")
+        receipt["raw_logs"] = {
+            "stdout": {"sha256": hashlib.sha256(raw_stdout).hexdigest(),
+                       "size_bytes": len(raw_stdout)},
+            "stderr": {"sha256": hashlib.sha256(raw_stderr).hexdigest(),
+                       "size_bytes": len(raw_stderr)},
+        }
         if receipt["status"] == "MODERN_RECONSTRUCTION_UNVALIDATED":
             with (out_dir / OUTPUT_NAME).open("xb") as output:
                 output.write(raw)
