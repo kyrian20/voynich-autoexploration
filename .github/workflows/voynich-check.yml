@@ -417,6 +417,11 @@ jobs:
           python -m unittest discover -s tests -p 'test_line_boundary_inline_text_tags.py' -v
           python -O -m unittest discover -s tests -p 'test_line_boundary_inline_text_tags.py' -v
 
+      - name: Rechazar etiquetas IVTFF cerradas pero malformadas sin inventar palabras
+        run: |
+          python -m unittest discover -s tests -p 'test_line_boundary_invalid_inline_tags.py' -v
+          python -O -m unittest discover -s tests -p 'test_line_boundary_invalid_inline_tags.py' -v
+
       - name: Impedir JSON no estándar y sobrescritura de resultados de límites de línea
         run: |
           python -m unittest discover -s tests -p 'test_line_boundary_strict_json.py' -v
