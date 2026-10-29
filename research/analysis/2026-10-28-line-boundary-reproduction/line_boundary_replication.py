@@ -111,7 +111,10 @@ def pred(train,test,key,alpha=.5):
    # Historical numerator used 2*alpha per class, yielding a different prior.
    s=math.log((yc[y]+alpha)/(n+2*alpha))
    for i,val in enumerate(r["f"][key]):
-    s+=math.log((c[y][i][val]+alpha)/(yc[y]+alpha*max(1,len(v[i]))))
+    # Reserve one explicit out-of-vocabulary bucket for unseen test values.
+    # Without it, observed-category probabilities sum to 1 but an unseen
+    # value receives extra positive mass, so the likelihood is not normalized.
+    s+=math.log((c[y][i][val]+alpha)/(yc[y]+alpha*(len(v[i])+1)))
    scores.append(s)
   m=max(scores);a=math.exp(scores[0]-m);b=math.exp(scores[1]-m);out.append(b/(a+b))
  return out,yc
