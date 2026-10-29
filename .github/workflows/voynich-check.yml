@@ -422,6 +422,11 @@ jobs:
           python -m unittest discover -s tests -p 'test_line_boundary_strict_json.py' -v
           python -O -m unittest discover -s tests -p 'test_line_boundary_strict_json.py' -v
 
+      - name: Comprobar publicación atómica y exclusiva de resultados de límites de línea
+        run: |
+          python -m unittest discover -s tests -p 'test_line_boundary_atomic_publication.py' -v
+          python -O -m unittest discover -s tests -p 'test_line_boundary_atomic_publication.py' -v
+
 
       - name: Respetar marcadores IVTFF de inicio y fin de párrafo en límites de línea
         run: |
