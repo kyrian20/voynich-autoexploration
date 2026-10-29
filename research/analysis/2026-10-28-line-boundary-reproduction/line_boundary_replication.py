@@ -251,10 +251,15 @@ def run(path,label,policy):
     "models":{k:{a:(round(b,6) if isinstance(b,float) else [round(q,6) for q in b] if isinstance(b,list) else b) for a,b in v.items()} for k,v in phys.items()}},
   "folds":foldinfo}
 def write_new_result(path,result):
- # Exclusive creation rejects existing files and symlinks; never overwrite a frozen run.
+ # Serialize and validate BEFORE exclusive file creation. json.dump's default
+ # allow_nan=True would otherwise publish non-standard NaN/Infinity literals
+ # (e.g. AUC is undefined for a one-class evaluation fold).
+ # A serialization error must not leave an empty or partial result artifact.
+ payload=json.dumps(result,indent=2,ensure_ascii=False,allow_nan=False)+"\n"
+ # Exclusive creation rejects existing files and symlinks; never overwrite
+ # a frozen run. This does not claim crash-atomicity on filesystem I/O errors.
  with path.open("x",encoding="utf-8") as f:
-  json.dump(result,f,indent=2,ensure_ascii=False)
-  f.write("\n")
+  f.write(payload)
 
 def main():
  for label,path in INPUTS.items():
