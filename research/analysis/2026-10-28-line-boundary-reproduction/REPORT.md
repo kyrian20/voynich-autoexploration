@@ -1,5 +1,8 @@
 # Réplica independiente: predicción de límites de línea en el Manuscrito Voynich
 
+> **Errata de continuaciones IVTFF — 29-10-2026 (corrección de código; no se han recalculado métricas):** conforme a IVTFF 2.0.2 §6.6–6.9 y al protocolo local F08, una barra `/` al final/inicio de una fila marca continuación, no una separación de palabras. El lector anterior extraía `ab` de `ab/` y `cd` de `/cd`, de modo que podía crear un candidato positivo de límite de línea entre fragmentos de una misma palabra. La reparación conservadora convierte toda unidad con `/` en barrera interna `None` hasta disponer de ensamblado de continuaciones validado y trazable. Las regresiones sintéticas verifican el falso positivo, las barreras intralínea y que las líneas ordinarias siguen produciendo candidatos. **Esta corrección no reconstruye las palabras continuadas ni demuestra el número de casos reales afectados.** `results.json` permanece congelado y sus métricas son `INVALID_FOR_CLAIM` como evaluación que trate correctamente continuaciones; no se han utilizado hojas reservadas ni se ha repetido el estudio. Se conserva el resultado negativo/indeterminado de impacto y la necesidad de adjudicación completa IVTFF.
+>
+
 **Fecha de ejecución:** 28 de octubre de 2026  
 **Estado:** reimplementación independiente ejecutada y repetida de forma determinista; coincidencia aproximada con el artículo, no reproducción bit a bit.  
 **Repositorio base consultado:** `kyrian20/voynich-autoexploration`, `master` en `9134d8c872f35602912512b33d27b8e9cc8bff67`.  
