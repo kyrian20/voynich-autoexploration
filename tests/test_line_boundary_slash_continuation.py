@@ -72,7 +72,7 @@ class SlashContinuationContract(unittest.TestCase):
                         continue
                     page = parts[0]
                     loc = module.re.sub(r"^[+*@=~&!/]+", "", locus.strip())
-                    if (not module.re.fullmatch(r"f(\\d+)[rv][1-6]?", page)
+                    if (not module.re.fullmatch(r"f(\d+)[rv][1-6]?", page)
                             and page != "fRos"):
                         continue
                     if not module.re.fullmatch(r"P(?:0|1|b|c|r|t)", loc):
