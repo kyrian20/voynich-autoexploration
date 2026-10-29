@@ -33,7 +33,9 @@ def tokens(body,policy="primary",preserve_gaps=False):
  out=[]
  for x in re.split(r"[.\s,]+",body):
   if not x:continue
-  if policy=="drop_uncertain_word" and UNCERTAIN.search(x):
+  # A question mark is an unresolved glyph in either policy. Never turn
+  # it into two apparent words or erase it between otherwise valid words.
+  if "?" in x or (policy=="drop_uncertain_word" and UNCERTAIN.search(x)):
    # Keep a non-word barrier for candidate construction; never join its neighbours.
    if preserve_gaps:out.append(None)
    continue
@@ -50,7 +52,8 @@ def parse(path,policy="primary"):
   page=parts[0]; pm=re.fullmatch(r"f(\d+)[rv][1-6]?",page)
   loc=re.sub(r"^[+*@=~&!/]+","",locus.strip())
   if (not pm and page!="fRos") or not re.fullmatch(r"P(?:0|1|b|c|r|t)",loc):continue
-  ws=tokens(m["body"] or "",policy,preserve_gaps=(policy=="drop_uncertain_word"))
+  # Both policies must preserve unknown-glyph barriers for adjacency tests.
+  ws=tokens(m["body"] or "",policy,preserve_gaps=True)
   # Preserve empty P rows as barriers: removing one would invent adjacency
   # between its predecessor and successor. Exclude entirely empty pages so
   # they cannot shift the historical every-fifth-page calibration.

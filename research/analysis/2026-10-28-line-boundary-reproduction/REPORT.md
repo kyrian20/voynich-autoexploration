@@ -5,6 +5,9 @@
 **Repositorio base consultado:** `kyrian20/voynich-autoexploration`, `master` en `9134d8c872f35602912512b33d27b8e9cc8bff67`.  
 **Identificadores de experimento:** ninguno asignado; la numeración del proyecto permanece congelada.
 
+> **Errata de continuidad en lectura primaria — 29-10-2026 (reparación de código, sin nueva réplica):** el parser eliminaba `?` antes de construir candidatos en el modo `primary`. Una línea `alpha.?.beta` se convertía en `[alpha,beta]` y producía un par adyacente falso; `ab?cd` se dividía en dos palabras ficticias. Ahora un token con `?` se conserva como barrera `None` en la construcción de candidatos de ambas políticas; `tokens(..., preserve_gaps=False)` sigue omitiendo unidades inciertas en la interfaz de salida. Las regresiones sintéticas comprueban la barrera intralínea, el caso de interrogación incrustada y la ausencia de un salto de línea falso cuando la última unidad es incierta. Esta corrección **no acredita** cuántos casos reales están afectados ni recalcula `results.json`; sus métricas `primary` quedan **INVALID_FOR_CLAIM específicamente como evaluación que respeta barreras de grafemas desconocidos**, hasta una nueva ejecución verificada. El original se conserva y la adjudicación completa IVTFF continúa pendiente.
+>
+
 > **Errata de integridad — 29-10-2026, revisión de PR #138:** el modo
 > `drop_uncertain_word` eliminaba las marcas `[primaria:alternativa]` antes
 > de comprobar incertidumbre, por lo que retenía palabras afectadas por
