@@ -23,7 +23,10 @@ def sha(p):
   for b in iter(lambda:f.read(1<<20),b""):h.update(b)
  return h.hexdigest()
 def tokens(body,policy="primary",preserve_gaps=False):
- body=re.sub(r"<![^>]*>"," ",body);body=re.sub(r"<[^>]*>"," ",body)
+ # IVTFF 2.0.2 §5.7.2: free-text comments have zero width in a word.
+ # Do not invent a gap where the manuscript only has an annotation.
+ body=re.sub(r"<![^>]*>","",body)
+ body=re.sub(r"<[^>]*>"," ",body)
  if policy=="drop_uncertain_word":
   # Preserve an uncertainty sentinel until after splitting; otherwise the
   # primary-reading substitution erases the evidence needed for exclusion.
