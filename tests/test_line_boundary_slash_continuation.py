@@ -34,19 +34,19 @@ class SlashContinuationContract(unittest.TestCase):
     def test_continued_word_does_not_forge_positive_line_break(self):
         with tempfile.TemporaryDirectory() as directory:
             source = Path(directory) / "synthetic.ivtff"
-            source.write_text("<f1r.P.1,P0> ab/\\n"
-                              "<f1r.P.2,P0> /cd\\n",
+            source.write_text("<f1r.P.1,P0> ab/\n"
+                              "<f1r.P.2,P0> /cd\n",
                               encoding="latin-1")
             pages = module.parse(source)
-        self.assertEqual([row["words"] for row in pages["f1r"]],
-                         [[None], [None]] if "f1r" in pages else [])
+        # A page with no usable words is intentionally absent.
+        self.assertNotIn("f1r", pages)
         self.assertEqual(module.candidates(pages, list(pages)), [])
 
     def test_continuation_does_not_bridge_neighbouring_words(self):
         with tempfile.TemporaryDirectory() as directory:
             source = Path(directory) / "synthetic.ivtff"
-            source.write_text("<f1r.P.1,P0> safe.ab/\\n"
-                              "<f1r.P.2,P0> /cd.clean\\n",
+            source.write_text("<f1r.P.1,P0> safe.ab/\n"
+                              "<f1r.P.2,P0> /cd.clean\n",
                               encoding="latin-1")
             pages = module.parse(source)
         self.assertEqual([row["words"] for row in pages["f1r"]],
@@ -56,8 +56,8 @@ class SlashContinuationContract(unittest.TestCase):
     def test_ordinary_boundary_is_preserved(self):
         with tempfile.TemporaryDirectory() as directory:
             source = Path(directory) / "synthetic.ivtff"
-            source.write_text("<f1r.P.1,P0> safe.other\\n"
-                              "<f1r.P.2,P0> clean\\n",
+            source.write_text("<f1r.P.1,P0> safe.other\n"
+                              "<f1r.P.2,P0> clean\n",
                               encoding="latin-1")
             pages = module.parse(source)
         self.assertEqual([row["y"] for row in module.candidates(pages, ["f1r"])],
