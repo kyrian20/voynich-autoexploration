@@ -21,15 +21,20 @@ spec.loader.exec_module(module)
 class NaiveBayesClassPriorContract(unittest.TestCase):
     @staticmethod
     def rows(negatives: int, positives: int):
-        # Every candidate has identical categorical features; there is no
-        # predictive likelihood evidence to shift the class prior.
+        # Every training candidate has the same categorical features; their
+        # likelihood factors need not cancel once an OOV bucket is reserved.
         features = module.feats("abcd", "efgh")
         return ([{"y": 0, "f": features} for _ in range(negatives)] +
                 [{"y": 1, "f": features} for _ in range(positives)])
 
     def check_posterior(self, negatives: int, positives: int, alpha: float):
-        train = self.rows(negatives, positives)
-        p, counts = module.pred(train, self.rows(1, 0), "full_tuple", alpha=alpha)
+        # Isolate the class prior with zero categorical features. Once an
+        # explicit OOV bucket is modeled, even an observed constant feature
+        # has class-dependent smoothing and no longer cancels.
+        train = [{"y": row["y"], "f": {"prior_only": ()}}
+                 for row in self.rows(negatives, positives)]
+        p, counts = module.pred(train, [{"y": 0, "f": {"prior_only": ()}}],
+                                "prior_only", alpha=alpha)
         self.assertEqual(counts[0], negatives)
         self.assertEqual(counts[1], positives)
         self.assertEqual(len(p), 1)
@@ -50,6 +55,32 @@ class NaiveBayesClassPriorContract(unittest.TestCase):
 
     def test_reversed_class_balance(self):
         self.check_posterior(1, 3, 0.5)
+
+
+class NaiveBayesOOVNormalizationContract(unittest.TestCase):
+    def test_unseen_category_has_one_reserved_bucket(self):
+        # Three negatives and one positive, with the same two tuple features.
+        # Both features are unseen at evaluation. For each class and feature,
+        # the observed category and the OOV bucket must sum to probability 1.
+        train = NaiveBayesClassPriorContract.rows(3, 1)
+        test = [{"y": 0, "f": module.feats("zzzz", "yyyy")}]
+        p, _ = module.pred(train, test, "full_tuple", alpha=0.5)
+        prior0, prior1 = 3.5 / 5.0, 1.5 / 5.0
+        oov0, oov1 = 0.5 / 4.0, 0.5 / 2.0
+        self.assertAlmostEqual((3.0 + 0.5) / 4.0 + oov0, 1.0)
+        self.assertAlmostEqual((1.0 + 0.5) / 2.0 + oov1, 1.0)
+        expected = prior1 * oov1**2 / (prior0 * oov0**2 + prior1 * oov1**2)
+        self.assertAlmostEqual(expected, 12.0 / 19.0)
+        self.assertAlmostEqual(p[0], expected)
+
+    def test_observed_category_uses_same_normalized_support(self):
+        train = NaiveBayesClassPriorContract.rows(3, 1)
+        test = NaiveBayesClassPriorContract.rows(1, 0)
+        p, _ = module.pred(train, test, "full_tuple", alpha=0.5)
+        prior0, prior1 = 3.5 / 5.0, 1.5 / 5.0
+        seen0, seen1 = 3.5 / 4.0, 1.5 / 2.0
+        expected = prior1 * seen1**2 / (prior0 * seen0**2 + prior1 * seen1**2)
+        self.assertAlmostEqual(p[0], expected)
 
 
 if __name__ == "__main__":
