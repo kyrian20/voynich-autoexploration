@@ -407,6 +407,12 @@ jobs:
           python -m unittest discover -s tests -p 'test_line_boundary_locus_ordinal_gaps.py' -v
           python -O -m unittest discover -s tests -p 'test_line_boundary_locus_ordinal_gaps.py' -v
 
+      - name: Rechazar divisiones ficticias por símbolos EVA no adjudicados
+        run: |
+          python -m unittest discover -s tests -p 'test_line_boundary_unsupported_symbols.py' -v
+          python -O -m unittest discover -s tests -p 'test_line_boundary_unsupported_symbols.py' -v
+
+
       - name: Respetar marcadores IVTFF de inicio y fin de párrafo en límites de línea
         run: |
           python -m unittest discover -s tests -p 'test_line_boundary_paragraph_markers.py' -v

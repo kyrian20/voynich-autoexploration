@@ -71,9 +71,13 @@ class InterposedLocusContract(unittest.TestCase):
         # newly blocked paragraph transitions and must not be reasserted
         # against the corrected combined reader. CI 40898321137 exposed
         # the changed conditional deltas on the frozen source hashes.
+        # The unsupported-symbol repair overlaps one ZL3b transition in
+        # each policy: the earlier combined-reader conditional 37/33 is
+        # preserved in PR #150; the CURRENT combined-reader delta is 36/32.
+        # Failure evidence: CI run 40918868325. The 76 raw loci do not change.
         expected = {
             "ZL3b": {"raw_interposed": 76,
-                      "primary": 37, "drop_uncertain_word": 33},
+                      "primary": 36, "drop_uncertain_word": 32},
             "IT2a": {"raw_interposed": 73,
                       "primary": 37, "drop_uncertain_word": 37},
         }
