@@ -402,6 +402,11 @@ jobs:
       - name: Verificar reparación de rutas sin cambios de algoritmo
         run: python scripts/audit_legacy_portability.py
 
+      - name: Rechazar anotaciones IVTFF malformadas en límites de línea
+        run: |
+          python -m unittest discover -s tests -p 'test_line_boundary_malformed_markup.py' -v
+          python -O -m unittest discover -s tests -p 'test_line_boundary_malformed_markup.py' -v
+
       - name: Probar contrato de incertidumbre de réplica de límites de línea
         run: |
           python -m unittest discover -s tests -p 'test_line_boundary_uncertainty_contract.py' -v
