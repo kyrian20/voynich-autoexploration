@@ -51,9 +51,11 @@ def parse(path,policy="primary"):
   loc=re.sub(r"^[+*@=~&!/]+","",locus.strip())
   if (not pm and page!="fRos") or not re.fullmatch(r"P(?:0|1|b|c|r|t)",loc):continue
   ws=tokens(m["body"],policy,preserve_gaps=(policy=="drop_uncertain_word"))
-  # Keep even uncertain-only rows to avoid inventing a boundary across them.
-  if ws: pages[page].append({"words":ws,"text":" ".join(w if w is not None else "<UNCERTAIN>" for w in ws),"line":lineno,"leaf":int(pm[1]) if pm else None,"loc":loc})
- return dict(pages)
+  # Preserve empty P rows as barriers: removing one would invent adjacency
+  # between its predecessor and successor. Exclude entirely empty pages so
+  # they cannot shift the historical every-fifth-page calibration.
+  pages[page].append({"words":ws,"text":" ".join(w if w is not None else "<UNCERTAIN>" for w in ws),"line":lineno,"leaf":int(pm[1]) if pm else None,"loc":loc})
+ return {page:ls for page,ls in pages.items() if any(row["words"] for row in ls)}
 def feats(a,b):
  x=(a[:2],a[-2:],str(min(len(a),12)));y=(b[:2],b[-2:],str(min(len(b),12)))
  return {"start_only":(x[0],y[0]),"end_only":(x[1],y[1]),"length_only":(x[2],y[2]),
@@ -63,13 +65,16 @@ def candidates(pages,pagenames):
  for page in pagenames:
   ls=pages[page]
   for i,line in enumerate(ls):
+   if not line["words"]:
+    # An empty body row interrupts continuity; do not bridge across it.
+    continue
    for j in range(len(line["words"])-1):
     a,b=line["words"][j:j+2]
     if a is None or b is None:continue
     rows.append({"y":0,"f":feats(a,b),"leaf":line["leaf"],"texts":(line["text"],line["text"]),"page":page})
    if i+1<len(ls):
     nxt=ls[i+1]
-    if line["words"][-1] is None or nxt["words"][0] is None:continue
+    if not nxt["words"] or line["words"][-1] is None or nxt["words"][0] is None:continue
     rows.append({"y":1,"f":feats(line["words"][-1],nxt["words"][0]),"leaf":line["leaf"],
                  "texts":(line["text"],nxt["text"]),"page":page})
  return rows
