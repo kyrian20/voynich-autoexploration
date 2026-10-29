@@ -55,7 +55,10 @@ def parse(path,policy="primary"):
   # between its predecessor and successor. Exclude entirely empty pages so
   # they cannot shift the historical every-fifth-page calibration.
   pages[page].append({"words":ws,"text":" ".join(w if w is not None else "<UNCERTAIN>" for w in ws),"line":lineno,"leaf":int(pm[1]) if pm else None,"loc":loc})
- return {page:ls for page,ls in pages.items() if any(row["words"] for row in ls)}
+ # A sentinel-only row has a nonempty list [None] but no usable word.
+ # Keep it as a barrier within a populated page, never as a page of its own.
+ return {page:ls for page,ls in pages.items()
+         if any(any(word is not None for word in row["words"]) for row in ls)}
 def feats(a,b):
  x=(a[:2],a[-2:],str(min(len(a),12)));y=(b[:2],b[-2:],str(min(len(b),12)))
  return {"start_only":(x[0],y[0]),"end_only":(x[1],y[1]),"length_only":(x[2],y[2]),

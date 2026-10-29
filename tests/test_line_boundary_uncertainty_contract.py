@@ -150,6 +150,24 @@ class UncertaintyPolicyContract(unittest.TestCase):
                          [["alpha"], [], ["beta"]])
         self.assertEqual(module.candidates(pages, ["f1r"]), [])
 
+    def test_uncertain_only_page_does_not_shift_calibration_population(self):
+        import tempfile
+        with tempfile.TemporaryDirectory() as directory:
+            source = Path(directory) / "test.ivtff"
+            source.write_text("<f1r.P.1,P0> alpha\n"
+                              "<f2r.P.1,P0> [cd:ef]\n"
+                              "<f3r.P.1,P0> ?\n"
+                              "<f4r.P.1,P0> beta\n",
+                              encoding="latin-1")
+            primary = module.parse(source, "primary")
+            dropped = module.parse(source, "drop_uncertain_word")
+        # f2r is populated in the primary reading, but only [None] in
+        # the sensitivity policy. f3r has no words in either policy.
+        self.assertEqual(list(primary), ["f1r", "f2r", "f4r"])
+        self.assertEqual(list(dropped), ["f1r", "f4r"])
+        self.assertEqual([r["words"] for r in dropped["f1r"]], [["alpha"]])
+        self.assertEqual([r["words"] for r in dropped["f4r"]], [["beta"]])
+
     def test_empty_only_page_does_not_shift_calibration_population(self):
         import tempfile
         with tempfile.TemporaryDirectory() as directory:
