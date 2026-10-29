@@ -34,7 +34,7 @@ class InvalidInlineTagContract(unittest.TestCase):
 
     def test_closed_malformed_metadata_cannot_create_certain_gaps(self):
         # Previously the generic <...> replacement forged ["ab", "cd"].
-        for tag in ("<@L=AB>", "<@L=>", "<@x=A>", "<@L=12>", "<@L==>"):
+        for tag in ("<@L=AB>", "<@L=>", "<@x=A>", "<@L=12>", "<@L=XYZ>"):
             for policy in ("primary", "drop_uncertain_word"):
                 with self.subTest(tag=tag, policy=policy):
                     self.assertEqual(module.tokens("ab" + tag + "cd", policy, True),
