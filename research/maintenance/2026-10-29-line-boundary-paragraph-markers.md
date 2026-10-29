@@ -10,7 +10,7 @@ Política conservadora propuesta: preservar un `None` como barrera en la lista d
 
 ## Regresiones y alcance
 
-El test `tests/test_line_boundary_paragraph_markers.py` verifica con fixtures sintéticas el bloqueo de candidatos falsos entre filas y dentro de la fila, y que espacios ordinarios, interrupciones de dibujo y comentarios libres mantienen su contrato anterior. Comprueba además SHA-256 de ZL3b e IT2a **antes** de una auditoría diferencial de candidatos. El contrafactual de alcance elimina solo `<%>` y `<$>` de las filas afectadas; no sustituye corpus, no es una reproducción del estudio histórico ni estima nuevas AUC.
+El test `tests/test_line_boundary_paragraph_markers.py` verifica con fixtures sintéticas el bloqueo de candidatos falsos entre filas y dentro de la fila, y que espacios ordinarios, interrupciones de dibujo y comentarios libres mantienen su contrato anterior. Comprueba además SHA-256 de ZL3b e IT2a **antes** de una auditoría diferencial de candidatos. El contrafactual de alcance sustituye solo `<%>` y `<$>` por espacios, reproduciendo exactamente la política anterior para esas etiquetas en las filas afectadas; no sustituye corpus, no es una reproducción del estudio histórico ni estima nuevas AUC.
 
 Comandos de regresión:
 ```sh
