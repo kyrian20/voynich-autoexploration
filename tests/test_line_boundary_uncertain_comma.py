@@ -38,7 +38,7 @@ def frozen_comma_census(path):
             continue
         page = parts[0]
         loc = re.sub(r"^[+*@=~&!/]+", "", locus.strip())
-        if not re.fullmatch(r"f(\\d+)[rv][1-6]?", page) and page != "fRos":
+        if not re.fullmatch(r"f(\d+)[rv][1-6]?", page) and page != "fRos":
             continue
         if not re.fullmatch(r"P(?:0|1|b|c|r|t)", loc):
             continue
@@ -75,8 +75,8 @@ class UncertainCommaBoundary(unittest.TestCase):
                                        preserve_gaps=True), ["alphabeta"])
 
     def test_comma_fragments_do_not_forge_cross_line_break(self):
-        source = ("<f1r.P.1,P0> alpha,beta\\n"
-                  "<f1r.P.2,P0> gamma.delta\\n")
+        source = ("<f1r.P.1,P0> alpha,beta\n"
+                  "<f1r.P.2,P0> gamma.delta\n")
         for policy in ("primary", "drop_uncertain_word"):
             with self.subTest(policy=policy):
                 quarantined = fixture(source, policy)
