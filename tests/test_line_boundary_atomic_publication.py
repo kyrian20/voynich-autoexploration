@@ -68,7 +68,7 @@ class AtomicPublicationContract(unittest.TestCase):
             destination = root / "result.json"
 
             def competitor_wins(source, target):
-                Path(target).write_text('{"winner": true}\\n', encoding="utf-8")
+                Path(target).write_text('{"winner": true}\n', encoding="utf-8")
                 raise FileExistsError("concurrent writer already published")
 
             with mock.patch.object(module.os, "link", side_effect=competitor_wins):
