@@ -42,6 +42,12 @@ def tokens(body,policy="primary",preserve_gaps=False,uncertain_space_policy="qua
  # width, like a free-text comment, before processing drawing gaps.
  # Require a one-character value; malformed tags are not silently erased.
  body=re.sub(r"<@[A-Z]=[^<>]>", "", body)
+ # Reject *closed but invalid* metadata tags before the generic drawing-gap
+ # substitution can silently turn them into certain word separators.
+ # Valid <@X=y> tags above are zero-width; malformed <@X=yy>, <@x=y>
+ # and <@X=> must quarantine the complete row rather than forge a pair.
+ if re.search(r"<@[^>]*>", body):
+  return [None] if preserve_gaps else []
  body=re.sub(r"<[^>]*>"," ",body)
  # Fail closed on unbalanced markup. Otherwise an unfinished IVTFF comment
  # or reading alternative is interpreted as ordinary alphabetic words and
