@@ -107,7 +107,9 @@ class UnsupportedInlineSymbols(unittest.TestCase):
                     bodies[lineno] = match["body"] or ""
             for policy in ("primary", "drop_uncertain_word"):
                 with self.subTest(label=label, policy=policy):
-                    pages = module.parse(path, policy)
+                     # Historical conditional delta predates the uncertain-comma quarantine.
+ # Keep its explicit comma-split baseline, not the corrected default.
+ pages = module.parse(path, policy, uncertain_space_policy="split")
                     previous = copy.deepcopy(pages)
                     changed = 0
                     for rows in previous.values():
