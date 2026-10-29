@@ -243,5 +243,35 @@ class UncertaintyPolicyContract(unittest.TestCase):
                                  ["safe", None, "clean"])
 
 
+
+    def test_high_ascii_code_inside_word_is_not_two_fictitious_words(self):
+        # IVTFF 2.0.2 §6.6: @nnn; encodes a glyph, not a word boundary.
+        for policy in ("primary", "drop_uncertain_word"):
+            with self.subTest(policy=policy):
+                self.assertEqual(module.tokens("ab@123;cd", policy), [])
+                self.assertEqual(module.tokens("safe.ab@123;cd.clean", policy,
+                                               preserve_gaps=True),
+                                 ["safe", None, "clean"])
+
+    def test_standalone_and_malformed_high_ascii_code_are_barriers(self):
+        for word in ("@123;", "@123", "ab@cd"):
+            with self.subTest(word=word):
+                self.assertEqual(module.tokens("safe." + word + ".clean",
+                                               "primary", preserve_gaps=True),
+                                 ["safe", None, "clean"])
+
+    def test_high_ascii_at_line_end_blocks_false_line_boundary(self):
+        import tempfile
+        with tempfile.TemporaryDirectory() as directory:
+            source = Path(directory) / "test.ivtff"
+            source.write_text("<f1r.P.1,P0> safe.@123;\n"
+                              "<f1r.P.2,P0> clean\n",
+                              encoding="latin-1")
+            pages = module.parse(source, "primary")
+        self.assertEqual([row["words"] for row in pages["f1r"]],
+                         [["safe", None], ["clean"]])
+        self.assertEqual(module.candidates(pages, ["f1r"]), [])
+
+
 if __name__ == "__main__":
     unittest.main()

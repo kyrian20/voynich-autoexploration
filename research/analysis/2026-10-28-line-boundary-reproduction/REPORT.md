@@ -179,3 +179,12 @@ Transcripciones en el manifiesto del repositorio: [ZL3b e IT2a, `kyrian20/voynic
 **Pruebas nuevas:** tres regresiones en `tests/test_line_boundary_uncertainty_contract.py` para (1) ligaduras dentro de palabra y aisladas, (2) no creación de pares ni saltos falsos en filas P sintéticas, (3) llaves mal cerradas. Comando: `python -m unittest discover -s tests -p 'test_line_boundary_uncertainty_contract.py'` y repetición con `python -O`. El resultado de CI se debe registrar tras su ejecución; esta errata por sí sola no demuestra que haya pasado.
 
 **Estado de evidencia:** los `results.json` históricos permanecen inmutables; las métricas previas de la política `primary` son `INVALID_FOR_CLAIM` como estimación que respeta ligaduras. No se han recalculado conteos, AUC, AP, Brier ni ganancias, ni se han consumido folios prospectivos reservados. El ejemplo real prueba presencia de la clase de entrada, **no cuantifica** el impacto estadístico. Siguen pendientes la adjudicación integral IVTFF, la expansión no destructiva de ligaduras y la reconstrucción exacta de las entradas del artículo.
+
+
+## Errata de códigos high-ASCII IVTFF — 29-10-2026 (reparación propuesta)
+
+**Defecto de código reproducible con fixtures sintéticos:** el lector sustituía `@\\d+;?` por un espacio *después* de separar palabras. Así, `ab@123;cd` se convertía en dos palabras ficticias `ab` y `cd`; un `@123;` aislado desaparecía y conectaba `safe` con `clean`. En IVTFF 2.0.2, §6.6, `@nnn;` es una codificación high-ASCII de un grafema, no un espacio entre palabras. No se ha cuantificado cuántos casos reales afectan a ZL3b o IT2a.
+
+**Reparación conservadora:** marcar toda unidad con `@` como barrera `None` en ambas políticas, conservando vecinos sin inventar pares. También falla de forma conservadora para marcadores malformados. No equivale a decodificar los grafemas ni a conformidad IVTFF completa; la expansión correcta con offsets queda pendiente. Tres regresiones sintéticas nuevas comprueban código embebido, aislado/malformado y final de línea. La CI de esta propuesta debe verificarse para el commit exacto antes de darla por cerrada.
+
+**Alcance de evidencia:** no se han ejecutado nuevos análisis científicos ni usado folios reservados. El `results.json` original, los corpus y las semillas quedan intactos. Las métricas históricas son `INVALID_FOR_CLAIM` para una política que trate correctamente los códigos high-ASCII, sin afirmar que las cifras cambiarían en el corpus real. No hay traducción ni inferencia semántica.
