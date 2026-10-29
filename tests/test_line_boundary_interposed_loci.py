@@ -65,11 +65,17 @@ class InterposedLocusContract(unittest.TestCase):
     def test_frozen_corpus_scope_and_candidate_delta(self):
         # The legacy counterfactual is identical except that it removes
         # the new annotation, reproducing the previous candidate logic.
+        # Historical deltas (71/64 and 72/72) were measured before
+        # paragraph-marker barriers were introduced. Those numbers remain
+        # archived in the original PR #148 report, but overlap with the
+        # newly blocked paragraph transitions and must not be reasserted
+        # against the corrected combined reader. CI 40898321137 exposed
+        # the changed conditional deltas on the frozen source hashes.
         expected = {
             "ZL3b": {"raw_interposed": 76,
-                      "primary": 71, "drop_uncertain_word": 64},
+                      "primary": 37, "drop_uncertain_word": 33},
             "IT2a": {"raw_interposed": 73,
-                      "primary": 72, "drop_uncertain_word": 72},
+                      "primary": 37, "drop_uncertain_word": 37},
         }
         for label, path in module.INPUTS.items():
             self.assertEqual(module.sha(path), module.EXPECTED_SHA256[label])

@@ -26,6 +26,12 @@ def tokens(body,policy="primary",preserve_gaps=False):
  # IVTFF 2.0.2 §5.7.2: free-text comments have zero width in a word.
  # Do not invent a gap where the manuscript only has an annotation.
  body=re.sub(r"<![^>]*>","",body)
+ # IVTFF 2.0.2 §6.7–6.9: explicit paragraph start/end tags are
+ # structural boundaries, not ordinary inline whitespace. In particular,
+ # a trailing <$> must not be counted as a positive line-to-line gap.
+ # Preserve a sentinel on either side of a paragraph transition; remove
+ # free-text comments first so marker-like text inside comments is inert.
+ body=body.replace("<%>",".?.").replace("<$>",".?.")
  body=re.sub(r"<[^>]*>"," ",body)
  # Fail closed on unbalanced markup. Otherwise an unfinished IVTFF comment
  # or reading alternative is interpreted as ordinary alphabetic words and
