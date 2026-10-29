@@ -50,6 +50,29 @@
 > `results.json`, particiones, parámetros o semillas. La limitación
 > IVTFF y las erratas de `drop_uncertain_word` continúan vigentes.
 
+> **Errata de prior Naive Bayes — 29-10-2026 (parche de código; no ejecución científica):**
+> `pred()` calculaba el término de prior de cada clase con
+> `(n_clase + 2*alpha)/(n_total + 2*alpha)`, aunque el modelo descrito
+> emplea un prior binario simétrico Dirichlet(`alpha`, `alpha`).
+> La forma correcta es `(n_clase + alpha)/(n_total + 2*alpha)`.
+> Con tres candidatos negativos y uno positivo, rasgos categóricos
+> idénticos y `alpha=0.5`, el programa anterior predecía 1/3 para
+> la clase positiva; el prior correcto predice 0,3. Es una discrepancia
+> demostrable sin consultar el manuscrito. Se ha reparado el código y
+> añadido una regresión con cuatro casos, incluidas clases desequilibradas
+> y una clase ausente. **No se han recalculado los valores de
+> `results.json`**: las métricas archivadas son `INVALID_FOR_CLAIM`
+> específicamente como estimaciones del clasificador con prior binario
+> Dirichlet(`alpha`, `alpha`) hasta ejecutar y auditar la versión
+> corregida. El predictor anterior sigue siendo una función determinista
+> cuya salida histórica se conserva; este defecto no demuestra que toda
+> predictibilidad desaparezca, ni valida traducción o semántica.
+> La corrección puede cambiar probabilidades, ganancia logarítmica,
+> Brier, AP y métricas AUC agrupadas entre hojas. Las limitaciones de
+> tokenización, selección de pares, empates AP y adjudicación IVTFF
+> permanecen abiertas. Las fuentes originales, semillas, folios reservados
+> y artefactos históricos no se han modificado.
+
 ## Resumen
 
 Reimplementé el clasificador publicado por Zenil y Uthamacumaran para estimar si una separación entre dos palabras es un límite de línea. Luego repetí la evaluación reteniendo una hoja física completa cada vez, agrupando juntas sus caras recto/verso y paneles. Excluí del entrenamiento las líneas textualmente idénticas a las líneas de evaluación; en los datos normalizados no encontré duplicados que activaran esa exclusión.
