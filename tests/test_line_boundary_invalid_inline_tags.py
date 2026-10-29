@@ -77,7 +77,7 @@ class InvalidInlineTagContract(unittest.TestCase):
                         continue
                     ident, loc = m["ident"].split(",", 1)
                     page = ident.split(".")[0]
-                    if not (re.fullmatch(r"f\\d+[rv][1-6]?", page)
+                    if not (re.fullmatch(r"f\d+[rv][1-6]?", page)
                             or page == "fRos"):
                         continue
                     loc = re.sub(r"^[+*@=~&!/]+", "", loc.strip())
