@@ -38,12 +38,15 @@ def tokens(body,policy="primary",preserve_gaps=False):
   if not x:continue
   # A question mark is an unresolved glyph in either policy. Never turn
   # it into two apparent words or erase it between otherwise valid words.
-  if ("?" in x or "{" in x or "}" in x or "@" in x
+  if ("?" in x or "{" in x or "}" in x or "@" in x or "/" in x
       or (policy=="drop_uncertain_word" and UNCERTAIN.search(x))):
    # IVTFF ligatures and @nnn; high-ASCII glyph codes are not word spaces.
    # Until their glyph-level representation is adjudicated, keep the entire
    # affected word as an unresolved barrier instead of forging adjacency.
    # Bare/malformed @ markers also fail closed rather than silently splitting.
+   # IVTFF line-continuation slashes mark a word continued across physical
+   # rows, not a word boundary. Until rows are explicitly reassembled,
+   # retain a barrier rather than counting a false positive line break.
    if preserve_gaps:out.append(None)
    continue
   out.extend(w.lower() for w in re.findall(r"[A-Za-z]+",x))

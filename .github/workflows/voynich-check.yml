@@ -407,6 +407,11 @@ jobs:
           python -m unittest discover -s tests -p 'test_line_boundary_uncertainty_contract.py' -v
           python -O -m unittest discover -s tests -p 'test_line_boundary_uncertainty_contract.py' -v
 
+      - name: Rechazar falsos límites de línea en continuaciones IVTFF
+        run: |
+          python -m unittest discover -s tests -p 'test_line_boundary_slash_continuation.py' -v
+          python -O -m unittest discover -s tests -p 'test_line_boundary_slash_continuation.py' -v
+
       - name: Probar AP de límites de línea con empates
         run: |
           python -m unittest discover -s tests -p 'test_line_boundary_ap_ties.py' -v
