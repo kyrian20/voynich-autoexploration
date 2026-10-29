@@ -306,5 +306,48 @@ class UncertaintyPolicyContract(unittest.TestCase):
                          [0, 1])
 
 
+
+    def test_frozen_body_rows_have_no_comment_split_change(self):
+        # Scope: only P loci admitted by the replica, both declared policies.
+        # This is a deterministic corpus-impact preflight, not a new experiment.
+        expected = {"ZL3b": (4130, 107, 0, 0),
+                    "IT2a": (4118, 0, 0, 0)}
+        for label, path in module.INPUTS.items():
+            with self.subTest(source=label):
+                self.assertEqual(module.sha(path), module.EXPECTED_SHA256[label])
+                n_rows = n_comments = 0
+                changed = {"primary": 0, "drop_uncertain_word": 0}
+                for _, raw in module.checked_physical_lines(
+                        path.read_text(encoding="latin-1")):
+                    m = module.ROW.match(raw.strip())
+                    if not m or "," not in m["ident"]:
+                        continue
+                    ident, locus = m["ident"].split(",", 1)
+                    parts = ident.split(".")
+                    if len(parts) < 2:
+                        continue
+                    page = parts[0]
+                    loc = module.re.sub(r"^[+*@=~&!/]+", "", locus.strip())
+                    if (not module.re.fullmatch(r"f(\d+)[rv][1-6]?", page)
+                            and page != "fRos"):
+                        continue
+                    if not module.re.fullmatch(r"P(?:0|1|b|c|r|t)", loc):
+                        continue
+                    n_rows += 1
+                    body = m["body"] or ""
+                    if "<!" not in body:
+                        continue
+                    n_comments += 1
+                    old_body = module.re.sub(r"<![^>]*>", " ", body)
+                    for policy in changed:
+                        old = module.tokens(old_body, policy, preserve_gaps=True)
+                        new = module.tokens(body, policy, preserve_gaps=True)
+                        if old != new:
+                            changed[policy] += 1
+                self.assertEqual(
+                    (n_rows, n_comments, changed["primary"],
+                     changed["drop_uncertain_word"]), expected[label])
+
+
 if __name__ == "__main__":
     unittest.main()
