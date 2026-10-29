@@ -407,6 +407,11 @@ jobs:
           python -m unittest discover -s tests -p 'test_line_boundary_uncertainty_contract.py' -v
           python -O -m unittest discover -s tests -p 'test_line_boundary_uncertainty_contract.py' -v
 
+      - name: Probar AP de límites de línea con empates
+        run: |
+          python -m unittest discover -s tests -p 'test_line_boundary_ap_ties.py' -v
+          python -O -m unittest discover -s tests -p 'test_line_boundary_ap_ties.py' -v
+
       - name: Probar capa léxica IVTFF sin pérdida
         run: python tests/test_ivtff_lossless.py
 
