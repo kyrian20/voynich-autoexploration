@@ -212,5 +212,36 @@ class UncertaintyPolicyContract(unittest.TestCase):
 
 
 
+    def test_primary_ligature_is_not_two_fictitious_words(self):
+        # IVTFF 2.0.2 §6.6: braces encode a ligature, not a word boundary.
+        # Fail closed until a glyph-level expansion policy is adjudicated.
+        self.assertEqual(module.tokens("ab{cd}gh", "primary"), [])
+        self.assertEqual(module.tokens("safe.dlo{ct}o.clean", "primary",
+                                       preserve_gaps=True),
+                         ["safe", None, "clean"])
+        self.assertEqual(module.tokens("odar.{c'y}.shol", "primary",
+                                       preserve_gaps=True),
+                         ["odar", None, "shol"])
+
+    def test_ligature_barrier_prevents_false_pairs_and_breaks(self):
+        import tempfile
+        with tempfile.TemporaryDirectory() as directory:
+            source = Path(directory) / "test.ivtff"
+            source.write_text("<f1r.P.1,P0> safe.dlo{ct}o\\n"
+                              "<f1r.P.2,P0> clean\\n",
+                              encoding="latin-1")
+            pages = module.parse(source, "primary")
+        self.assertEqual([row["words"] for row in pages["f1r"]],
+                         [["safe", None], ["clean"]])
+        self.assertEqual(module.candidates(pages, ["f1r"]), [])
+
+    def test_unclosed_ligature_marker_fails_closed(self):
+        for word in ("ab{cd", "ab}cd"):
+            with self.subTest(word=word):
+                self.assertEqual(module.tokens("safe." + word + ".clean",
+                                               "primary", preserve_gaps=True),
+                                 ["safe", None, "clean"])
+
+
 if __name__ == "__main__":
     unittest.main()
