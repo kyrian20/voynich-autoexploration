@@ -122,5 +122,52 @@ class UncertaintyPolicyContract(unittest.TestCase):
             self.assertEqual(target.read_text(encoding="utf-8"), "frozen")
 
 
+    def test_empty_body_row_does_not_create_false_positive(self):
+        import tempfile
+        with tempfile.TemporaryDirectory() as directory:
+            source = Path(directory) / "test.ivtff"
+            source.write_text("<f1r.P.1,P0> alpha.beta\n"
+                              "<f1r.P.2,P0> ???\n"
+                              "<f1r.P.3,P0> gamma.delta\n",
+                              encoding="latin-1")
+            pages = module.parse(source, "primary")
+        self.assertEqual([r["words"] for r in pages["f1r"]],
+                         [["alpha", "beta"], [], ["gamma", "delta"]])
+        # The two within-line gaps survive; no invented inter-line gap.
+        self.assertEqual([r["y"] for r in module.candidates(pages, ["f1r"])],
+                         [0, 0])
+
+    def test_zero_payload_body_row_is_not_silently_skipped(self):
+        import tempfile
+        with tempfile.TemporaryDirectory() as directory:
+            source = Path(directory) / "test.ivtff"
+            source.write_text("<f1r.P.1,P0> alpha\n"
+                              "<f1r.P.2,P0>\n"
+                              "<f1r.P.3,P0> beta\n",
+                              encoding="latin-1")
+            pages = module.parse(source, "primary")
+        self.assertEqual([r["words"] for r in pages["f1r"]],
+                         [["alpha"], [], ["beta"]])
+        self.assertEqual(module.candidates(pages, ["f1r"]), [])
+
+    def test_empty_only_page_does_not_shift_calibration_population(self):
+        import tempfile
+        with tempfile.TemporaryDirectory() as directory:
+            source = Path(directory) / "test.ivtff"
+            source.write_text("<f1r.P.1,P0> alpha\n"
+                              "<f2r.P.1,P0> ???\n",
+                              encoding="latin-1")
+            pages = module.parse(source, "primary")
+        self.assertEqual(list(pages), ["f1r"])
+
+    def test_candidate_builder_handles_explicit_empty_row(self):
+        pages = {"f1r": [
+            {"words": ["alpha"], "text": "alpha", "leaf": 1},
+            {"words": [], "text": "", "leaf": 1},
+            {"words": ["beta"], "text": "beta", "leaf": 1}]}
+        self.assertEqual(module.candidates(pages, ["f1r"]), [])
+
+
+
 if __name__ == "__main__":
     unittest.main()
