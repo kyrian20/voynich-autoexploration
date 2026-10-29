@@ -35,14 +35,14 @@ def tokens(body,policy="primary",preserve_gaps=False):
   if not x:continue
   # A question mark is an unresolved glyph in either policy. Never turn
   # it into two apparent words or erase it between otherwise valid words.
-  if "?" in x or "{" in x or "}" in x or (policy=="drop_uncertain_word" and UNCERTAIN.search(x)):
-   # IVTFF braces encode ligatures, not spaces. Until a glyph-level view is
-   # adjudicated, keep the entire affected word as an unresolved barrier.
-   # This prevents ab{cd}gh from becoming two fictitious adjacent words.
-   # Keep a non-word barrier for candidate construction; never join its neighbours.
+  if ("?" in x or "{" in x or "}" in x or "@" in x
+      or (policy=="drop_uncertain_word" and UNCERTAIN.search(x))):
+   # IVTFF ligatures and @nnn; high-ASCII glyph codes are not word spaces.
+   # Until their glyph-level representation is adjudicated, keep the entire
+   # affected word as an unresolved barrier instead of forging adjacency.
+   # Bare/malformed @ markers also fail closed rather than silently splitting.
    if preserve_gaps:out.append(None)
    continue
-  x=re.sub(r"@\d+;?"," ",x)
   out.extend(w.lower() for w in re.findall(r"[A-Za-z]+",x))
  return out
 def parse(path,policy="primary"):
