@@ -77,9 +77,10 @@ def tokens(body,policy="primary",preserve_gaps=False,uncertain_space_policy="qua
  # interior words b and c, creating a false negative candidate.
  # Unmatched/nested braces are not safely interpretable: fail closed for
  # the whole row rather than promoting fragments to apparent words.
- body=re.sub(r"\{[^{}]*\}","?",body)
- if "{" in body or "}" in body:
+ brace_spans=re.findall(r"\{[^{}]*\}",body)
+ if body.count("{")!=len(brace_spans) or body.count("}")!=len(brace_spans):
   return [None] if preserve_gaps else []
+ body=re.sub(r"\{[^{}]*\}","?",body)
  # Keep the comma's adjacent fragments in ONE unresolved unit. Replacing
  # a comma with a question mark (rather than deleting it or inserting a
  # separate None) also quarantines both neighboring fragments at a line
