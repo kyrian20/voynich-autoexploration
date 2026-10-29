@@ -143,3 +143,14 @@ Zenil, H. & Uthamacumaran, A. (2026). *Reconstruction of Geometric and Structura
 
 Transcripciones en el manifiesto del repositorio: [ZL3b e IT2a, `kyrian20/voynich-autoexploration`](https://github.com/kyrian20/voynich-autoexploration/tree/master/data/transcriptions). Los SHA-256 anteriores identifican los bytes realmente analizados.
 
+
+
+## Corrección de integridad — 29-10-2026: filas P vacías y adyacencias inventadas
+
+**Ámbito:** rama de la PR #138, sin EXP nuevo. La reparación se propone por separado y requiere CI y revisión antes de integrarse. Los corpus, el `results.json` histórico, los manifiestos reservados y las semillas no se modifican.
+
+**Defecto falsable:** el parser descartaba filas físicas de cuerpo con cero tokens (por ejemplo `<f1r.P.2,P0> ???`) antes de construir los pares. Con `<f1r.P.1,P0> alpha`, una fila P vacía y `<f1r.P.3,P0> beta`, el constructor anterior producía un candidato positivo artificial `alpha → beta`, aunque no son líneas consecutivas. Además, una fila `<f1r.P.2,P0>` sin payload se descartaba por el requisito de espacio posterior a la etiqueta. No se ha demostrado todavía cuántos casos de este tipo existen en los corpus congelados.
+
+**Reparación:** conservar filas P sin tokens como barreras de continuidad; impedir candidatos que toquen esas filas y no permitir conexiones entre sus vecinas. Las páginas compuestas únicamente por filas vacías continúan excluidas del conjunto de páginas de calibración, evitando desplazar el corte histórico cada quinta página. La expresión regular reconoce explícitamente loci P con payload vacío y sigue rechazando texto pegado a la etiqueta sin separador. La nueva suite sintética comprueba filas vacías por signos, filas sin payload, páginas enteramente vacías y manejo directo de barreras, sin datos del manuscrito ni aleatoriedad.
+
+**Estado científico:** corrección de un defecto lógico, no nueva ejecución del modelo. Las puntuaciones históricas de `results.json` siguen congeladas y no pueden reutilizarse para afirmar que se aplicó el contrato corregido de continuidad. Tampoco se ha demostrado un cambio numérico en la población real. Los demás bloqueos (adjudicación IVTFF, continuidad entre tipos de locus, lectura de ligaduras, incertidumbre, suavizado y AP históricos) permanecen abiertos. Una ejecución posterior deberá guardar resultados nuevos, hashes, parámetros y logs, sin sustituir la reproducción histórica.
