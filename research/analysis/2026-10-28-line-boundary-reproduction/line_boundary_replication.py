@@ -15,7 +15,7 @@ INPUTS={"ZL3b":REPO_ROOT/"data/transcriptions/eva_zl3b.txt",
         "IT2a":REPO_ROOT/"data/transcriptions/eva_it2a.txt"}
 EXPECTED_SHA256={"ZL3b":"bf5b6d4ac1e3a51b1847a9c388318d609020441ccd56984c901c32b09beccafc",
                  "IT2a":"7f27a8b0feed8f6de0a99900df6bf912dd1d295c38e5f830bac8b41c3f536fb5"}
-ROW=re.compile(r"^<(?P<ident>[^>]+)>\s+(?P<body>.*)$")
+ROW=re.compile(r"^<(?P<ident>[^>]+)>(?:[ \t]+(?P<body>.*))?$")
 UNCERTAIN=re.compile(r"\{[^}]*\}|\?")
 def sha(p):
  h=hashlib.sha256()
@@ -50,7 +50,7 @@ def parse(path,policy="primary"):
   page=parts[0]; pm=re.fullmatch(r"f(\d+)[rv][1-6]?",page)
   loc=re.sub(r"^[+*@=~&!/]+","",locus.strip())
   if (not pm and page!="fRos") or not re.fullmatch(r"P(?:0|1|b|c|r|t)",loc):continue
-  ws=tokens(m["body"],policy,preserve_gaps=(policy=="drop_uncertain_word"))
+  ws=tokens(m["body"] or "",policy,preserve_gaps=(policy=="drop_uncertain_word"))
   # Preserve empty P rows as barriers: removing one would invent adjacency
   # between its predecessor and successor. Exclude entirely empty pages so
   # they cannot shift the historical every-fifth-page calibration.
