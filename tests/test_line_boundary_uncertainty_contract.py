@@ -154,10 +154,10 @@ class UncertaintyPolicyContract(unittest.TestCase):
         import tempfile
         with tempfile.TemporaryDirectory() as directory:
             source = Path(directory) / "test.ivtff"
-            source.write_text("<f1r.P.1,P0> alpha\\n"
-                              "<f2r.P.1,P0> [cd:ef]\\n"
-                              "<f3r.P.1,P0> ?\\n"
-                              "<f4r.P.1,P0> beta\\n",
+            source.write_text("<f1r.P.1,P0> alpha\n"
+                              "<f2r.P.1,P0> [cd:ef]\n"
+                              "<f3r.P.1,P0> ?\n"
+                              "<f4r.P.1,P0> beta\n",
                               encoding="latin-1")
             primary = module.parse(source, "primary")
             dropped = module.parse(source, "drop_uncertain_word")
