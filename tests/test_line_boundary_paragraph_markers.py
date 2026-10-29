@@ -67,7 +67,7 @@ class ParagraphBoundaryContract(unittest.TestCase):
 
     def test_frozen_corpus_scope_and_counterfactual(self):
         # Compare against the prior behavior *only* by removing the two
-        # paragraph tags from the affected row, not by rerunning the model.
+        # paragraph tags with spaces (the exact old reader behavior), not by rerunning the model.
         # All input bytes are authenticated before any analysis.
         for label, path in module.INPUTS.items():
             with self.subTest(label=label):
@@ -87,8 +87,8 @@ class ParagraphBoundaryContract(unittest.TestCase):
                         for row in lines:
                             if row["line"] in marked:
                                 body = marked[row["line"]]
-                                before = module.tokens(body.replace("<%>", "")
-                                                        .replace("<$>", ""),
+                                before = module.tokens(body.replace("<%>", " ")
+                                                        .replace("<$>", " "),
                                                        policy, True)
                                 if before != row["words"]:
                                     impacted += 1
