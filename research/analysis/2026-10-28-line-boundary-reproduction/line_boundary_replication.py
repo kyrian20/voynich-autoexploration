@@ -57,18 +57,18 @@ def tokens(body,policy="primary",preserve_gaps=False):
   if not x:continue
   # A question mark is an unresolved glyph in either policy. Never turn
   # it into two apparent words or erase it between otherwise valid words.
-  if ("?" in x or "{" in x or "}" in x or "@" in x or "/" in x
-      or (policy=="drop_uncertain_word" and UNCERTAIN.search(x))):
-   # IVTFF ligatures and @nnn; high-ASCII glyph codes are not word spaces.
-   # Until their glyph-level representation is adjudicated, keep the entire
-   # affected word as an unresolved barrier instead of forging adjacency.
-   # Bare/malformed @ markers also fail closed rather than silently splitting.
-   # IVTFF line-continuation slashes mark a word continued across physical
-   # rows, not a word boundary. Until rows are explicitly reassembled,
-   # retain a barrier rather than counting a false positive line break.
+  # Only ASCII EVA letter runs are supported by this approximate reader.
+  # An apostrophe (observed in ZL3b), a digit or any other unadjudicated
+  # character INSIDE a unit is not an IVTFF word separator. The historical
+  # re.findall() silently split qo'ky into two fictitious words qo and ky.
+  # Fail closed for the whole affected unit, preserving its position as a
+  # barrier in candidate construction. This also covers ?, ligatures,
+  # high-ASCII codes, line continuations and malformed unsupported symbols.
+  # Do not infer the glyph value of an apostrophe from its ASCII appearance.
+  if not re.fullmatch(r"[A-Za-z]+",x):
    if preserve_gaps:out.append(None)
    continue
-  out.extend(w.lower() for w in re.findall(r"[A-Za-z]+",x))
+  out.append(x.lower())
  return out
 def parse(path,policy="primary"):
  pages=collections.defaultdict(list)
