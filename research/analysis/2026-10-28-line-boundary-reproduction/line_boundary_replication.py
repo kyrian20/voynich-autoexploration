@@ -112,12 +112,20 @@ def auc(y,s):
   rank=(i+1+j)/2;rs+=rank*sum(y[k] for k in order[i:j]);i=j
  return (rs-n1*(n1+1)/2)/(n1*n0)
 def ap(y,s):
+ # Average precision is a step integral over distinct score thresholds.
+ # Never break equal-score ties by input order (categorical models tie often).
  n1=sum(y)
  if not n1:return float("nan")
- idx=sorted(range(len(y)),key=lambda i:s[i],reverse=True);hit=0;z=0
- for rank,i in enumerate(idx,1):
-  if y[i]:hit+=1;z+=hit/rank
- return z/n1
+ idx=sorted(range(len(y)),key=lambda i:s[i],reverse=True)
+ seen=0;hit=0;area=0.0;i=0
+ while i<len(idx):
+  j=i+1
+  while j<len(idx) and s[idx[j]]==s[idx[i]]:j+=1
+  positive=sum(y[k] for k in idx[i:j])
+  seen+=j-i;hit+=positive
+  area+=(positive/n1)*(hit/seen)
+  i=j
+ return area
 def loss(y,p):
  return -sum(v*math.log2(max(1e-15,q))+(1-v)*math.log2(max(1e-15,1-q)) for v,q in zip(y,p))/len(y)
 def score(train,test,key):
