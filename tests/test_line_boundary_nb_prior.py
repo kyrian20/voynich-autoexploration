@@ -21,8 +21,8 @@ spec.loader.exec_module(module)
 class NaiveBayesClassPriorContract(unittest.TestCase):
     @staticmethod
     def rows(negatives: int, positives: int):
-        # Every candidate has identical categorical features; there is no
-        # predictive likelihood evidence to shift the class prior.
+        # Every training candidate has the same categorical features; their
+        # likelihood factors need not cancel once an OOV bucket is reserved.
         features = module.feats("abcd", "efgh")
         return ([{"y": 0, "f": features} for _ in range(negatives)] +
                 [{"y": 1, "f": features} for _ in range(positives)])
