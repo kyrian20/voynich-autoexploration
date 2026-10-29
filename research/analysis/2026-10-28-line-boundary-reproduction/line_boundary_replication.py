@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Deterministic independent reimplementation of the Voynich line-boundary model."""
 from __future__ import annotations
-import collections, hashlib, json, math, re, statistics, random, sys
+import collections, hashlib, json, math, os, re, statistics, random, sys, tempfile
 from pathlib import Path
 
 ROOT=Path(__file__).resolve().parent
@@ -256,15 +256,25 @@ def run(path,label,policy):
     "models":{k:{a:(round(b,6) if isinstance(b,float) else [round(q,6) for q in b] if isinstance(b,list) else b) for a,b in v.items()} for k,v in phys.items()}},
   "folds":foldinfo}
 def write_new_result(path,result):
- # Serialize and validate BEFORE exclusive file creation. json.dump's default
- # allow_nan=True would otherwise publish non-standard NaN/Infinity literals
- # (e.g. AUC is undefined for a one-class evaluation fold).
- # A serialization error must not leave an empty or partial result artifact.
+ # Validate JSON before touching the destination: NaN/Infinity and objects
+ # that cannot be serialized must not create an artifact.
  payload=json.dumps(result,indent=2,ensure_ascii=False,allow_nan=False)+"\n"
- # Exclusive creation rejects existing files and symlinks; never overwrite
- # a frozen run. This does not claim crash-atomicity on filesystem I/O errors.
- with path.open("x",encoding="utf-8") as f:
-  f.write(payload)
+ # Stage complete bytes on the SAME filesystem, then publish with an atomic,
+ # no-clobber hard link. A failed/partial write never exposes a partial JSON
+ # at the destination. A pre-existing file OR symlink causes FileExistsError.
+ # os.link is deliberately required: do not silently fall back to replace().
+ staged=None
+ try:
+  with tempfile.NamedTemporaryFile(mode="w",encoding="utf-8",newline="\n",
+      dir=path.parent,prefix=f".{path.name}.",suffix=".tmp",delete=False) as f:
+   staged=Path(f.name)
+   f.write(payload)
+   f.flush()
+   os.fsync(f.fileno())
+  os.link(staged,path)
+ finally:
+  if staged is not None:
+   staged.unlink(missing_ok=True)
 
 def main():
  for label,path in INPUTS.items():
