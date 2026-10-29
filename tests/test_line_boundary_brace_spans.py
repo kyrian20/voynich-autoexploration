@@ -77,16 +77,16 @@ class BraceSpanContract(unittest.TestCase):
                         continue
                     ident, loc = match["ident"].split(",", 1)
                     page = ident.split(".")[0]
-                    if not (re.fullmatch(r"f\\d+[rv][1-6]?", page)
+                    if not (re.fullmatch(r"f\d+[rv][1-6]?", page)
                             or page == "fRos"):
                         continue
                     loc = re.sub(r"^[+*@=~&!/]+", "", loc.strip())
                     if not re.fullmatch(r"P(?:0|1|b|c|r|t)", loc):
                         continue
                     rows += 1
-                    for span in re.findall(r"\\{[^{}]*\\}", match["body"] or ""):
+                    for span in re.findall(r"\{[^{}]*\}", match["body"] or ""):
                         spans += 1
-                        separated_spans += bool(re.search(r"[.,\\s]", span))
+                        separated_spans += bool(re.search(r"[.,\s]", span))
                 self.assertEqual((rows, spans, separated_spans), expected[label])
                 print(f"{label}: source SHA256 OK; P rows={rows}; "
                       f"braced spans={spans}; with separators={separated_spans}")
