@@ -402,6 +402,11 @@ jobs:
       - name: Verificar reparación de rutas sin cambios de algoritmo
         run: python scripts/audit_legacy_portability.py
 
+      - name: Impedir falsos límites entre loci P con números omitidos
+        run: |
+          python -m unittest discover -s tests -p 'test_line_boundary_locus_ordinal_gaps.py' -v
+          python -O -m unittest discover -s tests -p 'test_line_boundary_locus_ordinal_gaps.py' -v
+
       - name: Respetar marcadores IVTFF de inicio y fin de párrafo en límites de línea
         run: |
           python -m unittest discover -s tests -p 'test_line_boundary_paragraph_markers.py' -v

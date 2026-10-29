@@ -86,17 +86,27 @@ class InterposedLocusContract(unittest.TestCase):
                         bool(row.get("intervening_non_p"))
                         for lines in pages.values() for row in lines[:-1])
                     self.assertEqual(interposed, expected[label]["raw_interposed"])
-                    corrected = module.candidates(pages, sorted(pages))
-                    legacy_pages = copy.deepcopy(pages)
+                    # Preserve the historical conditional delta for PR #148:
+                    # compare with and without the non-P guard under the
+                    # PRE-ordinal reader. Otherwise the new locus-number
+                    # check already blocks those gaps and makes this
+                    # counterfactual falsely report zero. The separate
+                    # ordinal-gap test measures the incremental new delta.
+                    preordinal = copy.deepcopy(pages)
+                    for lines in preordinal.values():
+                        for row in lines:
+                            row.pop("locus_number", None)
+                    baseline = module.candidates(preordinal, sorted(preordinal))
+                    legacy_pages = copy.deepcopy(preordinal)
                     for lines in legacy_pages.values():
                         for row in lines:
                             row.pop("intervening_non_p", None)
                     legacy = module.candidates(legacy_pages, sorted(legacy_pages))
-                    removed = len(legacy) - len(corrected)
+                    removed = len(legacy) - len(baseline)
                     self.assertEqual(removed, expected[label][policy])
                     self.assertEqual(
                         sum(row["y"] for row in legacy) -
-                        sum(row["y"] for row in corrected), removed)
+                        sum(row["y"] for row in baseline), removed)
                     print(f"{label} {policy}: {interposed} P-to-P transitions "
                           f"with intervening loci; {removed} legacy positive "
                           "candidates excluded; frozen source SHA-256 OK")
