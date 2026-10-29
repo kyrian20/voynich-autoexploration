@@ -48,7 +48,10 @@ def tokens(body,policy="primary",preserve_gaps=False,uncertain_space_policy="qua
  # and <@X=> must quarantine the complete row rather than forge a pair.
  if re.search(r"<@[^>]*>", body):
   return [None] if preserve_gaps else []
- body=re.sub(r"<[^>]*>"," ",body)
+ # Only the two documented drawing interruptions imply word spaces.
+ # Unknown closed angle tags are not IVTFF word-space markers: keep them
+ # for the fail-closed markup check below, rather than forging two words.
+ body=re.sub(r"<(?:-|~)>"," ",body)
  # Fail closed on unbalanced markup. Otherwise an unfinished IVTFF comment
  # or reading alternative is interpreted as ordinary alphabetic words and
  # can forge both within-line and cross-line candidates. Do not guess where
