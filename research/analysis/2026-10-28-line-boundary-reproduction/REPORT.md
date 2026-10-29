@@ -33,6 +33,23 @@
 > Esta corrección no resuelve la conformidad IVTFF ni habilita por sí sola
 > ninguna afirmación de descifrado.
 
+> **Errata de métrica AP — 29-10-2026 (sin regenerar resultados):**
+> `ap(y,s)` ordenaba candidatos por puntuación y sumaba precisión por
+> cada positivo. Cuando varias observaciones tenían la misma probabilidad,
+> el orden original de las filas decidía arbitrariamente el AP: con
+> `s=[0.5,0.5]`, `y=[1,0]` producía 1.0 y `y=[0,1]` producía 0.5,
+> pese a ser la misma predicción y las mismas etiquetas. El código ahora
+> agrupa todos los empates como un único umbral de puntuación y calcula el
+> AP no interpolado por grupos; las regresiones comprueban invariancia ante
+> permutación, empates parciales y casos sin empates. **Los AP de
+> `results.json` quedan `INVALID_FOR_CLAIM` para una métrica AP
+> invariante a empates hasta repetir y cotejar la ejecución corregida.**
+> Esta errata no cambia el cálculo de AUC, ganancia de log-loss o Brier,
+> ni demuestra que sus valores archivados sean válidos. No se ha
+> reejecutado el estudio completo, ni se han modificado corpus,
+> `results.json`, particiones, parámetros o semillas. La limitación
+> IVTFF y las erratas de `drop_uncertain_word` continúan vigentes.
+
 ## Resumen
 
 Reimplementé el clasificador publicado por Zenil y Uthamacumaran para estimar si una separación entre dos palabras es un límite de línea. Luego repetí la evaluación reteniendo una hoja física completa cada vez, agrupando juntas sus caras recto/verso y paneles. Excluí del entrenamiento las líneas textualmente idénticas a las líneas de evaluación; en los datos normalizados no encontré duplicados que activaran esa exclusión.
