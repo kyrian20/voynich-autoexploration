@@ -31,11 +31,21 @@ class InlineTextTagContract(unittest.TestCase):
                 self.assertEqual(module.tokens("<@L=A>ab", policy, True), ["ab"])
                 self.assertEqual(module.tokens("ab<@L=A>cd", policy), ["abcd"])
 
-    def test_explicit_spaces_and_drawing_gaps_still_split(self):
-        for gap in (".", ",", "<->", "<~>"):
+    def test_certain_spaces_and_drawing_gaps_still_split(self):
+        # A comma is an uncertain IVTFF word boundary (§6.7), not a
+        # certain gap. Keep the old comma-split expectation only as an
+        # explicitly named counterfactual; the default must fail closed.
+        for gap in (".", "<->", "<~>"):
             with self.subTest(gap=gap):
                 self.assertEqual(module.tokens("ab<@L=A>" + gap + "cd",
                                                "primary", True), ["ab", "cd"])
+        for policy in ("primary", "drop_uncertain_word"):
+            with self.subTest(policy=policy, gap="uncertain comma"):
+                self.assertEqual(module.tokens("ab<@L=A>,cd", policy, True),
+                                 [None])
+                self.assertEqual(module.tokens("ab<@L=A>,cd", policy, True,
+                                               uncertain_space_policy="split"),
+                                 ["ab", "cd"])
 
     def test_paragraph_markers_remain_barriers(self):
         for marker in ("<%>", "<$>"):

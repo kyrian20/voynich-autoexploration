@@ -85,7 +85,9 @@ class InterposedLocusContract(unittest.TestCase):
             self.assertEqual(module.sha(path), module.EXPECTED_SHA256[label])
             for policy in ("primary", "drop_uncertain_word"):
                 with self.subTest(label=label, policy=policy):
-                    pages = module.parse(path, policy)
+                    # Historical conditional delta predates comma quarantine.
+                    # Pin the old split policy to preserve that audit's scope.
+                    pages = module.parse(path, policy, uncertain_space_policy="split")
                     interposed = sum(
                         bool(row.get("intervening_non_p"))
                         for lines in pages.values() for row in lines[:-1])
