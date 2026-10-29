@@ -53,6 +53,34 @@ class SlashContinuationContract(unittest.TestCase):
                          [["safe", None], [None, "clean"]])
         self.assertEqual(module.candidates(pages, ["f1r"]), [])
 
+    def test_frozen_body_rows_have_no_slash_continuations(self):
+        # Corpus-impact preflight: only P loci admitted by this replica.
+        # No new held-out predictions and no changes to frozen sources.
+        expected = {"ZL3b": (4130, 0), "IT2a": (4118, 0)}
+        for label, path in module.INPUTS.items():
+            with self.subTest(source=label):
+                self.assertEqual(module.sha(path), module.EXPECTED_SHA256[label])
+                rows = slash_rows = 0
+                for _, raw in module.checked_physical_lines(
+                        path.read_text(encoding="latin-1")):
+                    m = module.ROW.match(raw.strip())
+                    if not m or "," not in m["ident"]:
+                        continue
+                    ident, locus = m["ident"].split(",", 1)
+                    parts = ident.split(".")
+                    if len(parts) < 2:
+                        continue
+                    page = parts[0]
+                    loc = module.re.sub(r"^[+*@=~&!/]+", "", locus.strip())
+                    if (not module.re.fullmatch(r"f(\\d+)[rv][1-6]?", page)
+                            and page != "fRos"):
+                        continue
+                    if not module.re.fullmatch(r"P(?:0|1|b|c|r|t)", loc):
+                        continue
+                    rows += 1
+                    slash_rows += "/" in (m["body"] or "")
+                self.assertEqual((rows, slash_rows), expected[label])
+
     def test_ordinary_boundary_is_preserved(self):
         with tempfile.TemporaryDirectory() as directory:
             source = Path(directory) / "synthetic.ivtff"
