@@ -422,6 +422,11 @@ jobs:
           python -m unittest discover -s tests -p 'test_line_boundary_unknown_inline_tags.py' -v
           python -O -m unittest discover -s tests -p 'test_line_boundary_unknown_inline_tags.py' -v
 
+      - name: Evitar palabras ficticias dentro de llaves IVTFF
+        run: |
+          python -m unittest discover -s tests -p 'test_line_boundary_brace_spans.py' -v
+          python -O -m unittest discover -s tests -p 'test_line_boundary_brace_spans.py' -v
+
       - name: Rechazar etiquetas IVTFF cerradas pero malformadas sin inventar palabras
         run: |
           python -m unittest discover -s tests -p 'test_line_boundary_invalid_inline_tags.py' -v

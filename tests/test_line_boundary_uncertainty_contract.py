@@ -236,11 +236,18 @@ class UncertaintyPolicyContract(unittest.TestCase):
         self.assertEqual(module.candidates(pages, ["f1r"]), [])
 
     def test_unclosed_ligature_marker_fails_closed(self):
+        # The previous expectation preserved "clean" after a malformed brace.
+        # Without a closing delimiter its scope is unknowable: a dot may
+        # belong to the unfinished ligature. Fail closed for the WHOLE row,
+        # not just the apparent word, to avoid invented internal candidates.
         for word in ("ab{cd", "ab}cd"):
-            with self.subTest(word=word):
-                self.assertEqual(module.tokens("safe." + word + ".clean",
-                                               "primary", preserve_gaps=True),
-                                 ["safe", None, "clean"])
+            for policy in ("primary", "drop_uncertain_word"):
+                with self.subTest(word=word, policy=policy):
+                    self.assertEqual(module.tokens("safe." + word + ".clean",
+                                                   policy, preserve_gaps=True),
+                                     [None])
+                    self.assertEqual(module.tokens("safe." + word + ".clean",
+                                                   policy), [])
 
 
 
