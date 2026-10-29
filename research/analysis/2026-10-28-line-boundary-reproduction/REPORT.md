@@ -5,6 +5,19 @@
 **Repositorio base consultado:** `kyrian20/voynich-autoexploration`, `master` en `9134d8c872f35602912512b33d27b8e9cc8bff67`.  
 **Identificadores de experimento:** ninguno asignado; la numeración del proyecto permanece congelada.
 
+> **Errata de integridad — 29-10-2026, revisión de PR #138:** el modo
+> `drop_uncertain_word` eliminaba las marcas `[primaria:alternativa]` antes
+> de comprobar incertidumbre, por lo que retenía palabras afectadas por
+> corchetes. Prueba falsable: `tokens("ab[cd:ef]gh", "drop_uncertain_word")`
+> devolvía `["abcdgh"]` en lugar de `[]`. El código se ha corregido y se
+> añaden regresiones para las dos modalidades; **el `results.json` original
+> permanece congelado**. Sus métricas `drop_uncertain_word` quedan
+> **INVALID_FOR_CLAIM** como evidencia de exclusión efectiva de corchetes
+> hasta una nueva ejecución completa y contrastada con el mismo corpus/hash.
+> Las métricas `primary` no se recalculan ni reciben validación científica
+> adicional por esta corrección. Sigue pendiente la adjudicación IVTFF
+> completa y la reconstrucción de las diferencias de conteo con el artículo.
+
 ## Resumen
 
 Reimplementé el clasificador publicado por Zenil y Uthamacumaran para estimar si una separación entre dos palabras es un límite de línea. Luego repetí la evaluación reteniendo una hoja física completa cada vez, agrupando juntas sus caras recto/verso y paneles. Excluí del entrenamiento las líneas textualmente idénticas a las líneas de evaluación; en los datos normalizados no encontré duplicados que activaran esa exclusión.
@@ -49,7 +62,7 @@ ZL3b contiene 206 páginas numeradas con texto y el pliego desplegable `fRos` (1
 
 El resultado “micro” calcula AUC sobre todas las predicciones fuera de hoja concatenadas. El AUC macro promedia las AUC de los pliegues, dando el mismo peso a cada hoja; los intervalos de la tabla usan ese estimando macro. La ganancia e intervalo se calculan como promedio de ganancias por pliegue frente a la prevalencia de entrenamiento de ese pliegue. Los resultados completos por modelo y sensibilidad están en `results.json`.
 
-En el corte cada quinta página, el modelo completo obtiene para ZL3b AUC **0,8443** y ganancia **0,1147** bits/hueco. Para IT2a obtiene AUC **0,8469** y ganancia **0,1189**. Al descartar unidades con incertidumbre, el AUC del modelo completo por página es **0,8438** en ZL3b y **0,8463** en IT2a; las conclusiones descriptivas no cambian de forma sustancial.
+En el corte cada quinta página, el modelo completo obtiene para ZL3b AUC **0,8443** y ganancia **0,1147** bits/hueco. Para IT2a obtiene AUC **0,8469** y ganancia **0,1189**. La ejecución archivada informó AUC **0,8438** (ZL3b) y **0,8463** (IT2a) bajo la etiqueta `drop_uncertain_word`, pero el filtro no excluía palabras con corchetes. **Estas dos cifras se conservan solo como historia y no sostienen una conclusión de sensibilidad a la incertidumbre**; debe reejecutarse el análisis corregido antes de interpretarlas.
 
 ## Interpretación
 

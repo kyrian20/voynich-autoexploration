@@ -15,7 +15,12 @@ def sha(p):
  return h.hexdigest()
 def tokens(body,policy="primary"):
  body=re.sub(r"<![^>]*>"," ",body);body=re.sub(r"<[^>]*>"," ",body)
- body=re.sub(r"\[([^:\]]*):[^\]]*\]",r"\1",body);body=re.sub(r"\[([^\]]*)\]",r"\1",body)
+ if policy=="drop_uncertain_word":
+  # Preserve an uncertainty sentinel until after splitting; otherwise the
+  # primary-reading substitution erases the evidence needed for exclusion.
+  body=re.sub(r"\[[^\]]*\]","?",body)
+ else:
+  body=re.sub(r"\[([^:\]]*):[^\]]*\]",r"\1",body);body=re.sub(r"\[([^\]]*)\]",r"\1",body)
  out=[]
  for x in re.split(r"[.\s,]+",body):
   if not x or (policy=="drop_uncertain_word" and UNCERTAIN.search(x)):continue
