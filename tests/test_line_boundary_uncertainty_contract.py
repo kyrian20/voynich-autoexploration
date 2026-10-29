@@ -126,9 +126,9 @@ class UncertaintyPolicyContract(unittest.TestCase):
         import tempfile
         with tempfile.TemporaryDirectory() as directory:
             source = Path(directory) / "test.ivtff"
-            source.write_text("<f1r.P.1,P0> alpha.beta\\n"
-                              "<f1r.P.2,P0> ???\\n"
-                              "<f1r.P.3,P0> gamma.delta\\n",
+            source.write_text("<f1r.P.1,P0> alpha.beta\n"
+                              "<f1r.P.2,P0> ???\n"
+                              "<f1r.P.3,P0> gamma.delta\n",
                               encoding="latin-1")
             pages = module.parse(source, "primary")
         self.assertEqual([r["words"] for r in pages["f1r"]],
@@ -141,8 +141,8 @@ class UncertaintyPolicyContract(unittest.TestCase):
         import tempfile
         with tempfile.TemporaryDirectory() as directory:
             source = Path(directory) / "test.ivtff"
-            source.write_text("<f1r.P.1,P0> alpha\\n"
-                              "<f2r.P.1,P0> ???\\n",
+            source.write_text("<f1r.P.1,P0> alpha\n"
+                              "<f2r.P.1,P0> ???\n",
                               encoding="latin-1")
             pages = module.parse(source, "primary")
         self.assertEqual(list(pages), ["f1r"])
