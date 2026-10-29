@@ -407,6 +407,11 @@ jobs:
           python -m unittest discover -s tests -p 'test_line_boundary_uncertainty_contract.py' -v
           python -O -m unittest discover -s tests -p 'test_line_boundary_uncertainty_contract.py' -v
 
+      - name: Rechazar adyacencias artificiales entre loci P intercalados
+        run: |
+          python -m unittest discover -s tests -p 'test_line_boundary_interposed_loci.py' -v
+          python -O -m unittest discover -s tests -p 'test_line_boundary_interposed_loci.py' -v
+
       - name: Rechazar falsos límites de línea en continuaciones IVTFF
         run: |
           python -m unittest discover -s tests -p 'test_line_boundary_slash_continuation.py' -v

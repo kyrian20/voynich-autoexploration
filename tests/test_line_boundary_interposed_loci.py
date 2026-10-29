@@ -1,0 +1,100 @@
+"""Non-P IVTFF loci must not be silently skipped when making P-to-P gaps.
+
+This is a code/corpus-impact audit, not a fresh predictive experiment.
+All frozen sources are checked by SHA-256 before reading. The historical
+results.json is not regenerated or overwritten.
+"""
+from __future__ import annotations
+
+import copy
+import importlib.util
+from pathlib import Path
+import tempfile
+import unittest
+
+SCRIPT = (Path(__file__).resolve().parents[1] / "research" / "analysis" /
+          "2026-10-28-line-boundary-reproduction" / "line_boundary_replication.py")
+spec = importlib.util.spec_from_file_location("line_boundary_interposed", SCRIPT)
+module = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(module)
+
+
+def fixture(text, policy="primary"):
+    with tempfile.TemporaryDirectory() as directory:
+        path = Path(directory) / "fixture.ivtff"
+        path.write_text(text, encoding="latin-1")
+        return module.parse(path, policy)
+
+
+class InterposedLocusContract(unittest.TestCase):
+    def test_label_between_body_rows_blocks_forged_positive(self):
+        pages = fixture("<f1r.P.1,P0> alpha.beta\n"
+                        "<f1r.L.1,*L0> label\n"
+                        "<f1r.P.2,P0> gamma.delta\n")
+        self.assertEqual(
+            pages["f1r"][0]["intervening_non_p"], [{"line": 2, "loc": "L0"}])
+        # Genuine within-row negative gaps remain; the cross-locus
+        # positive candidate is excluded.
+        self.assertEqual(
+            [row["y"] for row in module.candidates(pages, ["f1r"])], [0, 0])
+
+    def test_multiple_non_body_loci_are_traceable(self):
+        pages = fixture("<f1r.P.1,P0> alpha\n"
+                        "<f1r.L.1,*L0> label\n"
+                        "<f1r.C.1,*Cc> circle\n"
+                        "<f1r.P.2,P0> beta\n")
+        self.assertEqual(pages["f1r"][0]["intervening_non_p"],
+                         [{"line": 2, "loc": "L0"}, {"line": 3, "loc": "Cc"}])
+        self.assertEqual(module.candidates(pages, ["f1r"]), [])
+
+    def test_non_body_locus_before_first_body_row_does_not_block(self):
+        pages = fixture("<f1r.L.1,*L0> label\n"
+                        "<f1r.P.1,P0> alpha\n"
+                        "<f1r.P.2,P0> beta\n")
+        self.assertNotIn("intervening_non_p", pages["f1r"][0])
+        self.assertEqual(
+            [row["y"] for row in module.candidates(pages, ["f1r"])], [1])
+
+    def test_comment_without_locus_is_not_a_non_body_record(self):
+        pages = fixture("<f1r.P.1,P0> alpha\n"
+                        "# metadata without a locus\n"
+                        "<f1r.P.2,P0> beta\n")
+        self.assertEqual(
+            [row["y"] for row in module.candidates(pages, ["f1r"])], [1])
+
+    def test_frozen_corpus_scope_and_candidate_delta(self):
+        # The legacy counterfactual is identical except that it removes
+        # the new annotation, reproducing the previous candidate logic.
+        expected = {
+            "ZL3b": {"raw_interposed": 76,
+                      "primary": 71, "drop_uncertain_word": 64},
+            "IT2a": {"raw_interposed": 73,
+                      "primary": 72, "drop_uncertain_word": 72},
+        }
+        for label, path in module.INPUTS.items():
+            self.assertEqual(module.sha(path), module.EXPECTED_SHA256[label])
+            for policy in ("primary", "drop_uncertain_word"):
+                with self.subTest(label=label, policy=policy):
+                    pages = module.parse(path, policy)
+                    interposed = sum(
+                        bool(row.get("intervening_non_p"))
+                        for lines in pages.values() for row in lines[:-1])
+                    self.assertEqual(interposed, expected[label]["raw_interposed"])
+                    corrected = module.candidates(pages, sorted(pages))
+                    legacy_pages = copy.deepcopy(pages)
+                    for lines in legacy_pages.values():
+                        for row in lines:
+                            row.pop("intervening_non_p", None)
+                    legacy = module.candidates(legacy_pages, sorted(legacy_pages))
+                    removed = len(legacy) - len(corrected)
+                    self.assertEqual(removed, expected[label][policy])
+                    self.assertEqual(
+                        sum(row["y"] for row in legacy) -
+                        sum(row["y"] for row in corrected), removed)
+                    print(f"{label} {policy}: {interposed} P-to-P transitions "
+                          f"with intervening loci; {removed} legacy positive "
+                          "candidates excluded; frozen source SHA-256 OK")
+
+
+if __name__ == "__main__":
+    unittest.main()
