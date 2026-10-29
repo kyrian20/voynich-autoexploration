@@ -273,5 +273,38 @@ class UncertaintyPolicyContract(unittest.TestCase):
         self.assertEqual(module.candidates(pages, ["f1r"]), [])
 
 
+
+    def test_inline_free_comment_does_not_forge_word_boundary(self):
+        # IVTFF 2.0.2 §5.7.2; matches lossless F05/F19 policy.
+        for policy in ("primary", "drop_uncertain_word"):
+            with self.subTest(policy=policy):
+                self.assertEqual(
+                    module.tokens("safe.ab<!note>cd.clean", policy, preserve_gaps=True),
+                    ["safe", "abcd", "clean"])
+                self.assertEqual(module.tokens("ab<!note>cd", policy), ["abcd"])
+
+    def test_inline_comment_payload_punctuation_is_not_manuscript_text(self):
+        self.assertEqual(
+            module.tokens("ab<! / { [ @123; . , >cd", "primary",
+                          preserve_gaps=True), ["abcd"])
+        # An explicit IVTFF period remains a boundary after removing a comment.
+        self.assertEqual(module.tokens("ab<!note>.cd", "primary"), ["ab", "cd"])
+        # Drawing interruptions, unlike free-text comments, imply a word space.
+        self.assertEqual(module.tokens("ab<->cd", "primary"), ["ab", "cd"])
+        self.assertEqual(module.tokens("ab<~>cd", "primary"), ["ab", "cd"])
+
+    def test_inline_comment_does_not_create_negative_candidate(self):
+        import tempfile
+        with tempfile.TemporaryDirectory() as directory:
+            source = Path(directory) / "synthetic.ivtff"
+            source.write_text("<f1r.P.1,P0> ab<!note>cd.ef\n"
+                              "<f1r.P.2,P0> gh\n", encoding="latin-1")
+            pages = module.parse(source, "primary")
+        self.assertEqual([row["words"] for row in pages["f1r"]],
+                         [["abcd", "ef"], ["gh"]])
+        self.assertEqual([row["y"] for row in module.candidates(pages, ["f1r"])],
+                         [0, 1])
+
+
 if __name__ == "__main__":
     unittest.main()

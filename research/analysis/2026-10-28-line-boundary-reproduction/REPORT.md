@@ -188,3 +188,14 @@ Transcripciones en el manifiesto del repositorio: [ZL3b e IT2a, `kyrian20/voynic
 **Reparación conservadora:** marcar toda unidad con `@` como barrera `None` en ambas políticas, conservando vecinos sin inventar pares. También falla de forma conservadora para marcadores malformados. No equivale a decodificar los grafemas ni a conformidad IVTFF completa; la expansión correcta con offsets queda pendiente. Tres regresiones sintéticas nuevas comprueban código embebido, aislado/malformado y final de línea. La CI de esta propuesta debe verificarse para el commit exacto antes de darla por cerrada.
 
 **Alcance de evidencia:** no se han ejecutado nuevos análisis científicos ni usado folios reservados. El `results.json` original, los corpus y las semillas quedan intactos. Las métricas históricas son `INVALID_FOR_CLAIM` para una política que trate correctamente los códigos high-ASCII, sin afirmar que las cifras cambiarían en el corpus real. No hay traducción ni inferencia semántica.
+
+
+## Errata IVTFF — 29-10-2026: comentarios libres de anchura cero
+
+**Defecto falsable, independiente de los ya corregidos:** el lector de la réplica sustituía `<!...>` por un espacio antes de separar palabras. El fixture sintético `ab<!note>cd` se convertía indebidamente en dos palabras `ab` y `cd`, introduciendo un candidato negativo artificial. Según IVTFF 2.0.2 §5.7.2, un comentario libre es una anotación y no un espacio de palabra. El lector sin pérdida existente ya lo demuestra con sus fixtures F05/F19; el defecto residía en el lector específico de la PR #138.
+
+**Corrección limitada:** eliminar solo el comentario libre sin introducir un separador. Los puntos explícitos y las interrupciones de dibujo `<->` y `<~>` siguen separando palabras. Tres regresiones sintéticas prueban ambas políticas, contenido arbitrario de comentarios, límites explícitos y la construcción de candidatos con dos líneas P. No se cambian etiquetas de locus, lectura de ligaduras, códigos high-ASCII, selección por hoja ni el algoritmo estadístico.
+
+**Prueba y reproducibilidad:** `python -m unittest discover -s tests -p 'test_line_boundary_uncertainty_contract.py' -v` y el mismo comando con `python -O`; verificar CI del commit exacto antes de dar por cerrada la incidencia. Los casos son deterministas y no utilizan semilla ni corpus real. La fuente normativa y la política previa están en `research/ivtff_tokenization_policy_2026-10-20.md` y `tests/test_ivtff_lossless.py`.
+
+**Alcance:** el `results.json` histórico, las transcripciones congeladas y los folios reservados no se modifican. Sus métricas son `INVALID_FOR_CLAIM` para una lectura que respete la anchura cero de comentarios; todavía no se ha contado la presencia de este caso en los corpus reales ni recalculado AUC/AP/Brier/ganancias. No se declara conformidad IVTFF completa, reproducción científica nueva ni descifrado.
