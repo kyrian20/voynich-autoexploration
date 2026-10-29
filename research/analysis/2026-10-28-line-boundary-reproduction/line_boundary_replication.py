@@ -92,7 +92,12 @@ def parse(path,policy="primary"):
   # Preserve empty P rows as barriers: removing one would invent adjacency
   # between its predecessor and successor. Exclude entirely empty pages so
   # they cannot shift the historical every-fifth-page calibration.
-  pages[page].append({"words":ws,"text":" ".join(w if w is not None else "<UNCERTAIN>" for w in ws),"line":lineno,"leaf":int(pm[1]) if pm else None,"loc":loc})
+  # IVTFF locus ordinals must remain available: two admitted P rows with a
+  # missing numbered locus between them are not proven adjacent. Keep the
+  # original row even if its identifier is malformed, but fail closed when
+  # evaluating cross-row adjacency rather than guessing the missing number.
+  locus_number=int(parts[-1]) if re.fullmatch(r"[0-9]+",parts[-1]) else None
+  pages[page].append({"words":ws,"text":" ".join(w if w is not None else "<UNCERTAIN>" for w in ws),"line":lineno,"leaf":int(pm[1]) if pm else None,"loc":loc,"locus_number":locus_number})
  # A sentinel-only row has a nonempty list [None] but no usable word.
  # Keep it as a barrier within a populated page, never as a page of its own.
  return {page:ls for page,ls in pages.items()
@@ -115,6 +120,13 @@ def candidates(pages,pagenames):
     rows.append({"y":0,"f":feats(a,b),"leaf":line["leaf"],"texts":(line["text"],line["text"]),"page":page})
    if i+1<len(ls) and not line.get("intervening_non_p"):
     nxt=ls[i+1]
+    # Source-derived rows carry numeric locus IDs. A skipped, duplicated or
+    # reversed ordinal is a discontinuity even without a visible non-P row.
+    # Manually supplied legacy candidate fixtures without this field retain
+    # their historical interface; real parsed rows must have valid ordinals.
+    if "locus_number" in line and "locus_number" in nxt:
+     a_ord,b_ord=line["locus_number"],nxt["locus_number"]
+     if a_ord is None or b_ord is None or b_ord!=a_ord+1:continue
     if not nxt["words"] or line["words"][-1] is None or nxt["words"][0] is None:continue
     rows.append({"y":1,"f":feats(line["words"][-1],nxt["words"][0]),"leaf":line["leaf"],
                  "texts":(line["text"],nxt["text"]),"page":page})
