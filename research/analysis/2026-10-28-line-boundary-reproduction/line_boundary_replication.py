@@ -22,7 +22,12 @@ def sha(p):
  with p.open("rb") as f:
   for b in iter(lambda:f.read(1<<20),b""):h.update(b)
  return h.hexdigest()
-def tokens(body,policy="primary",preserve_gaps=False):
+def tokens(body,policy="primary",preserve_gaps=False,uncertain_space_policy="quarantine"):
+ # A comma is an UNCERTAIN word boundary in IVTFF 2.0.2 §6.7, not
+ # equivalent to a certain dot. Never treat its two fragments as known
+ # words unless the explicitly named legacy split sensitivity is requested.
+ if uncertain_space_policy not in {"quarantine", "split"}:
+  raise ValueError(f"unsupported uncertain-space policy: {uncertain_space_policy}")
  # IVTFF 2.0.2 §5.7.2: free-text comments have zero width in a word.
  # Do not invent a gap where the manuscript only has an annotation.
  body=re.sub(r"<![^>]*>","",body)
@@ -57,6 +62,14 @@ def tokens(body,policy="primary",preserve_gaps=False):
  # text after an unmatched opener (including dots) as trustworthy words.
  if "[" in body or "]" in body:
   return [None] if preserve_gaps else []
+ # Keep the comma's adjacent fragments in ONE unresolved unit. Replacing
+ # a comma with a question mark (rather than deleting it or inserting a
+ # separate None) also quarantines both neighboring fragments at a line
+ # edge, preventing false cross-row positive candidates. Whitespace around
+ # a comma is IVTFF formatting, not a license to infer a word boundary.
+ # The split option preserves the previous explicit assumption for audits.
+ if uncertain_space_policy=="quarantine":
+  body=re.sub(r"[ \t]*,[ \t]*","?",body)
  out=[]
  for x in re.split(r"[.\s,]+",body):
   if not x:continue
@@ -75,7 +88,7 @@ def tokens(body,policy="primary",preserve_gaps=False):
    continue
   out.append(x.lower())
  return out
-def parse(path,policy="primary"):
+def parse(path,policy="primary",uncertain_space_policy="quarantine"):
  pages=collections.defaultdict(list)
  for lineno,raw in checked_physical_lines(path.read_text(encoding="latin-1")):
   m=ROW.match(raw.strip())
@@ -93,7 +106,8 @@ def parse(path,policy="primary"):
     pages[page][-1].setdefault("intervening_non_p",[]).append({"line":lineno,"loc":loc})
    continue
   # Both policies must preserve unknown-glyph barriers for adjacency tests.
-  ws=tokens(m["body"] or "",policy,preserve_gaps=True)
+  ws=tokens(m["body"] or "",policy,preserve_gaps=True,
+            uncertain_space_policy=uncertain_space_policy)
   # Preserve empty P rows as barriers: removing one would invent adjacency
   # between its predecessor and successor. Exclude entirely empty pages so
   # they cannot shift the historical every-fifth-page calibration.
