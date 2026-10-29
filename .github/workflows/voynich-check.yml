@@ -715,3 +715,8 @@ jobs:
             exp616-schema-correction.sha256
           if-no-files-found: error
           retention-days: 90
+
+      - name: Conservar incertidumbre de espacios con coma IVTFF en límites de línea
+        run: |
+          python -m unittest discover -s tests -p 'test_line_boundary_uncertain_comma.py' -v
+          python -O -m unittest discover -s tests -p 'test_line_boundary_uncertain_comma.py' -v
