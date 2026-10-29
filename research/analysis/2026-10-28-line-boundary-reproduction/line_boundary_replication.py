@@ -27,12 +27,25 @@ def tokens(body,policy="primary",preserve_gaps=False):
  # Do not invent a gap where the manuscript only has an annotation.
  body=re.sub(r"<![^>]*>","",body)
  body=re.sub(r"<[^>]*>"," ",body)
+ # Fail closed on unbalanced markup. Otherwise an unfinished IVTFF comment
+ # or reading alternative is interpreted as ordinary alphabetic words and
+ # can forge both within-line and cross-line candidates. Do not guess where
+ # an unterminated annotation ends: quarantine the complete body row.
+ # Properly closed tags and square-bracket readings were handled above or
+ # are handled below; remaining angle brackets cannot be valid tokens.
+ if "<" in body or ">" in body:
+  return [None] if preserve_gaps else []
  if policy=="drop_uncertain_word":
   # Preserve an uncertainty sentinel until after splitting; otherwise the
   # primary-reading substitution erases the evidence needed for exclusion.
   body=re.sub(r"\[[^\]]*\]","?",body)
  else:
   body=re.sub(r"\[([^:\]]*):[^\]]*\]",r"\1",body);body=re.sub(r"\[([^\]]*)\]",r"\1",body)
+ # After the selected reading policy has removed valid bracket spans,
+ # any leftover bracket is malformed. A full-row barrier avoids treating
+ # text after an unmatched opener (including dots) as trustworthy words.
+ if "[" in body or "]" in body:
+  return [None] if preserve_gaps else []
  out=[]
  for x in re.split(r"[.\s,]+",body):
   if not x:continue
