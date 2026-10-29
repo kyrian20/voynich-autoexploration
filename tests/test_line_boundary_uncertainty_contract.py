@@ -38,6 +38,63 @@ class UncertaintyPolicyContract(unittest.TestCase):
         self.assertEqual(module.tokens("safe.clean", "drop_uncertain_word"),
                          ["safe", "clean"])
 
+    def test_uncertain_word_is_a_barrier_not_a_new_adjacent_pair(self):
+        words = module.tokens("safe.ab[cd:ef]gh.clean", "drop_uncertain_word",
+                              preserve_gaps=True)
+        self.assertEqual(words, ["safe", None, "clean"])
+        pages = {"f1r": [{"words": words, "text": "safe <UNCERTAIN> clean",
+                          "leaf": 1}]}
+        self.assertEqual(module.candidates(pages, ["f1r"]), [])
+
+    def test_uncertain_line_blocks_false_line_boundary(self):
+        import tempfile
+        with tempfile.TemporaryDirectory() as directory:
+            source = Path(directory) / "test.ivtff"
+            source.write_text("<f1r.P.1,P0> safe\n"
+                              "<f1r.P.2,P0> [cd:ef]\n"
+                              "<f1r.P.3,P0> clean\n", encoding="latin-1")
+            pages = module.parse(source, "drop_uncertain_word")
+        self.assertEqual([x["words"] for x in pages["f1r"]],
+                         [["safe"], [None], ["clean"]])
+        self.assertEqual(module.candidates(pages, ["f1r"]), [])
+
+    def test_certain_neighbours_still_generate_candidates(self):
+        pages = {"f1r": [
+            {"words": ["safe", "other"], "text": "safe other", "leaf": 1},
+            {"words": ["clean"], "text": "clean", "leaf": 1}]}
+        self.assertEqual([r["y"] for r in module.candidates(pages, ["f1r"])],
+                         [0, 1])
+
+    def test_source_paths_and_hashes_match_frozen_corpora(self):
+        for label, path in module.INPUTS.items():
+            self.assertEqual(path.parent, module.REPO_ROOT / "data" / "transcriptions")
+            self.assertTrue(path.is_file(), label)
+            self.assertEqual(module.sha(path), module.EXPECTED_SHA256[label])
+
+    def test_new_result_never_overwrites_existing_file(self):
+        import json
+        import tempfile
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "result.json"
+            module.write_new_result(path, {"test": 1})
+            self.assertEqual(json.loads(path.read_text(encoding="utf-8")),
+                             {"test": 1})
+            with self.assertRaises(FileExistsError):
+                module.write_new_result(path, {"test": 2})
+            self.assertEqual(json.loads(path.read_text(encoding="utf-8")),
+                             {"test": 1})
+
+    def test_new_result_rejects_symlink(self):
+        import tempfile
+        with tempfile.TemporaryDirectory() as directory:
+            target = Path(directory) / "frozen.json"
+            target.write_text("frozen", encoding="utf-8")
+            link = Path(directory) / "result.json"
+            link.symlink_to(target)
+            with self.assertRaises(FileExistsError):
+                module.write_new_result(link, {"test": 2})
+            self.assertEqual(target.read_text(encoding="utf-8"), "frozen")
+
 
 if __name__ == "__main__":
     unittest.main()

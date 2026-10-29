@@ -5,7 +5,11 @@ import collections, hashlib, json, math, re, statistics, random
 from pathlib import Path
 
 ROOT=Path(__file__).resolve().parent
-INPUTS={"ZL3b":ROOT/"eva_zl3b.txt","IT2a":ROOT/"eva_it2a.txt"}
+REPO_ROOT=ROOT.parents[2]
+INPUTS={"ZL3b":REPO_ROOT/"data/transcriptions/eva_zl3b.txt",
+        "IT2a":REPO_ROOT/"data/transcriptions/eva_it2a.txt"}
+EXPECTED_SHA256={"ZL3b":"bf5b6d4ac1e3a51b1847a9c388318d609020441ccd56984c901c32b09beccafc",
+                 "IT2a":"7f27a8b0feed8f6de0a99900df6bf912dd1d295c38e5f830bac8b41c3f536fb5"}
 ROW=re.compile(r"^<(?P<ident>[^>]+)>\s+(?P<body>.*)$")
 UNCERTAIN=re.compile(r"\{[^}]*\}|\?")
 def sha(p):
@@ -13,7 +17,7 @@ def sha(p):
  with p.open("rb") as f:
   for b in iter(lambda:f.read(1<<20),b""):h.update(b)
  return h.hexdigest()
-def tokens(body,policy="primary"):
+def tokens(body,policy="primary",preserve_gaps=False):
  body=re.sub(r"<![^>]*>"," ",body);body=re.sub(r"<[^>]*>"," ",body)
  if policy=="drop_uncertain_word":
   # Preserve an uncertainty sentinel until after splitting; otherwise the
@@ -23,7 +27,11 @@ def tokens(body,policy="primary"):
   body=re.sub(r"\[([^:\]]*):[^\]]*\]",r"\1",body);body=re.sub(r"\[([^\]]*)\]",r"\1",body)
  out=[]
  for x in re.split(r"[.\s,]+",body):
-  if not x or (policy=="drop_uncertain_word" and UNCERTAIN.search(x)):continue
+  if not x:continue
+  if policy=="drop_uncertain_word" and UNCERTAIN.search(x):
+   # Keep a non-word barrier for candidate construction; never join its neighbours.
+   if preserve_gaps:out.append(None)
+   continue
   x=re.sub(r"\{[^}]*\}"," ",x);x=re.sub(r"@\d+;?"," ",x)
   out.extend(w.lower() for w in re.findall(r"[A-Za-z]+",x))
  return out
@@ -37,8 +45,9 @@ def parse(path,policy="primary"):
   page=parts[0]; pm=re.fullmatch(r"f(\d+)[rv][1-6]?",page)
   loc=re.sub(r"^[+*@=~&!/]+","",locus.strip())
   if (not pm and page!="fRos") or not re.fullmatch(r"P(?:0|1|b|c|r|t)",loc):continue
-  ws=tokens(m["body"],policy)
-  if ws: pages[page].append({"words":ws,"text":" ".join(ws),"line":lineno,"leaf":int(pm[1]) if pm else None,"loc":loc})
+  ws=tokens(m["body"],policy,preserve_gaps=(policy=="drop_uncertain_word"))
+  # Keep even uncertain-only rows to avoid inventing a boundary across them.
+  if ws: pages[page].append({"words":ws,"text":" ".join(w if w is not None else "<UNCERTAIN>" for w in ws),"line":lineno,"leaf":int(pm[1]) if pm else None,"loc":loc})
  return dict(pages)
 def feats(a,b):
  x=(a[:2],a[-2:],str(min(len(a),12)));y=(b[:2],b[-2:],str(min(len(b),12)))
@@ -51,9 +60,11 @@ def candidates(pages,pagenames):
   for i,line in enumerate(ls):
    for j in range(len(line["words"])-1):
     a,b=line["words"][j:j+2]
+    if a is None or b is None:continue
     rows.append({"y":0,"f":feats(a,b),"leaf":line["leaf"],"texts":(line["text"],line["text"]),"page":page})
    if i+1<len(ls):
     nxt=ls[i+1]
+    if line["words"][-1] is None or nxt["words"][0] is None:continue
     rows.append({"y":1,"f":feats(line["words"][-1],nxt["words"][0]),"leaf":line["leaf"],
                  "texts":(line["text"],nxt["text"]),"page":page})
  return rows
@@ -154,7 +165,8 @@ def run(path,label,policy):
    "gain_leaf_bootstrap_ci95":[qtl(bg,.025),qtl(bg,.975)]}
  source={"sha256":sha(path),"bytes":path.stat().st_size,"body_pages_with_tokens":len(pnames),"numbered_pages_with_tokens":len(phys_pages),"physical_leaves_with_tokens":len(leaves),
   "unassigned_pages":sorted(set(pnames)-set(phys_pages)),"unassigned_body_lines_with_tokens":sum(len(pages[p]) for p in pnames if leaf[p] is None),
-  "body_lines_with_tokens":sum(len(x) for x in pages.values()),"tokens":sum(len(x["words"]) for ls in pages.values() for x in ls)}
+  "body_lines_with_tokens":sum(sum(any(w is not None for w in line["words"]) for line in ls) for ls in pages.values()),
+  "tokens":sum(sum(w is not None for w in x["words"]) for ls in pages.values() for x in ls)}
  return {"transcription":label,"parser_policy":policy,"source":source,
   "page_split_calibration":{"heldout_pages":len(hp),"test_candidates":page_n,"test_breaks":page_breaks,
     "duplicate_line_embargo_unique_texts":ndup,"models":page_clean,
@@ -162,12 +174,22 @@ def run(path,label,policy):
   "physical_leaf_loso":{"folds":len(leaves),"test_candidates":len(oof["full_tuple"]["y"]),"breaks":sum(oof["full_tuple"]["y"]),
     "models":{k:{a:(round(b,6) if isinstance(b,float) else [round(q,6) for q in b] if isinstance(b,list) else b) for a,b in v.items()} for k,v in phys.items()}},
   "folds":foldinfo}
+def write_new_result(path,result):
+ # Exclusive creation rejects existing files and symlinks; never overwrite a frozen run.
+ with path.open("x",encoding="utf-8") as f:
+  json.dump(result,f,indent=2,ensure_ascii=False)
+  f.write("\n")
+
 def main():
+ for label,path in INPUTS.items():
+  actual=sha(path)
+  if actual!=EXPECTED_SHA256[label]:
+   raise ValueError(f"{label}: corpus SHA-256 mismatch: {actual}")
  out={}
  for label,path in INPUTS.items():
   out[label]=[run(path,label,policy) for policy in ("primary","drop_uncertain_word")]
  result={"study":"Zenil & Uthamacumaran 2026, arXiv:2610.08861, Voynich line-boundary analysis","reimplementation":"naive categorical Bayes with alpha=0.5; page split every fifth lexicographically sorted page calibration; physical leaf LOSO; exact line string embargo; fixed seed 20261028; 1,999 bootstrap repetitions over leaves","results":out}
- (ROOT/"line_boundary_results.json").write_text(json.dumps(result,indent=2,ensure_ascii=False)+"\n",encoding="utf-8")
+ write_new_result(ROOT/"line_boundary_results.json",result)
  print(json.dumps({k:[{"policy":x["parser_policy"],"source":x["source"],"page":x["page_split_calibration"],"leaf":x["physical_leaf_loso"]} for x in v] for k,v in out.items()},indent=2))
 if __name__=="__main__":main()
 

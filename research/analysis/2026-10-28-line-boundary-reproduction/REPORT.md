@@ -18,6 +18,8 @@
 > adicional por esta corrección. Sigue pendiente la adjudicación IVTFF
 > completa y la reconstrucción de las diferencias de conteo con el artículo.
 
+> **Revisión adicional de integridad — 29-10-2026 (sin nueva ejecución de métricas):** el filtro corregido todavía eliminaba palabras inciertas antes de construir pares y, por tanto, podía crear adyacencias artificiales entre vecinos que no eran contiguos en el original, o incluso un salto entre líneas a través de una línea compuesta solo por palabras inciertas. El constructor conserva ahora barreras `None` en el modo de exclusión y omite candidatos que las cruzan. La API pública `tokens(..., "drop_uncertain_word")` conserva su salida sin barreras; el parser usa `preserve_gaps=True` exclusivamente para construir candidatos. También se ha corregido la ruta de entrada: las transcripciones versionadas están en `data/transcriptions/`, no junto al script. El ejecutable verifica SHA-256 fijados antes de analizar y crea su archivo nuevo en modo exclusivo, rechazando sobrescrituras y enlaces simbólicos. **No se ha reejecutado el experimento completo ni reemplazado `results.json`. Todas las cifras archivadas de `drop_uncertain_word` siguen `INVALID_FOR_CLAIM` para la sensibilidad declarada**; el estado de `primary` no cambia. Estas correcciones se comprueban mediante regresiones de comportamiento y CI, no mediante una reproducción numérica del estudio. La conformidad IVTFF integral sigue pendiente.
+
 ## Resumen
 
 Reimplementé el clasificador publicado por Zenil y Uthamacumaran para estimar si una separación entre dos palabras es un límite de línea. Luego repetí la evaluación reteniendo una hoja física completa cada vez, agrupando juntas sus caras recto/verso y paneles. Excluí del entrenamiento las líneas textualmente idénticas a las líneas de evaluación; en los datos normalizados no encontré duplicados que activaran esa exclusión.
@@ -80,7 +82,7 @@ Esto es evidencia de **asociación estructural local**: los rasgos EVA próximos
 - ZL3b e IT2a no son observaciones independientes: comparten el objeto histórico y su segmentación general.
 - No se asigna un nuevo ID EXP ni se modifica el registro de afirmaciones del proyecto.
 
-El script y el JSON de resultados se incluyen junto a este informe. Para repetir desde una copia del repositorio, coloque las transcripciones en el mismo directorio con los nombres `eva_zl3b.txt` y `eva_it2a.txt`, y ejecute `python line_boundary_replication.py`.
+El script y el JSON de resultados se incluyen junto a este informe. Para una nueva ejecución desde la raíz del repositorio, use `python research/analysis/2026-10-28-line-boundary-reproduction/line_boundary_replication.py`. El script lee las transcripciones versionadas en `data/transcriptions/`, verifica sus SHA-256 y crea `line_boundary_results.json` exclusivamente si no existe. Si ya existe, se detiene sin sobrescribir; archive cada salida nueva con su hash y log por separado. No confunda esa salida nueva con el `results.json` histórico congelado.
 
 ## Referencias
 
