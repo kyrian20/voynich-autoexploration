@@ -88,9 +88,13 @@ class UnsupportedInlineSymbols(unittest.TestCase):
         # Exact source hashes must pass before inspection; this audit is a
         # census over candidate construction, not a predictive rerun.
         expected = {
-            "ZL3b": {"changed_rows": 21, "positive_removed": 9,
+            "ZL3b": {"primary_changed_rows": 22,
+                     "drop_uncertain_word_changed_rows": 21,
+                     "positive_removed": 9,
                      "primary": 55, "drop_uncertain_word": 53},
-            "IT2a": {"changed_rows": 0, "positive_removed": 0,
+            "IT2a": {"primary_changed_rows": 0,
+                     "drop_uncertain_word_changed_rows": 0,
+                     "positive_removed": 0,
                      "primary": 0, "drop_uncertain_word": 0},
         }
         for label, path in module.INPUTS.items():
@@ -117,7 +121,7 @@ class UnsupportedInlineSymbols(unittest.TestCase):
                     positives = sum(r["y"] for r in prior) - sum(r["y"] for r in corrected)
                     negatives = (sum(r["y"] == 0 for r in prior)
                                  - sum(r["y"] == 0 for r in corrected))
-                    self.assertEqual(changed, expected[label]["changed_rows"])
+                    self.assertEqual(changed, expected[label][policy + "_changed_rows"])
                     self.assertEqual(positives, expected[label]["positive_removed"])
                     self.assertEqual(negatives, expected[label][policy])
                     self.assertEqual(len(prior) - len(corrected), positives + negatives)
