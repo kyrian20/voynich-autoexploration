@@ -46,6 +46,31 @@ class UncertaintyPolicyContract(unittest.TestCase):
                           "leaf": 1}]}
         self.assertEqual(module.candidates(pages, ["f1r"]), [])
 
+    def test_primary_unknown_glyph_between_words_is_a_barrier(self):
+        self.assertEqual(module.tokens("alpha.?.beta", "primary", preserve_gaps=True),
+                         ["alpha", None, "beta"])
+        self.assertEqual(module.tokens("alpha.[?:ch].beta", "primary",
+                                       preserve_gaps=True), ["alpha", None, "beta"])
+        pages = {"f1r": [{"words": ["alpha", None, "beta"],
+                          "text": "alpha <UNCERTAIN> beta", "leaf": 1}]}
+        self.assertEqual(module.candidates(pages, ["f1r"]), [])
+
+    def test_primary_unknown_glyph_inside_word_does_not_split_it(self):
+        self.assertEqual(module.tokens("alpha.ab?cd.beta", "primary",
+                                       preserve_gaps=True), ["alpha", None, "beta"])
+        self.assertEqual(module.tokens("ab?cd", "primary"), [])
+
+    def test_primary_unknown_at_line_end_blocks_false_break(self):
+        import tempfile
+        with tempfile.TemporaryDirectory() as directory:
+            source = Path(directory) / "test.ivtff"
+            source.write_text("<f1r.P.1,P0> alpha.?\\n"
+                              "<f1r.P.2,P0> beta\\n", encoding="latin-1")
+            pages = module.parse(source, "primary")
+        self.assertEqual([r["words"] for r in pages["f1r"]],
+                         [["alpha", None], ["beta"]])
+        self.assertEqual(module.candidates(pages, ["f1r"]), [])
+
     def test_uncertain_line_blocks_false_line_boundary(self):
         import tempfile
         with tempfile.TemporaryDirectory() as directory:
