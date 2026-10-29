@@ -137,6 +137,19 @@ class UncertaintyPolicyContract(unittest.TestCase):
         self.assertEqual([r["y"] for r in module.candidates(pages, ["f1r"])],
                          [0, 0])
 
+    def test_zero_payload_body_row_is_not_silently_skipped(self):
+        import tempfile
+        with tempfile.TemporaryDirectory() as directory:
+            source = Path(directory) / "test.ivtff"
+            source.write_text("<f1r.P.1,P0> alpha\n"
+                              "<f1r.P.2,P0>\n"
+                              "<f1r.P.3,P0> beta\n",
+                              encoding="latin-1")
+            pages = module.parse(source, "primary")
+        self.assertEqual([r["words"] for r in pages["f1r"]],
+                         [["alpha"], [], ["beta"]])
+        self.assertEqual(module.candidates(pages, ["f1r"]), [])
+
     def test_empty_only_page_does_not_shift_calibration_population(self):
         import tempfile
         with tempfile.TemporaryDirectory() as directory:
