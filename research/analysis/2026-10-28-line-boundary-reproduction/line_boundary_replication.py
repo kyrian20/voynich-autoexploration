@@ -60,7 +60,14 @@ def parse(path,policy="primary"):
   if len(parts)<2:continue
   page=parts[0]; pm=re.fullmatch(r"f(\d+)[rv][1-6]?",page)
   loc=re.sub(r"^[+*@=~&!/]+","",locus.strip())
-  if (not pm and page!="fRos") or not re.fullmatch(r"P(?:0|1|b|c|r|t)",loc):continue
+  if not pm and page!="fRos":continue
+  if not re.fullmatch(r"P(?:0|1|b|c|r|t)",loc):
+   # A non-P locus between two P records is not a direct P-to-P
+   # adjacency. Preserve its source row and locus on the preceding P row.
+   # Do not insert fake body rows or change the page/calibration population.
+   if page in pages and pages[page]:
+    pages[page][-1].setdefault("intervening_non_p",[]).append({"line":lineno,"loc":loc})
+   continue
   # Both policies must preserve unknown-glyph barriers for adjacency tests.
   ws=tokens(m["body"] or "",policy,preserve_gaps=True)
   # Preserve empty P rows as barriers: removing one would invent adjacency
@@ -87,7 +94,7 @@ def candidates(pages,pagenames):
     a,b=line["words"][j:j+2]
     if a is None or b is None:continue
     rows.append({"y":0,"f":feats(a,b),"leaf":line["leaf"],"texts":(line["text"],line["text"]),"page":page})
-   if i+1<len(ls):
+   if i+1<len(ls) and not line.get("intervening_non_p"):
     nxt=ls[i+1]
     if not nxt["words"] or line["words"][-1] is None or nxt["words"][0] is None:continue
     rows.append({"y":1,"f":feats(line["words"][-1],nxt["words"][0]),"leaf":line["leaf"],
