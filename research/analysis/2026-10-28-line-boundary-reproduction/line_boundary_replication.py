@@ -71,6 +71,15 @@ def tokens(body,policy="primary",preserve_gaps=False,uncertain_space_policy="qua
  # text after an unmatched opener (including dots) as trustworthy words.
  if "[" in body or "]" in body:
   return [None] if preserve_gaps else []
+ # IVTFF brace spans may contain transcriptional markup, punctuation or
+ # spaces. Quarantine the ENTIRE braced span as one unresolved unit before
+ # splitting on word boundaries: otherwise {a.b.c.d} yields spurious
+ # interior words b and c, creating a false negative candidate.
+ # Unmatched/nested braces are not safely interpretable: fail closed for
+ # the whole row rather than promoting fragments to apparent words.
+ body=re.sub(r"\\{[^{}]*\\}","?",body)
+ if "{" in body or "}" in body:
+  return [None] if preserve_gaps else []
  # Keep the comma's adjacent fragments in ONE unresolved unit. Replacing
  # a comma with a question mark (rather than deleting it or inserting a
  # separate None) also quarantines both neighboring fragments at a line
