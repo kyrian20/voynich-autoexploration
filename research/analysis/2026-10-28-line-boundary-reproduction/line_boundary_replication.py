@@ -96,7 +96,9 @@ def pred(train,test,key,alpha=.5):
  for r in test:
   scores=[]
   for y in (0,1):
-   s=math.log((yc[y]+alpha*2)/(n+alpha*2))
+   # Two classes: symmetric Dirichlet(alpha, alpha) prior.
+   # Historical numerator used 2*alpha per class, yielding a different prior.
+   s=math.log((yc[y]+alpha)/(n+2*alpha))
    for i,val in enumerate(r["f"][key]):
     s+=math.log((c[y][i][val]+alpha)/(yc[y]+alpha*max(1,len(v[i]))))
    scores.append(s)
