@@ -157,7 +157,7 @@ class UncertaintyPolicyContract(unittest.TestCase):
                               encoding="latin-1")
             pages = module.parse(source, "primary")
         self.assertEqual([r["words"] for r in pages["f1r"]],
-                         [["alpha", "beta"], [], ["gamma", "delta"]])
+                         [["alpha", "beta"], [None], ["gamma", "delta"]])
         # The two within-line gaps survive; no invented inter-line gap.
         self.assertEqual([r["y"] for r in module.candidates(pages, ["f1r"])],
                          [0, 0])
