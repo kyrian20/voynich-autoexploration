@@ -1,11 +1,16 @@
 #!/usr/bin/env python3
 """Deterministic independent reimplementation of the Voynich line-boundary model."""
 from __future__ import annotations
-import collections, hashlib, json, math, re, statistics, random
+import collections, hashlib, json, math, re, statistics, random, sys
 from pathlib import Path
 
 ROOT=Path(__file__).resolve().parent
 REPO_ROOT=ROOT.parents[2]
+# Use the same physical-row contract as the audited IVTFF readers.
+# The script is also executable directly from its research subdirectory.
+if str(REPO_ROOT) not in sys.path:
+ sys.path.insert(0,str(REPO_ROOT))
+from scripts.ivtff_physical_rows import checked_physical_lines
 INPUTS={"ZL3b":REPO_ROOT/"data/transcriptions/eva_zl3b.txt",
         "IT2a":REPO_ROOT/"data/transcriptions/eva_it2a.txt"}
 EXPECTED_SHA256={"ZL3b":"bf5b6d4ac1e3a51b1847a9c388318d609020441ccd56984c901c32b09beccafc",
@@ -37,7 +42,7 @@ def tokens(body,policy="primary",preserve_gaps=False):
  return out
 def parse(path,policy="primary"):
  pages=collections.defaultdict(list)
- for lineno,raw in enumerate(path.read_text(encoding="latin-1").splitlines(),1):
+ for lineno,raw in checked_physical_lines(path.read_text(encoding="latin-1")):
   m=ROW.match(raw.strip())
   if not m or "," not in m["ident"]:continue
   ident,locus=m["ident"].split(",",1);parts=ident.split(".")

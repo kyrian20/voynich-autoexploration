@@ -20,6 +20,19 @@
 
 > **Revisión adicional de integridad — 29-10-2026 (sin nueva ejecución de métricas):** el filtro corregido todavía eliminaba palabras inciertas antes de construir pares y, por tanto, podía crear adyacencias artificiales entre vecinos que no eran contiguos en el original, o incluso un salto entre líneas a través de una línea compuesta solo por palabras inciertas. El constructor conserva ahora barreras `None` en el modo de exclusión y omite candidatos que las cruzan. La API pública `tokens(..., "drop_uncertain_word")` conserva su salida sin barreras; el parser usa `preserve_gaps=True` exclusivamente para construir candidatos. También se ha corregido la ruta de entrada: las transcripciones versionadas están en `data/transcriptions/`, no junto al script. El ejecutable verifica SHA-256 fijados antes de analizar y crea su archivo nuevo en modo exclusivo, rechazando sobrescrituras y enlaces simbólicos. **No se ha reejecutado el experimento completo ni reemplazado `results.json`. Todas las cifras archivadas de `drop_uncertain_word` siguen `INVALID_FOR_CLAIM` para la sensibilidad declarada**; el estado de `primary` no cambia. Estas correcciones se comprueban mediante regresiones de comportamiento y CI, no mediante una reproducción numérica del estudio. La conformidad IVTFF integral sigue pendiente.
 
+> **Contrato de filas físicas — 29-10-2026 (corrección de código sin recalcular métricas):**
+> el lector de esta réplica empleaba `str.splitlines()`, que interpreta
+> separadores de control como filas nuevas; un byte Latin-1 U+0085 dentro
+> de una línea podía crear un locus aparente `<f2r.P.1,P0>` que no existía
+> como registro físico. El parser usa ahora el lector compartido
+> `scripts/ivtff_physical_rows.py`, que solo acepta CR, LF y CRLF y rechaza
+> los demás separadores. Se añadieron pruebas de inyección de loci falsos y
+> de los tres finales de línea válidos. La entrada versionada sigue protegida
+> por SHA-256; **no hay evidencia de que el defecto afectara a los corpus
+> congelados, y no se han regenerado las puntuaciones archivadas**.
+> Esta corrección no resuelve la conformidad IVTFF ni habilita por sí sola
+> ninguna afirmación de descifrado.
+
 ## Resumen
 
 Reimplementé el clasificador publicado por Zenil y Uthamacumaran para estimar si una separación entre dos palabras es un límite de línea. Luego repetí la evaluación reteniendo una hoja física completa cada vez, agrupando juntas sus caras recto/verso y paneles. Excluí del entrenamiento las líneas textualmente idénticas a las líneas de evaluación; en los datos normalizados no encontré duplicados que activaran esa exclusión.

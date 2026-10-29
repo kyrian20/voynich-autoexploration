@@ -65,6 +65,32 @@ class UncertaintyPolicyContract(unittest.TestCase):
         self.assertEqual([r["y"] for r in module.candidates(pages, ["f1r"])],
                          [0, 1])
 
+    def test_nonphysical_separator_cannot_forge_locus_row(self):
+        import tempfile
+        # Latin-1 inputs can contain six of the eight forbidden separators.
+        for separator in "\v\f\x1c\x1d\x1e\x85":
+            with self.subTest(separator=ord(separator)):
+                with tempfile.TemporaryDirectory() as directory:
+                    source = Path(directory) / "test.ivtff"
+                    source.write_bytes(("<f1r.P.1,P0> safe" + separator +
+                                        "<f2r.P.1,P0> forged\n" +
+                                        "<f1r.P.2,P0> clean\n").encode("latin-1"))
+                    with self.assertRaisesRegex(ValueError, "Non-physical IVTFF line separator"):
+                        module.parse(source)
+
+    def test_cr_lf_crlf_remain_valid_physical_rows(self):
+        import tempfile
+        for separator in ("\n", "\r", "\r\n"):
+            with self.subTest(separator=repr(separator)):
+                with tempfile.TemporaryDirectory() as directory:
+                    source = Path(directory) / "test.ivtff"
+                    source.write_bytes(("<f1r.P.1,P0> safe.other" + separator +
+                                        "<f1r.P.2,P0> clean" + separator).encode("latin-1"))
+                    pages = module.parse(source)
+                    self.assertEqual(len(pages["f1r"]), 2)
+                    self.assertEqual([r["y"] for r in module.candidates(pages, ["f1r"])],
+                                     [0, 1])
+
     def test_source_paths_and_hashes_match_frozen_corpora(self):
         for label, path in module.INPUTS.items():
             self.assertEqual(path.parent, module.REPO_ROOT / "data" / "transcriptions")
