@@ -38,3 +38,12 @@ La CI de la PR #152, **run [40918358778](https://github.com/kyrian20/voynich-aut
 **Causa examinada en la fuente:** además de las 21 filas con apóstrofo visible fuera de anotaciones, la fila `<f34v.1,@P0>` contiene `k[e':s]chdy`. La lectura **primaria** selecciona `e'`, por lo que la unidad resultante también incluye un apóstrofo; la política de exclusión sustituye el corchete por `?` y ya la trataba como barrera. El censo inicial de cadenas había eliminado por completo los corchetes y omitió este caso. La regla de código no cambia: solo se corrige la expectativa de **filas afectadas** a 22 en `primary` y 21 en `drop_uncertain_word`; las expectativas de candidatos (9/55 y 9/53) no se retocan. Se conserva este fallo y la explicación para evitar ajustar silenciosamente el protocolo.
 
 La ejecución posterior a esta corrección de expectativas requiere verificación nueva; no se afirma CI verde por anticipado.
+
+
+## Segunda CI fallida: solapamiento con una regresión anterior
+
+La ejecución **[40918868325](https://github.com/kyrian20/voynich-autoexploration/actions/runs/40918868325)** (SHA `8b2f1d9d7e79459f4dac9c4ed8f755a2c0dfb9ab`) confirmó **4/4 pruebas nuevas en modo normal y 4/4 en `python -O`**, con los conteos congelados esperados: ZL3b `primary` 22 filas, 9 positivos y 55 negativos retirados; `drop_uncertain_word` 21 filas, 9 positivos y 53 negativos retirados; IT2a sin cambios. Sin embargo, la CI completa terminó `failure` por la regresión antigua `test_line_boundary_interposed_loci.py`: el censo condicional de ZL3b bajó de 37 a **36** candidatos en `primary` y de 33 a **32** en `drop_uncertain_word`.
+
+**Causa:** una transición con locus no-P interpuesto ya no forma candidato elegible al quedar en cuarentena una palabra con apóstrofo. La auditoría anterior de loci interpuestos y sus cifras históricas permanecen conservadas; el censo condicional del **lector combinado actual** requiere 36/32. Se ha modificado exclusivamente la expectativa y el comentario explicativo de esa regresión, sin cambiar el lector ni la población de 76 transiciones interpuestas ZL3b. El control IT2a permanece 37/37. Esta interacción no implica una mejora predictiva ni una contradicción con un resultado científico validado.
+
+Se requiere una **tercera ejecución CI nueva** y comprobación posterior antes de fusionar. Los dos fallos anteriores quedan documentados, sin borrarlos.
