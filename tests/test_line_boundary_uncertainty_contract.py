@@ -227,8 +227,8 @@ class UncertaintyPolicyContract(unittest.TestCase):
         import tempfile
         with tempfile.TemporaryDirectory() as directory:
             source = Path(directory) / "test.ivtff"
-            source.write_text("<f1r.P.1,P0> safe.dlo{ct}o\\n"
-                              "<f1r.P.2,P0> clean\\n",
+            source.write_text("<f1r.P.1,P0> safe.dlo{ct}o\n"
+                              "<f1r.P.2,P0> clean\n",
                               encoding="latin-1")
             pages = module.parse(source, "primary")
         self.assertEqual([row["words"] for row in pages["f1r"]],
