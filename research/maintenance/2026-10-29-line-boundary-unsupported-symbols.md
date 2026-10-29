@@ -29,3 +29,12 @@ El tokenizador de la réplica empleaba `re.findall(r"[A-Za-z]+", x)` después de
 **Siguiente paso:** verificar las regresiones y la CI en el SHA exacto; si pasan, integrar solo en la rama de PR #138 tras comprobar que no haya avanzado y verificar CI posterior. Si falla, conservar el fallo y corregir únicamente con causa demostrada. No declarar limpieza global.
 
 **Referencia normativa:** R. Zandbergen, *IVTFF – Intermediate Voynich MS Transliteration File Format*, issue 2.0.2 (08/07/2025), §§6.6–6.7: https://voynich.nu/software/ivtt/IVTFF_format.pdf.
+
+
+## Primera ejecución CI fallida y corrección de la expectativa (sin ocultarla)
+
+La CI de la PR #152, **run [40918358778](https://github.com/kyrian20/voynich-autoexploration/actions/runs/40918358778)** sobre SHA `095bd094e09ff676743f838797e0e1ab000327c7`, falló en la regresión de alcance: `ZL3b primary: changed=22`, frente a la expectativa inicial de 21. Los controles sintéticos pasaron; el test `drop_uncertain_word` registró 21 filas, 9 positivos y 53 negativos excluidos; IT2a registró cero diferencias. El workflow terminó `failure`; no se considera validado.
+
+**Causa examinada en la fuente:** además de las 21 filas con apóstrofo visible fuera de anotaciones, la fila `<f34v.1,@P0>` contiene `k[e':s]chdy`. La lectura **primaria** selecciona `e'`, por lo que la unidad resultante también incluye un apóstrofo; la política de exclusión sustituye el corchete por `?` y ya la trataba como barrera. El censo inicial de cadenas había eliminado por completo los corchetes y omitió este caso. La regla de código no cambia: solo se corrige la expectativa de **filas afectadas** a 22 en `primary` y 21 en `drop_uncertain_word`; las expectativas de candidatos (9/55 y 9/53) no se retocan. Se conserva este fallo y la explicación para evitar ajustar silenciosamente el protocolo.
+
+La ejecución posterior a esta corrección de expectativas requiere verificación nueva; no se afirma CI verde por anticipado.
