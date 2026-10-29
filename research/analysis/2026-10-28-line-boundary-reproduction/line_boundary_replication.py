@@ -32,6 +32,11 @@ def tokens(body,policy="primary",preserve_gaps=False):
  # Preserve a sentinel on either side of a paragraph transition; remove
  # free-text comments first so marker-like text inside comments is inert.
  body=body.replace("<%>",".?.").replace("<$>",".?.")
+ # IVTFF 2.0.2 §6.8: <@X=y> is a metadata tag for the whole locus,
+ # not one of the four word-space markers in §6.7. Remove it at zero
+ # width, like a free-text comment, before processing drawing gaps.
+ # Require a one-character value; malformed tags are not silently erased.
+ body=re.sub(r"<@[A-Z]=[^<>]>", "", body)
  body=re.sub(r"<[^>]*>"," ",body)
  # Fail closed on unbalanced markup. Otherwise an unfinished IVTFF comment
  # or reading alternative is interpreted as ordinary alphabetic words and
