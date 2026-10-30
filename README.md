@@ -4,7 +4,9 @@
 
 Repositorio de trabajo: `kyrian20/voynich-autoexploration` (rama `master`).
 
-**Sensibilidad de posición final de `daiin` a códigos opacos — 30-10-2026:** [comparación acotada de la vista ASCII de EXP-590 con una política que conserva `@NNN;` sin descifrar](research/maintenance/2026-10-30-exp590-opaque-token-positional-sensitivity.md). El recuento final depende de la política; no reejecuta permutaciones ni rehabilita resultados históricos. Comprobar CI exacta antes de reutilizar las cifras.\n\n**Contacto de códigos high-ASCII con letras ASCII — 30-10-2026:** [auditoría acotada de fragmentación potencial en EXP-590](research/maintenance/2026-10-30-exp590-high-ascii-adjacency.md). Separa códigos dentro/fuera de ligaduras y conserva los originales; no recalcula ni rehabilita métricas históricas. Verificar CI del commit exacto antes de reutilizar recuentos.
+**Sensibilidad de posición final de `daiin` a códigos opacos — 30-10-2026:** [comparación acotada de la vista ASCII de EXP-590 con una política que conserva `@NNN;` sin descifrar](research/maintenance/2026-10-30-exp590-opaque-token-positional-sensitivity.md). El recuento final depende de la política; no reejecuta permutaciones ni rehabilita resultados históricos. Comprobar CI exacta antes de reutilizar las cifras.
+
+**Contacto de códigos high-ASCII con letras ASCII — 30-10-2026:** [auditoría acotada de fragmentación potencial en EXP-590](research/maintenance/2026-10-30-exp590-high-ascii-adjacency.md). Separa códigos dentro/fuera de ligaduras y conserva los originales; no recalcula ni rehabilita métricas históricas. Verificar CI del commit exacto antes de reutilizar recuentos.
 
 **Conciliación IVTFF de registros sin tokens ASCII — 30-10-2026:** [diferencia comprobable entre códigos high-ASCII y lecturas ilegibles en ZL3b/ZL3a/IT2a](research/maintenance/2026-10-30-ivtff-high-ascii-unreadable-record-reconciliation.md). Es una reparación de cobertura descriptiva; no rehabilita EXP-590 ni aporta traducción. Consultar la CI de la PR antes de afirmar reproducción remota.
 
