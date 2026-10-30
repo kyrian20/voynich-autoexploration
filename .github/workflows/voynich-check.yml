@@ -740,3 +740,20 @@ jobs:
         run: |
           python -m unittest discover -s tests -p 'test_line_boundary_uncertain_comma.py' -v
           python -O -m unittest discover -s tests -p 'test_line_boundary_uncertain_comma.py' -v
+
+      - name: Auditar interrogaciones IVTFF reales y barreras del predictor
+        run: |
+          python -m unittest discover -s tests -p 'test_line_boundary_question_mark_scope.py' -v 2>&1 | tee line-boundary-question-normal.log
+          python -O -m unittest discover -s tests -p 'test_line_boundary_question_mark_scope.py' -v 2>&1 | tee line-boundary-question-optimized.log
+          sha256sum line-boundary-question-normal.log line-boundary-question-optimized.log > line-boundary-question-logs.sha256
+
+      - name: Conservar logs y hashes de auditoría de interrogaciones IVTFF
+        uses: actions/upload-artifact@v4
+        with:
+          name: line-boundary-question-scope-${{ github.run_id }}
+          path: |
+            line-boundary-question-normal.log
+            line-boundary-question-optimized.log
+            line-boundary-question-logs.sha256
+          if-no-files-found: error
+          retention-days: 90
