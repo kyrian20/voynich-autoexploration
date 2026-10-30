@@ -108,8 +108,8 @@ class FrozenUnknownGlyphScope(unittest.TestCase):
 
         with tempfile.TemporaryDirectory() as directory:
             path = Path(directory) / "control.ivtff"
-            path.write_text("<f1r.P.1,P0> alpha.?\\n"
-                            "<f1r.P.2,P0> beta\\n", encoding="latin-1")
+            path.write_text("<f1r.P.1,P0> alpha.?\n"
+                            "<f1r.P.2,P0> beta\n", encoding="latin-1")
             for policy in ("primary", "drop_uncertain_word"):
                 with self.subTest(policy=policy):
                     parsed = module.parse(path, policy)
@@ -120,7 +120,7 @@ class FrozenUnknownGlyphScope(unittest.TestCase):
         # A question mark in the unselected option must not change primary.
         with tempfile.TemporaryDirectory() as directory:
             path = Path(directory) / "unselected.ivtff"
-            path.write_text("<f1r.P.1,P0> safe.[ch:?].clean\\n",
+            path.write_text("<f1r.P.1,P0> safe.[ch:?].clean\n",
                             encoding="latin-1")
             parsed = module.parse(path, "primary")
             counterfactual = literal_question_deletion_counterfactual(
