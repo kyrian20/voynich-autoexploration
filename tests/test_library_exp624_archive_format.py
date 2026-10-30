@@ -2,6 +2,7 @@
 import hashlib
 import json
 import unittest
+from decimal import Decimal, ROUND_HALF_UP
 from pathlib import Path
 from scripts import audit_library_exp624_archive_format as audit
 
@@ -15,7 +16,8 @@ def summary():
                 "splits_total": n, "split_delta_min": 0.5, "split_delta_max": 0.5,
                 "mean_real_holdout_bits_per_unit": 1.5,
                 "mean_null_holdout_bits_per_unit": 2.0,
-                "mean_null_minus_real_bits_per_unit": 0.5}
+                "mean_null_minus_real_bits_per_unit": 0.5,
+                "relative_real_loss_reduction_percent": 25.0}
     return {"experiment": "exp624_position_conditioned_character_model",
             "date": "2026-10-20", "source_data": {}, "method": {},
             "ZL3b": {"parsed_folios_with_body": 203,
@@ -38,6 +40,8 @@ class LibraryExp624ArchiveFormatTests(unittest.TestCase):
         self.assertFalse(result["historical_reproduction"])
         self.assertEqual(result["checked_rows"]["ZL3b"]["split_deltas_checked"], 40)
         self.assertEqual(result["checked_rows"]["IT2a"]["split_deltas_checked"], 16)
+        self.assertEqual(result["relative_percentage_audit"]["rows_checked"], 8)
+        self.assertEqual(result["relative_percentage_audit"]["discrepancies"], [])
 
     def test_hash_gate(self):
         raw = json.dumps(summary()).encode()
@@ -94,6 +98,55 @@ class LibraryExp624ArchiveFormatTests(unittest.TestCase):
         self.assertEqual(receipt["status"], "ARCHIVED_CURATED_SUMMARY_NOT_NATIVE_SCRIPT_OUTPUT")
         self.assertFalse(receipt["historical_reproduction"])
         self.assertEqual(sum(x["split_deltas_checked"] for x in receipt["checked_rows"].values()), 56)
+
+
+    def test_relative_percentage_rounding_discrepancy_is_not_silenced(self):
+        # Real archived IT2a glyph mean fields, but a synthetic complete row:
+        # this test does not access the private Library JSON in CI.
+        data = summary()
+        row = data["IT2a"]["results"][1]
+        row["mean_null_holdout_bits_per_unit"] = 3.8357742633
+        row["mean_null_minus_real_bits_per_unit"] = 0.9498638385
+        row["mean_real_holdout_bits_per_unit"] = 2.8859104248
+        row["split_deltas"] = [0.9498638385] * 8
+        row["split_delta_min"] = row["split_delta_max"] = 0.9498638385
+        row["relative_real_loss_reduction_percent"] = 24.77
+        audit.validate_summary(data)  # All pre-existing numeric checks pass.
+        result = audit.audit_relative_percentages(data)
+        self.assertEqual(result["rows_checked"], 8)
+        self.assertEqual(len(result["discrepancies"]), 1)
+        discrepancy = result["discrepancies"][0]
+        self.assertEqual((discrepancy["edition"], discrepancy["stratum"]),
+                         ("IT2a", "all"))
+        self.assertEqual(discrepancy["expected_percent_2dp"], "24.76")
+        self.assertEqual(discrepancy["reported_percent"], "24.77")
+
+    def test_relative_percentage_invalid_type_fails_closed(self):
+        for value in (True, "25.00", float("nan"), float("inf")):
+            with self.subTest(value=repr(value)):
+                data = summary()
+                data["IT2a"]["results"][0]["relative_real_loss_reduction_percent"] = value
+                with self.assertRaisesRegex(ValueError, "invalid relative_real_loss_reduction_percent"):
+                    audit.audit_relative_percentages(data)
+
+    def test_archived_percentage_receipt_is_self_consistent(self):
+        # This frozen derived receipt is NOT a substitute for Library bytes.
+        root = Path(__file__).resolve().parents[1]
+        receipt = json.loads((root / "research/maintenance" /
+            "2026-10-30-lib-exp624-percentage-evidence.json").read_text(encoding="utf-8"))
+        self.assertEqual(receipt["source_sha256"], audit.EXPECTED_SHA256["results"])
+        self.assertEqual(receipt["source_bytes"], 8141)
+        self.assertEqual(len(receipt["rows"]), 8)
+        discrepancies = []
+        for row in receipt["rows"]:
+            calculated = Decimal(100) * Decimal(row["mean_delta"]) / Decimal(row["mean_null"])
+            expected = calculated.quantize(Decimal("0.01"), rounding=ROUND_HALF_UP)
+            if expected != Decimal(row["reported_percent"]):
+                discrepancies.append((row["edition"], row["stratum"], row["tokenizer"],
+                                      str(expected), row["reported_percent"]))
+        self.assertEqual(len(discrepancies), receipt["expected_discrepancy_count"])
+        self.assertEqual(discrepancies, [("IT2a", "all", "EVA units with ch/sh collapsed",
+                                          "24.76", "24.77")])
 
 
 if __name__ == "__main__":
