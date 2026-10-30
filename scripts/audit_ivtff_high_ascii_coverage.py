@@ -53,6 +53,10 @@ def selected_codes(spans) -> list[str]:
             codes.append(span.raw)
         elif span.kind == "ligature":
             codes.extend(selected_codes(span.children))
+        elif span.kind == "unresolved" and span.raw == "@":
+            # lex() reports malformed @ codes but this census previously
+            # ignored its diagnostics whenever an ASCII token was present.
+            raise ValueError("Malformed primary IVTFF high-ASCII code")
         # Do not descend into alternatives: the historical comparison drops
         # all square-bracket readings, including any high-ASCII codes inside.
     return codes

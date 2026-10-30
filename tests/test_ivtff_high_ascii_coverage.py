@@ -43,6 +43,20 @@ class HighAsciiCoverageTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "Non-physical"):
             audit.analyze_text("# comment\u2028<f1r.1,@P0> @140;\n")
 
+    def test_malformed_primary_code_cannot_be_silently_counted_as_zero(self):
+        # Prior to the guard, a mixed ASCII row passed with zero codes
+        # because the lossless lexer's diagnostic was not inspected.
+        for body in ("qo@12;dy", "a.@12;", "{c@12;h}.a"):
+            with self.subTest(body=body):
+                with self.assertRaisesRegex(ValueError, "Malformed primary"):
+                    audit.analyze_text(f"<f1r.1,@P0> {body}\n")
+        # This inventory deliberately excludes unselected alternatives
+        # and free-text comments; neither contributes a primary code.
+        result = audit.analyze_text(
+            "<f1r.1,@P0> a.[@12;:b].<!@12;>c\n"
+        )
+        self.assertEqual(result["selected_high_ascii_codes"], 0)
+
     def test_frozen_corpus_reconciliation(self):
         report = audit.audit()
         self.assertEqual(report["status"], "REPRODUCED_SCOPE_ONLY")
