@@ -88,36 +88,36 @@ class PublisherSourceDriftContract(unittest.TestCase):
 
 
     def test_new_known_exp622_output_is_safe(self):
-        self.write("research/experiments/exp_622_ch_sh_specificity_interaction/results.json", "{}\\n")
+        self.write("research/experiments/exp_622_ch_sh_specificity_interaction/results.json", "{}\n")
         head = self.commit("publisher added new exp622 output")
         assert_no_source_drift(self.root, self.base, head)
 
     def test_historical_erratum_edit_blocks(self):
-        self.write("research/experiments/2026-10-20-exp590-erratum.md", "rewritten correction\\n")
+        self.write("research/experiments/2026-10-20-exp590-erratum.md", "rewritten correction\n")
         head = self.commit("concurrent historical correction")
         with self.assertRaisesRegex(RuntimeError, "exp590-erratum.md"):
             assert_no_source_drift(self.root, self.base, head)
 
     def test_historical_json_edit_blocks(self):
-        self.write("research/experiments/2026-10-20-exp590.json", '{"value": 99}\\n')
+        self.write("research/experiments/2026-10-20-exp590.json", '{"value": 99}\n')
         head = self.commit("concurrent historical result rewrite")
         with self.assertRaisesRegex(RuntimeError, "exp590.json"):
             assert_no_source_drift(self.root, self.base, head)
 
     def test_existing_dated_output_edit_blocks(self):
-        self.write("research/experiments/2026-10-29-exp590-corrected-L-metadata.json", '{"value": 2}\\n')
+        self.write("research/experiments/2026-10-29-exp590-corrected-L-metadata.json", '{"value": 2}\n')
         head = self.commit("concurrent rewrite of prior generated result")
         with self.assertRaisesRegex(RuntimeError, "2026-10-29-exp590"):
             assert_no_source_drift(self.root, self.base, head)
 
     def test_unknown_new_file_under_output_root_blocks(self):
-        self.write("research/experiments/archive/new-analysis.md", "unexpected input\\n")
+        self.write("research/experiments/archive/new-analysis.md", "unexpected input\n")
         head = self.commit("new historical analysis")
         with self.assertRaisesRegex(RuntimeError, "archive/new-analysis.md"):
             assert_no_source_drift(self.root, self.base, head)
 
     def test_misnamed_output_blocks(self):
-        self.write("research/experiments/2026-10-30-exp590-corrected-L-metadata.json.bak", "{}\\n")
+        self.write("research/experiments/2026-10-30-exp590-corrected-L-metadata.json.bak", "{}\n")
         head = self.commit("unexpected output suffix")
         with self.assertRaisesRegex(RuntimeError, "json.bak"):
             assert_no_source_drift(self.root, self.base, head)
