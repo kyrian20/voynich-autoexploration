@@ -39,6 +39,12 @@ def primary_codes(spans):
             yield span
         elif span.kind == "ligature":
             yield from primary_codes(span.children)
+        elif span.kind == "unresolved" and (
+            span.raw.startswith(("{", "["))
+            or (span.raw.startswith("<") and not span.raw.endswith(">"))
+        ):
+            # An unclosed primary container can conceal a selected @NNN; code.
+            raise ValueError("Unclosed primary IVTFF delimiter in adjacency census")
         elif span.kind == "unresolved" and span.raw == "@":
             # A malformed @ code is not evidence of zero high-ASCII codes.
             # Comments and discarded square alternatives remain excluded.
