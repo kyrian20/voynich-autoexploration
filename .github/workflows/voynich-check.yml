@@ -143,6 +143,23 @@ jobs:
           if-no-files-found: error
           retention-days: 90
 
+      - name: Comprobar corrección de asignación por hoja física LIB-EXP-624
+        run: |
+          python -m unittest discover -s tests -p 'test_library_exp624_leaf_grouped_splits.py' -v
+          python -O -m unittest discover -s tests -p 'test_library_exp624_leaf_grouped_splits.py' -v
+          python scripts/prepare_library_exp624_leaf_grouped_splits.py --out library-exp624-grouped-allocation.json
+          sha256sum library-exp624-grouped-allocation.json > library-exp624-grouped-allocation.sha256
+
+      - name: Conservar asignación corregida y hash LIB-EXP-624
+        uses: actions/upload-artifact@v4
+        with:
+          name: library-exp624-grouped-allocation-${{ github.run_id }}
+          path: |
+            library-exp624-grouped-allocation.json
+            library-exp624-grouped-allocation.sha256
+          if-no-files-found: error
+          retention-days: 90
+
       - name: Verificar inventario astronómico y separar páginas numéricas de Rosettes
         run: |
           ANCHOR_REPO_ROOT=. python -m unittest discover -s research/decipherment/2026-10-26-astronomical-anchor -p 'test_run.py' -v
