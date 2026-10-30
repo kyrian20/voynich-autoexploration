@@ -33,7 +33,7 @@ python scripts/audit_library_exp624_archive_format.py \
   --report /ruta/Informe_Voynich_exp624_Control_posicional_2026-10-20.md
 ```
 
-Regresiones `tests/test_library_exp624_archive_format.py`: cinco casos (formato distinto, hashes, claves duplicadas/no finitos, sumas y forma inválidas, AST estático), probados con Python normal y `-O`. **Validación local:** Python 3.13.5, 5/5 y 5/5; ejecución real del auditor con los tres originales completada y cotejada. La CI del repositorio usa Python 3.12; su ejecución y sus artefactos se verificarán después de publicar. La CI puede ejecutar las regresiones sintéticas sin acceder a la Biblioteca, pero **no puede repetir el cotejo de bytes reales** si esos archivos no se le proporcionan.
+Regresiones `tests/test_library_exp624_archive_format.py`: seis casos (formato distinto, hashes, claves duplicadas/no finitos, sumas y forma inválidas, AST estático), probados con Python normal y `-O`. **Validación local:** Python 3.13.5, 6/6 y 6/6; ejecución real del auditor con los tres originales completada y cotejada. La CI del repositorio usó Python 3.12.15: [PR #173, run 41061026457](https://github.com/kyrian20/voynich-autoexploration/actions/runs/41061026457) y [master, run 41061720082](https://github.com/kyrian20/voynich-autoexploration/actions/runs/41061720082) terminaron en **success**, con 109/109 pasos correctos cada uno. Los logs específicos confirman 6/6 y 6/6 regresiones en ambas ejecuciones. La CI general verifica contratos de software, no valida por sí sola el experimento histórico. La CI puede ejecutar las regresiones sintéticas sin acceder a la Biblioteca, pero **no puede repetir el cotejo de bytes reales** si esos archivos no se le proporcionan.
 
 ## Alcance y siguiente puerta
 
