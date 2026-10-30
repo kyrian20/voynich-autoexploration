@@ -1,0 +1,23 @@
+{
+  "status": "ARCHIVED_CURATED_SUMMARY_NOT_NATIVE_SCRIPT_OUTPUT",
+  "historical_reproduction": false,
+  "model_executed": false,
+  "source": "Three byte-identical original files retrieved from the user's Library on 2026-10-30",
+  "sha256": {
+    "script": "1f00846ab8e91cefd07bc2dcd26ad12cf8a7c4bc7b2478d480afec391a13f3a9",
+    "results": "d6e1b7490e563c96367ff10ab56feb5487d6b2775a885494f249c89f87bd4bab",
+    "report": "7de18cce59ea21598af7958a7ded3e05b03e305e8a6cc84c0740917b807447c4"
+  },
+  "native_root_keys": ["datasets", "experiment", "method"],
+  "archive_root_keys": ["IT2a", "ZL3b", "date", "experiment", "interpretation", "method", "source_data"],
+  "checked_rows": {
+    "ZL3b": {"overall_rows": 2, "stratum_rows": 4, "split_deltas_checked": 40},
+    "IT2a": {"overall_rows": 2, "stratum_rows": 0, "split_deltas_checked": 16}
+  },
+  "limitations": [
+    "Schema mismatch does not prove fabricated or numerically incorrect scores",
+    "The original native per-seed output and authenticated run receipt have not been recovered",
+    "The archive is not a physical-leaf independent holdout",
+    "The user Library originals are not bundled into this public repository"
+  ]
+}
