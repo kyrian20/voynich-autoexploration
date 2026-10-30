@@ -67,7 +67,9 @@ def main():
     sources = {name: (ROOT/'data/transcriptions'/name).read_bytes() for name in SOURCE_NAMES}
     result = crosswalk(sources, load_manifest())
     args.out.parent.mkdir(parents=True, exist_ok=True)
-    args.out.write_text(json.dumps(result, indent=2, sort_keys=True)+'\n')
+    # A repeated invocation must not truncate prior holdout evidence.
+    with args.out.open("x", encoding="utf-8", newline="\n") as stream:
+        stream.write(json.dumps(result, indent=2, sort_keys=True) + "\n")
     print(json.dumps({k: result[k] for k in ('status', 'shared_page_count', 'edition_only_pages')}))
 
 
