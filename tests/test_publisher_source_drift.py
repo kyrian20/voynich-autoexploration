@@ -128,5 +128,31 @@ class PublisherSourceDriftContract(unittest.TestCase):
         with self.assertRaisesRegex(RuntimeError, "2026-10-29-exp590"):
             assert_no_source_drift(self.root, self.base, head)
 
+    def test_divergent_identical_trees_block_publication(self):
+        # A rewritten master can have the same files but a different history.
+        self.git("checkout", "-qb", "replacement", self.base)
+        self.git("commit", "--allow-empty", "-qm", "replacement history")
+        replacement = self.git("rev-parse", "HEAD").strip()
+        self.git("checkout", "-qb", "generator", self.base)
+        self.git("commit", "--allow-empty", "-qm", "generating history")
+        generating = self.git("rev-parse", "HEAD").strip()
+        self.assertNotEqual(generating, replacement)
+        self.assertEqual(self.git("diff", "--name-only", generating, replacement), "")
+        with self.assertRaisesRegex(RuntimeError, "not a descendant"):
+            assert_no_source_drift(self.root, generating, replacement)
+
+    def test_older_candidate_blocks_publication_even_with_same_tree(self):
+        self.git("commit", "--allow-empty", "-qm", "generating commit")
+        generating = self.git("rev-parse", "HEAD").strip()
+        with self.assertRaisesRegex(RuntimeError, "not a descendant"):
+            assert_no_source_drift(self.root, generating, self.base)
+
+    def test_same_tree_descendant_remains_allowed(self):
+        self.git("commit", "--allow-empty", "-qm", "new descendant")
+        descendant = self.git("rev-parse", "HEAD").strip()
+        assert_no_source_drift(self.root, self.base, self.base)
+        assert_no_source_drift(self.root, self.base, descendant)
+
+
 if __name__ == "__main__":
     unittest.main()

@@ -30,6 +30,24 @@ def changed_source_paths(repo: Path, baseline: str, candidate: str) -> list[str]
     """
     if not baseline or not candidate:
         raise ValueError("Both baseline and candidate commits are required")
+    # A tree diff cannot establish commit ancestry. Two divergent commits
+    # can contain identical files and thus produce an empty diff. A rewritten
+    # master must fail closed even in that case. The workflow fetches full
+    # history before calling this guard.
+    ancestry = subprocess.run(
+        ["git", "merge-base", "--is-ancestor", baseline, candidate],
+        cwd=repo, capture_output=True, check=False,
+    )
+    if ancestry.returncode != 0:
+        if ancestry.returncode == 1:
+            raise RuntimeError(
+                "Cannot verify source drift: candidate is not a descendant "
+                "of the generating checkout commit"
+            )
+        raise RuntimeError(
+            f"Cannot verify source drift (merge-base exit {ancestry.returncode}): "
+            f"{ancestry.stderr.decode('utf-8', errors='replace').strip()}"
+        )
     cmd = ["git", "diff", "--name-status", "-z", "--no-renames",
            baseline, candidate, "--", "."]
     result = subprocess.run(cmd, cwd=repo, capture_output=True, check=False)
