@@ -51,7 +51,45 @@ def census(path):
     return total, ascii_only
 
 
+# Locked against the independently inspected 2026-10-30 CI census.
+# A monotonicity-only check cannot detect a future count drift while the
+# archived JSON remains unchanged. These values are NOT model scores.
+FROZEN_CANDIDATES = {
+    ("ZL3b", "primary"): (2554, 24270, 2596, 24698),
+    ("ZL3b", "drop_uncertain_word"): (2417, 23534, 2451, 23919),
+    ("IT2a", "primary"): (3291, 30244, 3291, 30244),
+    ("IT2a", "drop_uncertain_word"): (3291, 30244, 3291, 30244),
+}
+SNAPSHOT = (SCRIPT.parents[3] / "research" / "maintenance" /
+            "2026-10-30-line-boundary-ligature-candidate-sensitivity-results.json")
+
+
 class LineBoundaryLigatureSensitivity(unittest.TestCase):
+    def test_frozen_snapshot_matches_source_and_candidate_counts(self):
+        saved = json.loads(SNAPSHOT.read_text(encoding="utf-8"))
+        self.assertEqual(saved["status"], "REPRODUCED_SCOPED_CANDIDATE_AUDIT")
+        self.assertFalse(saved["model_fitted"])
+        self.assertFalse(saved["heldout_metrics_computed"])
+        self.assertEqual(saved["random_iterations"], 0)
+        self.assertIsNone(saved["seed"])
+        self.assertEqual({row["name"] for row in saved["sources"]},
+                         set(module.INPUTS))
+        for row in saved["sources"]:
+            label = row["name"]
+            self.assertEqual(row["sha256"], module.EXPECTED_SHA256[label])
+            self.assertEqual({p["name"] for p in row["policies"]},
+                             {"primary", "drop_uncertain_word"})
+            for policy in row["policies"]:
+                counts = (
+                    policy["quarantine"]["positive"],
+                    policy["quarantine"]["negative"],
+                    policy["expand_ascii"]["positive"],
+                    policy["expand_ascii"]["negative"],
+                )
+                self.assertEqual(counts, FROZEN_CANDIDATES[(label, policy["name"])])
+                self.assertEqual(policy["delta"]["positive"], counts[2] - counts[0])
+                self.assertEqual(policy["delta"]["negative"], counts[3] - counts[1])
+
     def test_explicit_ascii_expansion_preserves_word_identity(self):
         self.assertEqual(module.tokens("al{ck}or.beta", preserve_gaps=True),
                          [None, "beta"])
@@ -97,6 +135,10 @@ class LineBoundaryLigatureSensitivity(unittest.TestCase):
                     npos = sum(r["y"] for r in new)
                     bneg = len(old) - bpos
                     nneg = len(new) - npos
+                    # Pin exact data population, not only nonnegative deltas.
+                    # This guards the frozen snapshot against silent drift.
+                    self.assertEqual((bpos, bneg, npos, nneg),
+                                     FROZEN_CANDIDATES[(label, policy)])
                     self.assertGreaterEqual(npos, bpos)
                     self.assertGreaterEqual(nneg, bneg)
                     if label == "IT2a":
