@@ -32,8 +32,15 @@ def strict_json(data: bytes) -> dict:
     def reject_constant(value):
         raise ValueError(f"Non-finite JSON constant: {value}")
 
+    def parse_finite_float(raw):
+        # json.loads accepts 1e400 as infinity even with parse_constant set.
+        value = float(raw)
+        if not math.isfinite(value):
+            raise ValueError(f"Non-finite JSON float: {raw}")
+        return value
+
     obj = json.loads(data.decode("utf-8"), object_pairs_hook=pairs,
-                     parse_constant=reject_constant)
+                     parse_constant=reject_constant, parse_float=parse_finite_float)
     if not isinstance(obj, dict):
         raise ValueError("JSON root must be an object")
     return obj
@@ -90,6 +97,14 @@ def validate_summary(summary: dict) -> dict:
             if any(isinstance(x, bool) or not isinstance(x, (float, int))
                    or not math.isfinite(x) for x in deltas):
                 raise ValueError(f"{edition}/{label}: invalid split delta")
+            for key in ("mean_real_holdout_bits_per_unit",
+                        "mean_null_holdout_bits_per_unit",
+                        "mean_null_minus_real_bits_per_unit",
+                        "split_delta_min", "split_delta_max"):
+                value = row[key]
+                if (isinstance(value, bool) or not isinstance(value, (int, float))
+                        or not math.isfinite(value)):
+                    raise ValueError(f"{edition}/{label}: invalid {key}")
             mean_delta = row["mean_null_minus_real_bits_per_unit"]
             if abs(sum(deltas) / len(deltas) - mean_delta) > 1.1e-6:
                 raise ValueError(f"{edition}/{label}: delta mean inconsistent")

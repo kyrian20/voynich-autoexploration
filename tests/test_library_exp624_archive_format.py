@@ -49,6 +49,27 @@ class LibraryExp624ArchiveFormatTests(unittest.TestCase):
             with self.subTest(data=data), self.assertRaises(ValueError):
                 audit.strict_json(data)
 
+    def test_overflowed_json_exponents_fail_closed(self):
+        # parse_constant alone does not catch overflow in JSON's number grammar.
+        for raw in (b'{"x": 1e400}', b'{"x": -1e400}',
+                    b'{"nested": {"x": 1e400}}'):
+            with self.subTest(raw=raw), self.assertRaisesRegex(ValueError, "Non-finite JSON float"):
+                audit.strict_json(raw)
+        self.assertEqual(audit.strict_json(b'{"x": 1.5e2}')["x"], 150.0)
+
+    def test_nonfinite_or_nonnumeric_means_fail_closed(self):
+        fields = ("mean_real_holdout_bits_per_unit",
+                  "mean_null_holdout_bits_per_unit",
+                  "mean_null_minus_real_bits_per_unit",
+                  "split_delta_min", "split_delta_max")
+        for field in fields:
+            for value in (float("inf"), -float("inf"), float("nan"), "0.5", True):
+                with self.subTest(field=field, value=repr(value)):
+                    data = summary()
+                    data["IT2a"]["results"][0][field] = value
+                    with self.assertRaisesRegex(ValueError, "invalid " + field):
+                        audit.validate_summary(data)
+
     def test_malformed_delta_and_wrong_shape_fail_closed(self):
         data = summary()
         data["IT2a"]["results"][0]["split_deltas"][0] = 2.0
