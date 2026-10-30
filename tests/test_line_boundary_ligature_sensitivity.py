@@ -64,9 +64,45 @@ SNAPSHOT = (SCRIPT.parents[3] / "research" / "maintenance" /
             "2026-10-30-line-boundary-ligature-candidate-sensitivity-results.json")
 
 
+def _reject_duplicate_json_keys(pairs):
+    """A duplicate key must never silently overwrite frozen evidence."""
+    obj = {}
+    for key, value in pairs:
+        if key in obj:
+            raise ValueError(f"duplicate JSON key: {key}")
+        obj[key] = value
+    return obj
+
+
+def load_checked_snapshot(text):
+    """Fail closed on duplicate JSON keys, corpus rows or reading policies."""
+    def reject_constant(value):
+        raise ValueError(f"non-finite JSON constant: {value}")
+
+    saved = json.loads(text, object_pairs_hook=_reject_duplicate_json_keys,
+                       parse_constant=reject_constant)
+    if not isinstance(saved, dict):
+        raise ValueError("snapshot root must be an object")
+    sources = saved["sources"]
+    if not isinstance(sources, list) or len(sources) != len(module.INPUTS):
+        raise ValueError("snapshot source cardinality mismatch")
+    source_names = [row["name"] for row in sources]
+    if set(source_names) != set(module.INPUTS) or len(set(source_names)) != len(source_names):
+        raise ValueError("snapshot source identity mismatch or duplicate")
+    expected_policies = {"primary", "drop_uncertain_word"}
+    for row in sources:
+        policies = row["policies"]
+        if not isinstance(policies, list) or len(policies) != len(expected_policies):
+            raise ValueError("snapshot policy cardinality mismatch")
+        names = [policy["name"] for policy in policies]
+        if set(names) != expected_policies or len(set(names)) != len(names):
+            raise ValueError("snapshot policy identity mismatch or duplicate")
+    return saved
+
+
 class LineBoundaryLigatureSensitivity(unittest.TestCase):
     def test_frozen_snapshot_matches_source_and_candidate_counts(self):
-        saved = json.loads(SNAPSHOT.read_text(encoding="utf-8"))
+        saved = load_checked_snapshot(SNAPSHOT.read_text(encoding="utf-8"))
         self.assertEqual(saved["status"], "REPRODUCED_SCOPED_CANDIDATE_AUDIT")
         self.assertFalse(saved["model_fitted"])
         self.assertFalse(saved["heldout_metrics_computed"])
@@ -89,6 +125,29 @@ class LineBoundaryLigatureSensitivity(unittest.TestCase):
                 self.assertEqual(counts, FROZEN_CANDIDATES[(label, policy["name"])])
                 self.assertEqual(policy["delta"]["positive"], counts[2] - counts[0])
                 self.assertEqual(policy["delta"]["negative"], counts[3] - counts[1])
+
+    def test_snapshot_rejects_ambiguous_or_duplicate_evidence(self):
+        raw = SNAPSHOT.read_text(encoding="utf-8")
+        saved = load_checked_snapshot(raw)
+        self.assertEqual(len(saved["sources"]), 2)
+        # The former set-equality check silently accepted a duplicated row.
+        duplicate_source = json.loads(raw)
+        duplicate_source["sources"].append(duplicate_source["sources"][0])
+        self.assertEqual({row["name"] for row in duplicate_source["sources"]},
+                         set(module.INPUTS))
+        with self.assertRaisesRegex(ValueError, "source cardinality"):
+            load_checked_snapshot(json.dumps(duplicate_source))
+        duplicate_policy = json.loads(raw)
+        duplicate_policy["sources"][0]["policies"].append(
+            duplicate_policy["sources"][0]["policies"][0])
+        self.assertEqual({p["name"] for p in duplicate_policy["sources"][0]["policies"]},
+                         {"primary", "drop_uncertain_word"})
+        with self.assertRaisesRegex(ValueError, "policy cardinality"):
+            load_checked_snapshot(json.dumps(duplicate_policy))
+        with self.assertRaisesRegex(ValueError, "duplicate JSON key"):
+            load_checked_snapshot('{"sources": [], "sources": []}')
+        with self.assertRaisesRegex(ValueError, "non-finite"):
+            load_checked_snapshot('{"sources": NaN}')
 
     def test_explicit_ascii_expansion_preserves_word_identity(self):
         self.assertEqual(module.tokens("al{ck}or.beta", preserve_gaps=True),
