@@ -84,6 +84,22 @@ class LibraryExp624ArchiveFormatTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "two overall tokenizers"):
             audit.validate_summary(data)
 
+    def test_overall_tokenizer_identities_cannot_be_duplicated_or_relabelled(self):
+        # Previously a two-row summary with two identical tokenizers passed
+        # validation. The auditor must preserve the identity of both views.
+        for edition in ("ZL3b", "IT2a"):
+            for replacement in ("raw EVA letters", "unverified tokenizer", None):
+                with self.subTest(edition=edition, replacement=replacement):
+                    data = summary()
+                    data[edition]["results"][1]["tokenizer"] = replacement
+                    with self.assertRaisesRegex(ValueError, "identities missing or duplicated"):
+                        audit.validate_summary(data)
+        # Order is not scientifically meaningful: identity, not position, matters.
+        data = summary()
+        data["ZL3b"]["results"].reverse()
+        data["IT2a"]["results"].reverse()
+        self.assertEqual(audit.validate_summary(data)["ZL3b"]["overall_rows"], 2)
+
     def test_ast_not_executed_and_dynamic_schema_rejected(self):
         self.assertEqual(audit.native_root_keys(SCRIPT.decode()), {"experiment", "method", "datasets"})
         with self.assertRaisesRegex(ValueError, "Dynamic native output key"):
