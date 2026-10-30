@@ -12,6 +12,9 @@ import hashlib
 import json
 from pathlib import Path
 
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+
 from scripts.audit_ivtff_ligature_views import TEXT_LINE, tokenize_views
 from scripts.audit_ivtff_page_locus_ids import audit_text, structural_errors
 from scripts.ivtff_physical_rows import checked_physical_lines
