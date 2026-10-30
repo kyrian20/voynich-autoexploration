@@ -39,6 +39,10 @@ def primary_codes(spans):
             yield span
         elif span.kind == "ligature":
             yield from primary_codes(span.children)
+        elif span.kind == "unresolved" and span.raw == "@":
+            # A malformed @ code is not evidence of zero high-ASCII codes.
+            # Comments and discarded square alternatives remain excluded.
+            raise ValueError("Malformed primary IVTFF high-ASCII code")
 
 
 def analyze_text(text: str) -> dict:
