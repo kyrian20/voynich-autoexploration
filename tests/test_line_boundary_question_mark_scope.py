@@ -58,13 +58,15 @@ def census(path):
             counts["primary_marks"] += selected
             # A selected '?' cannot silently become a certain word or a
             # new adjacency: at least one barrier must survive projection.
-            assert None in module.tokens(match["body"] or "", "primary",
-                                         preserve_gaps=True), (ident, raw)
+            if None not in module.tokens(match["body"] or "", "primary",
+                                         preserve_gaps=True):
+                raise AssertionError(("selected primary '?' lacks barrier", ident, raw))
         if n:
             # Excluding uncertain words must not promote an unknown glyph.
-            assert None in module.tokens(match["body"] or "",
+            if None not in module.tokens(match["body"] or "",
                                          "drop_uncertain_word",
-                                         preserve_gaps=True), (ident, raw)
+                                         preserve_gaps=True):
+                raise AssertionError(("excluded '?' lacks barrier", ident, raw))
     return counts
 
 
