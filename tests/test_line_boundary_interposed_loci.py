@@ -69,7 +69,7 @@ class InterposedLocusContract(unittest.TestCase):
                         "<f1r.P.2 unknown",
                         "<f1r.P.2,P0 unknown"):
             with self.subTest(invalid=invalid):
-                pages = fixture("<f1r.P.1,P0> alpha.beta\\n".replace("\\n", "\n")
+                pages = fixture("<f1r.P.1,P0> alpha.beta\n"
                                 + invalid + "\n"
                                 + "<f1r.P.2,P0> gamma.delta\n")
                 self.assertEqual(pages["f1r"][0]["intervening_non_p"],
@@ -97,7 +97,7 @@ class InterposedLocusContract(unittest.TestCase):
                 for lineno, raw in module.checked_physical_lines(
                         path.read_text(encoding="latin-1")):
                     stripped = raw.strip()
-                    if not re.match(r"^<(?:f[0-9]+[rv][1-6]?|fRos)\\.", stripped):
+                    if not re.match(r"^<(?:f[0-9]+[rv][1-6]?|fRos)\.", stripped):
                         continue
                     parsed = module.ROW.match(stripped)
                     if not parsed or "," not in parsed["ident"]:
