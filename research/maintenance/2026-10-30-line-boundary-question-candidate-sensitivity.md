@@ -45,4 +45,8 @@ La supresión literal de `?` es una sensibilidad artificial **con el lector actu
 - **Resultado negativo:** un delta cero no prueba que el lector sea correcto; un delta distinto de cero tampoco demuestra mejora predictiva.
 - **Control:** se espera cero positivo con `alpha.?`→`beta` y uno al borrar `?`; el caso de alternativa no seleccionada debe ser invariante. La observación efectiva y el estado CI se consignarán tras ejecución.
 
-**Siguiente paso:** comprobar resultados y logs de CI; si pasan, integrar exclusivamente en la rama de PR #138, comprobar CI posterior y archivar conteos exactos. No ejecutar ciclos científicos mientras persistan las contradicciones y adjudicaciones pendientes.
+## Verificación posterior e integración en la rama de PR #138 (30-10-2026)
+
+La CI de la cabeza `0295ddd10763e5d50149fd4b5b1d74f65b038dce` terminó `success` en [run #41018815593](https://github.com/kyrian20/voynich-autoexploration/actions/runs/41018815593), job `123941173842`. El job ejecutó cuatro tests de esta auditoría tanto con Python normal como con `python -O`; ambos logs dan exactamente los mismos recuentos de la tabla. Los logs con hashes se cargaron como `line-boundary-question-scope-41018815593` (artefacto ID `12960662685`, 1.803 bytes). La PR #168 se fusionó en la rama de trabajo de la PR #138; el informe y tests quedan integrados en esa rama, no en `master`.
+
+Esta segunda CI confirma los snapshots congelados en el código y la sensibilidad descriptiva. **No** reconstruye el lector histórico, no ejecuta el predictor ni vuelve válidas las métricas AUC/AP marcadas `INVALID_FOR_CLAIM`. La PR #138 sigue en borrador; antes de promover esas métricas hace falta regenerar y auditar la salida con el lector/clasificador corregidos. No iniciar otros ciclos de análisis hasta resolver las adjudicaciones pendientes.
