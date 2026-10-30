@@ -57,6 +57,14 @@ class HighAsciiCoverageTests(unittest.TestCase):
         )
         self.assertEqual(result["selected_high_ascii_codes"], 0)
 
+    def test_unclosed_primary_containers_cannot_hide_high_ascii_codes(self):
+        # Previously these rows passed with zero selected codes despite a
+        # visible @140; inside an unterminated primary container.
+        for body in ("{c@140;h", "a.[b:@140;", "a.<!@140;"):
+            with self.subTest(body=body):
+                with self.assertRaisesRegex(ValueError, "Unclosed primary"):
+                    audit.analyze_text(f"<f1r.1,@P0> {body}\\n".replace("\\n", "\n"))
+
     def test_frozen_corpus_reconciliation(self):
         report = audit.audit()
         self.assertEqual(report["status"], "REPRODUCED_SCOPE_ONLY")
