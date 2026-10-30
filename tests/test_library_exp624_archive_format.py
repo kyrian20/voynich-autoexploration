@@ -2,6 +2,7 @@
 import hashlib
 import json
 import unittest
+from pathlib import Path
 from scripts import audit_library_exp624_archive_format as audit
 
 
@@ -62,6 +63,16 @@ class LibraryExp624ArchiveFormatTests(unittest.TestCase):
         self.assertEqual(audit.native_root_keys(SCRIPT.decode()), {"experiment", "method", "datasets"})
         with self.assertRaisesRegex(ValueError, "Dynamic native output key"):
             audit.native_root_keys('def main():\n    results = {get_key(): 1, "datasets": {}}\n')
+
+    def test_saved_receipt_matches_pinned_source_hashes(self):
+        root = Path(__file__).resolve().parents[1]
+        receipt = audit.strict_json(
+            (root / "research/maintenance/2026-10-30-lib-exp624-library-native-format-evidence.json").read_bytes()
+        )
+        self.assertEqual(receipt["sha256"], audit.EXPECTED_SHA256)
+        self.assertEqual(receipt["status"], "ARCHIVED_CURATED_SUMMARY_NOT_NATIVE_SCRIPT_OUTPUT")
+        self.assertFalse(receipt["historical_reproduction"])
+        self.assertEqual(sum(x["split_deltas_checked"] for x in receipt["checked_rows"].values()), 56)
 
 
 if __name__ == "__main__":
