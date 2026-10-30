@@ -60,18 +60,18 @@ class PageCrosswalkTests(unittest.TestCase):
                     inputs = root / 'data' / 'transcriptions'
                     inputs.mkdir(parents=True)
                     sources, manifest = fixture(
-                        '<f67r> metadata\\n<f67r.1,@P0> a\\n'
+                        '<f67r> metadata\n<f67r.1,@P0> a\n'
                     )
                     for name, raw in sources.items():
                         (inputs / name).write_bytes(raw)
                     output = root / 'audit.json'
-                    with patch.object(module, 'ROOT', root), \\
+                    with patch.object(module, 'ROOT', root), \
                             patch.object(module, 'load_manifest', return_value=manifest):
                         with patch.object(sys, 'argv', ['audit', '--out', str(output)]):
                             with redirect_stdout(io.StringIO()):
                                 module.main()
                             original = output.read_bytes()
-                            self.assertTrue(original.endswith(b'\\n'))
+                            self.assertTrue(original.endswith(b'\n'))
                             self.assertIn(b'"status"', original)
                             with self.assertRaises(FileExistsError):
                                 module.main()
