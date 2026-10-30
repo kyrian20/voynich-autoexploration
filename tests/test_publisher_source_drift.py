@@ -1,4 +1,4 @@
-"""Regression for a scheduled publisher rebase that could mislabel inputs."""
+"""Regression for concurrent changes to historical evidence under output root."""
 from __future__ import annotations
 
 import subprocess
@@ -21,7 +21,9 @@ class PublisherSourceDriftContract(unittest.TestCase):
         self.git("config", "user.email", "ci@example.invalid")
         self.write("scripts/analyse.py", "print('old source')\n")
         self.write("data/transcriptions/input.txt", "original corpus\n")
-        self.write("research/experiments/output.json", '{"value": 1}\n')
+        self.write("research/experiments/2026-10-20-exp590-erratum.md", "frozen correction\n")
+        self.write("research/experiments/2026-10-20-exp590.json", '{"value": 1}\n')
+        self.write("research/experiments/2026-10-29-exp590-corrected-L-metadata.json", '{"value": 1}\n')
         self.commit("baseline")
         self.base = self.git("rev-parse", "HEAD").strip()
 
@@ -39,8 +41,8 @@ class PublisherSourceDriftContract(unittest.TestCase):
         self.git("commit", "-qm", message)
         return self.git("rev-parse", "HEAD").strip()
 
-    def test_output_only_update_is_safe(self):
-        self.write("research/experiments/output.json", '{"value": 2}\n')
+    def test_new_known_dated_output_is_safe(self):
+        self.write("research/experiments/2026-10-30-exp590-corrected-L-metadata.json", '{"value": 2}\n')
         head = self.commit("another publisher updated an output")
         self.assertEqual(changed_source_paths(self.root, self.base, head), [])
         assert_no_source_drift(self.root, self.base, head)
@@ -58,7 +60,7 @@ class PublisherSourceDriftContract(unittest.TestCase):
             assert_no_source_drift(self.root, self.base, head)
 
     def test_rebase_race_after_output_update_is_still_blocked(self):
-        self.write("research/experiments/output.json", '{"value": 2}\n')
+        self.write("research/experiments/2026-10-30-exp590-corrected-L-metadata.json", '{"value": 2}\n')
         self.commit("output-only concurrent update")
         self.write("scripts/analyse.py", "print('new source')\n")
         head = self.commit("source changed after output update")
@@ -83,6 +85,48 @@ class PublisherSourceDriftContract(unittest.TestCase):
         self.assertLess(check, rebase)
         self.assertIn('--base "$GITHUB_SHA"', workflow)
 
+
+
+    def test_new_known_exp622_output_is_safe(self):
+        self.write("research/experiments/exp_622_ch_sh_specificity_interaction/results.json", "{}\\n")
+        head = self.commit("publisher added new exp622 output")
+        assert_no_source_drift(self.root, self.base, head)
+
+    def test_historical_erratum_edit_blocks(self):
+        self.write("research/experiments/2026-10-20-exp590-erratum.md", "rewritten correction\\n")
+        head = self.commit("concurrent historical correction")
+        with self.assertRaisesRegex(RuntimeError, "exp590-erratum.md"):
+            assert_no_source_drift(self.root, self.base, head)
+
+    def test_historical_json_edit_blocks(self):
+        self.write("research/experiments/2026-10-20-exp590.json", '{"value": 99}\\n')
+        head = self.commit("concurrent historical result rewrite")
+        with self.assertRaisesRegex(RuntimeError, "exp590.json"):
+            assert_no_source_drift(self.root, self.base, head)
+
+    def test_existing_dated_output_edit_blocks(self):
+        self.write("research/experiments/2026-10-29-exp590-corrected-L-metadata.json", '{"value": 2}\\n')
+        head = self.commit("concurrent rewrite of prior generated result")
+        with self.assertRaisesRegex(RuntimeError, "2026-10-29-exp590"):
+            assert_no_source_drift(self.root, self.base, head)
+
+    def test_unknown_new_file_under_output_root_blocks(self):
+        self.write("research/experiments/archive/new-analysis.md", "unexpected input\\n")
+        head = self.commit("new historical analysis")
+        with self.assertRaisesRegex(RuntimeError, "archive/new-analysis.md"):
+            assert_no_source_drift(self.root, self.base, head)
+
+    def test_misnamed_output_blocks(self):
+        self.write("research/experiments/2026-10-30-exp590-corrected-L-metadata.json.bak", "{}\\n")
+        head = self.commit("unexpected output suffix")
+        with self.assertRaisesRegex(RuntimeError, "json.bak"):
+            assert_no_source_drift(self.root, self.base, head)
+
+    def test_deleted_generated_output_blocks(self):
+        (self.root / "research/experiments/2026-10-29-exp590-corrected-L-metadata.json").unlink()
+        head = self.commit("concurrent output deletion")
+        with self.assertRaisesRegex(RuntimeError, "2026-10-29-exp590"):
+            assert_no_source_drift(self.root, self.base, head)
 
 if __name__ == "__main__":
     unittest.main()
