@@ -82,7 +82,7 @@ def analyze_text(text: str) -> dict:
         "historical": historical,
         "opaque_marker": opaque,
         "changed_records": len(changed),
-        "previously_ascii_empty_now_opaque": sum(not row and new for row, new in zip(original_rows, opaque_rows)),
+        "previously_ascii_empty_now_opaque": sum(1 for row, new in zip(original_rows, opaque_rows) if not row and new),
         "changed_initial_daiin_records": sum(row["changed_initial_daiin"] for row in changed),
         "changed_final_daiin_records": sum(row["changed_final_daiin"] for row in changed),
         "changed_rows": changed,
