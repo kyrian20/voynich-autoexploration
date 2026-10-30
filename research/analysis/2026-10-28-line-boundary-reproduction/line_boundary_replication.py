@@ -122,7 +122,7 @@ def parse(path,policy="primary",uncertain_space_policy="quarantine",ligature_pol
    # absent row. Ignoring it could forge a P-to-P boundary when the next
    # well-formed P record has a consecutive ordinal. Quarantine only that
    # transition; ordinary page headers (<f1r>) and # comments are inert.
-   unresolved=re.match(r"^<(f(?:\\d+[rv][1-6]?|Ros))\\.",raw.strip())
+   unresolved=re.match(r"^<(f(?:\d+[rv][1-6]?|Ros))\.",raw.strip())
    if unresolved:
     page=unresolved.group(1)
     if pages.get(page):
