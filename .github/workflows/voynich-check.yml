@@ -160,6 +160,11 @@ jobs:
           if-no-files-found: error
           retention-days: 90
 
+      - name: Auditar contrato de formato de archivo Biblioteca LIB-EXP-624
+        run: |
+          python -m unittest discover -s tests -p 'test_library_exp624_archive_format.py' -v
+          python -O -m unittest discover -s tests -p 'test_library_exp624_archive_format.py' -v
+
       - name: Verificar inventario astronómico y separar páginas numéricas de Rosettes
         run: |
           ANCHOR_REPO_ROOT=. python -m unittest discover -s research/decipherment/2026-10-26-astronomical-anchor -p 'test_run.py' -v
