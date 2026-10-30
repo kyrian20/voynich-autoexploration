@@ -24,6 +24,18 @@ EXPECTED = {
 }
 
 
+# Observed in first passing CI #41018119008; frozen AFTER that run,
+# not preregistered or tuned as a significance threshold. These are exact
+# candidate populations under the two named reader policies and the
+# literal-question deletion sensitivity, not historical predictor metrics.
+EXPECTED_CANDIDATE_TOTALS = {
+    ("ZL3b", "primary"): ((24270, 2554), (24400, 2576)),
+    ("ZL3b", "drop_uncertain_word"): ((23534, 2417), (23598, 2427)),
+    ("IT2a", "primary"): ((30244, 3291), (30368, 3307)),
+    ("IT2a", "drop_uncertain_word"): ((30244, 3291), (30368, 3307)),
+}
+
+
 def census(path):
     counts = dict(p_rows=0, raw_rows=0, raw_marks=0,
                   primary_rows=0, primary_marks=0)
@@ -148,6 +160,8 @@ class FrozenUnknownGlyphScope(unittest.TestCase):
                              for row in counterfactual[page]])
                     corrected = candidate_totals(parsed)
                     deleted = candidate_totals(counterfactual)
+                    self.assertEqual((corrected, deleted),
+                                     EXPECTED_CANDIDATE_TOTALS[(label, policy)])
                     delta = tuple(b - a for a, b in zip(corrected, deleted))
                     print(
                         f"QUESTION_CANDIDATES {label} {policy}: "
