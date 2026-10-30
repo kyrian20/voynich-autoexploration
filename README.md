@@ -4,6 +4,8 @@
 
 Repositorio de trabajo: `kyrian20/voynich-autoexploration` (rama `master`).
 
+**Conciliación IVTFF de registros sin tokens ASCII — 30-10-2026:** [diferencia comprobable entre códigos high-ASCII y lecturas ilegibles en ZL3b/ZL3a/IT2a](research/maintenance/2026-10-30-ivtff-high-ascii-unreadable-record-reconciliation.md). Es una reparación de cobertura descriptiva; no rehabilita EXP-590 ni aporta traducción. Consultar la CI de la PR antes de afirmar reproducción remota.
+
 **Auditoría retrospectiva — 24-10-2026:** [inventario de errores conocidos, PR pendientes y verificaciones no concluidas](research/maintenance/2026-10-24-retrospective-audit-status.md). No equivale a ejecutar ni certificar todo el historial. Las propuestas semánticas recientes son protocolos, no traducciones validadas.
 
 **Estado de revisión — 23-10-2026:** no hay validación global del historial ni traducción validada. Las comprobaciones operativas y reproducciones tienen alcance específico. Consulta el [alcance de reparación](research/maintenance/2026-10-23-repair-scope.md), la [revisión de esta base](research/maintenance/2026-10-23-history-status-review.md) y los informes fechados enlazados abajo antes de reutilizar resultados. Los borradores de PR son propuestas; no forman parte de master mientras no se integren.
