@@ -10,6 +10,7 @@ import ast
 import hashlib
 import json
 import math
+from decimal import Decimal, ROUND_HALF_UP
 from pathlib import Path
 
 EXPECTED_SHA256 = {
@@ -118,6 +119,51 @@ def validate_summary(summary: dict) -> dict:
     return counts
 
 
+
+def audit_relative_percentages(summary: dict) -> dict:
+    """Check archived two-decimal percentages without altering frozen values.
+
+    The archived summary reports percentages to two decimals. Compare against
+    the percentage implied by its own archived means, not model re-execution.
+    Decimal arithmetic avoids binary-float boundary surprises.
+    """
+    discrepancies = []
+    checked = 0
+    for edition in ("ZL3b", "IT2a"):
+        rows = [("all", row) for row in summary[edition]["results"]]
+        if edition == "ZL3b":
+            rows.extend((row["currier"], row) for row in summary[edition]["currier_strata"])
+        for stratum, row in rows:
+            reported = row.get("relative_real_loss_reduction_percent")
+            if (isinstance(reported, bool) or not isinstance(reported, (int, float))
+                    or not math.isfinite(reported)):
+                raise ValueError(f"{edition}/{stratum}: invalid relative_real_loss_reduction_percent")
+            denominator = Decimal(str(row["mean_null_holdout_bits_per_unit"]))
+            if denominator <= 0:
+                raise ValueError(f"{edition}/{stratum}: nonpositive mean_null_holdout_bits_per_unit")
+            calculated = (Decimal(100) *
+                          Decimal(str(row["mean_null_minus_real_bits_per_unit"])) /
+                          denominator)
+            expected = calculated.quantize(Decimal("0.01"), rounding=ROUND_HALF_UP)
+            checked += 1
+            if Decimal(str(reported)) != expected:
+                discrepancies.append({
+                    "edition": edition,
+                    "stratum": stratum,
+                    "tokenizer": row["tokenizer"],
+                    "reported_percent": str(reported),
+                    "expected_percent_2dp": f"{expected:.2f}",
+                    "calculated_percent_from_archived_means": f"{calculated:.10f}",
+                    "absolute_gap_percentage_points":
+                        f"{abs(calculated - Decimal(str(reported))):.10f}",
+                })
+    return {
+        "rows_checked": checked,
+        "rounding_rule": "nearest 0.01 percentage point (ROUND_HALF_UP)",
+        "discrepancies": discrepancies,
+    }
+
+
 def audit(script: bytes, results: bytes, report: bytes, expected_hashes: dict = EXPECTED_SHA256) -> dict:
     inputs = {"script": script, "results": results, "report": report}
     digests = {name: hashlib.sha256(raw).hexdigest() for name, raw in inputs.items()}
@@ -129,13 +175,16 @@ def audit(script: bytes, results: bytes, report: bytes, expected_hashes: dict = 
     if set(summary) == native:
         raise ValueError("This input is native output, not the pinned Library curated summary")
     counts = validate_summary(summary)
+    percentage_audit = audit_relative_percentages(summary)
     return {"status": "ARCHIVED_CURATED_SUMMARY_NOT_NATIVE_SCRIPT_OUTPUT",
             "historical_reproduction": False, "model_executed": False,
             "sha256": digests, "native_root_keys": sorted(native),
             "archive_root_keys": sorted(summary), "checked_rows": counts,
+            "relative_percentage_audit": percentage_audit,
             "limitations": ["Schema difference does not prove numeric fabrication or error.",
                             "No raw per-seed native output or run receipt authenticated.",
-                            "Original files preserved; physical-leaf leakage remains separately adjudicated."]}
+                            "Original files preserved; physical-leaf leakage remains separately adjudicated.",
+                            "A percentage-label mismatch is not proof that model losses are false."]}
 
 
 def main() -> None:
