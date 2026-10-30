@@ -22,12 +22,16 @@ def sha(p):
  with p.open("rb") as f:
   for b in iter(lambda:f.read(1<<20),b""):h.update(b)
  return h.hexdigest()
-def tokens(body,policy="primary",preserve_gaps=False,uncertain_space_policy="quarantine"):
+def tokens(body,policy="primary",preserve_gaps=False,uncertain_space_policy="quarantine",ligature_policy="quarantine"):
  # A comma is an UNCERTAIN word boundary in IVTFF 2.0.2 §6.7, not
  # equivalent to a certain dot. Never treat its two fragments as known
  # words unless the explicitly named legacy split sensitivity is requested.
  if uncertain_space_policy not in {"quarantine", "split"}:
   raise ValueError(f"unsupported uncertain-space policy: {uncertain_space_policy}")
+ # Conservative default is unchanged. The alternate view expands only
+ # unambiguous ASCII-letter ligatures, leaving other braced spans unresolved.
+ if ligature_policy not in {"quarantine", "expand_ascii"}:
+  raise ValueError(f"unsupported ligature policy: {ligature_policy}")
  # IVTFF 2.0.2 §5.7.2: free-text comments have zero width in a word.
  # Do not invent a gap where the manuscript only has an annotation.
  body=re.sub(r"<![^>]*>","",body)
@@ -80,6 +84,8 @@ def tokens(body,policy="primary",preserve_gaps=False,uncertain_space_policy="qua
  brace_spans=re.findall(r"\{[^{}]*\}",body)
  if body.count("{")!=len(brace_spans) or body.count("}")!=len(brace_spans):
   return [None] if preserve_gaps else []
+ if ligature_policy=="expand_ascii":
+  body=re.sub(r"\{([A-Za-z]+)\}",lambda m:m.group(1),body)
  body=re.sub(r"\{[^{}]*\}","?",body)
  # Keep the comma's adjacent fragments in ONE unresolved unit. Replacing
  # a comma with a question mark (rather than deleting it or inserting a
@@ -107,7 +113,7 @@ def tokens(body,policy="primary",preserve_gaps=False,uncertain_space_policy="qua
    continue
   out.append(x.lower())
  return out
-def parse(path,policy="primary",uncertain_space_policy="quarantine"):
+def parse(path,policy="primary",uncertain_space_policy="quarantine",ligature_policy="quarantine"):
  pages=collections.defaultdict(list)
  for lineno,raw in checked_physical_lines(path.read_text(encoding="latin-1")):
   m=ROW.match(raw.strip())
@@ -126,7 +132,8 @@ def parse(path,policy="primary",uncertain_space_policy="quarantine"):
    continue
   # Both policies must preserve unknown-glyph barriers for adjacency tests.
   ws=tokens(m["body"] or "",policy,preserve_gaps=True,
-            uncertain_space_policy=uncertain_space_policy)
+            uncertain_space_policy=uncertain_space_policy,
+            ligature_policy=ligature_policy)
   # Preserve empty P rows as barriers: removing one would invent adjacency
   # between its predecessor and successor. Exclude entirely empty pages so
   # they cannot shift the historical every-fifth-page calibration.

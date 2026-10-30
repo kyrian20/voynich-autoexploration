@@ -427,6 +427,11 @@ jobs:
           python -m unittest discover -s tests -p 'test_line_boundary_brace_spans.py' -v
           python -O -m unittest discover -s tests -p 'test_line_boundary_brace_spans.py' -v
 
+      - name: Cuantificar sensibilidad de ligaduras ASCII sin evaluar hojas reservadas
+        run: |
+          python -m unittest discover -s tests -p 'test_line_boundary_ligature_sensitivity.py' -v
+          python -O -m unittest discover -s tests -p 'test_line_boundary_ligature_sensitivity.py' -v
+
       - name: Rechazar etiquetas IVTFF cerradas pero malformadas sin inventar palabras
         run: |
           python -m unittest discover -s tests -p 'test_line_boundary_invalid_inline_tags.py' -v
