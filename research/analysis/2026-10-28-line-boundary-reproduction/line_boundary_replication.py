@@ -130,7 +130,16 @@ def parse(path,policy="primary",uncertain_space_policy="quarantine",ligature_pol
       {"line":lineno,"loc":"UNPARSED_LOCUS"})
    continue
   ident,locus=m["ident"].split(",",1);parts=ident.split(".")
-  if len(parts)<2:continue
+  if len(parts)<2:
+   # A comma does not make a malformed page-only identifier a valid locus.
+   # Such a physical row may intervene between consecutive P ordinals.
+   # Fail closed on the previous P of the same admitted page, as for
+   # missing-comma or unterminated locus records above.
+   page=parts[0]
+   if re.fullmatch(r"f(?:\d+[rv][1-6]?|Ros)",page) and pages.get(page):
+    pages[page][-1].setdefault("intervening_non_p",[]).append(
+     {"line":lineno,"loc":"UNPARSED_LOCUS"})
+   continue
   page=parts[0]; pm=re.fullmatch(r"f(\d+)[rv][1-6]?",page)
   loc=re.sub(r"^[+*@=~&!/]+","",locus.strip())
   if not pm and page!="fRos":continue

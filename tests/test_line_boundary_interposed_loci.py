@@ -86,6 +86,46 @@ class InterposedLocusContract(unittest.TestCase):
         self.assertNotIn("intervening_non_p", pages["f1r"][0])
         self.assertEqual([r["y"] for r in module.candidates(pages, ["f1r"])], [1])
 
+    def test_comma_without_locus_component_blocks_forged_positive(self):
+        # Before this fix ROW matched these records, but len(parts)<2
+        # silently dropped them and forged a P.1 -> P.2 positive.
+        for invalid in ("<f1r,P0> orphan",
+                        "<f1r,> orphan",
+                        "<f1r,garbage> orphan"):
+            with self.subTest(invalid=invalid):
+                pages = fixture("<f1r.P.1,P0> alpha.beta\n"
+                                + invalid + "\n"
+                                + "<f1r.P.2,P0> gamma.delta\n")
+                self.assertEqual(pages["f1r"][0]["intervening_non_p"],
+                                 [{"line": 2, "loc": "UNPARSED_LOCUS"}])
+                self.assertEqual([r["y"] for r in module.candidates(pages, ["f1r"])],
+                                 [0, 0])
+
+    def test_other_page_comma_without_locus_is_not_a_barrier(self):
+        pages = fixture("<f1r.P.1,P0> alpha\n"
+                        "<f2r,P0> orphan\n"
+                        "<f1r.P.2,P0> beta\n")
+        self.assertNotIn("intervening_non_p", pages["f1r"][0])
+        self.assertEqual([r["y"] for r in module.candidates(pages, ["f1r"])], [1])
+
+    def test_frozen_sources_have_no_comma_only_page_identifiers(self):
+        # Authenticate immutable source bytes before asserting the scope.
+        import re
+        for label, path in module.INPUTS.items():
+            with self.subTest(label=label):
+                self.assertEqual(module.sha(path), module.EXPECTED_SHA256[label])
+                suspect = []
+                for lineno, raw in module.checked_physical_lines(
+                        path.read_text(encoding="latin-1")):
+                    parsed = module.ROW.match(raw.strip())
+                    if not parsed or "," not in parsed["ident"]:
+                        continue
+                    ident = parsed["ident"].split(",", 1)[0]
+                    if re.fullmatch(r"f(?:[0-9]+[rv][1-6]?|Ros)", ident):
+                        suspect.append(lineno)
+                self.assertEqual(suspect, [],
+                                 f"{label}: comma without locus at {suspect}")
+
     def test_frozen_sources_have_no_unparsed_locus_rows(self):
         # Independently census the precise malformed-locus class; authenticate
         # both immutable source bytes before interpreting the result.
