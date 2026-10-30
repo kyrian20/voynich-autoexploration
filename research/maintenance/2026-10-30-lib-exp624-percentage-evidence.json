@@ -1,0 +1,93 @@
+{
+  "schema": "lib-exp624-archived-percent-audit-v1",
+  "source_file": "exp624_resultados_2026-10-20.json",
+  "source_bytes": 8141,
+  "source_sha256": "d6e1b7490e563c96367ff10ab56feb5487d6b2775a885494f249c89f87bd4bab",
+  "source_kind": "Exact Library archive bytes; not native historical script output",
+  "script_sha256": "1f00846ab8e91cefd07bc2dcd26ad12cf8a7c4bc7b2478d480afec391a13f3a9",
+  "report_sha256": "7de18cce59ea21598af7958a7ded3e05b03e305e8a6cc84c0740917b807447c4",
+  "method": "100 * archived mean_null_minus_real_bits_per_unit / archived mean_null_holdout_bits_per_unit; round to two decimals",
+  "rows": [
+    {
+      "edition": "ZL3b",
+      "stratum": "all",
+      "tokenizer": "raw EVA letters",
+      "mean_delta": "0.9712392364",
+      "mean_null": "3.8056893735",
+      "reported_percent": "25.52"
+    },
+    {
+      "edition": "ZL3b",
+      "stratum": "all",
+      "tokenizer": "EVA units with ch/sh collapsed",
+      "mean_delta": "0.9500357891",
+      "mean_null": "3.8310164693",
+      "reported_percent": "24.80"
+    },
+    {
+      "edition": "ZL3b",
+      "stratum": "A",
+      "tokenizer": "raw",
+      "mean_delta": "0.8985692646",
+      "mean_null": "3.8060108277",
+      "reported_percent": "23.61"
+    },
+    {
+      "edition": "ZL3b",
+      "stratum": "A",
+      "tokenizer": "glyph",
+      "mean_delta": "0.8810574224",
+      "mean_null": "3.8676350508",
+      "reported_percent": "22.78"
+    },
+    {
+      "edition": "ZL3b",
+      "stratum": "B",
+      "tokenizer": "raw",
+      "mean_delta": "1.0525302087",
+      "mean_null": "3.7963506414",
+      "reported_percent": "27.72"
+    },
+    {
+      "edition": "ZL3b",
+      "stratum": "B",
+      "tokenizer": "glyph",
+      "mean_delta": "1.0289766157",
+      "mean_null": "3.7994349745",
+      "reported_percent": "27.08"
+    },
+    {
+      "edition": "IT2a",
+      "stratum": "all",
+      "tokenizer": "raw EVA letters",
+      "mean_delta": "0.9694555258",
+      "mean_null": "3.7991339070",
+      "reported_percent": "25.52"
+    },
+    {
+      "edition": "IT2a",
+      "stratum": "all",
+      "tokenizer": "EVA units with ch/sh collapsed",
+      "mean_delta": "0.9498638385",
+      "mean_null": "3.8357742633",
+      "reported_percent": "24.77"
+    }
+  ],
+  "expected_discrepancy_count": 1,
+  "expected_discrepancy": {
+    "edition": "IT2a",
+    "stratum": "all",
+    "tokenizer": "EVA units with ch/sh collapsed",
+    "reported_percent": "24.77",
+    "expected_percent_2dp": "24.76",
+    "calculated_percent": "24.7632882776"
+  },
+  "historical_reproduction": false,
+  "model_executed": false,
+  "source_copied_to_repository": false,
+  "limitations": [
+    "CI checks the frozen derived receipt and synthetic regression; it cannot re-read private Library source bytes.",
+    "Rounding discrepancy is restricted to a reported relative percentage; no evidence of wrong model losses.",
+    "Historical physical-leaf leakage and native-output provenance blockers remain."
+  ]
+}
