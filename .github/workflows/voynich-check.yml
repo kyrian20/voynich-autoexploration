@@ -618,6 +618,22 @@ jobs:
           python -m unittest discover -s tests -p 'test_exp590_empty_loci.py' -v
           python scripts/audit_exp590_empty_loci.py --check-canonical --out "${{ runner.temp }}/exp590-empty-loci.json"
 
+      - name: Verificar registros high-ASCII IVTFF omitidos por la vista ASCII histórica
+        run: |
+          python -m unittest discover -s tests -p 'test_ivtff_high_ascii_coverage.py' -v
+          python -O -m unittest discover -s tests -p 'test_ivtff_high_ascii_coverage.py' -v
+          python scripts/audit_ivtff_high_ascii_coverage.py --out ivtff-high-ascii-coverage.json
+          sha256sum ivtff-high-ascii-coverage.json > ivtff-high-ascii-coverage.sha256
+
+      - name: Conservar conciliación high-ASCII y su SHA-256
+        uses: actions/upload-artifact@v4
+        with:
+          name: ivtff-high-ascii-coverage-${{ github.run_id }}
+          path: |
+            ivtff-high-ascii-coverage.json
+            ivtff-high-ascii-coverage.sha256
+          if-no-files-found: error
+          retention-days: 90
       - name: Conservar conciliación por locus de EXP-590
         uses: actions/upload-artifact@v4
         with:
