@@ -53,6 +53,13 @@ def selected_codes(spans) -> list[str]:
             codes.append(span.raw)
         elif span.kind == "ligature":
             codes.extend(selected_codes(span.children))
+        elif span.kind == "unresolved" and (
+            span.raw.startswith(("{", "["))
+            or (span.raw.startswith("<") and not span.raw.endswith(">"))
+        ):
+            # A missing closing delimiter can hide @NNN; in a primary span.
+            # It is not evidence that the row has zero selected glyph codes.
+            raise ValueError("Unclosed primary IVTFF delimiter in high-ASCII census")
         elif span.kind == "unresolved" and span.raw == "@":
             # lex() reports malformed @ codes but this census previously
             # ignored its diagnostics whenever an ASCII token was present.
