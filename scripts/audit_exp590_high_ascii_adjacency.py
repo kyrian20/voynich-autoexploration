@@ -12,6 +12,9 @@ import hashlib
 import json
 from pathlib import Path
 import string
+import sys
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from scripts.audit_ivtff_high_ascii_coverage import SOURCES
 from scripts.audit_ivtff_ligature_views import TEXT_LINE
@@ -41,6 +44,8 @@ def primary_codes(spans):
 def analyze_text(text: str) -> dict:
     code_rows = 0
     total_codes = left = right = both = neither = 0
+    inside_ligature = inside_with_any = inside_with_both = 0
+    outside_ligature = outside_with_any = outside_with_both = 0
     affected = []
     for source_line, row in checked_physical_lines(text):
         if row.lstrip().startswith("#"):
@@ -49,12 +54,16 @@ def analyze_text(text: str) -> dict:
         if not match or not match.group(3).strip():
             continue
         folio, locus, body = match.groups()
-        codes = list(primary_codes(lex(body).spans))
+        payload = lex(body)
+        codes = list(primary_codes(payload.spans))
         if not codes:
             continue
         code_rows += 1
         details = []
         for code in codes:
+            in_ligature = any(parent.kind == 'ligature' and
+                              parent.start < code.start and code.end < parent.end
+                              for parent in payload.spans)
             has_left = code.start > 0 and body[code.start - 1] in ASCII_LETTERS
             has_right = code.end < len(body) and body[code.end] in ASCII_LETTERS
             left += has_left
@@ -62,9 +71,18 @@ def analyze_text(text: str) -> dict:
             both += has_left and has_right
             neither += not (has_left or has_right)
             total_codes += 1
+            if in_ligature:
+                inside_ligature += 1
+                inside_with_any += has_left or has_right
+                inside_with_both += has_left and has_right
+            else:
+                outside_ligature += 1
+                outside_with_any += has_left or has_right
+                outside_with_both += has_left and has_right
             if has_left or has_right:
                 details.append({"code": code.raw, "offset": code.start,
-                                "ascii_left": has_left, "ascii_right": has_right})
+                                "ascii_left": has_left, "ascii_right": has_right,
+                                "inside_ligature": in_ligature})
         if details:
             affected.append({
                 "source_line": source_line,
@@ -80,6 +98,12 @@ def analyze_text(text: str) -> dict:
         "codes_with_ascii_right": right,
         "codes_with_ascii_both_sides": both,
         "codes_with_no_direct_ascii_neighbor": neither,
+        "codes_inside_ligatures": inside_ligature,
+        "inside_ligature_codes_with_any_ascii_neighbor": inside_with_any,
+        "inside_ligature_codes_with_ascii_both_sides": inside_with_both,
+        "codes_outside_ligatures": outside_ligature,
+        "outside_ligature_codes_with_any_ascii_neighbor": outside_with_any,
+        "outside_ligature_codes_with_ascii_both_sides": outside_with_both,
         "codes_with_at_least_one_ascii_neighbor": total_codes - neither,
         "rows_with_at_least_one_ascii_neighbor": len(affected),
         "affected_rows": affected,
@@ -120,6 +144,7 @@ def audit(root: Path = ROOT) -> dict:
         "limitations": [
             "ASCII adjacency is a potential fragmentation mechanism, not a proven change in a specific historical metric.",
             "Direct raw adjacency excludes punctuation, comments and brace boundaries between a code and a letter.",
+            "Codes inside ligatures are removed with their entire brace span in the historical ASCII view; only outside-ligature codes can directly split two retained ASCII runs.",
             "No high-ASCII code is assigned a letter or linguistic meaning.",
             "The three editions are alternative transcriptions of one manuscript, not independent validation.",
             "The complete IVTFF interpretation remains unadjudicated; no historical metric is rehabilitated.",
