@@ -1,0 +1,1983 @@
+{
+  "status": "REPRODUCED",
+  "scope": "Editorial numeric records; count compatibility is not semantic identification",
+  "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+  "script_sha256": "569a7f90b0d090293137401076a81922f09b629d836f2461eb3f600b26a9f8f3",
+  "plan_sha256": "6862678c3a8ac2a904b1332578499f201ef2285a1bd8e1a1b72599bdac5ee655",
+  "sources": [
+    {
+      "source": "eva_zl3b.txt",
+      "sha256": "bf5b6d4ac1e3a51b1847a9c388318d609020441ccd56984c901c32b09beccafc",
+      "pages": [
+        {
+          "page": "f68r1",
+          "records": 37,
+          "locus_counts": {
+            "Cc": 1,
+            "Ls": 29,
+            "P0": 4,
+            "Pb": 3
+          },
+          "label_records": 29,
+          "C28_literal_complete_bijection_count_condition": false,
+          "Z12_literal_complete_bijection_count_condition": false,
+          "rows": [
+            {
+              "id": "f68r1.1",
+              "source_line": 3059,
+              "locus": "P0",
+              "body": "<%>shokchy.chteey.choteey.cphol.cheor.opcheeol.otor.choctheeey.okchoal"
+            },
+            {
+              "id": "f68r1.2",
+              "source_line": 3060,
+              "locus": "P0",
+              "body": "tochso.otchl.qokeeedy.cheey.cheeteey.yteody.chpor.cheokorchey.chod"
+            },
+            {
+              "id": "f68r1.3",
+              "source_line": 3061,
+              "locus": "P0",
+              "body": "ykor.shey.qocheey.chokal<->okeey.ror.eckhear.daram"
+            },
+            {
+              "id": "f68r1.4",
+              "source_line": 3062,
+              "locus": "P0",
+              "body": "dchor.okaiiin<$>"
+            },
+            {
+              "id": "f68r1.5",
+              "source_line": 3065,
+              "locus": "Pb",
+              "body": "yky"
+            },
+            {
+              "id": "f68r1.6",
+              "source_line": 3066,
+              "locus": "Pb",
+              "body": "dary"
+            },
+            {
+              "id": "f68r1.7",
+              "source_line": 3067,
+              "locus": "Pb",
+              "body": "chkchykoly"
+            },
+            {
+              "id": "f68r1.8",
+              "source_line": 3070,
+              "locus": "Ls",
+              "body": "okodaly"
+            },
+            {
+              "id": "f68r1.9",
+              "source_line": 3071,
+              "locus": "Ls",
+              "body": "odchecthy"
+            },
+            {
+              "id": "f68r1.10",
+              "source_line": 3072,
+              "locus": "Ls",
+              "body": "otcheody"
+            },
+            {
+              "id": "f68r1.11",
+              "source_line": 3073,
+              "locus": "Ls",
+              "body": "okoaly"
+            },
+            {
+              "id": "f68r1.12",
+              "source_line": 3074,
+              "locus": "Ls",
+              "body": "chocfhy"
+            },
+            {
+              "id": "f68r1.13",
+              "source_line": 3075,
+              "locus": "Ls",
+              "body": "octhey"
+            },
+            {
+              "id": "f68r1.14",
+              "source_line": 3076,
+              "locus": "Ls",
+              "body": "otshey"
+            },
+            {
+              "id": "f68r1.15",
+              "source_line": 3077,
+              "locus": "Ls",
+              "body": "otydy"
+            },
+            {
+              "id": "f68r1.16",
+              "source_line": 3078,
+              "locus": "Ls",
+              "body": "okear"
+            },
+            {
+              "id": "f68r1.17",
+              "source_line": 3079,
+              "locus": "Ls",
+              "body": "cphocthy"
+            },
+            {
+              "id": "f68r1.18",
+              "source_line": 3080,
+              "locus": "Ls",
+              "body": "ytchody"
+            },
+            {
+              "id": "f68r1.19",
+              "source_line": 3081,
+              "locus": "Ls",
+              "body": "otys"
+            },
+            {
+              "id": "f68r1.20",
+              "source_line": 3082,
+              "locus": "Ls",
+              "body": "olor"
+            },
+            {
+              "id": "f68r1.21",
+              "source_line": 3083,
+              "locus": "Ls",
+              "body": "ockhy"
+            },
+            {
+              "id": "f68r1.22",
+              "source_line": 3084,
+              "locus": "Ls",
+              "body": "ofcheor"
+            },
+            {
+              "id": "f68r1.23",
+              "source_line": 3085,
+              "locus": "Ls",
+              "body": "otchdy"
+            },
+            {
+              "id": "f68r1.24",
+              "source_line": 3086,
+              "locus": "Ls",
+              "body": "otykchs"
+            },
+            {
+              "id": "f68r1.25",
+              "source_line": 3087,
+              "locus": "Ls",
+              "body": "otol"
+            },
+            {
+              "id": "f68r1.26",
+              "source_line": 3088,
+              "locus": "Ls",
+              "body": "otor"
+            },
+            {
+              "id": "f68r1.27",
+              "source_line": 3089,
+              "locus": "Ls",
+              "body": "oiinar"
+            },
+            {
+              "id": "f68r1.28",
+              "source_line": 3090,
+              "locus": "Ls",
+              "body": "okoldy"
+            },
+            {
+              "id": "f68r1.29",
+              "source_line": 3091,
+              "locus": "Ls",
+              "body": "ykchdy"
+            },
+            {
+              "id": "f68r1.30",
+              "source_line": 3092,
+              "locus": "Ls",
+              "body": "@167;oeeod{c@196;h}y"
+            },
+            {
+              "id": "f68r1.31",
+              "source_line": 3093,
+              "locus": "Ls",
+              "body": "ocphy"
+            },
+            {
+              "id": "f68r1.32",
+              "source_line": 3094,
+              "locus": "Ls",
+              "body": "okeeodal"
+            },
+            {
+              "id": "f68r1.33",
+              "source_line": 3095,
+              "locus": "Ls",
+              "body": "okshor"
+            },
+            {
+              "id": "f68r1.34",
+              "source_line": 3096,
+              "locus": "Ls",
+              "body": "osdaiin"
+            },
+            {
+              "id": "f68r1.35",
+              "source_line": 3097,
+              "locus": "Ls",
+              "body": "otochedy"
+            },
+            {
+              "id": "f68r1.36",
+              "source_line": 3098,
+              "locus": "Ls",
+              "body": "dolchedy"
+            },
+            {
+              "id": "f68r1.37",
+              "source_line": 3100,
+              "locus": "Cc",
+              "body": "<!08:30>oky.okchdy.okardy.q[?:k]ear.oygy"
+            }
+          ],
+          "labels": [
+            {
+              "id": "f68r1.8",
+              "source_line": 3070,
+              "locus": "Ls",
+              "body": "okodaly"
+            },
+            {
+              "id": "f68r1.9",
+              "source_line": 3071,
+              "locus": "Ls",
+              "body": "odchecthy"
+            },
+            {
+              "id": "f68r1.10",
+              "source_line": 3072,
+              "locus": "Ls",
+              "body": "otcheody"
+            },
+            {
+              "id": "f68r1.11",
+              "source_line": 3073,
+              "locus": "Ls",
+              "body": "okoaly"
+            },
+            {
+              "id": "f68r1.12",
+              "source_line": 3074,
+              "locus": "Ls",
+              "body": "chocfhy"
+            },
+            {
+              "id": "f68r1.13",
+              "source_line": 3075,
+              "locus": "Ls",
+              "body": "octhey"
+            },
+            {
+              "id": "f68r1.14",
+              "source_line": 3076,
+              "locus": "Ls",
+              "body": "otshey"
+            },
+            {
+              "id": "f68r1.15",
+              "source_line": 3077,
+              "locus": "Ls",
+              "body": "otydy"
+            },
+            {
+              "id": "f68r1.16",
+              "source_line": 3078,
+              "locus": "Ls",
+              "body": "okear"
+            },
+            {
+              "id": "f68r1.17",
+              "source_line": 3079,
+              "locus": "Ls",
+              "body": "cphocthy"
+            },
+            {
+              "id": "f68r1.18",
+              "source_line": 3080,
+              "locus": "Ls",
+              "body": "ytchody"
+            },
+            {
+              "id": "f68r1.19",
+              "source_line": 3081,
+              "locus": "Ls",
+              "body": "otys"
+            },
+            {
+              "id": "f68r1.20",
+              "source_line": 3082,
+              "locus": "Ls",
+              "body": "olor"
+            },
+            {
+              "id": "f68r1.21",
+              "source_line": 3083,
+              "locus": "Ls",
+              "body": "ockhy"
+            },
+            {
+              "id": "f68r1.22",
+              "source_line": 3084,
+              "locus": "Ls",
+              "body": "ofcheor"
+            },
+            {
+              "id": "f68r1.23",
+              "source_line": 3085,
+              "locus": "Ls",
+              "body": "otchdy"
+            },
+            {
+              "id": "f68r1.24",
+              "source_line": 3086,
+              "locus": "Ls",
+              "body": "otykchs"
+            },
+            {
+              "id": "f68r1.25",
+              "source_line": 3087,
+              "locus": "Ls",
+              "body": "otol"
+            },
+            {
+              "id": "f68r1.26",
+              "source_line": 3088,
+              "locus": "Ls",
+              "body": "otor"
+            },
+            {
+              "id": "f68r1.27",
+              "source_line": 3089,
+              "locus": "Ls",
+              "body": "oiinar"
+            },
+            {
+              "id": "f68r1.28",
+              "source_line": 3090,
+              "locus": "Ls",
+              "body": "okoldy"
+            },
+            {
+              "id": "f68r1.29",
+              "source_line": 3091,
+              "locus": "Ls",
+              "body": "ykchdy"
+            },
+            {
+              "id": "f68r1.30",
+              "source_line": 3092,
+              "locus": "Ls",
+              "body": "@167;oeeod{c@196;h}y"
+            },
+            {
+              "id": "f68r1.31",
+              "source_line": 3093,
+              "locus": "Ls",
+              "body": "ocphy"
+            },
+            {
+              "id": "f68r1.32",
+              "source_line": 3094,
+              "locus": "Ls",
+              "body": "okeeodal"
+            },
+            {
+              "id": "f68r1.33",
+              "source_line": 3095,
+              "locus": "Ls",
+              "body": "okshor"
+            },
+            {
+              "id": "f68r1.34",
+              "source_line": 3096,
+              "locus": "Ls",
+              "body": "osdaiin"
+            },
+            {
+              "id": "f68r1.35",
+              "source_line": 3097,
+              "locus": "Ls",
+              "body": "otochedy"
+            },
+            {
+              "id": "f68r1.36",
+              "source_line": 3098,
+              "locus": "Ls",
+              "body": "dolchedy"
+            }
+          ]
+        },
+        {
+          "page": "f68r2",
+          "records": 31,
+          "locus_counts": {
+            "Cc": 2,
+            "Ls": 24,
+            "P0": 5
+          },
+          "label_records": 24,
+          "C28_literal_complete_bijection_count_condition": false,
+          "Z12_literal_complete_bijection_count_condition": false,
+          "rows": [
+            {
+              "id": "f68r2.1",
+              "source_line": 3115,
+              "locus": "P0",
+              "body": "<%>tsheeor.chor.sheal,dar.opchey.oeecthy.sheol.dokechy.otcheoly"
+            },
+            {
+              "id": "f68r2.2",
+              "source_line": 3116,
+              "locus": "P0",
+              "body": "dchy.ykeechy.dchyky.okeeody.rcheodal.chokeey.cheor.oram"
+            },
+            {
+              "id": "f68r2.3",
+              "source_line": 3117,
+              "locus": "P0",
+              "body": "tcheos.otchoky.okchol.okol.sheeor.chodchy.qokchdar"
+            },
+            {
+              "id": "f68r2.4",
+              "source_line": 3118,
+              "locus": "P0",
+              "body": "chor.chesy.or[ee:a]d.qoeeckhy.qockheol.qokeol.cheoal.dcholal"
+            },
+            {
+              "id": "f68r2.5",
+              "source_line": 3119,
+              "locus": "P0",
+              "body": "kcheoey.cheody<->sain.ykeody.chykchy<$>"
+            },
+            {
+              "id": "f68r2.6",
+              "source_line": 3123,
+              "locus": "Cc",
+              "body": "<!09:30>okeo.ok[a:?]r.ok[y:o].okozy.okaesy.qokool.chio.qoiol"
+            },
+            {
+              "id": "f68r2.7",
+              "source_line": 3126,
+              "locus": "Ls",
+              "body": "o@167;olch{c@133;h}y"
+            },
+            {
+              "id": "f68r2.8",
+              "source_line": 3127,
+              "locus": "Ls",
+              "body": "cheorol"
+            },
+            {
+              "id": "f68r2.9",
+              "source_line": 3128,
+              "locus": "Ls",
+              "body": "odaiin"
+            },
+            {
+              "id": "f68r2.10",
+              "source_line": 3129,
+              "locus": "Ls",
+              "body": "ochory"
+            },
+            {
+              "id": "f68r2.11",
+              "source_line": 3130,
+              "locus": "Ls",
+              "body": "shdar"
+            },
+            {
+              "id": "f68r2.12",
+              "source_line": 3131,
+              "locus": "Ls",
+              "body": "dchol"
+            },
+            {
+              "id": "f68r2.13",
+              "source_line": 3132,
+              "locus": "Ls",
+              "body": "todaraiily"
+            },
+            {
+              "id": "f68r2.14",
+              "source_line": 3133,
+              "locus": "Ls",
+              "body": "olcheesey"
+            },
+            {
+              "id": "f68r2.15",
+              "source_line": 3134,
+              "locus": "Ls",
+              "body": "okchor"
+            },
+            {
+              "id": "f68r2.16",
+              "source_line": 3135,
+              "locus": "Ls",
+              "body": "oteool"
+            },
+            {
+              "id": "f68r2.17",
+              "source_line": 3136,
+              "locus": "Ls",
+              "body": "oydchy"
+            },
+            {
+              "id": "f68r2.18",
+              "source_line": 3137,
+              "locus": "Ls",
+              "body": "okeeeody"
+            },
+            {
+              "id": "f68r2.19",
+              "source_line": 3138,
+              "locus": "Ls",
+              "body": "cholar"
+            },
+            {
+              "id": "f68r2.20",
+              "source_line": 3139,
+              "locus": "Ls",
+              "body": "dcheoldy"
+            },
+            {
+              "id": "f68r2.21",
+              "source_line": 3140,
+              "locus": "Ls",
+              "body": "oteeear"
+            },
+            {
+              "id": "f68r2.22",
+              "source_line": 3141,
+              "locus": "Ls",
+              "body": "otoeeo"
+            },
+            {
+              "id": "f68r2.23",
+              "source_line": 3142,
+              "locus": "Ls",
+              "body": "ofcheody"
+            },
+            {
+              "id": "f68r2.24",
+              "source_line": 3143,
+              "locus": "Ls",
+              "body": "otcheodar"
+            },
+            {
+              "id": "f68r2.25",
+              "source_line": 3144,
+              "locus": "Ls",
+              "body": "odair.chol"
+            },
+            {
+              "id": "f68r2.26",
+              "source_line": 3145,
+              "locus": "Ls",
+              "body": "opocphor"
+            },
+            {
+              "id": "f68r2.27",
+              "source_line": 3146,
+              "locus": "Ls",
+              "body": "otoshol"
+            },
+            {
+              "id": "f68r2.28",
+              "source_line": 3147,
+              "locus": "Ls",
+              "body": "chodar"
+            },
+            {
+              "id": "f68r2.29",
+              "source_line": 3148,
+              "locus": "Ls",
+              "body": "sheey"
+            },
+            {
+              "id": "f68r2.30",
+              "source_line": 3149,
+              "locus": "Ls",
+              "body": "ok[eeee:eech]or"
+            },
+            {
+              "id": "f68r2.31",
+              "source_line": 3152,
+              "locus": "Cc",
+              "body": "<!09:30>okey.okoaiin.okol.o,ky.oeeeo.r.okey.okeeol.cheo.o.@231;@232;@233;@234;"
+            }
+          ],
+          "labels": [
+            {
+              "id": "f68r2.7",
+              "source_line": 3126,
+              "locus": "Ls",
+              "body": "o@167;olch{c@133;h}y"
+            },
+            {
+              "id": "f68r2.8",
+              "source_line": 3127,
+              "locus": "Ls",
+              "body": "cheorol"
+            },
+            {
+              "id": "f68r2.9",
+              "source_line": 3128,
+              "locus": "Ls",
+              "body": "odaiin"
+            },
+            {
+              "id": "f68r2.10",
+              "source_line": 3129,
+              "locus": "Ls",
+              "body": "ochory"
+            },
+            {
+              "id": "f68r2.11",
+              "source_line": 3130,
+              "locus": "Ls",
+              "body": "shdar"
+            },
+            {
+              "id": "f68r2.12",
+              "source_line": 3131,
+              "locus": "Ls",
+              "body": "dchol"
+            },
+            {
+              "id": "f68r2.13",
+              "source_line": 3132,
+              "locus": "Ls",
+              "body": "todaraiily"
+            },
+            {
+              "id": "f68r2.14",
+              "source_line": 3133,
+              "locus": "Ls",
+              "body": "olcheesey"
+            },
+            {
+              "id": "f68r2.15",
+              "source_line": 3134,
+              "locus": "Ls",
+              "body": "okchor"
+            },
+            {
+              "id": "f68r2.16",
+              "source_line": 3135,
+              "locus": "Ls",
+              "body": "oteool"
+            },
+            {
+              "id": "f68r2.17",
+              "source_line": 3136,
+              "locus": "Ls",
+              "body": "oydchy"
+            },
+            {
+              "id": "f68r2.18",
+              "source_line": 3137,
+              "locus": "Ls",
+              "body": "okeeeody"
+            },
+            {
+              "id": "f68r2.19",
+              "source_line": 3138,
+              "locus": "Ls",
+              "body": "cholar"
+            },
+            {
+              "id": "f68r2.20",
+              "source_line": 3139,
+              "locus": "Ls",
+              "body": "dcheoldy"
+            },
+            {
+              "id": "f68r2.21",
+              "source_line": 3140,
+              "locus": "Ls",
+              "body": "oteeear"
+            },
+            {
+              "id": "f68r2.22",
+              "source_line": 3141,
+              "locus": "Ls",
+              "body": "otoeeo"
+            },
+            {
+              "id": "f68r2.23",
+              "source_line": 3142,
+              "locus": "Ls",
+              "body": "ofcheody"
+            },
+            {
+              "id": "f68r2.24",
+              "source_line": 3143,
+              "locus": "Ls",
+              "body": "otcheodar"
+            },
+            {
+              "id": "f68r2.25",
+              "source_line": 3144,
+              "locus": "Ls",
+              "body": "odair.chol"
+            },
+            {
+              "id": "f68r2.26",
+              "source_line": 3145,
+              "locus": "Ls",
+              "body": "opocphor"
+            },
+            {
+              "id": "f68r2.27",
+              "source_line": 3146,
+              "locus": "Ls",
+              "body": "otoshol"
+            },
+            {
+              "id": "f68r2.28",
+              "source_line": 3147,
+              "locus": "Ls",
+              "body": "chodar"
+            },
+            {
+              "id": "f68r2.29",
+              "source_line": 3148,
+              "locus": "Ls",
+              "body": "sheey"
+            },
+            {
+              "id": "f68r2.30",
+              "source_line": 3149,
+              "locus": "Ls",
+              "body": "ok[eeee:eech]or"
+            }
+          ]
+        },
+        {
+          "page": "f68r3",
+          "records": 22,
+          "locus_counts": {
+            "Cc": 2,
+            "La": 1,
+            "Ls": 11,
+            "Ri": 8
+          },
+          "label_records": 12,
+          "C28_literal_complete_bijection_count_condition": false,
+          "Z12_literal_complete_bijection_count_condition": true,
+          "rows": [
+            {
+              "id": "f68r3.1",
+              "source_line": 3165,
+              "locus": "Cc",
+              "body": "<!09:30>odeed.oteedy,cheoteey.oshchey.chokol.cheody.chedy.oteodaiin.otchodal.sol.cheor.oteo.choteey.oeteody.opcheody.dchedy.daiin.oteeody.dascheedy.oteeody.qoeee{ct}{c@204;}g.dcheeo.okeodly.do.ls.oschaiin.cheockhedchy.chodal.cheod[a:y].chol,al.oteodched.okedy.qokeey.shoky.dol.daleeed.okeoeiiir"
+            },
+            {
+              "id": "f68r3.2",
+              "source_line": 3168,
+              "locus": "Ri",
+              "body": "toees.ykeo,she.qokolchey.qokchdy"
+            },
+            {
+              "id": "f68r3.3",
+              "source_line": 3169,
+              "locus": "Ri",
+              "body": "tochedy.chocphy.qokchdy.dyl.okald"
+            },
+            {
+              "id": "f68r3.4",
+              "source_line": 3170,
+              "locus": "Ri",
+              "body": "dchy,kchy.daiir.chok.ockhydar"
+            },
+            {
+              "id": "f68r3.5",
+              "source_line": 3171,
+              "locus": "Ri",
+              "body": "qokol.chdchol.qoteey.che,kechy.okchdy"
+            },
+            {
+              "id": "f68r3.6",
+              "source_line": 3172,
+              "locus": "Ri",
+              "body": "dchokchy.{c'hh}y.okey.oteos.okolshy"
+            },
+            {
+              "id": "f68r3.7",
+              "source_line": 3173,
+              "locus": "Ri",
+              "body": "pchody.qokchy.dshol.d{c'y},o,tgolg?"
+            },
+            {
+              "id": "f68r3.8",
+              "source_line": 3174,
+              "locus": "Ri",
+              "body": "keeoty.oteey.daiin.dcheeody.oteey"
+            },
+            {
+              "id": "f68r3.9",
+              "source_line": 3175,
+              "locus": "Ri",
+              "body": "dchey.qokeey.dcheey.daiir.otchal"
+            },
+            {
+              "id": "f68r3.10",
+              "source_line": 3178,
+              "locus": "Ls",
+              "body": "dchol,day"
+            },
+            {
+              "id": "f68r3.11",
+              "source_line": 3179,
+              "locus": "Ls",
+              "body": "doaro"
+            },
+            {
+              "id": "f68r3.12",
+              "source_line": 3180,
+              "locus": "La",
+              "body": "oalcheol"
+            },
+            {
+              "id": "f68r3.13",
+              "source_line": 3181,
+              "locus": "Ls",
+              "body": "okos"
+            },
+            {
+              "id": "f68r3.14",
+              "source_line": 3182,
+              "locus": "Ls",
+              "body": "otary"
+            },
+            {
+              "id": "f68r3.15",
+              "source_line": 3183,
+              "locus": "Ls",
+              "body": "chky.oky"
+            },
+            {
+              "id": "f68r3.16",
+              "source_line": 3184,
+              "locus": "Ls",
+              "body": "e.cphy"
+            },
+            {
+              "id": "f68r3.17",
+              "source_line": 3185,
+              "locus": "Ls",
+              "body": "okolchy"
+            },
+            {
+              "id": "f68r3.18",
+              "source_line": 3186,
+              "locus": "Ls",
+              "body": "o.cthyd"
+            },
+            {
+              "id": "f68r3.19",
+              "source_line": 3187,
+              "locus": "Ls",
+              "body": "otydg"
+            },
+            {
+              "id": "f68r3.20",
+              "source_line": 3188,
+              "locus": "Ls",
+              "body": "darall"
+            },
+            {
+              "id": "f68r3.21",
+              "source_line": 3189,
+              "locus": "Ls",
+              "body": "okchody"
+            },
+            {
+              "id": "f68r3.22",
+              "source_line": 3192,
+              "locus": "Cc",
+              "body": "<!09:30>otcheody.chokchy.okol.cheol.dar.cho.keol.dolaiin.okeol.oly"
+            }
+          ],
+          "labels": [
+            {
+              "id": "f68r3.10",
+              "source_line": 3178,
+              "locus": "Ls",
+              "body": "dchol,day"
+            },
+            {
+              "id": "f68r3.11",
+              "source_line": 3179,
+              "locus": "Ls",
+              "body": "doaro"
+            },
+            {
+              "id": "f68r3.12",
+              "source_line": 3180,
+              "locus": "La",
+              "body": "oalcheol"
+            },
+            {
+              "id": "f68r3.13",
+              "source_line": 3181,
+              "locus": "Ls",
+              "body": "okos"
+            },
+            {
+              "id": "f68r3.14",
+              "source_line": 3182,
+              "locus": "Ls",
+              "body": "otary"
+            },
+            {
+              "id": "f68r3.15",
+              "source_line": 3183,
+              "locus": "Ls",
+              "body": "chky.oky"
+            },
+            {
+              "id": "f68r3.16",
+              "source_line": 3184,
+              "locus": "Ls",
+              "body": "e.cphy"
+            },
+            {
+              "id": "f68r3.17",
+              "source_line": 3185,
+              "locus": "Ls",
+              "body": "okolchy"
+            },
+            {
+              "id": "f68r3.18",
+              "source_line": 3186,
+              "locus": "Ls",
+              "body": "o.cthyd"
+            },
+            {
+              "id": "f68r3.19",
+              "source_line": 3187,
+              "locus": "Ls",
+              "body": "otydg"
+            },
+            {
+              "id": "f68r3.20",
+              "source_line": 3188,
+              "locus": "Ls",
+              "body": "darall"
+            },
+            {
+              "id": "f68r3.21",
+              "source_line": 3189,
+              "locus": "Ls",
+              "body": "okchody"
+            }
+          ]
+        }
+      ],
+      "unparsed_target_records": []
+    },
+    {
+      "source": "eva_it2a.txt",
+      "sha256": "7f27a8b0feed8f6de0a99900df6bf912dd1d295c38e5f830bac8b41c3f536fb5",
+      "pages": [
+        {
+          "page": "f68r1",
+          "records": 37,
+          "locus_counts": {
+            "Cc": 1,
+            "Ls": 29,
+            "P0": 4,
+            "Pb": 3
+          },
+          "label_records": 29,
+          "C28_literal_complete_bijection_count_condition": false,
+          "Z12_literal_complete_bijection_count_condition": false,
+          "rows": [
+            {
+              "id": "f68r1.1",
+              "source_line": 1914,
+              "locus": "P0",
+              "body": "<%>shokchy.chteey.choteey.cphol.cheor.opcheeol.otor.choctheeey.okchoal"
+            },
+            {
+              "id": "f68r1.2",
+              "source_line": 1915,
+              "locus": "P0",
+              "body": "tochso.otchl.qokeeedy.cheey.cheeteey.yteody.chpor.cheokorchey.chod"
+            },
+            {
+              "id": "f68r1.3",
+              "source_line": 1916,
+              "locus": "P0",
+              "body": "ykor.shey.qocheey.chokal<->okeey.ror.cckheor.daram"
+            },
+            {
+              "id": "f68r1.4",
+              "source_line": 1917,
+              "locus": "P0",
+              "body": "dchor.okaiin<$>"
+            },
+            {
+              "id": "f68r1.5",
+              "source_line": 1918,
+              "locus": "Pb",
+              "body": "<%>yky"
+            },
+            {
+              "id": "f68r1.6",
+              "source_line": 1919,
+              "locus": "Pb",
+              "body": "dary"
+            },
+            {
+              "id": "f68r1.7",
+              "source_line": 1920,
+              "locus": "Pb",
+              "body": "chkchykoly<$>"
+            },
+            {
+              "id": "f68r1.8",
+              "source_line": 1921,
+              "locus": "Ls",
+              "body": "okodaly"
+            },
+            {
+              "id": "f68r1.9",
+              "source_line": 1922,
+              "locus": "Ls",
+              "body": "odchecthy"
+            },
+            {
+              "id": "f68r1.10",
+              "source_line": 1923,
+              "locus": "Ls",
+              "body": "otcheody"
+            },
+            {
+              "id": "f68r1.11",
+              "source_line": 1924,
+              "locus": "Ls",
+              "body": "okoaly"
+            },
+            {
+              "id": "f68r1.12",
+              "source_line": 1925,
+              "locus": "Ls",
+              "body": "chocphy"
+            },
+            {
+              "id": "f68r1.13",
+              "source_line": 1926,
+              "locus": "Ls",
+              "body": "octhey"
+            },
+            {
+              "id": "f68r1.14",
+              "source_line": 1927,
+              "locus": "Ls",
+              "body": "otcsey"
+            },
+            {
+              "id": "f68r1.15",
+              "source_line": 1928,
+              "locus": "Ls",
+              "body": "otydy"
+            },
+            {
+              "id": "f68r1.16",
+              "source_line": 1929,
+              "locus": "Ls",
+              "body": "okeor"
+            },
+            {
+              "id": "f68r1.17",
+              "source_line": 1930,
+              "locus": "Ls",
+              "body": "cphocthy"
+            },
+            {
+              "id": "f68r1.18",
+              "source_line": 1931,
+              "locus": "Ls",
+              "body": "ytchody"
+            },
+            {
+              "id": "f68r1.19",
+              "source_line": 1932,
+              "locus": "Ls",
+              "body": "otys"
+            },
+            {
+              "id": "f68r1.20",
+              "source_line": 1933,
+              "locus": "Ls",
+              "body": "olor"
+            },
+            {
+              "id": "f68r1.21",
+              "source_line": 1934,
+              "locus": "Ls",
+              "body": "ockhy"
+            },
+            {
+              "id": "f68r1.22",
+              "source_line": 1935,
+              "locus": "Ls",
+              "body": "ofcheor"
+            },
+            {
+              "id": "f68r1.23",
+              "source_line": 1936,
+              "locus": "Ls",
+              "body": "otcsdo"
+            },
+            {
+              "id": "f68r1.24",
+              "source_line": 1937,
+              "locus": "Ls",
+              "body": "otykchs"
+            },
+            {
+              "id": "f68r1.25",
+              "source_line": 1938,
+              "locus": "Ls",
+              "body": "otol"
+            },
+            {
+              "id": "f68r1.26",
+              "source_line": 1939,
+              "locus": "Ls",
+              "body": "otor"
+            },
+            {
+              "id": "f68r1.27",
+              "source_line": 1940,
+              "locus": "Ls",
+              "body": "oiinar"
+            },
+            {
+              "id": "f68r1.28",
+              "source_line": 1941,
+              "locus": "Ls",
+              "body": "okoldy"
+            },
+            {
+              "id": "f68r1.29",
+              "source_line": 1942,
+              "locus": "Ls",
+              "body": "ykchdy"
+            },
+            {
+              "id": "f68r1.30",
+              "source_line": 1943,
+              "locus": "Ls",
+              "body": "toeeodcthy"
+            },
+            {
+              "id": "f68r1.31",
+              "source_line": 1944,
+              "locus": "Ls",
+              "body": "ocphy"
+            },
+            {
+              "id": "f68r1.32",
+              "source_line": 1945,
+              "locus": "Ls",
+              "body": "okeeodal"
+            },
+            {
+              "id": "f68r1.33",
+              "source_line": 1946,
+              "locus": "Ls",
+              "body": "okshor"
+            },
+            {
+              "id": "f68r1.34",
+              "source_line": 1947,
+              "locus": "Ls",
+              "body": "ordaiin"
+            },
+            {
+              "id": "f68r1.35",
+              "source_line": 1948,
+              "locus": "Ls",
+              "body": "otochedy"
+            },
+            {
+              "id": "f68r1.36",
+              "source_line": 1949,
+              "locus": "Ls",
+              "body": "dolchedy"
+            },
+            {
+              "id": "f68r1.37",
+              "source_line": 1950,
+              "locus": "Cc",
+              "body": "oky.okady.okardy.q?aear.oldy"
+            }
+          ],
+          "labels": [
+            {
+              "id": "f68r1.8",
+              "source_line": 1921,
+              "locus": "Ls",
+              "body": "okodaly"
+            },
+            {
+              "id": "f68r1.9",
+              "source_line": 1922,
+              "locus": "Ls",
+              "body": "odchecthy"
+            },
+            {
+              "id": "f68r1.10",
+              "source_line": 1923,
+              "locus": "Ls",
+              "body": "otcheody"
+            },
+            {
+              "id": "f68r1.11",
+              "source_line": 1924,
+              "locus": "Ls",
+              "body": "okoaly"
+            },
+            {
+              "id": "f68r1.12",
+              "source_line": 1925,
+              "locus": "Ls",
+              "body": "chocphy"
+            },
+            {
+              "id": "f68r1.13",
+              "source_line": 1926,
+              "locus": "Ls",
+              "body": "octhey"
+            },
+            {
+              "id": "f68r1.14",
+              "source_line": 1927,
+              "locus": "Ls",
+              "body": "otcsey"
+            },
+            {
+              "id": "f68r1.15",
+              "source_line": 1928,
+              "locus": "Ls",
+              "body": "otydy"
+            },
+            {
+              "id": "f68r1.16",
+              "source_line": 1929,
+              "locus": "Ls",
+              "body": "okeor"
+            },
+            {
+              "id": "f68r1.17",
+              "source_line": 1930,
+              "locus": "Ls",
+              "body": "cphocthy"
+            },
+            {
+              "id": "f68r1.18",
+              "source_line": 1931,
+              "locus": "Ls",
+              "body": "ytchody"
+            },
+            {
+              "id": "f68r1.19",
+              "source_line": 1932,
+              "locus": "Ls",
+              "body": "otys"
+            },
+            {
+              "id": "f68r1.20",
+              "source_line": 1933,
+              "locus": "Ls",
+              "body": "olor"
+            },
+            {
+              "id": "f68r1.21",
+              "source_line": 1934,
+              "locus": "Ls",
+              "body": "ockhy"
+            },
+            {
+              "id": "f68r1.22",
+              "source_line": 1935,
+              "locus": "Ls",
+              "body": "ofcheor"
+            },
+            {
+              "id": "f68r1.23",
+              "source_line": 1936,
+              "locus": "Ls",
+              "body": "otcsdo"
+            },
+            {
+              "id": "f68r1.24",
+              "source_line": 1937,
+              "locus": "Ls",
+              "body": "otykchs"
+            },
+            {
+              "id": "f68r1.25",
+              "source_line": 1938,
+              "locus": "Ls",
+              "body": "otol"
+            },
+            {
+              "id": "f68r1.26",
+              "source_line": 1939,
+              "locus": "Ls",
+              "body": "otor"
+            },
+            {
+              "id": "f68r1.27",
+              "source_line": 1940,
+              "locus": "Ls",
+              "body": "oiinar"
+            },
+            {
+              "id": "f68r1.28",
+              "source_line": 1941,
+              "locus": "Ls",
+              "body": "okoldy"
+            },
+            {
+              "id": "f68r1.29",
+              "source_line": 1942,
+              "locus": "Ls",
+              "body": "ykchdy"
+            },
+            {
+              "id": "f68r1.30",
+              "source_line": 1943,
+              "locus": "Ls",
+              "body": "toeeodcthy"
+            },
+            {
+              "id": "f68r1.31",
+              "source_line": 1944,
+              "locus": "Ls",
+              "body": "ocphy"
+            },
+            {
+              "id": "f68r1.32",
+              "source_line": 1945,
+              "locus": "Ls",
+              "body": "okeeodal"
+            },
+            {
+              "id": "f68r1.33",
+              "source_line": 1946,
+              "locus": "Ls",
+              "body": "okshor"
+            },
+            {
+              "id": "f68r1.34",
+              "source_line": 1947,
+              "locus": "Ls",
+              "body": "ordaiin"
+            },
+            {
+              "id": "f68r1.35",
+              "source_line": 1948,
+              "locus": "Ls",
+              "body": "otochedy"
+            },
+            {
+              "id": "f68r1.36",
+              "source_line": 1949,
+              "locus": "Ls",
+              "body": "dolchedy"
+            }
+          ]
+        },
+        {
+          "page": "f68r2",
+          "records": 31,
+          "locus_counts": {
+            "Cc": 2,
+            "Ls": 24,
+            "P0": 5
+          },
+          "label_records": 24,
+          "C28_literal_complete_bijection_count_condition": false,
+          "Z12_literal_complete_bijection_count_condition": false,
+          "rows": [
+            {
+              "id": "f68r2.1",
+              "source_line": 1952,
+              "locus": "P0",
+              "body": "<%>tsheeor.chor.sheal.dar.opchey.oeecthy.sheol.dokechy.otcheoly"
+            },
+            {
+              "id": "f68r2.2",
+              "source_line": 1953,
+              "locus": "P0",
+              "body": "dchy.ykeechy.dchyky.okeeoda.rcheodal.chokeey.cheor.oram"
+            },
+            {
+              "id": "f68r2.3",
+              "source_line": 1954,
+              "locus": "P0",
+              "body": "tcheos.otchoky.okchol.okol.sheeor.chodchy.qokchdar"
+            },
+            {
+              "id": "f68r2.4",
+              "source_line": 1955,
+              "locus": "P0",
+              "body": "chor.chesy.oriid.qoeeckhy.qockheol.qokeol.cheoal.dcholal"
+            },
+            {
+              "id": "f68r2.5",
+              "source_line": 1956,
+              "locus": "P0",
+              "body": "kcheoey.cheody<->sain.ykeody.chykchy<$>"
+            },
+            {
+              "id": "f68r2.6",
+              "source_line": 1957,
+              "locus": "Cc",
+              "body": "okeo.okor.oko.okemy.okaisy.qokool.cheo.qo?ol"
+            },
+            {
+              "id": "f68r2.7",
+              "source_line": 1958,
+              "locus": "Ls",
+              "body": "otolchcthy"
+            },
+            {
+              "id": "f68r2.8",
+              "source_line": 1959,
+              "locus": "Ls",
+              "body": "cheorol"
+            },
+            {
+              "id": "f68r2.9",
+              "source_line": 1960,
+              "locus": "Ls",
+              "body": "odaiin"
+            },
+            {
+              "id": "f68r2.10",
+              "source_line": 1961,
+              "locus": "Ls",
+              "body": "ochory"
+            },
+            {
+              "id": "f68r2.11",
+              "source_line": 1962,
+              "locus": "Ls",
+              "body": "shdar"
+            },
+            {
+              "id": "f68r2.12",
+              "source_line": 1963,
+              "locus": "Ls",
+              "body": "dchol"
+            },
+            {
+              "id": "f68r2.13",
+              "source_line": 1964,
+              "locus": "Ls",
+              "body": "todaraiily"
+            },
+            {
+              "id": "f68r2.14",
+              "source_line": 1965,
+              "locus": "Ls",
+              "body": "olcheesey"
+            },
+            {
+              "id": "f68r2.15",
+              "source_line": 1966,
+              "locus": "Ls",
+              "body": "okchor"
+            },
+            {
+              "id": "f68r2.16",
+              "source_line": 1967,
+              "locus": "Ls",
+              "body": "oteool"
+            },
+            {
+              "id": "f68r2.17",
+              "source_line": 1968,
+              "locus": "Ls",
+              "body": "oydchy"
+            },
+            {
+              "id": "f68r2.18",
+              "source_line": 1969,
+              "locus": "Ls",
+              "body": "okcheody"
+            },
+            {
+              "id": "f68r2.19",
+              "source_line": 1970,
+              "locus": "Ls",
+              "body": "cholar"
+            },
+            {
+              "id": "f68r2.20",
+              "source_line": 1971,
+              "locus": "Ls",
+              "body": "dcheoldy"
+            },
+            {
+              "id": "f68r2.21",
+              "source_line": 1972,
+              "locus": "Ls",
+              "body": "oteeeor"
+            },
+            {
+              "id": "f68r2.22",
+              "source_line": 1973,
+              "locus": "Ls",
+              "body": "etocho"
+            },
+            {
+              "id": "f68r2.23",
+              "source_line": 1974,
+              "locus": "Ls",
+              "body": "ofchsody"
+            },
+            {
+              "id": "f68r2.24",
+              "source_line": 1975,
+              "locus": "Ls",
+              "body": "otcheodar"
+            },
+            {
+              "id": "f68r2.25",
+              "source_line": 1976,
+              "locus": "Ls",
+              "body": "odair.chol"
+            },
+            {
+              "id": "f68r2.26",
+              "source_line": 1977,
+              "locus": "Ls",
+              "body": "opocphor"
+            },
+            {
+              "id": "f68r2.27",
+              "source_line": 1978,
+              "locus": "Ls",
+              "body": "otoshol"
+            },
+            {
+              "id": "f68r2.28",
+              "source_line": 1979,
+              "locus": "Ls",
+              "body": "chodar"
+            },
+            {
+              "id": "f68r2.29",
+              "source_line": 1980,
+              "locus": "Ls",
+              "body": "shchy"
+            },
+            {
+              "id": "f68r2.30",
+              "source_line": 1981,
+              "locus": "Ls",
+              "body": "okeechor"
+            },
+            {
+              "id": "f68r2.31",
+              "source_line": 1982,
+              "locus": "Cc",
+              "body": "okeo.okoaiin.okol.oky.oeeeo.r.ekey.okchol.cheo.o.koiin"
+            }
+          ],
+          "labels": [
+            {
+              "id": "f68r2.7",
+              "source_line": 1958,
+              "locus": "Ls",
+              "body": "otolchcthy"
+            },
+            {
+              "id": "f68r2.8",
+              "source_line": 1959,
+              "locus": "Ls",
+              "body": "cheorol"
+            },
+            {
+              "id": "f68r2.9",
+              "source_line": 1960,
+              "locus": "Ls",
+              "body": "odaiin"
+            },
+            {
+              "id": "f68r2.10",
+              "source_line": 1961,
+              "locus": "Ls",
+              "body": "ochory"
+            },
+            {
+              "id": "f68r2.11",
+              "source_line": 1962,
+              "locus": "Ls",
+              "body": "shdar"
+            },
+            {
+              "id": "f68r2.12",
+              "source_line": 1963,
+              "locus": "Ls",
+              "body": "dchol"
+            },
+            {
+              "id": "f68r2.13",
+              "source_line": 1964,
+              "locus": "Ls",
+              "body": "todaraiily"
+            },
+            {
+              "id": "f68r2.14",
+              "source_line": 1965,
+              "locus": "Ls",
+              "body": "olcheesey"
+            },
+            {
+              "id": "f68r2.15",
+              "source_line": 1966,
+              "locus": "Ls",
+              "body": "okchor"
+            },
+            {
+              "id": "f68r2.16",
+              "source_line": 1967,
+              "locus": "Ls",
+              "body": "oteool"
+            },
+            {
+              "id": "f68r2.17",
+              "source_line": 1968,
+              "locus": "Ls",
+              "body": "oydchy"
+            },
+            {
+              "id": "f68r2.18",
+              "source_line": 1969,
+              "locus": "Ls",
+              "body": "okcheody"
+            },
+            {
+              "id": "f68r2.19",
+              "source_line": 1970,
+              "locus": "Ls",
+              "body": "cholar"
+            },
+            {
+              "id": "f68r2.20",
+              "source_line": 1971,
+              "locus": "Ls",
+              "body": "dcheoldy"
+            },
+            {
+              "id": "f68r2.21",
+              "source_line": 1972,
+              "locus": "Ls",
+              "body": "oteeeor"
+            },
+            {
+              "id": "f68r2.22",
+              "source_line": 1973,
+              "locus": "Ls",
+              "body": "etocho"
+            },
+            {
+              "id": "f68r2.23",
+              "source_line": 1974,
+              "locus": "Ls",
+              "body": "ofchsody"
+            },
+            {
+              "id": "f68r2.24",
+              "source_line": 1975,
+              "locus": "Ls",
+              "body": "otcheodar"
+            },
+            {
+              "id": "f68r2.25",
+              "source_line": 1976,
+              "locus": "Ls",
+              "body": "odair.chol"
+            },
+            {
+              "id": "f68r2.26",
+              "source_line": 1977,
+              "locus": "Ls",
+              "body": "opocphor"
+            },
+            {
+              "id": "f68r2.27",
+              "source_line": 1978,
+              "locus": "Ls",
+              "body": "otoshol"
+            },
+            {
+              "id": "f68r2.28",
+              "source_line": 1979,
+              "locus": "Ls",
+              "body": "chodar"
+            },
+            {
+              "id": "f68r2.29",
+              "source_line": 1980,
+              "locus": "Ls",
+              "body": "shchy"
+            },
+            {
+              "id": "f68r2.30",
+              "source_line": 1981,
+              "locus": "Ls",
+              "body": "okeechor"
+            }
+          ]
+        },
+        {
+          "page": "f68r3",
+          "records": 22,
+          "locus_counts": {
+            "Cc": 2,
+            "La": 1,
+            "Ls": 11,
+            "Ri": 8
+          },
+          "label_records": 12,
+          "C28_literal_complete_bijection_count_condition": false,
+          "Z12_literal_complete_bijection_count_condition": true,
+          "rows": [
+            {
+              "id": "f68r3.1",
+              "source_line": 1984,
+              "locus": "Cc",
+              "body": "odchd.otchdy.cheoteeo.oshchey.chokol.cheody.chedy.oteodaiin.otchodal.sol.cheor.oteo.oteey.oetchdy.opcheody.dchedy.daiin.oteeody.da?cheedy.oteeody.qochecth?m.dchreo.okeodly.do.ls.oschaiin.cheockhedchy.chodal.cheody.chol.al.oteodched.okedy.qokeey.choky.dol.daleesd.okinaiir"
+            },
+            {
+              "id": "f68r3.2",
+              "source_line": 1985,
+              "locus": "Ri",
+              "body": "toees.ykeoshe.qokolchey.qokchdy"
+            },
+            {
+              "id": "f68r3.3",
+              "source_line": 1986,
+              "locus": "Ri",
+              "body": "toees.chcphy.qokchdy.dol.okyld"
+            },
+            {
+              "id": "f68r3.4",
+              "source_line": 1987,
+              "locus": "Ri",
+              "body": "dchykchy.daiir.chok.ockhodar"
+            },
+            {
+              "id": "f68r3.5",
+              "source_line": 1988,
+              "locus": "Ri",
+              "body": "qokol.chdchol.qoteey.chetechy.okchdy"
+            },
+            {
+              "id": "f68r3.6",
+              "source_line": 1989,
+              "locus": "Ri",
+              "body": "dchokchr.shhy.okey.oteos.okolshy"
+            },
+            {
+              "id": "f68r3.7",
+              "source_line": 1990,
+              "locus": "Ri",
+              "body": "pchody.qokchy.dshol.dsy.otgoldl"
+            },
+            {
+              "id": "f68r3.8",
+              "source_line": 1991,
+              "locus": "Ri",
+              "body": "kchoty.oteey.daiin.dcheeody.oteey"
+            },
+            {
+              "id": "f68r3.9",
+              "source_line": 1992,
+              "locus": "Ri",
+              "body": "dchey.qokeey.dcheey.daiir.otchal"
+            },
+            {
+              "id": "f68r3.10",
+              "source_line": 1993,
+              "locus": "Ls",
+              "body": "dchol.dal"
+            },
+            {
+              "id": "f68r3.11",
+              "source_line": 1994,
+              "locus": "Ls",
+              "body": "doaro"
+            },
+            {
+              "id": "f68r3.12",
+              "source_line": 1995,
+              "locus": "La",
+              "body": "oalcheol"
+            },
+            {
+              "id": "f68r3.13",
+              "source_line": 1996,
+              "locus": "Ls",
+              "body": "okos"
+            },
+            {
+              "id": "f68r3.14",
+              "source_line": 1997,
+              "locus": "Ls",
+              "body": "otory"
+            },
+            {
+              "id": "f68r3.15",
+              "source_line": 1998,
+              "locus": "Ls",
+              "body": "chdy.yky"
+            },
+            {
+              "id": "f68r3.16",
+              "source_line": 1999,
+              "locus": "Ls",
+              "body": "a.cphy"
+            },
+            {
+              "id": "f68r3.17",
+              "source_line": 2000,
+              "locus": "Ls",
+              "body": "okolchy"
+            },
+            {
+              "id": "f68r3.18",
+              "source_line": 2001,
+              "locus": "Ls",
+              "body": "o.cthyd"
+            },
+            {
+              "id": "f68r3.19",
+              "source_line": 2002,
+              "locus": "Ls",
+              "body": "otydm"
+            },
+            {
+              "id": "f68r3.20",
+              "source_line": 2003,
+              "locus": "Ls",
+              "body": "darall"
+            },
+            {
+              "id": "f68r3.21",
+              "source_line": 2004,
+              "locus": "Ls",
+              "body": "okchoda"
+            },
+            {
+              "id": "f68r3.22",
+              "source_line": 2005,
+              "locus": "Cc",
+              "body": "otchody.chokchy.okol.cheol.dar.cho.keol.dolaiin.okeol.oly"
+            }
+          ],
+          "labels": [
+            {
+              "id": "f68r3.10",
+              "source_line": 1993,
+              "locus": "Ls",
+              "body": "dchol.dal"
+            },
+            {
+              "id": "f68r3.11",
+              "source_line": 1994,
+              "locus": "Ls",
+              "body": "doaro"
+            },
+            {
+              "id": "f68r3.12",
+              "source_line": 1995,
+              "locus": "La",
+              "body": "oalcheol"
+            },
+            {
+              "id": "f68r3.13",
+              "source_line": 1996,
+              "locus": "Ls",
+              "body": "okos"
+            },
+            {
+              "id": "f68r3.14",
+              "source_line": 1997,
+              "locus": "Ls",
+              "body": "otory"
+            },
+            {
+              "id": "f68r3.15",
+              "source_line": 1998,
+              "locus": "Ls",
+              "body": "chdy.yky"
+            },
+            {
+              "id": "f68r3.16",
+              "source_line": 1999,
+              "locus": "Ls",
+              "body": "a.cphy"
+            },
+            {
+              "id": "f68r3.17",
+              "source_line": 2000,
+              "locus": "Ls",
+              "body": "okolchy"
+            },
+            {
+              "id": "f68r3.18",
+              "source_line": 2001,
+              "locus": "Ls",
+              "body": "o.cthyd"
+            },
+            {
+              "id": "f68r3.19",
+              "source_line": 2002,
+              "locus": "Ls",
+              "body": "otydm"
+            },
+            {
+              "id": "f68r3.20",
+              "source_line": 2003,
+              "locus": "Ls",
+              "body": "darall"
+            },
+            {
+              "id": "f68r3.21",
+              "source_line": 2004,
+              "locus": "Ls",
+              "body": "okchoda"
+            }
+          ]
+        }
+      ],
+      "unparsed_target_records": []
+    }
+  ]
+}

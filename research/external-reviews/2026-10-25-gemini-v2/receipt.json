@@ -1,0 +1,20 @@
+{
+  "status": "SCHEMA_VALID_ONLY",
+  "scientific_status": "PROPOSED_UNVERIFIED",
+  "model": "gemini-3.8-flash",
+  "requested_model": "gemini-3.8-flash",
+  "fallback_discovery": null,
+  "attempts": [
+    {
+      "model": "gemini-3.8-flash",
+      "status": "RESPONSE_PARSED",
+      "timeout_seconds": 180
+    }
+  ],
+  "prompt_sha256": "5646b8a1d5d09371aa21797f4f1f614ed494ab811c72f143fe84d7a2959c4b25",
+  "response_sha256": "e64cd5352ab7197cd55c382466e7b72dd56e2f3add88a45f4690a70e93238c4d",
+  "api_envelope_sha256": "6d4a813393aa72687d9cc8e89fcb02d5eb1671757e9a7e0e2249c2db8057d669",
+  "schema_error_count": 0,
+  "manuscript_corpus_sent": false,
+  "api_attempts": 1
+}

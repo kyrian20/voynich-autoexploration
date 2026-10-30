@@ -1,6 +1,16 @@
 # Investigación computacional del Manuscrito Voynich
 
+**Dirección de investigación — 25-10-2026:** [estrategia de desciframiento y contribución verificable](research/DECIPHERMENT_AND_RECOGNITION_STRATEGY_2026-10-25.md). Priorizar pruebas que distingan explicaciones y una aportación reproducible para revisión externa. El [piloto visual](research/protocols/semantic-anchor-study.md) permanece **BLOCKED** y deja de ser el eje exclusivo: no continuar máscaras sin revisión y anotadores independientes disponibles. No hay traducción validada ni garantía de reconocimiento. Esta decisión no desactiva automatizaciones.
+
 Repositorio de trabajo: `kyrian20/voynich-autoexploration` (rama `master`).
+
+**Auditoría retrospectiva — 24-10-2026:** [inventario de errores conocidos, PR pendientes y verificaciones no concluidas](research/maintenance/2026-10-24-retrospective-audit-status.md). No equivale a ejecutar ni certificar todo el historial. Las propuestas semánticas recientes son protocolos, no traducciones validadas.
+
+**Estado de revisión — 23-10-2026:** no hay validación global del historial ni traducción validada. Las comprobaciones operativas y reproducciones tienen alcance específico. Consulta el [alcance de reparación](research/maintenance/2026-10-23-repair-scope.md), la [revisión de esta base](research/maintenance/2026-10-23-history-status-review.md) y los informes fechados enlazados abajo antes de reutilizar resultados. Los borradores de PR son propuestas; no forman parte de master mientras no se integren.
+
+**Correcciones de EXP-001/267/288 — 23-10-2026:** [adjudicación de tablas, etiquetas e inferencias](research/maintenance/2026-10-22-claim-link-adjudication/REPORT.md) y [alcance de entropía inicial](research/maintenance/2026-10-23-exp001-claim-scope/REPORT.md), con snapshots comprobados y controles explícitos en CI. Las erratas CORRECTION.md junto a los originales indican qué afirmaciones no deben reutilizarse.
+
+**Corrección de EXP-170 — 23-10-2026:** [auditoría de los 400 vectores conservados](research/maintenance/2026-10-22-exp170-audit/REPORT.md) y [tabla corregida](research/maintenance/2026-10-22-exp170-audit/TABLE.md). Corrige 50 componentes numéricos, dos clasificaciones, recuentos y la confusión máximo/media. Los originales se conservan congelados; no se han reproducido las simulaciones ni se validan sus etiquetas de idioma.
 
 **Incremento BPE frente a carácter — 23-10-2026:** [comparación con objetivo idéntico y control de bordes/longitud](research/analysis/2026-10-23-subword-increment/REPORT.md). No se respalda incremento del contexto BPE en las cuatro vistas Voynich; sí se observa en César/Dante. La señal previa también se recupera con un contexto de un carácter. Control estricto de movilidad escasa; no prueba ausencia de lenguaje ni discrimina teorías.
 
@@ -22,11 +32,7 @@ Repositorio de trabajo: `kyrian20/voynich-autoexploration` (rama `master`).
 
 La [batería común lenguaje/cifrado/generación](experiments/common_battery_2026_10_22/result.md) conserva EXP-170 y publica protocolo y resultados nuevos; los tokens archivados siguen pendientes de autorización y recuperación (véase PUBLICACION.md del experimento). Su primaria no discrimina barajados; no valida una teoría del manuscrito.
 
-## Estado operativo actual — 23 octubre 2026
-
-**Sensibilidad técnica:** [48 brazos sintéticos reproducidos](research/analysis/2026-10-23-synthetic-sensitivity/REPORT.md). El residual puede ser cero con dependencia fuerte conocida cuando los bordes ya identifican el token; pequeñas ganancias también pueden reflejar regularización redundante. No es información condicional pura ni evidencia de significado.
-
-**Distancias dos y tres:** [diagnóstico predictivo exploratorio](research/analysis/2026-10-23-lag-screen/REPORT.md), 12 brazos y 192 controles. Sensibilidad insuficiente en Dante y a distancia tres en César: no permite excluir dependencias lingüísticas en Voynich. Reproducción local completa del bloque V1/V2 anterior; no equivale a CI verde.
+## Estado operativo actual — 22 octubre 2026
 
 **Cuatro lectores restantes reproducidos:** [selección efectiva de EXP-267/288/001/170 y defecto de coordenadas de EXP-001](research/maintenance/2026-10-22-remaining-readers/REPORT.md). Coincidencia de secuencias, hashes y seis controles en CI; las entradas bilingües o inglesas siguen excluidas como bases monolingües latinas. No valida los experimentos completos.
 
@@ -69,7 +75,7 @@ La arquitectura de publicación se ha reparado: **un único publicador y 31 work
 - [`research/experiments/2026-10-20-exp590-erratum.md`](research/experiments/2026-10-20-exp590-erratum.md): errata formal para los resultados EXP-590 afectados por el uso histórico de `$Q`.
 - [`state/canonical_methodology.md`](state/canonical_methodology.md): metodología histórica canónica. Puede reflejar convenciones antiguas; contrastar con auditorías recientes.
 - [`state/current_state.md`](state/current_state.md): estado operativo histórico, consultar antes de cambiar decisiones.
-- [`state/working_position.md`](state/working_position.md): síntesis de hipótesis y discriminación teórica.
+- [`state/working_position.md`](state/working_position.md): síntesis histórica archivada; sus etiquetas VALID/RULED OUT y probabilidades no son adjudicaciones actuales. Consultar auditorías posteriores antes de reutilizarlas.
 - [`state/hypothesis_backlog.md`](state/hypothesis_backlog.md): hipótesis pendientes.
 - [`state/findings.md`](state/findings.md): hechos/conclusiones acumuladas; revisar ID y evidencia antes de añadir.
 - [`state/failed_approaches.md`](state/failed_approaches.md): enfoques fallidos o no respaldados.
@@ -128,6 +134,12 @@ Cada conclusión debe apuntar a script, corpus/transcripción, hash, unidad de a
 
 ## Criterio de calidad institucional
 
-El repositorio todavía no se declara completamente limpio: persisten la discrepancia de tokenización, colisiones de IDs entre GitHub y la Biblioteca, y ejecuciones CI cuya confirmación debe comprobarse. La norma de integridad define el orden de cierre. No se borrarán datos históricos ni se publicarán como validados resultados afectados por defectos conocidos.
+El repositorio no se declara completamente validado. El acuerdo de parsers v7 documentado arriba no equivale a conformidad completa IVTFF; quedan casos y adjudicaciones pendientes. Las carpetas históricas ya tienen identificadores inequívocos por ruta, pero faltan reconciliaciones de referencias y artefactos entre GitHub y la Biblioteca. La [guía de verificación CI](research/CI_VERIFICATION.md) explica por qué una consulta filtrada vacía no prueba fallo o ausencia de ejecuciones. Cada commit requiere evidencia propia. No se borran originales ni se consideran válidos resultados afectados por defectos conocidos.
 
 Auditoría del 22-10-2026: [lectores históricos de Cicero, selección efectiva y límites](research/maintenance/2026-10-22-loader-audit/REPORT.md).
+
+## Diagnósticos históricos de dependencias a distancia (23-10-2026)
+
+**Sensibilidad técnica:** [48 brazos sintéticos reproducidos](research/analysis/2026-10-23-synthetic-sensitivity/REPORT.md). El residual puede ser cero con dependencia fuerte conocida cuando los bordes ya identifican el token; pequeñas ganancias también pueden reflejar regularización redundante. No es información condicional pura ni evidencia de significado.
+
+**Distancias dos y tres:** [diagnóstico predictivo exploratorio](research/analysis/2026-10-23-lag-screen/REPORT.md), 12 brazos y 192 controles. Sensibilidad insuficiente en Dante y a distancia tres en César: no permite excluir dependencias lingüísticas en Voynich. Reproducción local completa del bloque V1/V2 anterior; no equivale a CI verde.

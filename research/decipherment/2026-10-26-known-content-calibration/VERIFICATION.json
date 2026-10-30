@@ -1,0 +1,15 @@
+{
+  "status": "REPRODUCED",
+  "scope": "Exact replay of artificial known-content calibration only",
+  "runs_byte_identical": true,
+  "run_01_sha256": "6081afcd1ef5e404a59ffb8e075ce4e6c5c3f9592fbffac9ce0152eb36a9c4c8",
+  "run_02_sha256": "6081afcd1ef5e404a59ffb8e075ce4e6c5c3f9592fbffac9ce0152eb36a9c4c8",
+  "tests_passed": 5,
+  "natural_texts": 2,
+  "positive_recovery_arms": 4,
+  "adversarial_arms": 2,
+  "residual_model_fits_per_run": 6,
+  "manuscript_evaluated": false,
+  "gemini_new_call": false,
+  "python_and_code_hashes": "See results.json"
+}

@@ -1,0 +1,793 @@
+{
+  "status": "REPRODUCED",
+  "scope": "Known-family, known-language artificial cipher calibration only; no manuscript evaluated.",
+  "input_sha256": "c069548868854c29d294efbc3da891a0f5cf7c62878786be78fa13ce5ba5225d",
+  "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+  "sha256": {
+    "run.py": "78c73d10a2282a60100aa19264fdded44d54319cdc652facbd035878aa7204f5",
+    "PROTOCOL.md": "58410466f566c22653d2c873bb47f2989f0967db79569b48d753d6593e4e94a8"
+  },
+  "model_sha256": {
+    "residual_order.py": "19c08029d63ad8f3e3f10aa713b51ff0d6767e0cfa2a1998d05fcb1d8c1d9415",
+    "residual_order_calibrated.py": "0f7d2c00c522e7f98978c7fe0bf03cd5aa6ffad07215a1594a9ff8f0bae099b0"
+  },
+  "results": [
+    {
+      "label": "Latin_Caesar_218",
+      "groups": [
+        [
+          "block0001",
+          "block0002",
+          "block0003",
+          "block0005",
+          "block0006",
+          "block0007",
+          "block0008",
+          "block0009",
+          "block0010",
+          "block0011",
+          "block0013",
+          "block0017",
+          "block0018",
+          "block0019",
+          "block0022",
+          "block0023",
+          "block0026",
+          "block0031",
+          "block0034",
+          "block0035",
+          "block0036",
+          "block0038",
+          "block0041",
+          "block0042",
+          "block0043",
+          "block0046",
+          "block0049",
+          "block0053",
+          "block0055",
+          "block0057",
+          "block0058",
+          "block0059",
+          "block0060",
+          "block0061",
+          "block0063",
+          "block0065",
+          "block0067",
+          "block0068",
+          "block0070",
+          "block0072",
+          "block0073",
+          "block0077",
+          "block0078",
+          "block0079",
+          "block0080",
+          "block0081",
+          "block0082",
+          "block0085",
+          "block0087",
+          "block0088",
+          "block0090",
+          "block0091",
+          "block0092",
+          "block0093",
+          "block0095",
+          "block0096",
+          "block0098",
+          "block0099"
+        ],
+        [
+          "block0012",
+          "block0014",
+          "block0015",
+          "block0020",
+          "block0024",
+          "block0025",
+          "block0028",
+          "block0032",
+          "block0044",
+          "block0045",
+          "block0047",
+          "block0052",
+          "block0056",
+          "block0064",
+          "block0069",
+          "block0071",
+          "block0074",
+          "block0076",
+          "block0083",
+          "block0086",
+          "block0089",
+          "block0100"
+        ],
+        [
+          "block0000",
+          "block0004",
+          "block0016",
+          "block0021",
+          "block0027",
+          "block0029",
+          "block0030",
+          "block0033",
+          "block0037",
+          "block0039",
+          "block0040",
+          "block0048",
+          "block0050",
+          "block0051",
+          "block0054",
+          "block0062",
+          "block0066",
+          "block0075",
+          "block0084",
+          "block0094",
+          "block0097"
+        ]
+      ],
+      "recovery": {
+        "mono": {
+          "selected": {
+            "period": 1,
+            "offset": 13,
+            "development_bits": 3.9936013466788105
+          },
+          "top5": [
+            {
+              "period": 1,
+              "offset": 13,
+              "development_bits": 3.9936013466788105
+            },
+            {
+              "period": 2,
+              "offset": 13,
+              "development_bits": 5.069021492998632
+            },
+            {
+              "period": 2,
+              "offset": 12,
+              "development_bits": 5.325663573574703
+            },
+            {
+              "period": 3,
+              "offset": 13,
+              "development_bits": 5.617020106436386
+            },
+            {
+              "period": 3,
+              "offset": 12,
+              "development_bits": 5.623625904954708
+            }
+          ],
+          "margin_bits": 1.0754201463198219,
+          "candidate_count": 312,
+          "generating_key": {
+            "period": 1,
+            "offset": 13
+          },
+          "key_exact": true,
+          "test": {
+            "exact_tokens": 4115,
+            "tokens": 4115,
+            "token_accuracy": 1.0,
+            "exact_characters": 24360,
+            "characters": 24360,
+            "character_accuracy": 1.0
+          },
+          "identity_decoder_test": {
+            "exact_tokens": 0,
+            "tokens": 4115,
+            "token_accuracy": 0.0,
+            "exact_characters": 0,
+            "characters": 24360,
+            "character_accuracy": 0.0
+          },
+          "ciphertext_dev_sha256": "6afb7b05d246ed15193bffb1e49ab5deeb97f6026bd5f6f607f45a16f5a41850",
+          "ciphertext_test_sha256": "c4e3aeef0851dc2ff2e2f207bd38aabc12858c91df96d5961b146f1f7eaff376",
+          "decoded_test_sha256": "9638513c8e1d737e214b18f5315b12ebf60def277b8273f66513467e5c077504",
+          "truth_test_sha256": "9638513c8e1d737e214b18f5315b12ebf60def277b8273f66513467e5c077504"
+        },
+        "periodic": {
+          "selected": {
+            "period": 7,
+            "offset": 11,
+            "development_bits": 3.9936013466788105
+          },
+          "top5": [
+            {
+              "period": 7,
+              "offset": 11,
+              "development_bits": 3.9936013466788105
+            },
+            {
+              "period": 8,
+              "offset": 11,
+              "development_bits": 4.550484376948872
+            },
+            {
+              "period": 10,
+              "offset": 11,
+              "development_bits": 4.598111915601625
+            },
+            {
+              "period": 11,
+              "offset": 11,
+              "development_bits": 4.604090634536291
+            },
+            {
+              "period": 12,
+              "offset": 11,
+              "development_bits": 4.622072836341587
+            }
+          ],
+          "margin_bits": 0.5568830302700616,
+          "candidate_count": 312,
+          "generating_key": {
+            "period": 7,
+            "offset": 11
+          },
+          "key_exact": true,
+          "test": {
+            "exact_tokens": 4115,
+            "tokens": 4115,
+            "token_accuracy": 1.0,
+            "exact_characters": 24360,
+            "characters": 24360,
+            "character_accuracy": 1.0
+          },
+          "identity_decoder_test": {
+            "exact_tokens": 0,
+            "tokens": 4115,
+            "token_accuracy": 0.0,
+            "exact_characters": 0,
+            "characters": 24360,
+            "character_accuracy": 0.0
+          },
+          "ciphertext_dev_sha256": "a39113c3c214ac4cc8a80bd98c261b50cfb5a732b2fe9944fc78b1ffbf95fffa",
+          "ciphertext_test_sha256": "bcc0e40fef5779482875373f80d6057e792b96477f75859ac11f918b040ade17",
+          "decoded_test_sha256": "9638513c8e1d737e214b18f5315b12ebf60def277b8273f66513467e5c077504",
+          "truth_test_sha256": "9638513c8e1d737e214b18f5315b12ebf60def277b8273f66513467e5c077504"
+        }
+      },
+      "residual_metrics": {
+        "plain": {
+          "gain_bits": 0.028800982438641043,
+          "weights": [
+            0.25,
+            0.1,
+            0.25
+          ],
+          "unknown_rate": 0.21559888579387188,
+          "loss_bits": {
+            "U": 11.378183357015448,
+            "E": 11.209912258045557,
+            "EL": 11.182539940033356,
+            "W": 11.153738957594715
+          },
+          "training_transitions": 10653,
+          "test_transitions": 3590
+        },
+        "mono": {
+          "gain_bits": 0.028800982438641043,
+          "weights": [
+            0.25,
+            0.1,
+            0.25
+          ],
+          "unknown_rate": 0.21559888579387188,
+          "loss_bits": {
+            "U": 11.378183357015448,
+            "E": 11.209912258045557,
+            "EL": 11.182539940033356,
+            "W": 11.153738957594715
+          },
+          "training_transitions": 10653,
+          "test_transitions": 3590
+        },
+        "periodic": {
+          "gain_bits": 0.002053423942104615,
+          "weights": [
+            0.1,
+            0.25,
+            0.1
+          ],
+          "unknown_rate": 0.43537604456824514,
+          "loss_bits": {
+            "U": 13.749926745310848,
+            "E": 13.599535042816107,
+            "EL": 13.56087035122887,
+            "W": 13.558816927286765
+          },
+          "training_transitions": 10653,
+          "test_transitions": 3590
+        }
+      },
+      "adversarial": {
+        "selected": {
+          "period": 7,
+          "offset": 11,
+          "development_bits": 3.9936013466788105
+        },
+        "top5": [
+          {
+            "period": 7,
+            "offset": 11,
+            "development_bits": 3.9936013466788105
+          },
+          {
+            "period": 8,
+            "offset": 11,
+            "development_bits": 4.565261924537277
+          },
+          {
+            "period": 10,
+            "offset": 11,
+            "development_bits": 4.615099352485284
+          },
+          {
+            "period": 11,
+            "offset": 11,
+            "development_bits": 4.619296965950706
+          },
+          {
+            "period": 12,
+            "offset": 11,
+            "development_bits": 4.625348522218162
+          }
+        ],
+        "margin_bits": 0.5716605778584669,
+        "candidate_count": 312,
+        "generating_key": {
+          "period": 7,
+          "offset": 11
+        },
+        "key_exact": true,
+        "test": {
+          "exact_tokens": 4115,
+          "tokens": 4115,
+          "token_accuracy": 1.0,
+          "exact_characters": 24360,
+          "characters": 24360,
+          "character_accuracy": 1.0
+        },
+        "identity_decoder_test": {
+          "exact_tokens": 0,
+          "tokens": 4115,
+          "token_accuracy": 0.0,
+          "exact_characters": 0,
+          "characters": 24360,
+          "character_accuracy": 0.0
+        },
+        "ciphertext_dev_sha256": "2811a5f4c174cdf1563583044d04ec2d1ba0beea2f5db80e01cbf3baa6ae285f",
+        "ciphertext_test_sha256": "d5c36d5c8935cdfc650a670b9050bf1215e0f1d20cfb6da99568e5429cc26d2d",
+        "decoded_test_sha256": "a1f83d239638416b09654274b66fbf3e1f49953c207f537e64393c552c88afaf",
+        "truth_test_sha256": "a1f83d239638416b09654274b66fbf3e1f49953c207f537e64393c552c88afaf"
+      },
+      "adversarial_cleartext_dev_losses": [
+        3.9936013466788105,
+        3.9936013466788105
+      ],
+      "gates": {
+        "all_roundtrips_exact": true,
+        "group_partitions_disjoint": true,
+        "mono_metric_invariant": true,
+        "positive_recovery": true,
+        "adversarial_score_invariant": true
+      }
+    },
+    {
+      "label": "Italian_Dante_1012",
+      "groups": [
+        [
+          "block0001",
+          "block0002",
+          "block0003",
+          "block0005",
+          "block0006",
+          "block0007",
+          "block0008",
+          "block0009",
+          "block0010",
+          "block0011",
+          "block0013",
+          "block0017",
+          "block0018",
+          "block0019",
+          "block0022",
+          "block0023",
+          "block0026",
+          "block0031",
+          "block0034",
+          "block0035",
+          "block0036",
+          "block0038",
+          "block0041",
+          "block0042",
+          "block0043",
+          "block0046",
+          "block0049",
+          "block0053",
+          "block0055",
+          "block0057",
+          "block0058",
+          "block0059",
+          "block0060",
+          "block0061",
+          "block0063",
+          "block0065",
+          "block0067",
+          "block0068",
+          "block0070",
+          "block0072",
+          "block0073",
+          "block0077",
+          "block0078",
+          "block0079",
+          "block0080",
+          "block0081",
+          "block0082",
+          "block0085",
+          "block0087",
+          "block0088",
+          "block0090",
+          "block0091",
+          "block0092",
+          "block0093",
+          "block0095",
+          "block0096",
+          "block0098",
+          "block0099",
+          "block0101",
+          "block0102",
+          "block0103",
+          "block0104",
+          "block0107",
+          "block0109",
+          "block0111",
+          "block0113",
+          "block0114",
+          "block0117",
+          "block0119",
+          "block0121",
+          "block0122",
+          "block0125",
+          "block0126",
+          "block0127",
+          "block0129",
+          "block0130",
+          "block0135",
+          "block0139",
+          "block0140",
+          "block0141",
+          "block0142",
+          "block0145",
+          "block0146",
+          "block0147",
+          "block0149",
+          "block0150",
+          "block0153",
+          "block0154",
+          "block0155"
+        ],
+        [
+          "block0012",
+          "block0014",
+          "block0015",
+          "block0020",
+          "block0024",
+          "block0025",
+          "block0028",
+          "block0032",
+          "block0044",
+          "block0045",
+          "block0047",
+          "block0052",
+          "block0056",
+          "block0064",
+          "block0069",
+          "block0071",
+          "block0074",
+          "block0076",
+          "block0083",
+          "block0086",
+          "block0089",
+          "block0100",
+          "block0110",
+          "block0112",
+          "block0120",
+          "block0124",
+          "block0128",
+          "block0132",
+          "block0133",
+          "block0144"
+        ],
+        [
+          "block0000",
+          "block0004",
+          "block0016",
+          "block0021",
+          "block0027",
+          "block0029",
+          "block0030",
+          "block0033",
+          "block0037",
+          "block0039",
+          "block0040",
+          "block0048",
+          "block0050",
+          "block0051",
+          "block0054",
+          "block0062",
+          "block0066",
+          "block0075",
+          "block0084",
+          "block0094",
+          "block0097",
+          "block0105",
+          "block0106",
+          "block0108",
+          "block0115",
+          "block0116",
+          "block0118",
+          "block0123",
+          "block0131",
+          "block0134",
+          "block0136",
+          "block0137",
+          "block0138",
+          "block0143",
+          "block0148",
+          "block0151",
+          "block0152"
+        ]
+      ],
+      "recovery": {
+        "mono": {
+          "selected": {
+            "period": 1,
+            "offset": 13,
+            "development_bits": 4.015938692309724
+          },
+          "top5": [
+            {
+              "period": 1,
+              "offset": 13,
+              "development_bits": 4.015938692309724
+            },
+            {
+              "period": 2,
+              "offset": 13,
+              "development_bits": 4.978241267422076
+            },
+            {
+              "period": 2,
+              "offset": 12,
+              "development_bits": 5.368329825505193
+            },
+            {
+              "period": 3,
+              "offset": 12,
+              "development_bits": 5.562695176699755
+            },
+            {
+              "period": 3,
+              "offset": 13,
+              "development_bits": 5.661241291718581
+            }
+          ],
+          "margin_bits": 0.9623025751123526,
+          "candidate_count": 312,
+          "generating_key": {
+            "period": 1,
+            "offset": 13
+          },
+          "key_exact": true,
+          "test": {
+            "exact_tokens": 7925,
+            "tokens": 7925,
+            "token_accuracy": 1.0,
+            "exact_characters": 31176,
+            "characters": 31176,
+            "character_accuracy": 1.0
+          },
+          "identity_decoder_test": {
+            "exact_tokens": 46,
+            "tokens": 7925,
+            "token_accuracy": 0.005804416403785489,
+            "exact_characters": 481,
+            "characters": 31176,
+            "character_accuracy": 0.015428534770336157
+          },
+          "ciphertext_dev_sha256": "9125f6c4095d513c812721ccd5a83d94ccfa2c391efc9cbc2bc23dddd529c0bb",
+          "ciphertext_test_sha256": "0f5d53af7dda84b844e92f75de22989f78255f0ebfea3ff11ffe9bf34ca4c1f8",
+          "decoded_test_sha256": "323a2e6f2aaedba7fb266719f68293148010c79b8e80edb1288a89e90031e786",
+          "truth_test_sha256": "323a2e6f2aaedba7fb266719f68293148010c79b8e80edb1288a89e90031e786"
+        },
+        "periodic": {
+          "selected": {
+            "period": 7,
+            "offset": 11,
+            "development_bits": 4.015938692309724
+          },
+          "top5": [
+            {
+              "period": 7,
+              "offset": 11,
+              "development_bits": 4.015938692309724
+            },
+            {
+              "period": 8,
+              "offset": 11,
+              "development_bits": 4.721917969998335
+            },
+            {
+              "period": 10,
+              "offset": 11,
+              "development_bits": 4.791852816153729
+            },
+            {
+              "period": 9,
+              "offset": 11,
+              "development_bits": 4.793377183209331
+            },
+            {
+              "period": 11,
+              "offset": 11,
+              "development_bits": 4.80980378879329
+            }
+          ],
+          "margin_bits": 0.7059792776886118,
+          "candidate_count": 312,
+          "generating_key": {
+            "period": 7,
+            "offset": 11
+          },
+          "key_exact": true,
+          "test": {
+            "exact_tokens": 7925,
+            "tokens": 7925,
+            "token_accuracy": 1.0,
+            "exact_characters": 31176,
+            "characters": 31176,
+            "character_accuracy": 1.0
+          },
+          "identity_decoder_test": {
+            "exact_tokens": 46,
+            "tokens": 7925,
+            "token_accuracy": 0.005804416403785489,
+            "exact_characters": 481,
+            "characters": 31176,
+            "character_accuracy": 0.015428534770336157
+          },
+          "ciphertext_dev_sha256": "e534528a6aac48a860b149a2d62a784f0c929b3ea30c83e423ae9f0e26d2dd1d",
+          "ciphertext_test_sha256": "5c356a205a3b385bd782fa405dd7e4e37372621faaa5accb6031634a7ce8fb80",
+          "decoded_test_sha256": "323a2e6f2aaedba7fb266719f68293148010c79b8e80edb1288a89e90031e786",
+          "truth_test_sha256": "323a2e6f2aaedba7fb266719f68293148010c79b8e80edb1288a89e90031e786"
+        }
+      },
+      "residual_metrics": {
+        "plain": {
+          "gain_bits": 0.0096325383892637,
+          "weights": [
+            0.25,
+            0.25,
+            0.1
+          ],
+          "unknown_rate": 0.15428571428571428,
+          "loss_bits": {
+            "U": 10.28291046195983,
+            "E": 10.00436453302482,
+            "EL": 9.940848322377876,
+            "W": 9.931215783988613
+          },
+          "training_transitions": 17346,
+          "test_transitions": 7000
+        },
+        "mono": {
+          "gain_bits": 0.0096325383892637,
+          "weights": [
+            0.25,
+            0.25,
+            0.1
+          ],
+          "unknown_rate": 0.15428571428571428,
+          "loss_bits": {
+            "U": 10.28291046195983,
+            "E": 10.00436453302482,
+            "EL": 9.940848322377876,
+            "W": 9.931215783988613
+          },
+          "training_transitions": 17346,
+          "test_transitions": 7000
+        },
+        "periodic": {
+          "gain_bits": 0.001990233144294251,
+          "weights": [
+            0.25,
+            0.25,
+            0.1
+          ],
+          "unknown_rate": 0.3082857142857143,
+          "loss_bits": {
+            "U": 12.61873116747767,
+            "E": 12.253686870625856,
+            "EL": 12.206840333073952,
+            "W": 12.204850099929658
+          },
+          "training_transitions": 17346,
+          "test_transitions": 7000
+        }
+      },
+      "adversarial": {
+        "selected": {
+          "period": 7,
+          "offset": 11,
+          "development_bits": 4.015938692309724
+        },
+        "top5": [
+          {
+            "period": 7,
+            "offset": 11,
+            "development_bits": 4.015938692309724
+          },
+          {
+            "period": 8,
+            "offset": 11,
+            "development_bits": 4.700752056549109
+          },
+          {
+            "period": 9,
+            "offset": 11,
+            "development_bits": 4.779513943712517
+          },
+          {
+            "period": 10,
+            "offset": 11,
+            "development_bits": 4.7960155398301945
+          },
+          {
+            "period": 11,
+            "offset": 11,
+            "development_bits": 4.8203646986362685
+          }
+        ],
+        "margin_bits": 0.6848133642393854,
+        "candidate_count": 312,
+        "generating_key": {
+          "period": 7,
+          "offset": 11
+        },
+        "key_exact": true,
+        "test": {
+          "exact_tokens": 7925,
+          "tokens": 7925,
+          "token_accuracy": 1.0,
+          "exact_characters": 31176,
+          "characters": 31176,
+          "character_accuracy": 1.0
+        },
+        "identity_decoder_test": {
+          "exact_tokens": 46,
+          "tokens": 7925,
+          "token_accuracy": 0.005804416403785489,
+          "exact_characters": 481,
+          "characters": 31176,
+          "character_accuracy": 0.015428534770336157
+        },
+        "ciphertext_dev_sha256": "c8d8f566b869f6990c18193f19ca93b8e362637a561727b2a718b047d19a0975",
+        "ciphertext_test_sha256": "156748ad2891bb06314bb5b91f1dbb3293afc7fb63f2795deefd96a0d9fe52ce",
+        "decoded_test_sha256": "67c6a49f6e41c225aae142f587598997a5349d2c1dbb38082f9d076110387f4d",
+        "truth_test_sha256": "67c6a49f6e41c225aae142f587598997a5349d2c1dbb38082f9d076110387f4d"
+      },
+      "adversarial_cleartext_dev_losses": [
+        4.015938692309724,
+        4.015938692309724
+      ],
+      "gates": {
+        "all_roundtrips_exact": true,
+        "group_partitions_disjoint": true,
+        "mono_metric_invariant": true,
+        "positive_recovery": true,
+        "adversarial_score_invariant": true
+      }
+    }
+  ]
+}

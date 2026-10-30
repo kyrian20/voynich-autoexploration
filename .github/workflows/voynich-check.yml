@@ -24,12 +24,42 @@ jobs:
           python-version: "3.12"
 
       - name: Instalar lector YAML para auditoría operativa
-        run: python -m pip install PyYAML==6.0.3
+        run: python -m pip install PyYAML==6.0.3 Pillow==12.3.0
+
+      - name: Probar diagnóstico Gemini con transporte simulado (sin red)
+        run: python -m unittest discover -s tests -p 'test_gemini_smoke.py' -v
+
+      - name: Validar contratos de revisión Gemini sin acceso a red
+        run: python -m unittest discover -s tests -p 'test_gemini_review.py' -v
+
+      - name: Probar límite de solicitud Gemini sin red ni credenciales
+        run: |
+          python -m unittest discover -s tests -p 'test_gemini_review_request.py' -v
+          python -m unittest discover -s tests -p 'test_gemini_failure_diagnostics.py' -v
+          python -m unittest discover -s tests -p 'test_gemini_transient_fallback.py' -v
 
       - name: Auditar contratos operativos y cobertura de registros
         run: |
           python tests/test_repository_operations.py
+          python -m unittest discover -s tests -p 'test_experiment_registry_aliases.py' -v
+          python -m unittest discover -s tests -p 'test_ambiguous_exp_references.py' -v
           python scripts/audit_repository_operations.py
+
+      - name: Comprobar barrera de fuentes del publicador ante carreras de rebase
+        run: |
+          python -m unittest discover -s tests -p 'test_publisher_source_drift.py' -v
+          python -O -m unittest discover -s tests -p 'test_publisher_source_drift.py' -v
+
+      - name: Inventariar referencias históricas EXP ambiguas
+        run: python scripts/audit_ambiguous_exp_references.py --out ambiguous-exp-references.json
+
+      - name: Conservar inventario de referencias ambiguas
+        uses: actions/upload-artifact@v4
+        with:
+          name: ambiguous-exp-references-${{ github.run_id }}
+          path: ambiguous-exp-references.json
+          if-no-files-found: error
+          retention-days: 90
 
       - name: Comprobar identidad de corpus y control de duplicados
         run: |
@@ -37,20 +67,295 @@ jobs:
           python scripts/check_corpus_integrity.py
           python tests/test_duplicate_leakage.py
 
+      - name: Auditar alcance de remuestreo físico histórico EXP-601
+        run: |
+          python -m unittest discover -s tests -p 'test_exp601_physical_leaf_cluster_scope.py' -v
+          python -O -m unittest discover -s tests -p 'test_exp601_physical_leaf_cluster_scope.py' -v
+          python scripts/audit_exp601_physical_leaf_cluster_scope.py --out exp601-physical-leaf-scope.json
+          sha256sum exp601-physical-leaf-scope.json > exp601-physical-leaf-scope.sha256
+
+      - name: Conservar evidencia de unidad de bootstrap EXP-601
+        uses: actions/upload-artifact@v4
+        with:
+          name: exp601-physical-leaf-scope-${{ github.run_id }}
+          path: |
+            exp601-physical-leaf-scope.json
+            exp601-physical-leaf-scope.sha256
+          if-no-files-found: error
+          retention-days: 90
+
+      - name: Auditar holdout físico histórico de EXP-607
+        run: |
+          python -m unittest discover -s tests -p 'test_exp607_physical_leaf_holdout.py' -v
+          python -O -m unittest discover -s tests -p 'test_exp607_physical_leaf_holdout.py' -v
+          python scripts/audit_exp607_physical_leaf_holdout.py --out exp607-physical-leaf-holdout.json
+
+      - name: Conservar evidencia de partición física EXP-607
+        uses: actions/upload-artifact@v4
+        with:
+          name: exp607-physical-leaf-holdout-${{ github.run_id }}
+          path: exp607-physical-leaf-holdout.json
+          if-no-files-found: error
+          retention-days: 90
+
+      - name: Auditar partición física histórica de GH-602 y EXP-603
+        run: |
+          python -m unittest discover -s tests -p 'test_exp602_exp603_physical_leaf_holdout.py' -v
+          python -O -m unittest discover -s tests -p 'test_exp602_exp603_physical_leaf_holdout.py' -v
+          python scripts/audit_exp602_exp603_physical_leaf_holdout.py --out exp602-exp603-physical-leaf.json
+
+      - name: Conservar evidencia de hojas compartidas GH-602 y EXP-603
+        uses: actions/upload-artifact@v4
+        with:
+          name: exp602-exp603-physical-leaf-${{ github.run_id }}
+          path: exp602-exp603-physical-leaf.json
+          if-no-files-found: error
+          retention-days: 90
+
+      - name: Auditar contaminación por hoja física de pilotos LIB-EXP-623
+        run: |
+          python -m unittest discover -s tests -p 'test_library_exp623_leaf_leakage.py' -v
+          python -O -m unittest discover -s tests -p 'test_library_exp623_leaf_leakage.py' -v
+          python scripts/audit_library_exp623_leaf_leakage.py --check --out library-exp623-leaf-leakage.json
+
+      - name: Conservar evidencia de solapamiento físico LIB-EXP-623
+        uses: actions/upload-artifact@v4
+        with:
+          name: library-exp623-leaf-leakage-${{ github.run_id }}
+          path: library-exp623-leaf-leakage.json
+          if-no-files-found: error
+          retention-days: 90
+
+      - name: Auditar independencia de hojas físicas en piloto LIB-EXP-624
+        run: |
+          python -m unittest discover -s tests -p 'test_library_exp624_leaf_leakage.py' -v
+          python -O -m unittest discover -s tests -p 'test_library_exp624_leaf_leakage.py' -v
+          python scripts/audit_library_exp624_leaf_leakage.py --check --out library-exp624-leaf-leakage.json
+          sha256sum library-exp624-leaf-leakage.json > library-exp624-leaf-leakage.sha256
+
+      - name: Conservar evidencia por semilla y hash de LIB-EXP-624
+        uses: actions/upload-artifact@v4
+        with:
+          name: library-exp624-leaf-leakage-${{ github.run_id }}
+          path: |
+            library-exp624-leaf-leakage.json
+            library-exp624-leaf-leakage.sha256
+          if-no-files-found: error
+          retention-days: 90
+
+      - name: Comprobar corrección de asignación por hoja física LIB-EXP-624
+        run: |
+          python -m unittest discover -s tests -p 'test_library_exp624_leaf_grouped_splits.py' -v
+          python -O -m unittest discover -s tests -p 'test_library_exp624_leaf_grouped_splits.py' -v
+          python scripts/prepare_library_exp624_leaf_grouped_splits.py --out library-exp624-grouped-allocation.json
+          sha256sum library-exp624-grouped-allocation.json > library-exp624-grouped-allocation.sha256
+
+      - name: Conservar asignación corregida y hash LIB-EXP-624
+        uses: actions/upload-artifact@v4
+        with:
+          name: library-exp624-grouped-allocation-${{ github.run_id }}
+          path: |
+            library-exp624-grouped-allocation.json
+            library-exp624-grouped-allocation.sha256
+          if-no-files-found: error
+          retention-days: 90
+
+      - name: Verificar inventario astronómico y separar páginas numéricas de Rosettes
+        run: |
+          ANCHOR_REPO_ROOT=. python -m unittest discover -s research/decipherment/2026-10-26-astronomical-anchor -p 'test_run.py' -v
+          ANCHOR_REPO_ROOT=. python -O -m unittest discover -s research/decipherment/2026-10-26-astronomical-anchor -p 'test_run.py' -v
+          python research/decipherment/2026-10-26-astronomical-anchor/run.py --repo-root . --output anchor-inventory-v2-first.json
+          python research/decipherment/2026-10-26-astronomical-anchor/run.py --repo-root . --output anchor-inventory-v2-second.json
+          cmp anchor-inventory-v2-first.json anchor-inventory-v2-second.json
+
+      - name: Conservar inventario astronómico corregido
+        uses: actions/upload-artifact@v4
+        with:
+          name: astronomical-anchor-v2-${{ github.run_id }}
+          path: anchor-inventory-v2-first.json
+          if-no-files-found: error
+          retention-days: 90
+
+      - name: Auditar exclusiones de identidad de corpus históricos
+        run: |
+          python -m unittest discover -s tests -p 'test_corpus_identity_overlay.py' -v
+          python scripts/audit_corpus_identity_overlay.py
+
+      - name: Verificar partición prospectiva por hoja física
+        run: |
+          python -m unittest discover -s tests -p 'test_prospective_leaf_holdout.py' -v
+          python scripts/prepare_prospective_leaf_holdout.py --out prospective-leaf-holdout.json
+          cmp research/decipherment/2026-10-23-prospective-leaf-holdout/manifest.json prospective-leaf-holdout.json
+
+      - name: Verificar corrección de paneles y manifiesto v2 sin alterar v1
+        run: |
+          python -m unittest discover -s tests -p 'test_prospective_leaf_holdout_v2.py' -v
+          python scripts/prepare_prospective_leaf_holdout_v2.py --out prospective-leaf-holdout-v2.json
+          cmp research/decipherment/2026-10-23-prospective-leaf-holdout/manifest-v2.json prospective-leaf-holdout-v2.json
+
+      - name: Comprobar independientemente la cobertura y particiones archivadas
+        run: python -m unittest discover -s tests -p 'test_committed_holdout_manifest_invariants.py' -v
+
+      - name: Auditar loci numéricos y no numéricos excluidos del holdout
+        run: |
+          python -m unittest discover -s tests -p 'test_holdout_locus_coverage.py' -v
+          python -m unittest discover -s tests -p 'test_holdout_manifest_json_integrity.py' -v
+          python -m unittest discover -s tests -p 'test_holdout_manifest_contract.py' -v
+          python scripts/audit_holdout_locus_coverage.py --out holdout-locus-coverage.json
+          python -m unittest discover -s tests -p 'test_holdout_page_crosswalk.py' -v
+          python scripts/audit_holdout_page_crosswalk.py --out holdout-page-crosswalk.json
+          cmp research/maintenance/2026-10-25-holdout-page-crosswalk/results.json holdout-page-crosswalk.json
+
+      - name: Conservar cobertura de loci no asignados
+        uses: actions/upload-artifact@v4
+        with:
+          name: holdout-locus-coverage-${{ github.run_id }}
+          path: holdout-locus-coverage.json
+          if-no-files-found: error
+          retention-days: 90
+
+      - name: Conservar manifiesto v2 corregido con hashes
+        uses: actions/upload-artifact@v4
+        with:
+          name: prospective-leaf-holdout-v2-${{ github.run_id }}
+          path: prospective-leaf-holdout-v2.json
+          if-no-files-found: error
+          retention-days: 90
+
+      - name: Conservar manifiesto prospectivo con hashes
+        uses: actions/upload-artifact@v4
+        with:
+          name: prospective-leaf-holdout-${{ github.run_id }}
+          path: prospective-leaf-holdout.json
+          if-no-files-found: error
+          retention-days: 90
+
+      - name: Vincular cada registro del inventario visual con su línea fuente original
+        run: |
+          python -m unittest discover -s tests -p 'test_visual_inventory_json_integrity.py' -v
+          python -m unittest discover -s tests -p 'test_visual_inventory_source_rows.py' -v
+          python scripts/audit_visual_inventory_source_rows.py --out visual-inventory-source-rows.json
+          sha256sum visual-inventory-source-rows.json > visual-inventory-source-rows.sha256
+
+      - name: Conservar prueba de vinculación de líneas y hash
+        uses: actions/upload-artifact@v4
+        with:
+          name: visual-inventory-source-rows-${{ github.run_id }}
+          path: |
+            visual-inventory-source-rows.json
+            visual-inventory-source-rows.sha256
+          if-no-files-found: error
+          retention-days: 90
+
+      - name: Comprobar completitud L/R del inventario frente a las líneas fuente
+        run: |
+          python -m unittest discover -s tests -p 'test_visual_inventory_completeness.py' -v
+          python scripts/audit_visual_inventory_completeness.py --out visual-inventory-completeness.json
+          sha256sum visual-inventory-completeness.json > visual-inventory-completeness.sha256
+
+      - name: Conservar censo independiente L/R y su hash
+        uses: actions/upload-artifact@v4
+        with:
+          name: visual-inventory-completeness-${{ github.run_id }}
+          path: |
+            visual-inventory-completeness.json
+            visual-inventory-completeness.sha256
+          if-no-files-found: error
+          retention-days: 90
+      - name: Reproducir las ocho proyecciones de cada etiqueta archivada
+        run: |
+          python -m unittest discover -s tests -p 'test_visual_inventory_projections.py' -v
+          python scripts/audit_visual_inventory_projections.py --out visual-inventory-projections.json
+          sha256sum visual-inventory-projections.json > visual-inventory-projections.sha256
+
+      - name: Conservar auditoría de proyecciones y hash
+        uses: actions/upload-artifact@v4
+        with:
+          name: visual-inventory-projections-${{ github.run_id }}
+          path: |
+            visual-inventory-projections.json
+            visual-inventory-projections.sha256
+          if-no-files-found: error
+          retention-days: 90
+
+      - name: Verificar cola visual y cobertura de etiquetas sin evaluar semántica
+        run: |
+          python -m unittest discover -s tests -p 'test_visual_pilot_frozen_manifest.py' -v
+          python -m unittest discover -s tests -p 'test_visual_annotation_queue.py' -v
+          python scripts/select_visual_pilot_v2.py --out "$RUNNER_TEMP/pilot-selection-v2.json"
+          cmp research/decipherment/2026-10-25-visual-annotation/pilot-selection-v2.json "$RUNNER_TEMP/pilot-selection-v2.json"
+          python -m unittest discover -s tests -p 'test_label_partition_coverage.py' -v
+          python -m unittest discover -s tests -p 'test_coordinator_mask_preview.py' -v
+          python -m unittest discover -s tests -p 'test_mask_candidate.py' -v
+          python scripts/audit_label_partition_coverage.py --out "$RUNNER_TEMP/label-coverage.json"
+          cmp research/decipherment/2026-10-25-label-coverage/coverage.json "$RUNNER_TEMP/label-coverage.json"
+          python scripts/prepare_visual_annotation_queue.py --out-dir "$RUNNER_TEMP/visual-queue"
+          cmp research/decipherment/2026-10-25-visual-annotation/annotator-queue.json.gz "$RUNNER_TEMP/visual-queue/annotator-queue.json.gz"
+          cmp research/decipherment/2026-10-25-visual-annotation/coordinator-map.json.gz "$RUNNER_TEMP/visual-queue/coordinator-map.json.gz"
+          cmp research/decipherment/2026-10-25-visual-annotation/SHA256.json "$RUNNER_TEMP/visual-queue/SHA256.json"
+
       - name: Reproducir auditoría de lectores históricos
         run: |
           python tests/test_historical_latin_loaders.py
           python scripts/audit_historical_latin_loaders.py --check research/maintenance/2026-10-22-loader-audit/results.json
 
+      - name: Verificar correcciones de afirmaciones históricas EXP-001/267/288
+        run: |
+          python tests/test_reference_claim_links.py
+          python scripts/audit_reference_claim_links.py --check research/maintenance/2026-10-22-claim-link-adjudication/results.json
+          python tests/test_exp001_claim_scope.py
+          python scripts/audit_exp001_claim_scope.py --check research/maintenance/2026-10-23-exp001-claim-scope/results.json
+
       - name: Reproducir cuatro lectores de referencia restantes
         run: |
           python tests/test_remaining_reference_loaders.py
+          python -O tests/test_remaining_reference_loaders.py
           python scripts/audit_remaining_reference_loaders.py --check research/maintenance/2026-10-22-remaining-readers/results.json
+          python -O scripts/audit_remaining_reference_loaders.py --check research/maintenance/2026-10-22-remaining-readers/results.json
+
+      - name: Auditar estadísticas archivadas de EXP-170 sin ejecutar el cifrador
+        run: |
+          python tests/test_exp170_archive.py
+          python -O tests/test_exp170_archive.py
+          python scripts/audit_exp170_archive.py --check research/maintenance/2026-10-22-exp170-audit/results.json
+          python -O scripts/audit_exp170_archive.py --check research/maintenance/2026-10-22-exp170-audit/results.json
+
+      - name: Comprobar aislamiento de reconstrucción EXP-170 sin ejecutar cifrador
+        run: |
+          python -m unittest discover -s tests -p 'test_exp170_isolated_reconstruction.py' -v
+          python -O -m unittest discover -s tests -p 'test_exp170_isolated_reconstruction.py' -v
 
       - name: Reproducir sensibilidad de entropía de referencia
         run: |
           python tests/test_reference_entropy_sensitivity.py
           python scripts/audit_reference_entropy_sensitivity.py --check research/maintenance/2026-10-22-reference-sensitivity/results.json
+
+      - name: Verificar alcance bilingüe del comparador EXP-259
+        run: |
+          python -m unittest discover -s tests -p 'test_exp259_latin_claim.py' -v
+          python scripts/audit_exp259_latin_claim.py --out exp259-scope.json
+
+      - name: Conservar recibo de adjudicación EXP-259
+        uses: actions/upload-artifact@v4
+        with:
+          name: exp259-comparator-scope-${{ github.run_id }}
+          path: exp259-scope.json
+          if-no-files-found: error
+          retention-days: 90
+
+      - name: Contrastar estimador MI de EXP-260 con controles exactos
+        run: |
+          python tests/test_exp260_mi_scope.py
+          python scripts/audit_exp260_mi_scope.py --out exp260-mi-scope.json
+          python scripts/check_audit_snapshot.py research/maintenance/2026-10-24-exp260-mi/results.json exp260-mi-scope.json
+
+      - name: Conservar diagnóstico de MI EXP-260
+        uses: actions/upload-artifact@v4
+        with:
+          name: exp260-mi-scope-${{ github.run_id }}
+          path: exp260-mi-scope.json
+          if-no-files-found: error
+          retention-days: 90
 
       - name: Reproducir auditorías acotadas de EXP-173
         run: |
@@ -138,6 +443,19 @@ jobs:
 
       - name: Probar capa léxica IVTFF sin pérdida
         run: python tests/test_ivtff_lossless.py
+
+      - name: Rechazar dígitos Unicode en filas del lector histórico congelado
+        run: |
+          python -m unittest discover -s tests -p 'test_readiness_ascii_guard.py' -v
+          python scripts/audit_readiness_ascii_guard.py > readiness-ascii-preflight.json
+
+      - name: Conservar preflight ASCII con hashes de corpus
+        uses: actions/upload-artifact@v4
+        with:
+          name: readiness-ascii-preflight-${{ github.run_id }}
+          path: readiness-ascii-preflight.json
+          if-no-files-found: error
+          retention-days: 90
 
       - name: Auditar preservación de información en tres transcripciones
         run: python scripts/audit_research_readiness.py > intensive-readiness.json
@@ -249,10 +567,20 @@ jobs:
         run: python tests/test_ivtff_metadata.py
 
       - name: Validar metadatos Currier desde IVTFF
-        run: python scripts/audit_ivtff_metadata.py
+        run: |
+          python scripts/audit_ivtff_metadata.py
+          python tests/test_ivtff_metadata_strict.py
+          python scripts/audit_ivtff_metadata_strict.py
 
-      - name: Inventariar spans entre llaves sin alterar resultados
-        run: python scripts/audit_ivtff_brace_spans.py
+      - name: Rechazar cabeceras físicas IVTFF repetidas sin alterar lectores históricos
+        run: |
+          python -m unittest discover -s tests -p 'test_ivtff_unique_page_headers.py' -v
+          python scripts/audit_ivtff_unique_page_headers.py
+
+      - name: Probar alcance de ligaduras y ejecutar inventario sin mutar fuentes
+        run: |
+          python -m unittest discover -s tests -p 'test_ivtff_brace_spans.py' -v
+          python scripts/audit_ivtff_brace_spans.py
 
       - name: Probar vistas alternativas de ligaduras IVTFF
         run: python tests/test_ivtff_ligature_views.py
@@ -262,7 +590,29 @@ jobs:
 
       - name: Probar cobertura de identificadores IVTFF en EXP-590
         run: python tests/test_exp590_ivtff_line_ids.py
-      - name: Reproducir EXP-590 con cobertura ampliada
+
+      - name: Comprobar portabilidad EXP-593 desde otro directorio
+        run: python -m unittest discover -s tests -p 'test_exp593_cwd_portability.py' -v
+
+      - name: Impedir sobrescritura de resultados fechados EXP-593
+        run: python -m unittest discover -s tests -p 'test_exp593_archive_guard.py' -v
+      - name: Conciliar loci no tokenizados de EXP-590 sin reejecutar simulaciones
+        run: |
+          python -m unittest discover -s tests -p 'test_exp590_empty_loci.py' -v
+          python scripts/audit_exp590_empty_loci.py --check-canonical --out "${{ runner.temp }}/exp590-empty-loci.json"
+
+      - name: Conservar conciliación por locus de EXP-590
+        uses: actions/upload-artifact@v4
+        with:
+          name: exp590-empty-loci-${{ github.run_id }}
+          path: ${{ runner.temp }}/exp590-empty-loci.json
+          if-no-files-found: error
+          retention-days: 90
+
+      - name: Impedir sobrescritura de resultados fechados EXP-590
+        run: python -m unittest discover -s tests -p 'test_exp590_archive_guard.py' -v
+
+      - name: Verificar archivo existente o ejecutar EXP-590 con cobertura ampliada
         id: exp590
         run: |
           python scripts/exp590_daiin_position.py
@@ -302,7 +652,9 @@ jobs:
         run: python experiments/exp_573_c007_reconciliation/script.py
 
       - name: Probar regresiones de identificadores de página y locus IVTFF
-        run: python tests/test_ivtff_page_locus_ids.py
+        run: |
+          python tests/test_ivtff_page_locus_ids.py
+          python -m unittest discover -s tests -p 'test_ivtff_physical_row_boundaries.py' -v
 
       - name: Auditar cobertura estructural de identificadores IVTFF
         run: python scripts/audit_ivtff_page_locus_ids.py
@@ -327,3 +679,20 @@ jobs:
 
       - name: Reproducir sensibilidad sintética y comprobar contextos redundantes
         run: python research/analysis/2026-10-23-synthetic-sensitivity/replay.py
+
+      - name: Auditar semántica histórica de removed en EXP-616
+        run: |
+          python -m unittest discover -s tests -p 'test_exp616_legacy_schema.py' -v
+          python -O -m unittest discover -s tests -p 'test_exp616_legacy_schema.py' -v
+          python scripts/audit_exp616_legacy_schema.py --out exp616-schema-correction.json
+          sha256sum exp616-schema-correction.json > exp616-schema-correction.sha256
+
+      - name: Conservar corrección derivada EXP-616 y hash
+        uses: actions/upload-artifact@v4
+        with:
+          name: exp616-schema-correction-${{ github.run_id }}
+          path: |
+            exp616-schema-correction.json
+            exp616-schema-correction.sha256
+          if-no-files-found: error
+          retention-days: 90

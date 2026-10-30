@@ -1,0 +1,14 @@
+{
+  "status": "API_OR_RESPONSE_ERROR",
+  "error_category": "HTTP_ERROR",
+  "http_status": 503,
+  "timeout_seconds": 180,
+  "scientific_status": "BLOCKED",
+  "model": "gemini-3.8-flash",
+  "prompt_sha256": "5646b8a1d5d09371aa21797f4f1f614ed494ab811c72f143fe84d7a2959c4b25",
+  "response_sha256": null,
+  "api_envelope_sha256": null,
+  "schema_error_count": null,
+  "manuscript_corpus_sent": false,
+  "api_attempts": 1
+}

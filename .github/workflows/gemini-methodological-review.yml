@@ -1,0 +1,63 @@
+name: Gemini methodological review (manual, opt-in)
+
+on:
+  workflow_dispatch:
+    inputs:
+      model:
+        description: "Exact compatible Gemini model name verified by smoke test"
+        required: true
+        type: choice
+        options:
+          - gemini-3.5-flash-lite
+          - gemini-3.8-flash
+
+permissions:
+  contents: read
+
+concurrency:
+  group: gemini-methodological-review
+  cancel-in-progress: false
+
+jobs:
+  independent-review:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 6
+    steps:
+      - name: Checkout only reviewed scripts and fixed public prompt
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          ref: master
+          sparse-checkout: |
+            scripts/request_gemini_review.py
+            scripts/validate_gemini_review.py
+            research/protocols/2026-10-25-gemini-ch-sh-review-prompt-v2.md
+          sparse-checkout-cone-mode: false
+
+      - name: Verify corpus files were not checked out
+        shell: bash
+        run: |
+          test ! -e data
+          test ! -e state
+          test ! -e research/experiments
+          test -f scripts/request_gemini_review.py
+          test -f research/protocols/2026-10-25-gemini-ch-sh-review-prompt-v2.md
+
+      - name: Execute one opt-in methodological review
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_MODEL: ${{ inputs.model }}
+          REVIEW_OUTPUT: ${{ runner.temp }}/gemini-review
+        shell: bash
+        run: |
+          set +x
+          python3 scripts/request_gemini_review.py --model "$GEMINI_MODEL" --output-dir "$REVIEW_OUTPUT" --execute
+
+      - name: Preserve untrusted proposal and provenance receipt
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: gemini-method-review-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/gemini-review/
+          if-no-files-found: warn
+          retention-days: 30

@@ -1,0 +1,71 @@
+{
+  "coordinate_system": "Original source image pixels; x/y from top-left; width/height; masks refer to original not cropped coordinates.",
+  "plans": [
+    {
+      "folio": "f2r",
+      "source_sha256": "826533a0760798acf5a4caa01ac29fe95eb1ed13a9fb26ac82900a8aea11d53f",
+      "source_size": [
+        2691,
+        3770
+      ],
+      "status": "PROPOSED_COORDINATOR_REGIONS_NOT_MASKED_OR_INDEPENDENTLY_REVIEWED",
+      "label_locator": "f2r.14",
+      "crop_xywh": null,
+      "mask_rectangles_xywh": [],
+      "mask_reviewed_by": null,
+      "annotation_ready": false,
+      "observer_exposure": "Same assistant has seen EVA and prior candidate hypotheses; not a blinded annotator.",
+      "notes": "Text lies adjacent to or between drawn structures. Broad rectangular masking may remove botanical features. Require fine manual segmentation or document exclusion; no rectangular mask proposed."
+    },
+    {
+      "folio": "f41v",
+      "source_sha256": "bc753d5f30cfcbd5ad6479bb16205652d55b94da16fcbba1d78574674e3743ea",
+      "source_size": [
+        2882,
+        3769
+      ],
+      "status": "PROPOSED_COORDINATOR_REGIONS_NOT_MASKED_OR_INDEPENDENTLY_REVIEWED",
+      "label_locator": "f41v.1",
+      "crop_xywh": null,
+      "mask_rectangles_xywh": [],
+      "mask_reviewed_by": null,
+      "annotation_ready": false,
+      "observer_exposure": "Same assistant has seen EVA and prior candidate hypotheses; not a blinded annotator.",
+      "notes": "Text lies adjacent to or between drawn structures. Broad rectangular masking may remove botanical features. Require fine manual segmentation or document exclusion; no rectangular mask proposed."
+    },
+    {
+      "folio": "f65r",
+      "source_sha256": "dc7a0c45454665f33287804ec56f8eaa952a691540fc6fd434e79d75c7ce597f",
+      "source_size": [
+        2793,
+        3707
+      ],
+      "status": "PROPOSED_COORDINATOR_REGIONS_NOT_MASKED_OR_INDEPENDENTLY_REVIEWED",
+      "label_locator": "f65r.1",
+      "crop_xywh": [
+        120,
+        30,
+        2450,
+        3590
+      ],
+      "mask_rectangles_xywh": [
+        [
+          370,
+          2510,
+          430,
+          105
+        ],
+        [
+          2160,
+          70,
+          300,
+          180
+        ]
+      ],
+      "mask_reviewed_by": null,
+      "annotation_ready": false,
+      "observer_exposure": "Same assistant has seen EVA and prior candidate hypotheses; not a blinded annotator.",
+      "notes": "Coarse starting rectangles for lower-left label and upper-right foliation; inspect at full resolution. Check central upper crease and all background marks for remaining text. Crop can remove peripheral detail: not approved for taxonomy. Initial lower-left rectangle overlapped a leaf tip in coordinator preview; reduced to [370,2510,430,105]. Still requires full-resolution and independent review."
+    }
+  ]
+}

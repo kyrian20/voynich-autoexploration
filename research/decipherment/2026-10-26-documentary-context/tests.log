@@ -1,0 +1,9 @@
+test_duplicate_refused (test_counts.CountsTests.test_duplicate_refused) ... ok
+test_non_numeric_exclusion_visible (test_counts.CountsTests.test_non_numeric_exclusion_visible) ... ok
+test_records_are_not_tokens (test_counts.CountsTests.test_records_are_not_tokens) ... ok
+test_twelve_is_only_count_condition (test_counts.CountsTests.test_twelve_is_only_count_condition) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.000s
+
+OK

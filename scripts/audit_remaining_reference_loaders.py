@@ -6,6 +6,12 @@ import hashlib
 import json
 from pathlib import Path
 import re
+import sys
+
+# CLI execution from scripts/ and direct test imports must use the same guard.
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from scripts.audit_corpus_identity_overlay import audit as audit_identity_overlay
+from scripts.check_corpus_integrity import unique_keys
 
 ROOT = Path(__file__).resolve().parents[1]
 BASE = 'aa9ec5399e7a5cdf8d1b2890fa657f1358825b41'
@@ -16,8 +22,41 @@ CASES = [('exp_267_word_length_position', CICERO),
          ('exp_001_word_initial_entropy', VULGATE),
          ('exp_170_naibbe_simulation', VULGATE)]
 
+
+# Independent pre-execution identities copied from the frozen 2026-10-22
+# reader snapshot. Do not derive these from a mutable --check JSON.
+FROZEN_READER_SCRIPTS = {
+    'experiments/exp_267_word_length_position/script.py':
+        'f4197d8c18802d9d54def8d13f5ab83967d94c82f78427e77b67d92720ba4f44',
+    'experiments/exp_288_stolfi_onset_decomp/script.py':
+        '913ae5a8c5abd34f4bd7966aa36950e1b4d96835d5ad06f7f5aad628e27c8b32',
+    'experiments/exp_001_word_initial_entropy/script.py':
+        '91cb9febee7752d56fe91eeaa43155590b405b46cdd18330acb9271fd7816f59',
+    'experiments/exp_170_naibbe_simulation/script.py':
+        '8fe0f7d153211b320b34ca8543dac1ba029e629c4413c203fb2df0031063721c',
+}
+
 def sha(raw):
     return hashlib.sha256(raw).hexdigest()
+
+
+def verify_frozen_reader_scripts(root):
+    """Reject changed/missing/linked historical scripts before any AST execution.
+
+    The low-level replay() is intentionally fixture-capable; compute() is the
+    protected production entry point. This does not authenticate past runs.
+    """
+    for relative, expected_sha256 in FROZEN_READER_SCRIPTS.items():
+        candidate = root
+        for component in Path(relative).parts:
+            candidate = candidate / component
+            if candidate.is_symlink():
+                raise ValueError('Frozen reader script symlink: ' + relative)
+        if not candidate.is_file():
+            raise ValueError('Frozen reader script missing: ' + relative)
+        if sha(candidate.read_bytes()) != expected_sha256:
+            raise ValueError('Frozen reader script drift: ' + relative)
+
 
 def select(tree, experiment):
     if experiment.startswith(('exp_001', 'exp_170')):
@@ -117,9 +156,27 @@ def replay(experiment, path, corpus):
              'note':'Coordinate correction only; the remainder of the START title line is still retained. No clean-body claim.'}
     return row
 
+def load_verified_reference_metadata(root):
+    """Validate both frozen manifest and identity overlay before replay.
+
+    The old dictionary comprehension silently accepted duplicate paths and
+    unreviewed identity changes when this CLI was used outside the full CI.
+    Do not reclassify a corpus or replace any historical input here.
+    """
+    manifest = json.loads((root/'research/CORPUS_INPUT_MANIFEST.json').read_text(encoding='utf-8'),
+                          object_pairs_hook=unique_keys)
+    review = json.loads((root/'research/CORPUS_IDENTITY_REVIEW.json').read_text(encoding='utf-8'),
+                        object_pairs_hook=unique_keys)
+    errors = audit_identity_overlay(root, manifest, review)
+    if errors:
+        raise ValueError('Frozen reference provenance failed: ' + '; '.join(errors))
+    return {row['path']: row for row in review['excluded_from_new_language_baselines']}
+
+
 def compute():
-    review = json.loads((ROOT/'research/CORPUS_IDENTITY_REVIEW.json').read_text())
-    metadata = {r['path']: r for r in review['excluded_from_new_language_baselines']}
+    # Check exact historical script bytes before selecting/compiling any AST.
+    verify_frozen_reader_scripts(ROOT)
+    metadata = load_verified_reference_metadata(ROOT)
     for corpus in {c for e,c in CASES}:
         if sha((ROOT/corpus).read_bytes()) != metadata[corpus]['sha256']:
             raise ValueError('Frozen corpus changed: '+corpus)

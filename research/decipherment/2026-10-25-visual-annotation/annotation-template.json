@@ -1,0 +1,14 @@
+{
+  "task_id": "REPLACE_FROM_QUEUE",
+  "annotator_id": "REPLACE_WITH_ACTUAL_ID",
+  "round": "independent_initial",
+  "category": "uncertain",
+  "confidence": "low",
+  "image_sha256": null,
+  "timestamp": null,
+  "saw_eva": null,
+  "saw_prior_hypotheses": null,
+  "external_referent": null,
+  "external_source": null,
+  "notes": "TEMPLATE ONLY: not an observed annotation"
+}

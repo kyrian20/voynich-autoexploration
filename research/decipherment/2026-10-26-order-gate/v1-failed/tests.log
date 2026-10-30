@@ -1,0 +1,18 @@
+test_ambiguity_abstains (test_run.GateTests.test_ambiguity_abstains) ... ok
+test_no_identity_signal_selects_zero_weight (test_run.GateTests.test_no_identity_signal_selects_zero_weight) ... FAIL
+test_no_vocabulary_leakage_and_roundtrip (test_run.GateTests.test_no_vocabulary_leakage_and_roundtrip) ... ok
+test_probability_normalization_seen_unseen (test_run.GateTests.test_probability_normalization_seen_unseen) ... ok
+test_shuffle_preserves_inventory_and_groups (test_run.GateTests.test_shuffle_preserves_inventory_and_groups) ... ok
+
+======================================================================
+FAIL: test_no_identity_signal_selects_zero_weight (test_run.GateTests.test_no_identity_signal_selects_zero_weight)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/7d8300fb335b/order-gate/test_run.py", line 15, in test_no_identity_signal_selects_zero_weight
+    self.assertEqual(m.weight,0)
+AssertionError: 1 != 0
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.007s
+
+FAILED (failures=1)

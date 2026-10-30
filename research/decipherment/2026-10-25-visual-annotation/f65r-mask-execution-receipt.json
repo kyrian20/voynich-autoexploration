@@ -1,0 +1,16 @@
+{
+  "source_sha256": "dc7a0c45454665f33287804ec56f8eaa952a691540fc6fd434e79d75c7ce597f",
+  "output_sha256": "a91482b46bc86c73b9481a6a7d6f01b151369bbac72f25bb5ab7403ad13fe886",
+  "output_size": [
+    2450,
+    3590
+  ],
+  "pixel_comparison": "EXACT_MATCH_EXPECTED_CROP_AND_BLACK_MASKS",
+  "masked_pixels": 99150,
+  "metadata": {},
+  "python": "3.12.14",
+  "pillow": "12.3.0",
+  "decision": "REJECTED_CURRENT_CROP_CLIPS_DRAWING",
+  "annotation_ready": false,
+  "independent_review": false
+}

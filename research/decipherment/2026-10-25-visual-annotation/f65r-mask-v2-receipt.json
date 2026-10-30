@@ -1,0 +1,19 @@
+{
+  "status": "COORDINATOR_CANDIDATE_NOT_INDEPENDENTLY_REVIEWED",
+  "source_sha256": "dc7a0c45454665f33287804ec56f8eaa952a691540fc6fd434e79d75c7ce597f",
+  "output_sha256": "335139284593decf903a82ff67daeb027530e03df4e16709c414d00b1719a6e2",
+  "plan_sha256": "e1585d4b1b46d23db7ca95f03feb7ceb0df94aa1d2ba47a17040523be332e8c1",
+  "output_size": [
+    2793,
+    3707
+  ],
+  "masked_pixels": 377175,
+  "full_canvas_preserved": true,
+  "all_unmasked_pixels_equal_source": true,
+  "all_masked_pixels_black": true,
+  "metadata_empty": true,
+  "annotation_ready": false,
+  "independent_review": false,
+  "python": "3.12.14",
+  "pillow": "12.3.0"
+}

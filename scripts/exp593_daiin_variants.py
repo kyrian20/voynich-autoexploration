@@ -1,15 +1,17 @@
 #!/usr/bin/env python3
 """EXP-593: positional scan of daiin variants with max-statistic correction."""
 from __future__ import annotations
-import collections, hashlib, json, random, re
+import collections, hashlib, json, math, random, re
 from datetime import datetime, timezone
 from pathlib import Path
 import sys
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 from scripts.audit_ivtff_metadata import parse_currier_language
-SOURCE = Path("data/transcriptions/eva_zl3b.txt")
-OUT = Path("research/experiments")
+# Resolve inputs and outputs relative to the checked-out repository, never cwd.
+# Keep the historical relative source field in emitted JSON unchanged.
+SOURCE = ROOT / "data/transcriptions/eva_zl3b.txt"
+OUT = ROOT / "research/experiments"
 N_PERM, SEED = 5000, 20261021
 VARIANTS = ("daiin", "dain", "daiiin")
 HEADER = re.compile(r"^<f(\d+[rv])>\s*(.*)$")
@@ -36,10 +38,156 @@ def parse():
             lines.append({"folio":folio,"line":int(number),"currier":classes.get(folio,"unknown"),"tokens":toks})
     return raw, lines
 
+def archive_paths(date):
+    """Historical output names are date-based; never silently replace them."""
+    return (OUT / f"{date}-exp593-corrected-L-metadata.json",
+            OUT / f"{date}-exp593-corrected-L-metadata.md")
+
+
+def archive_result_complete(saved, report):
+    """Reject metadata-only or truncated results before skipping a scientific run.
+
+    This is a structural/consistency check, not an independent reproduction.
+    In particular, the numeric statistics are not recalculated here.
+    """
+    def count(value):
+        return type(value) is int and value >= 0
+
+    if not all(count(saved.get(k)) and saved[k] > 0 for k in ("lines", "tokens")):
+        return False
+    if not isinstance(saved.get("null_model"), str) or not saved["null_model"].strip():
+        return False
+    if not isinstance(saved.get("limitations"), list) or not saved["limitations"]:
+        return False
+    observed, tests = saved.get("observed"), saved.get("tests")
+    if not isinstance(observed, dict) or not isinstance(tests, dict):
+        return False
+    if set(observed) != set(VARIANTS) or set(tests) != set(VARIANTS):
+        return False
+    if f"- Líneas: {saved['lines']:,}" not in report or f"- Tokens: {saved['tokens']:,}" not in report:
+        return False
+    report_lines = report.splitlines()
+    for word in VARIANTS:
+        row, test = observed[word], tests[word]
+        if not isinstance(row, dict) or not isinstance(test, dict):
+            return False
+        if not all(count(row.get(k)) for k in ("occurrences", "line_initial", "line_final")):
+            return False
+        occurrences, initial, final = (row[k] for k in ("occurrences", "line_initial", "line_final"))
+        if initial > occurrences or final > occurrences:
+            return False
+        fraction = row.get("initial_fraction")
+        expected_fraction = initial / occurrences if occurrences else None
+        if expected_fraction is None:
+            if fraction is not None:
+                return False
+        elif not isinstance(fraction, (int, float)) or not math.isfinite(fraction) or not math.isclose(fraction, expected_fraction, abs_tol=1e-12):
+            return False
+        classes = row.get("by_currier")
+        if not isinstance(classes, dict) or not classes:
+            return False
+        totals = [0, 0, 0]
+        for values in classes.values():
+            if not isinstance(values, dict) or not all(count(values.get(k)) for k in ("occurrences", "line_initial", "line_final")):
+                return False
+            if values["line_initial"] > values["occurrences"] or values["line_final"] > values["occurrences"]:
+                return False
+            for i, key in enumerate(("occurrences", "line_initial", "line_final")):
+                totals[i] += values[key]
+        if totals != [occurrences, initial, final]:
+            return False
+        for key in ("null_mean_initial", "null_sd_initial", "observed_standardized_statistic", "empirical_p", "max_stat_adjusted_p"):
+            value = test.get(key)
+            if type(value) not in (int, float) or not math.isfinite(value):
+                return False
+        if test["null_sd_initial"] < 0:
+            return False
+        if not all(0 < test[key] <= 1 for key in ("empirical_p", "max_stat_adjusted_p")):
+            return False
+        table_row = (f"| {word} | {occurrences} | {initial} | {final} | "
+                     f"{test['empirical_p']:.6f} | {test['max_stat_adjusted_p']:.6f} |")
+        if report_lines.count(table_row) != 1:
+            return False
+        # A complete archive must preserve the per-Currier breakdown in both
+        # representations. The old guard checked only the global summary row:
+        # changing A to B in JSON (without changing totals) went unnoticed.
+        heading = f"### {word}"
+        if report_lines.count(heading) != 1:
+            return False
+        start = report_lines.index(heading) + 1
+        stop = next(
+            (i for i in range(start, len(report_lines))
+             if report_lines[i].startswith(("## ", "### "))),
+            len(report_lines),
+        )
+        section = report_lines[start:stop]
+        table_header = "| Clase | Ocurrencias | Inicio | Final |"
+        if section.count(table_header) != 1:
+            return False
+        actual_rows = sorted(line for line in section
+                             if line.startswith("| ") and line != table_header)
+        expected_rows = sorted(
+            f"| {name} | {values['occurrences']} | {values['line_initial']} | {values['line_final']} |"
+            for name, values in classes.items()
+        )
+        if actual_rows != expected_rows:
+            return False
+    return True
+
+
+def archive_status(paths, date, source_sha):
+    """Return 'new' or 'existing'; fail closed on partial or mismatched archives."""
+    if any(path.is_symlink() for path in paths):
+        raise RuntimeError("EXP-593 archive destination must not be a symlink")
+    present = [path.exists() for path in paths]
+    if not any(present):
+        return "new"
+    if not all(present) or not all(path.is_file() for path in paths):
+        raise RuntimeError("EXP-593 archive is incomplete; manual adjudication required")
+    try:
+        saved = json.loads(paths[0].read_text(encoding="utf-8"))
+        report = paths[1].read_text(encoding="utf-8")
+    except (OSError, UnicodeError, ValueError) as exc:
+        raise RuntimeError("EXP-593 archive cannot be read; refusing replacement") from exc
+    expected = {"experiment": "EXP-593", "date_utc": date,
+                "source": "data/transcriptions/eva_zl3b.txt",
+                "source_sha256": source_sha, "seed": SEED,
+                "permutations": N_PERM, "variants": list(VARIANTS)}
+    if not isinstance(saved, dict) or any(saved.get(k) != v for k, v in expected.items()):
+        raise RuntimeError("EXP-593 existing JSON provenance differs; refusing replacement")
+    markers = (f"- Fecha UTC: {date}", f"- SHA-256: {source_sha}",
+               f"- Permutaciones: {N_PERM:,}", f"- Semilla: {SEED}")
+    if not all(marker in report for marker in markers):
+        raise RuntimeError("EXP-593 existing report provenance differs; refusing replacement")
+    if not archive_result_complete(saved, report):
+        raise RuntimeError("EXP-593 existing result body is incomplete or inconsistent; refusing replacement")
+    return "existing"
+
+
+def write_archive_pair(paths, json_text, report):
+    """Exclusive creation prevents overwriting even if another run wins a race.
+
+    A crash between the two creates a partial archive, which the next run
+    deliberately rejects rather than overwriting or silently repairing.
+    """
+    OUT.mkdir(parents=True, exist_ok=True)
+    with paths[0].open("x", encoding="utf-8") as handle:
+        handle.write(json_text)
+    with paths[1].open("x", encoding="utf-8") as handle:
+        handle.write(report)
+
+
 def main():
     if not SOURCE.exists(): raise SystemExit("Missing EVA transcription")
     raw, lines = parse()
     if len(lines) < 1000: raise SystemExit(f"Input sanity check failed: {len(lines)} lines")
+    date = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    source_sha = hashlib.sha256(raw).hexdigest()
+    paths = archive_paths(date)
+    if archive_status(paths, date, source_sha) == "existing":
+        print(json.dumps({"experiment": "EXP-593", "status": "skipped_existing",
+                          "date_utc": date, "note": "No simulation rerun; no files replaced."}))
+        return
     obs = {}
     for w in VARIANTS:
         by = collections.defaultdict(lambda:[0,0,0])
@@ -77,16 +225,14 @@ def main():
                   "observed_standardized_statistic":zscore(w, observed),
                   "empirical_p":(sum(x>=observed for x in null[w])+1)/(N_PERM+1),
                   "max_stat_adjusted_p":(sum(x>=zscore(w, observed) for x in max_null_z)+1)/(N_PERM+1)}
-    date=datetime.now(timezone.utc).strftime("%Y-%m-%d")
     result={"experiment":"EXP-593","title":"daiiin-family variants with max-statistic correction","date_utc":date,
-      "source":str(SOURCE),"source_sha256":hashlib.sha256(raw).hexdigest(),
+      "source":str(SOURCE.relative_to(ROOT)),"source_sha256":source_sha,
       "lines":len(lines),"tokens":sum(len(x["tokens"]) for x in lines),
       "variants":list(VARIANTS),"permutations":N_PERM,"seed":SEED,"observed":obs,"tests":tests,
       "null_model":"Shuffle token order independently within each line; preserves each line token multiset. Family-wise max-T adjustment uses the maximum standardized statistic across the three prespecified variants per permutation; each variant is standardized against its own permutation null because baseline frequencies differ.",
       "limitations":["Variant family is exploratory, not exhaustive.","EVA tokenization excludes uncertain bracketed readings and punctuation.",
       "This test concerns position only, not semantics or decipherment.","Currier classes are reported only where explicitly present in folio headers."]}
-    OUT.mkdir(parents=True,exist_ok=True)
-    (OUT/f"{date}-exp593-corrected-L-metadata.json").write_text(json.dumps(result,indent=2,ensure_ascii=False)+"\n",encoding="utf-8")
+
     report=f"# EXP-593 — Familia de variantes de daiin y corrección por comparaciones múltiples\n\n- Fecha UTC: {date}\n- SHA-256: {result['source_sha256']}\n- Líneas: {len(lines):,}\n- Tokens: {result['tokens']:,}\n- Permutaciones: {N_PERM:,}\n- Semilla: {SEED}\n\n| Token | Ocurrencias | Inicio | Final | p empírico | p ajustado max-stat |\n|---|---:|---:|---:|---:|---:|\n"
     for w in VARIANTS:
         o=obs[w]; t=tests[w]
@@ -97,6 +243,6 @@ def main():
         for c,v in obs[w]["by_currier"].items(): report+=f"| {c} | {v['occurrences']} | {v['line_initial']} | {v['line_final']} |\n"
         report+="\n"
     report+="## Interpretación y límites\n\nUn p ajustado bajo apoyaría una preferencia posicional frente a este modelo nulo, pero no implica traducción. La prueba conserva los tokens por línea, no la estructura sintáctica; el modelo nulo puede ser demasiado simple. La clasificación Currier depende de las cabeceras disponibles. Resultados completos en el JSON asociado.\n"
-    (OUT/f"{date}-exp593-corrected-L-metadata.md").write_text(report,encoding="utf-8")
+    write_archive_pair(paths, json.dumps(result,indent=2,ensure_ascii=False)+"\n", report)
     print(json.dumps({"experiment":"EXP-593","lines":len(lines),"tokens":result["tokens"],"tests":tests},indent=2))
 if __name__=="__main__": main()

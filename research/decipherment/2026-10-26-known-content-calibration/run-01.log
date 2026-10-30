@@ -1,0 +1,2 @@
+Latin_Caesar_218 {"all_roundtrips_exact": true, "group_partitions_disjoint": true, "mono_metric_invariant": true, "positive_recovery": true, "adversarial_score_invariant": true}
+Italian_Dante_1012 {"all_roundtrips_exact": true, "group_partitions_disjoint": true, "mono_metric_invariant": true, "positive_recovery": true, "adversarial_score_invariant": true}

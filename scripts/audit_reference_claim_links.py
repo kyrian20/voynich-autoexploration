@@ -4,9 +4,27 @@ import hashlib
 import json
 import math
 import re
+import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT))
+from scripts.audit_corpus_identity_overlay import audit as audit_corpus_identity
+
+
+def reject_duplicate_json_keys(pairs):
+    """Reject duplicate object members at any nesting depth in audit inputs."""
+    result = {}
+    for key, value in pairs:
+        if key in result:
+            raise ValueError(f'Duplicate JSON object key: {key}')
+        result[key] = value
+    return result
+
+
+def load_json_strict(path):
+    return json.loads(path.read_text(encoding='utf-8'),
+                      object_pairs_hook=reject_duplicate_json_keys)
 BASE_COMMIT = 'b31492596c3e9a0c3f322c0ece62fa13a84d739d'
 CASE_IDS = {
     'EXP-267': ('experiments/exp_267_word_length_position/script.py', 105892, 'tokens'),
@@ -18,6 +36,38 @@ RESULT_BLOBS = {
     'EXP-267': ('experiments/exp_267_word_length_position/result.md', '92c47d101d35543dabce569f877cbf98176db246'),
     'EXP-288': ('experiments/exp_288_stolfi_onset_decomp/result.md', 'c2c5711acf98c8779c179088275a4218699d3caf'),
 }
+
+
+def verify_corpus_identity(root, identities, manifest=None):
+    """Independently bind claim metadata to frozen corpus identity and bytes.
+
+    A claim-reader snapshot and its overlay may agree with each other while
+    both misidentify the underlying historical corpus. This guard checks the
+    separate frozen manifest and the recorded adjudications before any claim
+    is reported as reconciled.
+    """
+    if manifest is None:
+        manifest = load_json_strict(root / 'research/CORPUS_INPUT_MANIFEST.json')
+    errors = audit_corpus_identity(root, manifest, identities)
+    if errors:
+        raise ValueError('Independent corpus identity gate failed: ' + '; '.join(errors))
+
+
+def unique_index(rows, key_field, source):
+    """Index audited records without silently overwriting duplicate identities."""
+    if not isinstance(rows, list):
+        raise ValueError(f'{source}: expected a list')
+    indexed = {}
+    for offset, row in enumerate(rows):
+        if not isinstance(row, dict):
+            raise ValueError(f'{source}: row {offset} is not an object')
+        key = row.get(key_field)
+        if not isinstance(key, str) or not key:
+            raise ValueError(f'{source}: missing {key_field} in row {offset}')
+        if key in indexed:
+            raise ValueError(f'{source}: duplicate {key_field}: {key}')
+        indexed[key] = row
+    return indexed
 
 
 def git_blob_sha(data):
@@ -32,22 +82,46 @@ def entropy(values):
 
 
 def parse_position_table(md):
-    matches = re.findall(r'^\| ([AB]) \| (LF|MID|LL) \| (\d+) \| ([0-9.]+) \|', md, re.M)
-    result = {(dialect, position): float(mean) for dialect, position, _, mean in matches}
-    if len(result) != 6:
-        raise ValueError('Expected six unique rows in EXP-267 position table')
-    return result
-
+    # Inspect *all* A/B x LF/MID/LL candidate rows, including malformed ones.
+    # A permissive numeric-only findall would silently skip bad duplicate rows.
+    candidate = re.compile(r'^\|\s*([AB])\s*\|\s*(LF|MID|LL)\s*\|')
+    complete = re.compile(
+        r'^\|\s*([AB])\s*\|\s*(LF|MID|LL)\s*\|\s*'
+        r'(\d+)\s*\|\s*(\d+(?:\.\d+)?)\s*\|\s*'
+        r'(\d+(?:\.\d+)?)\s*\|\s*$'
+    )
+    table = {}
+    for line in md.splitlines():
+        if candidate.match(line) is None:
+            continue
+        parsed = complete.fullmatch(line)
+        if parsed is None:
+            raise ValueError(f'Malformed EXP-267 position row: {line}')
+        dialect, position, n, mean, median = parsed.groups()
+        key = (dialect, position)
+        if key in table:
+            raise ValueError('Expected exactly one row per dialect and position in EXP-267 position table')
+        if int(n) == 0:
+            raise ValueError(f'Empty EXP-267 position row: {dialect} {position}')
+        table[key] = float(mean)
+    expected = {(dialect, position) for dialect in 'AB'
+                for position in ('LF', 'MID', 'LL')}
+    if set(table) != expected:
+        raise ValueError('Expected exactly one row per dialect and position in EXP-267 position table')
+    return table
 
 def audit(root=ROOT):
-    readers = json.loads((root / 'research/maintenance/2026-10-22-remaining-readers/results.json').read_text(encoding='utf-8'))
-    identities = json.loads((root / 'research/CORPUS_IDENTITY_REVIEW.json').read_text(encoding='utf-8'))
-    excluded = {e['path']: e for e in identities['excluded_from_new_language_baselines']}
+    readers = load_json_strict(root / 'research/maintenance/2026-10-22-remaining-readers/results.json')
+    identities = load_json_strict(root / 'research/CORPUS_IDENTITY_REVIEW.json')
+    excluded = unique_index(identities['excluded_from_new_language_baselines'], 'path', 'Corpus identity')
     if readers['source_commit'] != 'aa9ec5399e7a5cdf8d1b2890fa657f1358825b41':
         raise ValueError('Reader snapshot changed; re-adjudicate instead of reusing results')
-    cases = {c['experiment_path']: c for c in readers['cases']}
+    cases = unique_index(readers['cases'], 'experiment_path', 'Reader replay')
     if set(cases) != {v[0] for v in CASE_IDS.values()}:
         raise ValueError('Reader set changed')
+    # Do not accept a jointly altered reader snapshot and overlay simply
+    # because their corpus hashes and language labels agree with each other.
+    verify_corpus_identity(root, identities)
     summary = {}
     for key, (script, count, unit) in CASE_IDS.items():
         case = cases[script]
@@ -129,7 +203,7 @@ def main():
     args = parser.parse_args()
     result = audit()
     if args.check:
-        expected = json.loads(args.check.read_text(encoding='utf-8'))
+        expected = load_json_strict(args.check)
         if result != expected:
             raise SystemExit('Snapshot mismatch')
         print('PASS: reference claim adjudication snapshot matches')

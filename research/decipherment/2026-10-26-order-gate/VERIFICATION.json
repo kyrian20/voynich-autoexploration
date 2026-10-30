@@ -1,0 +1,33 @@
+{
+  "numeric_status": "REPRODUCED",
+  "scientific_status": "NEGATIVE",
+  "exact_replay": true,
+  "candidate_challenges": 39,
+  "candidates_per_challenge": 624,
+  "candidate_scores": 24336,
+  "tests_v2_passed": 7,
+  "v1_failed_before_real_corpora": true,
+  "uncompressed_results_sha256": "629c798e1cdf8c25b94dc0eb8d3cecc0814a17dbec7139fe6df808c64d73d59d",
+  "uncompressed_candidates_sha256": "9f9ab007dd45d5c6f72b2b2bb637217cfbd4d65441169156324558ec0c49b92c",
+  "sha256": {
+    "run.py": "8bf71bf44ba74a4e6875456aeed9e09afe3e8d971acdf734cf91afbc684ed1c7",
+    "PROTOCOL.md": "66d4217479e341c49acea7a9a8aa8c8f11e0b85af02b63a6c41e64c3a2b2c752",
+    "test_run.py": "8bf67d38b3ab7f0690a37e6fa315f23883564006565ba8b35296c64b4ada2ee9",
+    "support.py": "76bf46ab264eb0c1b0cf12352f05afae8a4af14297efb1324479776e12152c18",
+    "results.json.gz": "c89cdba137227cf3657d700d0fae2ba90aa8db996720fb4966a6cacc1a6cec75",
+    "candidates.json.gz": "29352ef1e4ee0b6d9b5fdbbaa32967f2d92138f4450483fe6c92860d885b2d0d",
+    "SUMMARY.json": "8c9c9f595706a084f7f9c89318e12a8a74b27b0dfab5c3defbaf9c21ea6b42c7",
+    "support.json": "963e23d455749b71d5ba4f1a4e99fc315b126c5965b1ce0c8adc7f894d11c111",
+    "absent-family-diagnostic.json": "99ba0a558a3c8b7862c99ebe390ab412366aa88e51abe7459723906e7c38091f",
+    "run-01.log": "7251c663d04e99db70e1238560ccb2e8601d8ab97f94de6552af8e61f1fb7b29",
+    "run-02.log": "7251c663d04e99db70e1238560ccb2e8601d8ab97f94de6552af8e61f1fb7b29",
+    "tests-v2.log": "78a7a2581a99ef4ea69bd5082ef8c0f3076313f88cb12dba13cb136468cdc206",
+    "REPORT.md": "2c9a86834e8da494d21496a8cdc29320c577aab961b93de8c822b583dd3bb6b2",
+    "GEMINI_REVIEW_PROMPT.md": "08221b4a83c7a7d8a8b0558098279778ea83847b8016725c2d73311274a418aa",
+    "v1-failed/run.py.txt": "2a6723162d6e1072bf8ffb728e68fa2a224bef5345739096a8083baa326b8e86",
+    "v1-failed/PROTOCOL.md": "719de78adab0c1bcba782d3596beee4f4a01d8ca91a1e3b2f97cbd3b1c1c9f34",
+    "v1-failed/tests.log": "bbe3c3b03d4236bc9996cd7321411125b814f7237548023a4a66308595f3f230"
+  },
+  "manuscript_evaluated": false,
+  "gemini_review_executed": false
+}

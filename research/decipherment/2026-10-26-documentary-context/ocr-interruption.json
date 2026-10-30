@@ -1,0 +1,28 @@
+{
+  "reason": "OCR exceeded useful per-page time; terminate only observed task processes and resume with one thread and bounded timeout",
+  "terminated": [
+    [
+      4969,
+      4789,
+      "tesseract extended-astronomy/cache/ocr/carboni-1997-pdfpage043.png extended-astronomy/cache/ocr/carboni-1997-pdfpage043 --psm 3 "
+    ],
+    [
+      5062,
+      4789,
+      "tesseract extended-astronomy/cache/ocr/carboni-1997-pdfpage048.png extended-astronomy/cache/ocr/carboni-1997-pdfpage048 --psm 3 "
+    ],
+    [
+      5075,
+      4789,
+      "tesseract extended-astronomy/cache/ocr/carboni-1994-pdfpage005.png extended-astronomy/cache/ocr/carboni-1994-pdfpage005 --psm 3 "
+    ],
+    [
+      5217,
+      4789,
+      "tesseract extended-astronomy/cache/ocr/carboni-1994-pdfpage006.png extended-astronomy/cache/ocr/carboni-1994-pdfpage006 --psm 3 "
+    ]
+  ],
+  "parent_pids": [
+    4789
+  ]
+}

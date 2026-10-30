@@ -1,0 +1,162 @@
+[
+  {
+    "id": "Y01",
+    "kind": "custodian_image",
+    "object": "Yale 2002046, image1006196, f68r",
+    "url": "https://collections.library.yale.edu/iiif/2/1006196/full/full/0/default.jpg",
+    "inspection": "Full image and detail inspected in preceding anchored audit; not downloaded again",
+    "provenance": "../2026-10-26-astronomical-anchor/image-source.json",
+    "independence_group": "Voynich f68"
+  },
+  {
+    "id": "M01",
+    "kind": "custodian_catalogue_and_images",
+    "object": "Met19.68.1",
+    "url": "https://www.metmuseum.org/art/collection/search/447071",
+    "files": [
+      "met-906001.jpg",
+      "met-906007.jpg",
+      "met-906017.jpg",
+      "met-856389.jpg"
+    ],
+    "inspection": "All four images inspected; front/verso/detail views of one folio",
+    "independence_group": "Met19.68.1"
+  },
+  {
+    "id": "M02",
+    "kind": "museum_scholarly_catalogue",
+    "title": "Illustrated Poetry and Epic Images (1994)",
+    "url": "https://www.metmuseum.org/met-publications/illustrated-poetry-and-epic-images-persian-painting-of-the-1330s-and-1340s",
+    "file": "carboni-1994.pdf",
+    "visually_reviewed_pdf_pages1": [
+      39,
+      40,
+      41
+    ],
+    "printed_pages": [
+      38,
+      39,
+      40
+    ],
+    "unreviewed_scope": "Whole149-page PDF not critically read",
+    "independence_group": "Met19.68.1"
+  },
+  {
+    "id": "M03",
+    "kind": "museum_scholarly_catalogue",
+    "title": "Following the Stars (1997)",
+    "url": "https://www.metmuseum.org/met-publications/following-the-stars-images-of-the-zodiac-in-islamic-art",
+    "file": "carboni-1997.pdf",
+    "visually_reviewed_pdf_pages1": [
+      5,
+      41
+    ],
+    "printed_pages": [
+      4,
+      40
+    ],
+    "unreviewed_scope": "Whole50-page PDF not critically read",
+    "independence_group": "Carboni-context"
+  },
+  {
+    "id": "B01",
+    "kind": "custodian_manifest_and_images",
+    "object": "Bodleian MS.Marsh144",
+    "url": "https://iiif.bodleian.ox.ac.uk/iiif/manifest/c1caa84c-f6d2-483f-9eb4-2439cccdc801.json",
+    "file": "marsh144-manifest.json",
+    "core_visually_reviewed_labels": [
+      "p. 193",
+      "p. 196",
+      "p. 197"
+    ],
+    "additional_locator_images_reviewed": [
+      180,
+      181,
+      182,
+      184,
+      186,
+      188,
+      190,
+      192,
+      198,
+      200,
+      202,
+      204
+    ],
+    "locator_images_downloaded_not_visually_claimed": [
+      206,
+      208
+    ],
+    "independence_group": "Marsh144",
+    "date_caveat": "Colophon/catalogue1009-10; later dating mentioned by guide, not adjudicated"
+  },
+  {
+    "id": "H01",
+    "kind": "author_thesis_translation_mirror",
+    "title": "Ihsan Hafez, PhD thesis (2010), chapters1-4",
+    "repository_record": "https://researchonline.jcu.edu.au/28854/",
+    "doi": "10.25903/6xsf-aa64",
+    "file": "hafez-2010-v1-mirror.pdf",
+    "mirror_url": "https://www.atlascoelestis.com/Zagrebelsky/28854_Hafez_2010_Chapters_1_to_4_thesis.pdf",
+    "text_reviewed_pdf_pages1": [
+      48,
+      167,
+      177,
+      183,
+      184,
+      185,
+      186
+    ],
+    "visually_reviewed_pdf_pages1": [
+      48,
+      177
+    ],
+    "printed_pages_core": [
+      35,
+      154,
+      164,
+      170
+    ],
+    "provenance_caveat": "Partial-volume mirror; bibliographic identity checked, not byte identity to full publisher PDF",
+    "independence_group": "Marsh144-translation"
+  },
+  {
+    "id": "S01",
+    "kind": "specialist_image_repertory",
+    "title": "Saxl Project, Pleiades worksheet",
+    "url": "https://www.thesaxlproject.com/assets/Uploads/00-PLeiades-16a-Nov-2025.pdf",
+    "file": "saxl-pleiades.pdf",
+    "visually_reviewed_pdf_pages1": [
+      6,
+      35
+    ],
+    "text_reviewed_only_pdf_pages1": [
+      36
+    ],
+    "independence_caveat": "Reproductions, including already inspected Marsh144; not new independent custodial witnesses"
+  },
+  {
+    "id": "L01",
+    "kind": "custodian_catalogue",
+    "object": "British Library Harley647",
+    "url": "https://searcharchives.bl.uk/catalog/040-001608844",
+    "inspection": "Catalogue only; reports unavailable digital images",
+    "visual_claim_admitted": false
+  },
+  {
+    "id": "L02",
+    "kind": "custodian_redirect",
+    "object": "Leiden VLQ79",
+    "url": "https://hdl.handle.net/1887.1/item:4152891",
+    "file": "leiden-handle.html",
+    "inspection": "843-byte interface wrapper; no usable primary folio image recovered",
+    "visual_claim_admitted": false
+  },
+  {
+    "id": "N01",
+    "kind": "official_astronomy_reference",
+    "object": "NASA StarChild lunar periods",
+    "url": "https://starchild.gsfc.nasa.gov/docs/StarChild/questions/question32.html",
+    "inspection": "Full NASA page retrieved and read; explains sidereal/synodic distinction; not evidence about manuscript"
+  }
+]

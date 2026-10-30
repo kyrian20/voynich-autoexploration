@@ -33,3 +33,7 @@ El lector de EXP-001 toma **991.553 tokens** de data/reference_corpora/latin/vul
 ## Próximo paso falsable
 
 No repetir EXP-001 sin justificación. Preregistrar dos modelos generativos concretos, entrenar solo en folios de desarrollo y evaluar predicción de primeras letras en folios retenidos, con controles de longitud, sección y transcripción. Comparar con baseline de distribución de inicios y generador sintético con estructura conocida. Informar efectos e intervalos por folio y sensibilidad al parser. Resolver primero dependencias IVTFF y colisiones de IDs. No interpretar mejoras como traducción.
+
+## Cierre de comprobación integral — 23-10-2026
+
+El auditor completo se ha ejecutado en el checkout integrado con master 91c09fa y la corrección EXP-170: retorno 0 y coincidencia exacta del snapshot. Esta comprobación posterior sustituye el pendiente de ejecución local indicado antes; no repite los experimentos históricos. Se enlazan erratas desde los directorios afectados y se añaden controles explícitos al workflow canónico. La CI del commit nuevo requiere comprobación propia.

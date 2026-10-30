@@ -1,0 +1,55 @@
+{
+  "limitations": [
+    "Un contraste estadístico positivo en la distribución de caracteres contiguos a 'ch' y 'sh' no constituye evidencia de desciframiento, fonología, lenguaje natural ni traducción del manuscrito Voynich.",
+    "Las transcripciones ZL3b e IT2a corresponden a lecturas alternativas del mismo objeto físico; tratarlas como muestras independientes o combinar sus p-valores introduce pseudorreplicación severa.",
+    "El identificador '$Q' denota estrictamente el cuaderno físico ('quire') del manuscrito y bajo ninguna circunstancia debe interpretarse como indicador de calidad de transcripción, fiabilidad de datos, idioma o sección científica validada.",
+    "Las asimetrías contextuales observadas pueden ser artefactos de plantillas fijas de tokens, restricciones mecánicas del copista, variaciones de trazo caligráfico o convenciones de segmentación del sistema EVA.",
+    "No es metodológicamente admisible asignar significados semánticos, valores fonéticos o equivalencias alfabéticas a grafemas o dígrafos a partir de correlaciones o diferencias porcentuales."
+  ],
+  "competing_hypotheses": [
+    {
+      "name": "Hipótesis de plantillas de tokens (Token templates)",
+      "prediction": "Las diferencias en los caracteres contiguos a 'ch' y 'sh' son consecuencia de restricciones posicionales rígidas dentro de fórmulas o plantillas léxicas prefijadas y no de procesos fonotácticos subyacentes.",
+      "falsifier": "Persistencia de diferencias distribucionales contextuales estadísticamente significativas tras condicionar y permutar estrictamente por la plantilla morfológica completa, longitud del token y posición intratoken del dígrafo."
+    },
+    {
+      "name": "Hipótesis de variación mecánica y caligráfica del escriba",
+      "prediction": "La alternancia entre caracteres adyacentes a 'ch' y 'sh' responde a optimizaciones del ductus caligráfico o conveniencia motriz al trazar ligaduras específicas según la mano del copista o el cuaderno físico ($Q).",
+      "falsifier": "Constancia de las asimetrías contextuales a través de diferentes cuadernos ($Q) y manos identificadas ($L=A/B), aun cuando varíen los trazos de unión y la tipología de ligadura gráfica."
+    },
+    {
+      "name": "Hipótesis de artefacto sistemático de edición y segmentación",
+      "prediction": "Las frecuencias relativas observadas son introducidas por discrepancias sistemáticas de lectura e interpretación de límites de caracteres ambiguos entre transcriptores en ZL3b e IT2a.",
+      "falsifier": "Convergencia empírica idéntica en la dirección y magnitud del efecto tras aplicar un protocolo ciego de adjudicación de incertidumbres y ligaduras sobre imágenes de alta resolución sin conocimiento de la hipótesis de contraste."
+    }
+  ],
+  "proposed_design": {
+    "unit_of_analysis": "Folio físico completo, preservado como unidad independiente para remuestreo por bootstrap y partición.",
+    "sampling_frame": "Universo total de tokens transcritos en folios validados del manuscrito Voynich delimitados por el manifiesto formal de partición.",
+    "strata": "Estratificación por cuaderno físico ($Q), clasificación de sistema/mano Currier ($L=A/B) y tipo de ilustración ($I) según metadatos acreditados.",
+    "holdout": "Separación estricta train/development/test regida por un manifiesto inmutable con verificación de hash criptográfico, manteniendo el conjunto test completamente inaccesible durante la calibración.",
+    "test_statistic": "Diferencia estandarizada de distribución de caracteres entre el contexto posterior y el contexto anterior para 'ch' versus 'sh', evaluada mediante remuestreo bootstrap por bloques a nivel de folio.",
+    "negative_controls": "Permutación de etiquetas de dígrafo dentro de estratos que conserven la longitud exacta del token, posición intratoken y composición de folio; análisis espejo sobre contexto anterior donde se espera un efecto no específico o nulo.",
+    "parser_validation": "Implementación de un parser IVTFF formal independiente con batería de fixtures para casos de borde (ligaduras, espacios dudosos, comentarios, continuaciones de línea) y reglas reproducibles de adjudicación de variantes.",
+    "multiple_testing": "Control estricto de tasa de falso descubrimiento (FDR) o corrección familiar (FWER) sobre el conjunto exhaustivo de variantes posicionales, longitudes y ediciones exploradas.",
+    "stopping_rule": "Detención inmediata y conservación de estado PROPOSED si no se proporcionan las listas de folios, hashes verificables de ediciones o si se constata fuga de datos hacia el conjunto de test."
+  },
+  "pre_registration": {
+    "primary_outcome": "Diferencia de distribución en la vocal o carácter inmediatamente posterior frente al inmediatamente anterior entre 'ch' y 'sh' sobre el conjunto de test bloqueado, condicionada a longitud y posición del dígrafo.",
+    "decision_rule": "needs_data",
+    "failure_conditions": "El contraste se declara no sustentado si el intervalo de confianza bootstrap a nivel de folio incluye cero, si la asimetría contextual posterior no supera la del control negativo anterior, si el efecto es absorbido por la hipótesis de plantillas de tokens, o si los resultados dependen de la edición de transcripción (ZL3b vs. IT2a) sin adjudicación resuelta."
+  },
+  "required_inputs": [
+    "Ruta, versión y hash criptográfico del manifiesto canónico preexistente de partición train/development/test.",
+    "Tabla verificable y formal de asignación de cuadernos físicos ($Q), clasificación Currier ($L) y tipo de ilustración ($I) extraída de cabeceras IVTFF validadas.",
+    "Hashes de integridad y especificación de versión exacta de los archivos de transcripción ZL3b e IT2a.",
+    "Especificación ejecutable del parser IVTFF independiente junto con suite de fixtures de borde y política de adjudicación de desacuerdos entre transcriptoras.",
+    "Criterios formales de inclusión y exclusión de tokens (tratamiento de incertidumbres tipográficas, ligaduras, comentarios y áreas con daño material)."
+  ],
+  "unresolved_questions": [
+    "¿Cuál es el manifiesto canónico específico que fija la distribución de folios físicos entre entrenamiento, desarrollo y prueba para evitar contaminación de hipótesis?",
+    "¿Cuál es el procedimiento estandarizado y determinista para adjudicar las lecturas discordantes entre las ediciones ZL3b e IT2a en las posiciones críticas contiguas a 'ch' y 'sh'?",
+    "¿Cómo se formalizará computacionalmente el espacio nulo de la hipótesis de plantillas fijas de tokens para contrastarlo frente a dependencias transicionales libres?",
+    "¿Qué umbrales de integridad del pergamino y legibilidad gráfica serán requeridos para admitir un folio en el cálculo de sensibilidad bootstrap?"
+  ]
+}
