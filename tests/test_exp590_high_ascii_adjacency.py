@@ -47,6 +47,16 @@ class HighAsciiAdjacencyTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "Non-physical"):
             audit.analyze_text("# comment\u2028<f1r.1,@P0> qo@140;dy\n")
 
+    def test_malformed_primary_code_is_not_reported_as_zero(self):
+        for body in ("qo@12;dy", "a.@12;", "{c@12;h}.a"):
+            with self.subTest(body=body):
+                with self.assertRaisesRegex(ValueError, "Malformed primary"):
+                    audit.analyze_text(f"<f1r.1,@P0> {body}\n")
+        report = audit.analyze_text(
+            "<f1r.1,@P0> a.[@12;:b].<!@12;>c\n"
+        )
+        self.assertEqual(report["primary_high_ascii_codes"], 0)
+
     def test_frozen_corpora_have_expected_inventory(self):
         result = audit.audit()
         self.assertEqual(result["status"], "DESCRIPTIVE_SOURCE_ADJACENCY_ONLY")
