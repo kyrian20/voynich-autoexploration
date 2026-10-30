@@ -585,7 +585,19 @@ jobs:
       - name: Probar alcance de ligaduras y ejecutar inventario sin mutar fuentes
         run: |
           python -m unittest discover -s tests -p 'test_ivtff_brace_spans.py' -v
-          python scripts/audit_ivtff_brace_spans.py
+          python -O -m unittest discover -s tests -p 'test_ivtff_brace_spans.py' -v
+          python scripts/audit_ivtff_brace_spans.py | tee ivtff-brace-inventory.json
+          sha256sum ivtff-brace-inventory.json > ivtff-brace-inventory.sha256
+
+      - name: Conservar inventario de ligaduras IVTFF y SHA-256
+        uses: actions/upload-artifact@v4
+        with:
+          name: ivtff-brace-inventory-${{ github.run_id }}
+          path: |
+            ivtff-brace-inventory.json
+            ivtff-brace-inventory.sha256
+          if-no-files-found: error
+          retention-days: 90
 
       - name: Probar vistas alternativas de ligaduras IVTFF
         run: python tests/test_ivtff_ligature_views.py
