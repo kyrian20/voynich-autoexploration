@@ -625,6 +625,23 @@ jobs:
           python scripts/audit_ivtff_high_ascii_coverage.py --out ivtff-high-ascii-coverage.json
           sha256sum ivtff-high-ascii-coverage.json > ivtff-high-ascii-coverage.sha256
 
+      - name: Auditar contacto directo de códigos high-ASCII con letras ASCII en EXP-590
+        run: |
+          python -m unittest discover -s tests -p 'test_exp590_high_ascii_adjacency.py' -v
+          python -O -m unittest discover -s tests -p 'test_exp590_high_ascii_adjacency.py' -v
+          python scripts/audit_exp590_high_ascii_adjacency.py --out exp590-high-ascii-adjacency.json
+          sha256sum exp590-high-ascii-adjacency.json > exp590-high-ascii-adjacency.sha256
+
+      - name: Conservar evidencia de contacto ASCII y SHA-256
+        uses: actions/upload-artifact@v4
+        with:
+          name: exp590-high-ascii-adjacency-${{ github.run_id }}
+          path: |
+            exp590-high-ascii-adjacency.json
+            exp590-high-ascii-adjacency.sha256
+          if-no-files-found: error
+          retention-days: 90
+
       - name: Conservar conciliación high-ASCII y su SHA-256
         uses: actions/upload-artifact@v4
         with:
