@@ -117,7 +117,18 @@ def parse(path,policy="primary",uncertain_space_policy="quarantine",ligature_pol
  pages=collections.defaultdict(list)
  for lineno,raw in checked_physical_lines(path.read_text(encoding="latin-1")):
   m=ROW.match(raw.strip())
-  if not m or "," not in m["ident"]:continue
+  if not m or "," not in m["ident"]:
+   # A malformed locus tied to an admitted page is not a comment or an
+   # absent row. Ignoring it could forge a P-to-P boundary when the next
+   # well-formed P record has a consecutive ordinal. Quarantine only that
+   # transition; ordinary page headers (<f1r>) and # comments are inert.
+   unresolved=re.match(r"^<(f(?:\d+[rv][1-6]?|Ros))\.",raw.strip())
+   if unresolved:
+    page=unresolved.group(1)
+    if pages.get(page):
+     pages[page][-1].setdefault("intervening_non_p",[]).append(
+      {"line":lineno,"loc":"UNPARSED_LOCUS"})
+   continue
   ident,locus=m["ident"].split(",",1);parts=ident.split(".")
   if len(parts)<2:continue
   page=parts[0]; pm=re.fullmatch(r"f(\d+)[rv][1-6]?",page)
