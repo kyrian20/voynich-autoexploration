@@ -73,7 +73,18 @@ jobs:
             # A human or connector can update master during this run.
             # Retry fast-forward races, but never resolve conflicts by overwriting.
             for attempt in 1 2 3 4 5; do
-              if ! git pull --rebase origin master; then
+              # Fetch exactly once per attempt. Check the source tree against
+              # the triggering commit BEFORE rebasing generated outputs.
+              # GitHub-token publication does not trigger a new push CI run.
+              if ! git fetch --no-tags origin master; then
+                echo "Cannot refresh master; outputs remain in Actions artifacts." >&2
+                exit 1
+              fi
+              if ! python scripts/check_publisher_source_drift.py --base "$GITHUB_SHA" --head origin/master; then
+                echo "Source drift detected: a fresh research run is required." >&2
+                exit 1
+              fi
+              if ! git rebase origin/master; then
                 git rebase --abort || true
                 echo "Publication conflict; outputs are preserved as Actions artifacts." >&2
                 exit 1

@@ -45,6 +45,11 @@ jobs:
           python -m unittest discover -s tests -p 'test_ambiguous_exp_references.py' -v
           python scripts/audit_repository_operations.py
 
+      - name: Comprobar barrera de fuentes del publicador ante carreras de rebase
+        run: |
+          python -m unittest discover -s tests -p 'test_publisher_source_drift.py' -v
+          python -O -m unittest discover -s tests -p 'test_publisher_source_drift.py' -v
+
       - name: Inventariar referencias históricas EXP ambiguas
         run: python scripts/audit_ambiguous_exp_references.py --out ambiguous-exp-references.json
 
