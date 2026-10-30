@@ -79,9 +79,19 @@ def validate_summary(summary: dict) -> dict:
         section = summary[edition]
         if section["parsed_folios_with_body"] != 203:
             raise ValueError(f"{edition}: unexpected eligible page count")
-        groups = [("all", row) for row in section["results"]]
-        if len(section["results"]) != 2:
+        overall = section["results"]
+        if not isinstance(overall, list) or len(overall) != 2:
             raise ValueError(f"{edition}: expected two overall tokenizers")
+        # Count alone is insufficient: two copies of one tokenizer could
+        # masquerade as the two archived analytical views.
+        expected_tokenizers = {"raw EVA letters", "EVA units with ch/sh collapsed"}
+        observed_tokenizers = [
+            row.get("tokenizer") if isinstance(row, dict) else None for row in overall
+        ]
+        if (not all(isinstance(name, str) for name in observed_tokenizers)
+                or set(observed_tokenizers) != expected_tokenizers):
+            raise ValueError(f"{edition}: overall tokenizer identities missing or duplicated")
+        groups = [("all", row) for row in overall]
         if edition == "ZL3b":
             strata = section["currier_strata"]
             if len(strata) != 4 or sorted((x["currier"], x["tokenizer"]) for x in strata) != [
