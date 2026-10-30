@@ -634,9 +634,11 @@ jobs:
 
       - name: Probar impacto posicional de códigos high-ASCII sin descifrarlos
         run: |
-          python -m unittest discover -s tests -p 'test_exp590_opaque_token_sensitivity.py' -v
-          python -O -m unittest discover -s tests -p 'test_exp590_opaque_token_sensitivity.py' -v
-          python scripts/audit_exp590_opaque_token_sensitivity.py --out exp590-opaque-token-sensitivity.json
+          # The previous run was cancelled during this step; bound each subprocess
+          # and keep unbuffered unittest output to identify any stall.
+          timeout --signal=TERM --kill-after=10s 120s python -u -m unittest discover -s tests -p 'test_exp590_opaque_token_sensitivity.py' -v
+          timeout --signal=TERM --kill-after=10s 120s python -O -u -m unittest discover -s tests -p 'test_exp590_opaque_token_sensitivity.py' -v
+          timeout --signal=TERM --kill-after=10s 120s python -u scripts/audit_exp590_opaque_token_sensitivity.py --out exp590-opaque-token-sensitivity.json
           sha256sum exp590-opaque-token-sensitivity.json > exp590-opaque-token-sensitivity.sha256
 
       - name: Conservar sensibilidad de tokens opacos y SHA-256

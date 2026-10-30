@@ -1,5 +1,9 @@
 """Regression tests for the non-decoding EXP-590 high-ASCII token policy."""
 import unittest
+import faulthandler
+
+# Print Python stacks on prolonged regression runs without changing assertions.
+faulthandler.dump_traceback_later(60, repeat=True)
 
 from scripts import audit_exp590_opaque_token_sensitivity as audit
 
