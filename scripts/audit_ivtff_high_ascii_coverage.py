@@ -28,13 +28,15 @@ SOURCES = {
     "IT2a": ("eva_it2a.txt", "7f27a8b0feed8f6de0a99900df6bf912dd1d295c38e5f830bac8b41c3f536fb5"),
 }
 EXPECTED = {
-    "ZL3b": (5385, 5376, 122, 168, ("f49v.11", "f49v.21", "f49v.27",
+    "ZL3b": (5385, 5376, 122, 168, 9, 0, ("f49v.11", "f49v.21", "f49v.27",
                                      "f49v.29", "f49v.35", "f49v.41",
                                      "f66r.24", "f66r.38", "f66r.42")),
-    "ZL3a": (5389, 5381, 117, 160, ("f49v.11", "f49v.21", "f49v.27",
+    "ZL3a": (5389, 5380, 117, 160, 8, 1, ("f49v.11", "f49v.21", "f49v.27",
                                      "f49v.29", "f49v.35", "f49v.41",
-                                     "f66r.38", "f66r.42")),
-    "IT2a": (5215, 5215, 0, 0, ()),
+                                     "f66r.24", "f66r.38", "f66r.42")),
+    "IT2a": (5215, 5207, 0, 0, 0, 8, ("f49v.11", "f49v.21", "f49v.27",
+                                     "f49v.29", "f49v.35", "f49v.41",
+                                     "f66r.24", "f66r.42")),
 }
 
 
@@ -76,22 +78,27 @@ def analyze_text(text: str) -> dict:
             code_rows += 1
             code_count += len(codes)
         if not historical:
-            # The nine known omissions are *not* empty IVTFF records: they
-            # have a code token, potentially followed by an inline comment.
-            if not codes:
-                raise ValueError("Non-tokenized record without high-ASCII evidence")
+            # A historical ASCII-empty row can contain either an opaque
+            # high-ASCII glyph or an explicit unreadable '?' marker. These
+            # are different evidence classes and must not be merged.
             opaque = tokens_rows([payload], uncertain_space="split",
                                  alternatives="primary", ligatures="expand")
-            if opaque != codes:
-                raise ValueError("Opaque projection differs from code-only record")
+            if codes and opaque == codes:
+                kind = "HIGH_ASCII_ONLY"
+            elif not codes and opaque == ["?"]:
+                kind = "UNREADABLE_ONLY"
+            else:
+                raise ValueError("Unadjudicated ASCII-empty IVTFF record")
             omitted.append({"source_line": number, "locus": f"f{folio}.{line_number}",
-                            "raw_body": body, "high_ascii_codes": codes,
-                            "opaque_tokens": opaque})
+                            "raw_body": body, "classification": kind,
+                            "high_ascii_codes": codes, "opaque_tokens": opaque})
     return {
         "nonempty_text_records": total,
         "ascii_tokenized_records": tokenized,
         "records_with_selected_high_ascii": code_rows,
         "selected_high_ascii_codes": code_count,
+        "high_ascii_only_records": sum(x["classification"] == "HIGH_ASCII_ONLY" for x in omitted),
+        "unreadable_only_records": sum(x["classification"] == "UNREADABLE_ONLY" for x in omitted),
         "ascii_omitted_but_opaque_nonempty": omitted,
     }
 
@@ -115,6 +122,7 @@ def audit(root: Path = ROOT) -> dict:
         observed = (result["nonempty_text_records"], result["ascii_tokenized_records"],
                     result["records_with_selected_high_ascii"],
                     result["selected_high_ascii_codes"],
+                    result["high_ascii_only_records"], result["unreadable_only_records"],
                     tuple(row["locus"] for row in result["ascii_omitted_but_opaque_nonempty"]))
         if observed != expected:
             raise ValueError(f"{label}: frozen high-ASCII coverage drift: {observed}")
@@ -122,12 +130,12 @@ def audit(root: Path = ROOT) -> dict:
                           "sha256": digest, **result}
     return {
         "status": "REPRODUCED_SCOPE_ONLY",
-        "scope": "Opaque high-ASCII record coverage under frozen ASCII-only EXP-590 view",
+        "scope": "Opaque high-ASCII versus unreadable record coverage under frozen ASCII-only view",
         "historical_experiment_reexecuted": False,
         "historical_results_modified": False,
         "high_ascii_decoded": False,
         "seeds": None,
-        "policy": "Square-bracket readings excluded for historical comparability; high-ASCII codes outside them counted as opaque glyph codes",
+        "policy": "Square-bracket readings excluded for historical comparability; high-ASCII glyph codes remain opaque and question marks mean unreadable, not empty",
         "limitations": [
             "This does not prove all IVTFF 2.0.2 constructs are handled correctly.",
             "Counts are descriptive, not linguistic evidence or a new predictor.",
