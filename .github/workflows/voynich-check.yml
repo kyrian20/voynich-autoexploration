@@ -126,6 +126,23 @@ jobs:
           if-no-files-found: error
           retention-days: 90
 
+      - name: Auditar independencia de hojas físicas en piloto LIB-EXP-624
+        run: |
+          python -m unittest discover -s tests -p 'test_library_exp624_leaf_leakage.py' -v
+          python -O -m unittest discover -s tests -p 'test_library_exp624_leaf_leakage.py' -v
+          python scripts/audit_library_exp624_leaf_leakage.py --check --out library-exp624-leaf-leakage.json
+          sha256sum library-exp624-leaf-leakage.json > library-exp624-leaf-leakage.sha256
+
+      - name: Conservar evidencia por semilla y hash de LIB-EXP-624
+        uses: actions/upload-artifact@v4
+        with:
+          name: library-exp624-leaf-leakage-${{ github.run_id }}
+          path: |
+            library-exp624-leaf-leakage.json
+            library-exp624-leaf-leakage.sha256
+          if-no-files-found: error
+          retention-days: 90
+
       - name: Verificar inventario astronómico y separar páginas numéricas de Rosettes
         run: |
           ANCHOR_REPO_ROOT=. python -m unittest discover -s research/decipherment/2026-10-26-astronomical-anchor -p 'test_run.py' -v
