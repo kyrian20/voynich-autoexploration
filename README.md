@@ -4,6 +4,8 @@
 
 Repositorio de trabajo: `kyrian20/voynich-autoexploration` (rama `master`).
 
+**Contacto de códigos high-ASCII con letras ASCII — 30-10-2026:** [auditoría acotada de fragmentación potencial en EXP-590](research/maintenance/2026-10-30-exp590-high-ascii-adjacency.md). Separa códigos dentro/fuera de ligaduras y conserva los originales; no recalcula ni rehabilita métricas históricas. Verificar CI del commit exacto antes de reutilizar recuentos.
+
 **Conciliación IVTFF de registros sin tokens ASCII — 30-10-2026:** [diferencia comprobable entre códigos high-ASCII y lecturas ilegibles en ZL3b/ZL3a/IT2a](research/maintenance/2026-10-30-ivtff-high-ascii-unreadable-record-reconciliation.md). Es una reparación de cobertura descriptiva; no rehabilita EXP-590 ni aporta traducción. Consultar la CI de la PR antes de afirmar reproducción remota.
 
 **Auditoría retrospectiva — 24-10-2026:** [inventario de errores conocidos, PR pendientes y verificaciones no concluidas](research/maintenance/2026-10-24-retrospective-audit-status.md). No equivale a ejecutar ni certificar todo el historial. Las propuestas semánticas recientes son protocolos, no traducciones validadas.
