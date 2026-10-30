@@ -21,6 +21,10 @@ class HighAsciiAdjacencyTests(unittest.TestCase):
         self.assertEqual(report["codes_with_ascii_right"], 3)
         self.assertEqual(report["codes_with_ascii_both_sides"], 2)
         self.assertEqual(report["codes_with_no_direct_ascii_neighbor"], 1)
+        self.assertEqual(report["codes_outside_ligatures"], 4)
+        self.assertEqual(report["outside_ligature_codes_with_ascii_both_sides"], 1)
+        self.assertEqual(report["codes_inside_ligatures"], 1)
+        self.assertEqual(report["inside_ligature_codes_with_ascii_both_sides"], 1)
         self.assertEqual(report["rows_with_at_least_one_ascii_neighbor"], 4)
         self.assertEqual(report["affected_rows"][0]["locus"], "f1r.1")
         self.assertEqual(report["affected_rows"][0]["adjacent_codes"][0]["code"], "@140;")
@@ -57,6 +61,11 @@ class HighAsciiAdjacencyTests(unittest.TestCase):
                 source["codes_with_no_direct_ascii_neighbor"],
                 source["primary_high_ascii_codes"],
             )
+            self.assertEqual(source["codes_outside_ligatures"] + source["codes_inside_ligatures"],
+                             source["primary_high_ascii_codes"])
+            self.assertEqual(source["outside_ligature_codes_with_ascii_both_sides"] +
+                             source["inside_ligature_codes_with_ascii_both_sides"],
+                             source["codes_with_ascii_both_sides"])
             self.assertLessEqual(source["codes_with_ascii_both_sides"],
                                  source["codes_with_at_least_one_ascii_neighbor"])
 
