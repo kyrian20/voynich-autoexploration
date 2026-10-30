@@ -61,7 +61,7 @@ class HighAsciiAdjacencyTests(unittest.TestCase):
         for body in ("{c@140;h", "a.[b:@140;", "a.<!@140;"):
             with self.subTest(body=body):
                 with self.assertRaisesRegex(ValueError, "Unclosed primary"):
-                    audit.analyze_text(f"<f1r.1,@P0> {body}\\n".replace("\\n", "\n"))
+                    audit.analyze_text(f"<f1r.1,@P0> {body}\n")
 
     def test_frozen_corpora_have_expected_inventory(self):
         result = audit.audit()
