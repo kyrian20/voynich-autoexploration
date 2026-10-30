@@ -62,6 +62,48 @@ class InterposedLocusContract(unittest.TestCase):
         self.assertEqual(
             [row["y"] for row in module.candidates(pages, ["f1r"])], [1])
 
+    def test_unparsed_same_page_locus_blocks_false_positive(self):
+        # An invalid row is still physical evidence of an intervening locus.
+        # Before the guard it vanished, yielding a false P.1 -> P.2 break.
+        for invalid in ("<f1r.P.2> unknown",
+                        "<f1r.P.2 unknown",
+                        "<f1r.P.2,P0 unknown"):
+            with self.subTest(invalid=invalid):
+                pages = fixture("<f1r.P.1,P0> alpha.beta\\n".replace("\\n", "\n")
+                                + invalid + "\n"
+                                + "<f1r.P.2,P0> gamma.delta\n")
+                self.assertEqual(pages["f1r"][0]["intervening_non_p"],
+                                 [{"line": 2, "loc": "UNPARSED_LOCUS"}])
+                self.assertEqual([r["y"] for r in module.candidates(pages, ["f1r"])],
+                                 [0, 0])
+
+    def test_valid_header_comment_and_other_page_are_not_barriers(self):
+        pages = fixture("<f1r.P.1,P0> alpha\n"
+                        "<f1r>\n"
+                        "# ordinary comment\n"
+                        "<f2r.P.2> malformed other page\n"
+                        "<f1r.P.2,P0> beta\n")
+        self.assertNotIn("intervening_non_p", pages["f1r"][0])
+        self.assertEqual([r["y"] for r in module.candidates(pages, ["f1r"])], [1])
+
+    def test_frozen_sources_have_no_unparsed_locus_rows(self):
+        # Independently census the precise malformed-locus class; authenticate
+        # both immutable source bytes before interpreting the result.
+        import re
+        for label, path in module.INPUTS.items():
+            with self.subTest(label=label):
+                self.assertEqual(module.sha(path), module.EXPECTED_SHA256[label])
+                suspect = []
+                for lineno, raw in module.checked_physical_lines(
+                        path.read_text(encoding="latin-1")):
+                    stripped = raw.strip()
+                    if not re.match(r"^<(?:f[0-9]+[rv][1-6]?|fRos)\\.", stripped):
+                        continue
+                    parsed = module.ROW.match(stripped)
+                    if not parsed or "," not in parsed["ident"]:
+                        suspect.append(lineno)
+                self.assertEqual(suspect, [], f"{label}: unparsed loci at {suspect}")
+
     def test_frozen_corpus_scope_and_candidate_delta(self):
         # The legacy counterfactual is identical except that it removes
         # the new annotation, reproducing the previous candidate logic.
