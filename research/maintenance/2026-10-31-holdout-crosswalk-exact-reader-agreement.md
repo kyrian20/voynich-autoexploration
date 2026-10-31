@@ -34,3 +34,7 @@ cmp research/maintenance/2026-10-25-holdout-page-crosswalk/results.json /tmp/hol
 ```
 
 **Semilla:** no aplicable; pruebas deterministas. **Unidad:** cabecera de página y registro físico IVTFF. **Resultado esperado de los controles:** fallo cerrado en discrepancias inyectadas y coincidencia exacta del resultado congelado sobre las fuentes reales. **Limitación:** concordancia entre dos lectores no es certificación completa IVTFF ni independencia histórica de los folios; no implica significado o traducción. Pendientes independientes: EXP-170 sin entradas exactas, identidad de corpus históricos y adjudicación IVTFF completa. Evaluación general: 2026-11-22, sin prometer descifrado.
+
+## Refuerzo de la puerta CI (2026-10-31)
+
+La primera CI del head `24c81839bbb2db604f367a8d13bc063024e3507b` terminó `success` (116/116 pasos; run 41152969511) y ejecutó las pruebas de crosswalk **solo con Python normal**. No contenía el comando `python -O` para ese archivo y no conservaba el JSON del crosswalk como artefacto individual. Esta falta de cobertura se corrige añadiendo al workflow la ejecución optimizada, el cotejo `cmp` antes del SHA-256 y la publicación del JSON junto con su suma. El run anterior sigue siendo evidencia válida únicamente para lo que realmente ejecutó. No cambia ninguna fuente ni resultado histórico. El cierre requiere comprobar un nuevo run del commit modificado y su artefacto; esta nota no anticipa su resultado.
