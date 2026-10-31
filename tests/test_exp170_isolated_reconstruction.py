@@ -337,6 +337,23 @@ class Exp170ReconstructionRunnerTests(unittest.TestCase):
         self.assertEqual(runner.sha256(ROOT / runner.EXP / "data/simulation_results.json"),
                          self.original_sha)
 
+    def test_child_exit_124_is_not_a_timeout(self):
+        # Exit status 124 is not proof that subprocess.run timed out.
+        with patch.object(runner.subprocess, "run", return_value=SimpleNamespace(
+                stdout=b"ordinary exit", stderr=b"child exit", returncode=124)):
+            with self.assertRaisesRegex(RuntimeError, r"failed \\(124\\)"):
+                self.invoke(execute=True)
+        receipt = json.loads((self.out / "receipt.json").read_text())
+        self.assertEqual(receipt["returncode"], 124)
+        self.assertFalse(receipt["timed_out"])
+        self.assertEqual(receipt["status"], "FAILED")
+        self.assertEqual((self.out / "stderr.log").read_text(), "child exit")
+        self.assertNotIn("TIMEOUT", (self.out / "stderr.log").read_text())
+        self.assertEqual((self.out / "stderr.bin").read_bytes(), b"child exit")
+        self.assertFalse((self.out / "simulation_results.json").exists())
+        self.assertEqual(runner.sha256(ROOT / runner.EXP / "data/simulation_results.json"),
+                         self.original_sha)
+
     def test_timeout_with_bytes_keeps_decoded_logs(self):
         error = runner.subprocess.TimeoutExpired(
             cmd=["synthetic"], timeout=1, output=b"partial\xff", stderr=b"problem\xfe")
@@ -345,6 +362,7 @@ class Exp170ReconstructionRunnerTests(unittest.TestCase):
                 self.invoke(execute=True)
         receipt = json.loads((self.out / "receipt.json").read_text())
         self.assertEqual(receipt["returncode"], 124)
+        self.assertTrue(receipt["timed_out"])
         self.assertEqual(receipt["status"], "FAILED")
         stdout_log = (self.out / "stdout.log").read_text(encoding="utf-8")
         stderr_log = (self.out / "stderr.log").read_text(encoding="utf-8")
