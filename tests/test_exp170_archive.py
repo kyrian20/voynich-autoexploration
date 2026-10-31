@@ -130,6 +130,19 @@ class ArchiveAuditTests(unittest.TestCase):
                 with self.assertRaisesRegex(ValueError, 'Non-finite or non-numeric metric'):
                     audit.validate_archive(archive, {'metric'})
 
+    def test_null_only_allowed_for_paragraph_start_metric(self):
+        # A nonempty compute_metrics() result always has numeric edy_rate.
+        # A missing paragraph-start rate is the one legitimate nullable field.
+        row = {"edy_rate": 0.0, "k_para_start_enrichment": None}
+        archive = {c: [dict(row) for _ in range(100)] for c in audit.CONDITIONS}
+        audit.validate_archive(archive, set(row))
+        for bad_key in ("edy_rate",):
+            with self.subTest(metric=bad_key):
+                archive["italian_A"][0][bad_key] = None
+                with self.assertRaisesRegex(ValueError, "Unexpected null"):
+                    audit.validate_archive(archive, set(row))
+                archive["italian_A"][0][bad_key] = 0.0
+
     def test_legacy_summary_mismatch_fails_in_optimized_mode(self):
         original = audit.historical_namespace
 
