@@ -214,7 +214,9 @@ def main() -> None:
     output = json.dumps(result, ensure_ascii=False, sort_keys=True, indent=2) + "\n"
     if args.out:
         args.out.parent.mkdir(parents=True, exist_ok=True)
-        args.out.write_text(output, encoding="utf-8")
+        # A repeated invocation must not truncate prior holdout evidence.
+        with args.out.open("x", encoding="utf-8", newline="\n") as stream:
+            stream.write(output)
     print(json.dumps({
         "status": result["status"],
         "eligible_numeric_physical_leaves": result["eligible_numeric_physical_leaves"],

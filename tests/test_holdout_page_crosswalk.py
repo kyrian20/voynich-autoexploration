@@ -1,11 +1,17 @@
 import hashlib
 import copy
+import io
 import sys
+import tempfile
 import unittest
+from contextlib import redirect_stdout
 from pathlib import Path
+from unittest.mock import patch
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]/'scripts'))
 from audit_holdout_page_crosswalk import crosswalk
 from audit_holdout_locus_coverage import SOURCE_NAMES, FROZEN_CONTRACT
+import audit_holdout_locus_coverage as coverage_module
+import audit_holdout_page_crosswalk as crosswalk_module
 
 
 def fixture(text):
@@ -42,6 +48,44 @@ class PageCrosswalkTests(unittest.TestCase):
         sources[SOURCE_NAMES[0]] += b'# replaced\n'
         with self.assertRaisesRegex(ValueError, 'provenance'):
             crosswalk(sources, manifest)
+
+
+    def test_both_audit_clis_refuse_existing_outputs_and_symlinks(self):
+        # Exercise the real CLI main() paths with tiny, hash-matched synthetic
+        # transcriptions. No frozen source, manifest or archived result is touched.
+        for module in (coverage_module, crosswalk_module):
+            with self.subTest(module=module.__name__):
+                with tempfile.TemporaryDirectory() as directory:
+                    root = Path(directory)
+                    inputs = root / 'data' / 'transcriptions'
+                    inputs.mkdir(parents=True)
+                    sources, manifest = fixture(
+                        '<f67r> metadata\n<f67r.1,@P0> a\n'
+                    )
+                    for name, raw in sources.items():
+                        (inputs / name).write_bytes(raw)
+                    output = root / 'audit.json'
+                    with patch.object(module, 'ROOT', root), \
+                            patch.object(module, 'load_manifest', return_value=manifest):
+                        with patch.object(sys, 'argv', ['audit', '--out', str(output)]):
+                            with redirect_stdout(io.StringIO()):
+                                module.main()
+                            original = output.read_bytes()
+                            self.assertTrue(original.endswith(b'\n'))
+                            self.assertIn(b'"status"', original)
+                            with self.assertRaises(FileExistsError):
+                                module.main()
+                            self.assertEqual(output.read_bytes(), original)
+
+                        frozen = root / 'frozen.json'
+                        frozen.write_bytes(b'FROZEN_EVIDENCE')
+                        link = root / 'linked.json'
+                        link.symlink_to(frozen)
+                        with patch.object(sys, 'argv', ['audit', '--out', str(link)]):
+                            with self.assertRaises(FileExistsError):
+                                module.main()
+                        self.assertEqual(frozen.read_bytes(), b'FROZEN_EVIDENCE')
+                        self.assertTrue(link.is_symlink())
 
 
 if __name__ == '__main__':
