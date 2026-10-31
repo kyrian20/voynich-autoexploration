@@ -265,7 +265,7 @@ def main():
     args = parser.parse_args()
     result = audit()
     if args.check:
-        if result != json.loads(args.check.read_text()):
+        if result != parse_archive(args.check.read_text()):
             raise SystemExit('EXP-170 audit snapshot differs')
         print('EXP-170 archive audit matches snapshot')
     elif args.format == 'markdown':
