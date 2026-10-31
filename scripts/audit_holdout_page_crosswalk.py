@@ -23,7 +23,7 @@ def crosswalk(sources: dict[str, bytes], manifest: dict) -> dict:
     editions = {}
     for name in SOURCE_NAMES:
         text = sources[name].decode('utf-8-sig')
-        strict = audit_text(text)
+        strict = audit_text(text, include_locus_ids=True)
         errors = structural_errors(strict)
         if errors:
             raise ValueError(f'{name}: strict structural errors: {errors}')
@@ -31,7 +31,8 @@ def crosswalk(sources: dict[str, bytes], manifest: dict) -> dict:
         # a locus can leave the same set of physical leaves and pass unnoticed.
         # Compare exact page IDs and physical row counts from the independent
         # coverage reader, without changing the frozen output schema.
-        independent = inspect_source(sources[name], include_page_ids=True)
+        independent = inspect_source(sources[name], include_page_ids=True,
+                                     include_locus_ids=True)
         if set(strict['page_names']) != set(independent['page_ids']):
             raise ValueError(f'{name}: strict/coverage page identifiers disagree')
         expected_headers = (independent['numeric_page_header_count']
@@ -41,6 +42,10 @@ def crosswalk(sources: dict[str, bytes], manifest: dict) -> dict:
         if (strict['page_header_count'] != expected_headers
                 or strict['record_count'] != expected_records):
             raise ValueError(f'{name}: strict/coverage physical row counts disagree')
+        # Equal page sets and record counts can still hide a substituted locus
+        # identifier; compare exact full tags without inspecting held-out text.
+        if strict['locus_ids'] != independent['locus_ids']:
+            raise ValueError(f'{name}: strict/coverage locus identifiers disagree')
         pages = {}
         for page in strict['page_names']:
             match = NUMERIC_PAGE.fullmatch(page)
