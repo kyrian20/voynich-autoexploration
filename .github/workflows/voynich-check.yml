@@ -208,8 +208,20 @@ jobs:
           python -m unittest discover -s tests -p 'test_holdout_manifest_contract.py' -v
           python scripts/audit_holdout_locus_coverage.py --out holdout-locus-coverage.json
           python -m unittest discover -s tests -p 'test_holdout_page_crosswalk.py' -v
+          python -O -m unittest discover -s tests -p 'test_holdout_page_crosswalk.py' -v
           python scripts/audit_holdout_page_crosswalk.py --out holdout-page-crosswalk.json
           cmp research/maintenance/2026-10-25-holdout-page-crosswalk/results.json holdout-page-crosswalk.json
+          sha256sum holdout-page-crosswalk.json > holdout-page-crosswalk.sha256
+
+      - name: Conservar crosswalk de páginas y hash verificado
+        uses: actions/upload-artifact@v4
+        with:
+          name: holdout-page-crosswalk-${{ github.run_id }}
+          path: |
+            holdout-page-crosswalk.json
+            holdout-page-crosswalk.sha256
+          if-no-files-found: error
+          retention-days: 90
 
       - name: Conservar cobertura de loci no asignados
         uses: actions/upload-artifact@v4

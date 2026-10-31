@@ -50,6 +50,42 @@ class PageCrosswalkTests(unittest.TestCase):
             crosswalk(sources, manifest)
 
 
+    def test_same_leaf_but_wrong_panel_id_is_rejected(self):
+        # Fault injection: a strict reader returning a different panel ID
+        # would have passed the old leaf-only equality gate.
+        sources, manifest = fixture(
+            '<f67r1>\n<f67r1.1,@P0> a\n'
+            '<f67v2>\n<f67v2.1,@P0> b\n'
+        )
+        real_audit = crosswalk_module.audit_text
+
+        def corrupted_audit(text):
+            report = real_audit(text)
+            report['page_names'] = ['f67r1', 'f67v1']
+            return report
+
+        with patch.object(crosswalk_module, 'audit_text', side_effect=corrupted_audit):
+            with self.assertRaisesRegex(ValueError, 'page identifiers disagree'):
+                crosswalk(sources, manifest)
+
+    def test_same_leaf_but_missing_locus_count_is_rejected(self):
+        # Fault injection: page/leaf sets remain identical but the strict
+        # reader silently undercounts a record.
+        sources, manifest = fixture(
+            '<f67r1>\n<f67r1.1,@P0> a\n<f67r1.2,@P0> b\n'
+        )
+        real_audit = crosswalk_module.audit_text
+
+        def corrupted_audit(text):
+            report = real_audit(text)
+            report['record_count'] -= 1
+            return report
+
+        with patch.object(crosswalk_module, 'audit_text', side_effect=corrupted_audit):
+            with self.assertRaisesRegex(ValueError, 'physical row counts disagree'):
+                crosswalk(sources, manifest)
+
+
     def test_both_audit_clis_refuse_existing_outputs_and_symlinks(self):
         # Exercise the real CLI main() paths with tiny, hash-matched synthetic
         # transcriptions. No frozen source, manifest or archived result is touched.
