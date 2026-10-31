@@ -341,7 +341,7 @@ class Exp170ReconstructionRunnerTests(unittest.TestCase):
         # Exit status 124 is not proof that subprocess.run timed out.
         with patch.object(runner.subprocess, "run", return_value=SimpleNamespace(
                 stdout=b"ordinary exit", stderr=b"child exit", returncode=124)):
-            with self.assertRaisesRegex(RuntimeError, r"failed \\(124\\)"):
+            with self.assertRaisesRegex(RuntimeError, r"failed \(124\)"):
                 self.invoke(execute=True)
         receipt = json.loads((self.out / "receipt.json").read_text())
         self.assertEqual(receipt["returncode"], 124)
