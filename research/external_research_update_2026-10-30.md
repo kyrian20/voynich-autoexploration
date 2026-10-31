@@ -58,6 +58,19 @@ Layfield y Davis también publicaron “The Application of Latent Semantic Analy
 
 Existe una nota crítica pública de Torsten Timm que cuestiona cuatro caracterizaciones de fuentes citadas en ese artículo: [Zenodo](https://zenodo.org/records/20429073). Es una crítica de parte interesada y no se adjudicó aquí contra los trabajos citados. Antes de reutilizar afirmaciones historiográficas o de Currier de ese artículo, cotejar cada cita con la fuente primaria. No usar la disputa bibliográfica como razón para aceptar la hipótesis de copia.
 
+
+### 7. Seguimiento de la medida de pares recurrentes en un generador rival
+
+**Vitaly Averyanov, actualización pública del 27-10-2026 sobre su modelo de cifrado verbose** ([sitio del proyecto](https://voynich.site/?lang=en); [artículo y estado editorial](https://voynich.site/publications?lang=en); [datos y código](https://voynich.site/data-and-code?lang=en)). La nota aplica la medida de Zhang–Sheng: cuánto se repiten en otras líneas del libro los mismos pares de palabras que ya comparten una línea.
+
+Averyanov informa una reimplementación descriptiva con valor 0,078 para el texto manuscrito, frente al 0,071 reportado por Zhang–Sheng para ZL; después comunica otro contraste preregistrado, con valores de 0,082 para el manuscrito, 0,106 para su muestra de texto sin sentido y 0,138 para su modelo (rango 0,112–0,156 en 20 semillas nuevas). El valor 0,078 no coincide exactamente con el 0,071 publicado, y la página no permite adjudicar si la diferencia procede de la población, normalización o implementación. No se deben mezclar las dos series como una reproducción byte a byte.
+
+El autor dice que el exceso del modelo persiste al cambiar el texto fuente, retirar cualquiera de cinco capas del generador y corromper palabras. Si se confirma con el paquete y una medición común, el resultado mostraría que esa estadística puede aparecer por el mecanismo de escritura y no identifica por sí sola contenido lingüístico. No contradice automáticamente el resultado de Zhang–Sheng: compara otro generador, y ambos trabajos reportan condiciones y valores que requieren reconstrucción independiente.
+
+**Estado de evidencia:** resultado publicado por Averyanov en su propio sitio sobre su propio modelo; el sitio informa que el artículo continúa como preprint en revisión. No es una replicación independiente del generador ni una validación externa de la medida. El paquete público contiene scripts y corpus, pero en esta actualización no se han descargado, congelado ni auditado sus archivos, versión, licencia, dependencias o hashes.
+
+**Consecuencia:** añadir el generador de Averyanov a la lista de rivales a contrastar y registrar como pendiente la discrepancia 0,071/0,078/0,082. No importar esas cifras a nuestros resultados ni diseñar una nueva métrica sobre la misma muestra sin un protocolo común, tokenización congelada y comparación de semillas retenidas. La medida de recurrencia de pares, por sí sola, no puede tratarse como detector de significado.
+
 ## Decisiones incorporadas
 
 1. **No se crea EXP nuevo ni se ejecuta ningún modelo** como consecuencia de esta revisión. Primero siguen vigentes los bloqueos del registro, la política IVTFF, la identidad de los corpus y las reglas de partición física.
@@ -68,4 +81,4 @@ Existe una nota crítica pública de Torsten Timm que cuestiona cuatro caracteri
 
 ## Registro de consulta
 
-Búsqueda pública realizada el 2026-10-30. Se priorizaron artículos, preprints con identificador persistente y páginas de datos/código de los autores. Esta selección no es un censo exhaustivo. Resultados atribuidos a sus autores, salvo donde se indique reproducción en este repositorio.
+Búsqueda pública inicial realizada el 2026-10-30; actualización focalizada de fuentes externas realizada el 2026-11-01. Se priorizaron artículos, preprints con identificador persistente y páginas de datos/código de los autores. Esta selección no es un censo exhaustivo. Resultados atribuidos a sus autores, salvo donde se indique reproducción en este repositorio.
