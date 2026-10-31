@@ -250,7 +250,7 @@ class HoldoutLocusCoverageTests(unittest.TestCase):
         with patch.dict(FROZEN_SOURCE_SHA256, original_hashes):
             frozen_audit(self.sources, self.manifest)
             name = "eva_zl3b.txt"
-            self.sources[name] += b"# synthetic changed source bytes\\n"
+            self.sources[name] += b"# synthetic changed source bytes\n"
             self.manifest["corpora"][name]["sha256"] = hashlib.sha256(
                 self.sources[name]).hexdigest()
             # Demonstrate that the old, manifest-only gate would still accept.
