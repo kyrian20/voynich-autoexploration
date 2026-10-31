@@ -200,6 +200,73 @@ class InterposedLocusContract(unittest.TestCase):
                           "candidates excluded; frozen source SHA-256 OK")
 
 
+    def test_mismatched_p_locus_kind_cannot_forge_candidates(self):
+        # Before the repair the comma suffix P0 overrode an explicit L/C
+        # locus kind (or a malformed extra component), producing a false
+        # P-to-P positive and sometimes extra within-row negatives.
+        invalid = (
+            "<f1r.L.2,P0> gamma.delta",
+            "<f1r.C.2,+P0> gamma.delta",
+            "<f1r.P.extra.2,+P0> gamma.delta",
+            "<f1r.foo,+P0> gamma.delta",
+            "<f1r.P.foo,+P0> gamma.delta",
+        )
+        for policy in ("primary", "drop_uncertain_word"):
+            for damaged in invalid:
+                with self.subTest(policy=policy, damaged=damaged):
+                    pages = fixture("<f1r.1,@P0> alpha.beta\\n"
+                                    + damaged + "\\n"
+                                    + "<f1r.2,+P0> epsilon.zeta\\n",
+                                    policy)
+                    self.assertEqual(len(pages["f1r"]), 2)
+                    self.assertEqual(
+                        pages["f1r"][0]["intervening_non_p"],
+                        [{"line": 2, "loc": "INVALID_P_LOCUS_KIND"}])
+                    self.assertEqual(
+                        [row["y"] for row in module.candidates(pages, ["f1r"])],
+                        [0, 0])
+
+    def test_valid_explicit_and_short_p_loci_still_admit_adjacency(self):
+        for second in ("<f1r.2,+P0>", "<f1r.P.2,+P0>"):
+            with self.subTest(second=second):
+                pages = fixture("<f1r.1,@P0> alpha.beta\\n"
+                                + second + " gamma.delta\\n")
+                self.assertEqual(
+                    [row["y"] for row in module.candidates(pages, ["f1r"])],
+                    [0, 1, 0])
+
+    def test_frozen_sources_have_no_invalid_p_locus_kinds(self):
+        # Scope census only: authenticate immutable originals first; do not
+        # fit models, score held-out leaves or modify archived results.
+        import re
+        for label, path in module.INPUTS.items():
+            with self.subTest(label=label):
+                self.assertEqual(module.sha(path), module.EXPECTED_SHA256[label])
+                malformed = []
+                for lineno, raw in module.checked_physical_lines(
+                        path.read_text(encoding="latin-1")):
+                    m = module.ROW.match(raw.strip())
+                    if not m or "," not in m["ident"]:
+                        continue
+                    ident, locus = m["ident"].split(",", 1)
+                    parts = ident.split(".")
+                    if len(parts) < 2 or not re.fullmatch(
+                            r"f(?:[0-9]+[rv][1-6]?|Ros)", parts[0]):
+                        continue
+                    loc = re.sub(r"^[+*@=~&!/]+", "", locus.strip())
+                    if not re.fullmatch(r"P(?:0|1|b|c|r|t)", loc):
+                        continue
+                    valid = (
+                        (len(parts) == 2 and re.fullmatch(r"[0-9]+", parts[1]))
+                        or (len(parts) == 3 and parts[1] == "P"
+                            and re.fullmatch(r"[0-9]+", parts[2]))
+                    )
+                    if not valid:
+                        malformed.append((lineno, m["ident"]))
+                self.assertEqual(malformed, [],
+                                 f"{label}: invalid P locus IDs {malformed}")
+                print(f"{label}: SHA-256 verified; invalid P locus kinds=0")
+
     def test_indented_page_and_locus_are_rejected(self):
         # The old raw.strip() silently promoted malformed physical rows.
         # Do not infer a line boundary from an indented source tag.
