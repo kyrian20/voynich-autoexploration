@@ -148,6 +148,19 @@ def parse(path,policy="primary",uncertain_space_policy="quarantine",ligature_pol
   page=parts[0]; pm=re.fullmatch(r"f(\d+)[rv][1-6]?",page)
   loc=re.sub(r"^[+*@=~&!/]+","",locus.strip())
   if not pm and page!="fRos":continue
+  # The suffix P0/P1/Pb/... alone cannot turn a malformed or explicitly
+  # non-P locus into body text.  Accept the documented numeric short form
+  # (f1r.2) and the explicit P kind (f1r.P.2), with ASCII ordinals only.
+  # An invalid P-tagged row is a physical barrier, not a source of positive
+  # OR negative candidates.  Preserve its position without inventing words.
+  if re.fullmatch(r"P(?:0|1|b|c|r|t)",loc) and not (
+      (len(parts)==2 and re.fullmatch(r"[0-9]+",parts[1]))
+      or (len(parts)==3 and parts[1]=="P" and re.fullmatch(r"[0-9]+",parts[2]))
+  ):
+   if pages.get(page):
+    pages[page][-1].setdefault("intervening_non_p",[]).append(
+     {"line":lineno,"loc":"INVALID_P_LOCUS_KIND"})
+   continue
   if not re.fullmatch(r"P(?:0|1|b|c|r|t)",loc):
    # A non-P locus between two P records is not a direct P-to-P
    # adjacency. Preserve its source row and locus on the preceding P row.
