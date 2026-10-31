@@ -214,9 +214,9 @@ class InterposedLocusContract(unittest.TestCase):
         for policy in ("primary", "drop_uncertain_word"):
             for damaged in invalid:
                 with self.subTest(policy=policy, damaged=damaged):
-                    pages = fixture("<f1r.1,@P0> alpha.beta\\n"
-                                    + damaged + "\\n"
-                                    + "<f1r.2,+P0> epsilon.zeta\\n",
+                    pages = fixture("<f1r.1,@P0> alpha.beta\n"
+                                    + damaged + "\n"
+                                    + "<f1r.2,+P0> epsilon.zeta\n",
                                     policy)
                     self.assertEqual(len(pages["f1r"]), 2)
                     self.assertEqual(
@@ -229,8 +229,8 @@ class InterposedLocusContract(unittest.TestCase):
     def test_valid_explicit_and_short_p_loci_still_admit_adjacency(self):
         for second in ("<f1r.2,+P0>", "<f1r.P.2,+P0>"):
             with self.subTest(second=second):
-                pages = fixture("<f1r.1,@P0> alpha.beta\\n"
-                                + second + " gamma.delta\\n")
+                pages = fixture("<f1r.1,@P0> alpha.beta\n"
+                                + second + " gamma.delta\n")
                 self.assertEqual(
                     [row["y"] for row in module.candidates(pages, ["f1r"])],
                     [0, 1, 0])
