@@ -170,6 +170,13 @@ def validate_archive(archive, expected_keys):
         for run in runs:
             if not isinstance(run, dict) or set(run) != expected_keys:
                 raise ValueError('Metric schema mismatch')
+            # compute_metrics() returns a number for every populated metric
+            # except k_para_start_enrichment (None when no paragraph starts).
+            # A missing value in edy_rate or another mandatory metric is not a
+            # successful simulation, even if the JSON shape otherwise matches.
+            if any(v is None and key != 'k_para_start_enrichment'
+                   for key, v in run.items()):
+                raise ValueError('Unexpected null in non-nullable EXP-170 metric')
             if any(v is not None and (type(v) not in (int, float) or not math.isfinite(v))
                    for v in run.values()):
                 raise ValueError('Non-finite or non-numeric metric')

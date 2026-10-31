@@ -263,6 +263,31 @@ class Exp170ReconstructionRunnerTests(unittest.TestCase):
         self.assertFalse((self.out / "simulation_results.json").exists())
 
 
+    def test_success_exit_with_null_required_metric_is_quarantined(self):
+        # A successful child exit is not sufficient when a required metric
+        # is missing. Preserve the synthetic invalid payload, never publish
+        # it as a modern reconstruction and never touch the frozen original.
+        def invalid_simulator(args, **kwargs):
+            path = Path(kwargs["cwd"]) / runner.EXP / "data/simulation_results.json"
+            data = json.loads((ROOT / runner.EXP / "data/simulation_results.json").read_text())
+            data["italian_A"][0]["edy_rate"] = None
+            path.write_text(json.dumps(data), encoding="utf-8")
+            return SimpleNamespace(stdout=b"", stderr=b"", returncode=0)
+
+        with patch.object(runner.subprocess, "run", side_effect=invalid_simulator):
+            with self.assertRaisesRegex(RuntimeError, r"failed \(65\)"):
+                self.invoke(execute=True)
+        receipt = json.loads((self.out / "receipt.json").read_text())
+        self.assertEqual(receipt["status"], "FAILED")
+        self.assertEqual(receipt["returncode"], 65)
+        self.assertIn("Unexpected null", receipt["validation_error"])
+        self.assertFalse((self.out / "simulation_results.json").exists())
+        quarantined = self.out / "simulation_results.failed.bin"
+        self.assertEqual(receipt["quarantined_output"]["sha256"],
+                         hashlib.sha256(quarantined.read_bytes()).hexdigest())
+        self.assertEqual(runner.sha256(ROOT / runner.EXP / "data/simulation_results.json"),
+                         self.original_sha)
+
     def test_subprocess_launch_error_keeps_receipt_and_logs(self):
         with patch.object(runner.subprocess, "run",
                           side_effect=OSError("synthetic interpreter launch failure")):
