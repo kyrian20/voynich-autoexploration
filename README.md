@@ -4,7 +4,7 @@
 
 Repositorio de trabajo: `kyrian20/voynich-autoexploration` (rama `master`).
 
-**Revisión de literatura externa — 30-10-2026:** [hallazgos recientes y consecuencias metodológicas](research/external_research_update_2026-10-30.md). Incluye estudios y preprints sobre modelos rivales calibrados, copia dinámica, orden físico, siglas zodiacales y límites de las afirmaciones estructurales. No crea EXP ni importa conclusiones sin reproducción.
+**Revisión de literatura externa — actualizada 31-10-2026:** [hallazgos recientes y consecuencias metodológicas](research/external_research_update_2026-10-30.md). Incluye estudios y preprints sobre modelos rivales calibrados, copia dinámica, orden físico, siglas zodiacales, límites estructurales y el cotejo entre transiciones de abridores de línea y análisis cross-line previos. No crea EXP ni importa conclusiones sin reproducción.
 
 **Sensibilidad de posición final de `daiin` a códigos opacos — 30-10-2026:** [comparación acotada de la vista ASCII de EXP-590 con una política que conserva `@NNN;` sin descifrar](research/maintenance/2026-10-30-exp590-opaque-token-positional-sensitivity.md). El recuento final depende de la política; no reejecuta permutaciones ni rehabilita resultados históricos. Comprobar CI exacta antes de reutilizar las cifras.
 
