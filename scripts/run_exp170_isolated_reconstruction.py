@@ -37,6 +37,13 @@ DESTINATIONS = {
 }
 OUTPUT_NAME = "simulation_results.json"
 
+# The April 10 original is a DIFFERENT Git blob from the path-ported
+# script staged by this runner. These are Git history references, not
+# evidence of the missing 2026 external plaintext/cipher input bytes.
+ORIGINAL_EXP170_COMMIT = "bfa786767d61a2c52bfb7a34a10d8b81ab777230"
+ORIGINAL_EXP170_GIT_BLOB_SHA1 = "26553a194c67fa82dd02a4d3e39b8f4fb12898ce"
+PORTABILITY_EDIT_COMMIT = "83b0875841b3cbdb83c4ffa661e55abfb5b98fa4"
+
 
 def sha256(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
@@ -60,14 +67,28 @@ def runtime_provenance(timeout):
         "dependencies": versions,
         "timeout_seconds": timeout,
         "historical_script": DESTINATIONS["historical_script"].as_posix(),
+        "script_lineage": {
+            "variant_for_optional_execution": "PATH_PORTED_2026_10_22",
+            "path": DESTINATIONS["historical_script"].as_posix(),
+            "portable_script_sha256":
+                FROZEN_INPUT_SHA256[str(DESTINATIONS["historical_script"])],
+            "april_original_commit": ORIGINAL_EXP170_COMMIT,
+            "april_original_git_blob_sha1": ORIGINAL_EXP170_GIT_BLOB_SHA1,
+            "portability_edit_commit": PORTABILITY_EDIT_COMMIT,
+            "april_original_used_for_execution": False,
+            "observed_diff_scope":
+                "pathlib import and five local path expressions; no claim "
+                "of exact historical runtime or external input identity",
+        },
         "seed_schedule_declared_by_frozen_script": {
             "simulation_indices_inclusive": [0, 99],
             "formula": "sim_idx * 1000 + corpus_offset + protocol_offset",
             "corpus_offsets": {"italian": 0, "latin": 500},
             "protocol_offsets": {"A": 0, "B": 250},
         },
-        "scope": ("Parent-process environment and declared seed recipe only; "
-                  "not a per-simulation execution receipt or proof of historical inputs."),
+        "scope": ("Parent-process environment, path-ported script lineage and "
+                  "declared seed recipe only; not a per-simulation execution "
+                  "receipt or proof of historical inputs."),
     }
 
 
