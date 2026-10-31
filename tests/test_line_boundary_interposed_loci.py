@@ -200,5 +200,28 @@ class InterposedLocusContract(unittest.TestCase):
                           "candidates excluded; frozen source SHA-256 OK")
 
 
+    def test_indented_page_and_locus_are_rejected(self):
+        # The old raw.strip() silently promoted malformed physical rows.
+        # Do not infer a line boundary from an indented source tag.
+        for damaged in (" <f1r.P.2,P0> beta", "\t<f2r> page"):
+            with self.subTest(damaged=damaged):
+                with self.assertRaisesRegex(
+                        ValueError, "Indented IVTFF structural row at source line 2"):
+                    fixture("<f1r.P.1,P0> alpha\n" + damaged + "\n")
+
+    def test_frozen_sources_have_no_indented_folio_rows(self):
+        # Impact census only: hash-check originals; do not fit any model.
+        for label, path in module.INPUTS.items():
+            with self.subTest(label=label):
+                self.assertEqual(module.sha(path), module.EXPECTED_SHA256[label])
+                suspects = [
+                    number for number, row in module.checked_physical_lines(
+                        path.read_text(encoding="latin-1"))
+                    if row.lstrip(" \t") != row and
+                    row.lstrip(" \t").startswith("<f")
+                ]
+                self.assertEqual(suspects, [], f"{label}: indented folio rows {suspects}")
+
+
 if __name__ == "__main__":
     unittest.main()
