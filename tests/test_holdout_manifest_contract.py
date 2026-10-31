@@ -71,6 +71,23 @@ class FrozenHoldoutContractTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "manifest fields mismatch"):
             audit(self.sources, self.manifest)
 
+    def test_extra_nested_corpus_claim_rejected(self):
+        # Before this guard, top-level fields were frozen but a nested
+        # corpus record could assert semantic validation and still pass.
+        self.manifest["corpora"][SOURCE_NAMES[0]]["semantic_validation"] = True
+        with self.assertRaisesRegex(ValueError, "Frozen source metadata fields mismatch"):
+            audit(self.sources, self.manifest)
+
+    def test_missing_nested_corpus_provenance_field_rejected(self):
+        del self.manifest["corpora"][SOURCE_NAMES[0]]["sha256"]
+        with self.assertRaisesRegex(ValueError, "Frozen source metadata fields mismatch"):
+            audit(self.sources, self.manifest)
+
+    def test_nonmapping_nested_corpus_record_rejected(self):
+        self.manifest["corpora"][SOURCE_NAMES[0]] = []
+        with self.assertRaisesRegex(ValueError, "Frozen source metadata fields mismatch"):
+            audit(self.sources, self.manifest)
+
     def test_extra_count_field_rejected(self):
         self.manifest["counts"]["blind_test"] = 102
         with self.assertRaisesRegex(ValueError, "count fields mismatch"):
