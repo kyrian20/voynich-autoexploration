@@ -52,7 +52,12 @@ FROZEN_FIELDS = set(FROZEN_CONTRACT) | {
 # complete header or locus. This is a coverage audit, not full IVTFF parsing.
 PAGE_ID = re.compile(r"^f(?:[0-9]+[rv][1-6]?|Ros)$")
 RECORD_ID = re.compile(
-    r"^(f(?:[0-9]+[rv][1-6]?|Ros))\.[0-9]{1,3},[^;>]{3}(?:;[^;>])?$"
+    # Accept printable ASCII locator/transcriber symbols only. The previous
+    # [^;>] admitted spaces, Unicode and '<' as valid three-character codes;
+    # a coverage-only run could then certify malformed locus identifiers.
+    # Keep this structural constraint aligned with the strict census without
+    # treating agreement as full IVTFF or semantic validation.
+    r"^(f(?:[0-9]+[rv][1-6]?|Ros))\.[0-9]{1,3},[!-:=?-~]{3}(?:;[!-:=?-~])?$"
 )
 
 
