@@ -131,7 +131,7 @@ class HoldoutLocusCoverageTests(unittest.TestCase):
             "f1r.1,@P0;é",
         ):
             with self.subTest(tag=tag):
-                raw = ("<f1r> page\\n<" + tag + "> body\\n").encode("utf-8")
+                raw = ("<f1r> page\n<" + tag + "> body\n").encode("utf-8")
                 with self.assertRaisesRegex(ValueError, "Unparsed numeric"):
                     inspect_source(raw)
 
