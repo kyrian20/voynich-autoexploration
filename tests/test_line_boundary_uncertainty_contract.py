@@ -14,6 +14,24 @@ spec.loader.exec_module(module)
 
 
 class UncertaintyPolicyContract(unittest.TestCase):
+    def test_unknown_reading_policy_is_rejected_before_tokenization(self):
+        # Historically a misspelled policy silently used the primary reading.
+        # That could mislabel a supposed uncertainty-exclusion sensitivity.
+        for preserve in (False, True):
+            for bad in ("drop_uncertain_words", "", "PRIMARY", "quarantine"):
+                with self.subTest(policy=bad, preserve_gaps=preserve):
+                    with self.assertRaisesRegex(ValueError, "unsupported reading policy"):
+                        module.tokens("ab[cd:ef]gh", bad, preserve_gaps=preserve)
+
+    def test_unknown_reading_policy_is_rejected_on_metadata_only_source(self):
+        # A bad configuration must fail even if no P rows reach tokens().
+        import tempfile
+        with tempfile.TemporaryDirectory() as directory:
+            source = Path(directory) / "metadata_only.ivtff"
+            source.write_text("# no P records\\n", encoding="latin-1")
+            with self.assertRaisesRegex(ValueError, "unsupported reading policy"):
+                module.parse(source, "drop_uncertain_words")
+
     def test_primary_reading_unchanged(self):
         self.assertEqual(module.tokens("ab[cd:ef]gh", "primary"), ["abcdgh"])
 
