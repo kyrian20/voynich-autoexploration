@@ -1,0 +1,66 @@
+{
+  "experiment": "EXP-590",
+  "title": "daiin line-initial positional baseline",
+  "date_utc": "2026-10-31",
+  "source": "data/transcriptions/eva_zl3b.txt",
+  "source_sha256": "bf5b6d4ac1e3a51b1847a9c388318d609020441ccd56984c901c32b09beccafc",
+  "tokenization": "lowercase ASCII alphabetic runs after removing IVTFF tags, braces and square-bracket annotations",
+  "target": "daiin",
+  "metrics": {
+    "tokens": 39594,
+    "lines": 5376,
+    "target_occurrences": 853,
+    "line_initial_occurrences": 161,
+    "line_final_occurrences": 134,
+    "initial_rate_per_target_occurrence": 0.18874560375146543,
+    "final_rate_per_target_occurrence": 0.1570926143024619,
+    "currier": {
+      "A": {
+        "target_occurrences": 502,
+        "line_initial_lines": 60,
+        "line_final_lines": 104,
+        "lines": 1815
+      },
+      "B": {
+        "target_occurrences": 314,
+        "line_initial_lines": 91,
+        "line_final_lines": 27,
+        "lines": 2806
+      },
+      "unknown": {
+        "target_occurrences": 37,
+        "line_initial_lines": 10,
+        "line_final_lines": 3,
+        "lines": 755
+      }
+    }
+  },
+  "permutation_test": {
+    "permutations": 5000,
+    "seed": 20261020,
+    "null_mean_initial_lines": 109.1214,
+    "null_sd_initial_lines": 9.314948311182407,
+    "empirical_one_sided_p": 0.0001999600079984003,
+    "null_ge_observed": 0,
+    "interpretation": "Exploratory positional test; not a decipherment claim."
+  },
+  "coverage_comparison": {
+    "legacy_restricted_pattern": {
+      "nonempty_token_lines": 4188,
+      "tokens": 32732,
+      "exact_daiin_occurrences": 726,
+      "line_initial_daiin_lines": 133
+    },
+    "current_nonempty_token_lines": 5376,
+    "scope": "Different page-ID coverage; these are not identical populations."
+  },
+  "limitations": [
+    "EVA transcription and tokenization choices affect counts.",
+    "Only exact token daiin is tested; variants such as dain are excluded.",
+    "Line-initial permutation test conditions on each line's token multiset.",
+    "Currier classification is read only from the IVTFF $L page variable; unknowns remain unknown.",
+    "This is descriptive statistical analysis, not a translation or decipherment.",
+    "The empirical p-value is not adjusted for prior selection of daiin among other candidate words or for other exploratory analyses of the same transcription; interpret it as exploratory rather than confirmatory.",
+    "The ASCII-letter token filter does not decode extended glyph codes such as @140; raw source records remain preserved."
+  ]
+}
