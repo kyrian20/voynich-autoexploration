@@ -122,6 +122,30 @@ class HoldoutLocusCoverageTests(unittest.TestCase):
                 self.assertEqual(result["numeric_page_header_count"], 2)
                 self.assertEqual(result["numeric_locus_record_count"], 2)
 
+    def test_indented_structural_tags_are_rejected(self):
+        # Before this repair, the coverage-only reader silently ignored
+        # indented page and locus tags, undercounting physical source rows.
+        for damaged in (
+            b" <f2r> extra page\n",
+            b"\t<f1r.2,@P0> extra locus\n",
+        ):
+            with self.subTest(damaged=damaged):
+                with self.assertRaisesRegex(ValueError, "Indented folio tag"):
+                    inspect_source(b"<f1r> page\n<f1r.1,@P0> body\n" + damaged)
+
+    def test_matching_hash_cannot_hide_indented_locus(self):
+        # The source checksum may match a synthetically modified manifest;
+        # this does not make an omitted physical locus acceptable.
+        name = "eva_zl3b.txt"
+        self.sources[name] = self.sources[name].replace(
+            b"<f1r.1,@P0>", b" <f1r.1,@P0>"
+        )
+        self.manifest["corpora"][name]["sha256"] = hashlib.sha256(
+            self.sources[name]
+        ).hexdigest()
+        with self.assertRaisesRegex(ValueError, "Indented folio tag"):
+            audit(self.sources, self.manifest)
+
     def test_non_ascii_whitespace_and_delimiter_locator_codes_are_rejected(self):
         # Former [^;>] accepted these malformed three-character locator
         # fields (and Unicode transcriber IDs) as valid holdout records.

@@ -86,6 +86,11 @@ def inspect_source(raw: bytes, *, include_page_ids: bool = False,
     numeric_tags = numeric_headers = numeric_loci = 0
     active_page = None
     for line_no, line in checked_physical_lines(raw.decode("utf-8-sig")):
+        # A leading space or tab must not silently erase a physical page or
+        # locus from this standalone census. The strict reader diagnoses this,
+        # but the coverage-only audit must fail independently too.
+        if line.lstrip(" \t") != line and line.lstrip(" \t").startswith("<f"):
+            raise ValueError(f"Indented folio tag at source line {line_no}")
         if not line.startswith("<f"):
             continue
         end = line.find(">")
