@@ -21,7 +21,7 @@ Comandos de regresión requeridos desde raíz, Python 3.12:
 ```sh
 python -m unittest discover -s tests -p 'test_exp170_isolated_reconstruction.py' -v
 python -O -m unittest discover -s tests -p 'test_exp170_isolated_reconstruction.py' -v
-python scripts/audit_exp170_archive.py --check
+python scripts/audit_exp170_archive.py --check research/maintenance/2026-10-22-exp170-audit/results.json
 ```
 
 **Criterio de cierre operativo:** verificar CI en el SHA exacto de la PR, revisar pasos y artefactos, integrar sin sobrescribir cambios ajenos y verificar CI del nuevo `master`. Hasta entonces, el parche es una propuesta y no se declara integración ni éxito remoto.
