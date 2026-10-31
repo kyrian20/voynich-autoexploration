@@ -71,10 +71,11 @@ def load_manifest(path: Path = MANIFEST) -> dict:
     return json.loads(path.read_text(encoding="utf-8"), object_pairs_hook=_unique_manifest_keys)
 
 
-def inspect_source(raw: bytes) -> dict:
+def inspect_source(raw: bytes, *, include_page_ids: bool = False) -> dict:
     leaves: set[int] = set()
     named_headers: Counter[str] = Counter()
     named_loci: Counter[str] = Counter()
+    page_ids: set[str] = set()
     numeric_tags = numeric_headers = numeric_loci = 0
     active_page = None
     for line_no, line in checked_physical_lines(raw.decode("utf-8-sig")):
@@ -92,6 +93,7 @@ def inspect_source(raw: bytes) -> dict:
         page = tag if is_header else locus.group(1)
         if is_header:
             active_page = page
+            page_ids.add(page)
         elif page != active_page:
             raise ValueError(f"Orphan or mismatched locus at source line {line_no}")
         if page == "fRos":
@@ -111,7 +113,7 @@ def inspect_source(raw: bytes) -> dict:
         leaves.add(leaf)
     if not leaves:
         raise ValueError("No numeric physical leaves found")
-    return {
+    result = {
         "numeric_tag_count": numeric_tags,
         "numeric_page_header_count": numeric_headers,
         "numeric_locus_record_count": numeric_loci,
@@ -122,6 +124,11 @@ def inspect_source(raw: bytes) -> dict:
         "named_locus_records": dict(sorted(named_loci.items())),
         "named_locus_record_count": sum(named_loci.values()),
     }
+    # The crosswalk needs exact page identities, not just leaf-number coverage.
+    # Keep the historical audit JSON unchanged unless explicitly requested.
+    if include_page_ids:
+        result["page_ids"] = sorted(page_ids)
+    return result
 
 
 def locked_partition(leaf: int) -> str:
