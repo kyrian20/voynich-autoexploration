@@ -206,3 +206,15 @@ This closes exact execution provenance for these two Library pilot scripts, not 
 ## Adjudicación del holdout por hoja física de LIB-ORDER-2026-10-19-A/B — 28-10-2026
 
 [Informe y auditor reproducible](maintenance/2026-10-28-lib-exp623-physical-leaf-leakage.md). Los dos scripts históricos de Biblioteca EXP-623 dividían por **identificador de cara** (fNNr/fNNv), no por **hoja física**; los hashes de los seis originales de Biblioteca están verificados. Bajo las semillas originales, la reconstrucción de metadatos encuentra **41–57 hojas compartidas** entre entrenamiento/prueba en A/ZL3b, **38–53** en A/IT2a, y **31–48** en B para ambas transcripciones (semilla 623: **44**). Se conserva el resultado histórico, pero las afirmaciones de evaluación sobre hojas físicas enteramente no vistas quedan **INVALID_FOR_CLAIM**. La auditoría no reproduce los scores de los pilotos ni demuestra cuánto infló el efecto; tampoco constituye una traducción. A y B usan diferentes filtros y controles (B reentrena también el nulo), de modo que no deben combinarse. El EXP-623 de GitHub sigue siendo un trabajo distinto sobre ch/sh.
+
+
+## Cotejo binario de los scripts piloto LIB-ORDER — 2026-10-31
+
+Se materializaron los seis artefactos de la serie EXP-623 de `/Investigación Voynich/` y se compararon byte por byte los dos scripts de Biblioteca con las reproducciones del repositorio:
+
+- `exp623_order_null.py` y `research/reproduction/exp623_order_null.py`: idénticos; 11.137 bytes; SHA-256 `ea51e67e6f36b8c651231262cb22ebbb5ef9f98cd31c4673924e33d6a3627010`. Corresponde a LIB-ORDER-2026-10-19-B, permutación de tokens interiores con extremos fijos.
+- `exp623_shuffle_holdout.py` y `research/reproduction/exp623_shuffle_holdout.py`: idénticos; 8.563 bytes; SHA-256 `c4bb8e7fb44632b93979a26bb88c49264c3fb7c4c2d3685a59d72958f902b070`. Corresponde a LIB-ORDER-2026-10-19-A, barajado de todos los tokens dentro del locus.
+
+La reproducción de GitHub Actions 39729111827 y `research/reproduction/EXP623_REPRODUCTION_COMPARISON_2026-10-22.md` registran que ambos scripts se ejecutaron y que los resultados reproducidos coinciden con los pilotos dentro del redondeo numérico descrito allí. Esta comprobación añade identidad binaria de los scripts; no convierte los dos nulos en el mismo protocolo ni demuestra que sus hipótesis sean equivalentes. Los JSON reproducidos permanecen en el artefacto de Actions y no se afirma aquí igualdad byte por byte de esos JSON con los originales de Biblioteca.
+
+La nota histórica del 22-10 sobre scripts aún no ejecutados se conserva como registro del estado de esa fecha; las secciones posteriores documentan la reproducción. Este cotejo cierra la identidad de código y la reproducción de estos dos pilotos únicamente. La adjudicación de contaminación por hoja física del 28-10 sigue vigente: las métricas de holdout de los pilotos no sustentan generalización a hojas enteramente no vistas. `GH-EXP-623` sigue siendo el análisis distinto de interacción ch/sh. No se renumeró, fusionó ni sobrescribió ningún artefacto y no se asignó un nuevo EXP ID.
