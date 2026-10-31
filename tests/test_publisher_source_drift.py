@@ -47,6 +47,24 @@ class PublisherSourceDriftContract(unittest.TestCase):
         self.assertEqual(changed_source_paths(self.root, self.base, head), [])
         assert_no_source_drift(self.root, self.base, head)
 
+    def test_new_allowed_symlink_is_not_safe_generated_output(self):
+        # Before the fix, status A + an allowlisted pathname was sufficient,
+        # even when the committed entry was a symlink rather than a JSON blob.
+        target = self.root / "research/experiments/2026-10-30-exp590-corrected-L-metadata.json"
+        target.parent.mkdir(parents=True, exist_ok=True)
+        target.symlink_to(self.root / "scripts/analyse.py")
+        head = self.commit("add symlink with permitted output name")
+        with self.assertRaisesRegex(RuntimeError, "unsafe Git mode/type.*120000"):
+            assert_no_source_drift(self.root, self.base, head)
+
+    def test_new_allowed_executable_file_is_not_safe_generated_output(self):
+        target = "research/experiments/2026-10-30-exp590-corrected-L-metadata.json"
+        self.write(target, '{"value": 2}\\n')
+        (self.root / target).chmod(0o755)
+        head = self.commit("add executable with permitted output name")
+        with self.assertRaisesRegex(RuntimeError, "unsafe Git mode/type.*100755"):
+            assert_no_source_drift(self.root, self.base, head)
+
     def test_script_change_blocks_stale_publication(self):
         self.write("scripts/analyse.py", "print('new source')\n")
         head = self.commit("concurrent script update")
