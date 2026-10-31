@@ -120,6 +120,11 @@ def inspect_source(raw: bytes, *, include_page_ids: bool = False,
         if not is_header:
             locus_ids.append(tag)
         if is_header:
+            # A set of page IDs is not enough: a repeated physical header
+            # changes the source structure without changing leaf membership.
+            # Reject it here as well as in the independent strict census.
+            if page in page_ids:
+                raise ValueError(f"Duplicate physical folio header {page} at source line {line_no}")
             active_page = page
             page_ids.add(page)
         elif page != active_page:
