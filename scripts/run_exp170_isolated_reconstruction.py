@@ -10,7 +10,6 @@ import hashlib
 from importlib import metadata
 import json
 import os
-import platform
 from pathlib import Path
 import re
 import shutil
@@ -57,7 +56,7 @@ def runtime_provenance(timeout):
             "version": sys.version,
             "implementation": sys.implementation.name,
         },
-        "platform": platform.platform(),
+        "platform": sys.platform,
         "dependencies": versions,
         "timeout_seconds": timeout,
         "historical_script": DESTINATIONS["historical_script"].as_posix(),
