@@ -1,0 +1,65 @@
+{
+  "status": "REPRODUCED_INTEGRATED_NOT_SEMANTIC_VALIDATION",
+  "canonical_corpora_reused": 4,
+  "raw_corpus_copies_added": 0,
+  "prepared_inputs_reproduced": true,
+  "historical_reference_identity_audit_reproduced": true,
+  "new_static_references": 2,
+  "V1_and_V2_results_reproduced": true,
+  "commands": [
+    {
+      "arguments": [
+        "/workspace/scratch/2b7ae18c5875/voynich-autoexploration/scripts/check_corpus_integrity.py"
+      ],
+      "exit_code": 0
+    },
+    {
+      "arguments": [
+        "/workspace/scratch/2b7ae18c5875/voynich-autoexploration/research/analysis/2026-10-22-residual-order/test_residual_order.py"
+      ],
+      "exit_code": 0
+    },
+    {
+      "arguments": [
+        "/workspace/scratch/2b7ae18c5875/voynich-autoexploration/research/analysis/2026-10-22-residual-order/test_calibrated.py"
+      ],
+      "exit_code": 0
+    },
+    {
+      "arguments": [
+        "/workspace/scratch/2b7ae18c5875/voynich-autoexploration/research/analysis/2026-10-22-residual-order/test_integration.py"
+      ],
+      "exit_code": 0
+    },
+    {
+      "arguments": [
+        "/workspace/scratch/2b7ae18c5875/voynich-autoexploration/research/analysis/2026-10-22-residual-order/prepare_inputs.py",
+        "--repo",
+        "/workspace/scratch/2b7ae18c5875/voynich-autoexploration",
+        "--out",
+        "/workspace/scratch/2b7ae18c5875/reproduction-20261023"
+      ],
+      "exit_code": 0
+    },
+    {
+      "arguments": [
+        "/workspace/scratch/2b7ae18c5875/voynich-autoexploration/research/analysis/2026-10-22-residual-order/audit_reference_identity.py",
+        "--repo",
+        "/workspace/scratch/2b7ae18c5875/voynich-autoexploration"
+      ],
+      "exit_code": 0
+    },
+    {
+      "arguments": [
+        "/workspace/scratch/2b7ae18c5875/voynich-autoexploration/research/analysis/2026-10-22-residual-order/residual_order.py"
+      ],
+      "exit_code": 0
+    },
+    {
+      "arguments": [
+        "/workspace/scratch/2b7ae18c5875/voynich-autoexploration/research/analysis/2026-10-22-residual-order/residual_order_calibrated.py"
+      ],
+      "exit_code": 0
+    }
+  ]
+}
