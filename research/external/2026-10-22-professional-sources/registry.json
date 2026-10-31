@@ -202,7 +202,44 @@
           "url": "https://github.com/greshko/naibbe-cipher/blob/719f2f4c4d1eacf95fabf48381cd84fc6cd94279/input/examples/divina_commedia.txt"
         }
       ],
-      "license_status": "LICENSE_PRESENT_SOURCE_HEADER_ADDS_PUBLICATION_CITATION_REQUIREMENT"
+      "license_status": "LICENSE_PRESENT_SOURCE_HEADER_ADDS_PUBLICATION_CITATION_REQUIREMENT",
+      "pre_experiment_candidate": {
+        "status": "TEMPORALLY_AVAILABLE_NOT_PROVEN_HISTORICAL",
+        "source_commit": "d9cab18fafaca29610515753193806652cb019f2",
+        "source_commit_utc": "2025-09-28T15:00:37Z",
+        "source_tree_sha1": "263896a7b28ce5b7cf501d389cc3ec5908d9e099",
+        "later_commit": "719f2f4c4d1eacf95fabf48381cd84fc6cd94279",
+        "later_commit_utc": "2026-10-19T18:03:17Z",
+        "later_tree_sha1": "be16bb4cdd327769c3c19addee401195cff7a8f2",
+        "experiment_commit": "bfa786767d61a2c52bfb7a34a10d8b81ab777230",
+        "experiment_commit_utc": "2026-04-10T06:19:47Z",
+        "tree_listing_complete_both": true,
+        "matching_blob_paths": [
+          {
+            "path": "naibbe_v2.py",
+            "git_blob_sha1": "b566ad82e4b6ff0782ecdddebf77718dac44f292",
+            "bytes": 11626
+          },
+          {
+            "path": "references/naibbe_tables.csv",
+            "git_blob_sha1": "5cd34fb81d80faf3b4d57dbf1719c05ffde25302",
+            "bytes": 8913
+          },
+          {
+            "path": "input/examples/divina_commedia.txt",
+            "git_blob_sha1": "2f57181cca66ab61d8719e35778d6b06688ee8be",
+            "bytes": 1112569
+          }
+        ],
+        "historical_identity_proven": false,
+        "execution_performed": false,
+        "verification_scope": "GitHub immutable tree blob identity and commit dates only; no evidence that EXP-170 used these exact external bytes, runtime, or plaintext.",
+        "evidence_urls": [
+          "https://api.github.com/repos/greshko/naibbe-cipher/git/trees/d9cab18fafaca29610515753193806652cb019f2?recursive=1",
+          "https://api.github.com/repos/greshko/naibbe-cipher/git/trees/719f2f4c4d1eacf95fabf48381cd84fc6cd94279?recursive=1",
+          "https://github.com/kyrian20/voynich-autoexploration/commit/bfa786767d61a2c52bfb7a34a10d8b81ab777230"
+        ]
+      }
     },
     {
       "repository": "chirila/Voynich-public",
