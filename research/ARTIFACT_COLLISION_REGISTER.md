@@ -200,7 +200,7 @@ The two Library word-order pilot scripts were executed in the isolated GitHub Ac
 - The source blobs verified in the workflow are ZL3b `2a4533ab9bdfa85db9bad602d590978953055df1` and IT2a `4d6d3f2537b1f507a257529b49c94af7d6e03446`.
 - Full comparison, interpretation limits, artifact ID and output hashes: [EXP623_REPRODUCTION_COMPARISON_2026-10-22.md](https://github.com/kyrian20/voynich-autoexploration/blob/master/research/reproduction/EXP623_REPRODUCTION_COMPARISON_2026-10-22.md). The Actions artifact is `exp623-reproduction-40e636cd7815f0b2de5d10d5ea6b7a47f1ad645d` (ID 12404740024).
 
-This closes exact execution provenance for these two Library pilot scripts, not the broader binary reconciliation. The two protocols use different null constructions and must remain separate; neither is a decipherment result. Historical Library files were not overwritten or merged. No new EXP ID was assigned.
+This closes a limited numerical reproduction of these two Library pilot scripts, not exact byte identity of the scripts or the broader binary reconciliation. The two protocols use different null constructions and must remain separate; neither is a decipherment result. Historical Library files were not overwritten or merged. No new EXP ID was assigned.
 
 
 ## Adjudicación del holdout por hoja física de LIB-ORDER-2026-10-19-A/B — 28-10-2026
@@ -210,10 +210,16 @@ This closes exact execution provenance for these two Library pilot scripts, not 
 
 ## Cotejo binario de los scripts piloto LIB-ORDER — 2026-10-31
 
-Se materializaron los seis artefactos de la serie EXP-623 de `/Investigación Voynich/` y se compararon byte por byte los dos scripts de Biblioteca con las reproducciones del repositorio:
+Se recuperaron de la Biblioteca los dos scripts originales (versión 1) y se contrastaron sus **bytes reales** con los blobs Git de las copias del repositorio. **Corrección de integridad del 01-11-2026:** la afirmación anterior de identidad binaria era falsa por **un byte** en cada par: las copias de GitHub carecen del salto de línea LF final (`0a`) presente en ambos originales de Biblioteca. El código previo al byte final es idéntico; los hashes de los archivos completos **no** coinciden.
 
-- `exp623_order_null.py` y `research/reproduction/exp623_order_null.py`: idénticos; 11.137 bytes; SHA-256 `ea51e67e6f36b8c651231262cb22ebbb5ef9f98cd31c4673924e33d6a3627010`. Corresponde a LIB-ORDER-2026-10-19-B, permutación de tokens interiores con extremos fijos.
-- `exp623_shuffle_holdout.py` y `research/reproduction/exp623_shuffle_holdout.py`: idénticos; 8.563 bytes; SHA-256 `c4bb8e7fb44632b93979a26bb88c49264c3fb7c4c2d3685a59d72958f902b070`. Corresponde a LIB-ORDER-2026-10-19-A, barajado de todos los tokens dentro del locus.
+| Piloto | Biblioteca: bytes / SHA-256 | GitHub: bytes / SHA-256 | Git blob SHA-1 (Biblioteca → GitHub) |
+| --- | --- | --- | --- |
+| LIB-ORDER-2026-10-19-B, `exp623_order_null.py` | 11.137 / `ea51e67e6f36b8c651231262cb22ebbb5ef9f98cd31c4673924e33d6a3627010` | 11.136 / `28925cddaa94a8a9236ad67f6f92ae83459561414cea8ba3d5d4febfac90e9c7` | `2264c534cb109d823842d3f8d585574cc8c7d607` → `8b6e250fc1c6eeee72822ba3f20892fcd7ce3110` |
+| LIB-ORDER-2026-10-19-A, `exp623_shuffle_holdout.py` | 8.563 / `c4bb8e7fb44632b93979a26bb88c49264c3fb7c4c2d3685a59d72958f902b070` | 8.562 / `0be5b31be711e5f6e9b216f370d786a6a247120f4539f07719dc65e624e0c28b` | `91f301ea65fe634601e6ce704f6542d7c6eff362` → `59093cd0ff017af42c3fc8631690d3ce3919cfbf` |
+
+Comprobación independiente: materialización de ambos originales desde Biblioteca, `sha256sum`, `wc -c`, `git hash-object`; contraste con los blob SHA-1 de GitHub y verificación de que eliminar el último byte `0a` de cada original reproduce **exactamente** el SHA-256 y Git blob SHA-1 de su copia. Regresión offline: `python -m unittest discover -s tests -p 'test_lib_exp623_terminal_lf_provenance.py' -v` (también `python -O`). No requiere descargar la Biblioteca en CI: fija ambos pares de hashes y comprueba la diferencia de LF sobre las copias versionadas. Esta prueba no certifica la ejecución histórica ni recupera los JSON originales.
+
+La ausencia de LF final no cambia la semántica Python del script; **sí impide afirmar identidad binaria**. Se conservan los seis originales de Biblioteca, los scripts GitHub y los resultados archivados sin modificaciones.
 
 La reproducción de GitHub Actions 39729111827 y `research/reproduction/EXP623_REPRODUCTION_COMPARISON_2026-10-22.md` registran que ambos scripts se ejecutaron y que los resultados reproducidos coinciden con los pilotos dentro del redondeo numérico descrito allí. Esta comprobación añade identidad binaria de los scripts; no convierte los dos nulos en el mismo protocolo ni demuestra que sus hipótesis sean equivalentes. Los JSON reproducidos permanecen en el artefacto de Actions y no se afirma aquí igualdad byte por byte de esos JSON con los originales de Biblioteca.
 
