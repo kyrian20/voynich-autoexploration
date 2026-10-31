@@ -88,6 +88,27 @@ class FrozenHoldoutContractTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "Frozen source metadata fields mismatch"):
             audit(self.sources, self.manifest)
 
+    def test_float_aliases_of_frozen_integer_metadata_are_rejected(self):
+        # In Python, 2.0 == 2 and 102.0 == 102. The previous equality-only
+        # checks silently accepted these JSON-number schema substitutions.
+        # No corpus bytes, partition members or held-out tokens are changed.
+        cases = (
+            ("schema_version", lambda m: m.__setitem__("schema_version", 2.0),
+             "Requires integer schema version"),
+            ("leaf_count", lambda m: m["corpora"][SOURCE_NAMES[0]].__setitem__("leaf_count", 102.0),
+             "Frozen leaf count must be integer"),
+            ("train_count", lambda m: m["counts"].__setitem__("train", 68.0),
+             "Frozen count must be integer"),
+            ("eligible_count", lambda m: m.__setitem__("eligible_count", 102.0),
+             "Frozen eligible count must be integer"),
+        )
+        for label, mutate, message in cases:
+            with self.subTest(field=label):
+                changed = copy.deepcopy(self.original)
+                mutate(changed)
+                with self.assertRaisesRegex(ValueError, message):
+                    audit(self.sources, changed)
+
     def test_extra_count_field_rejected(self):
         self.manifest["counts"]["blind_test"] = 102
         with self.assertRaisesRegex(ValueError, "count fields mismatch"):

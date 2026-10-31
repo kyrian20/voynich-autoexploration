@@ -170,8 +170,8 @@ def locked_partition(leaf: int) -> str:
 
 def audit(source_bytes: dict[str, bytes], manifest: dict, *,
           enforce_frozen_source_hashes: bool = True) -> dict:
-    if manifest.get("schema_version") != 2:
-        raise ValueError("Requires frozen v2 holdout manifest")
+    if type(manifest.get("schema_version")) is not int or manifest["schema_version"] != 2:
+        raise ValueError("Requires integer schema version 2 in frozen holdout manifest")
     if set(manifest) != FROZEN_FIELDS:
         raise ValueError("Frozen holdout manifest fields mismatch")
     for field, expected in FROZEN_CONTRACT.items():
@@ -199,6 +199,8 @@ def audit(source_bytes: dict[str, bytes], manifest: dict, *,
             raise ValueError(f"Frozen source metadata fields mismatch for {name}")
         if expected["path"] != f"data/transcriptions/{name}" or expected["sha256"] != sha:
             raise ValueError(f"Source provenance mismatch for {name}")
+        if type(expected["leaf_count"]) is not int:
+            raise ValueError(f"Frozen leaf count must be integer for {name}")
         if expected["leaf_count"] != len(record["numeric_leaves"]):
             raise ValueError(f"Leaf count mismatch for {name}")
         coverage[name] = {"sha256": sha, **record}
@@ -216,6 +218,8 @@ def audit(source_bytes: dict[str, bytes], manifest: dict, *,
         values = groups[group]
         if any(type(n) is not int or n <= 0 for n in values) or len(values) != len(set(values)):
             raise ValueError(f"Invalid or duplicated leaves in {group}")
+        if type(manifest["counts"][group]) is not int:
+            raise ValueError(f"Frozen count must be integer for {group}")
         if manifest["counts"][group] != len(values):
             raise ValueError(f"Count mismatch in {group}")
         assigned.extend(values)
@@ -229,11 +233,16 @@ def audit(source_bytes: dict[str, bytes], manifest: dict, *,
         for leaf in groups[group]:
             if locked_partition(leaf) != group:
                 raise ValueError(f"Partition hash assignment mismatch: leaf {leaf} in {group}")
+    if type(manifest["eligible_count"]) is not int:
+        raise ValueError("Frozen eligible count must be integer")
     if manifest["eligible_count"] != len(shared):
         raise ValueError("Eligible count mismatch")
     for name in SOURCE_NAMES:
         expected_only = sorted(set(coverage[name]["numeric_leaves"]) - shared)
-        if manifest["source_only_leaves"][name] != expected_only:
+        source_only = manifest["source_only_leaves"][name]
+        if not isinstance(source_only, list) or any(type(n) is not int for n in source_only):
+            raise ValueError(f"Frozen source-only leaves must be integer list for {name}")
+        if source_only != expected_only:
             raise ValueError(f"Source-only leaves mismatch for {name}")
 
     return {
