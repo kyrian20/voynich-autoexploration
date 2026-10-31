@@ -116,6 +116,11 @@ def tokens(body,policy="primary",preserve_gaps=False,uncertain_space_policy="qua
 def parse(path,policy="primary",uncertain_space_policy="quarantine",ligature_policy="quarantine"):
  pages=collections.defaultdict(list)
  for lineno,raw in checked_physical_lines(path.read_text(encoding="latin-1")):
+  # A leading space/tab before a physical folio tag is malformed source
+  # structure, not permission to promote the row via str.strip().  Reject
+  # before building any positive/negative boundary candidates.
+  if raw.lstrip(" \t") != raw and raw.lstrip(" \t").startswith("<f"):
+   raise ValueError(f"Indented IVTFF structural row at source line {lineno}")
   m=ROW.match(raw.strip())
   if not m or "," not in m["ident"]:
    # A malformed locus tied to an admitted page is not a comment or an
