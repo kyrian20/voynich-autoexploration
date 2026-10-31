@@ -63,17 +63,33 @@ class HoldoutLocusCoverageTests(unittest.TestCase):
         self.assertEqual(result["source_coverage"]["eva_it2a.txt"]["named_locus_record_count"], 0)
         self.assertIn("EXCLUDED", result["named_loci_holdout_status"])
 
-    def test_repeated_page_header_does_not_inflate_locus_records(self):
-        record = inspect_source(
-            b"<f1r> first\n<f1r> repeated\n<f1r.1,@P0> a\n"
-            b"<fRos> header\n<fRos.1,@L0> b\n"
-        )
-        self.assertEqual(record["numeric_tag_count"], 3)
-        self.assertEqual(record["numeric_page_header_count"], 2)
-        self.assertEqual(record["numeric_locus_record_count"], 1)
-        self.assertEqual(record["named_tag_count"], 2)
-        self.assertEqual(record["named_page_headers"], {"Ros": 1})
-        self.assertEqual(record["named_locus_records"], {"Ros": 1})
+    def test_duplicate_physical_headers_fail_closed(self):
+        # Previously the coverage reader counted both headers while its
+        # set of page IDs and physical-leaf allocation remained unchanged.
+        for page, locus in (
+            ("f1r", "f1r.1,@P0"),
+            ("f4v1", "f4v1.2,@P0"),
+            ("fRos", "fRos.1,@L0"),
+        ):
+            with self.subTest(page=page):
+                raw = (f"<{page}> first\n<{locus}> word\n"
+                       f"<{page}> duplicate\n").encode("utf-8")
+                with self.assertRaisesRegex(
+                    ValueError, f"Duplicate physical folio header {page} at source line 3"
+                ):
+                    inspect_source(raw)
+
+    def test_rehashed_manifest_cannot_hide_duplicate_header(self):
+        # Adding a second header for the same page does not alter the
+        # leaf intersection, salt, partitions, or manifest leaf counts.
+        # A matching synthetic source SHA must not make this acceptable.
+        name = "eva_zl3b.txt"
+        self.sources[name] += b"<f1r> duplicate\n"
+        self.manifest["corpora"][name]["sha256"] = hashlib.sha256(
+            self.sources[name]
+        ).hexdigest()
+        with self.assertRaisesRegex(ValueError, "Duplicate physical folio header f1r"):
+            audit(self.sources, self.manifest)
 
     def test_numeric_header_must_parse(self):
         with self.assertRaisesRegex(ValueError, "Unparsed numeric"):
