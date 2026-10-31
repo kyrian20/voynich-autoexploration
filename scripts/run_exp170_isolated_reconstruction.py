@@ -177,6 +177,7 @@ def run_reconstruction(root, naibbe_dir, italian, hashes, out_dir, execute=False
         env = os.environ.copy()
         env["PYTHONDONTWRITEBYTECODE"] = "1"
         launch_error = None
+        timed_out = False
         try:
             proc = subprocess.run(
                 [sys.executable, str(stage / EXP / "script.py")],
@@ -189,6 +190,7 @@ def run_reconstruction(root, naibbe_dir, italian, hashes, out_dir, execute=False
             raw_stderr = raw_log_bytes(proc.stderr)
             returncode = proc.returncode
         except subprocess.TimeoutExpired as exc:
+            timed_out = True
             # Python exposes partial raw bytes on timeout.
             raw_stdout = raw_log_bytes(exc.stdout)
             raw_stderr = raw_log_bytes(exc.stderr)
@@ -200,11 +202,13 @@ def run_reconstruction(root, naibbe_dir, italian, hashes, out_dir, execute=False
             returncode = 126
         stdout = raw_stdout.decode("utf-8", errors="backslashreplace")
         stderr = raw_stderr.decode("utf-8", errors="backslashreplace")
-        if returncode == 124:
+        if timed_out:
             stderr += "\nTIMEOUT"
         if launch_error is not None:
             stderr = launch_error
         receipt["returncode"] = returncode
+        # A child may exit 124 normally; only TimeoutExpired proves a timeout.
+        receipt["timed_out"] = timed_out
         receipt["status"] = "FAILED"
         if returncode == 0:
             try:
