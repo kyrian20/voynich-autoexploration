@@ -38,6 +38,11 @@ jobs:
           python -m unittest discover -s tests -p 'test_gemini_failure_diagnostics.py' -v
           python -m unittest discover -s tests -p 'test_gemini_transient_fallback.py' -v
 
+      - name: Rechazar JSON ambiguo en comparador general de snapshots
+        run: |
+          python -m unittest discover -s tests -p 'test_audit_snapshot_json_integrity.py' -v
+          python -O -m unittest discover -s tests -p 'test_audit_snapshot_json_integrity.py' -v
+
       - name: Auditar contratos operativos y cobertura de registros
         run: |
           python tests/test_repository_operations.py

@@ -5,6 +5,27 @@ import math
 import sys
 
 
+def reject_duplicate_keys(pairs):
+    """Do not allow a snapshot member to be silently overwritten by json.load."""
+    result = {}
+    for key, value in pairs:
+        if key in result:
+            raise ValueError(f'Duplicate audit snapshot JSON key: {key}')
+        result[key] = value
+    return result
+
+
+def reject_nonstandard_constant(value):
+    """NaN and Infinity are not valid JSON, even before float comparison."""
+    raise ValueError(f'Non-standard audit snapshot JSON constant: {value}')
+
+
+def load_snapshot(path):
+    with open(path, encoding='utf-8') as file:
+        return json.load(file, object_pairs_hook=reject_duplicate_keys,
+                         parse_constant=reject_nonstandard_constant)
+
+
 def compare(expected, actual, path='$'):
     if type(expected) is not type(actual):
         raise ValueError(f'{path}: types differ')
@@ -28,10 +49,8 @@ def compare(expected, actual, path='$'):
 def main():
     if len(sys.argv) != 3:
         raise SystemExit('Usage: python scripts/check_audit_snapshot.py EXPECTED.json ACTUAL.json')
-    with open(sys.argv[1], encoding='utf-8') as file:
-        expected = json.load(file)
-    with open(sys.argv[2], encoding='utf-8') as file:
-        actual = json.load(file)
+    expected = load_snapshot(sys.argv[1])
+    actual = load_snapshot(sys.argv[2])
     compare(expected, actual)
     print('Audit snapshot reproduced: exact structure/counts, finite floats within 1e-12.')
 
