@@ -199,6 +199,10 @@ def run_reconstruction(root, naibbe_dir, italian, hashes, out_dir, execute=False
         env["PYTHONDONTWRITEBYTECODE"] = "1"
         launch_error = None
         timed_out = False
+        # Preserve the actual child exit independently of the runner's
+        # validation failure code (65). No child exit exists on timeout or
+        # failed launch, even though the runner reports 124/126.
+        child_returncode = None
         try:
             proc = subprocess.run(
                 [sys.executable, str(stage / EXP / "script.py")],
@@ -210,6 +214,7 @@ def run_reconstruction(root, naibbe_dir, italian, hashes, out_dir, execute=False
             raw_stdout = raw_log_bytes(proc.stdout)
             raw_stderr = raw_log_bytes(proc.stderr)
             returncode = proc.returncode
+            child_returncode = proc.returncode
         except subprocess.TimeoutExpired as exc:
             timed_out = True
             # Python exposes partial raw bytes on timeout.
@@ -228,6 +233,7 @@ def run_reconstruction(root, naibbe_dir, italian, hashes, out_dir, execute=False
         if launch_error is not None:
             stderr = launch_error
         receipt["returncode"] = returncode
+        receipt["child_returncode"] = child_returncode
         # A child may exit 124 normally; only TimeoutExpired proves a timeout.
         receipt["timed_out"] = timed_out
         receipt["status"] = "FAILED"
