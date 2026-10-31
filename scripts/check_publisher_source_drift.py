@@ -63,8 +63,35 @@ def changed_source_paths(repo: Path, baseline: str, candidate: str) -> list[str]
     for index in range(0, len(fields) - 1, 2):
         status = fields[index].decode("ascii", errors="replace")
         path = fields[index + 1].decode("utf-8", errors="surrogateescape")
-        if status != "A" or not _GENERATED_OUTPUT.fullmatch(path):
-            changed.append(f"{status} {path}")
+        if status == "A" and _GENERATED_OUTPUT.fullmatch(path):
+            # A pathname allowlist alone also accepts Git symlinks (mode 120000)
+            # and executable/non-regular entries. Only ordinary text blobs may
+            # be exempted from source-drift detection.
+            entry = subprocess.run(
+                ["git", "ls-tree", "-z", candidate, "--", path],
+                cwd=repo, capture_output=True, check=False,
+            )
+            if entry.returncode != 0:
+                raise RuntimeError(
+                    f"Cannot verify generated output Git mode: {path}: "
+                    f"{entry.stderr.decode('utf-8', errors='replace').strip()}"
+                )
+            records = entry.stdout.split(b"\0")
+            try:
+                if len(records) != 2 or records[-1] != b"":
+                    raise ValueError("expected exactly one Git tree entry")
+                metadata, actual_path = records[0].split(b"\t", 1)
+                mode, kind, _object_id = metadata.split()
+                if actual_path != path.encode("utf-8", errors="surrogateescape"):
+                    raise ValueError("tree path differs")
+            except ValueError as exc:
+                raise RuntimeError(
+                    f"Cannot verify generated output Git tree entry: {path}"
+                ) from exc
+            if mode != b"100644" or kind != b"blob":
+                changed.append(f"A unsafe Git mode/type ({mode.decode('ascii', errors='replace')}) {path}")
+            continue
+        changed.append(f"{status} {path}")
     return changed
 
 
