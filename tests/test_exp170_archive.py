@@ -223,5 +223,27 @@ class ArchiveAuditTests(unittest.TestCase):
         raw = (ROOT/audit.EXP/'data/simulation_results.json').read_text()
         self.assertEqual(audit.parse_archive(raw), json.loads(raw))
 
+
+    def test_check_snapshot_rejects_duplicate_json_keys(self):
+        # Previously json.loads silently retained the last key, so an
+        # ambiguous snapshot could be accepted as a matching audit.
+        with tempfile.TemporaryDirectory() as temp:
+            snapshot = Path(temp) / 'snapshot.json'
+            snapshot.write_text('{"ok": 1, "ok": 1}', encoding='utf-8')
+            with patch.object(audit, 'audit', return_value={'ok': 1}), \
+                 patch('sys.argv', ['audit_exp170_archive.py', '--check', str(snapshot)]):
+                with self.assertRaisesRegex(ValueError, 'Duplicate EXP-170 archive JSON key'):
+                    audit.main()
+
+    def test_check_snapshot_accepts_unique_json_keys(self):
+        with tempfile.TemporaryDirectory() as temp:
+            snapshot = Path(temp) / 'snapshot.json'
+            snapshot.write_text('{"ok": 1}', encoding='utf-8')
+            with patch.object(audit, 'audit', return_value={'ok': 1}), \
+                 patch('sys.argv', ['audit_exp170_archive.py', '--check', str(snapshot)]), \
+                 patch('builtins.print') as printed:
+                audit.main()
+            printed.assert_called_once_with('EXP-170 archive audit matches snapshot')
+
 if __name__ == '__main__':
     unittest.main()
