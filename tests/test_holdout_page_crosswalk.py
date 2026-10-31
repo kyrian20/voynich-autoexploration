@@ -8,10 +8,16 @@ from contextlib import redirect_stdout
 from pathlib import Path
 from unittest.mock import patch
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]/'scripts'))
-from audit_holdout_page_crosswalk import crosswalk
+from audit_holdout_page_crosswalk import crosswalk as frozen_crosswalk
 from audit_holdout_locus_coverage import SOURCE_NAMES, FROZEN_CONTRACT
 import audit_holdout_locus_coverage as coverage_module
 import audit_holdout_page_crosswalk as crosswalk_module
+
+
+def crosswalk(sources, manifest):
+    """Synthetic fixtures do not claim original frozen source identity."""
+    return frozen_crosswalk(sources, manifest,
+                            enforce_frozen_source_hashes=False)
 
 
 def fixture(text):
@@ -131,8 +137,11 @@ class PageCrosswalkTests(unittest.TestCase):
                     for name, raw in sources.items():
                         (inputs / name).write_bytes(raw)
                     output = root / 'audit.json'
+                    source_locks = {name: hashlib.sha256(raw).hexdigest()
+                                    for name, raw in sources.items()}
                     with patch.object(module, 'ROOT', root), \
-                            patch.object(module, 'load_manifest', return_value=manifest):
+                            patch.object(module, 'load_manifest', return_value=manifest), \
+                            patch.dict(coverage_module.FROZEN_SOURCE_SHA256, source_locks):
                         with patch.object(sys, 'argv', ['audit', '--out', str(output)]):
                             with redirect_stdout(io.StringIO()):
                                 module.main()

@@ -23,6 +23,13 @@ else:
 ROOT = Path(__file__).resolve().parents[1]
 MANIFEST = ROOT / "research/decipherment/2026-10-23-prospective-leaf-holdout/manifest-v2.json"
 SOURCE_NAMES = ("eva_zl3b.txt", "eva_it2a.txt")
+# Independent locks: the v2 manifest is not an authority for its own source
+# hashes. A changed source plus a synchronously rehashed manifest must fail.
+# These are the original frozen bytes, not hashes read from the manifest.
+FROZEN_SOURCE_SHA256 = {
+    "eva_zl3b.txt": "bf5b6d4ac1e3a51b1847a9c388318d609020441ccd56984c901c32b09beccafc",
+    "eva_it2a.txt": "7f27a8b0feed8f6de0a99900df6bf912dd1d295c38e5f830bac8b41c3f536fb5",
+}
 # Historical split identity is frozen independently of the manifest and its
 # generator: an internally consistent but reassigned manifest must fail.
 FROZEN_SALT = "VOYNICH-FUTURE-RULES-2026-10-23-v1"
@@ -161,7 +168,8 @@ def locked_partition(leaf: int) -> str:
     return "train" if value < 7000 else ("development" if value < 8500 else "test")
 
 
-def audit(source_bytes: dict[str, bytes], manifest: dict) -> dict:
+def audit(source_bytes: dict[str, bytes], manifest: dict, *,
+          enforce_frozen_source_hashes: bool = True) -> dict:
     if manifest.get("schema_version") != 2:
         raise ValueError("Requires frozen v2 holdout manifest")
     if set(manifest) != FROZEN_FIELDS:
@@ -175,6 +183,12 @@ def audit(source_bytes: dict[str, bytes], manifest: dict) -> dict:
         raise ValueError("Unexpected or missing source edition")
     coverage = {}
     for name in SOURCE_NAMES:
+        # Check independently of the mutable manifest before parsing the source.
+        # Only synthetic regression fixtures may explicitly opt out.
+        sha = hashlib.sha256(source_bytes[name]).hexdigest()
+        if (enforce_frozen_source_hashes
+                and sha != FROZEN_SOURCE_SHA256[name]):
+            raise ValueError(f"Frozen source SHA-256 mismatch for {name}")
         record = inspect_source(source_bytes[name])
         expected = manifest["corpora"][name]
         # The frozen source record has exactly three provenance fields.
@@ -183,7 +197,6 @@ def audit(source_bytes: dict[str, bytes], manifest: dict) -> dict:
             "path", "sha256", "leaf_count"
         }:
             raise ValueError(f"Frozen source metadata fields mismatch for {name}")
-        sha = hashlib.sha256(source_bytes[name]).hexdigest()
         if expected["path"] != f"data/transcriptions/{name}" or expected["sha256"] != sha:
             raise ValueError(f"Source provenance mismatch for {name}")
         if expected["leaf_count"] != len(record["numeric_leaves"]):

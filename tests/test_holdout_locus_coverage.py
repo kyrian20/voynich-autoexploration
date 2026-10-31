@@ -7,10 +7,19 @@ import copy
 import sys
 import unittest
 from pathlib import Path
+from unittest.mock import patch
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
-from scripts.audit_holdout_locus_coverage import audit, inspect_source, FROZEN_SALT, FROZEN_CONTRACT
+from scripts.audit_holdout_locus_coverage import (
+    audit as frozen_audit, inspect_source, FROZEN_SALT, FROZEN_CONTRACT,
+    FROZEN_SOURCE_SHA256,
+)
+
+
+def audit(sources, manifest):
+    """Existing synthetic fixtures explicitly bypass only the original-byte lock."""
+    return frozen_audit(sources, manifest, enforce_frozen_source_hashes=False)
 
 
 class HoldoutLocusCoverageTests(unittest.TestCase):
@@ -232,6 +241,22 @@ class HoldoutLocusCoverageTests(unittest.TestCase):
                 self.manifest["salt"] = salt
                 with self.assertRaisesRegex(ValueError, "Frozen partition salt mismatch"):
                     audit(self.sources, self.manifest)
+
+    def test_rehashed_source_and_manifest_cannot_redefine_frozen_holdout(self):
+        # Prior to this fix, modifying the source AND its manifest SHA passed:
+        # leaf membership and the partition salt remained unchanged.
+        original_hashes = {name: hashlib.sha256(raw).hexdigest()
+                           for name, raw in self.sources.items()}
+        with patch.dict(FROZEN_SOURCE_SHA256, original_hashes):
+            frozen_audit(self.sources, self.manifest)
+            name = "eva_zl3b.txt"
+            self.sources[name] += b"# synthetic changed source bytes\n"
+            self.manifest["corpora"][name]["sha256"] = hashlib.sha256(
+                self.sources[name]).hexdigest()
+            # Demonstrate that the old, manifest-only gate would still accept.
+            audit(self.sources, self.manifest)
+            with self.assertRaisesRegex(ValueError, "Frozen source SHA-256 mismatch"):
+                frozen_audit(self.sources, self.manifest)
 
     def test_source_provenance_cannot_be_substituted(self):
         tampered = dict(self.sources, **{"eva_zl3b.txt": self.sources["eva_zl3b.txt"] + b"x"})

@@ -16,8 +16,10 @@ from audit_ivtff_page_locus_ids import audit_text, structural_errors
 NUMERIC_PAGE = re.compile(r"f([0-9]+)[rv][1-6]?")
 
 
-def crosswalk(sources: dict[str, bytes], manifest: dict) -> dict:
-    coverage = audit(sources, manifest)  # verifies hashes and exact leaf coverage
+def crosswalk(sources: dict[str, bytes], manifest: dict, *,
+              enforce_frozen_source_hashes: bool = True) -> dict:
+    coverage = audit(sources, manifest,
+                     enforce_frozen_source_hashes=enforce_frozen_source_hashes)  # independent source locks
     allocation = {leaf: group for group, leaves in manifest['partitions'].items()
                   for leaf in leaves}
     editions = {}
