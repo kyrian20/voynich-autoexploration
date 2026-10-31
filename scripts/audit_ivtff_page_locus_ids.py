@@ -61,12 +61,13 @@ MISSING_OPEN_COMMA_PAGE_RE = re.compile(
 NON_PHYSICAL_SEPARATORS = "\v\f\x1c\x1d\x1e\x85\u2028\u2029"
 
 
-def audit_text(text: str) -> dict:
+def audit_text(text: str, *, include_locus_ids: bool = False) -> dict:
     active_page = None
     headers = []
     seen_page_headers = {}
     duplicate_page_headers = []
     records = []
+    locus_ids = []
     seen_record_tags = {}
     duplicate_record_tags = []
     malformed_headers = []
@@ -232,6 +233,7 @@ def audit_text(text: str) -> dict:
         rec = match.groupdict()
         rec["line"] = line_no
         records.append(rec)
+        locus_ids.append(tag)
         if tag in seen_record_tags:
             duplicate_record_tags.append({
                 "tag": tag,
@@ -248,7 +250,7 @@ def audit_text(text: str) -> dict:
         if not 1 <= num <= 160:
             out_of_range.append({"line": line_no, "id": tag, "number": num})
 
-    return {
+    result = {
         "invalid_physical_separators": invalid_physical_separators[:50],
         "invalid_physical_separator_count": len(invalid_physical_separators),
         "page_header_count": len(headers),
@@ -270,6 +272,10 @@ def audit_text(text: str) -> dict:
         "locus_number_out_of_range_count": len(out_of_range),
         "page_names": sorted({h["page"] for h in headers}),
     }
+    # Optional diagnostic: keep the default historical audit JSON unchanged.
+    if include_locus_ids:
+        result["locus_ids"] = sorted(locus_ids)
+    return result
 
 
 

@@ -71,11 +71,13 @@ def load_manifest(path: Path = MANIFEST) -> dict:
     return json.loads(path.read_text(encoding="utf-8"), object_pairs_hook=_unique_manifest_keys)
 
 
-def inspect_source(raw: bytes, *, include_page_ids: bool = False) -> dict:
+def inspect_source(raw: bytes, *, include_page_ids: bool = False,
+                   include_locus_ids: bool = False) -> dict:
     leaves: set[int] = set()
     named_headers: Counter[str] = Counter()
     named_loci: Counter[str] = Counter()
     page_ids: set[str] = set()
+    locus_ids: list[str] = []
     numeric_tags = numeric_headers = numeric_loci = 0
     active_page = None
     for line_no, line in checked_physical_lines(raw.decode("utf-8-sig")):
@@ -91,6 +93,8 @@ def inspect_source(raw: bytes, *, include_page_ids: bool = False) -> dict:
             kind = "numeric" if len(line) > 2 and line[2].isdigit() else "named"
             raise ValueError(f"Unparsed {kind} folio header at source line {line_no}")
         page = tag if is_header else locus.group(1)
+        if not is_header:
+            locus_ids.append(tag)
         if is_header:
             active_page = page
             page_ids.add(page)
@@ -128,6 +132,8 @@ def inspect_source(raw: bytes, *, include_page_ids: bool = False) -> dict:
     # Keep the historical audit JSON unchanged unless explicitly requested.
     if include_page_ids:
         result["page_ids"] = sorted(page_ids)
+    if include_locus_ids:
+        result["locus_ids"] = sorted(locus_ids)
     return result
 
 
