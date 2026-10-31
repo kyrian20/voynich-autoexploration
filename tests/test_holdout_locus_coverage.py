@@ -133,6 +133,44 @@ class HoldoutLocusCoverageTests(unittest.TestCase):
                 with self.assertRaisesRegex(ValueError, "Indented folio tag"):
                     inspect_source(b"<f1r> page\n<f1r.1,@P0> body\n" + damaged)
 
+    def test_slash_prefixed_structural_tags_are_rejected(self):
+        # The coverage reader formerly skipped every slash continuation,
+        # including a damaged page or locus tag. The strict IVTFF census
+        # already diagnoses this; holdout coverage must reject it itself.
+        for damaged in (
+            b"/<f2r> hidden page\n",
+            b"/ <f1r.2,@P0> hidden locus\n",
+            b" \t/<fRos> hidden named page\n",
+        ):
+            with self.subTest(damaged=damaged):
+                with self.assertRaisesRegex(
+                    ValueError, "Folio tag hidden behind continuation slash"
+                ):
+                    inspect_source(b"<f1r> page\n<f1r.1,@P0> body\n" + damaged)
+
+    def test_matching_hash_cannot_hide_slash_prefixed_locus(self):
+        # A matching, synthetically rehashed manifest cannot make the
+        # missing record count trustworthy.
+        name = "eva_zl3b.txt"
+        self.sources[name] = self.sources[name].replace(
+            b"<f1r.1,@P0> a", b"/<f1r.1,@P0> a"
+        )
+        self.manifest["corpora"][name]["sha256"] = hashlib.sha256(
+            self.sources[name]
+        ).hexdigest()
+        with self.assertRaisesRegex(
+            ValueError, "Folio tag hidden behind continuation slash"
+        ):
+            audit(self.sources, self.manifest)
+
+    def test_nonstructural_slash_continuations_remain_ignored(self):
+        record = inspect_source(
+            b"<f1r> page\n/<note> continuation\n/ ordinary text\n"
+            b"<f1r.1,@P0> body\n"
+        )
+        self.assertEqual(record["numeric_page_header_count"], 1)
+        self.assertEqual(record["numeric_locus_record_count"], 1)
+
     def test_matching_hash_cannot_hide_indented_locus(self):
         # The source checksum may match a synthetically modified manifest;
         # this does not make an omitted physical locus acceptable.
