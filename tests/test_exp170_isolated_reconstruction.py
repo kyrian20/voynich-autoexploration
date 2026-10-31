@@ -206,6 +206,9 @@ class Exp170ReconstructionRunnerTests(unittest.TestCase):
             receipt = self.invoke(execute=True)
         self.assertEqual(mock.call_count, 1)
         self.assertEqual(receipt["status"], "MODERN_RECONSTRUCTION_UNVALIDATED")
+        self.assertEqual(receipt["returncode"], 0)
+        self.assertEqual(receipt["child_returncode"], 0)
+        self.assertEqual(json.loads((self.out / "receipt.json").read_text())["child_returncode"], 0)
         self.assertFalse(receipt["historical_reproduction"])
         self.assertEqual(receipt["runtime_provenance"]["timeout_seconds"], 3600)
         self.assertEqual(
@@ -247,6 +250,7 @@ class Exp170ReconstructionRunnerTests(unittest.TestCase):
         receipt = json.loads((self.out / "receipt.json").read_text())
         self.assertEqual(receipt["status"], "FAILED")
         self.assertEqual(receipt["returncode"], 3)
+        self.assertEqual(receipt["child_returncode"], 3)
         quarantined = self.out / "simulation_results.failed.bin"
         self.assertEqual(quarantined.read_bytes(), payload)
         self.assertEqual(receipt["quarantined_output"]["status"],
@@ -270,6 +274,8 @@ class Exp170ReconstructionRunnerTests(unittest.TestCase):
                 self.invoke(execute=True)
         receipt = json.loads((self.out / "receipt.json").read_text())
         self.assertEqual(receipt["returncode"], 65)
+        # The simulator exited successfully; the *runner* rejected its data.
+        self.assertEqual(receipt["child_returncode"], 0)
         self.assertIn("validation_error", receipt)
         self.assertEqual((self.out / "simulation_results.failed.bin").read_bytes(),
                          b'{"italian_A": []}')
@@ -295,6 +301,7 @@ class Exp170ReconstructionRunnerTests(unittest.TestCase):
         receipt = json.loads((self.out / "receipt.json").read_text())
         self.assertEqual(receipt["status"], "FAILED")
         self.assertEqual(receipt["returncode"], 65)
+        self.assertEqual(receipt["child_returncode"], 0)
         self.assertIn("Unexpected null", receipt["validation_error"])
         self.assertFalse((self.out / "simulation_results.json").exists())
         quarantined = self.out / "simulation_results.failed.bin"
@@ -310,6 +317,7 @@ class Exp170ReconstructionRunnerTests(unittest.TestCase):
                 self.invoke(execute=True)
         receipt = json.loads((self.out / "receipt.json").read_text())
         self.assertEqual(receipt["returncode"], 126)
+        self.assertIsNone(receipt["child_returncode"])
         self.assertEqual(receipt["status"], "FAILED")
         self.assertIn("OSError: synthetic interpreter launch failure",
                       (self.out / "stderr.log").read_text())
@@ -385,6 +393,7 @@ class Exp170ReconstructionRunnerTests(unittest.TestCase):
                 self.invoke(execute=True)
         receipt = json.loads((self.out / "receipt.json").read_text())
         self.assertEqual(receipt["returncode"], 124)
+        self.assertEqual(receipt["child_returncode"], 124)
         self.assertFalse(receipt["timed_out"])
         self.assertEqual(receipt["status"], "FAILED")
         self.assertEqual((self.out / "stderr.log").read_text(), "child exit")
@@ -402,6 +411,7 @@ class Exp170ReconstructionRunnerTests(unittest.TestCase):
                 self.invoke(execute=True)
         receipt = json.loads((self.out / "receipt.json").read_text())
         self.assertEqual(receipt["returncode"], 124)
+        self.assertIsNone(receipt["child_returncode"])
         self.assertTrue(receipt["timed_out"])
         self.assertEqual(receipt["status"], "FAILED")
         stdout_log = (self.out / "stdout.log").read_text(encoding="utf-8")
