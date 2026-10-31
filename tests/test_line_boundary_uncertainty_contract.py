@@ -28,7 +28,7 @@ class UncertaintyPolicyContract(unittest.TestCase):
         import tempfile
         with tempfile.TemporaryDirectory() as directory:
             source = Path(directory) / "metadata_only.ivtff"
-            source.write_text("# no P records\\n", encoding="latin-1")
+            source.write_text("# no P records\n", encoding="latin-1")
             with self.assertRaisesRegex(ValueError, "unsupported reading policy"):
                 module.parse(source, "drop_uncertain_words")
 
