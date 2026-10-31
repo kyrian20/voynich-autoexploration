@@ -122,6 +122,29 @@ class HoldoutLocusCoverageTests(unittest.TestCase):
                 self.assertEqual(result["numeric_page_header_count"], 2)
                 self.assertEqual(result["numeric_locus_record_count"], 2)
 
+    def test_non_ascii_whitespace_and_delimiter_locator_codes_are_rejected(self):
+        # Former [^;>] accepted these malformed three-character locator
+        # fields (and Unicode transcriber IDs) as valid holdout records.
+        # They are synthetic structural controls, not manuscript data.
+        for tag in (
+            "f1r.1,éP0", "f1r.1,<P0", "f1r.1, P0",
+            "f1r.1,@P0;é",
+        ):
+            with self.subTest(tag=tag):
+                raw = ("<f1r> page\n<" + tag + "> body\n").encode("utf-8")
+                with self.assertRaisesRegex(ValueError, "Unparsed numeric"):
+                    inspect_source(raw)
+
+    def test_audit_rejects_invalid_locator_even_with_matching_source_hash(self):
+        # A source digest match alone must not certify a malformed record.
+        name = "eva_zl3b.txt"
+        self.sources[name] = self.sources[name].replace(
+            b"<f1r.1,@P0>", b"<f1r.1,<P0>")
+        self.manifest["corpora"][name]["sha256"] = hashlib.sha256(
+            self.sources[name]).hexdigest()
+        with self.assertRaisesRegex(ValueError, "Unparsed numeric"):
+            audit(self.sources, self.manifest)
+
     def test_valid_header_and_locus_control(self):
         result = inspect_source(
             b"<f1r> metadata\n<f1r.1,@P0> body\n"
