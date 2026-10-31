@@ -23,6 +23,9 @@ def sha(p):
   for b in iter(lambda:f.read(1<<20),b""):h.update(b)
  return h.hexdigest()
 def tokens(body,policy="primary",preserve_gaps=False,uncertain_space_policy="quarantine",ligature_policy="quarantine"):
+ # A misspelled reading policy must never silently become primary.
+ if policy not in {"primary", "drop_uncertain_word"}:
+  raise ValueError(f"unsupported reading policy: {policy}")
  # A comma is an UNCERTAIN word boundary in IVTFF 2.0.2 §6.7, not
  # equivalent to a certain dot. Never treat its two fragments as known
  # words unless the explicitly named legacy split sensitivity is requested.
@@ -114,6 +117,9 @@ def tokens(body,policy="primary",preserve_gaps=False,uncertain_space_policy="qua
   out.append(x.lower())
  return out
 def parse(path,policy="primary",uncertain_space_policy="quarantine",ligature_policy="quarantine"):
+ # Fail before reading any row, including an empty or metadata-only file.
+ if policy not in {"primary", "drop_uncertain_word"}:
+  raise ValueError(f"unsupported reading policy: {policy}")
  pages=collections.defaultdict(list)
  for lineno,raw in checked_physical_lines(path.read_text(encoding="latin-1")):
   # A leading space/tab before a physical folio tag is malformed source
