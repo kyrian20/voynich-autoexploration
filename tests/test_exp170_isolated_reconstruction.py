@@ -62,6 +62,21 @@ class Exp170ReconstructionRunnerTests(unittest.TestCase):
         self.assertEqual(runtime["timeout_seconds"], 3600)
         self.assertEqual(runtime["historical_script"],
                          runner.DESTINATIONS["historical_script"].as_posix())
+        lineage = runtime["script_lineage"]
+        self.assertEqual(lineage["variant_for_optional_execution"],
+                         "PATH_PORTED_2026_10_22")
+        self.assertEqual(lineage["path"],
+                         runner.DESTINATIONS["historical_script"].as_posix())
+        self.assertEqual(lineage["portable_script_sha256"],
+                         runner.sha256(ROOT / runner.DESTINATIONS["historical_script"]))
+        self.assertEqual(lineage["april_original_commit"],
+                         "bfa786767d61a2c52bfb7a34a10d8b81ab777230")
+        self.assertEqual(lineage["april_original_git_blob_sha1"],
+                         "26553a194c67fa82dd02a4d3e39b8f4fb12898ce")
+        self.assertEqual(lineage["portability_edit_commit"],
+                         "83b0875841b3cbdb83c4ffa661e55abfb5b98fa4")
+        self.assertFalse(lineage["april_original_used_for_execution"])
+        self.assertIn("external input identity", lineage["observed_diff_scope"])
         seeds = runtime["seed_schedule_declared_by_frozen_script"]
         self.assertEqual(seeds["simulation_indices_inclusive"], [0, 99])
         self.assertEqual(seeds["corpus_offsets"], {"italian": 0, "latin": 500})
