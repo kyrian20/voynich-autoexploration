@@ -7,8 +7,10 @@ This runner does NOT establish provenance of the 2026 historical vectors.
 """
 import argparse
 import hashlib
+from importlib import metadata
 import json
 import os
+import platform
 from pathlib import Path
 import re
 import shutil
@@ -39,6 +41,35 @@ OUTPUT_NAME = "simulation_results.json"
 
 def sha256(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def runtime_provenance(timeout):
+    """Record the intended child runtime, not a historical run attestation."""
+    versions = {}
+    for package in ("pandas", "numpy"):
+        try:
+            versions[package] = metadata.version(package)
+        except metadata.PackageNotFoundError:
+            versions[package] = None
+    return {
+        "python": {
+            "executable": sys.executable,
+            "version": sys.version,
+            "implementation": sys.implementation.name,
+        },
+        "platform": platform.platform(),
+        "dependencies": versions,
+        "timeout_seconds": timeout,
+        "historical_script": DESTINATIONS["historical_script"].as_posix(),
+        "seed_schedule_declared_by_frozen_script": {
+            "simulation_indices_inclusive": [0, 99],
+            "formula": "sim_idx * 1000 + corpus_offset + protocol_offset",
+            "corpus_offsets": {"italian": 0, "latin": 500},
+            "protocol_offsets": {"A": 0, "B": 250},
+        },
+        "scope": ("Parent-process environment and declared seed recipe only; "
+                  "not a per-simulation execution receipt or proof of historical inputs."),
+    }
 
 
 def raw_log_bytes(data):
@@ -135,6 +166,7 @@ def run_reconstruction(root, naibbe_dir, italian, hashes, out_dir, execute=False
     if isinstance(timeout, bool) or not isinstance(timeout, int) or timeout < 1:
         raise ValueError("timeout must be a positive integer")
     receipt = preflight(root, naibbe_dir, italian, hashes, out_dir)
+    receipt["runtime_provenance"] = runtime_provenance(timeout)
     if not execute:
         return receipt
     with tempfile.TemporaryDirectory(prefix="voynich-exp170-reconstruction-") as temp:

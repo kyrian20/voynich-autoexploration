@@ -46,6 +46,37 @@ class Exp170ReconstructionRunnerTests(unittest.TestCase):
         self.assertFalse(receipt["historical_reproduction"])
         self.assertFalse(self.out.exists())
 
+    def test_preflight_receipt_pins_runtime_and_declared_seed_recipe(self):
+        # This describes the prospective runtime; it is not a 400-run receipt.
+        def versions(package):
+            return {"pandas": "99.1-test", "numpy": "99.2-test"}[package]
+
+        with patch.object(runner.metadata, "version", side_effect=versions):
+            receipt = self.invoke()
+        runtime = receipt["runtime_provenance"]
+        self.assertEqual(runtime["python"]["executable"], sys.executable)
+        self.assertEqual(runtime["python"]["version"], sys.version)
+        self.assertEqual(runtime["python"]["implementation"], sys.implementation.name)
+        self.assertEqual(runtime["dependencies"],
+                         {"pandas": "99.1-test", "numpy": "99.2-test"})
+        self.assertEqual(runtime["timeout_seconds"], 3600)
+        self.assertEqual(runtime["historical_script"],
+                         runner.DESTINATIONS["historical_script"].as_posix())
+        seeds = runtime["seed_schedule_declared_by_frozen_script"]
+        self.assertEqual(seeds["simulation_indices_inclusive"], [0, 99])
+        self.assertEqual(seeds["corpus_offsets"], {"italian": 0, "latin": 500})
+        self.assertEqual(seeds["protocol_offsets"], {"A": 0, "B": 250})
+        self.assertIn("not a per-simulation", runtime["scope"])
+        self.assertFalse(self.out.exists())
+
+    def test_missing_dependency_version_is_recorded_as_unknown(self):
+        with patch.object(runner.metadata, "version",
+                          side_effect=runner.metadata.PackageNotFoundError):
+            receipt = self.invoke()
+        self.assertEqual(receipt["runtime_provenance"]["dependencies"],
+                         {"pandas": None, "numpy": None})
+        self.assertFalse(self.out.exists())
+
     def test_direct_api_rejects_invalid_timeouts_without_side_effects(self):
         # CLI already rejects nonpositive integers; the callable API must too.
         for invalid in (0, -1, True, 1.5, "2"):
@@ -161,6 +192,10 @@ class Exp170ReconstructionRunnerTests(unittest.TestCase):
         self.assertEqual(mock.call_count, 1)
         self.assertEqual(receipt["status"], "MODERN_RECONSTRUCTION_UNVALIDATED")
         self.assertFalse(receipt["historical_reproduction"])
+        self.assertEqual(receipt["runtime_provenance"]["timeout_seconds"], 3600)
+        self.assertEqual(
+            json.loads((self.out / "receipt.json").read_text())["runtime_provenance"],
+            receipt["runtime_provenance"])
         self.assertEqual((self.out / "stdout.log").read_text(), "synthetic test\n")
         self.assertEqual(runner.sha256(self.out / "simulation_results.json"), self.original_sha)
         self.assertEqual(runner.sha256(ROOT / runner.EXP / "data/simulation_results.json"),
