@@ -91,6 +91,13 @@ def inspect_source(raw: bytes, *, include_page_ids: bool = False,
         # but the coverage-only audit must fail independently too.
         if line.lstrip(" \t") != line and line.lstrip(" \t").startswith("<f"):
             raise ValueError(f"Indented folio tag at source line {line_no}")
+        # A slash is a continuation marker, not permission to conceal a
+        # physical page/locus tag. The independent strict census rejects
+        # these rows; the holdout coverage audit must also fail closed rather
+        # than silently losing a locus while a caller updates the source hash.
+        stripped = line.lstrip(" \t")
+        if stripped.startswith("/") and stripped[1:].lstrip(" \t").startswith("<f"):
+            raise ValueError(f"Folio tag hidden behind continuation slash at source line {line_no}")
         if not line.startswith("<f"):
             continue
         end = line.find(">")
