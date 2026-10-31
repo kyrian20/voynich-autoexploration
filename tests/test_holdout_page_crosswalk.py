@@ -59,8 +59,8 @@ class PageCrosswalkTests(unittest.TestCase):
         )
         real_audit = crosswalk_module.audit_text
 
-        def corrupted_audit(text):
-            report = real_audit(text)
+        def corrupted_audit(text, **kwargs):
+            report = real_audit(text, **kwargs)
             report['page_names'] = ['f67r1', 'f67v1']
             return report
 
@@ -76,8 +76,8 @@ class PageCrosswalkTests(unittest.TestCase):
         )
         real_audit = crosswalk_module.audit_text
 
-        def corrupted_audit(text):
-            report = real_audit(text)
+        def corrupted_audit(text, **kwargs):
+            report = real_audit(text, **kwargs)
             report['record_count'] -= 1
             return report
 
@@ -85,6 +85,36 @@ class PageCrosswalkTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, 'physical row counts disagree'):
                 crosswalk(sources, manifest)
 
+
+    def test_same_page_and_count_but_different_locus_id_is_rejected(self):
+        # Fault injection: the strict reader silently substitutes a locus tag.
+        # Page names, leaf assignment, header count and record count agree.
+        sources, manifest = fixture(
+            '<f67r1>\n<f67r1.1,@P0> a\n<f67r1.2,@P0> b\n'
+        )
+        real_audit = crosswalk_module.audit_text
+
+        def corrupted_audit(text, **kwargs):
+            report = real_audit(text, **kwargs)
+            report['locus_ids'] = [
+                tag.replace('f67r1.2,@P0', 'f67r1.3,@P0')
+                for tag in report['locus_ids']
+            ]
+            return report
+
+        with patch.object(crosswalk_module, 'audit_text', side_effect=corrupted_audit):
+            with self.assertRaisesRegex(ValueError, 'locus identifiers disagree'):
+                crosswalk(sources, manifest)
+
+    def test_optional_locus_inventory_does_not_change_default_reports(self):
+        raw = '<f67r1>\n<f67r1.1,@P0> a\n'.encode()
+        strict = crosswalk_module.audit_text(raw.decode())
+        extended = crosswalk_module.audit_text(raw.decode(), include_locus_ids=True)
+        self.assertEqual(strict, {k: v for k, v in extended.items() if k != 'locus_ids'})
+        independent = coverage_module.inspect_source(raw)
+        expanded = coverage_module.inspect_source(raw, include_locus_ids=True)
+        self.assertEqual(independent, {k: v for k, v in expanded.items() if k != 'locus_ids'})
+        self.assertEqual(extended['locus_ids'], expanded['locus_ids'])
 
     def test_both_audit_clis_refuse_existing_outputs_and_symlinks(self):
         # Exercise the real CLI main() paths with tiny, hash-matched synthetic
