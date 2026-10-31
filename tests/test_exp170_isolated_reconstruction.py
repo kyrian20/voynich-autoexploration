@@ -433,5 +433,43 @@ class Exp170ReconstructionRunnerTests(unittest.TestCase):
                          self.original_sha)
 
 
+    def test_preapril_external_candidate_temporal_identity_is_not_historical_replay(self):
+        # This is an offline regression for independently inspected GitHub
+        # commit/tree metadata. It does not authenticate the April run inputs.
+        from datetime import datetime
+
+        registry = json.loads((ROOT / "research/external/2026-10-22-professional-sources/registry.json")
+                              .read_text(encoding="utf-8"))
+        entry = next(x for x in registry["external_repositories"]
+                     if x["repository"] == "greshko/naibbe-cipher")
+        evidence = entry["pre_experiment_candidate"]
+        self.assertEqual(evidence["status"], "TEMPORALLY_AVAILABLE_NOT_PROVEN_HISTORICAL")
+        self.assertIs(evidence["historical_identity_proven"], False)
+        self.assertIs(evidence["execution_performed"], False)
+        self.assertIs(evidence["tree_listing_complete_both"], True)
+        self.assertEqual(evidence["experiment_commit"], runner.ORIGINAL_EXP170_COMMIT)
+        self.assertEqual(evidence["source_commit"], "d9cab18fafaca29610515753193806652cb019f2")
+        self.assertEqual(evidence["source_tree_sha1"], "263896a7b28ce5b7cf501d389cc3ec5908d9e099")
+        self.assertEqual(evidence["later_commit"], entry["commit"])
+        self.assertEqual(evidence["later_tree_sha1"], "be16bb4cdd327769c3c19addee401195cff7a8f2")
+        before = datetime.fromisoformat(evidence["source_commit_utc"].replace("Z", "+00:00"))
+        experiment = datetime.fromisoformat(evidence["experiment_commit_utc"].replace("Z", "+00:00"))
+        later = datetime.fromisoformat(evidence["later_commit_utc"].replace("Z", "+00:00"))
+        self.assertLess(before, experiment)
+        self.assertLess(experiment, later)
+        expected = {
+            "naibbe_v2.py": ("b566ad82e4b6ff0782ecdddebf77718dac44f292", 11626),
+            "references/naibbe_tables.csv": ("5cd34fb81d80faf3b4d57dbf1719c05ffde25302", 8913),
+            "input/examples/divina_commedia.txt": ("2f57181cca66ab61d8719e35778d6b06688ee8be", 1112569),
+        }
+        observed = {x["path"]: (x["git_blob_sha1"], x["bytes"])
+                    for x in evidence["matching_blob_paths"]}
+        self.assertEqual(observed, expected)
+        latest = {x["path"]: (x["git_blob_sha1"], x["bytes"])
+                  for x in entry["files"] if x["path"] in expected}
+        self.assertEqual(latest, expected)
+        self.assertIn("no evidence", evidence["verification_scope"])
+
+
 if __name__ == "__main__":
     unittest.main()
