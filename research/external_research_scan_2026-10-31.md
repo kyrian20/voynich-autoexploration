@@ -32,7 +32,7 @@ En las fuentes consultadas para esta nota no localicé un repositorio de código
 
 El resultado de frontera es relevante para los análisis locales de orden y de posición del proyecto, pero no es el mismo estimando que el predictor de identidad, las auditorías de tokens o los patrones de inicio/final ya registrados. En particular, una dependencia entre bordes de palabras puede surgir de convenciones de transliteración o de acoplamiento gráfico; por sí sola no identifica unidades lingüísticas ni significado.
 
-Los resultados propios de orden residual ya describen ganancias pequeñas e inciertas de identidad en las vistas Voynich y ganancias mayores en controles de César y Dante ([informe integrado](../analysis/2026-10-22-residual-order/REPORT.md)). Esa coincidencia conceptual no reproduce la medida del nuevo artículo ni confirma su explicación causal.
+Los resultados propios de orden residual ya describen ganancias pequeñas e inciertas de identidad en las vistas Voynich y ganancias mayores en controles de César y Dante ([informe integrado](analysis/2026-10-22-residual-order/REPORT.md)). Esa coincidencia conceptual no reproduce la medida del nuevo artículo ni confirma su explicación causal.
 
 **Siguiente paso condicionado:** una vez resueltos los bloqueos de parser y archivo, identificar primero la definición exacta de dependencia entre fronteras que usan Zhang y Sheng y cotejarla con nuestras métricas existentes. Solo diseñar una reproducción si hay código o suficientes detalles, control de lectura por folio y una predicción que diferencie modelos. No asignar EXP hasta reconciliar el registro y cerrar los bloqueos actuales.
 
