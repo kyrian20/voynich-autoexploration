@@ -79,6 +79,37 @@ class HoldoutLocusCoverageTests(unittest.TestCase):
                 ):
                     inspect_source(raw)
 
+    def test_duplicate_locus_identifiers_fail_closed(self):
+        # A second physical row with the same full locator used to inflate
+        # record counts in this standalone reader; strict IVTFF rejects it.
+        for tag in ("f1r.1,@P0", "f4v1.2,@P0", "fRos.1,@L0"):
+            with self.subTest(tag=tag):
+                page = tag.split(".", 1)[0]
+                raw = (f"<{page}> page\\n<{tag}> first\\n"
+                       f"<{tag}> duplicate\\n").encode("utf-8")
+                with self.assertRaisesRegex(ValueError, "Duplicate locus identifier"):
+                    inspect_source(raw)
+
+    def test_locus_number_bounds_match_strict_census(self):
+        # The regex accepts three ASCII digits; IVTFF census additionally
+        # requires physical record indices in the inclusive range 1..160.
+        for number in (0, 161, 999):
+            with self.subTest(number=number):
+                raw = f"<f1r> page\\n<f1r.{number},@P0> body\\n".encode()
+                with self.assertRaisesRegex(ValueError, "Locus number outside 1..160"):
+                    inspect_source(raw)
+        valid = inspect_source(b"<f1r> page\\n<f1r.160,@P0> body\\n")
+        self.assertEqual(valid["numeric_locus_record_count"], 1)
+
+    def test_matching_hash_cannot_hide_duplicate_locus(self):
+        name = "eva_zl3b.txt"
+        self.sources[name] += b"<f3r.1,@P0> duplicate\\n"
+        self.manifest["corpora"][name]["sha256"] = hashlib.sha256(
+            self.sources[name]
+        ).hexdigest()
+        with self.assertRaisesRegex(ValueError, "Duplicate locus identifier"):
+            audit(self.sources, self.manifest)
+
     def test_rehashed_manifest_cannot_hide_duplicate_header(self):
         # Adding a second header for the same page does not alter the
         # leaf intersection, salt, partitions, or manifest leaf counts.
