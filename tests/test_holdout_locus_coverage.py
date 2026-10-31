@@ -72,8 +72,8 @@ class HoldoutLocusCoverageTests(unittest.TestCase):
             ("fRos", "fRos.1,@L0"),
         ):
             with self.subTest(page=page):
-                raw = (f"<{page}> first\\n<{locus}> word\\n"
-                       f"<{page}> duplicate\\n").replace("\\n", "\n").encode("utf-8")
+                raw = (f"<{page}> first\n<{locus}> word\n"
+                       f"<{page}> duplicate\n").encode("utf-8")
                 with self.assertRaisesRegex(
                     ValueError, f"Duplicate physical folio header {page} at source line 3"
                 ):
@@ -84,7 +84,7 @@ class HoldoutLocusCoverageTests(unittest.TestCase):
         # leaf intersection, salt, partitions, or manifest leaf counts.
         # A matching synthetic source SHA must not make this acceptable.
         name = "eva_zl3b.txt"
-        self.sources[name] += b"<f1r> duplicate\\n".replace(b"\\n", b"\n")
+        self.sources[name] += b"<f1r> duplicate\n"
         self.manifest["corpora"][name]["sha256"] = hashlib.sha256(
             self.sources[name]
         ).hexdigest()
