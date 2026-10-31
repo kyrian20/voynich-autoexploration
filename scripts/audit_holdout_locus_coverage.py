@@ -64,7 +64,7 @@ RECORD_ID = re.compile(
     # a coverage-only run could then certify malformed locus identifiers.
     # Keep this structural constraint aligned with the strict census without
     # treating agreement as full IVTFF or semantic validation.
-    r"^(f(?:[0-9]+[rv][1-6]?|Ros))\.[0-9]{1,3},[!-:=?-~]{3}(?:;[!-:=?-~])?$"
+    r"^(f(?:[0-9]+[rv][1-6]?|Ros))\.(?P<line>[0-9]{1,3}),[!-:=?-~]{3}(?:;[!-:=?-~])?$"
 )
 
 
@@ -90,6 +90,7 @@ def inspect_source(raw: bytes, *, include_page_ids: bool = False,
     named_loci: Counter[str] = Counter()
     page_ids: set[str] = set()
     locus_ids: list[str] = []
+    seen_locus_ids: set[str] = set()
     numeric_tags = numeric_headers = numeric_loci = 0
     active_page = None
     for line_no, line in checked_physical_lines(raw.decode("utf-8-sig")):
@@ -118,6 +119,15 @@ def inspect_source(raw: bytes, *, include_page_ids: bool = False,
             raise ValueError(f"Unparsed {kind} folio header at source line {line_no}")
         page = tag if is_header else locus.group(1)
         if not is_header:
+            # An exact duplicate locator is a repeated physical record, not
+            # an additional independent observation. Match the strict IVTFF
+            # census before certifying coverage in standalone mode.
+            if tag in seen_locus_ids:
+                raise ValueError(f"Duplicate locus identifier {tag} at source line {line_no}")
+            seen_locus_ids.add(tag)
+            locus_number = int(locus.group("line"))
+            if not 1 <= locus_number <= 160:
+                raise ValueError(f"Locus number outside 1..160 at source line {line_no}: {tag}")
             locus_ids.append(tag)
         if is_header:
             # A set of page IDs is not enough: a repeated physical header
