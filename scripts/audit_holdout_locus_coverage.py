@@ -160,6 +160,12 @@ def audit(source_bytes: dict[str, bytes], manifest: dict) -> dict:
     for name in SOURCE_NAMES:
         record = inspect_source(source_bytes[name])
         expected = manifest["corpora"][name]
+        # The frozen source record has exactly three provenance fields.
+        # Extra nested claims must not bypass the top-level manifest gate.
+        if not isinstance(expected, dict) or set(expected) != {
+            "path", "sha256", "leaf_count"
+        }:
+            raise ValueError(f"Frozen source metadata fields mismatch for {name}")
         sha = hashlib.sha256(source_bytes[name]).hexdigest()
         if expected["path"] != f"data/transcriptions/{name}" or expected["sha256"] != sha:
             raise ValueError(f"Source provenance mismatch for {name}")
