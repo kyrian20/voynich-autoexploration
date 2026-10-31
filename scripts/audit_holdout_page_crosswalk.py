@@ -10,7 +10,7 @@ import json
 from pathlib import Path
 import re
 
-from audit_holdout_locus_coverage import ROOT, SOURCE_NAMES, audit, load_manifest
+from audit_holdout_locus_coverage import ROOT, SOURCE_NAMES, audit, inspect_source, load_manifest
 from audit_ivtff_page_locus_ids import audit_text, structural_errors
 
 NUMERIC_PAGE = re.compile(r"f([0-9]+)[rv][1-6]?")
@@ -27,6 +27,20 @@ def crosswalk(sources: dict[str, bytes], manifest: dict) -> dict:
         errors = structural_errors(strict)
         if errors:
             raise ValueError(f'{name}: strict structural errors: {errors}')
+        # Leaf-only agreement is insufficient: dropping a foldout panel or
+        # a locus can leave the same set of physical leaves and pass unnoticed.
+        # Compare exact page IDs and physical row counts from the independent
+        # coverage reader, without changing the frozen output schema.
+        independent = inspect_source(sources[name], include_page_ids=True)
+        if set(strict['page_names']) != set(independent['page_ids']):
+            raise ValueError(f'{name}: strict/coverage page identifiers disagree')
+        expected_headers = (independent['numeric_page_header_count']
+                            + independent['named_page_header_count'])
+        expected_records = (independent['numeric_locus_record_count']
+                            + independent['named_locus_record_count'])
+        if (strict['page_header_count'] != expected_headers
+                or strict['record_count'] != expected_records):
+            raise ValueError(f'{name}: strict/coverage physical row counts disagree')
         pages = {}
         for page in strict['page_names']:
             match = NUMERIC_PAGE.fullmatch(page)
