@@ -85,8 +85,8 @@ class HoldoutLocusCoverageTests(unittest.TestCase):
         for tag in ("f1r.1,@P0", "f4v1.2,@P0", "fRos.1,@L0"):
             with self.subTest(tag=tag):
                 page = tag.split(".", 1)[0]
-                raw = (f"<{page}> page\\n<{tag}> first\\n"
-                       f"<{tag}> duplicate\\n").encode("utf-8")
+                raw = (f"<{page}> page\n<{tag}> first\n"
+                       f"<{tag}> duplicate\n").encode("utf-8")
                 with self.assertRaisesRegex(ValueError, "Duplicate locus identifier"):
                     inspect_source(raw)
 
@@ -95,15 +95,15 @@ class HoldoutLocusCoverageTests(unittest.TestCase):
         # requires physical record indices in the inclusive range 1..160.
         for number in (0, 161, 999):
             with self.subTest(number=number):
-                raw = f"<f1r> page\\n<f1r.{number},@P0> body\\n".encode()
+                raw = f"<f1r> page\n<f1r.{number},@P0> body\n".encode()
                 with self.assertRaisesRegex(ValueError, "Locus number outside 1..160"):
                     inspect_source(raw)
-        valid = inspect_source(b"<f1r> page\\n<f1r.160,@P0> body\\n")
+        valid = inspect_source(b"<f1r> page\n<f1r.160,@P0> body\n")
         self.assertEqual(valid["numeric_locus_record_count"], 1)
 
     def test_matching_hash_cannot_hide_duplicate_locus(self):
         name = "eva_zl3b.txt"
-        self.sources[name] += b"<f3r.1,@P0> duplicate\\n"
+        self.sources[name] += b"<f3r.1,@P0> duplicate\n"
         self.manifest["corpora"][name]["sha256"] = hashlib.sha256(
             self.sources[name]
         ).hexdigest()
