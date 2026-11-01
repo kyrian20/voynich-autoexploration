@@ -111,5 +111,35 @@ class WordPairFrozenInputTests(unittest.TestCase):
         self.assertEqual(pages[0]["lines"], [["daiin", "daiin"]])
 
 
+    def test_nonphysical_separators_cannot_forge_page_headers(self):
+        # Before this repair splitlines() turned the hidden f2r tag into a
+        # genuine second page, even though it belonged to a comment row.
+        for separator in audit.NON_PHYSICAL_SEPARATORS:
+            source_text = (
+                "<f1r> $L=A\n"
+                + "# comment" + separator + "<f2r> $L=B\n"
+                + "<f2r.1,@P0> daiin.daiin\n"
+            )
+            for reader in (audit.read_pages, audit.read_pages_legacy):
+                with self.subTest(reader=reader.__name__, codepoint=ord(separator)):
+                    with self.assertRaisesRegex(ValueError, "Non-physical IVTFF separator"):
+                        reader(Path("/not/used"), source_text=source_text, keep_empty=True)
+
+    def test_physical_crlf_cr_and_lf_still_parse(self):
+        for newline in ("\n", "\r", "\r\n"):
+            source_text = newline.join((
+                "<f1r> $L=A",
+                "<f1r.1,@P0> daiin.daiin",
+                "",
+            ))
+            for reader in (audit.read_pages, audit.read_pages_legacy):
+                with self.subTest(reader=reader.__name__, newline=repr(newline)):
+                    pages = reader(Path("/not/used"), source_text=source_text,
+                                   categories={"P"}, keep_empty=True)
+                    self.assertEqual(len(pages), 1)
+                    self.assertEqual(len(pages[0]["lines"]), 1)
+
+
+
 if __name__ == "__main__":
     unittest.main()
