@@ -19,7 +19,7 @@ import tempfile
 
 from audit_exp170_archive import (
     CONDITIONS, EXP, FROZEN_INPUT_SHA256, parse_archive,
-    validate_archive, verify_frozen_inputs,
+    validate_archive, verify_frozen_inputs, has_symlink_component,
 )
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -106,7 +106,7 @@ def raw_log_bytes(data):
 def checked_source(path, expected):
     if not re.fullmatch(r"[0-9a-f]{64}", expected):
         raise ValueError("Expected an explicit lowercase SHA-256 for every external input")
-    if path.is_symlink() or not path.is_file():
+    if has_symlink_component(path) or not path.is_file():
         raise ValueError(f"Missing or symlinked input: {path}")
     actual = sha256(path)
     if actual != expected:
@@ -125,7 +125,7 @@ def preflight(root, naibbe_dir, italian, hashes, out_dir):
     for name, path in external.items():
         checked_source(path, hashes[name])
     latin = root / DESTINATIONS["english_historical_latin_label"]
-    if latin.is_symlink() or not latin.is_file():
+    if has_symlink_component(latin) or not latin.is_file():
         raise ValueError("Missing or symlinked English historical Latin-labelled input")
     # This check is not a historical identity claim; the manifest locks bytes.
     latin_sha = sha256(latin)
