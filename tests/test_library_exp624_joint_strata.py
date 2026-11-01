@@ -56,6 +56,12 @@ class JointStrataTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "does not partition"):
             joint.derive_joint_strata(self.pages, [missing])
 
+    def test_direct_joint_allocation_rejects_physical_page_aliases(self):
+        row = grouped.grouped_splits(self.pages, 624010, 1)[0]
+        aliased = self.pages + [{"id": "f01R", "lang": "A", "words": ["ab"]}]
+        with self.assertRaisesRegex(ValueError, "Duplicate physical page identity"):
+            joint.derive_joint_strata(aliased, [row])
+
     def test_frozen_corpora_and_allocation_are_gated(self):
         sources = {name: (joint.ROOT / "data/transcriptions" / filename).read_bytes()
                    for name, (filename, _) in grouped.historical.SOURCES.items()}

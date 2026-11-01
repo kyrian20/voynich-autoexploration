@@ -32,6 +32,10 @@ class LibraryExp624GroupedSplitTests(unittest.TestCase):
                 fixed.grouped_splits(self.pages + [{"id": bad}], 624010, 1)
         with self.assertRaisesRegex(ValueError, "Duplicate"):
             fixed.grouped_splits(self.pages + [self.pages[0]], 624010, 1)
+        for alias in ("f01r", "f2R1", "f002v2"):
+            with self.subTest(alias=alias), self.assertRaisesRegex(ValueError, "Duplicate physical page identity"):
+                fixed.grouped_splits(self.pages + [{"id": alias, "lang": "A", "words": ["ab"]}], 624010, 1)
+        self.assertEqual(fixed.physical_page_id("f002V2"), (2, "v", 2))
         with self.assertRaisesRegex(ValueError, "two distinct"):
             fixed.grouped_splits(self.pages[:2], 624010, 1)
 
