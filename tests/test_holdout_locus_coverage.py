@@ -79,6 +79,33 @@ class HoldoutLocusCoverageTests(unittest.TestCase):
                 ):
                     inspect_source(raw)
 
+    def test_zero_padded_page_aliases_fail_closed(self):
+        # Different decimal spellings cannot create independent page headers.
+        for first, alias in (
+            ("f1r", "f01r"),
+            ("f86v4", "f086v4"),
+            ("f86v5", "f0086v5"),
+        ):
+            with self.subTest(first=first, alias=alias):
+                raw = (f"<{first}> first\n<{alias}> alias\n").encode()
+                with self.assertRaisesRegex(ValueError, "Duplicate physical folio header"):
+                    inspect_source(raw)
+        distinct = inspect_source(
+            b"<f1r> first\n<f1v> second\n<f86v4> third\n<f86v5> fourth\n"
+        )
+        self.assertEqual(distinct["numeric_page_header_count"], 4)
+
+    def test_rehashed_manifest_cannot_hide_page_alias(self):
+        name = "eva_zl3b.txt"
+        self.sources[name] = self.sources[name].replace(
+            b"<f1r> metadata\n", b"<f1r> metadata\n<f01r> alias\n"
+        )
+        self.manifest["corpora"][name]["sha256"] = hashlib.sha256(
+            self.sources[name]
+        ).hexdigest()
+        with self.assertRaisesRegex(ValueError, "Duplicate physical folio header"):
+            audit(self.sources, self.manifest)
+
     def test_duplicate_locus_identifiers_fail_closed(self):
         # A second physical row with the same full locator used to inflate
         # record counts in this standalone reader; strict IVTFF rejects it.

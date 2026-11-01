@@ -61,6 +61,16 @@ MISSING_OPEN_COMMA_PAGE_RE = re.compile(
 NON_PHYSICAL_SEPARATORS = "\v\f\x1c\x1d\x1e\x85\u2028\u2029"
 
 
+def physical_page_identity(page: str) -> tuple:
+    """Logical IVTFF page identity; zero padding cannot create a second page."""
+    if page == "fRos":
+        return ("Ros",)
+    match = re.fullmatch(r"f([0-9]+)([rv])([1-6]?)", page)
+    if match is None:
+        raise ValueError(f"Invalid physical page identity: {page}")
+    return ("numeric", int(match.group(1)), match.group(2), match.group(3))
+
+
 def audit_text(text: str, *, include_locus_ids: bool = False) -> dict:
     active_page = None
     headers = []
@@ -215,14 +225,17 @@ def audit_text(text: str, *, include_locus_ids: bool = False) -> dict:
                 active_page = None
             else:
                 active_page = tag
-                if tag in seen_page_headers:
+                # The same physical page cannot appear twice merely by
+                # padding its decimal leaf number (f1r vs f01r).
+                page_key = physical_page_identity(tag)
+                if page_key in seen_page_headers:
                     duplicate_page_headers.append({
                         "page": tag,
-                        "first_line": seen_page_headers[tag],
+                        "first_line": seen_page_headers[page_key],
                         "repeated_line": line_no,
                     })
                 else:
-                    seen_page_headers[tag] = line_no
+                    seen_page_headers[page_key] = line_no
                 headers.append({"line": line_no, "page": tag})
             continue
 
@@ -259,7 +272,7 @@ def audit_text(text: str, *, include_locus_ids: bool = False) -> dict:
         "invalid_physical_separators": invalid_physical_separators[:50],
         "invalid_physical_separator_count": len(invalid_physical_separators),
         "page_header_count": len(headers),
-        "distinct_page_headers": len({h["page"] for h in headers}),
+        "distinct_page_headers": len(seen_page_headers),
         "duplicate_page_headers": duplicate_page_headers[:50],
         "duplicate_page_header_count": len(duplicate_page_headers),
         "record_count": len(records),

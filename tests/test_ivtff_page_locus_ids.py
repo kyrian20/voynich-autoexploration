@@ -88,6 +88,32 @@ def main() -> None:
         "duplicate_page_header_count=1"
     ], repeated_page
 
+    # Zero padding in a folio number cannot create a second physical page.
+    # Raw spellings remain visible in diagnostics; identity is numeric.
+    for first, alias in (
+        ("f1r", "f01r"),
+        ("f86v4", "f086v4"),
+        ("f86v5", "f0086v5"),
+    ):
+        aliased_page = audit_text(
+            f"<{first}> first\n<{first}.1,@P0> word\n"
+            f"<{alias}> alias\n<{alias}.2,@P0> second\n"
+        )
+        assert aliased_page["page_header_count"] == 2, aliased_page
+        assert aliased_page["distinct_page_headers"] == 1, aliased_page
+        assert aliased_page["duplicate_page_header_count"] == 1, aliased_page
+        assert aliased_page["duplicate_page_headers"] == [
+            {"page": alias, "first_line": 1, "repeated_line": 3}
+        ], aliased_page
+        assert structural_errors(aliased_page) == [
+            "duplicate_page_header_count=1"
+        ], aliased_page
+    distinct_panels = audit_text(
+        "<f86v4> first\n<f86v4.1,@P0> a\n"
+        "<f86v5> second\n<f86v5.1,@P0> b\n"
+    )
+    assert structural_errors(distinct_panels) == [], distinct_panels
+
     # A second fRos header must also be visible, but must not be rewritten
     # or silently merged with the first block.
     repeated_ros = audit_text(
