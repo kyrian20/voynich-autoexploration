@@ -22,7 +22,7 @@ def physical_header_identity(page: str) -> tuple:
     """Compare numeric folios as physical pages, not zero-padded strings.
 
     Keep the historical HEADER extractor unchanged; reject non-ASCII digits
-    that its broad \d pattern might otherwise admit.
+    that its broad digit pattern might otherwise admit.
     """
     if page == "fRos":
         return ("Ros",)
