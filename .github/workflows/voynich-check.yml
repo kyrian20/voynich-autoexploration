@@ -24,7 +24,7 @@ jobs:
           python-version: "3.12"
 
       - name: Instalar lector YAML para auditoría operativa
-        run: python -m pip install PyYAML==6.0.3 Pillow==12.3.0
+        run: python -m pip install PyYAML==6.0.3 Pillow==12.3.0 numpy==2.2.6
 
       - name: Probar diagnóstico Gemini con transporte simulado (sin red)
         run: python -m unittest discover -s tests -p 'test_gemini_smoke.py' -v
@@ -70,6 +70,23 @@ jobs:
         run: |
           python -m unittest discover -s tests -p 'test_zs_wordpair_source_lock.py' -v
           python -O -m unittest discover -s tests -p 'test_zs_wordpair_source_lock.py' -v
+
+      - name: Reproducir dos filas congeladas de auditoría de pares Zhang-Sheng
+        run: |
+          set -euo pipefail
+          python -m unittest discover -s tests -p 'test_zs_wordpair_archive_contract.py' -v 2>&1 | tee zs-wordpair-replay.log
+          python -O -m unittest discover -s tests -p 'test_zs_wordpair_archive_contract.py' -k test_archive_grid_and_source_receipts -v 2>&1 | tee -a zs-wordpair-replay.log
+          sha256sum zs-wordpair-replay.log > zs-wordpair-replay.sha256
+
+      - name: Conservar prueba de reproducción acotada y su hash
+        uses: actions/upload-artifact@v4
+        with:
+          name: zs-wordpair-replay-${{ github.run_id }}
+          path: |
+            zs-wordpair-replay.log
+            zs-wordpair-replay.sha256
+          if-no-files-found: error
+          retention-days: 90
 
       - name: Comprobar identidad de corpus y control de duplicados
         run: |

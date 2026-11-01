@@ -329,6 +329,35 @@ def metric(pages, *, seed=20261101, shuffles=20, top_k=300):
     }
 
 
+
+def flatten_run_records(results):
+    """Serialize computed metrics to the *existing* frozen results.json schema.
+
+    The first version of main() emitted a nested "results" object although
+    the archived artifact stores 54 flat "run_records". This projection
+    changes only the receipt format, never the underlying metric values.
+    """
+    records = []
+    for source, views in results.items():
+        for view, grids in views.items():
+            for top_k, runs in grids.items():
+                for run in runs:
+                    records.append({
+                        "source": source,
+                        "view": view,
+                        "top_k": int(top_k),
+                        "seed": run["seed"],
+                        "shuffles": run["shuffles"],
+                        "pages": run["n_pages"],
+                        "lines": run["n_lines"],
+                        "tokens": run["n_tokens"],
+                        "eligible_pairs": run["n_eligible_pairs"],
+                        "raw_spearman": run["score_raw_spearman"],
+                        "additive_residual_spearman": run["score_additive_propensity_residual_spearman"],
+                        "residual_pearson": run["score_pearson_residuals"],
+                    })
+    return records
+
 def main():
     results = {}
     source_metadata = {}
@@ -353,7 +382,7 @@ def main():
         }
     print(json.dumps({"status": "EXPLORATORY_PARTIAL_REIMPLEMENTATION",
                       "sources": source_metadata,
-                      "results": results}, indent=2))
+                      "run_records": flatten_run_records(results)}, indent=2))
 
 
 if __name__ == "__main__":
