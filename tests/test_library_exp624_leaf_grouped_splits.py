@@ -40,6 +40,34 @@ class LibraryExp624GroupedSplitTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "two distinct"):
             fixed.grouped_splits(self.pages[:2], 624010, 1)
 
+    def test_seed_series_rejects_modulo_aliases_and_invalid_types(self):
+        # The 32-bit LCG would otherwise produce identical shuffles for
+        # seed and seed + 2**32 while recording different seed values.
+        original = fixed.grouped_splits(self.pages, 624010, 1)[0]
+        self.assertEqual(original["seed"], 624010)
+        for invalid in (True, 624010.0, "624010", None):
+            with self.subTest(seed=invalid), self.assertRaisesRegex(
+                ValueError, "seed_base must be an integer"
+            ):
+                fixed.grouped_splits(self.pages, invalid, 1)
+        for invalid in (-1, 2**32, 624010 + 2**32):
+            with self.subTest(seed=invalid), self.assertRaisesRegex(
+                ValueError, "seed_base outside unsigned 32-bit range"
+            ):
+                fixed.grouped_splits(self.pages, invalid, 1)
+        for invalid in (True, 1.0, "1", None):
+            with self.subTest(repetitions=invalid), self.assertRaisesRegex(
+                ValueError, "repetitions must be an integer"
+            ):
+                fixed.grouped_splits(self.pages, 624010, invalid)
+        with self.assertRaisesRegex(ValueError, "At least one repetition"):
+            fixed.grouped_splits(self.pages, 624010, 0)
+        with self.assertRaisesRegex(ValueError, "seed series exceeds unsigned 32-bit range"):
+            fixed.grouped_splits(self.pages, 2**32 - 7919, 2)
+        # Boundary control: the last permitted seed is exactly 2**32 - 1.
+        rows = fixed.grouped_splits(self.pages, 2**32 - 7920, 2)
+        self.assertEqual([r["seed"] for r in rows], [2**32 - 7920, 2**32 - 1])
+
     def test_source_hash_gate(self):
         with self.assertRaisesRegex(ValueError, "SHA-256 mismatch"):
             fixed.build({"ZL3b": b"corrupt", "IT2a": b"corrupt"})
