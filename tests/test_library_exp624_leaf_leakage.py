@@ -44,5 +44,32 @@ class LibraryExp624LeakageTests(unittest.TestCase):
             audit.check(results)
 
 
+    def test_equal_count_leaf_identity_forgery_rejected(self):
+        # Prior check() compared only lengths. Replacing one leaf with an
+        # impossible ID preserved both overlap and leaked-page counts.
+        results = {label: audit.analyze(label, (audit.ROOT / "data/transcriptions" / source[0]).read_bytes())
+                   for label, source in audit.SOURCES.items()}
+        shared = results["ZL3b"]["groups"]["all"][0]["shared_physical_leaves"]
+        self.assertTrue(shared)
+        shared[0] = 999
+        self.assertEqual(len(shared), audit.EXPECTED["ZL3b"]["all"][0])
+        with self.assertRaisesRegex(ValueError, "deterministic split identity drift"):
+            audit.check(results)
+
+    def test_seed_and_page_receipt_forgery_rejected(self):
+        results = {label: audit.analyze(label, (audit.ROOT / "data/transcriptions" / source[0]).read_bytes())
+                   for label, source in audit.SOURCES.items()}
+        first = results["IT2a"]["groups"]["all"][0]
+        first["seed"] += 1
+        with self.assertRaisesRegex(ValueError, "deterministic split identity drift"):
+            audit.check(results)
+        first["seed"] -= 1
+        first["leaked_test_page_ids"][0] = "f999r"
+        self.assertEqual(len(first["leaked_test_page_ids"]),
+                         audit.EXPECTED_LEAKED_TEST_PAGES["IT2a"]["all"][0])
+        with self.assertRaisesRegex(ValueError, "deterministic split identity drift"):
+            audit.check(results)
+
+
 if __name__ == "__main__":
     unittest.main()
