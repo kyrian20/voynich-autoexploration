@@ -361,6 +361,15 @@ def additive_residual(matrix, n, pair_idx):
 
 def metric(pages, *, seed=20261101, shuffles=20, top_k=300,
            require_leaf_independence=False):
+    # Invalid null-model settings must fail before any statistic is computed.
+    # In particular, range(0) silently skips every shuffle and leaves the
+    # expected co-occurrence matrix at zero, producing misleading scores.
+    if type(shuffles) is not int or shuffles <= 0:
+        raise ValueError("shuffles must be a positive integer")
+    if type(top_k) is not int or top_k <= 0:
+        raise ValueError("top_k must be a positive integer")
+    if type(seed) is not int:
+        raise ValueError("seed must be an integer")
     split_diagnostics = audit_page_half_leakage(pages)
     if require_leaf_independence and split_diagnostics["cross_half_physical_leaf_count"]:
         require_disjoint_physical_leaves(pages)

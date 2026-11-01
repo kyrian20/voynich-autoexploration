@@ -218,6 +218,26 @@ class WordPairFrozenInputTests(unittest.TestCase):
             audit.audit_page_half_leakage([pages[0], pages[-1]]),
         )
 
+    def test_metric_rejects_empty_or_malformed_shuffle_counts(self):
+        # A zero or negative shuffle count previously left expected pair
+        # counts at zero, yet still entered the statistical calculation.
+        pages = [{"id": "f1r", "lines": [["daiin", "qokedy", "chedy"]]}]
+        for invalid in (0, -1, True, 1.5, "20", None):
+            with self.subTest(shuffles=invalid):
+                with self.assertRaisesRegex(ValueError, "shuffles must be a positive integer"):
+                    audit.metric(pages, shuffles=invalid)
+
+    def test_metric_rejects_invalid_vocabulary_size_and_seed(self):
+        pages = [{"id": "f1r", "lines": [["daiin", "qokedy", "chedy"]]}]
+        for invalid in (0, -1, True, 1.5, "300", None):
+            with self.subTest(top_k=invalid):
+                with self.assertRaisesRegex(ValueError, "top_k must be a positive integer"):
+                    audit.metric(pages, top_k=invalid)
+        for invalid in (True, 1.5, "20261101", None):
+            with self.subTest(seed=invalid):
+                with self.assertRaisesRegex(ValueError, "seed must be an integer"):
+                    audit.metric(pages, seed=invalid)
+
     def test_physical_leaf_aliases_and_invalid_block_sizes(self):
         self.assertEqual(audit.physical_leaf_id("f067r1"), "f67")
         self.assertEqual(audit.physical_leaf_id("f67v6"), "f67")
