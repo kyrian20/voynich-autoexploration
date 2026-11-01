@@ -141,15 +141,15 @@ class PanelAwareHoldout(unittest.TestCase):
         # A large, valid source is necessary: the legacy leaf extractor
         # silently ignores many malformed rows and would still allocate
         # 120 apparently eligible leaves. The generator must fail closed.
-        good = "".join(f"<f{n}r> header\\n" for n in range(1, 121)).encode()
+        good = "".join(f"<f{n}r> header\n" for n in range(1, 121)).encode()
         sources = {name: good for name in v2.SOURCE_NAMES}
         self.assertEqual(v2.build_manifest(sources)["eligible_count"], 120)
         bad_cases = (
-            (b"<f121r7> invalid panel\\n", "Unparsed numeric folio header"),
-            (b"<f001r> duplicated physical f1r\\n", "Duplicate physical folio header"),
-            (b"<f1r.1,@P0> orphan after f120r\\n", "Orphan or mismatched locus"),
-            (b"<f120r.161,@P0> out of range\\n", "Locus number outside"),
-            (b"<f0r> nonpositive leaf\\n", "Nonpositive physical leaf"),
+            (b"<f121r7> invalid panel\n", "Unparsed numeric folio header"),
+            (b"<f001r> duplicated physical f1r\n", "Duplicate physical folio header"),
+            (b"<f1r.1,@P0> orphan after f120r\n", "Orphan or mismatched locus"),
+            (b"<f120r.161,@P0> out of range\n", "Locus number outside"),
+            (b"<f0r> nonpositive leaf\n", "Nonpositive physical leaf"),
         )
         for damaged, error in bad_cases:
             with self.subTest(damaged=damaged):
