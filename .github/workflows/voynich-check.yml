@@ -119,6 +119,8 @@ jobs:
 
       - name: Auditar contaminación por hoja física de pilotos LIB-EXP-623
         run: |
+          python -m unittest discover -s tests -p 'test_lib_exp623_terminal_lf_provenance.py' -v
+          python -O -m unittest discover -s tests -p 'test_lib_exp623_terminal_lf_provenance.py' -v
           python -m unittest discover -s tests -p 'test_library_exp623_leaf_leakage.py' -v
           python -O -m unittest discover -s tests -p 'test_library_exp623_leaf_leakage.py' -v
           python scripts/audit_library_exp623_leaf_leakage.py --check --out library-exp623-leaf-leakage.json
