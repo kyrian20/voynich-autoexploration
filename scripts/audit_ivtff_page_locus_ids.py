@@ -250,7 +250,7 @@ def audit_text(text: str, *, include_locus_ids: bool = False) -> dict:
         # Numeric line indices denote physical rows: .01 and .1 must not
         # masquerade as different observations. Keep the page, locator code
         # and transcriber distinct (alternative readings may coexist).
-        logical_tag = (rec["page"], int(rec["num"]),
+        logical_tag = (physical_page_identity(rec["page"]), int(rec["num"]),
                        rec["code"], rec["transcriber"])
         if logical_tag in seen_record_tags:
             duplicate_record_tags.append({
