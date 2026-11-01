@@ -234,14 +234,19 @@ def audit_text(text: str, *, include_locus_ids: bool = False) -> dict:
         rec["line"] = line_no
         records.append(rec)
         locus_ids.append(tag)
-        if tag in seen_record_tags:
+        # Numeric line indices denote physical rows: .01 and .1 must not
+        # masquerade as different observations. Keep the page, locator code
+        # and transcriber distinct (alternative readings may coexist).
+        logical_tag = (rec["page"], int(rec["num"]),
+                       rec["code"], rec["transcriber"])
+        if logical_tag in seen_record_tags:
             duplicate_record_tags.append({
                 "tag": tag,
-                "first_line": seen_record_tags[tag],
+                "first_line": seen_record_tags[logical_tag],
                 "repeated_line": line_no,
             })
         else:
-            seen_record_tags[tag] = line_no
+            seen_record_tags[logical_tag] = line_no
         if active_page is None:
             page_mismatches.append({"line": line_no, "id_page": rec["page"], "active_page": None})
         elif rec["page"] != active_page:
