@@ -285,6 +285,34 @@ def main() -> None:
         {"tag": "f1r.1,@P0", "first_line": 2, "repeated_line": 3}
     ], repeated
 
+    # An alias of the folio number AND of the line number must not hide
+    # a repeated physical locus. The pre-existing page-spelling mismatch
+    # remains independently visible; this is a second diagnostic.
+    for page, alias in (("f1r", "f01r"), ("f86v4", "f086v4")):
+        report = audit_text(
+            f"<{page}> first\n"
+            f"<{page}.1,@P0> first\n"
+            f"<{alias}.01,@P0> repeated\n"
+        )
+        assert report["duplicate_record_tag_count"] == 1, report
+        assert report["duplicate_record_tags"] == [
+            {"tag": f"{alias}.01,@P0", "first_line": 2, "repeated_line": 3}
+        ], report
+        assert report["page_mismatch_count"] == 1, report
+        assert structural_errors(report) == [
+            "page_mismatch_count=1", "duplicate_record_tag_count=1"
+        ], report
+
+        # Different locator codes remain distinct records even if the
+        # folio spelling differs; the page-spelling warning is retained.
+        distinct_locator = audit_text(
+            f"<{page}> first\n"
+            f"<{page}.1,@P0> first\n"
+            f"<{alias}.01,+P0> other reading\n"
+        )
+        assert distinct_locator["duplicate_record_tag_count"] == 0, distinct_locator
+        assert distinct_locator["page_mismatch_count"] == 1, distinct_locator
+
     # Same physical line with decimal padding must not evade duplicate
     # detection; page panels and Rosettes obey the same rule. This is
     # identifier integrity, not a claim about token interpretation.
