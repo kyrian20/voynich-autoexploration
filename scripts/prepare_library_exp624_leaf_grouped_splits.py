@@ -18,14 +18,20 @@ except ModuleNotFoundError:
     import audit_library_exp624_leaf_leakage as historical
 
 ROOT = Path(__file__).resolve().parents[1]
-STRICT_PAGE = re.compile(r"f([0-9]+)[rv](?:[1-6])?", re.IGNORECASE)
+STRICT_PAGE = re.compile(r"f([0-9]+)([rv])([1-6])?", re.IGNORECASE)
 
 
-def leaf_id(page_id: str) -> int:
+def physical_page_id(page_id: str) -> tuple[int, str, int | None]:
+    """Canonical physical page identity; raw IVTFF page IDs remain unchanged."""
     match = STRICT_PAGE.fullmatch(page_id)
     if not match:
         raise ValueError(f"Unrecognized physical page identifier: {page_id!r}")
-    return int(match.group(1))
+    panel = int(match.group(3)) if match.group(3) is not None else None
+    return int(match.group(1)), match.group(2).lower(), panel
+
+
+def leaf_id(page_id: str) -> int:
+    return physical_page_id(page_id)[0]
 
 
 def grouped_splits(pages: list[dict], seed_base: int, repetitions: int) -> list[dict]:
@@ -38,12 +44,17 @@ def grouped_splits(pages: list[dict], seed_base: int, repetitions: int) -> list[
         raise ValueError("At least one repetition required")
     groups: dict[int, list[str]] = {}
     seen: set[str] = set()
+    seen_physical: set[tuple[int, str, int | None]] = set()
     for page in pages:
         page_id = page["id"]
         if page_id in seen:
             raise ValueError(f"Duplicate eligible page ID: {page_id}")
+        physical = physical_page_id(page_id)
+        if physical in seen_physical:
+            raise ValueError(f"Duplicate physical page identity: {page_id}")
         seen.add(page_id)
-        groups.setdefault(leaf_id(page_id), []).append(page_id)
+        seen_physical.add(physical)
+        groups.setdefault(physical[0], []).append(page_id)
     leaves = sorted(groups)
     if len(leaves) < 2:
         raise ValueError("At least two distinct physical leaves required")
