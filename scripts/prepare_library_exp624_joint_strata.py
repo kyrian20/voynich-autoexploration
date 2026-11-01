@@ -25,6 +25,9 @@ def derive_joint_strata(pages: list[dict], global_rows: list[dict]) -> list[dict
     by_id = {page["id"]: page for page in pages}
     if len(by_id) != len(pages):
         raise ValueError("Duplicate eligible page identifiers")
+    physical_ids = [grouped.physical_page_id(page["id"]) for page in pages]
+    if len(set(physical_ids)) != len(physical_ids):
+        raise ValueError("Duplicate physical page identity in joint allocation")
     result = []
     for row in global_rows:
         train_ids, test_ids = row["train_page_ids"], row["test_page_ids"]
