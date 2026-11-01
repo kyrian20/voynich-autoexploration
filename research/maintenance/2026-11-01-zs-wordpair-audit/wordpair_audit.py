@@ -137,7 +137,8 @@ def read_pages_legacy(path: Path, *, categories=None, keep_empty=False, source_t
         locus, body = match.groups()
         if "." not in locus:
             page_id = checked_page_header(locus, seen_pages)
-            current = {"id": page_id, "currier": (meta.group(1) if (meta := re.search(r"\$L=([AB])", body)) else None),
+            meta = re.search(r"\$L=([AB])", body)
+            current = {"id": page_id, "currier": meta.group(1) if meta else None,
                        "rows": []}
             pages.append(current)
             seen_loci = set()
