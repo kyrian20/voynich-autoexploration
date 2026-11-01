@@ -42,7 +42,7 @@ class DuplicateLanguageHeaders(unittest.TestCase):
             with self.subTest(alias=alias), tempfile.TemporaryDirectory() as d:
                 path = Path(d) / "fixture.ivtff"
                 path.write_text(
-                    f"<{first}> <! $L=A>\\n<{alias}> <! $L=B>\\n".replace("\\\\n", "\\n"),
+                    f"<{first}> <! $L=A>\n<{alias}> <! $L=B>\n",
                     encoding="utf-8",
                 )
                 with self.assertRaisesRegex(ValueError, rf"{alias} at line 2: A versus B"):
@@ -52,10 +52,10 @@ class DuplicateLanguageHeaders(unittest.TestCase):
         with tempfile.TemporaryDirectory() as d:
             path = Path(d) / "fixture.ivtff"
             path.write_text(
-                "<f86v4> <! $L=A>\\n"
-                "<f086v4> <! $L=A>\\n"
-                "<f86v5> <! $L=B>\\n"
-                "<fRos> <! $L=A>\\n".replace("\\\\n", "\\n"),
+                "<f86v4> <! $L=A>\n"
+                "<f086v4> <! $L=A>\n"
+                "<f86v5> <! $L=B>\n"
+                "<fRos> <! $L=A>\n",
                 encoding="utf-8",
             )
             report = validate(path)
@@ -66,7 +66,7 @@ class DuplicateLanguageHeaders(unittest.TestCase):
     def test_non_ascii_folio_digits_rejected_in_strict_audit(self):
         with tempfile.TemporaryDirectory() as d:
             path = Path(d) / "fixture.ivtff"
-            path.write_text("<f١r> <! $L=A>\\n".replace("\\\\n", "\\n"), encoding="utf-8")
+            path.write_text("<f١r> <! $L=A>\n", encoding="utf-8")
             with self.assertRaisesRegex(ValueError, "Invalid physical IVTFF folio header"):
                 validate(path)
 
