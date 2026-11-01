@@ -45,6 +45,29 @@ SOURCE_LOCK = {
 }
 
 
+def checked_page_header(locus: str, seen: set[str]) -> str:
+    """Reject partial page matches and duplicate physical page identities.
+
+    Keep the source spelling for locus comparisons, but normalize numeric
+    folio numbers to prevent f1r/f01r from counting as separate pages.
+    """
+    match = PAGE_ID.fullmatch(locus)
+    if match is None:
+        raise ValueError(f"Invalid IVTFF page header: {locus}")
+    page_id = match.group(1)
+    if page_id == "fRos":
+        identity = page_id
+    else:
+        parts = re.fullmatch(r"f([0-9]+)([rv])([1-6]?)", page_id)
+        if parts is None or int(parts.group(1)) == 0:
+            raise ValueError(f"Invalid IVTFF page header: {locus}")
+        identity = f"f{int(parts.group(1))}{parts.group(2)}{parts.group(3)}"
+    if identity in seen:
+        raise ValueError(f"Duplicate physical IVTFF page header: {locus}")
+    seen.add(identity)
+    return page_id
+
+
 def load_verified_source(path: Path):
     """Return one immutable text snapshot and its verified source receipt.
 
@@ -70,17 +93,14 @@ def load_verified_source(path: Path):
 
 def read_pages_legacy(path: Path, *, categories=None, keep_empty=False, source_text=None):
     """Recreate the project's EXP-590 ASCII token projection for comparison."""
-    pages, current = [], None
+    pages, current, seen_pages = [], None, set()
     for rawline in (source_text if source_text is not None else path.read_text(encoding="utf-8-sig")).splitlines():
         match = HEADER.match(rawline)
         if match and "." not in match.group(1):
             locus, body = match.groups()
-            page_match = PAGE_ID.match(locus)
-            if not page_match:
-                current = None
-                continue
+            page_id = checked_page_header(locus, seen_pages)
             meta = re.search(r"\$L=([AB])", body)
-            current = {"id": page_match.group(1), "currier": meta.group(1) if meta else None,
+            current = {"id": page_id, "currier": meta.group(1) if meta else None,
                        "rows": []}
             pages.append(current)
             continue
@@ -155,17 +175,16 @@ def levenshtein_at_most_one(a: str, b: str) -> bool:
 def read_pages(path: Path, *, uncertain_space="split", categories=None, keep_empty=False, source_text=None):
     pages = []
     current = None
+    seen_pages = set()
     for rawline in (source_text if source_text is not None else path.read_text(encoding="utf-8")).splitlines():
         match = HEADER.match(rawline)
         if not match:
             continue
         locus, payload_text = match.groups()
         if "." not in locus:
-            page_match = PAGE_ID.match(locus)
-            if not page_match:
-                continue
+            page_id = checked_page_header(locus, seen_pages)
             meta = re.search(r"\$L=([AB])", payload_text)
-            current = {"id": page_match.group(1), "currier": meta.group(1) if meta else None,
+            current = {"id": page_id, "currier": meta.group(1) if meta else None,
                        "rows": []}
             pages.append(current)
             continue

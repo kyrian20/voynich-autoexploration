@@ -65,6 +65,42 @@ class WordPairFrozenInputTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, "Symlinked word-pair source"):
                 audit.load_verified_source(parent / "eva_it2a.txt")
 
+    def test_invalid_page_header_rejected_by_both_readers(self):
+        for reader in (audit.read_pages, audit.read_pages_legacy):
+            with self.subTest(reader=reader.__name__):
+                for header in ("f1rEXTRA", "f0r", "f1r7"):
+                    with self.subTest(header=header):
+                        source_text = f"<{header}> $L=A\n"
+                        with self.assertRaisesRegex(ValueError, "Invalid IVTFF page header"):
+                            reader(Path("/not/used"), source_text=source_text, keep_empty=True)
+
+    def test_duplicate_physical_page_alias_rejected_by_both_readers(self):
+        source_text = (
+            "<f1r> $L=A\n"
+            "<f1r.1,@P0> daiin.daiin\n"
+            "<f01r> $L=A\n"
+            "<f01r.1,@P0> daiin.daiin\n"
+        )
+        for reader in (audit.read_pages, audit.read_pages_legacy):
+            with self.subTest(reader=reader.__name__):
+                with self.assertRaisesRegex(ValueError, "Duplicate physical IVTFF page header"):
+                    reader(Path("/not/used"), source_text=source_text, keep_empty=True)
+
+    def test_frozen_sources_still_have_unique_page_headers(self):
+        expected = {"eva_zl3b.txt": 227, "eva_it2a.txt": 225}
+        for name, count in expected.items():
+            with self.subTest(source=name):
+                source = ROOT / "data/transcriptions" / name
+                snapshot, _ = audit.load_verified_source(source)
+                for reader in (audit.read_pages, audit.read_pages_legacy):
+                    with self.subTest(reader=reader.__name__):
+                        pages = reader(
+                            source, source_text=snapshot, keep_empty=True,
+                            categories={"P", "C", "R"},
+                        )
+                        self.assertEqual(len(pages), count)
+
+
     def test_reader_can_use_snapshot_without_reopening_path(self):
         source_text = "<f1r> $L=A\n<f1r.1,@P0> daiin.daiin\n"
         nonexistent = Path("/definitely/not/a/wordpair/corpus.txt")
