@@ -15,6 +15,7 @@ from pathlib import Path
 
 from prepare_prospective_leaf_holdout import ROOT, SOURCE_NAMES, SALT, partition
 from ivtff_physical_rows import checked_physical_lines
+from audit_holdout_locus_coverage import inspect_source
 
 # Only exact page headers qualify: a locus record (<f67r1.1,@P0>),
 # damaged page (<f2r,>) or invalid panel (<f2r7>) cannot create a leaf.
@@ -39,6 +40,13 @@ def leaves_from_bytes(raw: bytes) -> set[int]:
 def build_manifest(source_bytes: dict[str, bytes]) -> dict:
     if set(source_bytes) != set(SOURCE_NAMES):
         raise ValueError("Both named transcriptions required")
+    # The extractor intentionally ignores malformed tags for legacy census
+    # compatibility. A NEW manifest must not silently drop damaged headers,
+    # orphan loci, duplicated physical pages or out-of-range locus numbers.
+    # The independent coverage reader enforces those structural gates before
+    # allocating leaves. This does not claim full IVTFF conformance.
+    for name in SOURCE_NAMES:
+        inspect_source(source_bytes[name])
     sources = {name: leaves_from_bytes(source_bytes[name]) for name in SOURCE_NAMES}
     shared = sources[SOURCE_NAMES[0]] & sources[SOURCE_NAMES[1]]
     if len(shared) < 50:
