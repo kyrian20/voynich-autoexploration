@@ -1,6 +1,10 @@
 """Synthetic metadata-only regressions for archived Library EXP-623 split audit."""
 import hashlib
+import io
+import json
+import tempfile
 import unittest
+from contextlib import redirect_stdout
 from unittest.mock import patch
 import sys
 from pathlib import Path
@@ -123,6 +127,55 @@ class LibraryExp623LeakageTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, "Currier stratum drift"):
                 audit.check_expected(baseline)
 
+
+    def test_cli_output_is_exclusive_and_preserves_prior_evidence(self):
+        # The old Path.write_text silently truncated a pre-existing receipt.
+        # This exercises main() with synthetic split rows; no corpus is scored.
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            fixture = root / "data/transcriptions/fixture.txt"
+            fixture.parent.mkdir(parents=True)
+            fixture.write_bytes(b"synthetic only")
+            receipt = root / "prior-evidence.json"
+            frozen = b"FROZEN_PREVIOUS_AUDIT\n"
+            receipt.write_bytes(frozen)
+            rows = {"A_all_tokens": [{"shared_physical_leaves": [1]}],
+                    "B_interior_tokens": [{"shared_physical_leaves": []}]}
+            with patch.object(audit, "ROOT", root), \
+                 patch.dict(audit.CORPORA, {"ZL3b": ("fixture.txt", "unused", 623101)}, clear=True), \
+                 patch.object(audit, "analyze", return_value=rows), \
+                 patch.object(sys, "argv", ["audit", "--out", str(receipt)]), \
+                 redirect_stdout(io.StringIO()):
+                with self.assertRaises(FileExistsError):
+                    audit.main()
+            self.assertEqual(receipt.read_bytes(), frozen)
+
+    def test_cli_creates_new_receipt_and_rejects_symlink_destination(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            fixture = root / "data/transcriptions/fixture.txt"
+            fixture.parent.mkdir(parents=True)
+            fixture.write_bytes(b"synthetic only")
+            receipt = root / "fresh-evidence.json"
+            rows = {"A_all_tokens": [{"shared_physical_leaves": [1]}],
+                    "B_interior_tokens": [{"shared_physical_leaves": []}]}
+            with patch.object(audit, "ROOT", root), \
+                 patch.dict(audit.CORPORA, {"ZL3b": ("fixture.txt", "unused", 623101)}, clear=True), \
+                 patch.object(audit, "analyze", return_value=rows), \
+                 redirect_stdout(io.StringIO()):
+                with patch.object(sys, "argv", ["audit", "--out", str(receipt)]):
+                    audit.main()
+                original = receipt.read_bytes()
+                self.assertTrue(original.endswith(b"\n"))
+                self.assertEqual(json.loads(original)["status"],
+                                 "INVALID_FOR_CLAIM_PHYSICAL_LEAF_HOLDOUT_ONLY")
+                link = root / "linked-evidence.json"
+                link.symlink_to(receipt)
+                with patch.object(sys, "argv", ["audit", "--out", str(link)]):
+                    with self.assertRaises(FileExistsError):
+                        audit.main()
+                self.assertTrue(link.is_symlink())
+                self.assertEqual(receipt.read_bytes(), original)
 
 if __name__ == "__main__":
     unittest.main()
