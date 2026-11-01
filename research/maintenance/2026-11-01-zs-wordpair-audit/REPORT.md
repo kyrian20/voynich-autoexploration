@@ -36,7 +36,7 @@ El paquete JSON adjunto conserva los resultados por semilla, vista, tamaño de v
 
 Con la proyección ASCII histórica sobre todas las filas no vacías:
 
-| Transcripción | Tipos | 150 | 300 | 600 |
+| Transcripción | 150 tipos | 300 tipos | 600 tipos |
 |---|---:|---:|---:|---:|
 | ZL3b | 0,0327 (0,0277–0,0363) | 0,0378 (0,0371–0,0392) | 0,0862 (0,0844–0,0883) |
 | IT2a | 0,0303 (0,0267–0,0354) | 0,0447 (0,0418–0,0476) | 0,0927 (0,0893–0,0958) |
