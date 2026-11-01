@@ -82,12 +82,14 @@ def build(raw_sources: dict[str, bytes]) -> dict:
     if set(raw_sources) != set(historical.SOURCES):
         raise ValueError("Both named frozen transcriptions required")
     results = {}
+    page_languages: dict[str, dict[str, str | None]] = {}
     for label, (filename, expected_hash) in historical.SOURCES.items():
         raw = raw_sources[label]
         digest = hashlib.sha256(raw).hexdigest()
         if digest != expected_hash:
             raise ValueError(f"{label}: frozen corpus SHA-256 mismatch: {digest}")
         pages = historical.parse_pages(raw)
+        page_languages[label] = {page["id"]: page["lang"] for page in pages}
         if len(pages) != 203:
             raise ValueError(f"{label}: eligible page count drift: {len(pages)}")
         if {k: sum(p["lang"] == k for p in pages) for k in ("A", "B")} != {"A": 114, "B": 81}:
@@ -103,6 +105,10 @@ def build(raw_sources: dict[str, bytes]) -> dict:
     it = results["IT2a"]["groups"]["all"]
     if results["ZL3b"]["eligible_page_ids"] != results["IT2a"]["eligible_page_ids"]:
         raise ValueError("Different eligible page IDs between editions")
+    # Equal A/B totals do not prove equal page-level Currier assignments.
+    # Joint A/B strata are defined on ZL3b; reject an edition disagreement.
+    if page_languages["ZL3b"] != page_languages["IT2a"]:
+        raise ValueError("Different per-page Currier $L metadata between editions")
     for left, right in zip(zl, it, strict=True):
         if (left["train_leaves"], left["test_leaves"]) != (right["train_leaves"], right["test_leaves"]):
             raise ValueError("Edition-specific physical-leaf allocation drift")
