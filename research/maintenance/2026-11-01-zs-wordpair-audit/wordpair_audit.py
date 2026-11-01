@@ -15,7 +15,6 @@ import json
 import math
 import random
 import re
-import numpy as np
 from pathlib import Path
 import sys
 
@@ -32,12 +31,47 @@ PAGE_ID = re.compile(r"^(f(?:[0-9]+[rv][1-6]?|Ros))")
 PAGE_NO = re.compile(r"^(?:f)(\d+)[rv]")
 LEGACY_TEXT_LINE = re.compile(r"^<(f(?:\d+[rv][1-6]?|Ros))\.(\d+),([^>]*)>\s*(.*)$")
 LEGACY_TOKEN = re.compile(r"[a-z]+")
+# Fixed input identity of the published partial audit (2026-11-01).
+# Git SHA-1 is Git's blob identity; SHA-256 is the independent byte lock.
+SOURCE_LOCK = {
+    "eva_zl3b.txt": (
+        "bf5b6d4ac1e3a51b1847a9c388318d609020441ccd56984c901c32b09beccafc",
+        "2a4533ab9bdfa85db9bad602d590978953055df1",
+    ),
+    "eva_it2a.txt": (
+        "7f27a8b0feed8f6de0a99900df6bf912dd1d295c38e5f830bac8b41c3f536fb5",
+        "4d6d3f2537b1f507a257529b49c94af7d6e03446",
+    ),
+}
 
 
-def read_pages_legacy(path: Path, *, categories=None, keep_empty=False):
+def load_verified_source(path: Path):
+    """Return one immutable text snapshot and its verified source receipt.
+
+    Fail closed before any metric calculation on unknown, redirected or
+    modified inputs. The returned snapshot is used by both reader policies,
+    avoiding a second file read after hashing.
+    """
+    if path.name not in SOURCE_LOCK:
+        raise ValueError(f"Unregistered word-pair source: {path.name}")
+    if any(part.is_symlink() for part in (path, *path.parents)):
+        raise ValueError(f"Symlinked word-pair source forbidden: {path}")
+    raw = path.read_bytes()
+    sha256 = hashlib.sha256(raw).hexdigest()
+    blob_sha = hashlib.sha1(f"blob {len(raw)}\0".encode("ascii") + raw).hexdigest()
+    expected_sha256, expected_blob_sha = SOURCE_LOCK[path.name]
+    if (sha256, blob_sha) != (expected_sha256, expected_blob_sha):
+        raise ValueError(
+            f"Frozen word-pair source mismatch: {path.name}; "
+            f"sha256={sha256} git_blob_sha={blob_sha}"
+        )
+    return raw.decode("utf-8"), {"git_blob_sha": blob_sha, "sha256": sha256}
+
+
+def read_pages_legacy(path: Path, *, categories=None, keep_empty=False, source_text=None):
     """Recreate the project's EXP-590 ASCII token projection for comparison."""
     pages, current = [], None
-    for rawline in path.read_text(encoding="utf-8-sig").splitlines():
+    for rawline in (source_text if source_text is not None else path.read_text(encoding="utf-8-sig")).splitlines():
         match = HEADER.match(rawline)
         if match and "." not in match.group(1):
             locus, body = match.groups()
@@ -118,10 +152,10 @@ def levenshtein_at_most_one(a: str, b: str) -> bool:
     return edits == 1
 
 
-def read_pages(path: Path, *, uncertain_space="split", categories=None, keep_empty=False):
+def read_pages(path: Path, *, uncertain_space="split", categories=None, keep_empty=False, source_text=None):
     pages = []
     current = None
-    for rawline in path.read_text(encoding="utf-8").splitlines():
+    for rawline in (source_text if source_text is not None else path.read_text(encoding="utf-8")).splitlines():
         match = HEADER.match(rawline)
         if not match:
             continue
@@ -202,6 +236,7 @@ def spearman(a, b):
 
 
 def additive_residual(matrix, n, pair_idx):
+    import numpy as np  # Only needed for full metrics; source-lock tests use stdlib.
     # OLS fit of z_ij = alpha_i + alpha_j only over eligible pairs.
     design = np.zeros((n, n), dtype=float)
     rhs = np.zeros(n, dtype=float)
@@ -300,22 +335,16 @@ def main():
     for name in ("eva_zl3b.txt", "eva_it2a.txt"):
         results[name] = {}
         source = TRANSCRIPTION_DIR / name
-        source_metadata[name] = {
-            "git_blob_sha": {
-                "eva_zl3b.txt": "2a4533ab9bdfa85db9bad602d590978953055df1",
-                "eva_it2a.txt": "4d6d3f2537b1f507a257529b49c94af7d6e03446",
-            }[name],
-            "sha256": hashlib.sha256(source.read_bytes()).hexdigest(),
-        }
+        source_text, source_metadata[name] = load_verified_source(source)
         for policy in ("split", "join"):
-            pages = read_pages(source, uncertain_space=policy, categories={"P", "C", "R"}, keep_empty=True)
+            pages = read_pages(source, uncertain_space=policy, categories={"P", "C", "R"}, keep_empty=True, source_text=source_text)
             pages = [page for page in pages if page["id"] not in {"f116v", "fRos"}]
             results[name][policy] = {
                 str(k): [metric(pages, seed=20261101 + seed_offset, shuffles=20, top_k=k)
                          for seed_offset in (0, 1, 2)]
                 for k in (150, 300, 600)
             }
-        legacy_pages = read_pages_legacy(source, categories={"P", "C", "R"}, keep_empty=True)
+        legacy_pages = read_pages_legacy(source, categories={"P", "C", "R"}, keep_empty=True, source_text=source_text)
         legacy_pages = [page for page in legacy_pages if page["id"] not in {"f116v", "fRos"}]
         results[name]["legacy_ascii"] = {
             str(k): [metric(legacy_pages, seed=20261101 + seed_offset, shuffles=20, top_k=k)

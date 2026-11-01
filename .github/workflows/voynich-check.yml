@@ -66,6 +66,11 @@ jobs:
           if-no-files-found: error
           retention-days: 90
 
+      - name: Rechazar entradas alteradas en auditoría de pares Zhang-Sheng
+        run: |
+          python -m unittest discover -s tests -p 'test_zs_wordpair_source_lock.py' -v
+          python -O -m unittest discover -s tests -p 'test_zs_wordpair_source_lock.py' -v
+
       - name: Comprobar identidad de corpus y control de duplicados
         run: |
           python tests/test_corpus_integrity.py
