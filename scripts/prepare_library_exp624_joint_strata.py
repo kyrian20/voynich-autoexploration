@@ -42,6 +42,15 @@ def derive_joint_strata(pages: list[dict], global_rows: list[dict]) -> list[dict
             raise ValueError("Cross-stratum physical-leaf leakage in global allocation")
         if train_leaves != set(row["train_leaves"]) or test_leaves != set(row["test_leaves"]):
             raise ValueError("Global leaf identities disagree with page allocation")
+        # A disjoint partition is not proof that its claimed RNG seed generated it.
+        # Validate the complete page assignment against the frozen LCG/Fisher-Yates
+        # policy; this API also accepts externally supplied global_rows.
+        if type(row.get("seed")) is not int:
+            raise ValueError("Global allocation seed must be an integer")
+        expected = grouped.grouped_splits(pages, row["seed"], 1)[0]
+        if (set(train_ids) != set(expected["train_page_ids"]) or
+                set(test_ids) != set(expected["test_page_ids"])):
+            raise ValueError("Global allocation does not match deterministic seed")
         strata = {}
         for name in STRATA:
             def in_stratum(page_id: str) -> bool:
