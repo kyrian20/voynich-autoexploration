@@ -29,7 +29,7 @@ from scripts.ivtff_rows import tokens_rows
 HEADER = re.compile(r"^<(f[^>]+)>\s*(.*)$")
 PAGE_ID = re.compile(r"^(f(?:[0-9]+[rv][1-6]?|Ros))")
 PAGE_NO = re.compile(r"^(?:f)(\d+)[rv]")
-LEGACY_TEXT_LINE = re.compile(r"^<(f(?:\d+[rv][1-6]?|Ros))\.(\d+),([^>]*)>\s*(.*)$")
+LOCUS_ID = re.compile(r"^(f(?:[0-9]+[rv][1-6]?|Ros))\.([0-9]+),([^>]*)$")
 LEGACY_TOKEN = re.compile(r"[a-z]+")
 # Fixed input identity of the published partial audit (2026-11-01).
 # Git SHA-1 is Git's blob identity; SHA-256 is the independent byte lock.
@@ -66,6 +66,26 @@ def checked_page_header(locus: str, seen: set[str]) -> str:
         raise ValueError(f"Duplicate physical IVTFF page header: {locus}")
     seen.add(identity)
     return page_id
+
+
+def checked_text_locus(locus: str, current: dict, seen: set[tuple[int, str]]) -> str:
+    """Reject malformed, orphaned, mismatched or aliased physical loci.
+
+    A line number's leading zeros are not a distinct locus. The trailing
+    location tag is retained: distinct @P0/+P0 records are not conflated.
+    Validate before category filtering so excluded records cannot hide errors.
+    """
+    match = LOCUS_ID.fullmatch(locus)
+    if match is None or int(match.group(2)) == 0:
+        raise ValueError(f"Invalid IVTFF text locus: {locus}")
+    page_id, line_number, tag = match.groups()
+    if page_id != current["id"]:
+        raise ValueError(f"Page/locus mismatch: page={current['id']} locus={locus}")
+    identity = (int(line_number), tag)
+    if identity in seen:
+        raise ValueError(f"Duplicate physical IVTFF text locus: {locus}")
+    seen.add(identity)
+    return tag
 
 
 # Only CR, LF and CRLF delimit physical IVTFF records. Python splitlines()
@@ -106,23 +126,26 @@ def load_verified_source(path: Path):
 
 def read_pages_legacy(path: Path, *, categories=None, keep_empty=False, source_text=None):
     """Recreate the project's EXP-590 ASCII token projection for comparison."""
-    pages, current, seen_pages = [], None, set()
-    for rawline in physical_ivtff_rows(source_text if source_text is not None else path.read_text(encoding="utf-8-sig")):
+    pages, current, seen_pages, seen_loci = [], None, set(), set()
+    source = source_text if source_text is not None else path.read_text(encoding="utf-8-sig")
+    for rawline in physical_ivtff_rows(source):
         match = HEADER.match(rawline)
-        if match and "." not in match.group(1):
-            locus, body = match.groups()
+        if not match:
+            if rawline.lstrip().startswith("<f"):
+                raise ValueError(f"Malformed IVTFF record: {rawline[:80]}")
+            continue
+        locus, body = match.groups()
+        if "." not in locus:
             page_id = checked_page_header(locus, seen_pages)
             meta = re.search(r"\$L=([AB])", body)
             current = {"id": page_id, "currier": meta.group(1) if meta else None,
                        "rows": []}
             pages.append(current)
+            seen_loci = set()
             continue
-        match = LEGACY_TEXT_LINE.match(rawline)
-        if not match or current is None:
-            continue
-        folio, _, tag, body = match.groups()
-        if folio != current["id"]:
-            raise ValueError(f"Page/locus mismatch: page={current['id']} locus={folio}")
+        if current is None:
+            raise ValueError(f"Text line before page header: {locus}")
+        tag = checked_text_locus(locus, current, seen_loci)
         category_match = re.search(r"[A-Z]", tag)
         category = category_match.group(0) if category_match else None
         if categories is not None and category not in categories:
@@ -189,9 +212,13 @@ def read_pages(path: Path, *, uncertain_space="split", categories=None, keep_emp
     pages = []
     current = None
     seen_pages = set()
-    for rawline in physical_ivtff_rows(source_text if source_text is not None else path.read_text(encoding="utf-8")):
+    seen_loci = set()
+    source = source_text if source_text is not None else path.read_text(encoding="utf-8")
+    for rawline in physical_ivtff_rows(source):
         match = HEADER.match(rawline)
         if not match:
+            if rawline.lstrip().startswith("<f"):
+                raise ValueError(f"Malformed IVTFF record: {rawline[:80]}")
             continue
         locus, payload_text = match.groups()
         if "." not in locus:
@@ -200,12 +227,11 @@ def read_pages(path: Path, *, uncertain_space="split", categories=None, keep_emp
             current = {"id": page_id, "currier": meta.group(1) if meta else None,
                        "rows": []}
             pages.append(current)
+            seen_loci = set()
             continue
         if current is None:
             raise ValueError(f"Text line before page header: {locus}")
-        if not locus.startswith(current["id"] + "."):
-            raise ValueError(f"Page/locus mismatch: page={current['id']} locus={locus}")
-        tag = locus.split(",", 1)[1] if "," in locus else ""
+        tag = checked_text_locus(locus, current, seen_loci)
         category_match = re.search(r"[A-Z]", tag)
         category = category_match.group(0) if category_match else None
         if categories is not None and category not in categories:
