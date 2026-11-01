@@ -36,23 +36,23 @@ class UniqueFolioHeaderTests(unittest.TestCase):
             ("f86v4", "f086v4"),
         ):
             with self.subTest(first=first, second=second):
-                text = f"<{first}> <! $L=A>\\n<{second}> <! $L=B>\\n"
+                text = f"<{first}> <! $L=A>\n<{second}> <! $L=B>\n"
                 with self.assertRaisesRegex(
                     ValueError, f"Duplicate IVTFF folio header {second} at line 2"
                 ):
                     audit_unique_page_headers(text)
 
     def test_distinct_physical_sides_and_panels_remain_distinct(self):
-        text = ("<f1r> <! $L=A>\\n<f01v> <! $L=B>\\n"
-                "<f86v4> <! $L=A>\\n<f086v5> <! $L=B>\\n")
+        text = ("<f1r> <! $L=A>\n<f01v> <! $L=B>\n"
+                "<f86v4> <! $L=A>\n<f086v5> <! $L=B>\n")
         result = audit_unique_page_headers(text)
         self.assertEqual(result["folio_headers"], 4)
         self.assertEqual(result["distinct_folio_ids"], 4)
 
     def test_unicode_decimal_header_does_not_bypass_ascii_identity(self):
-        # The imported historical HEADER uses \\d and matches Arabic-Indic 1.
+        # The imported historical HEADER uses \d and matches Arabic-Indic 1.
         with self.assertRaisesRegex(ValueError, "Invalid IVTFF physical folio header"):
-            audit_unique_page_headers("<f١r> <! $L=A>\\n")
+            audit_unique_page_headers("<f١r> <! $L=A>\n")
 
     def test_archived_source_census_unchanged(self):
         source = SOURCE.read_bytes().decode("utf-8-sig")
