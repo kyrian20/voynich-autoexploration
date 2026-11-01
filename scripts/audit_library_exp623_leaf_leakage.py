@@ -249,7 +249,7 @@ def check_expected(results: dict) -> None:
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--check", action="store_true", help="Check independently frozen overlap counts")
-    parser.add_argument("--out", type=Path, help="Write full per-seed overlap evidence to a new path")
+    parser.add_argument("--out", type=Path, help="Exclusively create full per-seed overlap evidence; never overwrite")
     args = parser.parse_args()
     results = {name: analyze(name, (ROOT / "data/transcriptions" / entry[0]).read_bytes())
                for name, entry in CORPORA.items()}
@@ -269,7 +269,10 @@ def main() -> None:
     }
     if args.out:
         args.out.parent.mkdir(parents=True, exist_ok=True)
-        args.out.write_text(json.dumps(payload, indent=2, ensure_ascii=False, sort_keys=True) + "\n", encoding="utf-8")
+        # An audit receipt is evidence: never truncate an earlier run, even
+        # when a caller accidentally reuses its path or points to a symlink.
+        with args.out.open("x", encoding="utf-8", newline="\n") as stream:
+            stream.write(json.dumps(payload, indent=2, ensure_ascii=False, sort_keys=True) + "\n")
     print(json.dumps({"status": payload["status"], "check": args.check,
                       "overlap_counts": {name: {method: [len(x["shared_physical_leaves"]) for x in results[name][method]]
                                                 for method in ("A_all_tokens", "B_interior_tokens")}
