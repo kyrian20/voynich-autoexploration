@@ -69,7 +69,30 @@ def read_pages_legacy(path: Path, *, categories=None, keep_empty=False):
     return pages if keep_empty else [p for p in pages if p["lines"]]
 
 
+def eva_glyphs(word: str) -> list[str]:
+    """Split EVA words into glyphs, keeping the six documented digraphs atomic."""
+    glyphs = []
+    i = 0
+    digraphs = ("cth", "ckh", "cph", "cfh", "ch", "sh")
+    while i < len(word):
+        if word[i] == "@":
+            match = re.match(r"@[0-9]{3};", word[i:])
+            if match:
+                glyphs.append(match.group(0))
+                i += len(match.group(0))
+                continue
+        matched = next((g for g in digraphs if word.startswith(g, i)), None)
+        if matched:
+            glyphs.append(matched)
+            i += len(matched)
+        else:
+            glyphs.append(word[i])
+            i += 1
+    return glyphs
+
+
 def levenshtein_at_most_one(a: str, b: str) -> bool:
+    a, b = eva_glyphs(a), eva_glyphs(b)
     if a == b:
         return True
     if abs(len(a) - len(b)) > 1:
@@ -95,7 +118,7 @@ def levenshtein_at_most_one(a: str, b: str) -> bool:
     return edits == 1
 
 
-def read_pages(path: Path, *, uncertain_space="split", categories=None):
+def read_pages(path: Path, *, uncertain_space="split", categories=None, keep_empty=False):
     pages = []
     current = None
     for rawline in path.read_text(encoding="utf-8").splitlines():
@@ -141,7 +164,7 @@ def read_pages(path: Path, *, uncertain_space="split", categories=None):
             raise ValueError(f"Incomplete continuation at {chain_loci[-1]}")
         page["lines"] = [line["tokens"] for line in lines if line["tokens"]]
         page["line_loci"] = [line["loci"] for line in lines if line["tokens"]]
-    return [p for p in pages if p["lines"]]
+    return pages if keep_empty else [p for p in pages if p["lines"]]
 
 
 def increment_pairs(lines, type_ids, allowed, into):
@@ -262,7 +285,7 @@ def metric(pages, *, seed=20261101, shuffles=20, top_k=300):
         "score_pearson_residuals": pearson(res_a, res_b),
         "implementation_choices": {
             "top_k_tie_break": "frequency descending, EVA token ascending",
-            "near_copy_exclusion": "word-type Levenshtein distance <= 1",
+            "near_copy_exclusion": "EVA glyph-level word-type Levenshtein distance <= 1",
             "word_view": "uncertain spaces split; primary alternatives; expand ligatures",
             "shuffle": "uniform permutation of interior tokens across all lines within each page; line endpoints fixed",
             "propensity_removal": "OLS additive word effects alpha_i + alpha_j fitted separately per half",
@@ -285,24 +308,20 @@ def main():
             "sha256": hashlib.sha256(source.read_bytes()).hexdigest(),
         }
         for policy in ("split", "join"):
-            pages = read_pages(source, uncertain_space=policy)
+            pages = read_pages(source, uncertain_space=policy, categories={"P", "C", "R"}, keep_empty=True)
+            pages = [page for page in pages if page["id"] not in {"f116v", "fRos"}]
             results[name][policy] = {
                 str(k): [metric(pages, seed=20261101 + seed_offset, shuffles=20, top_k=k)
                          for seed_offset in (0, 1, 2)]
                 for k in (150, 300, 600)
             }
-        legacy_pages = read_pages_legacy(source)
+        legacy_pages = read_pages_legacy(source, categories={"P", "C", "R"}, keep_empty=True)
+        legacy_pages = [page for page in legacy_pages if page["id"] not in {"f116v", "fRos"}]
         results[name]["legacy_ascii"] = {
             str(k): [metric(legacy_pages, seed=20261101 + seed_offset, shuffles=20, top_k=k)
                      for seed_offset in (0, 1, 2)]
             for k in (150, 300, 600)
         }
-        p_pages = read_pages_legacy(source, categories={"P"}, keep_empty=True)
-        p_pages = [page for page in p_pages if page["id"] not in {"f116v", "fRos"}]
-        results[name]["legacy_ascii_P_common_225_pages"] = [
-            metric(p_pages, seed=20261101 + seed_offset, shuffles=20, top_k=300)
-            for seed_offset in (0, 1, 2)
-        ]
     print(json.dumps({"status": "EXPLORATORY_PARTIAL_REIMPLEMENTATION",
                       "sources": source_metadata,
                       "results": results}, indent=2))
