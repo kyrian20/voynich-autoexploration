@@ -90,6 +90,34 @@ class HoldoutLocusCoverageTests(unittest.TestCase):
                 with self.assertRaisesRegex(ValueError, "Duplicate locus identifier"):
                     inspect_source(raw)
 
+    def test_zero_padded_numeric_locus_aliases_fail_closed(self):
+        # Full tag strings differ, but both identify physical line 1.
+        for page in ("f1r", "f86v4", "fRos"):
+            with self.subTest(page=page):
+                raw = (
+                    f"<{page}> page\n<{page}.1,@P0> first\n"
+                    f"<{page}.01,@P0> duplicate\n"
+                ).encode()
+                with self.assertRaisesRegex(ValueError, "Duplicate locus identifier"):
+                    inspect_source(raw)
+        # Different locator codes are not duplicate complete identifiers.
+        valid = inspect_source(
+            b"<f1r> page\n<f1r.1,@P0> first\n<f1r.01,+P0> second\n"
+        )
+        self.assertEqual(valid["numeric_locus_record_count"], 2)
+
+    def test_rehashed_manifest_cannot_hide_numeric_locus_alias(self):
+        name = "eva_zl3b.txt"
+        self.sources[name] = self.sources[name].replace(
+            b"<f1r.1,@P0> a\n",
+            b"<f1r.1,@P0> a\n<f1r.01,@P0> duplicate\n",
+        )
+        self.manifest["corpora"][name]["sha256"] = hashlib.sha256(
+            self.sources[name]
+        ).hexdigest()
+        with self.assertRaisesRegex(ValueError, "Duplicate locus identifier"):
+            audit(self.sources, self.manifest)
+
     def test_locus_number_bounds_match_strict_census(self):
         # The regex accepts three ASCII digits; IVTFF census additionally
         # requires physical record indices in the inclusive range 1..160.
