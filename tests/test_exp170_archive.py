@@ -245,5 +245,27 @@ class ArchiveAuditTests(unittest.TestCase):
                 audit.main()
             printed.assert_called_once_with('EXP-170 archive audit matches snapshot')
 
+    def test_symlinked_ancestor_of_frozen_input_is_rejected_before_execution(self):
+        # The file itself is regular, but a parent directory is a symlink.
+        # The frozen hash alone does not prove that the checkout path is local.
+        with tempfile.TemporaryDirectory() as temp:
+            copy_root = Path(temp)
+            (copy_root / 'experiments').mkdir()
+            link = copy_root / audit.EXP
+            try:
+                link.symlink_to(ROOT / audit.EXP, target_is_directory=True)
+            except (OSError, NotImplementedError):
+                self.skipTest('Directory symlinks unavailable')
+            corpus = copy_root / 'data/transcriptions/eva_zl3b.txt'
+            corpus.parent.mkdir(parents=True)
+            shutil.copyfile(ROOT / 'data/transcriptions/eva_zl3b.txt', corpus)
+            # Old behavior accepted this exact fixture: every file and hash
+            # was valid, despite the redirected ancestor.
+            with patch.object(audit, 'historical_namespace',
+                              side_effect=AssertionError('historical AST executed')):
+                with self.assertRaisesRegex(ValueError, 'symlinked'):
+                    audit.audit(root=copy_root)
+
+
 if __name__ == '__main__':
     unittest.main()

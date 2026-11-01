@@ -54,11 +54,16 @@ ROWS = {
 
 
 
+def has_symlink_component(path):
+    """Reject a symlink at the file or any ancestor in its input path."""
+    return any(part.is_symlink() for part in (path, *path.parents))
+
+
 def verify_frozen_inputs(root=ROOT):
     """Fail closed before evaluating historical AST fragments or metrics."""
     for relative, expected in FROZEN_INPUT_SHA256.items():
         path = root / relative
-        if path.is_symlink() or not path.is_file():
+        if has_symlink_component(path) or not path.is_file():
             raise ValueError(f'EXP-170 frozen input absent or symlinked: {relative}')
         actual = hashlib.sha256(path.read_bytes()).hexdigest()
         if actual != expected:
