@@ -471,5 +471,32 @@ class Exp170ReconstructionRunnerTests(unittest.TestCase):
         self.assertIn("no evidence", evidence["verification_scope"])
 
 
+    def test_external_symlinked_parent_is_rejected_before_execution(self):
+        # Both files are regular and have the correct hashes; the directory
+        # redirect must be rejected before reserving output or running Naibbe.
+        redirected_naibbe = self.base / 'redirected-naibbe'
+        redirected_italian = self.base / 'redirected-italian-parent'
+        try:
+            redirected_naibbe.symlink_to(self.naibbe, target_is_directory=True)
+            redirected_italian.symlink_to(self.base, target_is_directory=True)
+        except (OSError, NotImplementedError):
+            self.skipTest('Directory symlinks unavailable')
+        cases = (
+            (redirected_naibbe, self.italian),
+            (self.naibbe, redirected_italian / self.italian.name),
+        )
+        with patch.object(runner.subprocess, 'run',
+                          side_effect=AssertionError('simulator must not run')) as mock:
+            for naibbe, italian in cases:
+                with self.subTest(naibbe=str(naibbe), italian=str(italian)):
+                    with self.assertRaisesRegex(ValueError, 'symlinked'):
+                        runner.run_reconstruction(
+                            ROOT, naibbe, italian, self.hashes, self.out, execute=True)
+                    self.assertFalse(self.out.exists())
+            mock.assert_not_called()
+        self.assertEqual(runner.sha256(ROOT / runner.EXP / 'data/simulation_results.json'),
+                         self.original_sha)
+
+
 if __name__ == "__main__":
     unittest.main()
