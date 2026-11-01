@@ -183,5 +183,52 @@ class WordPairFrozenInputTests(unittest.TestCase):
                 self.assertEqual(len(pages[0]["lines"]), 2)
 
 
+    def test_archived_page_halves_share_four_physical_leaves(self):
+        # The 225 source-order pages were used in the archived metric. Foldout
+        # panels from four physical sheets straddle alternating block borders.
+        expected = {"f67", "f72", "f90", "f102"}
+        for name in ("eva_zl3b.txt", "eva_it2a.txt"):
+            with self.subTest(source=name):
+                path = ROOT / "data/transcriptions" / name
+                snapshot, _ = audit.load_verified_source(path)
+                pages = audit.read_pages(path, source_text=snapshot,
+                                         uncertain_space="split",
+                                         categories={"P", "C", "R"},
+                                         keep_empty=True)
+                pages = [p for p in pages if p["id"] not in {"f116v", "fRos"}]
+                self.assertEqual(len(pages), 225)
+                diagnostic = audit.audit_page_half_leakage(pages)
+                self.assertEqual(diagnostic["cross_half_physical_leaf_count"], 4)
+                self.assertEqual({row["leaf"] for row in diagnostic["overlaps"]}, expected)
+                with self.assertRaisesRegex(ValueError, "Physical leaf overlap"):
+                    audit.require_disjoint_physical_leaves(pages)
+
+    def test_overlap_gate_rejects_cross_block_foldout_but_not_same_block(self):
+        pages = [{"id": "f67r1", "lines": []}]
+        pages.extend({"id": f"f{i}r", "lines": []} for i in range(1, 10))
+        pages.append({"id": "f67v2", "lines": []})
+        diagnostic = audit.audit_page_half_leakage(pages)
+        self.assertEqual(diagnostic["cross_half_physical_leaf_count"], 1)
+        self.assertEqual(diagnostic["overlaps"][0]["leaf"], "f67")
+        # The gate must fail before attempting a statistical calculation.
+        with self.assertRaisesRegex(ValueError, "Physical leaf overlap"):
+            audit.metric(pages, require_leaf_independence=True, shuffles=1, top_k=2)
+        self.assertEqual(
+            audit.require_disjoint_physical_leaves([pages[0], pages[-1]]),
+            audit.audit_page_half_leakage([pages[0], pages[-1]]),
+        )
+
+    def test_physical_leaf_aliases_and_invalid_block_sizes(self):
+        self.assertEqual(audit.physical_leaf_id("f067r1"), "f67")
+        self.assertEqual(audit.physical_leaf_id("f67v6"), "f67")
+        self.assertEqual(audit.physical_leaf_id("fRos"), "fRos")
+        with self.assertRaisesRegex(ValueError, "Invalid IVTFF physical leaf"):
+            audit.physical_leaf_id("f0r")
+        for size in (0, -1, True, 1.5):
+            with self.subTest(size=size):
+                with self.assertRaisesRegex(ValueError, "positive integer"):
+                    audit.audit_page_half_leakage([], block_pages=size)
+
+
 if __name__ == "__main__":
     unittest.main()
