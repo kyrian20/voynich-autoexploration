@@ -1,6 +1,8 @@
 # Auditoría de reproducibilidad parcial: word-pair replication
 
-> **Corrección de alcance (01-11-2026):** las mitades archivadas por bloques de 10 páginas comparten cuatro hojas físicas en ambas transcripciones (f67, f72, f90, f102). Los 54 valores se conservan como estadística descriptiva de mitades de páginas, **no** como validación en hojas físicas independientes. Véase [corrección y regresiones](PHYSICAL_LEAF_SPLIT_CORRECTION.md).\n\n**Fecha:** 2026-11-01  
+> **Corrección de alcance (01-11-2026):** las mitades archivadas por bloques de 10 páginas comparten cuatro hojas físicas en ambas transcripciones (f67, f72, f90, f102). Los 54 valores se conservan como estadística descriptiva de mitades de páginas, **no** como validación en hojas físicas independientes. Véase [corrección y regresiones](PHYSICAL_LEAF_SPLIT_CORRECTION.md).
+
+**Fecha:** 2026-11-01  
 **Estado:** reimplementación parcial; el valor publicado no queda reproducido.  
 **Alcance:** auditoría de una métrica del artículo, no un experimento de desciframiento.
 
