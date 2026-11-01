@@ -60,7 +60,7 @@ class LibraryExp624GroupedSplitTests(unittest.TestCase):
             return pages
 
         with patch.object(fixed.historical, "parse_pages", side_effect=swapped_it2a):
-            with self.assertRaisesRegex(ValueError, r"per-page Currier \\$L metadata"):
+            with self.assertRaisesRegex(ValueError, r"per-page Currier [$]L metadata"):
                 fixed.build(sources)
 
     def test_frozen_corpus_allocation(self):
