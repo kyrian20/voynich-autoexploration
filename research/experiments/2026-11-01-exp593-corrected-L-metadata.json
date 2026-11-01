@@ -1,0 +1,117 @@
+{
+  "experiment": "EXP-593",
+  "title": "daiiin-family variants with max-statistic correction",
+  "date_utc": "2026-11-01",
+  "source": "data/transcriptions/eva_zl3b.txt",
+  "source_sha256": "bf5b6d4ac1e3a51b1847a9c388318d609020441ccd56984c901c32b09beccafc",
+  "lines": 4188,
+  "tokens": 32732,
+  "variants": [
+    "daiin",
+    "dain",
+    "daiiin"
+  ],
+  "permutations": 5000,
+  "seed": 20261021,
+  "observed": {
+    "daiin": {
+      "occurrences": 726,
+      "line_initial": 133,
+      "line_final": 118,
+      "initial_fraction": 0.18319559228650137,
+      "by_currier": {
+        "A": {
+          "occurrences": 440,
+          "line_initial": 50,
+          "line_final": 97
+        },
+        "B": {
+          "occurrences": 278,
+          "line_initial": 80,
+          "line_final": 21
+        },
+        "unknown": {
+          "occurrences": 8,
+          "line_initial": 3,
+          "line_final": 0
+        }
+      }
+    },
+    "dain": {
+      "occurrences": 198,
+      "line_initial": 45,
+      "line_final": 26,
+      "initial_fraction": 0.22727272727272727,
+      "by_currier": {
+        "A": {
+          "occurrences": 92,
+          "line_initial": 11,
+          "line_final": 19
+        },
+        "B": {
+          "occurrences": 106,
+          "line_initial": 34,
+          "line_final": 7
+        },
+        "unknown": {
+          "occurrences": 0,
+          "line_initial": 0,
+          "line_final": 0
+        }
+      }
+    },
+    "daiiin": {
+      "occurrences": 19,
+      "line_initial": 2,
+      "line_final": 5,
+      "initial_fraction": 0.10526315789473684,
+      "by_currier": {
+        "A": {
+          "occurrences": 11,
+          "line_initial": 0,
+          "line_final": 5
+        },
+        "B": {
+          "occurrences": 8,
+          "line_initial": 2,
+          "line_final": 0
+        },
+        "unknown": {
+          "occurrences": 0,
+          "line_initial": 0,
+          "line_final": 0
+        }
+      }
+    }
+  },
+  "tests": {
+    "daiin": {
+      "null_mean_initial": 94.6902,
+      "null_sd_initial": 8.805215724784942,
+      "observed_standardized_statistic": 4.350807657348528,
+      "empirical_p": 0.0001999600079984003,
+      "max_stat_adjusted_p": 0.0003999200159968006
+    },
+    "dain": {
+      "null_mean_initial": 24.6374,
+      "null_sd_initial": 4.553363728058631,
+      "observed_standardized_statistic": 4.471990646062836,
+      "empirical_p": 0.0001999600079984003,
+      "max_stat_adjusted_p": 0.0003999200159968006
+    },
+    "daiiin": {
+      "null_mean_initial": 2.9036,
+      "null_sd_initial": 1.5181261607653036,
+      "observed_standardized_statistic": -0.5952074493891111,
+      "empirical_p": 0.8146370725854829,
+      "max_stat_adjusted_p": 0.9886022795440912
+    }
+  },
+  "null_model": "Shuffle token order independently within each line; preserves each line token multiset. Family-wise max-T adjustment uses the maximum standardized statistic across the three prespecified variants per permutation; each variant is standardized against its own permutation null because baseline frequencies differ.",
+  "limitations": [
+    "Variant family is exploratory, not exhaustive.",
+    "EVA tokenization excludes uncertain bracketed readings and punctuation.",
+    "This test concerns position only, not semantics or decipherment.",
+    "Currier classes are reported only where explicitly present in folio headers."
+  ]
+}
