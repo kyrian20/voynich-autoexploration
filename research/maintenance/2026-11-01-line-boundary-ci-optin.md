@@ -21,6 +21,10 @@ python -O -m unittest discover -s tests -p 'test_line_boundary_ci_optin.py' -v
 
 La CI de la PR hija debe confirmar tanto las pruebas como que los pasos científicos figuran **skipped**, no `success`, y que no se publica un nuevo artefacto `line-boundary-replication`. No afirmar cierre antes de comprobar esos tres puntos en la ejecución concreta.
 
+## Primer intento de CI y corrección de entorno
+
+La [ejecución 41273467391](https://github.com/kyrian20/voynich-autoexploration/actions/runs/41273467391) terminó en `failure` en el paso 121 de prueba de la puerta: `ModuleNotFoundError: No module named 'yaml'`. El workflow había instalado PyYAML 6.0.3 al principio con Python 3.12, pero después cambió a Python 3.12.14 para la batería histórica; el nuevo intérprete no tenía PyYAML. **No fue un fallo del contrato de opt-in ni una validación científica.** Se trasladó el paso de pruebas inmediatamente después de la instalación de PyYAML y antes del cambio de intérprete. El fallo original se conserva en Actions; no se borra ni se reinterpreta como éxito. La siguiente ejecución debe comprobarse independientemente.
+
 ## Integridad y límites
 
 No se modifican corpus ZL3b/IT2a, resultados congelados, seeds, particiones, hashes, métricas, ni `state/committed_claims.md`. Se conserva la ejecución previa como evidencia histórica, sin retirarla ni sustituirla. La medida evita reejecuciones automáticas **de este predictor**; no equivale a una auditoría de todos los workflows ni valida IVTFF o la ciencia del modelo. La activación manual es posible cuando el workflow esté disponible en la rama predeterminada; mientras PR #138 siga en borrador, no se considera habilitación de un nuevo ciclo científico. La adjudicación IVTFF y las diferencias de población de 809/99 unidades de PR #212 siguen pendientes. La evaluación científica global continúa fijada para 2026-11-22 sin promesa de descifrado.
