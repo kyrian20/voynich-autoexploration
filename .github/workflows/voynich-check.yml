@@ -758,6 +758,25 @@ jobs:
           if-no-files-found: error
           retention-days: 90
 
+      - name: Conciliar población bajo políticas de coma sin evaluar folios
+        run: |
+          python -m unittest discover -s tests -p 'test_line_boundary_comma_population.py' -v 2>&1 | tee line-boundary-comma-normal.log
+          python -O -m unittest discover -s tests -p 'test_line_boundary_comma_population.py' -v 2>&1 | tee line-boundary-comma-optimized.log
+          python research/analysis/2026-10-28-line-boundary-reproduction/audit_comma_population.py --check > line-boundary-comma-population.json
+          sha256sum line-boundary-comma-normal.log line-boundary-comma-optimized.log line-boundary-comma-population.json > line-boundary-comma.sha256
+
+      - name: Conservar auditoría de población, logs y hashes
+        uses: actions/upload-artifact@v4
+        with:
+          name: line-boundary-comma-population-${{ github.run_id }}
+          path: |
+            line-boundary-comma-normal.log
+            line-boundary-comma-optimized.log
+            line-boundary-comma-population.json
+            line-boundary-comma.sha256
+          if-no-files-found: error
+          retention-days: 90
+
       - name: Recalcular réplica corregida de límites de línea
         run: |
           python research/analysis/2026-10-28-line-boundary-reproduction/line_boundary_replication.py
