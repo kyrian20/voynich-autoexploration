@@ -92,6 +92,39 @@ class JointStrataTests(unittest.TestCase):
                 with self.assertRaisesRegex(ValueError, "seed must be an integer"):
                     joint.derive_joint_strata(self.pages, [forged])
 
+    def test_reject_noncanonical_receipt_metadata_even_with_correct_page_sets(self):
+        # Before this guard, all these receipts passed because only sets
+        # and seed-derived membership were compared, not the complete row.
+        original = grouped.grouped_splits(self.pages, 624010, 1)[0]
+        mutations = (
+            ("train_leaves", original["train_leaves"] + [original["train_leaves"][0]]),
+            ("train_page_ids", list(reversed(original["train_page_ids"]))),
+            ("train_page_count", original["train_page_count"] + 1),
+            ("test_page_count", original["test_page_count"] + 1),
+        )
+        for field, value in mutations:
+            with self.subTest(field=field):
+                forged = copy.deepcopy(original)
+                forged[field] = value
+                with self.assertRaisesRegex(ValueError, "does not match deterministic seed"):
+                    joint.derive_joint_strata(self.pages, [forged])
+        forged = copy.deepcopy(original)
+        forged["train_page_count"] = True
+        with self.assertRaisesRegex(ValueError, "train_page_count must be an integer"):
+            joint.derive_joint_strata(self.pages, [forged])
+        self.assertEqual(len(joint.derive_joint_strata(self.pages, [original])), 1)
+
+    def test_reject_repeated_or_modulo_aliased_rng_seeds(self):
+        original = grouped.grouped_splits(self.pages, 624010, 1)[0]
+        with self.assertRaisesRegex(ValueError, "Duplicate global allocation seed"):
+            joint.derive_joint_strata(self.pages, [original, copy.deepcopy(original)])
+        for seed in (-1, 624010 + 2**32):
+            with self.subTest(seed=seed):
+                forged = copy.deepcopy(original)
+                forged["seed"] = seed
+                with self.assertRaisesRegex(ValueError, "outside unsigned 32-bit range"):
+                    joint.derive_joint_strata(self.pages, [forged])
+
     def test_direct_joint_allocation_rejects_physical_page_aliases(self):
         row = grouped.grouped_splits(self.pages, 624010, 1)[0]
         aliased = self.pages + [{"id": "f01R", "lang": "A", "words": ["ab"]}]
