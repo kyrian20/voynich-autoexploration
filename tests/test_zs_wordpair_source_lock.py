@@ -145,9 +145,9 @@ class WordPairFrozenInputTests(unittest.TestCase):
         # Prior readers silently double-counted identical physical loci;
         # the legacy reader also silently ignored malformed text rows.
         source_text = (
-            "<f1r> $L=A\\n"
-            "<f1r.1,@L0> daiin.daiin\\n"
-            "<f1r.01,@L0> qokedy.daiin\\n"
+            "<f1r> $L=A\n"
+            "<f1r.1,@L0> daiin.daiin\n"
+            "<f1r.01,@L0> qokedy.daiin\n"
         )
         for reader in (audit.read_pages, audit.read_pages_legacy):
             with self.subTest(reader=reader.__name__):
@@ -157,11 +157,11 @@ class WordPairFrozenInputTests(unittest.TestCase):
 
     def test_orphan_invalid_and_truncated_loci_fail_closed(self):
         cases = (
-            ("<f1r.1,@P0> daiin.daiin\\n", "Text line before page header"),
-            ("<f1r> $L=A\\n<f1r.x,@P0> daiin.daiin\\n", "Invalid IVTFF text locus"),
-            ("<f1r> $L=A\\n<f1r.0,@P0> daiin.daiin\\n", "Invalid IVTFF text locus"),
-            ("<f1r> $L=A\\n<f1r.1,@P0 daiin.daiin\\n", "Malformed IVTFF record"),
-            ("<f1r> $L=A\\n<f2r.1,@P0> daiin.daiin\\n", "Page/locus mismatch"),
+            ("<f1r.1,@P0> daiin.daiin\n", "Text line before page header"),
+            ("<f1r> $L=A\n<f1r.x,@P0> daiin.daiin\n", "Invalid IVTFF text locus"),
+            ("<f1r> $L=A\n<f1r.0,@P0> daiin.daiin\n", "Invalid IVTFF text locus"),
+            ("<f1r> $L=A\n<f1r.1,@P0 daiin.daiin\n", "Malformed IVTFF record"),
+            ("<f1r> $L=A\n<f2r.1,@P0> daiin.daiin\n", "Page/locus mismatch"),
         )
         for source_text, error in cases:
             for reader in (audit.read_pages, audit.read_pages_legacy):
@@ -171,9 +171,9 @@ class WordPairFrozenInputTests(unittest.TestCase):
 
     def test_distinct_locus_tags_are_not_false_duplicates(self):
         source_text = (
-            "<f1r> $L=A\\n"
-            "<f1r.1,@P0> daiin.daiin\\n"
-            "<f1r.1,+P0> qokedy.daiin\\n"
+            "<f1r> $L=A\n"
+            "<f1r.1,@P0> daiin.daiin\n"
+            "<f1r.1,+P0> qokedy.daiin\n"
         )
         for reader in (audit.read_pages, audit.read_pages_legacy):
             with self.subTest(reader=reader.__name__):
