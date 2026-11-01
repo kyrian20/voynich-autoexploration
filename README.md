@@ -4,6 +4,8 @@
 
 Repositorio de trabajo: `kyrian20/voynich-autoexploration` (rama `master`).
 
+**Revisión de la propuesta «emerging of the oak» para f65r — 01-11-2026:** [cotejo documental con recurrencias conservadas en f65r y la sección de recetas](research/decipherment/2026-11-01-f65r-oak-review/REPORT.md). `otaim` y `alam` aparecen también en registros de la zona de recetas, lo que es compatible con transferencia léxica; no valida «roble» ni ninguna traducción. La clave externa no se evaluó en holdout ciego y faltan identificación botánica y validación filológica independientes.
+
 **Auditoría de word-pair replication — 01-11-2026:** [reimplementación parcial de la métrica de Zhang y Sheng](research/maintenance/2026-11-01-zs-wordpair-audit/REPORT.md); preprocesamiento parcialmente alineado (P/C/R, 225 páginas comunes y glifos EVA); la cifra sigue sin reproducirse porque la fórmula de propensión y algunos detalles de inclusión no están publicados. Código y resultados por semilla adjuntos. [Corrección del contrato JSON y control de reproducción acotada de dos filas](research/maintenance/2026-11-01-zs-wordpair-archive-contract.md); no equivale a reproducir las 54 filas.
 
 **Sensibilidad de posición final de `daiin` a códigos opacos — 30-10-2026:** [comparación acotada de la vista ASCII de EXP-590 con una política que conserva `@NNN;` sin descifrar](research/maintenance/2026-10-30-exp590-opaque-token-positional-sensitivity.md). El recuento final depende de la política; no reejecuta permutaciones ni rehabilita resultados históricos. Comprobar CI exacta antes de reutilizar las cifras.
