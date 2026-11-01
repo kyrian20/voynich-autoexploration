@@ -56,6 +56,42 @@ class JointStrataTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "does not partition"):
             joint.derive_joint_strata(self.pages, [missing])
 
+    def test_reject_leak_free_partition_not_generated_by_claimed_seed(self):
+        # Swap entire physical leaves, preserving every disjointness,
+        # coverage, count, and per-stratum invariant. Only RNG provenance fails.
+        original = grouped.grouped_splits(self.pages, 624010, 1)[0]
+        forged = copy.deepcopy(original)
+        train_leaf, test_leaf = forged["train_leaves"][0], forged["test_leaves"][0]
+        forged["train_leaves"] = sorted(
+            (set(forged["train_leaves"]) - {train_leaf}) | {test_leaf})
+        forged["test_leaves"] = sorted(
+            (set(forged["test_leaves"]) - {test_leaf}) | {train_leaf})
+        forged["train_page_ids"] = sorted(
+            p["id"] for p in self.pages
+            if grouped.leaf_id(p["id"]) in forged["train_leaves"])
+        forged["test_page_ids"] = sorted(
+            p["id"] for p in self.pages
+            if grouped.leaf_id(p["id"]) in forged["test_leaves"])
+        forged["train_page_count"] = len(forged["train_page_ids"])
+        forged["test_page_count"] = len(forged["test_page_ids"])
+        self.assertFalse(set(forged["train_leaves"]) & set(forged["test_leaves"]))
+        self.assertEqual(
+            set(forged["train_page_ids"]) | set(forged["test_page_ids"]),
+            {p["id"] for p in self.pages})
+        with self.assertRaisesRegex(ValueError, "deterministic seed"):
+            joint.derive_joint_strata(self.pages, [forged])
+        # The actual seeded assignment must still be accepted.
+        self.assertEqual(len(joint.derive_joint_strata(self.pages, [original])), 1)
+
+    def test_reject_noninteger_claimed_seed(self):
+        original = grouped.grouped_splits(self.pages, 624010, 1)[0]
+        for forged_seed in ("624010", True, 624010.0, None):
+            with self.subTest(seed=forged_seed):
+                forged = copy.deepcopy(original)
+                forged["seed"] = forged_seed
+                with self.assertRaisesRegex(ValueError, "seed must be an integer"):
+                    joint.derive_joint_strata(self.pages, [forged])
+
     def test_direct_joint_allocation_rejects_physical_page_aliases(self):
         row = grouped.grouped_splits(self.pages, 624010, 1)[0]
         aliased = self.pages + [{"id": "f01R", "lang": "A", "words": ["ab"]}]
