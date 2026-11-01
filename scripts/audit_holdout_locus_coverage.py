@@ -90,7 +90,7 @@ def inspect_source(raw: bytes, *, include_page_ids: bool = False,
     named_loci: Counter[str] = Counter()
     page_ids: set[str] = set()
     locus_ids: list[str] = []
-    seen_locus_ids: set[str] = set()
+    seen_locus_keys: set[tuple[str, int, str]] = set()
     numeric_tags = numeric_headers = numeric_loci = 0
     active_page = None
     for line_no, line in checked_physical_lines(raw.decode("utf-8-sig")):
@@ -122,10 +122,14 @@ def inspect_source(raw: bytes, *, include_page_ids: bool = False,
             # An exact duplicate locator is a repeated physical record, not
             # an additional independent observation. Match the strict IVTFF
             # census before certifying coverage in standalone mode.
-            if tag in seen_locus_ids:
-                raise ValueError(f"Duplicate locus identifier {tag} at source line {line_no}")
-            seen_locus_ids.add(tag)
             locus_number = int(locus.group("line"))
+            # The numeric line is a physical index, not an opaque string:
+            # .01 and .1 with the same page/locator denote the same locus.
+            # Preserve distinct locator/transcriber suffixes as separate IDs.
+            locus_key = (page, locus_number, tag.split(",", 1)[1])
+            if locus_key in seen_locus_keys:
+                raise ValueError(f"Duplicate locus identifier {tag} at source line {line_no}")
+            seen_locus_keys.add(locus_key)
             if not 1 <= locus_number <= 160:
                 raise ValueError(f"Locus number outside 1..160 at source line {line_no}: {tag}")
             locus_ids.append(tag)
