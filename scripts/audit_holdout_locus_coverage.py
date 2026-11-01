@@ -68,6 +68,16 @@ RECORD_ID = re.compile(
 )
 
 
+def physical_page_identity(page: str) -> tuple:
+    """Logical IVTFF page identity; zero padding cannot create a second page."""
+    if page == "fRos":
+        return ("Ros",)
+    match = re.fullmatch(r"f([0-9]+)([rv])([1-6]?)", page)
+    if match is None:
+        raise ValueError(f"Invalid physical page identity: {page}")
+    return ("numeric", int(match.group(1)), match.group(2), match.group(3))
+
+
 def _unique_manifest_keys(pairs: list[tuple[str, object]]) -> dict:
     """Reject duplicate JSON members at every depth before checking a holdout."""
     result = {}
@@ -89,6 +99,7 @@ def inspect_source(raw: bytes, *, include_page_ids: bool = False,
     named_headers: Counter[str] = Counter()
     named_loci: Counter[str] = Counter()
     page_ids: set[str] = set()
+    seen_page_keys: set[tuple] = set()
     locus_ids: list[str] = []
     seen_locus_keys: set[tuple[str, int, str]] = set()
     numeric_tags = numeric_headers = numeric_loci = 0
@@ -137,8 +148,12 @@ def inspect_source(raw: bytes, *, include_page_ids: bool = False,
             # A set of page IDs is not enough: a repeated physical header
             # changes the source structure without changing leaf membership.
             # Reject it here as well as in the independent strict census.
-            if page in page_ids:
+            # f01r and f1r denote the same physical page. Keep raw spelling
+            # for reporting, but reject duplicate logical page identities.
+            page_key = physical_page_identity(page)
+            if page_key in seen_page_keys:
                 raise ValueError(f"Duplicate physical folio header {page} at source line {line_no}")
+            seen_page_keys.add(page_key)
             active_page = page
             page_ids.add(page)
         elif page != active_page:
