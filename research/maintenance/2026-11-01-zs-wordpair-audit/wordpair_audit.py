@@ -68,6 +68,19 @@ def checked_page_header(locus: str, seen: set[str]) -> str:
     return page_id
 
 
+# Only CR, LF and CRLF delimit physical IVTFF records. Python splitlines()
+# also splits on Unicode/control separators and can manufacture page headers.
+NON_PHYSICAL_SEPARATORS = "\v\f\x1c\x1d\x1e\x85\u2028\u2029"
+
+
+def physical_ivtff_rows(text: str):
+    """Reject non-physical line separators before interpreting any IVTFF tag."""
+    for number, row in enumerate(text.replace("\r\n", "\n").replace("\r", "\n").split("\n"), 1):
+        if any(character in NON_PHYSICAL_SEPARATORS for character in row):
+            raise ValueError(f"Non-physical IVTFF separator in source row {number}")
+        yield row
+
+
 def load_verified_source(path: Path):
     """Return one immutable text snapshot and its verified source receipt.
 
@@ -94,7 +107,7 @@ def load_verified_source(path: Path):
 def read_pages_legacy(path: Path, *, categories=None, keep_empty=False, source_text=None):
     """Recreate the project's EXP-590 ASCII token projection for comparison."""
     pages, current, seen_pages = [], None, set()
-    for rawline in (source_text if source_text is not None else path.read_text(encoding="utf-8-sig")).splitlines():
+    for rawline in physical_ivtff_rows(source_text if source_text is not None else path.read_text(encoding="utf-8-sig")):
         match = HEADER.match(rawline)
         if match and "." not in match.group(1):
             locus, body = match.groups()
@@ -176,7 +189,7 @@ def read_pages(path: Path, *, uncertain_space="split", categories=None, keep_emp
     pages = []
     current = None
     seen_pages = set()
-    for rawline in (source_text if source_text is not None else path.read_text(encoding="utf-8")).splitlines():
+    for rawline in physical_ivtff_rows(source_text if source_text is not None else path.read_text(encoding="utf-8")):
         match = HEADER.match(rawline)
         if not match:
             continue
