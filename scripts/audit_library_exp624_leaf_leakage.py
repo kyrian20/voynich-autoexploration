@@ -151,6 +151,13 @@ def check(results: dict) -> None:
                 raise ValueError(f"{label}/{group}: physical-leaf split drift: {shared}; {leaked}")
             if any(not r["shared_physical_leaves"] for r in rows):
                 raise ValueError(f"{label}/{group}: unexpectedly independent physical-leaf split")
+        # Aggregate overlap counts are not a sufficient replay receipt:
+        # forged leaf identities, test-page IDs or seeds can preserve every
+        # expected count. Compare the complete deterministic allocation
+        # against a fresh replay from the SHA-locked frozen source.
+        canonical = analyze(label, (ROOT / "data/transcriptions" / SOURCES[label][0]).read_bytes())
+        if row != canonical:
+            raise ValueError(f"{label}: historical deterministic split identity drift")
 
 
 def main() -> None:
