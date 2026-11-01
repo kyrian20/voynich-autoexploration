@@ -29,7 +29,17 @@ def derive_joint_strata(pages: list[dict], global_rows: list[dict]) -> list[dict
     if len(set(physical_ids)) != len(physical_ids):
         raise ValueError("Duplicate physical page identity in joint allocation")
     result = []
+    seen_seeds: set[int] = set()
     for row in global_rows:
+        # The external-row API must not silently treat aliased or repeated
+        # 32-bit RNG seeds as independent allocation receipts.
+        if type(row.get("seed")) is not int:
+            raise ValueError("Global allocation seed must be an integer")
+        if not 0 <= row["seed"] < 2**32:
+            raise ValueError("Global allocation seed outside unsigned 32-bit range")
+        if row["seed"] in seen_seeds:
+            raise ValueError("Duplicate global allocation seed")
+        seen_seeds.add(row["seed"])
         train_ids, test_ids = row["train_page_ids"], row["test_page_ids"]
         if (len(set(train_ids)) != len(train_ids) or
                 len(set(test_ids)) != len(test_ids) or
@@ -42,15 +52,16 @@ def derive_joint_strata(pages: list[dict], global_rows: list[dict]) -> list[dict
             raise ValueError("Cross-stratum physical-leaf leakage in global allocation")
         if train_leaves != set(row["train_leaves"]) or test_leaves != set(row["test_leaves"]):
             raise ValueError("Global leaf identities disagree with page allocation")
-        # A disjoint partition is not proof that its claimed RNG seed generated it.
-        # Validate the complete page assignment against the frozen LCG/Fisher-Yates
-        # policy; this API also accepts externally supplied global_rows.
-        if type(row.get("seed")) is not int:
-            raise ValueError("Global allocation seed must be an integer")
+        # Set equality alone silently accepts forged counts, duplicate leaf
+        # metadata, and reordered page receipts. Replay the entire canonical
+        # allocation row, not only its train/test membership.
         expected = grouped.grouped_splits(pages, row["seed"], 1)[0]
-        if (set(train_ids) != set(expected["train_page_ids"]) or
-                set(test_ids) != set(expected["test_page_ids"])):
-            raise ValueError("Global allocation does not match deterministic seed")
+        for field in ("train_leaves", "test_leaves", "train_page_ids",
+                      "test_page_ids", "train_page_count", "test_page_count"):
+            if field.endswith("_count") and type(row.get(field)) is not int:
+                raise ValueError(f"Global allocation {field} must be an integer")
+            if row.get(field) != expected[field]:
+                raise ValueError(f"Global allocation {field} does not match deterministic seed")
         strata = {}
         for name in STRATA:
             def in_stratum(page_id: str) -> bool:
