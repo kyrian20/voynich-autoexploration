@@ -137,5 +137,27 @@ class PanelAwareHoldout(unittest.TestCase):
             v2.build_manifest({"eva_zl3b.txt": b"<f67r1.1> abc\n"})
 
 
+    def test_manifest_generator_rejects_damaged_structural_rows(self):
+        # A large, valid source is necessary: the legacy leaf extractor
+        # silently ignores many malformed rows and would still allocate
+        # 120 apparently eligible leaves. The generator must fail closed.
+        good = "".join(f"<f{n}r> header\n" for n in range(1, 121)).encode()
+        sources = {name: good for name in v2.SOURCE_NAMES}
+        self.assertEqual(v2.build_manifest(sources)["eligible_count"], 120)
+        bad_cases = (
+            (b"<f121r7> invalid panel\n", "Unparsed numeric folio header"),
+            (b"<f001r> duplicated physical f1r\n", "Duplicate physical folio header"),
+            (b"<f1r.1,@P0> orphan after f120r\n", "Orphan or mismatched locus"),
+            (b"<f120r.161,@P0> out of range\n", "Locus number outside"),
+            (b"<f0r> nonpositive leaf\n", "Nonpositive physical leaf"),
+        )
+        for damaged, error in bad_cases:
+            with self.subTest(damaged=damaged):
+                altered = good + damaged
+                with self.assertRaisesRegex(ValueError, error):
+                    v2.build_manifest({name: altered for name in v2.SOURCE_NAMES})
+                self.assertEqual(good + damaged, altered)
+
+
 if __name__ == "__main__":
     unittest.main()
