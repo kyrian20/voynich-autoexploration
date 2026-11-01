@@ -2,6 +2,12 @@ name: Voynich Check
 
 on:
   workflow_dispatch:
+    inputs:
+      run_line_boundary_replication:
+        description: 'Ejecutar explícitamente la réplica científica (no en PR ni push)'
+        type: boolean
+        required: false
+        default: false
   push:
     branches:
       - master
@@ -777,12 +783,19 @@ jobs:
           if-no-files-found: error
           retention-days: 90
 
+      - name: Probar puerta de ejecución explícita del predictor (sin ejecutar ciencia)
+        run: |
+          python -m unittest discover -s tests -p 'test_line_boundary_ci_optin.py' -v
+          python -O -m unittest discover -s tests -p 'test_line_boundary_ci_optin.py' -v
+
       - name: Recalcular réplica corregida de límites de línea
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.run_line_boundary_replication == true }}
         run: |
           python research/analysis/2026-10-28-line-boundary-reproduction/line_boundary_replication.py
           sha256sum research/analysis/2026-10-28-line-boundary-reproduction/line_boundary_results.json > line-boundary-replication.sha256
 
       - name: Conservar salida nueva de réplica corregida
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.run_line_boundary_replication == true }}
         uses: actions/upload-artifact@v4
         with:
           name: line-boundary-replication-${{ github.run_id }}
