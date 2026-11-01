@@ -259,6 +259,28 @@ def main() -> None:
         {"tag": "f1r.1,@P0", "first_line": 2, "repeated_line": 3}
     ], repeated
 
+    # Same physical line with decimal padding must not evade duplicate
+    # detection; page panels and Rosettes obey the same rule. This is
+    # identifier integrity, not a claim about token interpretation.
+    for page in ("f1r", "f86v4", "fRos"):
+        aliased = audit_text(
+            f"<{page}> page\n<{page}.1,@P0> first\n<{page}.01,@P0> second\n"
+        )
+        assert aliased["record_count"] == 2, aliased
+        assert aliased["duplicate_record_tag_count"] == 1, aliased
+        assert aliased["duplicate_record_tags"] == [
+            {"tag": f"{page}.01,@P0", "first_line": 2, "repeated_line": 3}
+        ], aliased
+        assert structural_errors(aliased) == [
+            "duplicate_record_tag_count=1"
+        ], aliased
+    # Same physical line with a different locator/transcriber is not
+    # an alias of the complete IVTFF identifier.
+    distinct = audit_text(
+        "<f1r> page\n<f1r.1,@P0> first\n<f1r.01,+P0> second\n"
+    )
+    assert structural_errors(distinct) == [], distinct
+
     # A damaged record with no opening "<" was previously ignored entirely:
     # a clean-looking report could lose a locus while keeping valid rows.
     damaged = (
