@@ -211,3 +211,35 @@ Transcripciones en el manifiesto del repositorio: [ZL3b e IT2a, `kyrian20/voynic
 **Interpretación específica:** el defecto es real para entradas IVTFF válidas, pero esta auditoría no encuentra cambios de tokenización en las filas P actualmente admitidas de los dos corpus congelados. **No se retiran las puntuaciones históricas por este defecto aislado** si se confirma el resultado del preflight; siguen `INVALID_FOR_CLAIM` para las políticas corregidas por los demás defectos ya documentados (incertidumbre, ligaduras, high-ASCII, prior, OOV y AP). No se ha reejecutado el modelo ni consumido folios reservados.
 
 **Reproducción:** `python -m unittest discover -s tests -p 'test_line_boundary_uncertainty_contract.py' -v` y repetición con `python -O`; sin semilla aleatoria. La prueba conserva en el código los criterios de selección, el comparador y los recuentos esperados. Los SHA-256 congelados están en `line_boundary_replication.py`. Verificar run y logs del commit exacto antes de cerrar.
+
+
+## Reejecución corregida del predictor — 2026-11-01
+
+**Ejecución reproducible:** GitHub Actions [run 41256466340](https://github.com/kyrian20/voynich-autoexploration/actions/runs/41256466340), commit `2e3e2b12a109f00217fead12f7028d667bef5b32`, Python 3.12.14. El job `check` terminó `success` con 139 pasos completados. Se ejecutó el predictor completo después de las correcciones del lector y del clasificador; no se asignó un nuevo EXP ni se modificó el `results.json` histórico. La salida nueva y su sidecar de SHA-256 están en el artefacto 13063532723 (6.005 bytes; SHA-256 del ZIP `f4d6778eb0677d13278c2324f1b4abe0fc27b150099cadb8b20ac334e7cec073`; retención de Actions: 90 días).
+
+Los bytes de entrada coincidieron con los hashes fijados por el script: ZL3b `bf5b6d4ac1e3a51b1847a9c388318d609020441ccd56984c901c32b09beccafc` (411.671 bytes) e IT2a `7f27a8b0feed8f6de0a99900df6bf912dd1d295c38e5f830bac8b41c3f536fb5` (342.104 bytes). Los resúmenes siguientes se extraen del JSON de esta ejecución, no del fichero histórico.
+
+| Transcripción / política | Corte por página: candidatos / positivos; AUC; ganancia | Holdout por hoja: candidatos / positivos; AUC micro; AUC macro [IC bootstrap 95%]; ganancia media por hoja [IC bootstrap 95%] |
+|---|---|---|
+| ZL3b, primaria | 4.792 / 468; 0,842408; 0,090973 bits | 26.799 / 2.550; 0,848340; 0,833121 [0,820849–0,844922]; 0,091308 [0,075669–0,105536] |
+| ZL3b, excluir palabra incierta | 4.630 / 444; 0,844739; 0,092143 bits | 25.931 / 2.414; 0,846393; 0,829172 [0,816448–0,841200]; 0,085374 [0,069308–0,100031] |
+| IT2a, primaria | 5.972 / 600; 0,836488; 0,089312 bits | 33.535 / 3.291; 0,851152; 0,832940 [0,820825–0,843713]; 0,095834 [0,083067–0,107930] |
+| IT2a, excluir palabra incierta | 5.972 / 600; 0,836488; 0,089312 bits | 33.535 / 3.291; 0,851152; 0,832940 [0,820825–0,843713]; 0,095834 [0,083067–0,107930] |
+
+La señal predictiva local se mantiene con el lector corregido en las cuatro vistas: el modelo de tupla supera el baseline de prevalencia en ganancia de log-loss bajo el holdout retrospectivo por hoja física. Esto respalda **predictibilidad de disposición local bajo esta operacionalización**. No separa idioma de diseño de página, hábito del escriba o convenciones de transcripción, y no aporta traducción ni significado. ZL3b e IT2a son transcripciones alternativas del mismo objeto, no réplicas independientes.
+
+La población sí cambió de manera material frente a la ejecución histórica. ZL3b pasa de 35.318 unidades reportadas originalmente a 29.906 en la vista primaria corregida; IT2a pasa de 34.510 a 34.411. Además, el corte por página corregido de ZL3b contiene 4.792 candidatos y 468 positivos, frente a los 6.190 y 719 descritos para el artículo. La diferencia de ZL3b aún no está descompuesta por clase de anotación/exclusión; por tanto, los números del rerun no se presentan como reproducción exacta ni se deben comparar como si conservaran la misma población.
+
+Los intervalos por hoja remuestrean las métricas de predicciones fuera de pliegue ya fijadas; no vuelven a entrenar el modelo en cada remuestra y no incorporan incertidumbre del corpus o del parser. La variante separable de rasgos que aparece en el JSON sigue siendo exploratoria y no se usa como resultado principal.
+
+## Autoauditoría de la reejecución corregida
+
+**Selección dependiente del objetivo:** no se ajustaron parámetros a las etiquetas de prueba. α = 0,5, los rasgos y el corte histórico por quinta página se fijaron siguiendo la reimplementación descrita; la evaluación por hoja deja fuera cada hoja física por turno. El diseño es retrospectivo, no prerregistrado ni prospectivo.
+
+**Implementación que puede eliminar señal:** el lector corregido falla de forma conservadora ante grafemas inciertos, ligaduras, códigos high-ASCII y símbolos no adjudicados. Puede reducir o desplazar la señal al excluir candidatos. La caída de 35.318 a 29.906 unidades en ZL3b no está atribuida todavía a una lista exhaustiva de causas; no se la interpreta como mera limpieza ni como prueba de que la señal original fuera falsa.
+
+**Alcance de las afirmaciones:** las métricas describen la capacidad del clasificador para ordenar candidatos de salto/no salto en estas vistas EVA y con este constructor. No se extrapolan a toda la sintaxis del manuscrito, a sus contenidos ni a un desciframiento.
+
+**Alcance del resultado:** es una salida predictiva positiva en esta réplica corregida; la conclusión se limita a los candidatos elegibles, las dos transcripciones y las particiones descritas. Las puntuaciones históricas permanecen `INVALID_FOR_CLAIM` para el código corregido y el rerun no certifica conformidad IVTFF integral.
+
+**Controles:** espero que un baseline constante de prevalencia dé AUC = 0,5 porque asigna el mismo score a todo candidato, y ganancia de log-loss = 0 por definición. El script usa la prevalencia del entrenamiento para calcular la ganancia (no emite un AUC basal separado); la ganancia del modelo de tupla por hoja fue 0,085–0,096 bits/candidato, con intervalos bootstrap condicionales positivos. La longitud sola aporta una ganancia mucho menor (0,0127–0,0135 bits/candidato); no se interpreta como control de idioma.
