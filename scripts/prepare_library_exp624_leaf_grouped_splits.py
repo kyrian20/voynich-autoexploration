@@ -40,8 +40,18 @@ def grouped_splits(pages: list[dict], seed_base: int, repetitions: int) -> list[
     The 70/30 cut is by *leaf count*, not by page count: this is a NEW
     allocation policy, not equivalent to the archived page-side split.
     """
+    if type(seed_base) is not int:
+        raise ValueError("seed_base must be an integer")
+    if type(repetitions) is not int:
+        raise ValueError("repetitions must be an integer")
     if repetitions < 1:
         raise ValueError("At least one repetition required")
+    # The archived LCG masks its state to 32 bits. Do not issue distinct
+    # receipts for modulo-aliased seeds or for a series that wraps.
+    if not 0 <= seed_base < 2**32:
+        raise ValueError("seed_base outside unsigned 32-bit range")
+    if seed_base + 7919 * (repetitions - 1) >= 2**32:
+        raise ValueError("seed series exceeds unsigned 32-bit range")
     groups: dict[int, list[str]] = {}
     seen: set[str] = set()
     seen_physical: set[tuple[int, str, int | None]] = set()
