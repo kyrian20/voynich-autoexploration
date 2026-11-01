@@ -25,7 +25,7 @@ Para la métrica de pares, divide páginas en bloques alternos de diez páginas,
 
 La medida de reproducción de pares por bloques de páginas no es equivalente a los análisis locales de sucesores tras `daiin` ya archivados: cambia la unidad, la estadística y la comparación entre mitades. Puede considerarse una posible réplica externa, pero **no debe implementarse todavía**. Los bloqueos vigentes de adjudicación IVTFF, procedencia y particiones físicas afectan a la definición de líneas/páginas y a la interpretación de cualquier evaluación predictiva.
 
-Antes de una réplica se debe recuperar y fijar el código, los corpus de control, los filtros, las reglas de separación de páginas y las semillas del artículo. No se localizó un enlace a un paquete de código o datos asociado en las páginas consultadas; queda como pendiente de verificación, no como afirmación de que no exista. Una implementación propia sin esos materiales sería una nueva prueba inspirada en el artículo, no una reproducción exacta.
+Antes de una réplica se debe recuperar y fijar el código, los corpus de control, los filtros, las reglas de separación de páginas y las semillas del artículo. El artículo indica que el código y las reglas de decisión se publicarán con la versión publicada; no localizamos un paquete oficial en la página arXiv consultada. Por separado, el sitio de V. Averyanov anuncia un paquete propio de replicación de sus análisis. No se ha inspeccionado aquí ese paquete ni se debe confundir con materiales de Zhang y Sheng. Una implementación propia sin el código/datos y las decisiones exactas del artículo sería una nueva prueba inspirada en el trabajo, no una reproducción exacta.
 
 ## Límites y decisión
 
@@ -37,3 +37,12 @@ Antes de una réplica se debe recuperar y fijar el código, los corpus de contro
 ## Fuente primaria
 
 - Zhang y Sheng, arXiv:2610.34499v1, enviado 25-10-2026: https://arxiv.org/abs/2610.34499
+
+
+## Contraste posterior: prueba de Averyanov (27-10-2026)
+
+Una revisión posterior del registro público de V. Averyanov informa que reconstruyó la métrica de Zhang y Sheng y obtuvo 0,078 para el Voynich, frente a 0,071 (ZL) y 0,053 (IT) en el preprint. Al aplicarla a su generador de cifrado, informa 0,138 (20 semillas: 0,112–0,156), por encima del manuscrito (0,082) y de un control sin significado de quimqu (0,106). También atribuye al modelo la señal independientemente del texto claro usado y señala que el dialecto por sección eleva la recurrencia entre páginas. Esto plantea una objeción concreta: la métrica puede responder a propiedades de construcción del generador además de a estructura lingüística, por lo que una puntuación baja aislada no identifica la causa.
+
+**Estatus probatorio:** son resultados comunicados por el autor de un modelo que se contrasta; la página consultada enlaza un paquete de replicación, pero no hemos auditado sus scripts, preregistro, datos, semillas ni equivalencia exacta de implementación. Por eso se registra como contraanálisis externo no verificado, no como réplica confirmada ni como refutación de Zhang y Sheng. Tampoco contradice directamente su comparación con 28 textos lingüísticos o con las familias de código ensayadas: evalúa un generador específico y una cuestión de sensibilidad del indicador.
+
+**Siguiente paso útil, aún bloqueado:** recuperar la versión exacta del paquete de Averyanov y el código fuente oficial de Zhang y Sheng cuando esté disponible; cotejar definiciones de páginas, bloques alternos, selección de tipos frecuentes, exclusión de pares idénticos/a una grafía, permutaciones dentro de página, residualización por palabra y cálculo de Spearman. Si difieren las reglas o entradas, registrar dos estimandos y no forzar igualdad. Después se podrá preregistrar una réplica con holdouts por hojas físicas y controles de texto aleatorio, prosa y varios generadores; no asignar EXP hasta que se levante la congelación del registro.
