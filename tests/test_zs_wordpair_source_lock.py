@@ -70,16 +70,16 @@ class WordPairFrozenInputTests(unittest.TestCase):
             with self.subTest(reader=reader.__name__):
                 for header in ("f1rEXTRA", "f0r", "f1r7"):
                     with self.subTest(header=header):
-                        source_text = f"<{header}> $L=A\\n"
+                        source_text = f"<{header}> $L=A\n"
                         with self.assertRaisesRegex(ValueError, "Invalid IVTFF page header"):
                             reader(Path("/not/used"), source_text=source_text, keep_empty=True)
 
     def test_duplicate_physical_page_alias_rejected_by_both_readers(self):
         source_text = (
-            "<f1r> $L=A\\n"
-            "<f1r.1,@P0> daiin.daiin\\n"
-            "<f01r> $L=A\\n"
-            "<f01r.1,@P0> daiin.daiin\\n"
+            "<f1r> $L=A\n"
+            "<f1r.1,@P0> daiin.daiin\n"
+            "<f01r> $L=A\n"
+            "<f01r.1,@P0> daiin.daiin\n"
         )
         for reader in (audit.read_pages, audit.read_pages_legacy):
             with self.subTest(reader=reader.__name__):
