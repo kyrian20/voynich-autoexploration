@@ -141,5 +141,47 @@ class WordPairFrozenInputTests(unittest.TestCase):
 
 
 
+    def test_numeric_locus_alias_rejected_even_when_category_excluded(self):
+        # Prior readers silently double-counted identical physical loci;
+        # the legacy reader also silently ignored malformed text rows.
+        source_text = (
+            "<f1r> $L=A\\n"
+            "<f1r.1,@L0> daiin.daiin\\n"
+            "<f1r.01,@L0> qokedy.daiin\\n"
+        )
+        for reader in (audit.read_pages, audit.read_pages_legacy):
+            with self.subTest(reader=reader.__name__):
+                with self.assertRaisesRegex(ValueError, "Duplicate physical IVTFF text locus"):
+                    reader(Path("/not/used"), source_text=source_text,
+                           categories={"P"}, keep_empty=True)
+
+    def test_orphan_invalid_and_truncated_loci_fail_closed(self):
+        cases = (
+            ("<f1r.1,@P0> daiin.daiin\\n", "Text line before page header"),
+            ("<f1r> $L=A\\n<f1r.x,@P0> daiin.daiin\\n", "Invalid IVTFF text locus"),
+            ("<f1r> $L=A\\n<f1r.0,@P0> daiin.daiin\\n", "Invalid IVTFF text locus"),
+            ("<f1r> $L=A\\n<f1r.1,@P0 daiin.daiin\\n", "Malformed IVTFF record"),
+            ("<f1r> $L=A\\n<f2r.1,@P0> daiin.daiin\\n", "Page/locus mismatch"),
+        )
+        for source_text, error in cases:
+            for reader in (audit.read_pages, audit.read_pages_legacy):
+                with self.subTest(reader=reader.__name__, error=error):
+                    with self.assertRaisesRegex(ValueError, error):
+                        reader(Path("/not/used"), source_text=source_text, keep_empty=True)
+
+    def test_distinct_locus_tags_are_not_false_duplicates(self):
+        source_text = (
+            "<f1r> $L=A\\n"
+            "<f1r.1,@P0> daiin.daiin\\n"
+            "<f1r.1,+P0> qokedy.daiin\\n"
+        )
+        for reader in (audit.read_pages, audit.read_pages_legacy):
+            with self.subTest(reader=reader.__name__):
+                pages = reader(Path("/not/used"), source_text=source_text,
+                               categories={"P"}, keep_empty=True)
+                self.assertEqual(len(pages), 1)
+                self.assertEqual(len(pages[0]["lines"]), 2)
+
+
 if __name__ == "__main__":
     unittest.main()
