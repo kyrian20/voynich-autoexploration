@@ -261,7 +261,7 @@ def read_pages(path: Path, *, uncertain_space="split", categories=None, keep_emp
     seen_pages = set()
     seen_loci = set()
     source = source_text if source_text is not None else path.read_text(encoding="utf-8")
-    for rawline in physical_ivtff_rows(source):
+    for physical_row, rawline in enumerate(physical_ivtff_rows(source), 1):
         match = HEADER.match(rawline)
         if not match:
             if rawline.lstrip().startswith("<f"):
@@ -286,13 +286,21 @@ def read_pages(path: Path, *, uncertain_space="split", categories=None, keep_emp
         payload = lex(payload_text)
         if payload.diagnostics:
             raise ValueError(f"IVTFF diagnostics at {locus}: {payload.diagnostics}")
-        current["rows"].append((locus, payload))
+        current["rows"].append((locus, payload, physical_row))
 
     # Project each continuous slash-continuation chain as one logical line.
     for page in pages:
         lines = []
         chain_loci, chain = [], []
-        for locus, payload in page["rows"]:
+        last_physical_row = None
+        for locus, payload, physical_row in page["rows"]:
+            # Filtering categories must not splice a slash continuation across
+            # an excluded IVTFF record, blank line, or comment row.
+            if (chain and chain[-1].spans and
+                    chain[-1].spans[-1].kind == "continuation" and
+                    physical_row != last_physical_row + 1):
+                raise ValueError(f"Interrupted IVTFF continuation before {locus}")
+            last_physical_row = physical_row
             chain_loci.append(locus)
             chain.append(payload)
             trailing = bool(payload.spans and payload.spans[-1].kind == "continuation")

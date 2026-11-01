@@ -141,6 +141,47 @@ class WordPairFrozenInputTests(unittest.TestCase):
 
 
 
+    def test_filtered_category_cannot_bridge_slash_continuation(self):
+        # Before the guard, filtering @L0 out of the P-only view joined
+        # two nonadjacent physical rows into the artificial token 'daiin'.
+        cases = (
+            "<f1r> $L=A\n<f1r.1,@P0> dai/\n"
+            "<f1r.2,@L0> ignored\n<f1r.3,@P0> /in\n",
+            "<f1r> $L=A\n<f1r.1,@P0> dai/\n"
+            "# intervening physical comment\n<f1r.2,@P0> /in\n",
+            "<f1r> $L=A\n<f1r.1,@P0> dai/\n"
+            "\n<f1r.2,@P0> /in\n",
+        )
+        for source_text in cases:
+            with self.subTest(source_text=source_text):
+                with self.assertRaisesRegex(ValueError, "Interrupted IVTFF continuation"):
+                    audit.read_pages(
+                        Path("/not/used"), source_text=source_text,
+                        categories={"P"}, keep_empty=True,
+                    )
+
+    def test_adjacent_continuation_and_filtered_independent_rows_survive(self):
+        adjacent = (
+            "<f1r> $L=A\n<f1r.1,@P0> dai/\n"
+            "<f1r.2,@P0> /in\n"
+        )
+        pages = audit.read_pages(
+            Path("/not/used"), source_text=adjacent,
+            categories={"P"}, keep_empty=True,
+        )
+        self.assertEqual(pages[0]["lines"], [["daiin"]])
+        self.assertEqual(pages[0]["line_loci"], [["f1r.1,@P0", "f1r.2,@P0"]])
+
+        independent = (
+            "<f1r> $L=A\n<f1r.1,@P0> daiin\n"
+            "<f1r.2,@L0> ignored\n<f1r.3,@P0> chedy\n"
+        )
+        pages = audit.read_pages(
+            Path("/not/used"), source_text=independent,
+            categories={"P"}, keep_empty=True,
+        )
+        self.assertEqual(pages[0]["lines"], [["daiin"], ["chedy"]])
+
     def test_numeric_locus_alias_rejected_even_when_category_excluded(self):
         # Prior readers silently double-counted identical physical loci;
         # the legacy reader also silently ignored malformed text rows.
