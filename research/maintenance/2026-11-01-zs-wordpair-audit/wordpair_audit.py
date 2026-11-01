@@ -88,6 +88,53 @@ def checked_text_locus(locus: str, current: dict, seen: set[tuple[int, str]]) ->
     return tag
 
 
+def physical_leaf_id(page_id: str) -> str:
+    """Physical sheet identity, not a page or foldout-panel identity."""
+    if page_id == "fRos":
+        return "fRos"
+    match = re.fullmatch(r"f([0-9]+)[rv][1-6]?", page_id)
+    if match is None or int(match.group(1)) == 0:
+        raise ValueError(f"Invalid IVTFF physical leaf identity: {page_id}")
+    return f"f{int(match.group(1))}"
+
+
+def audit_page_half_leakage(pages, *, block_pages=10):
+    """Audit legacy alternating page blocks for physical-sheet overlap.
+
+    This does not change or silently repair the archived page-block metric.
+    A split that shares a physical leaf is unsuitable for an independent
+    physical-leaf holdout, even if a within-manuscript replication statistic
+    can still be calculated descriptively.
+    """
+    if type(block_pages) is not int or block_pages <= 0:
+        raise ValueError("block_pages must be a positive integer")
+    by_leaf = defaultdict(lambda: {0: [], 1: []})
+    for index, page in enumerate(pages):
+        page_id = page["id"]
+        by_leaf[physical_leaf_id(page_id)][(index // block_pages) % 2].append(page_id)
+    overlaps = [
+        {"leaf": leaf, "half_0": halves[0], "half_1": halves[1]}
+        for leaf, halves in sorted(by_leaf.items())
+        if halves[0] and halves[1]
+    ]
+    return {
+        "split_unit": "source-order page blocks (historical; not physical leaves)",
+        "block_pages": block_pages,
+        "physical_leaf_count": len(by_leaf),
+        "cross_half_physical_leaf_count": len(overlaps),
+        "overlaps": overlaps,
+    }
+
+
+def require_disjoint_physical_leaves(pages, *, block_pages=10):
+    """Fail closed before an evaluation claiming independent physical leaves."""
+    audit = audit_page_half_leakage(pages, block_pages=block_pages)
+    if audit["cross_half_physical_leaf_count"]:
+        leaves = ", ".join(item["leaf"] for item in audit["overlaps"])
+        raise ValueError(f"Physical leaf overlap across page halves: {leaves}")
+    return audit
+
+
 # Only CR, LF and CRLF delimit physical IVTFF records. Python splitlines()
 # also splits on Unicode/control separators and can manufacture page headers.
 NON_PHYSICAL_SEPARATORS = "\v\f\x1c\x1d\x1e\x85\u2028\u2029"
@@ -312,7 +359,11 @@ def additive_residual(matrix, n, pair_idx):
     return out
 
 
-def metric(pages, *, seed=20261101, shuffles=20, top_k=300):
+def metric(pages, *, seed=20261101, shuffles=20, top_k=300,
+           require_leaf_independence=False):
+    split_diagnostics = audit_page_half_leakage(pages)
+    if require_leaf_independence and split_diagnostics["cross_half_physical_leaf_count"]:
+        require_disjoint_physical_leaves(pages)
     all_lines = [line for page in pages for line in page["lines"]]
     freq = Counter(w for line in all_lines for w in line)
     vocab = sorted(freq, key=lambda w: (-freq[w], w))[:top_k]
@@ -373,6 +424,7 @@ def metric(pages, *, seed=20261101, shuffles=20, top_k=300):
         "n_pages": len(pages), "n_lines": len(all_lines), "n_tokens": sum(map(len, all_lines)),
         "n_types": n, "n_eligible_pairs": len(pair_idx), "shuffles": shuffles, "seed": seed,
         "split": "alternating blocks of 10 pages in source order",
+        "split_diagnostics": split_diagnostics,
         "score_raw_spearman": spearman(raw_a, raw_b),
         "score_additive_propensity_residual_spearman": spearman(res_a, res_b),
         "score_pearson_residuals": pearson(res_a, res_b),
@@ -383,6 +435,7 @@ def metric(pages, *, seed=20261101, shuffles=20, top_k=300):
             "shuffle": "uniform permutation of interior tokens across all lines within each page; line endpoints fixed",
             "propensity_removal": "OLS additive word effects alpha_i + alpha_j fitted separately per half",
             "shuffled_expected": "mean co-line counts across 20 randomizations; same fixed global vocabulary",
+            "physical_leaf_independence": "not guaranteed for historical page blocks; inspect split_diagnostics",
         },
     }
 
