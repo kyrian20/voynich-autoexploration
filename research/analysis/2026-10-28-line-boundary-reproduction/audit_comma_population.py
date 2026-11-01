@@ -77,7 +77,7 @@ def census(label: str, path: Path) -> dict:
     # Count source rows with a literal comma, including those where it is
     # inside an annotation; only changed_rows measures actual policy impact.
     physical = dict(reader.checked_physical_lines(path.read_text(encoding="latin-1")))
-    raw_comma_rows = sum("," in physical[line] for _, line in keys)
+    raw_comma_rows = sum(\n        "," in ((reader.ROW.match(physical[line].strip()) or {})["body"] or "")\n        for _, line in keys\n    )
     archived = ARCHIVED_REPORTED_COUNTS[label]
     return {
         "source_sha256": actual_hash,
