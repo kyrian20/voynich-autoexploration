@@ -36,6 +36,40 @@ class DuplicateLanguageHeaders(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, r"f1r at line 2: B versus A"):
                 validate(path)
 
+    def test_zero_padded_alias_cannot_hide_conflicting_currier_label(self):
+        # Previously both spellings occupied separate string keys.
+        for first, alias in (("f1r", "f01r"), ("f86v4", "f086v4")):
+            with self.subTest(alias=alias), tempfile.TemporaryDirectory() as d:
+                path = Path(d) / "fixture.ivtff"
+                path.write_text(
+                    f"<{first}> <! $L=A>\n<{alias}> <! $L=B>\n",
+                    encoding="utf-8",
+                )
+                with self.assertRaisesRegex(ValueError, rf"{alias} at line 2: A versus B"):
+                    validate(path)
+
+    def test_same_physical_page_alias_counts_once_but_panels_stay_distinct(self):
+        with tempfile.TemporaryDirectory() as d:
+            path = Path(d) / "fixture.ivtff"
+            path.write_text(
+                "<f86v4> <! $L=A>\n"
+                "<f086v4> <! $L=A>\n"
+                "<f86v5> <! $L=B>\n"
+                "<fRos> <! $L=A>\n",
+                encoding="utf-8",
+            )
+            report = validate(path)
+            self.assertEqual(report["folio_headers"], 4)
+            self.assertEqual(report["folios_with_language"], 3)
+            self.assertEqual(report["consistent_repeated_language_headers"], 1)
+
+    def test_non_ascii_folio_digits_rejected_in_strict_audit(self):
+        with tempfile.TemporaryDirectory() as d:
+            path = Path(d) / "fixture.ivtff"
+            path.write_text("<f١r> <! $L=A>\n", encoding="utf-8")
+            with self.assertRaisesRegex(ValueError, "Invalid physical IVTFF folio header"):
+                validate(path)
+
     def test_quire_without_language_does_not_conflict(self):
         with tempfile.TemporaryDirectory() as d:
             path = Path(d) / "fixture.ivtff"

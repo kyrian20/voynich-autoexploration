@@ -21,6 +21,16 @@ from scripts.ivtff_physical_rows import checked_physical_lines
 SOURCE = legacy.SOURCE
 
 
+def physical_page_key(page: str) -> tuple:
+    """Physical identity, independent of zero-padding in IVTFF folio names."""
+    if page == "fRos":
+        return ("Ros",)
+    match = re.fullmatch(r"f([0-9]+)([rv])([1-6]?)", page)
+    if match is None:
+        raise ValueError(f"Invalid physical IVTFF folio header: {page}")
+    return ("folio", int(match.group(1)), match.group(2), match.group(3))
+
+
 def strict_currier_language(metadata: str, page: str, lineno: int) -> str | None:
     """Fail closed on malformed $L rather than silently treating it as absent.
 
@@ -45,7 +55,7 @@ def strict_currier_language(metadata: str, page: str, lineno: int) -> str | None
 
 def validate(source: Path = SOURCE) -> dict:
     raw = source.read_bytes()
-    seen: dict[str, str] = {}
+    seen: dict[tuple, str] = {}
     headers = 0
     repeated_consistent = 0
     for lineno, line in checked_physical_lines(raw.decode("utf-8-sig")):
@@ -57,7 +67,11 @@ def validate(source: Path = SOURCE) -> dict:
         language = strict_currier_language(metadata, page, lineno)
         if language is None:
             continue
-        prior = seen.get(page)
+        # f1r and f01r (also foldout aliases) are the same physical
+        # page. The legacy reader compares strings; this strict audit must
+        # reject contradictory labels even when only the spelling differs.
+        key = physical_page_key(page)
+        prior = seen.get(key)
         if prior is not None and prior != language:
             raise ValueError(
                 f"Conflicting Currier $L across headers for {page} at line "
@@ -65,7 +79,7 @@ def validate(source: Path = SOURCE) -> dict:
             )
         if prior is not None:
             repeated_consistent += 1
-        seen[page] = language
+        seen[key] = language
     return {
         "audit": "ivtff_duplicate_currier_language_guard",
         "source": str(source),
