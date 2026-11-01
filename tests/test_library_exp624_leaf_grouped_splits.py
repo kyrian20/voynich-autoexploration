@@ -1,5 +1,6 @@
 """Regression of grouped physical-leaf allocation, not historical model scoring."""
 import unittest
+from unittest.mock import patch
 from scripts import prepare_library_exp624_leaf_grouped_splits as fixed
 
 
@@ -42,6 +43,25 @@ class LibraryExp624GroupedSplitTests(unittest.TestCase):
     def test_source_hash_gate(self):
         with self.assertRaisesRegex(ValueError, "SHA-256 mismatch"):
             fixed.build({"ZL3b": b"corrupt", "IT2a": b"corrupt"})
+
+    def test_reject_cross_edition_currier_swap_with_same_aggregate_counts(self):
+        # Adversarial reader discrepancy: identical frozen bytes and A/B totals,
+        # but two eligible pages exchange $L labels in the IT2a projection.
+        sources = {label: (fixed.ROOT / "data/transcriptions" / name).read_bytes()
+                   for label, (name, _) in fixed.historical.SOURCES.items()}
+        original_parse = fixed.historical.parse_pages
+
+        def swapped_it2a(raw):
+            pages = original_parse(raw)
+            if raw == sources["IT2a"]:
+                a = next(p for p in pages if p["lang"] == "A")
+                b = next(p for p in pages if p["lang"] == "B")
+                a["lang"], b["lang"] = b["lang"], a["lang"]
+            return pages
+
+        with patch.object(fixed.historical, "parse_pages", side_effect=swapped_it2a):
+            with self.assertRaisesRegex(ValueError, r"per-page Currier [$]L metadata"):
+                fixed.build(sources)
 
     def test_frozen_corpus_allocation(self):
         sources = {label: (fixed.ROOT / "data/transcriptions" / name).read_bytes()
