@@ -185,6 +185,13 @@ def validate_archive(archive, expected_keys):
             if any(v is not None and (type(v) not in (int, float) or not math.isfinite(v))
                    for v in run.values()):
                 raise ValueError('Non-finite or non-numeric metric')
+            # The historical compute_metrics() returns only nonnegative
+            # ratios/enrichments. These two rates are proportions, not ratios.
+            for key, value in run.items():
+                if value is not None and value < 0:
+                    raise ValueError(f'Negative EXP-170 metric: {key}')
+                if key in ('edy_rate', 'l_onset_rate') and value is not None and value > 1:
+                    raise ValueError(f'EXP-170 rate out of [0, 1]: {key}')
 
 
 def audit(root=ROOT):
