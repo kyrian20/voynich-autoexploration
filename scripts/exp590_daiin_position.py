@@ -195,8 +195,16 @@ def archive_status(paths, date: str, source_sha: str):
     mean = perm.get("null_mean_initial_lines")
     sd = perm.get("null_sd_initial_lines")
     ge = perm.get("null_ge_observed")
+    # Each null draw counts target-initial lines, so it is bounded by
+    # both the number of lines and the number of target occurrences.
+    # Population variance of a bounded variable cannot exceed
+    # mean * (maximum - mean). Do not infer that these checks reproduce
+    # the original 5,000 draws.
+    maximum = min(metrics["lines"], occurrences)
     if (not all(type(x) in (int, float) and math.isfinite(x) for x in (p, mean, sd))
-            or not nonnegative_int(ge) or ge > N_PERM or sd < 0 or mean < 0
+            or not nonnegative_int(ge) or ge > N_PERM or sd < 0
+            or not 0 <= mean <= maximum
+            or sd * sd > mean * (maximum - mean) + 1e-8
             or not math.isclose(p, (ge + 1) / (N_PERM + 1), rel_tol=0, abs_tol=1e-12)):
         raise RuntimeError("EXP-590 archive has inconsistent null statistics")
     markers = [
@@ -209,6 +217,8 @@ def archive_status(paths, date: str, source_sha: str):
         f"- Ocurrencias en última posición de línea: {last:,}",
         f"- Permutaciones: {N_PERM:,}",
         f"- Semilla fija: {SEED}",
+        f"- Media nula de líneas que empiezan por daiin: {mean:.3f}",
+        f"- Desviación típica nula: {sd:.3f}",
         f"- p empírico unilateral con corrección +1: {p:.6f}",
         *table_rows,
     ]
