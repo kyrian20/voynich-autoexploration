@@ -134,7 +134,11 @@ def preflight(root, naibbe_dir, italian, hashes, out_dir):
     target = out_dir.resolve(strict=False)
     if target == root.resolve() or root.resolve() in target.parents:
         raise ValueError("Reconstruction output must be outside the source repository")
-    if out_dir.is_symlink() or out_dir.exists():
+    # A symlinked ancestor can redirect the receipt/log directory even when
+    # the final output component does not yet exist. Reject before reservation.
+    if has_symlink_component(out_dir):
+        raise ValueError("Reconstruction output path contains symlinked component")
+    if out_dir.exists():
         raise FileExistsError(f"Refusing existing output destination: {out_dir}")
     if not out_dir.parent.is_dir():
         raise ValueError("Output parent directory must already exist")
