@@ -373,6 +373,64 @@ class PublisherSourceDriftContract(unittest.TestCase):
         self.assert_exp593_concurrent_output_rejected(
             data, "inconsistent EXP-593 initial fraction")
 
+    def assert_exp622_623_concurrent_output_rejected(self, exp, data, error):
+        paths = {
+            622: "exp_622_ch_sh_specificity_interaction/results.json",
+            623: "exp_623_it2a_ch_sh_specificity_replication/results.json",
+        }
+        self.write("research/experiments/" + paths[exp], json.dumps(data))
+        head = self.commit("synthetic contradictory EXP-622/623 generated output")
+        with self.assertRaisesRegex(RuntimeError, error):
+            assert_no_source_drift(self.root, self.base, head)
+
+    def test_exp622_matched_strata_need_two_occurrences_each(self):
+        data = self.sample_output(622)
+        data["matched_strata"] = data["occurrences_with_two_neighbors"] // 2 + 1
+        self.assert_exp622_623_concurrent_output_rejected(
+            622, data, "inconsistent EXP-622/623 matched population")
+
+    def test_exp623_folios_cannot_exceed_matched_strata(self):
+        data = self.sample_output(623)
+        data["folios_in_matched_strata"] = data["matched_strata"] + 1
+        self.assert_exp622_623_concurrent_output_rejected(
+            623, data, "inconsistent EXP-622/623 matched population")
+
+    def test_exp622_next_rate_difference_must_be_bounded(self):
+        data = self.sample_output(622)
+        data["mean_matched_stratum_next_sh_minus_ch"] = 1.01
+        self.assert_exp622_623_concurrent_output_rejected(
+            622, data, "invalid EXP-622/623 matched rate contrast")
+
+    def test_exp623_prev_rate_difference_must_be_bounded(self):
+        data = self.sample_output(623)
+        data["mean_matched_stratum_prev_sh_minus_ch"] = -1.01
+        self.assert_exp622_623_concurrent_output_rejected(
+            623, data, "invalid EXP-622/623 matched rate contrast")
+
+    def test_exp622_boolean_rate_difference_is_invalid(self):
+        data = self.sample_output(622)
+        data["mean_matched_stratum_next_sh_minus_ch"] = True
+        self.assert_exp622_623_concurrent_output_rejected(
+            622, data, "invalid EXP-622/623 matched rate contrast")
+
+    def test_exp623_interaction_must_equal_next_minus_prev(self):
+        data = self.sample_output(623)
+        data["interaction_next_minus_prev"] += 0.1
+        self.assert_exp622_623_concurrent_output_rejected(
+            623, data, "inconsistent EXP-622/623 interaction components")
+
+    def test_exp622_p_value_must_match_exceedances(self):
+        data = self.sample_output(622)
+        data["two_sided_permutation_p"] = 0.5
+        self.assert_exp622_623_concurrent_output_rejected(
+            622, data, "inconsistent EXP-622/623 permutation p-value")
+
+    def test_exp623_p_value_must_match_exceedances(self):
+        data = self.sample_output(623)
+        data["permutation_exceedances"] -= 1
+        self.assert_exp622_623_concurrent_output_rejected(
+            623, data, "inconsistent EXP-622/623 permutation p-value")
+
     def test_historical_erratum_edit_blocks(self):
         self.write("research/experiments/2026-10-20-exp590-erratum.md", "rewritten correction\n")
         head = self.commit("concurrent historical correction")
