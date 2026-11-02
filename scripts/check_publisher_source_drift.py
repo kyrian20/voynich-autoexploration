@@ -132,11 +132,17 @@ def _validate_generated_schema(doc: dict, path: str) -> str | None:
         ge = perm.get("null_ge_observed")
         mean = perm.get("null_mean_initial_lines")
         sd = perm.get("null_sd_initial_lines")
+        # The shuffled first-position count cannot exceed either the number
+        # of nonempty lines or the number of target tokens. For any variable
+        # X in [0, maximum], Var(X) <= E[X] * (maximum - E[X]).
+        # This is a necessary bound, not a reproduction of the null draws.
+        maximum = min(metrics["lines"], metrics["target_occurrences"])
         if (not count(perm, "null_ge_observed")
                 or ge > perm["permutations"]
                 or any(type(x) not in (int, float) or not math.isfinite(x)
                        for x in (mean, sd))
-                or not 0 <= mean <= metrics["lines"] or sd < 0):
+                or not 0 <= mean <= maximum or sd < 0
+                or sd * sd > mean * (maximum - mean) + 1e-8):
             return "invalid EXP-590 null distribution fields"
         expected_p = (ge + 1) / (perm["permutations"] + 1)
         if not math.isclose(perm["empirical_one_sided_p"], expected_p,
