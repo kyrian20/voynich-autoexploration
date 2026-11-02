@@ -29,7 +29,13 @@ from scripts.ivtff_rows import tokens_rows
 HEADER = re.compile(r"^<(f[^>]+)>\s*(.*)$")
 PAGE_ID = re.compile(r"^(f(?:[0-9]+[rv][1-6]?|Ros))")
 PAGE_NO = re.compile(r"^(?:f)(\d+)[rv]")
-LOCUS_ID = re.compile(r"^(f(?:[0-9]+[rv][1-6]?|Ros))\.([0-9]+),([^>]*)$")
+LOCUS_ID = re.compile(
+    r"^(f(?:[0-9]+[rv][1-6]?|Ros))\.([0-9]{1,3}),"
+    # Match the already-audited IVTFF structural locator contract:
+    # exactly three printable ASCII locator characters, with at most one
+    # printable ASCII transcriber suffix. No whitespace or Unicode aliases.
+    r"([!-:=?-~]{3}(?:;[!-:=?-~])?)$"
+)
 LEGACY_TOKEN = re.compile(r"[a-z]+")
 # Fixed input identity of the published partial audit (2026-11-01).
 # Git SHA-1 is Git's blob identity; SHA-256 is the independent byte lock.
@@ -145,6 +151,20 @@ def physical_ivtff_rows(text: str):
     for number, row in enumerate(text.replace("\r\n", "\n").replace("\r", "\n").split("\n"), 1):
         if any(character in NON_PHYSICAL_SEPARATORS for character in row):
             raise ValueError(f"Non-physical IVTFF separator in source row {number}")
+        # Do not silently skip a displaced structural tag. Both readers
+        # previously ignored indented <f...> records, including page changes.
+        if row.lstrip(" \t") != row and row.lstrip(" \t").startswith("<f"):
+            raise ValueError(f"Indented IVTFF structural tag in source row {number}")
+        # A complete structural tag must be separated from its payload.
+        # Without this, <f1r>junk and <f1r.1,@P0>junk were accepted.
+        if row.startswith("<f"):
+            end = row.find(">")
+            if end >= 0 and end + 1 < len(row) and row[end + 1] not in " \t":
+                raise ValueError(f"Missing separator after IVTFF structural tag in source row {number}")
+        # A lost opening '<' is not a comment: it is a damaged structural
+        # record and must not silently preserve the previous active page.
+        if re.match(r"^f(?:[0-9]+[rv][1-6]?|Ros)(?:\.[0-9]+,[^>]*)?>", row):
+            raise ValueError(f"Missing opening < in IVTFF structural tag in source row {number}")
         yield row
 
 
