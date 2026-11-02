@@ -147,6 +147,25 @@ class Exp593ArchiveGuardTest(unittest.TestCase):
         with self.assertRaisesRegex(RuntimeError, "result body is incomplete"):
             MODULE["archive_status"](self.paths, DATE, SOURCE_SHA)
 
+    def test_duplicate_json_keys_rejected_at_top_level_and_nested(self):
+        # json.loads normally accepts duplicate keys and keeps the last one.
+        # Both equal-valued and conflicting copies are ambiguous provenance.
+        for original, replacement in (
+            ('"experiment": "EXP-593"',
+             '"experiment": "EXP-593", "experiment": "EXP-593"'),
+            ('"occurrences": 3',
+             '"occurrences": 3, "occurrences": 999'),
+        ):
+            with self.subTest(field=original):
+                self.store()
+                raw = self.paths[0].read_text(encoding="utf-8")
+                self.assertIn(original, raw)
+                self.paths[0].write_text(
+                    raw.replace(original, replacement, 1), encoding="utf-8"
+                )
+                with self.assertRaisesRegex(RuntimeError, "cannot be read"):
+                    MODULE["archive_status"](self.paths, DATE, SOURCE_SHA)
+
     def test_historical_oct21_archive_remains_compatible(self):
         paths = (ROOT / "research/experiments/2026-10-21-exp593-corrected-L-metadata.json",
                  ROOT / "research/experiments/2026-10-21-exp593-corrected-L-metadata.md")
