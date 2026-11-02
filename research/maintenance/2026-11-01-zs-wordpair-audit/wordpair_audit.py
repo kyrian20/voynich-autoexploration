@@ -37,6 +37,18 @@ LOCUS_ID = re.compile(
     r"([!-:=?-~]{3}(?:;[!-:=?-~])?)$"
 )
 LEGACY_TOKEN = re.compile(r"[a-z]+")
+# Currier language is $L, not $Q (quire). Reject valid prefixes of invalid fields.
+CURRIER_FIELD = re.compile(r"\$L(?![A-Za-z0-9_])[^ \t<>]*")
+
+
+def checked_currier_metadata(page_payload: str) -> str | None:
+    """Reject malformed or conflicting page-level $L; preserve unknown class."""
+    fields = CURRIER_FIELD.findall(page_payload)
+    if not fields:
+        return None
+    if len(fields) != 1 or fields[0] not in ("$L=A", "$L=B"):
+        raise ValueError(f"Invalid or duplicate IVTFF Currier $L metadata: {fields}")
+    return fields[0][-1]
 # Fixed input identity of the published partial audit (2026-11-01).
 # Git SHA-1 is Git's blob identity; SHA-256 is the independent byte lock.
 SOURCE_LOCK = {
@@ -204,8 +216,8 @@ def read_pages_legacy(path: Path, *, categories=None, keep_empty=False, source_t
         locus, body = match.groups()
         if "." not in locus:
             page_id = checked_page_header(locus, seen_pages)
-            meta = re.search(r"\$L=([AB])", body)
-            current = {"id": page_id, "currier": meta.group(1) if meta else None,
+            currier = checked_currier_metadata(body)
+            current = {"id": page_id, "currier": currier,
                        "rows": []}
             pages.append(current)
             seen_loci = set()
@@ -290,8 +302,8 @@ def read_pages(path: Path, *, uncertain_space="split", categories=None, keep_emp
         locus, payload_text = match.groups()
         if "." not in locus:
             page_id = checked_page_header(locus, seen_pages)
-            meta = re.search(r"\$L=([AB])", payload_text)
-            current = {"id": page_id, "currier": meta.group(1) if meta else None,
+            currier = checked_currier_metadata(payload_text)
+            current = {"id": page_id, "currier": currier,
                        "rows": []}
             pages.append(current)
             seen_loci = set()
