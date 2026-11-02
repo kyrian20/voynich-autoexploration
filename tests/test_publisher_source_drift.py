@@ -457,6 +457,34 @@ class PublisherSourceDriftContract(unittest.TestCase):
         self.assert_exp593_concurrent_output_rejected(
             data, "invalid EXP-593 null moments/statistic")
 
+    def test_exp593_rare_variant_null_mean_cannot_exceed_occurrences(self):
+        # This was previously accepted: 20 <= 4,188 lines, but only 19
+        # daiiin tokens exist, so no shuffle can put 20 at line starts.
+        data = self.sample_output(593)
+        row = data["observed"]["daiiin"]
+        test = data["tests"]["daiiin"]
+        test["null_mean_initial"] = row["occurrences"] + 1.0
+        test["null_sd_initial"] = 1.0
+        test["observed_standardized_statistic"] = (
+            row["line_initial"] - test["null_mean_initial"]
+        ) / test["null_sd_initial"]
+        self.assert_exp593_concurrent_output_rejected(
+            data, "invalid EXP-593 null moments/statistic")
+
+    def test_exp593_rare_variant_null_sd_respects_occurrence_bound(self):
+        # At mean 10, the maximum feasible variance with 19 occurrences
+        # is 10 * (19 - 10) = 90, not 10 * (4188 - 10).
+        data = self.sample_output(593)
+        row = data["observed"]["daiiin"]
+        test = data["tests"]["daiiin"]
+        test["null_mean_initial"] = 10.0
+        test["null_sd_initial"] = 20.0
+        test["observed_standardized_statistic"] = (
+            row["line_initial"] - test["null_mean_initial"]
+        ) / test["null_sd_initial"]
+        self.assert_exp593_concurrent_output_rejected(
+            data, "invalid EXP-593 null moments/statistic")
+
     def test_exp593_observed_standardized_statistic_must_match(self):
         data = self.sample_output(593)
         data["tests"]["daiin"]["observed_standardized_statistic"] += 0.5
