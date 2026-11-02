@@ -324,6 +324,55 @@ class PublisherSourceDriftContract(unittest.TestCase):
         with self.assertRaisesRegex(RuntimeError, "invalid EXP-590 Currier partition"):
             assert_no_source_drift(self.root, self.base, head)
 
+    def assert_exp593_concurrent_output_rejected(self, data, error):
+        path = "research/experiments/2026-11-02-exp593-corrected-L-metadata.json"
+        self.write(path, json.dumps(data))
+        head = self.commit("synthetic contradictory EXP-593 generated output")
+        with self.assertRaisesRegex(RuntimeError, error):
+            assert_no_source_drift(self.root, self.base, head)
+
+    def test_exp593_occurrences_cannot_exceed_total_tokens(self):
+        data = self.sample_output(593)
+        data["observed"]["daiin"]["occurrences"] = data["tokens"] + 1
+        self.assert_exp593_concurrent_output_rejected(
+            data, "inconsistent EXP-593 observed counts")
+
+    def test_exp593_line_initial_cannot_exceed_total_lines(self):
+        data = self.sample_output(593)
+        data["observed"]["daiin"]["line_initial"] = data["lines"] + 1
+        self.assert_exp593_concurrent_output_rejected(
+            data, "inconsistent EXP-593 observed counts")
+
+    def test_exp593_currier_partition_requires_unknown_class(self):
+        data = self.sample_output(593)
+        del data["observed"]["daiin"]["by_currier"]["unknown"]
+        self.assert_exp593_concurrent_output_rejected(
+            data, "invalid EXP-593 Currier partition")
+
+    def test_exp593_currier_subtotals_must_match_variant(self):
+        data = self.sample_output(593)
+        data["observed"]["daiin"]["by_currier"]["B"]["occurrences"] += 1
+        self.assert_exp593_concurrent_output_rejected(
+            data, "inconsistent EXP-593 Currier partition totals")
+
+    def test_exp593_currier_initial_cannot_exceed_subgroup_occurrences(self):
+        data = self.sample_output(593)
+        data["observed"]["daiin"]["by_currier"]["A"]["line_initial"] = 441
+        self.assert_exp593_concurrent_output_rejected(
+            data, "inconsistent EXP-593 Currier subgroup counts")
+
+    def test_exp593_boolean_currier_count_is_not_integer(self):
+        data = self.sample_output(593)
+        data["observed"]["daiin"]["by_currier"]["unknown"]["occurrences"] = True
+        self.assert_exp593_concurrent_output_rejected(
+            data, "invalid EXP-593 Currier partition")
+
+    def test_exp593_initial_fraction_must_match_counts(self):
+        data = self.sample_output(593)
+        data["observed"]["daiin"]["initial_fraction"] = 0.1
+        self.assert_exp593_concurrent_output_rejected(
+            data, "inconsistent EXP-593 initial fraction")
+
     def test_historical_erratum_edit_blocks(self):
         self.write("research/experiments/2026-10-20-exp590-erratum.md", "rewritten correction\n")
         head = self.commit("concurrent historical correction")
