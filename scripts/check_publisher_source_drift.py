@@ -25,6 +25,96 @@ _GENERATED_OUTPUT = re.compile(
 
 
 
+# These are the four scheduled publisher output contracts, not an assertion
+# that the reported statistics are scientifically valid. The frozen corpus
+# hashes are independently pinned; a syntactically valid but unrelated JSON
+# must not be exempt from the source-drift guard.
+_PUBLISHER_SOURCE_SHA256 = {
+    "data/transcriptions/eva_zl3b.txt":
+        "bf5b6d4ac1e3a51b1847a9c388318d609020441ccd56984c901c32b09beccafc",
+    "data/transcriptions/eva_it2a.txt":
+        "7f27a8b0feed8f6de0a99900df6bf912dd1d295c38e5f830bac8b41c3f536fb5",
+}
+
+
+def _validate_generated_schema(doc: dict, path: str) -> str | None:
+    """Check the minimum known publisher schema, without claiming reproduction."""
+    if "exp_622_" in path:
+        exp, source = 622, "data/transcriptions/eva_zl3b.txt"
+    elif "exp_623_" in path:
+        exp, source = 623, "data/transcriptions/eva_it2a.txt"
+    elif "-exp590-" in path:
+        exp, source = "EXP-590", "data/transcriptions/eva_zl3b.txt"
+    elif "-exp593-" in path:
+        exp, source = "EXP-593", "data/transcriptions/eva_zl3b.txt"
+    else:
+        return "unknown scheduled output schema"
+
+    if type(doc.get("experiment")) is not type(exp) or doc.get("experiment") != exp:
+        return "wrong or missing experiment identity"
+    if doc.get("source") != source or doc.get("source_sha256") != _PUBLISHER_SOURCE_SHA256[source]:
+        return "wrong or missing pinned corpus provenance"
+    if not isinstance(doc.get("limitations"), list) or not doc["limitations"] or not all(
+            isinstance(x, str) and x.strip() for x in doc["limitations"]):
+        return "missing or malformed limitations"
+
+    def count(obj, key, positive=False):
+        value = obj.get(key)
+        return type(value) is int and value >= (1 if positive else 0)
+
+    def probability(obj, key):
+        value = obj.get(key)
+        return type(value) in (int, float) and math.isfinite(value) and 0 <= value <= 1
+
+    if exp == "EXP-590":
+        metrics, perm = doc.get("metrics"), doc.get("permutation_test")
+        if not isinstance(metrics, dict) or not isinstance(perm, dict):
+            return "missing EXP-590 metrics/permutation_test"
+        if not all(count(metrics, key, positive=(key in ("tokens", "lines")))
+                   for key in ("tokens", "lines", "target_occurrences",
+                               "line_initial_occurrences", "line_final_occurrences")):
+            return "invalid EXP-590 count fields"
+        if (not count(perm, "permutations", positive=True)
+                or not count(perm, "seed")
+                or not probability(perm, "empirical_one_sided_p")):
+            return "invalid EXP-590 permutation fields"
+    elif exp == "EXP-593":
+        variants, observed, tests = doc.get("variants"), doc.get("observed"), doc.get("tests")
+        if (not isinstance(variants, list) or not variants
+                or not all(isinstance(x, str) and x for x in variants)
+                or len(set(variants)) != len(variants)
+                or not isinstance(observed, dict) or set(observed) != set(variants)
+                or not isinstance(tests, dict) or set(tests) != set(variants)):
+            return "invalid EXP-593 variant/test coverage"
+        if not all(count(doc, key, positive=(key != "seed"))
+                   for key in ("lines", "tokens", "permutations", "seed")):
+            return "invalid EXP-593 count fields"
+        for variant in variants:
+            if not isinstance(observed[variant], dict) or not isinstance(tests[variant], dict):
+                return "invalid EXP-593 per-variant record"
+            if not all(count(observed[variant], key)
+                       for key in ("occurrences", "line_initial", "line_final")):
+                return "invalid EXP-593 observed counts"
+            if not all(probability(tests[variant], key)
+                       for key in ("empirical_p", "max_stat_adjusted_p")):
+                return "invalid EXP-593 p-value"
+    else:
+        if (not all(count(doc, key, positive=True)
+                    for key in ("occurrences_with_two_neighbors", "matched_strata",
+                                "folios_in_matched_strata", "permutation_replicates"))
+                or not count(doc, "permutation_exceedances")
+                or doc["permutation_exceedances"] > doc["permutation_replicates"]
+                or not probability(doc, "two_sided_permutation_p")
+                or type(doc.get("interaction_next_minus_prev")) not in (int, float)
+                or not math.isfinite(doc["interaction_next_minus_prev"])
+                or not isinstance(doc.get("interpretation"), str)
+                or not doc["interpretation"].strip()):
+            return "invalid EXP-622/623 result fields"
+    return None
+
+
+
+
 def _validate_new_generated_blob(repo: Path, object_id: bytes, path: str) -> str | None:
     """Basic integrity gate, NOT scientific validation of a published result.
 
@@ -82,6 +172,9 @@ def _validate_new_generated_blob(repo: Path, object_id: bytes, path: str) -> str
         # of parse_constant, so reject numeric overflow at any depth.
         if not finite_numbers(parsed):
             return "non-finite JSON number"
+        schema_problem = _validate_generated_schema(parsed, path)
+        if schema_problem:
+            return schema_problem
     return None
 
 
