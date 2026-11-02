@@ -74,6 +74,40 @@ def _validate_generated_schema(doc: dict, path: str) -> str | None:
                    for key in ("tokens", "lines", "target_occurrences",
                                "line_initial_occurrences", "line_final_occurrences")):
             return "invalid EXP-590 count fields"
+        # EXP-590's Currier classes form an exhaustive partition of the
+        # published aggregate. Type-valid but contradictory totals must not
+        # receive the concurrent-output exemption.
+        if (metrics["target_occurrences"] > metrics["tokens"]
+                or metrics["line_initial_occurrences"] >
+                    min(metrics["target_occurrences"], metrics["lines"])
+                or metrics["line_final_occurrences"] >
+                    min(metrics["target_occurrences"], metrics["lines"])):
+            return "inconsistent EXP-590 aggregate counts"
+        currier = metrics.get("currier")
+        groups = ("A", "B", "unknown")
+        fields = ("target_occurrences", "line_initial_lines",
+                  "line_final_lines", "lines")
+        if (not isinstance(currier, dict) or set(currier) != set(groups)
+                or any(not isinstance(currier[group], dict)
+                       or not all(count(currier[group], field) for field in fields)
+                       for group in groups)):
+            return "invalid EXP-590 Currier partition"
+        for group in groups:
+            row = currier[group]
+            if (row["target_occurrences"] > metrics["target_occurrences"]
+                    or row["line_initial_lines"] >
+                        min(row["target_occurrences"], row["lines"])
+                    or row["line_final_lines"] >
+                        min(row["target_occurrences"], row["lines"])):
+                return "inconsistent EXP-590 Currier subgroup counts"
+        for subtotal, aggregate in (
+            ("target_occurrences", "target_occurrences"),
+            ("line_initial_lines", "line_initial_occurrences"),
+            ("line_final_lines", "line_final_occurrences"),
+            ("lines", "lines"),
+        ):
+            if sum(currier[group][subtotal] for group in groups) != metrics[aggregate]:
+                return "inconsistent EXP-590 Currier partition totals"
         if (not count(perm, "permutations", positive=True)
                 or not count(perm, "seed")
                 or not probability(perm, "empirical_one_sided_p")):

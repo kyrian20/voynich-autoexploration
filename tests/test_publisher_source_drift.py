@@ -270,6 +270,60 @@ class PublisherSourceDriftContract(unittest.TestCase):
         with self.assertRaisesRegex(RuntimeError, "invalid EXP-622/623 result fields"):
             assert_no_source_drift(self.root, self.base, head)
 
+    def test_exp590_aggregate_target_exceeds_token_count_is_rejected(self):
+        data = self.sample_output(590)
+        data["metrics"]["target_occurrences"] = data["metrics"]["tokens"] + 1
+        self.write("research/experiments/2026-11-02-exp590-corrected-L-metadata.json",
+                   json.dumps(data))
+        head = self.commit("impossible EXP-590 aggregate")
+        with self.assertRaisesRegex(RuntimeError, "inconsistent EXP-590 aggregate counts"):
+            assert_no_source_drift(self.root, self.base, head)
+
+    def test_exp590_initial_count_exceeds_line_count_is_rejected(self):
+        data = self.sample_output(590)
+        data["metrics"]["line_initial_occurrences"] = data["metrics"]["lines"] + 1
+        self.write("research/experiments/2026-11-02-exp590-corrected-L-metadata.json",
+                   json.dumps(data))
+        head = self.commit("impossible EXP-590 line-initial count")
+        with self.assertRaisesRegex(RuntimeError, "inconsistent EXP-590 aggregate counts"):
+            assert_no_source_drift(self.root, self.base, head)
+
+    def test_exp590_currier_partition_must_be_complete(self):
+        data = self.sample_output(590)
+        del data["metrics"]["currier"]["unknown"]
+        self.write("research/experiments/2026-11-02-exp590-corrected-L-metadata.json",
+                   json.dumps(data))
+        head = self.commit("missing EXP-590 Currier class")
+        with self.assertRaisesRegex(RuntimeError, "invalid EXP-590 Currier partition"):
+            assert_no_source_drift(self.root, self.base, head)
+
+    def test_exp590_currier_subgroup_cannot_exceed_its_lines(self):
+        data = self.sample_output(590)
+        data["metrics"]["currier"]["A"]["line_initial_lines"] = 2000
+        self.write("research/experiments/2026-11-02-exp590-corrected-L-metadata.json",
+                   json.dumps(data))
+        head = self.commit("impossible EXP-590 subgroup")
+        with self.assertRaisesRegex(RuntimeError, "inconsistent EXP-590 Currier subgroup counts"):
+            assert_no_source_drift(self.root, self.base, head)
+
+    def test_exp590_currier_partition_sum_must_match_aggregate(self):
+        data = self.sample_output(590)
+        data["metrics"]["currier"]["B"]["target_occurrences"] += 1
+        self.write("research/experiments/2026-11-02-exp590-corrected-L-metadata.json",
+                   json.dumps(data))
+        head = self.commit("EXP-590 subgroup totals differ from aggregate")
+        with self.assertRaisesRegex(RuntimeError, "inconsistent EXP-590 Currier partition totals"):
+            assert_no_source_drift(self.root, self.base, head)
+
+    def test_exp590_currier_partition_rejects_boolean_subgroup_count(self):
+        data = self.sample_output(590)
+        data["metrics"]["currier"]["unknown"]["lines"] = True
+        self.write("research/experiments/2026-11-02-exp590-corrected-L-metadata.json",
+                   json.dumps(data))
+        head = self.commit("boolean EXP-590 Currier subgroup count")
+        with self.assertRaisesRegex(RuntimeError, "invalid EXP-590 Currier partition"):
+            assert_no_source_drift(self.root, self.base, head)
+
     def test_historical_erratum_edit_blocks(self):
         self.write("research/experiments/2026-10-20-exp590-erratum.md", "rewritten correction\n")
         head = self.commit("concurrent historical correction")
