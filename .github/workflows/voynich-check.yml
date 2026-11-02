@@ -635,6 +635,7 @@ jobs:
         run: |
           python scripts/audit_ivtff_metadata.py
           python tests/test_ivtff_metadata_strict.py
+          python -O tests/test_ivtff_metadata_strict.py
           python scripts/audit_ivtff_metadata_strict.py
 
       - name: Rechazar cabeceras físicas IVTFF repetidas sin alterar lectores históricos
