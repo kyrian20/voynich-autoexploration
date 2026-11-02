@@ -98,11 +98,21 @@ def audit_text(text: str, *, include_locus_ids: bool = False) -> dict:
     ignored_comments = 0
     continuation_lines = 0
     invalid_physical_separators = []
+    unexpected_bom_rows = []
 
     # Only CR, LF and CRLF delimit physical records. Do not use splitlines():
     # U+2028 etc. could otherwise turn a comment into a forged page header.
     physical_lines = text.replace("\r\n", "\n").replace("\r", "\n").split("\n")
     for line_no, raw in enumerate(physical_lines, 1):
+        # The CLI deliberately removes one UTF-8 signature at file start
+        # (utf-8-sig). A U+FEFF elsewhere is NOT a row separator or a
+        # whitespace character: silently skipping a BOM-prefixed header
+        # could leave the preceding folio active. Fail closed on the entire
+        # contaminated row, including comments and word payloads.
+        if "\ufeff" in raw:
+            unexpected_bom_rows.append({"line": line_no, "codepoint": "U+FEFF"})
+            active_page = None
+            continue
         invalid = sorted({f"U+{ord(ch):04X}" for ch in raw if ch in NON_PHYSICAL_SEPARATORS})
         if invalid:
             invalid_physical_separators.append({"line": line_no, "codepoints": invalid})
@@ -305,6 +315,8 @@ def audit_text(text: str, *, include_locus_ids: bool = False) -> dict:
 
     result = {
         "invalid_physical_separators": invalid_physical_separators[:50],
+        "unexpected_bom_rows": unexpected_bom_rows[:50],
+        "unexpected_bom_count": len(unexpected_bom_rows),
         "invalid_physical_separator_count": len(invalid_physical_separators),
         "page_header_count": len(headers),
         "distinct_page_headers": len(seen_page_headers),
@@ -336,6 +348,7 @@ def structural_errors(report: dict) -> list[str]:
     """Reject observed structural anomalies rather than merely listing them."""
     errors = []
     for key in (
+        "unexpected_bom_count",
         "invalid_physical_separator_count",
         "malformed_header_count",
         "duplicate_page_header_count",
