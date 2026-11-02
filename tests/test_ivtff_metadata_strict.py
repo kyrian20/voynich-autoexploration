@@ -143,6 +143,18 @@ class DuplicateLanguageHeaders(unittest.TestCase):
                 with self.assertRaisesRegex(ValueError, r"Non-physical IVTFF line separator at line 2"):
                     validate(path)
 
+    def test_zero_numbered_folio_rejected_even_without_language(self):
+        # The structural guard already rejects f0r; strict metadata must not
+        # count it as an unclassified but otherwise acceptable physical page.
+        for page in ("f0r", "f00v", "f000r2"):
+            with self.subTest(page=page), tempfile.TemporaryDirectory() as d:
+                path = Path(d) / "fixture.ivtff"
+                path.write_text(f"<{page}> <! $Q=A>\n", encoding="utf-8")
+                with self.assertRaisesRegex(
+                    ValueError, "Invalid physical IVTFF folio header"
+                ):
+                    validate(path)
+
     def test_cr_lf_and_crlf_are_valid_physical_boundaries(self):
         with tempfile.TemporaryDirectory() as d:
             path = Path(d) / "fixture.ivtff"
