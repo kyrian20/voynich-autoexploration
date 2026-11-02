@@ -28,7 +28,10 @@ def physical_page_key(page: str) -> tuple:
     match = re.fullmatch(r"f([0-9]+)([rv])([1-6]?)", page)
     if match is None:
         raise ValueError(f"Invalid physical IVTFF folio header: {page}")
-    return ("folio", int(match.group(1)), match.group(2), match.group(3))
+    leaf = int(match.group(1))
+    if leaf == 0:
+        raise ValueError(f"Invalid physical IVTFF folio header: {page}")
+    return ("folio", leaf, match.group(2), match.group(3))
 
 
 def strict_currier_language(metadata: str, page: str, lineno: int) -> str | None:
@@ -66,13 +69,15 @@ def validate(source: Path = SOURCE) -> dict:
             continue
         headers += 1
         page, metadata = match.groups()
+        # Validate physical identity even if $L is absent: an f0r header
+        # must not silently pass the metadata gate as "unclassified".
+        key = physical_page_key(page)
         language = strict_currier_language(metadata, page, lineno)
         if language is None:
             continue
         # f1r and f01r (also foldout aliases) are the same physical
         # page. The legacy reader compares strings; this strict audit must
         # reject contradictory labels even when only the spelling differs.
-        key = physical_page_key(page)
         prior = seen.get(key)
         if prior is not None and prior != language:
             raise ValueError(
