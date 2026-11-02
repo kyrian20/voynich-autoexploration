@@ -38,7 +38,9 @@ def strict_currier_language(metadata: str, page: str, lineno: int) -> str | None
     intentionally returns None for unsupported values; keep that reader frozen
     and add this independent check before interpreting page metadata.
     """
-    markers = re.findall(r'\$L\b', metadata)
+    # Match every $L prefix, including malformed key names ($Lfoo, $L1).
+    # A word boundary would silently treat those declarations as absent.
+    markers = re.findall(r'\$L', metadata)
     if not markers:
         return None
     values = re.findall(r'\$L\s*=\s*([^\s>]+)', metadata)
