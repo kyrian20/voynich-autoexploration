@@ -205,6 +205,29 @@ def main():
             pass
         else:
             raise AssertionError('Invalid source/folio scope accepted')
+    # A syntactically plausible decimal alias must not create a second
+    # physical scope or bypass the non-contiguous-scope/continuation guard.
+    # f01r and f1r name the same physical page; this API requires the
+    # canonical spelling, rather than treating caller labels as evidence.
+    for noncanonical in ('f0r', 'f00r', 'f01r', 'f001r',
+                         'f086v6', 'f00086v6'):
+        for rows in (
+            [('ZL3b', noncanonical, lex('daiin'))],
+            [('ZL3b', 'f1r', lex('a')),
+             ('ZL3b', noncanonical, lex('b'))],
+        ):
+            try:
+                tokens_scoped_rows(rows)
+            except ValueError as exc:
+                assert 'Invalid IVTFF physical folio label' in str(exc), str(exc)
+            else:
+                raise AssertionError(f'Noncanonical physical scope accepted: {noncanonical}')
+    assert tokens_scoped_rows([
+        ('ZL3b', 'f1r', lex('a/')),
+        ('ZL3b', 'f1r', lex('/b')),
+        ('ZL3b', 'f86v6', lex('c')),
+        ('ZL3b', 'fRos', lex('d')),
+    ]) == ['ab', 'c', 'd']
     try:
         tokens_scoped_rows([], uncertain_space='not-a-policy')
     except ValueError:
