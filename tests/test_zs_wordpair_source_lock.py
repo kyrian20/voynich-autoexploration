@@ -210,6 +210,29 @@ class WordPairFrozenInputTests(unittest.TestCase):
                     with self.assertRaisesRegex(ValueError, error):
                         reader(Path("/not/used"), source_text=source_text, keep_empty=True)
 
+    def test_slash_prefixed_structural_tags_rejected_by_both_readers(self):
+        # The repository's canonical structural audit already rejects a
+        # page/locus tag hidden behind a continuation slash. The word-pair
+        # readers must not silently discard that physical record.
+        hidden_rows = (
+            "/<f2r> <! $L=B>",
+            "/<f1r.2,@P0> chedy.daiin",
+            "  / <f2r> <! $L=B>",
+        )
+        for hidden in hidden_rows:
+            source_text = (
+                "<f1r> <! $L=A>\\n"
+                + hidden + "\\n"
+                + "<f1r.1,@P0> daiin.daiin\\n"
+            )
+            for reader in (audit.read_pages, audit.read_pages_legacy):
+                with self.subTest(reader=reader.__name__, hidden=hidden):
+                    with self.assertRaisesRegex(
+                        ValueError, "structural tag after continuation slash"
+                    ):
+                        reader(Path("/not/used"), source_text=source_text,
+                               categories={"P"}, keep_empty=True)
+
     def test_glued_or_indented_structural_tags_rejected_by_both_readers(self):
         # Both readers previously accepted a glued payload and silently
         # ignored an indented page boundary or text locus.
