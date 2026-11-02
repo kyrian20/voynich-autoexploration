@@ -15,7 +15,11 @@ from scripts.ivtff_lossless import Payload, lex, tokens
 
 # Syntax-only guard for caller-supplied physical folio labels. This does not
 # authenticate their association with source rows or the reserved-leaf split.
-FOLIO_LABEL_RE = re.compile(r'f(?:[0-9]+[rv][1-6]?|Ros)')
+# This scoped projection uses canonical physical page labels: decimal aliases
+# (f01r/f1r) must not create different source/folio scopes. The general
+# IVTFF auditors may accept raw aliases and compare their physical identity;
+# this stricter caller-supplied scope API fails closed on ambiguous labels.
+FOLIO_LABEL_RE = re.compile(r'f(?:[1-9][0-9]*[rv][1-6]?|Ros)')
 
 
 def _reject_non_ascii_ivtff_spans(spans) -> None:
