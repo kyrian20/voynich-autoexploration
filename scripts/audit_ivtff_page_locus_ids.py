@@ -37,6 +37,11 @@ LOCUS_RE = re.compile(
 # This broad detector is diagnostic only: PAGE_RE remains the acceptance rule.
 INDENTED_PAGE_CANDIDATE_RE = re.compile(r"^f(?:\d+[rv]\d*|Ros)$")
 MISSING_OPEN_LOCUS_RE = re.compile(r"^f(?:\d+[rv][1-6]?|Ros)\.\d+,")
+# Diagnostic-only prefixes: a damaged numeric locus must not disappear just
+# because its line number or comma is malformed. The broader no-opener guard
+# below requires a closing >, avoiding ordinary prose like "f1r.notes, ...".
+LOCUS_TAG_CANDIDATE_RE = re.compile(r"^f(?:\d+[rv]\d*|Ros)\.")
+MISSING_OPEN_MALFORMED_LOCUS_RE = re.compile(r"^f(?:\d+[rv]\d*|Ros)\.[^\s>]*>")
 # A page header with a lost opening angle bracket must not vanish silently.
 # Require a plausible header terminator, not arbitrary free-text beginning f2r>.
 MISSING_OPEN_PAGE_RE = re.compile(
@@ -124,7 +129,7 @@ def audit_text(text: str, *, include_locus_ids: bool = False) -> dict:
                     })
                     active_page = None
                     continue
-                if MISSING_OPEN_LOCUS_RE.match(candidate):
+                if LOCUS_TAG_CANDIDATE_RE.match(candidate):
                     malformed_records.append({
                         "line": line_no, "raw": raw[:180],
                         "reason": "structural locus tag after continuation slash",
@@ -142,7 +147,7 @@ def audit_text(text: str, *, include_locus_ids: bool = False) -> dict:
                 # An indented, truncated header may contain trailing metadata.
                 # Classify by its first field; never accept it as a valid page.
                 header_fields = candidate.strip(" \t").split(maxsplit=1)
-                if LOCUS_RE.fullmatch(candidate) or MISSING_OPEN_LOCUS_RE.match(candidate):
+                if LOCUS_TAG_CANDIDATE_RE.match(candidate):
                     malformed_records.append({
                         "line": line_no, "raw": raw[:180],
                         "reason": "leading whitespace before locus <",
@@ -157,7 +162,8 @@ def audit_text(text: str, *, include_locus_ids: bool = False) -> dict:
                     malformed_headers.append({"line": line_no, "page": candidate,
                                               "reason": "leading whitespace or invalid page ID"})
                     active_page = None
-            elif MISSING_OPEN_LOCUS_RE.match(stripped):
+            elif (MISSING_OPEN_LOCUS_RE.match(stripped)
+                  or MISSING_OPEN_MALFORMED_LOCUS_RE.match(stripped)):
                 malformed_records.append({
                     "line": line_no, "raw": raw[:180], "reason": "missing opening <",
                 })
