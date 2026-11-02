@@ -102,16 +102,16 @@ class DuplicateLanguageHeaders(unittest.TestCase):
         ):
             with self.subTest(field=field), tempfile.TemporaryDirectory() as d:
                 path = Path(d) / "fixture.ivtff"
-                path.write_text(f"<f1r> <! {field}>\\n", encoding="utf-8")
+                path.write_text(f"<f1r> <! {field}>\n", encoding="utf-8")
                 with self.assertRaisesRegex(
-                    ValueError, r"Invalid Currier \\$L on f1r at line 1"
+                    ValueError, r"Invalid Currier \$L on f1r at line 1"
                 ):
                     validate(path)
 
     def test_spaced_valid_currier_field_remains_supported(self):
         with tempfile.TemporaryDirectory() as d:
             path = Path(d) / "fixture.ivtff"
-            path.write_text("<f1r> <! $Q=A $L = B $I=C>\\n", encoding="utf-8")
+            path.write_text("<f1r> <! $Q=A $L = B $I=C>\n", encoding="utf-8")
             report = validate(path)
             self.assertEqual(report["folios_with_language"], 1)
 
