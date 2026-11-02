@@ -284,6 +284,37 @@ class Exp170ReconstructionRunnerTests(unittest.TestCase):
         self.assertFalse((self.out / "simulation_results.json").exists())
 
 
+    def test_success_exit_with_impossible_metric_is_quarantined(self):
+        # A successful child process must not publish impossible metrics.
+        # The original 400-run archive remains untouched.
+        for metric, invalid in (('am_ll_enrichment', -0.5),
+                                ('edy_rate', 1.25)):
+            with self.subTest(metric=metric):
+                self.out = self.base / ('output-' + metric)
+                payload = json.loads(
+                    (ROOT / runner.EXP / 'data/simulation_results.json').read_text())
+                payload['italian_A'][0][metric] = invalid
+                raw = json.dumps(payload).encode('utf-8')
+
+                def synthetic_child(args, **kwargs):
+                    path = Path(kwargs['cwd']) / runner.EXP / 'data/simulation_results.json'
+                    path.write_bytes(raw)
+                    return SimpleNamespace(stdout=b'', stderr=b'', returncode=0)
+
+                with patch.object(runner.subprocess, 'run', side_effect=synthetic_child):
+                    with self.assertRaisesRegex(RuntimeError, r'failed \(65\)'):
+                        self.invoke(execute=True)
+                receipt = json.loads((self.out / 'receipt.json').read_text())
+                self.assertEqual(receipt['status'], 'FAILED')
+                self.assertEqual(receipt['child_returncode'], 0)
+                self.assertEqual(receipt['returncode'], 65)
+                self.assertEqual(
+                    (self.out / 'simulation_results.failed.bin').read_bytes(), raw)
+                self.assertFalse((self.out / 'simulation_results.json').exists())
+                self.assertEqual(
+                    runner.sha256(ROOT / runner.EXP / 'data/simulation_results.json'),
+                    self.original_sha)
+
     def test_success_exit_with_null_required_metric_is_quarantined(self):
         # A successful child exit is not sufficient when a required metric
         # is missing. Preserve the synthetic invalid payload, never publish

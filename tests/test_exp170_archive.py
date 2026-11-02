@@ -130,6 +130,28 @@ class ArchiveAuditTests(unittest.TestCase):
                 with self.assertRaisesRegex(ValueError, 'Non-finite or non-numeric metric'):
                     audit.validate_archive(archive, {'metric'})
 
+    def test_metric_domains_reject_impossible_success_payloads(self):
+        # Frozen compute_metrics(): all ratios/enrichments are nonnegative;
+        # edy_rate and l_onset_rate are counts divided by total words.
+        row = {'edy_rate': 0.25, 'l_onset_rate': 0.5,
+               'am_ll_enrichment': 2.5, 'edy_ol_ratio': 3.0}
+        archive = {c: [dict(row) for _ in range(100)] for c in audit.CONDITIONS}
+        audit.validate_archive(archive, set(row))  # Enrichments >1 are valid.
+        for key, value, message in (
+                ('am_ll_enrichment', -0.01, 'Negative EXP-170 metric'),
+                ('edy_ol_ratio', -1, 'Negative EXP-170 metric'),
+                ('edy_rate', -0.01, 'Negative EXP-170 metric'),
+                ('l_onset_rate', 1.0001, 'rate out of'),
+                ('edy_rate', 1.01, 'rate out of')):
+            with self.subTest(key=key, value=value):
+                archive['italian_A'][0][key] = value
+                with self.assertRaisesRegex(ValueError, message):
+                    audit.validate_archive(archive, set(row))
+                archive['italian_A'][0][key] = row[key]
+        archive['italian_A'][0]['edy_rate'] = 1.0
+        archive['italian_A'][0]['l_onset_rate'] = 0.0
+        audit.validate_archive(archive, set(row))  # Inclusive rate bounds.
+
     def test_null_only_allowed_for_paragraph_start_metric(self):
         # A nonempty compute_metrics() result always has numeric edy_rate.
         # A missing paragraph-start rate is the one legitimate nullable field.
