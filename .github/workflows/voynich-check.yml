@@ -807,6 +807,9 @@ jobs:
           BC_REPLAY_DIR: ${{ runner.temp }}/bc-replay-${{ github.run_id }}-${{ github.run_attempt }}
         run: python tests/test_common_battery.py
 
+      - name: Reproducir sensibilidad sintética y comprobar contextos redundantes
+        run: python research/analysis/2026-10-23-synthetic-sensitivity/replay.py
+
       - name: Auditar semántica histórica de removed en EXP-616
         run: |
           python -m unittest discover -s tests -p 'test_exp616_legacy_schema.py' -v
