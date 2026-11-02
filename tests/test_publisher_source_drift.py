@@ -233,8 +233,8 @@ class PublisherSourceDriftContract(unittest.TestCase):
     def test_boolean_and_negative_counts_are_rejected(self):
         for suffix, value in (("bool", True), ("negative", -1)):
             with self.subTest(value=value):
-                # Separate target paths permit both mutations in one repo
-                # without overwriting or altering the baseline.
+                # Each candidate is compared with the unchanged baseline;
+                # the prior invalid candidate also remains unsafe.
                 data = self.sample_output(590)
                 data["metrics"]["tokens"] = value
                 path = "research/experiments/2026-11-02-exp590-corrected-L-metadata.json"
