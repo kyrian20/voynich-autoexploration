@@ -210,10 +210,16 @@ def _validate_generated_schema(doc: dict, path: str) -> str | None:
             test = tests[variant]
             mean, sd = test.get("null_mean_initial"), test.get("null_sd_initial")
             statistic = test.get("observed_standardized_statistic")
+            # Each shuffled initial-position count is bounded by BOTH
+            # nonempty lines and this variant's total token occurrences.
+            # A pooled line-only bound admits impossible moments for rare
+            # variants (e.g. daiiin), even if z is internally consistent.
+            # This is a necessary arithmetic check, not null reproduction.
+            maximum = min(doc["lines"], row["occurrences"])
             if (any(type(x) not in (int, float) or not math.isfinite(x)
                     for x in (mean, sd, statistic))
-                    or not 0 <= mean <= doc["lines"] or sd < 0
-                    or sd * sd > mean * (doc["lines"] - mean) + 1e-8):
+                    or not 0 <= mean <= maximum or sd < 0
+                    or sd * sd > mean * (maximum - mean) + 1e-8):
                 return "invalid EXP-593 null moments/statistic"
             expected_statistic = ((row["line_initial"] - mean) / sd
                                   if sd else 0.0)
