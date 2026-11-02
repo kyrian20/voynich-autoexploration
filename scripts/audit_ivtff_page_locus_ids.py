@@ -135,6 +135,29 @@ def audit_text(text: str, *, include_locus_ids: bool = False) -> dict:
                         "reason": "structural locus tag after continuation slash",
                     })
                     continue
+            else:
+                # A slash-prefixed structural tag with a lost '<' must not
+                # disappear as an ordinary continuation. Require an explicit
+                # tag terminator or adjacent page metadata: free text such as
+                # /f2r commentary is not sufficient evidence of a page tag.
+                missing_page = (
+                    MISSING_OPEN_PAGE_RE.match(remainder)
+                    or MISSING_OPEN_COMMA_PAGE_RE.match(remainder)
+                    or MISSING_OPEN_PAGE_WITH_METADATA_RE.match(remainder)
+                )
+                if missing_page:
+                    malformed_headers.append({
+                        "line": line_no, "page": missing_page.group("page"),
+                        "reason": "missing opening < after continuation slash",
+                    })
+                    active_page = None
+                    continue
+                if MISSING_OPEN_MALFORMED_LOCUS_RE.match(remainder):
+                    malformed_records.append({
+                        "line": line_no, "raw": raw[:180],
+                        "reason": "missing opening < after continuation slash",
+                    })
+                    continue
             continuation_lines += 1
             continue
         if not raw.startswith("<"):
