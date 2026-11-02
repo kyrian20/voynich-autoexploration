@@ -696,6 +696,56 @@ def main() -> None:
             "malformed_record_count=1"
         ], (broken_record, report)
 
+    # A slash plus a damaged structural row must not hide the page boundary
+    # when the opening '<' is ALSO missing. The earlier slash guard only
+    # recognized rows whose remainder began with '<'.
+    for broken_page in (
+        "/f2r>", " /fRos>", "\t/ f86v4,>", " / f2r <! $L=B",
+    ):
+        report = audit_text(
+            "<f1r> <! $L=A>\n<f1r.1,@P0> daiin\n"
+            + broken_page + "\n<f1r.2,@P0> chedy\n"
+        )
+        assert report["page_header_count"] == 1, (broken_page, report)
+        assert report["record_count"] == 2, (broken_page, report)
+        assert report["malformed_header_count"] == 1, (broken_page, report)
+        assert report["page_mismatch_count"] == 1, (broken_page, report)
+        assert report["continuation_lines"] == 0, (broken_page, report)
+        assert report["malformed_headers"][0]["reason"] == (
+            "missing opening < after continuation slash"
+        ), (broken_page, report)
+        assert structural_errors(report) == [
+            "malformed_header_count=1", "page_mismatch_count=1"
+        ], (broken_page, report)
+
+    for broken_record in (
+        "/f1r.2,@P0> chedy", " /f1r.X,@P0> chedy",
+        "\t/ f1r.2x,@P0> chedy",
+    ):
+        report = audit_text(
+            "<f1r> <! $L=A>\n<f1r.1,@P0> daiin\n"
+            + broken_record + "\n"
+        )
+        assert report["record_count"] == 1, (broken_record, report)
+        assert report["malformed_record_count"] == 1, (broken_record, report)
+        assert report["continuation_lines"] == 0, (broken_record, report)
+        assert report["malformed_records"][0]["reason"] == (
+            "missing opening < after continuation slash"
+        ), (broken_record, report)
+        assert structural_errors(report) == [
+            "malformed_record_count=1"
+        ], (broken_record, report)
+
+    # Do not classify ordinary slash continuation text as a damaged tag
+    # merely because it contains a folio-looking word or punctuation.
+    benign = audit_text(
+        "<f1r> <! $L=A>\n<f1r.1,@P0> daiin\n"
+        "/f2r commentary\n /f1r.notes, ordinary prose\n"
+        "/<!free text> daiin\n/chedy\n"
+    )
+    assert benign["continuation_lines"] == 4, benign
+    assert structural_errors(benign) == [], benign
+
     # Preserve ordinary indented continuation text and inline comments.
     indented_continuations = audit_text(
         "<f1r> <! $L=A>\n<f1r.1,@P0> daiin\n"
