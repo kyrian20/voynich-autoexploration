@@ -22,9 +22,12 @@ SOURCES = [
 # Only ASCII decimal digits are valid in IVTFF numeric IDs. Python regex \d
 # also accepts Unicode numerals, which could masquerade as physical leaves.
 # Missing-opener detectors below deliberately remain broader for diagnostics.
-PAGE_RE = re.compile(r"^f(?:[0-9]+[rv][1-6]?|Ros)$")
+# Folio zero is not a physical Voynich leaf. Keep leading-zero aliases
+# admissible for diagnosis, but require at least one nonzero decimal digit.
+POSITIVE_LEAF = r"[0-9]*[1-9][0-9]*"
+PAGE_RE = re.compile(rf"^f(?:{POSITIVE_LEAF}[rv][1-6]?|Ros)$")
 LOCUS_RE = re.compile(
-    r"^(?P<page>f(?:[0-9]+[rv][1-6]?|Ros))\."
+    rf"^(?P<page>f(?:{POSITIVE_LEAF}[rv][1-6]?|Ros))\."
     # The previous [^;>] accepted spaces, tabs and Unicode lookalikes as
     # three-character locator codes (and as optional transcriber IDs).
     # Restrict this structural census to printable ASCII, excluding the
@@ -73,7 +76,10 @@ def physical_page_identity(page: str) -> tuple:
     match = re.fullmatch(r"f([0-9]+)([rv])([1-6]?)", page)
     if match is None:
         raise ValueError(f"Invalid physical page identity: {page}")
-    return ("numeric", int(match.group(1)), match.group(2), match.group(3))
+    leaf = int(match.group(1))
+    if leaf == 0:
+        raise ValueError(f"Folio zero is not a physical page: {page}")
+    return ("numeric", leaf, match.group(2), match.group(3))
 
 
 def audit_text(text: str, *, include_locus_ids: bool = False) -> dict:
