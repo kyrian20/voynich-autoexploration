@@ -410,6 +410,23 @@ class WordPairFrozenInputTests(unittest.TestCase):
                         reader(Path("/not/used"), source_text=source_text,
                                categories={"P"}, keep_empty=True)
 
+    def test_currier_metadata_rejects_malformed_field_keys(self):
+        # Regression: the old negative lookahead ignored $Lfoo, $L1=A and
+        # $L_foo, converting corrupted Currier declarations to unknown.
+        bad_payloads = (
+            "<! $Lfoo>", "<! $L1=A>", "<! $L_foo>",
+            "<! $LANG=A>", "<! $L>", "<! $Lfoo $L=A>",
+        )
+        for payload in bad_payloads:
+            source_text = f"<f1r> {payload}\n<f1r.1,@P0> daiin.daiin\n"
+            for reader in (audit.read_pages, audit.read_pages_legacy):
+                with self.subTest(reader=reader.__name__, payload=payload):
+                    with self.assertRaisesRegex(
+                        ValueError, "Invalid or duplicate IVTFF Currier"
+                    ):
+                        reader(Path("/not/used"), source_text=source_text,
+                               categories={"P"}, keep_empty=True)
+
     def test_currier_metadata_valid_and_absent_fields_preserve_identity(self):
         source_text = (
             "<f1r> <! $Q=A $I=T $L=B>\n"
