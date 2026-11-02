@@ -38,7 +38,10 @@ LOCUS_ID = re.compile(
 )
 LEGACY_TOKEN = re.compile(r"[a-z]+")
 # Currier language is $L, not $Q (quire). Reject valid prefixes of invalid fields.
-CURRIER_FIELD = re.compile(r"\$L(?![A-Za-z0-9_])[^ \t<>]*")
+# Capture every $L-prefixed field, including malformed key suffixes.
+# A negative lookahead for letters/digits silently hid $Lfoo or $L1=A,
+# incorrectly treating a corrupted Currier declaration as missing metadata.
+CURRIER_FIELD = re.compile(r"\$L[^ \t<>]*")
 
 
 def checked_currier_metadata(page_payload: str) -> str | None:
