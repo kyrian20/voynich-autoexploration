@@ -8,6 +8,8 @@ archived evidence, scripts and corpus files are not exempt.
 from __future__ import annotations
 
 import argparse
+import json
+import math
 import re
 import subprocess
 from pathlib import Path
@@ -20,6 +22,67 @@ _GENERATED_OUTPUT = re.compile(
     r"|exp_623_it2a_ch_sh_specificity_replication/(?:results\.json|result\.md)"
     r")\Z"
 )
+
+
+
+def _validate_new_generated_blob(repo: Path, object_id: bytes, path: str) -> str | None:
+    """Basic integrity gate, NOT scientific validation of a published result.
+
+    The Git tree mode check alone accepts an empty, corrupt or ambiguous blob
+    with an allowlisted filename. Read the *candidate commit's* blob rather
+    than the working tree, which can differ during a concurrent publication.
+    """
+    result = subprocess.run(
+        ["git", "cat-file", "blob", object_id.decode("ascii")],
+        cwd=repo, capture_output=True, check=False,
+    )
+    if result.returncode:
+        raise RuntimeError(
+            f"Cannot inspect generated output Git blob: {path}: "
+            f"{result.stderr.decode('utf-8', errors='replace').strip()}"
+        )
+    if not result.stdout.strip():
+        return "empty or whitespace-only output"
+    try:
+        text = result.stdout.decode("utf-8")
+    except UnicodeDecodeError:
+        return "non-UTF-8 output"
+    if path.endswith(".json"):
+        def unique_pairs(pairs):
+            value = {}
+            for key, item in pairs:
+                if key in value:
+                    raise ValueError(f"duplicate JSON key: {key}")
+                value[key] = item
+            return value
+
+        def invalid_constant(value):
+            raise ValueError(f"non-finite JSON constant: {value}")
+
+        try:
+            parsed = json.loads(
+                text, object_pairs_hook=unique_pairs,
+                parse_constant=invalid_constant,
+            )
+        except ValueError as exc:
+            return f"invalid or ambiguous JSON ({exc})"
+        if not isinstance(parsed, dict):
+            return "JSON root must be an object"
+
+        def finite_numbers(value):
+            if type(value) is float:
+                return math.isfinite(value)
+            if isinstance(value, dict):
+                return all(finite_numbers(item) for item in value.values())
+            if isinstance(value, list):
+                return all(finite_numbers(item) for item in value)
+            return True
+
+        # json.loads also accepts 1e999 as float('inf'), independently
+        # of parse_constant, so reject numeric overflow at any depth.
+        if not finite_numbers(parsed):
+            return "non-finite JSON number"
+    return None
 
 
 def changed_source_paths(repo: Path, baseline: str, candidate: str) -> list[str]:
@@ -90,6 +153,10 @@ def changed_source_paths(repo: Path, baseline: str, candidate: str) -> list[str]
                 ) from exc
             if mode != b"100644" or kind != b"blob":
                 changed.append(f"A unsafe Git mode/type ({mode.decode('ascii', errors='replace')}) {path}")
+                continue
+            problem = _validate_new_generated_blob(repo, _object_id, path)
+            if problem:
+                changed.append(f"A invalid generated output ({problem}) {path}")
             continue
         changed.append(f"{status} {path}")
     return changed

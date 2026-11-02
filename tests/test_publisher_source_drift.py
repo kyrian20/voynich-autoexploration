@@ -105,6 +105,69 @@ class PublisherSourceDriftContract(unittest.TestCase):
 
 
 
+
+    def test_new_allowlisted_empty_json_blocks_publication(self):
+        self.write("research/experiments/2026-11-02-exp590-corrected-L-metadata.json", "")
+        head = self.commit("concurrent empty generated JSON")
+        with self.assertRaisesRegex(RuntimeError, "empty or whitespace-only output"):
+            assert_no_source_drift(self.root, self.base, head)
+
+    def test_new_allowlisted_invalid_json_blocks_publication(self):
+        self.write("research/experiments/2026-11-02-exp593-corrected-L-metadata.json", '{"unfinished":')
+        head = self.commit("concurrent malformed generated JSON")
+        with self.assertRaisesRegex(RuntimeError, "invalid or ambiguous JSON"):
+            assert_no_source_drift(self.root, self.base, head)
+
+    def test_new_allowlisted_nested_duplicate_json_keys_blocks_publication(self):
+        self.write("research/experiments/2026-11-02-exp590-corrected-L-metadata.json",
+                   '{"metrics": {"n": 1, "n": 2}}')
+        head = self.commit("concurrent ambiguous generated JSON")
+        with self.assertRaisesRegex(RuntimeError, "duplicate JSON key"):
+            assert_no_source_drift(self.root, self.base, head)
+
+    def test_new_allowlisted_nonfinite_json_blocks_publication(self):
+        self.write("research/experiments/2026-11-02-exp590-corrected-L-metadata.json",
+                   '{"statistic": NaN}')
+        head = self.commit("concurrent non-finite generated JSON")
+        with self.assertRaisesRegex(RuntimeError, "non-finite JSON constant"):
+            assert_no_source_drift(self.root, self.base, head)
+
+    def test_new_allowlisted_overflow_json_blocks_publication(self):
+        # Python's json.loads turns a legal 1e999 token into float('inf').
+        self.write("research/experiments/2026-11-02-exp590-corrected-L-metadata.json",
+                   '{"nested": [{"statistic": 1e999}]}')
+        head = self.commit("concurrent overflowed generated JSON")
+        with self.assertRaisesRegex(RuntimeError, "non-finite JSON number"):
+            assert_no_source_drift(self.root, self.base, head)
+
+    def test_new_allowlisted_array_json_blocks_publication(self):
+        self.write("research/experiments/2026-11-02-exp590-corrected-L-metadata.json",
+                   '[{"metric": 1}]')
+        head = self.commit("concurrent wrong-root generated JSON")
+        with self.assertRaisesRegex(RuntimeError, "JSON root must be an object"):
+            assert_no_source_drift(self.root, self.base, head)
+
+    def test_new_allowlisted_blank_markdown_blocks_publication(self):
+        self.write("research/experiments/2026-11-02-exp590-corrected-L-metadata.md",
+                   "  \n  ")
+        head = self.commit("concurrent blank generated report")
+        with self.assertRaisesRegex(RuntimeError, "empty or whitespace-only output"):
+            assert_no_source_drift(self.root, self.base, head)
+
+    def test_new_allowlisted_non_utf8_json_blocks_publication(self):
+        target = self.root / "research/experiments/2026-11-02-exp590-corrected-L-metadata.json"
+        target.parent.mkdir(parents=True, exist_ok=True)
+        target.write_bytes(b'{"invalid": "\\xff"}' + b'\xff')
+        head = self.commit("concurrent non-UTF8 generated JSON")
+        with self.assertRaisesRegex(RuntimeError, "non-UTF-8 output"):
+            assert_no_source_drift(self.root, self.base, head)
+
+    def test_new_allowlisted_valid_markdown_remains_safe(self):
+        self.write("research/experiments/2026-11-02-exp590-corrected-L-metadata.md",
+                   "# Resultados\n\nDiagnóstico sin afirmación semántica.\n")
+        head = self.commit("concurrent valid generated report")
+        assert_no_source_drift(self.root, self.base, head)
+
     def test_new_known_exp622_output_is_safe(self):
         self.write("research/experiments/exp_622_ch_sh_specificity_interaction/results.json", "{}\n")
         head = self.commit("publisher added new exp622 output")
