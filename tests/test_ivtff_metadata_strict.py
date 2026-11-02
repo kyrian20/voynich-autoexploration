@@ -93,6 +93,28 @@ class DuplicateLanguageHeaders(unittest.TestCase):
                 with self.assertRaisesRegex(ValueError, r"Invalid Currier \$L on f1r at line 1"):
                     validate(path)
 
+    def test_malformed_currier_key_names_are_rejected(self):
+        # The old \\$L\\b guard ignored malformed names with a word suffix.
+        # None may be silently interpreted as absent or as valid $L=A/B.
+        for field in (
+            "$Lfoo", "$L1=A", "$L_foo", "$L=A $Ljunk",
+            "$Ljunk $L=A", "$Lfoo $Q=A",
+        ):
+            with self.subTest(field=field), tempfile.TemporaryDirectory() as d:
+                path = Path(d) / "fixture.ivtff"
+                path.write_text(f"<f1r> <! {field}>\\n", encoding="utf-8")
+                with self.assertRaisesRegex(
+                    ValueError, r"Invalid Currier \\$L on f1r at line 1"
+                ):
+                    validate(path)
+
+    def test_spaced_valid_currier_field_remains_supported(self):
+        with tempfile.TemporaryDirectory() as d:
+            path = Path(d) / "fixture.ivtff"
+            path.write_text("<f1r> <! $Q=A $L = B $I=C>\\n", encoding="utf-8")
+            report = validate(path)
+            self.assertEqual(report["folios_with_language"], 1)
+
     def test_invalid_assignment_cannot_erase_existing_valid_language(self):
         with tempfile.TemporaryDirectory() as d:
             path = Path(d) / "fixture.ivtff"
