@@ -221,9 +221,9 @@ class WordPairFrozenInputTests(unittest.TestCase):
         )
         for hidden in hidden_rows:
             source_text = (
-                "<f1r> <! $L=A>\\n"
-                + hidden + "\\n"
-                + "<f1r.1,@P0> daiin.daiin\\n"
+                "<f1r> <! $L=A>\n"
+                + hidden + "\n"
+                + "<f1r.1,@P0> daiin.daiin\n"
             )
             for reader in (audit.read_pages, audit.read_pages_legacy):
                 with self.subTest(reader=reader.__name__, hidden=hidden):
