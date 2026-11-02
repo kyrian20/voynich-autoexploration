@@ -179,6 +179,32 @@ def _validate_generated_schema(doc: dict, path: str) -> str | None:
                 or not isinstance(doc.get("interpretation"), str)
                 or not doc["interpretation"].strip()):
             return "invalid EXP-622/623 result fields"
+        # Every matched stratum contains at least one ch and one sh.
+        # A represented folio must contribute at least one matched stratum.
+        if (doc["matched_strata"] * 2 > doc["occurrences_with_two_neighbors"]
+                or doc["folios_in_matched_strata"] > doc["matched_strata"]):
+            return "inconsistent EXP-622/623 matched population"
+        # These are differences of rates in [0, 1], so each lies in [-1, 1].
+        # The interaction is their arithmetic difference, not an independent
+        # statistic that may be altered without changing its components.
+        next_key = "mean_matched_stratum_next_sh_minus_ch"
+        prev_key = "mean_matched_stratum_prev_sh_minus_ch"
+        for key in (next_key, prev_key):
+            value = doc.get(key)
+            if (type(value) not in (int, float) or not math.isfinite(value)
+                    or not -1 <= value <= 1):
+                return "invalid EXP-622/623 matched rate contrast"
+        if not math.isclose(
+                doc["interaction_next_minus_prev"],
+                doc[next_key] - doc[prev_key], rel_tol=0, abs_tol=1e-12):
+            return "inconsistent EXP-622/623 interaction components"
+        # The published scripts use the plus-one Monte Carlo p-value.
+        expected_p = ((doc["permutation_exceedances"] + 1)
+                      / (doc["permutation_replicates"] + 1))
+        if not math.isclose(
+                doc["two_sided_permutation_p"], expected_p,
+                rel_tol=0, abs_tol=1e-12):
+            return "inconsistent EXP-622/623 permutation p-value"
     return None
 
 
