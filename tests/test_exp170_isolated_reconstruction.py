@@ -302,7 +302,7 @@ class Exp170ReconstructionRunnerTests(unittest.TestCase):
                     return SimpleNamespace(stdout=b'', stderr=b'', returncode=0)
 
                 with patch.object(runner.subprocess, 'run', side_effect=synthetic_child):
-                    with self.assertRaisesRegex(RuntimeError, r'failed \\(65\\)'):
+                    with self.assertRaisesRegex(RuntimeError, r'failed \(65\)'):
                         self.invoke(execute=True)
                 receipt = json.loads((self.out / 'receipt.json').read_text())
                 self.assertEqual(receipt['status'], 'FAILED')
