@@ -794,6 +794,46 @@ def main() -> None:
         "<f1r> <! $L=A>\n<f1r.1,@P0;A> daiin\n"
     )) == []
 
+    # A UTF-8 BOM is permitted only as a file signature, removed by the
+    # command-line reader's utf-8-sig decoding. An embedded U+FEFF is NOT
+    # harmless whitespace: a BOM-prefixed page header previously vanished
+    # while the old page stayed active, allowing a stale-page locus through.
+    bom = "\ufeff"
+    base = "<f1r> <! $L=A>\n<f1r.1,@P0> daiin\n"
+    bom_boundary = audit_text(
+        base + bom + "<f2r> <! $L=B>\n<f1r.2,@P0> chedy\n"
+    )
+    assert bom_boundary["unexpected_bom_count"] == 1, bom_boundary
+    assert bom_boundary["unexpected_bom_rows"] == [
+        {"line": 3, "codepoint": "U+FEFF"}
+    ], bom_boundary
+    assert bom_boundary["page_header_count"] == 1, bom_boundary
+    assert bom_boundary["record_count"] == 2, bom_boundary
+    assert bom_boundary["page_mismatch_count"] == 1, bom_boundary
+    assert structural_errors(bom_boundary) == [
+        "unexpected_bom_count=1", "page_mismatch_count=1"
+    ], bom_boundary
+
+    # Reject contaminated loci and word payloads without counting them.
+    for contaminated in (
+        bom + "<f1r.2,@P0> chedy",
+        "<f1r.2,@P0> che" + bom + "dy",
+        "# comment" + bom + "inside",
+    ):
+        report = audit_text(base + contaminated + "\n<f1r.3,@P0> or\n")
+        assert report["unexpected_bom_count"] == 1, (contaminated, report)
+        assert report["record_count"] == 2, (contaminated, report)
+        assert report["page_mismatch_count"] == 1, (contaminated, report)
+        assert structural_errors(report) == [
+            "unexpected_bom_count=1", "page_mismatch_count=1"
+        ], (contaminated, report)
+
+    # A genuine initial UTF-8 signature is removed before audit_text, while
+    # a caller that passes raw U+FEFF directly must receive an explicit error.
+    signed = (bom + "<f1r>\n<f1r.1,@P0> daiin\n").encode("utf-8")
+    assert structural_errors(audit_text(signed.decode("utf-8-sig"))) == []
+    assert audit_text(signed.decode("utf-8"))["unexpected_bom_count"] == 1
+
     # Exercise the guard on the three original sources, without changing them.
     for label, source in SOURCES:
         report = audit_text(source.read_text(encoding="utf-8-sig"))
