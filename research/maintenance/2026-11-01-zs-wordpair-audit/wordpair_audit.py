@@ -163,6 +163,16 @@ def physical_ivtff_rows(text: str):
     for number, row in enumerate(text.replace("\r\n", "\n").replace("\r", "\n").split("\n"), 1):
         if any(character in NON_PHYSICAL_SEPARATORS for character in row):
             raise ValueError(f"Non-physical IVTFF separator in source row {number}")
+        # A continuation slash cannot hide a structural page/locus record.
+        # The canonical IVTFF structural auditor already flags these rows;
+        # both word-pair readers must fail closed instead of skipping them.
+        slash_row = row.lstrip(" \\t")
+        if slash_row.startswith("/"):
+            after_slash = slash_row[1:].lstrip(" \\t")
+            if after_slash.startswith("<f"):
+                raise ValueError(
+                    f"IVTFF structural tag after continuation slash in source row {number}"
+                )
         # Do not silently skip a displaced structural tag. Both readers
         # previously ignored indented <f...> records, including page changes.
         if row.lstrip(" \t") != row and row.lstrip(" \t").startswith("<f"):
