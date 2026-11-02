@@ -1,10 +1,13 @@
 """Regression for concurrent changes to historical evidence under output root."""
 from __future__ import annotations
 
+import json
 import subprocess
 import tempfile
 import unittest
 from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
 
 from scripts.check_publisher_source_drift import (
     assert_no_source_drift, changed_source_paths,
@@ -41,8 +44,22 @@ class PublisherSourceDriftContract(unittest.TestCase):
         self.git("commit", "-qm", message)
         return self.git("rev-parse", "HEAD").strip()
 
+
+    @staticmethod
+    def sample_output(exp):
+        # Real, frozen publisher output is a stronger positive control than
+        # an invented JSON fixture with an accidentally permissive schema.
+        paths = {
+            590: "2026-11-02-exp590-corrected-L-metadata.json",
+            593: "2026-11-02-exp593-corrected-L-metadata.json",
+            622: "exp_622_ch_sh_specificity_interaction/results.json",
+            623: "exp_623_it2a_ch_sh_specificity_replication/results.json",
+        }
+        return json.loads((ROOT / "research/experiments" / paths[exp]).read_text(encoding="utf-8"))
+
     def test_new_known_dated_output_is_safe(self):
-        self.write("research/experiments/2026-10-30-exp590-corrected-L-metadata.json", '{"value": 2}\n')
+        self.write("research/experiments/2026-10-30-exp590-corrected-L-metadata.json",
+                   json.dumps(self.sample_output(590)))
         head = self.commit("another publisher updated an output")
         self.assertEqual(changed_source_paths(self.root, self.base, head), [])
         assert_no_source_drift(self.root, self.base, head)
@@ -169,9 +186,89 @@ class PublisherSourceDriftContract(unittest.TestCase):
         assert_no_source_drift(self.root, self.base, head)
 
     def test_new_known_exp622_output_is_safe(self):
-        self.write("research/experiments/exp_622_ch_sh_specificity_interaction/results.json", "{}\n")
+        self.write("research/experiments/exp_622_ch_sh_specificity_interaction/results.json",
+                   json.dumps(self.sample_output(622)))
         head = self.commit("publisher added new exp622 output")
         assert_no_source_drift(self.root, self.base, head)
+
+
+    def test_all_four_published_json_schemas_are_accepted(self):
+        outputs = {
+            590: "2026-11-02-exp590-corrected-L-metadata.json",
+            593: "2026-11-02-exp593-corrected-L-metadata.json",
+            622: "exp_622_ch_sh_specificity_interaction/results.json",
+            623: "exp_623_it2a_ch_sh_specificity_replication/results.json",
+        }
+        for exp, name in outputs.items():
+            self.write("research/experiments/" + name,
+                       json.dumps(self.sample_output(exp)))
+        head = self.commit("four valid publisher artifacts")
+        self.assertEqual(changed_source_paths(self.root, self.base, head), [])
+
+    def test_empty_json_object_is_not_safe_generated_output(self):
+        # Formerly a root object, including {}, passed the drift exemption.
+        self.write("research/experiments/2026-11-02-exp590-corrected-L-metadata.json", "{}")
+        head = self.commit("empty JSON object")
+        with self.assertRaisesRegex(RuntimeError, "wrong or missing experiment identity"):
+            assert_no_source_drift(self.root, self.base, head)
+
+    def test_wrong_experiment_identity_is_rejected(self):
+        data = self.sample_output(590)
+        data["experiment"] = "EXP-593"
+        self.write("research/experiments/2026-11-02-exp590-corrected-L-metadata.json",
+                   json.dumps(data))
+        head = self.commit("wrong experiment identity")
+        with self.assertRaisesRegex(RuntimeError, "wrong or missing experiment identity"):
+            assert_no_source_drift(self.root, self.base, head)
+
+    def test_wrong_source_hash_is_rejected(self):
+        data = self.sample_output(593)
+        data["source_sha256"] = "0" * 64
+        self.write("research/experiments/2026-11-02-exp593-corrected-L-metadata.json",
+                   json.dumps(data))
+        head = self.commit("wrong source hash")
+        with self.assertRaisesRegex(RuntimeError, "pinned corpus provenance"):
+            assert_no_source_drift(self.root, self.base, head)
+
+    def test_boolean_and_negative_counts_are_rejected(self):
+        for suffix, value in (("bool", True), ("negative", -1)):
+            with self.subTest(value=value):
+                # Each candidate is compared with the unchanged baseline;
+                # the prior invalid candidate also remains unsafe.
+                data = self.sample_output(590)
+                data["metrics"]["tokens"] = value
+                path = "research/experiments/2026-11-02-exp590-corrected-L-metadata.json"
+                self.write(path, json.dumps(data))
+                head = self.commit("invalid " + suffix + " token count")
+                with self.assertRaisesRegex(RuntimeError, "invalid EXP-590 count fields"):
+                    assert_no_source_drift(self.root, self.base, head)
+
+    def test_exp593_missing_variant_result_is_rejected(self):
+        data = self.sample_output(593)
+        del data["tests"]["dain"]
+        self.write("research/experiments/2026-11-02-exp593-corrected-L-metadata.json",
+                   json.dumps(data))
+        head = self.commit("missing variant result")
+        with self.assertRaisesRegex(RuntimeError, "variant/test coverage"):
+            assert_no_source_drift(self.root, self.base, head)
+
+    def test_exp622_out_of_range_p_is_rejected(self):
+        data = self.sample_output(622)
+        data["two_sided_permutation_p"] = 1.5
+        self.write("research/experiments/exp_622_ch_sh_specificity_interaction/results.json",
+                   json.dumps(data))
+        head = self.commit("impossible p value")
+        with self.assertRaisesRegex(RuntimeError, "invalid EXP-622/623 result fields"):
+            assert_no_source_drift(self.root, self.base, head)
+
+    def test_exp623_missing_counts_is_rejected(self):
+        data = self.sample_output(623)
+        del data["matched_strata"]
+        self.write("research/experiments/exp_623_it2a_ch_sh_specificity_replication/results.json",
+                   json.dumps(data))
+        head = self.commit("missing count")
+        with self.assertRaisesRegex(RuntimeError, "invalid EXP-622/623 result fields"):
+            assert_no_source_drift(self.root, self.base, head)
 
     def test_historical_erratum_edit_blocks(self):
         self.write("research/experiments/2026-10-20-exp590-erratum.md", "rewritten correction\n")
