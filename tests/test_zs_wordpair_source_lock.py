@@ -259,6 +259,34 @@ class WordPairFrozenInputTests(unittest.TestCase):
             audit.audit_page_half_leakage([pages[0], pages[-1]]),
         )
 
+    def test_metric_rejects_empty_pairs_and_missing_half_before_simulation(self):
+        # A small synthetic view must not produce a numeric-looking receipt
+        # with no eligible pairs or no text in the second page-block half.
+        single_half = [{"id": "f1r", "lines": [["daiin", "qokedy", "chedy", "otol"]]}]
+        with self.assertRaisesRegex(ValueError, "Both page halves must contain text lines"):
+            audit.metric(single_half, shuffles=1, top_k=4)
+
+        def both_halves(tokens):
+            return ([{"id": "f1r", "lines": [tokens]}]
+                    + [{"id": f"f{i}r", "lines": []} for i in range(2, 11)]
+                    + [{"id": "f11r", "lines": [tokens]}])
+
+        with self.assertRaisesRegex(ValueError, "No eligible word pairs"):
+            audit.metric(both_halves(["daiin"]), shuffles=1, top_k=1)
+
+    def test_metric_rejects_singular_and_undefined_correlations(self):
+        # Two eligible types produce a rank-deficient additive-effect design;
+        # three fully connected types have zero residual degrees of freedom.
+        def both_halves(tokens):
+            return ([{"id": "f1r", "lines": [tokens]}]
+                    + [{"id": f"f{i}r", "lines": []} for i in range(2, 11)]
+                    + [{"id": "f11r", "lines": [tokens]}])
+
+        with self.assertRaisesRegex(ValueError, "rank deficient"):
+            audit.metric(both_halves(["daiin", "qokedy"]), shuffles=1, top_k=2)
+        with self.assertRaisesRegex(ValueError, "Undefined/nonfinite word-pair correlation"):
+            audit.metric(both_halves(["daiin", "qokedy", "chedy"]), shuffles=1, top_k=3)
+
     def test_metric_rejects_empty_or_malformed_shuffle_counts(self):
         # A zero or negative shuffle count previously left expected pair
         # counts at zero, yet still entered the statistical calculation.

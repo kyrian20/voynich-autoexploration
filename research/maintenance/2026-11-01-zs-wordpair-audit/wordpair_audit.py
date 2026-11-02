@@ -360,7 +360,10 @@ def additive_residual(matrix, n, pair_idx):
         design[j, i] += 1.0
         rhs[i] += matrix[i][j]
         rhs[j] += matrix[i][j]
-    alpha = np.linalg.solve(design, rhs)
+    try:
+        alpha = np.linalg.solve(design, rhs)
+    except np.linalg.LinAlgError as exc:
+        raise ValueError("Eligible-pair propensity design is rank deficient") from exc
     out = [[0.0] * n for _ in range(n)]
     for i, j in pair_idx:
         out[i][j] = out[j][i] = matrix[i][j] - alpha[i] - alpha[j]
@@ -394,10 +397,15 @@ def metric(pages, *, seed=20261101, shuffles=20, top_k=300,
             allowed[j][i] = True
             pair_idx.append((i, j))
 
+    if not pair_idx:
+        raise ValueError("No eligible word pairs for word-pair metric")
+
     halves = [[], []]
     for page_index, page in enumerate(pages):
         half = (page_index // 10) % 2
         halves[half].append((page_index, page))
+    if any(not any(page["lines"] for _, page in half) for half in halves):
+        raise ValueError("Both page halves must contain text lines")
     observed = [[[0] * n for _ in range(n)] for _ in range(2)]
     for h in range(2):
         for _, page in halves[h]:
@@ -437,21 +445,28 @@ def metric(pages, *, seed=20261101, shuffles=20, top_k=300,
     raw_b = [z[1][i][j] for i, j in pair_idx]
     res_a = [residual[0][i][j] for i, j in pair_idx]
     res_b = [residual[1][i][j] for i, j in pair_idx]
+    scores = {
+        "raw": spearman(raw_a, raw_b),
+        "additive_residual": spearman(res_a, res_b),
+        "residual_pearson": pearson(res_a, res_b),
+    }
+    if not all(math.isfinite(value) for value in scores.values()):
+        raise ValueError("Undefined/nonfinite word-pair correlation: insufficient score variation")
     return {
         "n_pages": len(pages), "n_lines": len(all_lines), "n_tokens": sum(map(len, all_lines)),
         "n_types": n, "n_eligible_pairs": len(pair_idx), "shuffles": shuffles, "seed": seed,
         "split": "alternating blocks of 10 pages in source order",
         "split_diagnostics": split_diagnostics,
-        "score_raw_spearman": spearman(raw_a, raw_b),
-        "score_additive_propensity_residual_spearman": spearman(res_a, res_b),
-        "score_pearson_residuals": pearson(res_a, res_b),
+        "score_raw_spearman": scores["raw"],
+        "score_additive_propensity_residual_spearman": scores["additive_residual"],
+        "score_pearson_residuals": scores["residual_pearson"],
         "implementation_choices": {
             "top_k_tie_break": "frequency descending, EVA token ascending",
             "near_copy_exclusion": "EVA glyph-level word-type Levenshtein distance <= 1",
             "word_view": "uncertain spaces split; primary alternatives; expand ligatures",
             "shuffle": "uniform permutation of interior tokens across all lines within each page; line endpoints fixed",
             "propensity_removal": "OLS additive word effects alpha_i + alpha_j fitted separately per half",
-            "shuffled_expected": "mean co-line counts across 20 randomizations; same fixed global vocabulary",
+            "shuffled_expected": f"mean co-line counts across {shuffles} randomizations; same fixed global vocabulary",
             "physical_leaf_independence": "not guaranteed for historical page blocks; inspect split_diagnostics",
         },
     }
