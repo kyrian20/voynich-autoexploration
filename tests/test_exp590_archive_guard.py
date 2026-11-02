@@ -83,6 +83,38 @@ class Exp590ArchiveGuardTests(unittest.TestCase):
         with self.assertRaisesRegex(RuntimeError, "impossible"):
             self.check()
 
+    def test_null_mean_above_target_support_is_rejected(self):
+        def mutate(data):
+            data["permutation_test"]["null_mean_initial_lines"] = (
+                data["metrics"]["target_occurrences"] + 1)
+        self.edit_json(mutate)
+        with self.assertRaisesRegex(RuntimeError, "inconsistent null statistics"):
+            self.check()
+
+    def test_null_sd_above_bounded_variance_is_rejected(self):
+        self.edit_json(
+            lambda data: data["permutation_test"].__setitem__(
+                "null_sd_initial_lines", 10000.0))
+        with self.assertRaisesRegex(RuntimeError, "inconsistent null statistics"):
+            self.check()
+
+    def test_null_mean_report_mismatch_is_rejected(self):
+        # The mutated moment is feasible but disagrees with the frozen MD.
+        self.edit_json(
+            lambda data: data["permutation_test"].__setitem__(
+                "null_mean_initial_lines",
+                data["permutation_test"]["null_mean_initial_lines"] + 1))
+        with self.assertRaisesRegex(RuntimeError, "report disagrees"):
+            self.check()
+
+    def test_null_sd_report_mismatch_is_rejected(self):
+        self.edit_json(
+            lambda data: data["permutation_test"].__setitem__(
+                "null_sd_initial_lines",
+                data["permutation_test"]["null_sd_initial_lines"] + 1))
+        with self.assertRaisesRegex(RuntimeError, "report disagrees"):
+            self.check()
+
     def test_existing_destination_is_not_overwritten(self):
         before = [p.read_bytes() for p in self.paths]
         with self.assertRaises(FileExistsError):
