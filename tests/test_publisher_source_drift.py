@@ -132,6 +132,14 @@ class PublisherSourceDriftContract(unittest.TestCase):
         with self.assertRaisesRegex(RuntimeError, "non-finite JSON constant"):
             assert_no_source_drift(self.root, self.base, head)
 
+    def test_new_allowlisted_overflow_json_blocks_publication(self):
+        # Python's json.loads turns a legal 1e999 token into float('inf').
+        self.write("research/experiments/2026-11-02-exp590-corrected-L-metadata.json",
+                   '{"nested": [{"statistic": 1e999}]}')
+        head = self.commit("concurrent overflowed generated JSON")
+        with self.assertRaisesRegex(RuntimeError, "non-finite JSON number"):
+            assert_no_source_drift(self.root, self.base, head)
+
     def test_new_allowlisted_array_json_blocks_publication(self):
         self.write("research/experiments/2026-11-02-exp590-corrected-L-metadata.json",
                    '[{"metric": 1}]')
