@@ -154,7 +154,7 @@ class Exp593ArchiveGuardTest(unittest.TestCase):
             ('"experiment": "EXP-593"',
              '"experiment": "EXP-593", "experiment": "EXP-593"'),
             ('"occurrences": 3',
-             '"occurrences": 3, "occurrences": 999'),
+             '"occurrences": 999, "occurrences": 3'),
         ):
             with self.subTest(field=original):
                 self.store()
