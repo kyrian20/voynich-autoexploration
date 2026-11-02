@@ -83,6 +83,21 @@ def _validate_generated_schema(doc: dict, path: str) -> str | None:
                 or metrics["line_final_occurrences"] >
                     min(metrics["target_occurrences"], metrics["lines"])):
             return "inconsistent EXP-590 aggregate counts"
+        # Rates are derived from the same frozen counts, not independent
+        # publisher measurements. A type-valid but altered rate is unsafe.
+        occurrences = metrics["target_occurrences"]
+        for key, numerator in (
+            ("initial_rate_per_target_occurrence", metrics["line_initial_occurrences"]),
+            ("final_rate_per_target_occurrence", metrics["line_final_occurrences"]),
+        ):
+            expected = numerator / occurrences if occurrences else None
+            value = metrics.get(key)
+            if expected is None:
+                if value is not None:
+                    return "inconsistent EXP-590 positional rates"
+            elif (type(value) not in (int, float) or not math.isfinite(value)
+                  or not math.isclose(value, expected, rel_tol=0, abs_tol=1e-12)):
+                return "inconsistent EXP-590 positional rates"
         currier = metrics.get("currier")
         groups = ("A", "B", "unknown")
         fields = ("target_occurrences", "line_initial_lines",
@@ -112,6 +127,21 @@ def _validate_generated_schema(doc: dict, path: str) -> str | None:
                 or not count(perm, "seed")
                 or not probability(perm, "empirical_one_sided_p")):
             return "invalid EXP-590 permutation fields"
+        # The producer uses a plus-one Monte Carlo tail estimate. Require
+        # its archived exceedance count and finite, bounded null moments.
+        ge = perm.get("null_ge_observed")
+        mean = perm.get("null_mean_initial_lines")
+        sd = perm.get("null_sd_initial_lines")
+        if (not count(perm, "null_ge_observed")
+                or ge > perm["permutations"]
+                or any(type(x) not in (int, float) or not math.isfinite(x)
+                       for x in (mean, sd))
+                or not 0 <= mean <= metrics["lines"] or sd < 0):
+            return "invalid EXP-590 null distribution fields"
+        expected_p = (ge + 1) / (perm["permutations"] + 1)
+        if not math.isclose(perm["empirical_one_sided_p"], expected_p,
+                            rel_tol=0, abs_tol=1e-12):
+            return "inconsistent EXP-590 permutation p-value"
     elif exp == "EXP-593":
         variants, observed, tests = doc.get("variants"), doc.get("observed"), doc.get("tests")
         if (not isinstance(variants, list) or not variants
