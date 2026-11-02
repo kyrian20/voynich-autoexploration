@@ -243,6 +243,10 @@ def run_reconstruction(root, naibbe_dir, italian, hashes, out_dir, execute=False
         receipt["status"] = "FAILED"
         if returncode == 0:
             try:
+                # A concurrent checkout edit must not redefine the frozen
+                # schema or be mistaken for the inputs used at preflight.
+                # Recheck before rereading the historical archive.
+                verify_frozen_inputs(root)
                 if not staged_output.is_file() or staged_output.is_symlink():
                     raise ValueError("Simulator reported success but did not create a regular output")
                 raw = staged_output.read_bytes()
