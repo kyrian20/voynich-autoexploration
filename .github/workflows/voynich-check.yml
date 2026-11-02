@@ -2,6 +2,12 @@ name: Voynich Check
 
 on:
   workflow_dispatch:
+    inputs:
+      run_line_boundary_replication:
+        description: 'Ejecutar explícitamente la réplica científica (no en PR ni push)'
+        type: boolean
+        required: false
+        default: false
   push:
     branches:
       - master
@@ -25,6 +31,11 @@ jobs:
 
       - name: Instalar lector YAML para auditoría operativa
         run: python -m pip install PyYAML==6.0.3 Pillow==12.3.0 numpy==2.2.6
+
+      - name: Probar puerta de ejecución explícita del predictor (sin ejecutar ciencia)
+        run: |
+          python -m unittest discover -s tests -p 'test_line_boundary_ci_optin.py' -v
+          python -O -m unittest discover -s tests -p 'test_line_boundary_ci_optin.py' -v
 
       - name: Probar diagnóstico Gemini con transporte simulado (sin red)
         run: python -m unittest discover -s tests -p 'test_gemini_smoke.py' -v
@@ -506,6 +517,87 @@ jobs:
       - name: Verificar reparación de rutas sin cambios de algoritmo
         run: python scripts/audit_legacy_portability.py
 
+      - name: Impedir falsos límites entre loci P con números omitidos
+        run: |
+          python -m unittest discover -s tests -p 'test_line_boundary_locus_ordinal_gaps.py' -v
+          python -O -m unittest discover -s tests -p 'test_line_boundary_locus_ordinal_gaps.py' -v
+
+      - name: Rechazar divisiones ficticias por símbolos EVA no adjudicados
+        run: |
+          python -m unittest discover -s tests -p 'test_line_boundary_unsupported_symbols.py' -v
+          python -O -m unittest discover -s tests -p 'test_line_boundary_unsupported_symbols.py' -v
+
+      - name: Verificar que etiquetas IVTFF no crean falsos espacios de palabra
+        run: |
+          python -m unittest discover -s tests -p 'test_line_boundary_inline_text_tags.py' -v
+          python -O -m unittest discover -s tests -p 'test_line_boundary_inline_text_tags.py' -v
+
+      - name: Rechazar etiquetas angulares IVTFF desconocidas sin inventar espacios
+        run: |
+          python -m unittest discover -s tests -p 'test_line_boundary_unknown_inline_tags.py' -v
+          python -O -m unittest discover -s tests -p 'test_line_boundary_unknown_inline_tags.py' -v
+
+      - name: Evitar palabras ficticias dentro de llaves IVTFF
+        run: |
+          python -m unittest discover -s tests -p 'test_line_boundary_brace_spans.py' -v
+          python -O -m unittest discover -s tests -p 'test_line_boundary_brace_spans.py' -v
+
+      - name: Cuantificar sensibilidad de ligaduras ASCII sin evaluar hojas reservadas
+        run: |
+          python -m unittest discover -s tests -p 'test_line_boundary_ligature_sensitivity.py' -v
+          python -O -m unittest discover -s tests -p 'test_line_boundary_ligature_sensitivity.py' -v
+
+      - name: Rechazar etiquetas IVTFF cerradas pero malformadas sin inventar palabras
+        run: |
+          python -m unittest discover -s tests -p 'test_line_boundary_invalid_inline_tags.py' -v
+          python -O -m unittest discover -s tests -p 'test_line_boundary_invalid_inline_tags.py' -v
+
+      - name: Impedir JSON no estándar y sobrescritura de resultados de límites de línea
+        run: |
+          python -m unittest discover -s tests -p 'test_line_boundary_strict_json.py' -v
+          python -O -m unittest discover -s tests -p 'test_line_boundary_strict_json.py' -v
+
+      - name: Comprobar publicación atómica y exclusiva de resultados de límites de línea
+        run: |
+          python -m unittest discover -s tests -p 'test_line_boundary_atomic_publication.py' -v
+          python -O -m unittest discover -s tests -p 'test_line_boundary_atomic_publication.py' -v
+
+
+      - name: Respetar marcadores IVTFF de inicio y fin de párrafo en límites de línea
+        run: |
+          python -m unittest discover -s tests -p 'test_line_boundary_paragraph_markers.py' -v
+          python -O -m unittest discover -s tests -p 'test_line_boundary_paragraph_markers.py' -v
+
+      - name: Rechazar anotaciones IVTFF malformadas en límites de línea
+        run: |
+          python -m unittest discover -s tests -p 'test_line_boundary_malformed_markup.py' -v
+          python -O -m unittest discover -s tests -p 'test_line_boundary_malformed_markup.py' -v
+
+      - name: Probar contrato de incertidumbre de réplica de límites de línea
+        run: |
+          python -m unittest discover -s tests -p 'test_line_boundary_uncertainty_contract.py' -v
+          python -O -m unittest discover -s tests -p 'test_line_boundary_uncertainty_contract.py' -v
+
+      - name: Rechazar adyacencias artificiales entre loci P intercalados
+        run: |
+          python -m unittest discover -s tests -p 'test_line_boundary_interposed_loci.py' -v
+          python -O -m unittest discover -s tests -p 'test_line_boundary_interposed_loci.py' -v
+
+      - name: Rechazar falsos límites de línea en continuaciones IVTFF
+        run: |
+          python -m unittest discover -s tests -p 'test_line_boundary_slash_continuation.py' -v
+          python -O -m unittest discover -s tests -p 'test_line_boundary_slash_continuation.py' -v
+
+      - name: Probar AP de límites de línea con empates
+        run: |
+          python -m unittest discover -s tests -p 'test_line_boundary_ap_ties.py' -v
+          python -O -m unittest discover -s tests -p 'test_line_boundary_ap_ties.py' -v
+
+      - name: Probar prior binario del clasificador de límites de línea
+        run: |
+          python -m unittest discover -s tests -p 'test_line_boundary_nb_prior.py' -v
+          python -O -m unittest discover -s tests -p 'test_line_boundary_nb_prior.py' -v
+
       - name: Probar capa léxica IVTFF sin pérdida
         run: python tests/test_ivtff_lossless.py
 
@@ -823,3 +915,62 @@ jobs:
             exp616-schema-correction.sha256
           if-no-files-found: error
           retention-days: 90
+
+      - name: Conservar incertidumbre de espacios con coma IVTFF en límites de línea
+        run: |
+          python -m unittest discover -s tests -p 'test_line_boundary_uncertain_comma.py' -v
+          python -O -m unittest discover -s tests -p 'test_line_boundary_uncertain_comma.py' -v
+
+      - name: Auditar interrogaciones IVTFF reales y barreras del predictor
+        run: |
+          python -m unittest discover -s tests -p 'test_line_boundary_question_mark_scope.py' -v 2>&1 | tee line-boundary-question-normal.log
+          python -O -m unittest discover -s tests -p 'test_line_boundary_question_mark_scope.py' -v 2>&1 | tee line-boundary-question-optimized.log
+          sha256sum line-boundary-question-normal.log line-boundary-question-optimized.log > line-boundary-question-logs.sha256
+
+      - name: Conservar logs y hashes de auditoría de interrogaciones IVTFF
+        uses: actions/upload-artifact@v4
+        with:
+          name: line-boundary-question-scope-${{ github.run_id }}
+          path: |
+            line-boundary-question-normal.log
+            line-boundary-question-optimized.log
+            line-boundary-question-logs.sha256
+          if-no-files-found: error
+          retention-days: 90
+
+      - name: Conciliar población bajo políticas de coma sin evaluar folios
+        run: |
+          python -m unittest discover -s tests -p 'test_line_boundary_comma_population.py' -v 2>&1 | tee line-boundary-comma-normal.log
+          python -O -m unittest discover -s tests -p 'test_line_boundary_comma_population.py' -v 2>&1 | tee line-boundary-comma-optimized.log
+          python research/analysis/2026-10-28-line-boundary-reproduction/audit_comma_population.py --check > line-boundary-comma-population.json
+          sha256sum line-boundary-comma-normal.log line-boundary-comma-optimized.log line-boundary-comma-population.json > line-boundary-comma.sha256
+
+      - name: Conservar auditoría de población, logs y hashes
+        uses: actions/upload-artifact@v4
+        with:
+          name: line-boundary-comma-population-${{ github.run_id }}
+          path: |
+            line-boundary-comma-normal.log
+            line-boundary-comma-optimized.log
+            line-boundary-comma-population.json
+            line-boundary-comma.sha256
+          if-no-files-found: error
+          retention-days: 90
+
+      - name: Recalcular réplica corregida de límites de línea
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.run_line_boundary_replication == true }}
+        run: |
+          python research/analysis/2026-10-28-line-boundary-reproduction/line_boundary_replication.py
+          sha256sum research/analysis/2026-10-28-line-boundary-reproduction/line_boundary_results.json > line-boundary-replication.sha256
+
+      - name: Conservar salida nueva de réplica corregida
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.run_line_boundary_replication == true }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: line-boundary-replication-${{ github.run_id }}
+          path: |
+            research/analysis/2026-10-28-line-boundary-reproduction/line_boundary_results.json
+            line-boundary-replication.sha256
+          if-no-files-found: error
+          retention-days: 90
+
