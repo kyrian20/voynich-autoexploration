@@ -4,7 +4,7 @@
 
 ## Defecto verificable
 
-`scripts/check_publisher_source_drift.py` permite ignorar, durante el rebase del publicador, una adición en `master` si su nombre coincide con uno de los ocho outputs programados y el modo Git es `100644`. Antes de esta reparación, **no examinaba los bytes** del blob. Un archivo vacío, JSON truncado, JSON con claves duplicadas o `NaN` podía pasar como una adición inocua. El permiso de rebase no certifica su contenido, pero debe fallar ante corrupción básica en lugar de eximirla.
+`scripts/check_publisher_source_drift.py` permite ignorar, durante el rebase del publicador, una adición en `master` si su nombre coincide con uno de los ocho outputs programados y el modo Git es `100644`. Antes de esta reparación, **no examinaba los bytes** del blob. Un archivo vacío, JSON truncado, JSON con claves duplicadas, `NaN` o desbordamiento numérico `1e999` podía pasar como una adición inocua. El permiso de rebase no certifica su contenido, pero debe fallar ante corrupción básica en lugar de eximirla.
 
 ## Criterio de regresión
 
@@ -13,9 +13,9 @@ Una adición concurrente con nombre permitido y modo `100644` debe **bloquear** 
 ## Reparación
 
 - Se leen los bytes del **blob del commit candidato** mediante `git cat-file blob <object-id>`, no los del árbol de trabajo susceptible de carreras.
-- JSON: UTF-8, objeto raíz, claves únicas incluso anidadas, sin `NaN`/`Infinity`. Markdown: UTF-8 y contenido no blanco. No se interpretan métricas, procedencia ni esquemas científicos.
+- JSON: UTF-8, objeto raíz, claves únicas incluso anidadas, sin `NaN`/`Infinity` ni números desbordados a infinito. Markdown: UTF-8 y contenido no blanco. No se interpretan métricas, procedencia ni esquemas científicos.
 - La comprobación existente de modo `100644` sigue precediendo a la lectura.
-- Ocho nuevas pruebas sintéticas, seis rechazos de JSON, uno de Markdown y un control positivo Markdown; se mantienen los controles anteriores de Git, ancestros, symlinks, edición y contenido válido.
+- Nueve nuevas pruebas sintéticas, siete rechazos de JSON, uno de Markdown y un control positivo Markdown; se mantienen los controles anteriores de Git, ancestros, symlinks, edición y contenido válido.
 
 ## Reproducción
 
