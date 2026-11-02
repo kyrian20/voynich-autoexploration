@@ -806,8 +806,8 @@ def main() -> None:
     # A damaged boundary must invalidate the previously active page.
     for zero_page in ("f0r", "f00v", "f000r2"):
         report = audit_text(
-            "<f1r> <! $L=A>\\n<f1r.1,@P0> daiin\\n"
-            + f"<{zero_page}> <! $L=A>\\n<f1r.2,@P0> chedy\\n"
+            "<f1r> <! $L=A>\n<f1r.1,@P0> daiin\n"
+            + f"<{zero_page}> <! $L=A>\n<f1r.2,@P0> chedy\n"
         )
         assert report["page_header_count"] == 1, (zero_page, report)
         assert report["record_count"] == 2, (zero_page, report)
@@ -818,8 +818,8 @@ def main() -> None:
         ], (zero_page, report)
 
         locus = audit_text(
-            "<f1r> <! $L=A>\\n<f1r.1,@P0> daiin\\n"
-            + f"<{zero_page}.2,@P0> chedy\\n"
+            "<f1r> <! $L=A>\n<f1r.1,@P0> daiin\n"
+            + f"<{zero_page}.2,@P0> chedy\n"
         )
         assert locus["record_count"] == 1, (zero_page, locus)
         assert locus["malformed_record_count"] == 1, (zero_page, locus)
@@ -827,7 +827,7 @@ def main() -> None:
 
     # Preserve positive folios and zero-padded aliases of positive folios.
     positive_alias = audit_text(
-        "<f0001r> <! $L=A>\\n<f0001r.1,@P0> daiin\\n"
+        "<f0001r> <! $L=A>\n<f0001r.1,@P0> daiin\n"
     )
     assert structural_errors(positive_alias) == [], positive_alias
 
