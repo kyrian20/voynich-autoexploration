@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import math
 import re
 import subprocess
 from pathlib import Path
@@ -67,6 +68,20 @@ def _validate_new_generated_blob(repo: Path, object_id: bytes, path: str) -> str
             return f"invalid or ambiguous JSON ({exc})"
         if not isinstance(parsed, dict):
             return "JSON root must be an object"
+
+        def finite_numbers(value):
+            if type(value) is float:
+                return math.isfinite(value)
+            if isinstance(value, dict):
+                return all(finite_numbers(item) for item in value.values())
+            if isinstance(value, list):
+                return all(finite_numbers(item) for item in value)
+            return True
+
+        # json.loads also accepts 1e999 as float('inf'), independently
+        # of parse_constant, so reject numeric overflow at any depth.
+        if not finite_numbers(parsed):
+            return "non-finite JSON number"
     return None
 
 
