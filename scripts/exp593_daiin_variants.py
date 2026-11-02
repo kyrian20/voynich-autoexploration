@@ -44,6 +44,21 @@ def archive_paths(date):
             OUT / f"{date}-exp593-corrected-L-metadata.md")
 
 
+def _unique_json_pairs(pairs):
+    """Reject duplicate keys at any JSON depth before archive adjudication.
+
+    Python's default json.loads silently keeps the last occurrence, so an
+    archived result with conflicting repeated statistics could be mistaken
+    for the uniquely specified historical output.
+    """
+    result = {}
+    for key, value in pairs:
+        if key in result:
+            raise ValueError(f"Duplicate JSON key: {key}")
+        result[key] = value
+    return result
+
+
 def archive_result_complete(saved, report):
     """Reject metadata-only or truncated results before skipping a scientific run.
 
@@ -145,7 +160,8 @@ def archive_status(paths, date, source_sha):
     if not all(present) or not all(path.is_file() for path in paths):
         raise RuntimeError("EXP-593 archive is incomplete; manual adjudication required")
     try:
-        saved = json.loads(paths[0].read_text(encoding="utf-8"))
+        saved = json.loads(paths[0].read_text(encoding="utf-8"),
+                           object_pairs_hook=_unique_json_pairs)
         report = paths[1].read_text(encoding="utf-8")
     except (OSError, UnicodeError, ValueError) as exc:
         raise RuntimeError("EXP-593 archive cannot be read; refusing replacement") from exc
