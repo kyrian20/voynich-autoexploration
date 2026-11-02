@@ -2,6 +2,11 @@
 
 **Alcance:** búsqueda focalizada de publicaciones y preprints recientes ajenos al repositorio. Esta nota importa preguntas y límites metodológicos; no afirma que hayamos reproducido sus resultados. Se revisaron los registros, resúmenes y materiales públicos enlazados; cuando el texto completo o el código no estuvo disponible, se indica.
 
+
+### Revisión complementaria — unidades y separadores (02-11-2026)
+
+[Lectura metodológica de Rozanova y Temerev, con resultados atribuidos, límites de interpretación y una propuesta acotada para una futura réplica](external_units_review_2026-11-02.md). No ejecuta análisis ni crea un EXP. Delimita las medidas de orden de token, asociación entre glifos de borde, geometría de separadores y escala BPE; las sensibilidades de transcripción no se tratan como muestras independientes.
+
 ## Hallazgos con consecuencias para nuestro trabajo
 
 ### 1. Modelos rivales calibrados: las estadísticas del texto no identifican por sí solas el mecanismo
