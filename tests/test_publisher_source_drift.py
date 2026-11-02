@@ -368,6 +368,22 @@ class PublisherSourceDriftContract(unittest.TestCase):
         self.assert_exp590_concurrent_output_rejected(
             data, "invalid EXP-590 null distribution fields")
 
+    def test_exp590_null_mean_cannot_exceed_target_occurrences(self):
+        # A draw can put at most one daiin at each line start; it cannot
+        # create more initial daiin lines than daiin tokens in the corpus.
+        data = self.sample_output(590)
+        data["permutation_test"]["null_mean_initial_lines"] = (
+            data["metrics"]["target_occurrences"] + 1)
+        self.assert_exp590_concurrent_output_rejected(
+            data, "invalid EXP-590 null distribution fields")
+
+    def test_exp590_null_sd_cannot_exceed_bounded_variance(self):
+        # This value was accepted before the variance support guard.
+        data = self.sample_output(590)
+        data["permutation_test"]["null_sd_initial_lines"] = 10000.0
+        self.assert_exp590_concurrent_output_rejected(
+            data, "invalid EXP-590 null distribution fields")
+
     def test_exp590_p_value_must_match_exceedances(self):
         data = self.sample_output(590)
         data["permutation_test"]["empirical_one_sided_p"] = 0.5
