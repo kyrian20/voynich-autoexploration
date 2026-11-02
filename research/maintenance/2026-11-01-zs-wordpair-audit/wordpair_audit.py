@@ -166,9 +166,9 @@ def physical_ivtff_rows(text: str):
         # A continuation slash cannot hide a structural page/locus record.
         # The canonical IVTFF structural auditor already flags these rows;
         # both word-pair readers must fail closed instead of skipping them.
-        slash_row = row.lstrip(" \\t")
+        slash_row = row.lstrip(" \t")
         if slash_row.startswith("/"):
-            after_slash = slash_row[1:].lstrip(" \\t")
+            after_slash = slash_row[1:].lstrip(" \t")
             if after_slash.startswith("<f"):
                 raise ValueError(
                     f"IVTFF structural tag after continuation slash in source row {number}"
