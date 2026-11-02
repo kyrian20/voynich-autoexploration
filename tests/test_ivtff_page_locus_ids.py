@@ -338,7 +338,7 @@ def main() -> None:
     # A damaged locus with a non-numeric/missing ordinal was invisible to the
     # old no-opener/indent/slash guards, even though it has tag-like syntax.
     # These are diagnostic-only rejects: none becomes a valid record.
-    base = "<f1r> <! $L=A>\\n<f1r.1,@P0> daiin\\n"
+    base = "<f1r> <! $L=A>\n<f1r.1,@P0> daiin\n"
     malformed_loci = (
         "f1r.X,@P0> chedy",
         "f1r.2x,@P0> chedy",
@@ -346,25 +346,25 @@ def main() -> None:
         "f1r.2@P0> chedy",
     )
     for damaged_locus in malformed_loci:
-        missing_opener = audit_text(base + damaged_locus + "\\n")
+        missing_opener = audit_text(base + damaged_locus + "\n")
         assert missing_opener["record_count"] == 1, missing_opener
         assert missing_opener["malformed_record_count"] == 1, missing_opener
         assert missing_opener["malformed_records"][0]["reason"] == "missing opening <", missing_opener
         assert structural_errors(missing_opener) == ["malformed_record_count=1"], missing_opener
 
     for damaged_locus in ("f1r.X,@P0", "f1r.2x,@P0", "f1r.2@P0"):
-        indented = audit_text(base + " <" + damaged_locus + "> chedy\\n")
+        indented = audit_text(base + " <" + damaged_locus + "> chedy\n")
         assert indented["record_count"] == 1, indented
         assert indented["malformed_record_count"] == 1, indented
         assert indented["malformed_records"][0]["reason"] == "leading whitespace before locus <", indented
-        slashed = audit_text(base + "/<" + damaged_locus + "> chedy\\n")
+        slashed = audit_text(base + "/<" + damaged_locus + "> chedy\n")
         assert slashed["record_count"] == 1, slashed
         assert slashed["malformed_record_count"] == 1, slashed
         assert slashed["malformed_records"][0]["reason"] == "structural locus tag after continuation slash", slashed
 
     # Do not promote untagged prose to an IVTFF record merely for containing
     # a page-like prefix and punctuation; no closing tag means no such claim.
-    prose = audit_text(base + "f1r.notes, commentary not a record\\n")
+    prose = audit_text(base + "f1r.notes, commentary not a record\n")
     assert prose["malformed_record_count"] == 0, prose
     assert structural_errors(prose) == [], prose
 
