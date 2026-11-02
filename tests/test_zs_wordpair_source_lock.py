@@ -373,5 +373,34 @@ class WordPairFrozenInputTests(unittest.TestCase):
                     audit.audit_page_half_leakage([], block_pages=size)
 
 
+    def test_currier_metadata_rejects_partial_or_conflicting_fields(self):
+        # Formerly $L=AB and conflicting $L=A $L=B silently became A.
+        bad_payloads = (
+            "<! $L=AB>", "<! $L=Q>", "<! $L=A $L=B>",
+            "<! $L=A$L=B>", "<! $L= A>", "<! $L=A\u00a0>",
+        )
+        for payload in bad_payloads:
+            source_text = f"<f1r> {payload}\n<f1r.1,@P0> daiin.daiin\n"
+            for reader in (audit.read_pages, audit.read_pages_legacy):
+                with self.subTest(reader=reader.__name__, payload=payload):
+                    with self.assertRaisesRegex(ValueError, "Invalid or duplicate IVTFF Currier"):
+                        reader(Path("/not/used"), source_text=source_text,
+                               categories={"P"}, keep_empty=True)
+
+    def test_currier_metadata_valid_and_absent_fields_preserve_identity(self):
+        source_text = (
+            "<f1r> <! $Q=A $I=T $L=B>\n"
+            "<f1r.1,@P0> daiin.daiin\n"
+            "<f1v> <! $Q=A $I=H>\n"
+            "<f1v.1,@P0> chedy.daiin\n"
+        )
+        for reader in (audit.read_pages, audit.read_pages_legacy):
+            with self.subTest(reader=reader.__name__):
+                pages = reader(Path("/not/used"), source_text=source_text,
+                               categories={"P"}, keep_empty=True)
+                self.assertEqual([page["currier"] for page in pages], ["B", None])
+                self.assertEqual([len(page["lines"]) for page in pages], [1, 1])
+
+
 if __name__ == "__main__":
     unittest.main()
