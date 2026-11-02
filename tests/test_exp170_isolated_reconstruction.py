@@ -471,6 +471,31 @@ class Exp170ReconstructionRunnerTests(unittest.TestCase):
         self.assertIn("no evidence", evidence["verification_scope"])
 
 
+    def test_output_symlinked_ancestor_is_rejected_before_reservation(self):
+        # The output leaf is new, and resolves outside the checkout, but its
+        # parent is redirected. No simulator or output mutation is permitted.
+        real_parent = self.base / "real-output-parent"
+        real_parent.mkdir()
+        redirected = self.base / "redirected-output-parent"
+        try:
+            redirected.symlink_to(real_parent, target_is_directory=True)
+        except (OSError, NotImplementedError):
+            self.skipTest("Directory symlinks unavailable")
+        out = redirected / "new-run"
+        with patch.object(runner.subprocess, "run",
+                          side_effect=AssertionError("simulator must not run")) as proc:
+            for execute in (False, True):
+                with self.subTest(execute=execute):
+                    with self.assertRaisesRegex(ValueError, "symlinked component"):
+                        runner.run_reconstruction(
+                            ROOT, self.naibbe, self.italian, self.hashes,
+                            out, execute=execute)
+                    self.assertFalse(out.exists())
+                    self.assertEqual(list(real_parent.iterdir()), [])
+            proc.assert_not_called()
+        self.assertEqual(runner.sha256(ROOT / runner.EXP / "data/simulation_results.json"),
+                         self.original_sha)
+
     def test_external_symlinked_parent_is_rejected_before_execution(self):
         # Both files are regular and have the correct hashes; the directory
         # redirect must be rejected before reserving output or running Naibbe.
