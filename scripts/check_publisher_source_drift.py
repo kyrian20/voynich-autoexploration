@@ -197,6 +197,34 @@ def _validate_generated_schema(doc: dict, path: str) -> str | None:
             if not all(probability(tests[variant], key)
                        for key in ("empirical_p", "max_stat_adjusted_p")):
                 return "invalid EXP-593 p-value"
+            # The producer standardizes each observed count against its own
+            # within-line permutation null and uses plus-one tail estimates.
+            # These relations are independently checkable without rerunning
+            # permutations; they do not authenticate the archived null draws.
+            test = tests[variant]
+            mean, sd = test.get("null_mean_initial"), test.get("null_sd_initial")
+            statistic = test.get("observed_standardized_statistic")
+            if (any(type(x) not in (int, float) or not math.isfinite(x)
+                    for x in (mean, sd, statistic))
+                    or not 0 <= mean <= doc["lines"] or sd < 0
+                    or sd * sd > mean * (doc["lines"] - mean) + 1e-8):
+                return "invalid EXP-593 null moments/statistic"
+            expected_statistic = ((row["line_initial"] - mean) / sd
+                                  if sd else 0.0)
+            if not math.isclose(statistic, expected_statistic,
+                                rel_tol=0, abs_tol=1e-10):
+                return "inconsistent EXP-593 standardized statistic"
+            denominator = doc["permutations"] + 1
+            for key in ("empirical_p", "max_stat_adjusted_p"):
+                scaled = test[key] * denominator
+                if (test[key] < 1 / denominator - 1e-12
+                        or not math.isclose(scaled, round(scaled),
+                                            rel_tol=0, abs_tol=1e-8)):
+                    return "inconsistent EXP-593 permutation p-value grid"
+            # A max-T tail event includes the corresponding single-variant
+            # standardized tail event on each permutation draw.
+            if test["max_stat_adjusted_p"] + 1e-12 < test["empirical_p"]:
+                return "inconsistent EXP-593 max-T adjustment"
     else:
         if (not all(count(doc, key, positive=True)
                     for key in ("occurrences_with_two_neighbors", "matched_strata",

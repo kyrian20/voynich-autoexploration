@@ -423,6 +423,55 @@ class PublisherSourceDriftContract(unittest.TestCase):
         self.assert_exp593_concurrent_output_rejected(
             data, "inconsistent EXP-593 initial fraction")
 
+    def test_exp593_negative_null_sd_is_invalid(self):
+        data = self.sample_output(593)
+        data["tests"]["daiin"]["null_sd_initial"] = -1.0
+        self.assert_exp593_concurrent_output_rejected(
+            data, "invalid EXP-593 null moments/statistic")
+
+    def test_exp593_null_mean_cannot_exceed_lines(self):
+        data = self.sample_output(593)
+        data["tests"]["dain"]["null_mean_initial"] = data["lines"] + 1
+        self.assert_exp593_concurrent_output_rejected(
+            data, "invalid EXP-593 null moments/statistic")
+
+    def test_exp593_null_sd_cannot_exceed_bounded_variance(self):
+        data = self.sample_output(593)
+        data["tests"]["daiiin"]["null_sd_initial"] = data["lines"]
+        self.assert_exp593_concurrent_output_rejected(
+            data, "invalid EXP-593 null moments/statistic")
+
+    def test_exp593_observed_standardized_statistic_must_match(self):
+        data = self.sample_output(593)
+        data["tests"]["daiin"]["observed_standardized_statistic"] += 0.5
+        self.assert_exp593_concurrent_output_rejected(
+            data, "inconsistent EXP-593 standardized statistic")
+
+    def test_exp593_boolean_null_statistic_is_invalid(self):
+        data = self.sample_output(593)
+        data["tests"]["dain"]["observed_standardized_statistic"] = True
+        self.assert_exp593_concurrent_output_rejected(
+            data, "invalid EXP-593 null moments/statistic")
+
+    def test_exp593_empirical_p_must_use_plus_one_grid(self):
+        data = self.sample_output(593)
+        data["tests"]["daiin"]["empirical_p"] = 0.5
+        self.assert_exp593_concurrent_output_rejected(
+            data, "inconsistent EXP-593 permutation p-value grid")
+
+    def test_exp593_max_t_p_must_use_plus_one_grid(self):
+        data = self.sample_output(593)
+        data["tests"]["daiin"]["max_stat_adjusted_p"] = 0.5
+        self.assert_exp593_concurrent_output_rejected(
+            data, "inconsistent EXP-593 permutation p-value grid")
+
+    def test_exp593_adjusted_p_cannot_be_below_empirical_p(self):
+        data = self.sample_output(593)
+        data["tests"]["daiiin"]["max_stat_adjusted_p"] = (
+            1 / (data["permutations"] + 1))
+        self.assert_exp593_concurrent_output_rejected(
+            data, "inconsistent EXP-593 max-T adjustment")
+
     def assert_exp622_623_concurrent_output_rejected(self, exp, data, error):
         paths = {
             622: "exp_622_ch_sh_specificity_interaction/results.json",
