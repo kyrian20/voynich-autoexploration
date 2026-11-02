@@ -210,6 +210,60 @@ class WordPairFrozenInputTests(unittest.TestCase):
                     with self.assertRaisesRegex(ValueError, error):
                         reader(Path("/not/used"), source_text=source_text, keep_empty=True)
 
+    def test_glued_or_indented_structural_tags_rejected_by_both_readers(self):
+        # Both readers previously accepted a glued payload and silently
+        # ignored an indented page boundary or text locus.
+        cases = (
+            ("<f1r>$L=A\n", "Missing separator after IVTFF structural tag"),
+            ("<f1r> $L=A\n<f1r.1,@P0>daiin\n",
+             "Missing separator after IVTFF structural tag"),
+            (" <f1r> $L=A\n", "Indented IVTFF structural tag"),
+            ("<f1r> $L=A\n\t<f1r.1,@P0> daiin\n",
+             "Indented IVTFF structural tag"),
+        )
+        for source_text, error in cases:
+            for reader in (audit.read_pages, audit.read_pages_legacy):
+                with self.subTest(reader=reader.__name__, source=source_text):
+                    with self.assertRaisesRegex(ValueError, error):
+                        reader(Path("/not/used"), source_text=source_text,
+                               categories={"P"}, keep_empty=True)
+
+    def test_missing_opening_tag_rejected_by_both_readers(self):
+        # A damaged page boundary cannot be treated as an ignorable comment.
+        cases = (
+            "<f1r> $L=A\nf2r> $L=B\n",
+            "<f1r> $L=A\nf1r.1,@P0> daiin\n",
+        )
+        for source_text in cases:
+            for reader in (audit.read_pages, audit.read_pages_legacy):
+                with self.subTest(reader=reader.__name__, source=source_text):
+                    with self.assertRaisesRegex(ValueError, "Missing opening <"):
+                        reader(Path("/not/used"), source_text=source_text,
+                               categories={"P"}, keep_empty=True)
+
+    def test_malformed_locator_codes_rejected_even_when_filtered(self):
+        # A malformed @L row must not disappear before structural validation.
+        bad_tags = ("@L0 extra", "@L0;AB", "@L0\u00a0", "@L0\t", "@L0;é")
+        for tag in bad_tags:
+            source_text = f"<f1r> $L=A\n<f1r.1,{tag}> daiin\n"
+            for reader in (audit.read_pages, audit.read_pages_legacy):
+                with self.subTest(reader=reader.__name__, tag=tag):
+                    with self.assertRaisesRegex(ValueError, "Invalid IVTFF text locus"):
+                        reader(Path("/not/used"), source_text=source_text,
+                               categories={"P"}, keep_empty=True)
+
+    def test_valid_tag_separators_and_transcriber_suffix_survive(self):
+        source_text = (
+            "<f1r>\t$L=A\n"
+            "<f1r.1,@P0;A>\t daiin.daiin\n"
+            "<f1r.2,+P0> chedy\n"
+        )
+        for reader in (audit.read_pages, audit.read_pages_legacy):
+            with self.subTest(reader=reader.__name__):
+                pages = reader(Path("/not/used"), source_text=source_text,
+                               categories={"P"}, keep_empty=True)
+                self.assertEqual(pages[0]["lines"], [["daiin", "daiin"], ["chedy"]])
+
     def test_distinct_locus_tags_are_not_false_duplicates(self):
         source_text = (
             "<f1r> $L=A\n"
