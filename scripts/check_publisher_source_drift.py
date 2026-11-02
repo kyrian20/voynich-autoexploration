@@ -129,6 +129,41 @@ def _validate_generated_schema(doc: dict, path: str) -> str | None:
             if not all(count(observed[variant], key)
                        for key in ("occurrences", "line_initial", "line_final")):
                 return "invalid EXP-593 observed counts"
+            # The publisher may only exempt coherent generated results from
+            # source-drift rejection. This mirrors the archive's count and
+            # Currier partition guards; it does not recompute any permutation.
+            row = observed[variant]
+            if (row["occurrences"] > doc["tokens"]
+                    or row["line_initial"] > min(row["occurrences"], doc["lines"])
+                    or row["line_final"] > min(row["occurrences"], doc["lines"])):
+                return "inconsistent EXP-593 observed counts"
+            classes = row.get("by_currier")
+            groups = ("A", "B", "unknown")
+            fields = ("occurrences", "line_initial", "line_final")
+            if (not isinstance(classes, dict) or set(classes) != set(groups)
+                    or any(not isinstance(classes[group], dict)
+                           or not all(count(classes[group], field) for field in fields)
+                           for group in groups)):
+                return "invalid EXP-593 Currier partition"
+            for group in groups:
+                values = classes[group]
+                if (values["occurrences"] > row["occurrences"]
+                        or values["line_initial"] > min(values["occurrences"], doc["lines"])
+                        or values["line_final"] > min(values["occurrences"], doc["lines"])):
+                    return "inconsistent EXP-593 Currier subgroup counts"
+            if any(sum(classes[group][field] for group in groups) != row[field]
+                   for field in fields):
+                return "inconsistent EXP-593 Currier partition totals"
+            fraction = row.get("initial_fraction")
+            expected_fraction = (row["line_initial"] / row["occurrences"]
+                                 if row["occurrences"] else None)
+            if (expected_fraction is None and fraction is not None) or (
+                    expected_fraction is not None
+                    and (type(fraction) not in (int, float)
+                         or not math.isfinite(fraction)
+                         or not math.isclose(fraction, expected_fraction,
+                                             rel_tol=0, abs_tol=1e-12))):
+                return "inconsistent EXP-593 initial fraction"
             if not all(probability(tests[variant], key)
                        for key in ("empirical_p", "max_stat_adjusted_p")):
                 return "invalid EXP-593 p-value"
