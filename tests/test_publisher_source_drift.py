@@ -324,6 +324,56 @@ class PublisherSourceDriftContract(unittest.TestCase):
         with self.assertRaisesRegex(RuntimeError, "invalid EXP-590 Currier partition"):
             assert_no_source_drift(self.root, self.base, head)
 
+    def assert_exp590_concurrent_output_rejected(self, data, error):
+        path = "research/experiments/2026-11-02-exp590-corrected-L-metadata.json"
+        self.write(path, json.dumps(data))
+        head = self.commit("synthetic contradictory EXP-590 generated output")
+        with self.assertRaisesRegex(RuntimeError, error):
+            assert_no_source_drift(self.root, self.base, head)
+
+    def test_exp590_initial_rate_must_match_counts(self):
+        data = self.sample_output(590)
+        data["metrics"]["initial_rate_per_target_occurrence"] = 0.5
+        self.assert_exp590_concurrent_output_rejected(
+            data, "inconsistent EXP-590 positional rates")
+
+    def test_exp590_final_rate_boolean_is_invalid(self):
+        data = self.sample_output(590)
+        data["metrics"]["final_rate_per_target_occurrence"] = True
+        self.assert_exp590_concurrent_output_rejected(
+            data, "inconsistent EXP-590 positional rates")
+
+    def test_exp590_missing_null_exceedances_is_invalid(self):
+        data = self.sample_output(590)
+        del data["permutation_test"]["null_ge_observed"]
+        self.assert_exp590_concurrent_output_rejected(
+            data, "invalid EXP-590 null distribution fields")
+
+    def test_exp590_exceedances_cannot_exceed_replicates(self):
+        data = self.sample_output(590)
+        data["permutation_test"]["null_ge_observed"] = (
+            data["permutation_test"]["permutations"] + 1)
+        self.assert_exp590_concurrent_output_rejected(
+            data, "invalid EXP-590 null distribution fields")
+
+    def test_exp590_negative_null_sd_is_invalid(self):
+        data = self.sample_output(590)
+        data["permutation_test"]["null_sd_initial_lines"] = -0.01
+        self.assert_exp590_concurrent_output_rejected(
+            data, "invalid EXP-590 null distribution fields")
+
+    def test_exp590_null_mean_cannot_exceed_lines(self):
+        data = self.sample_output(590)
+        data["permutation_test"]["null_mean_initial_lines"] = data["metrics"]["lines"] + 1
+        self.assert_exp590_concurrent_output_rejected(
+            data, "invalid EXP-590 null distribution fields")
+
+    def test_exp590_p_value_must_match_exceedances(self):
+        data = self.sample_output(590)
+        data["permutation_test"]["empirical_one_sided_p"] = 0.5
+        self.assert_exp590_concurrent_output_rejected(
+            data, "inconsistent EXP-590 permutation p-value")
+
     def assert_exp593_concurrent_output_rejected(self, data, error):
         path = "research/experiments/2026-11-02-exp593-corrected-L-metadata.json"
         self.write(path, json.dumps(data))
