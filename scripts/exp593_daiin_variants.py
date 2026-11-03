@@ -117,6 +117,14 @@ def archive_result_complete(saved, report):
                 return False
         if test["null_sd_initial"] < 0:
             return False
+        # The archived standardized statistic is derived, not independent.
+        # A corrupted z-score can otherwise survive JSON/Markdown agreement
+        # because the Markdown summary does not include this statistic.
+        expected_z = ((initial - test["null_mean_initial"]) / test["null_sd_initial"]
+                      if test["null_sd_initial"] else 0.0)
+        if not math.isclose(test["observed_standardized_statistic"], expected_z,
+                            rel_tol=1e-10, abs_tol=1e-10):
+            return False
         if not all(0 < test[key] <= 1 for key in ("empirical_p", "max_stat_adjusted_p")):
             return False
         # A max-T family-wise p-value cannot be smaller than its own
