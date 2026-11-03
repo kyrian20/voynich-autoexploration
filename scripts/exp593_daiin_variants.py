@@ -119,6 +119,10 @@ def archive_result_complete(saved, report):
             return False
         if not all(0 < test[key] <= 1 for key in ("empirical_p", "max_stat_adjusted_p")):
             return False
+        # A max-T family-wise p-value cannot be smaller than its own
+        # unadjusted permutation p-value on the same synchronized draws.
+        if test["max_stat_adjusted_p"] + 1e-12 < test["empirical_p"]:
+            return False
         table_row = (f"| {word} | {occurrences} | {initial} | {final} | "
                      f"{test['empirical_p']:.6f} | {test['max_stat_adjusted_p']:.6f} |")
         if report_lines.count(table_row) != 1:
