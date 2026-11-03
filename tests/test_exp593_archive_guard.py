@@ -39,7 +39,7 @@ class Exp593ArchiveGuardTest(unittest.TestCase):
                                     "line_initial": initial, "line_final": final}},
             }
             tests[word] = {"null_mean_initial": 0.5, "null_sd_initial": 0.5,
-                           "observed_standardized_statistic": 1.0,
+                           "observed_standardized_statistic": (initial - 0.5) / 0.5,
                            "empirical_p": 0.2, "max_stat_adjusted_p": 0.3}
         return {"experiment": "EXP-593", "date_utc": DATE,
                 "source": "data/transcriptions/eva_zl3b.txt",
