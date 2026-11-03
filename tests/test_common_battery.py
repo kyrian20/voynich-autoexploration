@@ -23,7 +23,7 @@ class BatteryTests(unittest.TestCase):
             manifest=root/'manifest.json'
             (root/'result.json').write_bytes(b'original')
             manifest.write_text(json.dumps({'result.json':hashlib.sha256(b'original').hexdigest()}))
-            self.assertEqual(verify(root,manifest)['status'],'EXACT_HISTORICAL_HASH_MATCH')
+            self.assertEqual(verify(root,manifest)['status'],'SUPPLIED_MANIFEST_HASH_MATCH')
             (root/'result.json').write_bytes(b'changed')
             with self.assertRaises(ValueError):verify(root,manifest)
             (root/'result.json').unlink()
@@ -94,5 +94,81 @@ class BatteryTests(unittest.TestCase):
         selected=json.loads((out/'seleccion.json').read_text())
         for parts in selected.values():
             self.assertFalse({r['hoja'] for r in parts['train']} & {r['hoja'] for r in parts['test']})
+
+
+class ReconstructionManifestIntegrityTests(unittest.TestCase):
+    """Adversarial provenance tests; no simulation or historical replay."""
+
+    def setUp(self):
+        from scripts import verify_common_battery_reconstruction as verifier
+        self.verifier = verifier
+        self.temp = tempfile.TemporaryDirectory()
+        self.addCleanup(self.temp.cleanup)
+        self.root = Path(self.temp.name)
+        self.file = self.root / 'result.json'
+        self.file.write_bytes(b'fixture')
+        self.manifest = self.root / 'manifest.json'
+        self.digest = hashlib.sha256(b'fixture').hexdigest()
+        self.manifest.write_text(json.dumps({'result.json': self.digest}))
+
+    def test_pinned_historical_manifest_matches_frozen_bytes(self):
+        v = self.verifier
+        self.assertEqual(
+            hashlib.sha256(v.MANIFEST.read_bytes()).hexdigest(),
+            v.HISTORICAL_MANIFEST_SHA256)
+        self.assertEqual(
+            set(json.loads(v.MANIFEST.read_text())), v.HISTORICAL_FILES)
+
+    def test_custom_manifest_cannot_claim_historical_identity(self):
+        receipt = self.verifier.verify(self.root, self.manifest)
+        self.assertEqual(receipt['status'], 'SUPPLIED_MANIFEST_HASH_MATCH')
+        self.assertFalse(receipt['historical_manifest_pinned'])
+        self.assertEqual(receipt['manifest_sha256'],
+                         hashlib.sha256(self.manifest.read_bytes()).hexdigest())
+
+    def test_duplicate_manifest_keys_are_rejected(self):
+        self.manifest.write_text(
+            '{"result.json":"' + self.digest + '","result.json":"' + self.digest + '"}')
+        with self.assertRaisesRegex(ValueError, 'Duplicate manifest key'):
+            self.verifier.verify(self.root, self.manifest)
+
+    def test_empty_or_malformed_manifest_is_rejected(self):
+        for payload in ('{}', '[]', 'null'):
+            with self.subTest(payload=payload):
+                self.manifest.write_text(payload)
+                with self.assertRaisesRegex(ValueError, 'Empty or malformed'):
+                    self.verifier.verify(self.root, self.manifest)
+
+    def test_manifest_digest_must_be_sha256(self):
+        self.manifest.write_text('{"result.json":"not-a-digest"}')
+        with self.assertRaisesRegex(ValueError, 'Invalid SHA-256'):
+            self.verifier.verify(self.root, self.manifest)
+
+    def test_symlinked_reconstruction_is_not_an_exact_match(self):
+        target = self.root / 'outside.json'
+        target.write_bytes(b'fixture')
+        self.file.unlink()
+        try:
+            self.file.symlink_to(target)
+        except (OSError, NotImplementedError):
+            self.skipTest('Symlink creation unavailable')
+        with self.assertRaisesRegex(ValueError, 'Symlinked reconstruction path'):
+            self.verifier.verify(self.root, self.manifest)
+
+    def test_symlinked_manifest_is_rejected(self):
+        original = self.root / 'original.json'
+        self.manifest.replace(original)
+        try:
+            self.manifest.symlink_to(original)
+        except (OSError, NotImplementedError):
+            self.skipTest('Symlink creation unavailable')
+        with self.assertRaisesRegex(ValueError, 'Symlinked reconstruction path'):
+            self.verifier.verify(self.root, self.manifest)
+
+    def test_changed_historical_manifest_cannot_be_relabelled(self):
+        from unittest.mock import patch
+        with patch.object(self.verifier, 'MANIFEST', self.manifest):
+            with self.assertRaisesRegex(ValueError, 'Historical run-03 manifest SHA-256 mismatch'):
+                self.verifier.verify(self.root, self.manifest)
 
 if __name__=='__main__': unittest.main()
