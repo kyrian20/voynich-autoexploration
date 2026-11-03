@@ -681,6 +681,8 @@ jobs:
         run: |
           python -m unittest discover -s tests -p 'test_exp593_adjusted_p_guard.py' -v
           python -O -m unittest discover -s tests -p 'test_exp593_adjusted_p_guard.py' -v
+          python -m unittest discover -s tests -p 'test_exp593_zscore_archive_guard.py' -v
+          python -O -m unittest discover -s tests -p 'test_exp593_zscore_archive_guard.py' -v
       - name: Conciliar loci no tokenizados de EXP-590 sin reejecutar simulaciones
         run: |
           python -m unittest discover -s tests -p 'test_exp590_empty_loci.py' -v
