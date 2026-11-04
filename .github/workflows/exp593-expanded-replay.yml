@@ -22,4 +22,16 @@ jobs:
         with:
           python-version: '3.11'
       - name: Reproduce and compare immutable archived numerical fields
-        run: python scripts/audit_exp593_expanded_population.py
+        run: |
+          mkdir -p replay-evidence
+          set -o pipefail
+          python scripts/audit_exp593_expanded_population.py | tee replay-evidence/replay.json
+          sha256sum replay-evidence/replay.json > replay-evidence/replay.sha256
+      - name: Preserve reproduction receipt
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: exp593-expanded-replay-${{ github.run_id }}
+          path: replay-evidence/
+          if-no-files-found: warn
+          retention-days: 90
