@@ -28,4 +28,16 @@ The minimum reportable p with 5,000 replicates and the +1 correction is 0.000200
 
 The positional excess for daiin and dain remains in this broader population under this within-line exchangeability null; daiiin does not show an initial-position excess. This is a sensitivity result, not an independent confirmation: the words were selected during earlier exploratory work, the population is a broadened transcriptional view of the same manuscript, and the null preserves each line's token multiset while discarding order. No semantic interpretation follows.
 
+## Self-Audit
+
+**Target-awareness:** The variants and max-T family were carried forward from earlier exploratory work. They were not selected independently for this sensitivity, so these results are conditional on that prior selection and are exploratory.
+
+**Feature-destroying implementation:** The tested feature is line-initial placement. Sampling one token uniformly within each included line preserves that line's token multiset and gives the same line-initial null distribution as shuffling it. The parser uses a broad page-ID rule and removes IVTFF tags and bracketed annotations before tokenizing; this changes the included population and is a limitation, but it does not selectively alter the observed order statistic within retained lines. Full IVTFF conformance remains unestablished.
+
+**Extrapolation beyond the tested grid:** No claim is made about all possible null models, all word forms, language identity, or the manuscript as a whole. The tested set is the three named variants under one specified within-line null.
+
+**Negative-result overreach:** The result for `daiiin` means only that this variant did not show an initial-position excess under this population and null. It does not establish that the form lacks a function or that no alternative mechanism could produce positional concentration.
+
+**Control-comparison interpretation:** Under the null, the expected line-initial count for a word is the sum across retained lines of that word's within-line frequency. The 5,000-replicate null means are 109.080 for `daiin`, 25.934 for `dain`, and 3.189 for `daiiin`; the corresponding observed counts are 161, 49, and 2. The first two exceed the null distribution at its reported resolution floor; the third does not. This is an order-exchangeability comparison, not an independent language or random-text baseline.
+
 This uses a different, explicitly seeded PRNG stream from the canonical EXP-593 Python `random.shuffle` run. It is distribution-equivalent for this statistic, but it is not an exact replay of the historical permutation sequence. Do not replace the archived EXP-593 values or cite this as a translation.
