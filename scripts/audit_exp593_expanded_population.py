@@ -77,7 +77,7 @@ def main() -> None:
         "source": "data/transcriptions/eva_zl3b.txt",
         "source_sha256": hashlib.sha256(raw).hexdigest(),
         "lines": len(lines), "tokens": sum(map(len, lines)),
-        "variants": list(VARIANTS), "observed": observed,
+        "variants": list(VARIANTS), "observed": observed, "tests": tests,
         "permutations": N_PERM, "seed": f"0x{SEED:x}", "prng": "xorshift32",
         "null_model": "Synchronized independent uniform token draw per line; distribution-equivalent to within-line shuffle for line-initial counts. max-T uses the maximum per-variant standardized statistic on each replicate.",
         "limitations": [
@@ -88,9 +88,30 @@ def main() -> None:
             "Current page-ID coverage does not establish full IVTFF conformance."
         ],
     }
-    OUT.parent.mkdir(parents=True, exist_ok=True)
-    OUT.write_text(json.dumps(result, indent=2) + "\n", encoding="utf-8")
-    print(json.dumps(result, indent=2))
+    # Historical archive is immutable: verify against it, never overwrite it.
+    archived = json.loads(OUT.read_text(encoding="utf-8"))
+    import math
+    def compare(expected, actual, path="root"):
+        if isinstance(expected, dict):
+            if not isinstance(actual, dict):
+                raise AssertionError(f"{path}: expected object")
+            for key, value in expected.items():
+                if key not in actual:
+                    raise AssertionError(f"{path}.{key}: missing in reproduction")
+                compare(value, actual[key], f"{path}.{key}")
+        elif isinstance(expected, list):
+            if not isinstance(actual, list) or len(expected) != len(actual):
+                raise AssertionError(f"{path}: list mismatch")
+            for i, value in enumerate(expected):
+                compare(value, actual[i], f"{path}[{i}]")
+        elif isinstance(expected, (float, int)) and not isinstance(expected, bool):
+            if not isinstance(actual, (float, int)) or not math.isclose(expected, actual, rel_tol=1e-12, abs_tol=1e-12):
+                raise AssertionError(f"{path}: archived={expected!r} reproduced={actual!r}")
+        elif expected != actual:
+            raise AssertionError(f"{path}: archived={expected!r} reproduced={actual!r}")
+    for key in ("source_sha256", "lines", "tokens", "variants", "observed", "permutations", "seed", "prng", "tests"):
+        compare(archived[key], result[key], key)
+    print(json.dumps({"status": "MATCH_ARCHIVED_NUMERICS", "archive": str(OUT), "source_sha256": result["source_sha256"]}, indent=2))
 
 if __name__ == "__main__":
     main()
