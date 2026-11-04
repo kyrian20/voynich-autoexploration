@@ -1,0 +1,25 @@
+name: EXP-593 expanded population archive replay
+
+on:
+  pull_request:
+    paths:
+      - 'scripts/audit_exp593_expanded_population.py'
+      - 'research/maintenance/2026-11-04-exp593-expanded-population-sensitivity.json'
+      - 'data/transcriptions/eva_zl3b.txt'
+      - '.github/workflows/exp593-expanded-replay.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  replay:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Reproduce and compare immutable archived numerical fields
+        run: python scripts/audit_exp593_expanded_population.py
