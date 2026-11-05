@@ -1,55 +1,70 @@
-# Reconciliación de población del predictor de límites de línea
+# Reconciliación completa de población del predictor de límites de línea
 
 **Fecha:** 2026-11-05  
-**Clase:** auditoría determinista de población y sensibilidad del lector; no es un EXP ni una reejecución del predictor.  
-**Estado:** la diferencia histórica queda parcialmente descompuesta; 538 unidades netas siguen sin atribución por regla IVTFF.
+**Clase:** auditoría determinista del lector, sus unidades y los candidatos derivados; no es un EXP y no ajusta ni evalúa el predictor.  
+**Estado:** la diferencia predeterminada de 5.412 unidades queda explicada por cambios concretos del lector. La vista alternativa de comas separadas + ligaduras ASCII expandidas aún difiere del lector inicial en 538 unidades; esa cifra es específica de esa sensibilidad, no un residuo del lector predeterminado.
 
-## Pregunta
+## Preguntas y fuente
 
-¿Qué parte de la diferencia entre las 35.318 unidades del lector inicial y las 29.906 unidades del lector corregido se debe a las políticas de coma incierta y ligaduras ASCII, y qué parte permanece pendiente?
+Concilié tanto las unidades como los candidatos generados por cada versión del lector a lo largo de los cambios de la PR #138. En cada snapshot usé el mismo ZL3b y el mismo lector de filas físicas.
 
-## Fuentes fijadas
+- Corpus: `data/transcriptions/eva_zl3b.txt`, 411.671 bytes, SHA-256 `bf5b6d4ac1e3a51b1847a9c388318d609020441ccd56984c901c32b09beccafc`; Git blob `2a4533ab9bdfa85db9bad602d590978953055df1` en todos los snapshots.
+- Lector de filas físicas: Git blob `eb50eee4b7ca3e44fb2e9f265337e6cbefbe0678` en todos los snapshots.
+- Lector inicial: `76717eff613c3235526a3e9097a581149fca5e1b`.
+- Lector actual analizado: `60d0bdb64931f1659c5f662a31d7471dbef5058f`, lector SHA-256 `97e5cbc0f63cf3ca52fc555334e595d6f24d94a425e549c0c125d00f5d016059`.
 
-- ZL3b: `data/transcriptions/eva_zl3b.txt`, 411.671 bytes, SHA-256 `bf5b6d4ac1e3a51b1847a9c388318d609020441ccd56984c901c32b09beccafc`.
-- Lector inicial: commit `76717eff613c3235526a3e9097a581149fca5e1b`; el script de auditoría reproduce su selección de registros P y su tokenizador histórico.
-- Lector corregido: commit `60d0bdb64931f1659c5f662a31d7471dbef5058f`, script SHA-256 `97e5cbc0f63cf3ca52fc555334e595d6f24d94a425e549c0c125d00f5d016059`.
-- El script del lector corregido en ese commit coincide byte por byte con el del commit `3c243692a7a98ccef40ca80c5004075bd87bdebb`, citado para la reejecución de la PR #138.
+Cada snapshot conservó 4.130 filas P y 207 páginas. El corte cada quinta página se recalculó con el mismo orden de páginas y el embargo por texto duplicado; no encontró duplicados en estos snapshots.
 
-## Recuento reproducido
+## Atribución secuencial de la diferencia predeterminada
 
-Las cuatro vistas conservan 4.130 filas P y 207 páginas; cambian las unidades reconocidas dentro de las filas.
+| Cambio del lector | Unidades | Candidatos totales | Positivos |
+|---|---:|---:|---:|
+| Barreras para interrogaciones/grafemas desconocidos | −131 | −226 | −31 |
+| Cuarentena de unidades con llaves/ligaduras | −555 | −908 | −83 |
+| Barreras para códigos de grafema high-ASCII | −79 | −136 | −29 |
+| Barreras para símbolos internos no admitidos | −44 | −64 | −9 |
+| Cuarentena de comas inciertas IVTFF | −4.603 | −6.405 | −669 |
+| **Cambio total: inicial → predeterminado actual** | **−5.412** | **−8.287** | **−1.369** |
 
-| Separadores inciertos | Llaves/ligaduras | Unidades |
-|---|---|---:|
-| Cuarentena (política actual) | Cuarentena (política actual) | 29.906 |
-| Separar coma (sensibilidad histórica) | Cuarentena | 34.509 |
-| Cuarentena | Expandir solo ligaduras ASCII | 30.158 |
-| Separar coma | Expandir solo ligaduras ASCII | 34.780 |
-| Lector inicial | Política histórica | 35.318 |
+La suma de cambios explica exactamente 35.318 → 29.906 unidades, 35.111 → 26.824 candidatos y 3.923 → 2.554 positivos. La diferencia predeterminada ya no tiene unidades sin atribuir.
 
-## Descomposición
+Dos correcciones alteraron candidatos aunque no el total de tokens: excluir pares que cruzaban loci no-P retiró 71 positivos; respetar marcadores de párrafo retiró 477 positivos. Cambios en comentarios de anchura cero, continuaciones con barra, numeración de loci y etiquetas IVTFF no alteraron estos recuentos en los snapshots revisados, aunque las barreras de loci y párrafos sí afectan qué pares pueden formarse.
 
-La diferencia total es 5.412 unidades. Bajo esta matriz de sensibilidad:
+## Población por hitos
 
-- **4.603** corresponden al efecto de separar comas inciertas, manteniendo las ligaduras en cuarentena.
-- La expansión de ligaduras ASCII añade **252** unidades con la coma en cuarentena.
-- La interacción entre ambas decisiones es de **19** unidades (la expansión añade 271 con coma separada, frente a 252 con coma en cuarentena).
-- Tras ambas sensibilidades, quedan **538 unidades netas** entre el lector inicial y la vista de coma separada con ligaduras ASCII expandidas.
+| Hito del lector | Tokens | Candidatos / positivos | Corte cada quinta página: candidatos / positivos |
+|---|---:|---:|---:|
+| Inicial, 28-10 | 35.318 | 35.111 / 3.923 | 6.229 / 719 |
+| Barrera de interrogaciones | 35.187 | 34.885 / 3.892 | 6.210 / 714 |
+| Cuarentena de ligaduras | 34.632 | 33.977 / 3.809 | 6.049 / 701 |
+| Barrera high-ASCII | 34.553 | 33.841 / 3.780 | 6.017 / 696 |
+| Loci no-P interpuestos | 34.553 | 33.770 / 3.709 | 6.004 / 683 |
+| Marcadores de párrafo | 34.553 | 33.293 / 3.232 | 5.913 / 592 |
+| Símbolos internos no admitidos | 34.509 | 33.229 / 3.223 | 5.905 / 592 |
+| Coma incierta en cuarentena | 29.906 | 26.824 / 2.554 | 4.792 / 468 |
 
-La identidad aritmética es 5.412 = 4.603 + 252 + 19 + 538. Los 538 no se atribuyen aquí a categorías concretas: pueden incluir reglas de corchetes, símbolos no EVA, anotaciones y diferencias de lectura que todavía deben separarse por fila. La expansión de ligaduras es solo una sensibilidad y no rehabilita esas unidades como palabras válidas.
+## Regresión transitoria detectada
+
+El commit `9acca718` introdujo una expresión regular de llaves defectuosa: su snapshot baja a 27.510 unidades y 24.744 candidatos. El commit `e94994a` corrige la expresión y devuelve el recuento a 29.906 y 26.824. Excluí ese snapshot intermedio de la atribución estable; no describe un cambio del corpus ni del resultado vigente.
+
+## Sensibilidades actuales
+
+La matriz actual confirma los recuentos en los cuatro escenarios:
+
+| Política de coma | Política de ligaduras | Tokens | Candidatos / positivos | Corte cada quinta página |
+|---|---|---:|---:|---:|
+| Cuarentena | Cuarentena (predeterminada) | 29.906 | 26.824 / 2.554 | 4.792 / 468 |
+| Cuarentena | Expandir ligaduras ASCII | 30.158 | 27.294 / 2.596 | 4.876 / 474 |
+| Separar (sensibilidad histórica) | Cuarentena | 34.509 | 33.229 / 3.223 | 5.905 / 592 |
+| Separar | Expandir ligaduras ASCII | 34.780 | 33.755 / 3.270 | 6.001 / 600 |
+
+El valor **538** es la diferencia entre el lector inicial y la última fila de esta matriz. Esa fila combina dos alternativas respecto del valor predeterminado actual; no queda como discrepancia abierta del análisis principal. La expansión ASCII es una sensibilidad, no una decisión de que todas esas unidades sean palabras.
 
 ## Reproducción y alcance
 
-Ejecutar desde la raíz del repositorio:
+El script `audit_line_boundary_population.py` fija los hashes del corpus y del lector actual; reproduce el parser inicial y las cuatro vistas actuales; y verifica la suma de la atribución y los recuentos de candidatos. La tabla histórica registra el lector, el commit y el Git blob exactos de cada snapshot. Para revisión directa, los snapshots de código se encuentran en el historial de Git en las rutas de commits indicadas en `results.json`.
 
-```sh
-python research/maintenance/2026-11-05-line-boundary-population-reconciliation/audit_line_boundary_population.py
-```
+La auditoría no reentrenó el modelo, no recalculó AUC ni ganancias logarítmicas y no cambió corpus, EXP o resultados históricos. El siguiente paso es adjudicar qué exclusiones conservadoras cambian el conjunto de candidatos plausibles, revisar las hojas afectadas y después evaluar el modelo solo sobre la población acordada. Ninguna de estas cifras aporta una traducción.
 
-La salida estructurada está en `results.json`. El script comprueba hashes, fija ambos lectores, exige los recuentos de filas/páginas y verifica la identidad de la descomposición. Se ejecutó con éxito sobre los bytes exactos de ZL3b.
+La primera auditoría de población quedó en el commit `cfb64127d518231ee3208940fb9c2adb79b1127e`; su CI terminó correctamente en run [42120777639](https://github.com/kyrian20/voynich-autoexploration/actions/runs/42120777639). Este seguimiento añade la atribución por snapshots y el censo de candidatos; se comprobará con una nueva CI.
 
-Esto es un diagnóstico de conteos, no una validación del modelo ni una comparación de rendimiento. No ajusta ni evalúa predicciones, no crea un EXP, no modifica transcripciones ni sustituye resultados congelados. No aporta idioma, significado ni traducción. La siguiente tarea concreta es atribuir las 538 unidades residuales mediante una tabla por fila y reglas mutuamente excluyentes, conservando también los casos con más de una anotación.
-
-## Estado de integración
-
-Preparado para la rama de la PR #138. La CI del HEAD anterior terminó correctamente en run 41274533462; esa ejecución no cubre estos archivos nuevos. Se comprobará una ejecución posterior antes de considerar este cambio verificado en GitHub.
