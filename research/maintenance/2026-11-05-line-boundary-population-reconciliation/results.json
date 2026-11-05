@@ -1,0 +1,46 @@
+{
+  "audit_type": "deterministic population reconciliation; no predictor fitting or scoring",
+  "baseline_commit": "76717eff613c3235526a3e9097a581149fca5e1b",
+  "corpus": {
+    "bytes": 411671,
+    "path": "data/transcriptions/eva_zl3b.txt",
+    "sha256": "bf5b6d4ac1e3a51b1847a9c388318d609020441ccd56984c901c32b09beccafc"
+  },
+  "current_reader_commit": "60d0bdb64931f1659c5f662a31d7471dbef5058f",
+  "current_reader_sha256": "97e5cbc0f63cf3ca52fc555334e595d6f24d94a425e549c0c125d00f5d016059",
+  "current_sensitivity_matrix": {
+    "quarantine+expand_ascii": {
+      "lines": 4130,
+      "pages": 207,
+      "tokens": 30158
+    },
+    "quarantine+quarantine": {
+      "lines": 4130,
+      "pages": 207,
+      "tokens": 29906
+    },
+    "split+expand_ascii": {
+      "lines": 4130,
+      "pages": 207,
+      "tokens": 34780
+    },
+    "split+quarantine": {
+      "lines": 4130,
+      "pages": 207,
+      "tokens": 34509
+    }
+  },
+  "decomposition": {
+    "ascii_ligature_effect_with_comma_quarantine": 252,
+    "comma_ligature_interaction": 19,
+    "comma_policy_effect_at_quarantined_ligatures": 4603,
+    "residual_legacy_minus_split_ascii_expansion": 538,
+    "total_legacy_minus_conservative": 5412
+  },
+  "interpretation": "The 538-token residual is not assigned to individual IVTFF rule classes by this audit.",
+  "legacy": {
+    "lines": 4130,
+    "pages": 207,
+    "tokens": 35318
+  }
+}
