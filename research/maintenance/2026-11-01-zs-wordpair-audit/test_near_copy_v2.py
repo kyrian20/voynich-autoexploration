@@ -34,6 +34,20 @@ class NearCopyV2Tests(unittest.TestCase):
         self.assertTrue(near('a@123;c', 'a@456;c'))
         self.assertFalse(near('a@123;c', 'a@123;cd'))
 
+    def test_tokenizer_parity_with_frozen_reader(self):
+        """Regression: v2 must use the same EVA units as the frozen audit."""
+        from itertools import product
+        from wordpair_audit import eva_glyphs as frozen_eva_glyphs
+
+        units = ('a', 'ch', 'sh', 'cth', '@123;', '@456;', '@12;')
+        words = [''] + [''.join(seq) for n in range(1, 4)
+                        for seq in product(units, repeat=n)]
+        self.assertEqual(len(words), 400)
+        for word in words:
+            with self.subTest(word=word):
+                self.assertEqual(eva_glyphs(word), tuple(frozen_eva_glyphs(word)))
+
+
     def test_exhaustive_small_glyph_alphabet(self):
         """Independent nested-loop oracle over 85 words / 7,225 ordered pairs."""
         from itertools import product
