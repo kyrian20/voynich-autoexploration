@@ -1,0 +1,118 @@
+{
+  "schema_version": 1,
+  "status": "REPRODUCED_SCOPED_CANDIDATE_AUDIT",
+  "date": "2026-10-30",
+  "pr": 164,
+  "source_branch": "codex/line-boundary-leaf-replication-20261028",
+  "source_head_before_audit": "0765dcf55e4a70718ef8555e42aa63b587c493c2",
+  "verified_commit": "a2add2fab0064557c68ddc57c6a2a3e493dd3af8",
+  "ci_run_id": 40994826986,
+  "ci_run_url": "https://github.com/kyrian20/voynich-autoexploration/actions/runs/40994826986",
+  "ci_conclusion": "success",
+  "ci_steps_completed": 120,
+  "ci_failed_steps": 0,
+  "ci_artifacts_nonempty": 22,
+  "test_command_normal": "python -m unittest discover -s tests -p 'test_line_boundary_ligature_sensitivity.py' -v",
+  "test_command_optimized": "python -O -m unittest discover -s tests -p 'test_line_boundary_ligature_sensitivity.py' -v",
+  "tests_per_mode": 4,
+  "logs_checked": "8 LIGATURE_CENSUS records, 2 identical per source/policy",
+  "python": "3.12 (GitHub Actions; setup-python resolved 3.12.15)",
+  "script": "research/analysis/2026-10-28-line-boundary-reproduction/line_boundary_replication.py",
+  "script_blob_sha": "e3e7b9037591e6f2e24f3909217c313689290349",
+  "seed": null,
+  "random_iterations": 0,
+  "model_fitted": false,
+  "heldout_metrics_computed": false,
+  "unit": "candidate adjacent token pair, P-row within-page and admitted P-to-P adjacency",
+  "ligature_policy_default": "quarantine",
+  "ligature_policy_sensitivity": "expand_ascii",
+  "scope": "only valid {ASCII-letter-run} ligatures; other braced spans remain unresolved",
+  "sources": [
+    {
+      "name": "ZL3b",
+      "path": "data/transcriptions/eva_zl3b.txt",
+      "sha256": "bf5b6d4ac1e3a51b1847a9c388318d609020441ccd56984c901c32b09beccafc",
+      "p_brace_spans": 394,
+      "p_ascii_only_spans": 283,
+      "policies": [
+        {
+          "name": "primary",
+          "quarantine": {
+            "positive": 2554,
+            "negative": 24270
+          },
+          "expand_ascii": {
+            "positive": 2596,
+            "negative": 24698
+          },
+          "delta": {
+            "positive": 42,
+            "negative": 428
+          }
+        },
+        {
+          "name": "drop_uncertain_word",
+          "quarantine": {
+            "positive": 2417,
+            "negative": 23534
+          },
+          "expand_ascii": {
+            "positive": 2451,
+            "negative": 23919
+          },
+          "delta": {
+            "positive": 34,
+            "negative": 385
+          }
+        }
+      ]
+    },
+    {
+      "name": "IT2a",
+      "path": "data/transcriptions/eva_it2a.txt",
+      "sha256": "7f27a8b0feed8f6de0a99900df6bf912dd1d295c38e5f830bac8b41c3f536fb5",
+      "p_brace_spans": 0,
+      "p_ascii_only_spans": 0,
+      "policies": [
+        {
+          "name": "primary",
+          "quarantine": {
+            "positive": 3291,
+            "negative": 30244
+          },
+          "expand_ascii": {
+            "positive": 3291,
+            "negative": 30244
+          },
+          "delta": {
+            "positive": 0,
+            "negative": 0
+          }
+        },
+        {
+          "name": "drop_uncertain_word",
+          "quarantine": {
+            "positive": 3291,
+            "negative": 30244
+          },
+          "expand_ascii": {
+            "positive": 3291,
+            "negative": 30244
+          },
+          "delta": {
+            "positive": 0,
+            "negative": 0
+          }
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "not a model score or decipherment",
+    "not full IVTFF ligature conformance",
+    "candidate count changes do not prove added candidates are semantically valid",
+    "ZL3b and IT2a are alternate editions of one manuscript",
+    "historical predictor metrics remain INVALID_FOR_CLAIM",
+    "final documentation commit CI requires independent verification"
+  ]
+}

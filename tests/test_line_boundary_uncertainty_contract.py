@@ -1,0 +1,378 @@
+"""Regression: bracketed IVTFF uncertainty must not survive exclusion policy."""
+from __future__ import annotations
+
+import importlib.util
+from pathlib import Path
+import unittest
+
+
+SCRIPT = (Path(__file__).resolve().parents[1] / "research" / "analysis" /
+          "2026-10-28-line-boundary-reproduction" / "line_boundary_replication.py")
+spec = importlib.util.spec_from_file_location("line_boundary_replication", SCRIPT)
+module = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(module)
+
+
+class UncertaintyPolicyContract(unittest.TestCase):
+    def test_unknown_reading_policy_is_rejected_before_tokenization(self):
+        # Historically a misspelled policy silently used the primary reading.
+        # That could mislabel a supposed uncertainty-exclusion sensitivity.
+        for preserve in (False, True):
+            for bad in ("drop_uncertain_words", "", "PRIMARY", "quarantine"):
+                with self.subTest(policy=bad, preserve_gaps=preserve):
+                    with self.assertRaisesRegex(ValueError, "unsupported reading policy"):
+                        module.tokens("ab[cd:ef]gh", bad, preserve_gaps=preserve)
+
+    def test_unknown_reading_policy_is_rejected_on_metadata_only_source(self):
+        # A bad configuration must fail even if no P rows reach tokens().
+        import tempfile
+        with tempfile.TemporaryDirectory() as directory:
+            source = Path(directory) / "metadata_only.ivtff"
+            source.write_text("# no P records\n", encoding="latin-1")
+            with self.assertRaisesRegex(ValueError, "unsupported reading policy"):
+                module.parse(source, "drop_uncertain_words")
+
+    def test_primary_reading_unchanged(self):
+        self.assertEqual(module.tokens("ab[cd:ef]gh", "primary"), ["abcdgh"])
+
+    def test_bracket_alternative_embedded_word_excluded(self):
+        self.assertEqual(module.tokens("ab[cd:ef]gh", "drop_uncertain_word"), [])
+
+    def test_bracket_only_word_excluded(self):
+        self.assertEqual(module.tokens("[cd:ef]", "drop_uncertain_word"), [])
+
+    def test_bracket_without_alternative_excluded(self):
+        self.assertEqual(module.tokens("ab[cd]gh", "drop_uncertain_word"), [])
+
+    def test_neighbouring_certain_words_preserved(self):
+        self.assertEqual(module.tokens("safe.ab[cd:ef]gh.clean", "drop_uncertain_word"),
+                         ["safe", "clean"])
+
+    def test_ligature_and_question_mark_still_excluded(self):
+        self.assertEqual(module.tokens("ab{cd}gh", "drop_uncertain_word"), [])
+        self.assertEqual(module.tokens("ab?gh", "drop_uncertain_word"), [])
+
+    def test_certain_words_unchanged(self):
+        self.assertEqual(module.tokens("safe.clean", "drop_uncertain_word"),
+                         ["safe", "clean"])
+
+    def test_uncertain_word_is_a_barrier_not_a_new_adjacent_pair(self):
+        words = module.tokens("safe.ab[cd:ef]gh.clean", "drop_uncertain_word",
+                              preserve_gaps=True)
+        self.assertEqual(words, ["safe", None, "clean"])
+        pages = {"f1r": [{"words": words, "text": "safe <UNCERTAIN> clean",
+                          "leaf": 1}]}
+        self.assertEqual(module.candidates(pages, ["f1r"]), [])
+
+    def test_primary_unknown_glyph_between_words_is_a_barrier(self):
+        self.assertEqual(module.tokens("alpha.?.beta", "primary", preserve_gaps=True),
+                         ["alpha", None, "beta"])
+        self.assertEqual(module.tokens("alpha.[?:ch].beta", "primary",
+                                       preserve_gaps=True), ["alpha", None, "beta"])
+        pages = {"f1r": [{"words": ["alpha", None, "beta"],
+                          "text": "alpha <UNCERTAIN> beta", "leaf": 1}]}
+        self.assertEqual(module.candidates(pages, ["f1r"]), [])
+
+    def test_primary_unknown_glyph_inside_word_does_not_split_it(self):
+        self.assertEqual(module.tokens("alpha.ab?cd.beta", "primary",
+                                       preserve_gaps=True), ["alpha", None, "beta"])
+        self.assertEqual(module.tokens("ab?cd", "primary"), [])
+
+    def test_primary_unknown_at_line_end_blocks_false_break(self):
+        import tempfile
+        with tempfile.TemporaryDirectory() as directory:
+            source = Path(directory) / "test.ivtff"
+            source.write_text("<f1r.P.1,P0> alpha.?\n"
+                              "<f1r.P.2,P0> beta\n", encoding="latin-1")
+            pages = module.parse(source, "primary")
+        self.assertEqual([r["words"] for r in pages["f1r"]],
+                         [["alpha", None], ["beta"]])
+        self.assertEqual(module.candidates(pages, ["f1r"]), [])
+
+    def test_uncertain_line_blocks_false_line_boundary(self):
+        import tempfile
+        with tempfile.TemporaryDirectory() as directory:
+            source = Path(directory) / "test.ivtff"
+            source.write_text("<f1r.P.1,P0> safe\n"
+                              "<f1r.P.2,P0> [cd:ef]\n"
+                              "<f1r.P.3,P0> clean\n", encoding="latin-1")
+            pages = module.parse(source, "drop_uncertain_word")
+        self.assertEqual([x["words"] for x in pages["f1r"]],
+                         [["safe"], [None], ["clean"]])
+        self.assertEqual(module.candidates(pages, ["f1r"]), [])
+
+    def test_certain_neighbours_still_generate_candidates(self):
+        pages = {"f1r": [
+            {"words": ["safe", "other"], "text": "safe other", "leaf": 1},
+            {"words": ["clean"], "text": "clean", "leaf": 1}]}
+        self.assertEqual([r["y"] for r in module.candidates(pages, ["f1r"])],
+                         [0, 1])
+
+    def test_nonphysical_separator_cannot_forge_locus_row(self):
+        import tempfile
+        # Latin-1 inputs can contain six of the eight forbidden separators.
+        for separator in "\v\f\x1c\x1d\x1e\x85":
+            with self.subTest(separator=ord(separator)):
+                with tempfile.TemporaryDirectory() as directory:
+                    source = Path(directory) / "test.ivtff"
+                    source.write_bytes(("<f1r.P.1,P0> safe" + separator +
+                                        "<f2r.P.1,P0> forged\n" +
+                                        "<f1r.P.2,P0> clean\n").encode("latin-1"))
+                    with self.assertRaisesRegex(ValueError, "Non-physical IVTFF line separator"):
+                        module.parse(source)
+
+    def test_cr_lf_crlf_remain_valid_physical_rows(self):
+        import tempfile
+        for separator in ("\n", "\r", "\r\n"):
+            with self.subTest(separator=repr(separator)):
+                with tempfile.TemporaryDirectory() as directory:
+                    source = Path(directory) / "test.ivtff"
+                    source.write_bytes(("<f1r.P.1,P0> safe.other" + separator +
+                                        "<f1r.P.2,P0> clean" + separator).encode("latin-1"))
+                    pages = module.parse(source)
+                    self.assertEqual(len(pages["f1r"]), 2)
+                    self.assertEqual([r["y"] for r in module.candidates(pages, ["f1r"])],
+                                     [0, 1])
+
+    def test_source_paths_and_hashes_match_frozen_corpora(self):
+        for label, path in module.INPUTS.items():
+            self.assertEqual(path.parent, module.REPO_ROOT / "data" / "transcriptions")
+            self.assertTrue(path.is_file(), label)
+            self.assertEqual(module.sha(path), module.EXPECTED_SHA256[label])
+
+    def test_new_result_never_overwrites_existing_file(self):
+        import json
+        import tempfile
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "result.json"
+            module.write_new_result(path, {"test": 1})
+            self.assertEqual(json.loads(path.read_text(encoding="utf-8")),
+                             {"test": 1})
+            with self.assertRaises(FileExistsError):
+                module.write_new_result(path, {"test": 2})
+            self.assertEqual(json.loads(path.read_text(encoding="utf-8")),
+                             {"test": 1})
+
+    def test_new_result_rejects_symlink(self):
+        import tempfile
+        with tempfile.TemporaryDirectory() as directory:
+            target = Path(directory) / "frozen.json"
+            target.write_text("frozen", encoding="utf-8")
+            link = Path(directory) / "result.json"
+            link.symlink_to(target)
+            with self.assertRaises(FileExistsError):
+                module.write_new_result(link, {"test": 2})
+            self.assertEqual(target.read_text(encoding="utf-8"), "frozen")
+
+
+    def test_empty_body_row_does_not_create_false_positive(self):
+        import tempfile
+        with tempfile.TemporaryDirectory() as directory:
+            source = Path(directory) / "test.ivtff"
+            source.write_text("<f1r.P.1,P0> alpha.beta\n"
+                              "<f1r.P.2,P0> ???\n"
+                              "<f1r.P.3,P0> gamma.delta\n",
+                              encoding="latin-1")
+            pages = module.parse(source, "primary")
+        self.assertEqual([r["words"] for r in pages["f1r"]],
+                         [["alpha", "beta"], [None], ["gamma", "delta"]])
+        # The two within-line gaps survive; no invented inter-line gap.
+        self.assertEqual([r["y"] for r in module.candidates(pages, ["f1r"])],
+                         [0, 0])
+
+    def test_zero_payload_body_row_is_not_silently_skipped(self):
+        import tempfile
+        with tempfile.TemporaryDirectory() as directory:
+            source = Path(directory) / "test.ivtff"
+            source.write_text("<f1r.P.1,P0> alpha\n"
+                              "<f1r.P.2,P0>\n"
+                              "<f1r.P.3,P0> beta\n",
+                              encoding="latin-1")
+            pages = module.parse(source, "primary")
+        self.assertEqual([r["words"] for r in pages["f1r"]],
+                         [["alpha"], [], ["beta"]])
+        self.assertEqual(module.candidates(pages, ["f1r"]), [])
+
+    def test_uncertain_only_page_does_not_shift_calibration_population(self):
+        import tempfile
+        with tempfile.TemporaryDirectory() as directory:
+            source = Path(directory) / "test.ivtff"
+            source.write_text("<f1r.P.1,P0> alpha\n"
+                              "<f2r.P.1,P0> [cd:ef]\n"
+                              "<f3r.P.1,P0> ?\n"
+                              "<f4r.P.1,P0> beta\n",
+                              encoding="latin-1")
+            primary = module.parse(source, "primary")
+            dropped = module.parse(source, "drop_uncertain_word")
+        # f2r is populated in the primary reading, but only [None] in
+        # the sensitivity policy. f3r has no words in either policy.
+        self.assertEqual(list(primary), ["f1r", "f2r", "f4r"])
+        self.assertEqual(list(dropped), ["f1r", "f4r"])
+        self.assertEqual([r["words"] for r in dropped["f1r"]], [["alpha"]])
+        self.assertEqual([r["words"] for r in dropped["f4r"]], [["beta"]])
+
+    def test_empty_only_page_does_not_shift_calibration_population(self):
+        import tempfile
+        with tempfile.TemporaryDirectory() as directory:
+            source = Path(directory) / "test.ivtff"
+            source.write_text("<f1r.P.1,P0> alpha\n"
+                              "<f2r.P.1,P0> ???\n",
+                              encoding="latin-1")
+            pages = module.parse(source, "primary")
+        self.assertEqual(list(pages), ["f1r"])
+
+    def test_candidate_builder_handles_explicit_empty_row(self):
+        pages = {"f1r": [
+            {"words": ["alpha"], "text": "alpha", "leaf": 1},
+            {"words": [], "text": "", "leaf": 1},
+            {"words": ["beta"], "text": "beta", "leaf": 1}]}
+        self.assertEqual(module.candidates(pages, ["f1r"]), [])
+
+
+
+    def test_primary_ligature_is_not_two_fictitious_words(self):
+        # IVTFF 2.0.2 §6.6: braces encode a ligature, not a word boundary.
+        # Fail closed until a glyph-level expansion policy is adjudicated.
+        self.assertEqual(module.tokens("ab{cd}gh", "primary"), [])
+        self.assertEqual(module.tokens("safe.dlo{ct}o.clean", "primary",
+                                       preserve_gaps=True),
+                         ["safe", None, "clean"])
+        self.assertEqual(module.tokens("odar.{c'y}.shol", "primary",
+                                       preserve_gaps=True),
+                         ["odar", None, "shol"])
+
+    def test_ligature_barrier_prevents_false_pairs_and_breaks(self):
+        import tempfile
+        with tempfile.TemporaryDirectory() as directory:
+            source = Path(directory) / "test.ivtff"
+            source.write_text("<f1r.P.1,P0> safe.dlo{ct}o\n"
+                              "<f1r.P.2,P0> clean\n",
+                              encoding="latin-1")
+            pages = module.parse(source, "primary")
+        self.assertEqual([row["words"] for row in pages["f1r"]],
+                         [["safe", None], ["clean"]])
+        self.assertEqual(module.candidates(pages, ["f1r"]), [])
+
+    def test_unclosed_ligature_marker_fails_closed(self):
+        # The previous expectation preserved "clean" after a malformed brace.
+        # Without a closing delimiter its scope is unknowable: a dot may
+        # belong to the unfinished ligature. Fail closed for the WHOLE row,
+        # not just the apparent word, to avoid invented internal candidates.
+        for word in ("ab{cd", "ab}cd"):
+            for policy in ("primary", "drop_uncertain_word"):
+                with self.subTest(word=word, policy=policy):
+                    self.assertEqual(module.tokens("safe." + word + ".clean",
+                                                   policy, preserve_gaps=True),
+                                     [None])
+                    self.assertEqual(module.tokens("safe." + word + ".clean",
+                                                   policy), [])
+
+
+
+    def test_high_ascii_code_inside_word_is_not_two_fictitious_words(self):
+        # IVTFF 2.0.2 §6.6: @nnn; encodes a glyph, not a word boundary.
+        for policy in ("primary", "drop_uncertain_word"):
+            with self.subTest(policy=policy):
+                self.assertEqual(module.tokens("ab@123;cd", policy), [])
+                self.assertEqual(module.tokens("safe.ab@123;cd.clean", policy,
+                                               preserve_gaps=True),
+                                 ["safe", None, "clean"])
+
+    def test_standalone_and_malformed_high_ascii_code_are_barriers(self):
+        for word in ("@123;", "@123", "ab@cd"):
+            with self.subTest(word=word):
+                self.assertEqual(module.tokens("safe." + word + ".clean",
+                                               "primary", preserve_gaps=True),
+                                 ["safe", None, "clean"])
+
+    def test_high_ascii_at_line_end_blocks_false_line_boundary(self):
+        import tempfile
+        with tempfile.TemporaryDirectory() as directory:
+            source = Path(directory) / "test.ivtff"
+            source.write_text("<f1r.P.1,P0> safe.@123;\n"
+                              "<f1r.P.2,P0> clean\n",
+                              encoding="latin-1")
+            pages = module.parse(source, "primary")
+        self.assertEqual([row["words"] for row in pages["f1r"]],
+                         [["safe", None], ["clean"]])
+        self.assertEqual(module.candidates(pages, ["f1r"]), [])
+
+
+
+    def test_inline_free_comment_does_not_forge_word_boundary(self):
+        # IVTFF 2.0.2 §5.7.2; matches lossless F05/F19 policy.
+        for policy in ("primary", "drop_uncertain_word"):
+            with self.subTest(policy=policy):
+                self.assertEqual(
+                    module.tokens("safe.ab<!note>cd.clean", policy, preserve_gaps=True),
+                    ["safe", "abcd", "clean"])
+                self.assertEqual(module.tokens("ab<!note>cd", policy), ["abcd"])
+
+    def test_inline_comment_payload_punctuation_is_not_manuscript_text(self):
+        self.assertEqual(
+            module.tokens("ab<! / { [ @123; . , >cd", "primary",
+                          preserve_gaps=True), ["abcd"])
+        # An explicit IVTFF period remains a boundary after removing a comment.
+        self.assertEqual(module.tokens("ab<!note>.cd", "primary"), ["ab", "cd"])
+        # Drawing interruptions, unlike free-text comments, imply a word space.
+        self.assertEqual(module.tokens("ab<->cd", "primary"), ["ab", "cd"])
+        self.assertEqual(module.tokens("ab<~>cd", "primary"), ["ab", "cd"])
+
+    def test_inline_comment_does_not_create_negative_candidate(self):
+        import tempfile
+        with tempfile.TemporaryDirectory() as directory:
+            source = Path(directory) / "synthetic.ivtff"
+            source.write_text("<f1r.P.1,P0> ab<!note>cd.ef\n"
+                              "<f1r.P.2,P0> gh\n", encoding="latin-1")
+            pages = module.parse(source, "primary")
+        self.assertEqual([row["words"] for row in pages["f1r"]],
+                         [["abcd", "ef"], ["gh"]])
+        self.assertEqual([row["y"] for row in module.candidates(pages, ["f1r"])],
+                         [0, 1])
+
+
+
+    def test_frozen_body_rows_have_no_comment_split_change(self):
+        # Scope: only P loci admitted by the replica, both declared policies.
+        # This is a deterministic corpus-impact preflight, not a new experiment.
+        expected = {"ZL3b": (4130, 107, 0, 0),
+                    "IT2a": (4118, 0, 0, 0)}
+        for label, path in module.INPUTS.items():
+            with self.subTest(source=label):
+                self.assertEqual(module.sha(path), module.EXPECTED_SHA256[label])
+                n_rows = n_comments = 0
+                changed = {"primary": 0, "drop_uncertain_word": 0}
+                for _, raw in module.checked_physical_lines(
+                        path.read_text(encoding="latin-1")):
+                    m = module.ROW.match(raw.strip())
+                    if not m or "," not in m["ident"]:
+                        continue
+                    ident, locus = m["ident"].split(",", 1)
+                    parts = ident.split(".")
+                    if len(parts) < 2:
+                        continue
+                    page = parts[0]
+                    loc = module.re.sub(r"^[+*@=~&!/]+", "", locus.strip())
+                    if (not module.re.fullmatch(r"f(\d+)[rv][1-6]?", page)
+                            and page != "fRos"):
+                        continue
+                    if not module.re.fullmatch(r"P(?:0|1|b|c|r|t)", loc):
+                        continue
+                    n_rows += 1
+                    body = m["body"] or ""
+                    if "<!" not in body:
+                        continue
+                    n_comments += 1
+                    old_body = module.re.sub(r"<![^>]*>", " ", body)
+                    for policy in changed:
+                        old = module.tokens(old_body, policy, preserve_gaps=True)
+                        new = module.tokens(body, policy, preserve_gaps=True)
+                        if old != new:
+                            changed[policy] += 1
+                self.assertEqual(
+                    (n_rows, n_comments, changed["primary"],
+                     changed["drop_uncertain_word"]), expected[label])
+
+
+if __name__ == "__main__":
+    unittest.main()
