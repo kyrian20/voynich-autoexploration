@@ -4,14 +4,22 @@ Independent of the frozen 2026-11-01 Levenshtein audit. No claim is made
 that this reproduces the paper's unpublished propensity correction.
 """
 
+import re
+
 DIGRAPHS = ('cth', 'ckh', 'cph', 'cfh', 'ch', 'sh')
+OPAQUE_CODE = re.compile(r'@[0-9]{3};')
 
 
 def eva_glyphs(word):
-    """Tokenize the six conventional multi-character EVA glyphs atomically."""
+    """Tokenize EVA digraphs and opaque @NNN; units as in the frozen reader."""
     out = []
     i = 0
     while i < len(word):
+        opaque = OPAQUE_CODE.match(word, i)
+        if opaque:
+            out.append(opaque.group(0))
+            i = opaque.end()
+            continue
         glyph = next((g for g in DIGRAPHS if word.startswith(g, i)), None)
         if glyph is None:
             glyph = word[i]
