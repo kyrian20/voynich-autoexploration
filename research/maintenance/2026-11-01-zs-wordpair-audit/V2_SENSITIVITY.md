@@ -20,7 +20,7 @@ Se conserva la misma fórmula OLS aditiva de propensión, el mismo desempate, el
 | ZL3b | 43.930 / 43.781 | 0,0344 (0,0341–0,0351) | 0,0340 (0,0335–0,0344) |
 | IT2a | 43.937 / 43.781 | 0,0462 (0,0433–0,0488) | 0,0460 (0,0429–0,0487) |
 
-En la rejilla completa, la regla v2 admite entre 108 y 173 pares adicionales, según transcripción, vista y tamaño del vocabulario. El cambio de correlación es pequeño en el punto principal; el recálculo no resuelve la discrepancia con los valores comunicados por el artículo.
+En la rejilla completa, la regla v2 admite entre 108 y 178 pares adicionales, según transcripción, vista y tamaño del vocabulario. El cambio de correlación es pequeño en el punto principal; el recálculo no resuelve la discrepancia con los valores comunicados por el artículo.
 
 ## Interpretación
 
