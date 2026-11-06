@@ -26,6 +26,14 @@ class NearCopyV2Tests(unittest.TestCase):
                          ('cth', 'ckh', 'cph', 'cfh', 'ch', 'sh'))
 
 
+    def test_opaque_ivtff_glyph_units(self):
+        # Match the frozen wordpair reader's opaque-code segmentation.
+        self.assertEqual(eva_glyphs('ch@123;sh'), ('ch', '@123;', 'sh'))
+        self.assertEqual(eva_glyphs('@123;@456;'), ('@123;', '@456;'))
+        self.assertEqual(eva_glyphs('@12;'), ('@', '1', '2', ';'))
+        self.assertTrue(near('a@123;c', 'a@456;c'))
+        self.assertFalse(near('a@123;c', 'a@123;cd'))
+
     def test_exhaustive_small_glyph_alphabet(self):
         """Independent nested-loop oracle over 85 words / 7,225 ordered pairs."""
         from itertools import product
