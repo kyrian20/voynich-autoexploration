@@ -145,3 +145,9 @@ Cada conclusión debe apuntar a script, corpus/transcripción, hash, unidad de a
 El repositorio no se declara completamente validado. El acuerdo de parsers v7 documentado arriba no equivale a conformidad completa IVTFF; quedan casos y adjudicaciones pendientes. Las carpetas históricas ya tienen identificadores inequívocos por ruta, pero faltan reconciliaciones de referencias y artefactos entre GitHub y la Biblioteca. La [guía de verificación CI](research/CI_VERIFICATION.md) explica por qué una consulta filtrada vacía no prueba fallo o ausencia de ejecuciones. Cada commit requiere evidencia propia. No se borran originales ni se consideran válidos resultados afectados por defectos conocidos.
 
 Auditoría del 22-10-2026: [lectores históricos de Cicero, selección efectiva y límites](research/maintenance/2026-10-22-loader-audit/REPORT.md).
+
+## Diagnósticos históricos de dependencias a distancia (23-10-2026)
+
+**Sensibilidad técnica:** [48 brazos sintéticos reproducidos](research/analysis/2026-10-23-synthetic-sensitivity/REPORT.md). El residual puede ser cero con dependencia fuerte conocida cuando los bordes ya identifican el token; pequeñas ganancias también pueden reflejar regularización redundante. No es información condicional pura ni evidencia de significado.
+
+**Distancias dos y tres:** [diagnóstico predictivo exploratorio](research/analysis/2026-10-23-lag-screen/REPORT.md), 12 brazos y 192 controles. Sensibilidad insuficiente en Dante y a distancia tres en César: no permite excluir dependencias lingüísticas en Voynich. Reproducción local completa del bloque V1/V2 anterior; no equivale a CI verde.
