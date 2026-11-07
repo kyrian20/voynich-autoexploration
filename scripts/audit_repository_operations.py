@@ -121,6 +121,14 @@ def reconcile_records() -> dict:
 
 
 def audit_experiment_paths() -> dict:
+    # A symlinked experiments root or exp_* directory could redirect an
+    # apparently registered experiment outside the frozen checkout.
+    experiments_root = ROOT / 'experiments'
+    if experiments_root.is_symlink():
+        raise ValueError('Experiment root must not be a symlink')
+    for path in experiments_root.iterdir():
+        if path.is_symlink():
+            raise ValueError(f'Symlink in experiments tree: {path.name}')
     registry = json.loads((ROOT / 'research/EXPERIMENT_PATH_REGISTRY.json').read_text())
     expected = []
     for path in sorted((ROOT / 'experiments').iterdir()):
