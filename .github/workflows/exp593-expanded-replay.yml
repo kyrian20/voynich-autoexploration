@@ -5,6 +5,7 @@ on:
     paths:
       - 'scripts/audit_exp593_expanded_population.py'
       - 'research/maintenance/2026-11-04-exp593-expanded-population-sensitivity.json'
+      - 'research/maintenance/2026-11-04-exp593-expanded-population-sensitivity.md'
       - 'data/transcriptions/eva_zl3b.txt'
       - '.github/workflows/exp593-expanded-replay.yml'
   workflow_dispatch:
