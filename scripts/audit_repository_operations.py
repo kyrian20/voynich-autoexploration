@@ -129,7 +129,10 @@ def audit_experiment_paths() -> dict:
     for path in experiments_root.iterdir():
         if path.is_symlink():
             raise ValueError(f'Symlink in experiments tree: {path.name}')
-    registry = json.loads((ROOT / 'research/EXPERIMENT_PATH_REGISTRY.json').read_text())
+    registry_path = ROOT / 'research/EXPERIMENT_PATH_REGISTRY.json'
+    if registry_path.is_symlink():
+        raise ValueError('Experiment path registry must not be a symlink')
+    registry = json.loads(registry_path.read_text())
     expected = []
     for path in sorted((ROOT / 'experiments').iterdir()):
         match = re.fullmatch(r'exp_(\d+)_(.+)', path.name)
