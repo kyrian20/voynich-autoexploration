@@ -202,7 +202,7 @@ El registro de rutas conserva como identidades canónicas completas `GH:experime
 Lectura descriptiva reproducida sobre `data/transcriptions/eva_zl3b.txt` y los dos parsers del commit base `4220117cca64567eef1af7c35896d03f91cfbcb1`:
 
 - El parser amplio del informe de posición acepta folios simples, folios con sufijo lateral (`f##r1`…`f##v6`) y `fRos`; cuenta todas las líneas IVTFF que pasan el patrón.
-- El parser del informe de variantes acepta solo folios simples `f##r/f##v); también cuenta todos los loci, no solo texto corrido.
+- El parser del informe de variantes acepta solo folios simples (`f##r`/`f##v`); también cuenta todos los loci, no solo texto corrido.
 - Resultado amplio: **5.376 líneas, 39.594 tokens, 853** apariciones de `daiin`, **161** en posición inicial y **134** finales.
 - Resultado de folios simples: **4.188 líneas, 32.732 tokens, 726** apariciones de `daiin`, **133** iniciales y **118** finales.
 - Diferencia: **1.188 líneas, 6.862 tokens, 127** apariciones, **28** iniciales y **16** finales.
