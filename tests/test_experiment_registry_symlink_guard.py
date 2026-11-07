@@ -36,6 +36,18 @@ class ExperimentRegistrySymlinkTests(unittest.TestCase):
                 with self.assertRaisesRegex(ValueError, "Experiment root must not be a symlink"):
                     audit.audit_experiment_paths()
 
+    def test_symlinked_registry_file_is_rejected(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            (root / "research").mkdir()
+            (root / "experiments").mkdir()
+            outside = root / "outside-registry.json"
+            outside.write_text(json.dumps({"entries": [], "numeric_collisions": {}}))
+            (root / "research" / "EXPERIMENT_PATH_REGISTRY.json").symlink_to(outside)
+            with patch.object(audit, "ROOT", root):
+                with self.assertRaisesRegex(ValueError, "registry must not be a symlink"):
+                    audit.audit_experiment_paths()
+
     def test_empty_regular_registry_is_accepted(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
