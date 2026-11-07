@@ -192,3 +192,21 @@ Standing instruction preserved: when resolving backlog hypotheses, move them to 
 ## BC-2026-10-22: alertas de umbral C001, pendientes de adjudicación humana
 
 Batería nueva `experiments/common_battery_2026_10_22/result.md`, posterior a protocolo y semillas congeladas. Tres salidas sin posición superan el umbral literal am LL>=3: copia propia carácter, semilla17003, 3,049020 (18 am, 6 finales); IID17003 e IID17012, 4,573529 (solo 2 am y 1 final cada una). No son reproducción ni reanálisis contradictorio de los resultados EXP-170/171/176. El soporte escaso impide tratar máximos como gramática reproducida, pero la regla de C001 obliga a registrar y adjudicar. Se conserva committed_claims sin cambios y no se promueven findings/failed_approaches. La primaria conjunta también acepta 16/16 barajados del Voynich: batería no discriminante, ninguna conclusión científica VALIDATED. No continuar un ciclo automático de búsqueda para resolver esta cuestión sin protocolo nuevo.
+
+## Ambigüedad de alias y alcance de los análisis automáticos — 2026-11-06
+
+El registro de rutas conserva como identidades canónicas completas `GH:experiments/exp_590_daiin_section_stratification` y `GH:experiments/exp_593_daiin_line_metadata_contrast`. El commit `65f1016adb9a2b2ecb37a7e5515c122676651ae3` añadió informes fechados que reutilizan los números legacy 590 y 593 para otros análisis: posición de `daiin` y variantes de `daiin`. Como la norma del proyecto identifica los artefactos por ruta completa, esto es una ambigüedad de etiquetas numéricas, no una colisión de identidad ni evidencia de que los cálculos sean falsos.
+
+### Reconciliación de corpus
+
+Lectura descriptiva reproducida sobre `data/transcriptions/eva_zl3b.txt` y los dos parsers del commit base `4220117cca64567eef1af7c35896d03f91cfbcb1`:
+
+- El parser amplio del informe de posición acepta folios simples, folios con sufijo lateral (`f##r1`…`f##v6`) y `fRos`; cuenta todas las líneas IVTFF que pasan el patrón.
+- El parser del informe de variantes acepta solo folios simples (`f##r`/`f##v`); también cuenta todos los loci, no solo texto corrido.
+- Resultado amplio: **5.376 líneas, 39.594 tokens, 853** apariciones de `daiin`, **161** en posición inicial y **134** finales.
+- Resultado de folios simples: **4.188 líneas, 32.732 tokens, 726** apariciones de `daiin`, **133** iniciales y **118** finales.
+- Diferencia: **1.188 líneas, 6.862 tokens, 127** apariciones, **28** iniciales y **16** finales.
+
+La diferencia por locus es 467 líneas de párrafo P (4.043 tokens; 102 `daiin`, 26 iniciales, 13 finales), frente a 721 líneas que no son P: 569 L (719 tokens), 64 C (1.842 tokens) y 88 R (258 tokens). Dentro de las líneas P añadidas: P0=341 líneas, Pb=107, P1=14, Pr=3 y Pc=2. Por tanto, el agregado amplio mezcla texto corrido con etiquetas, escritura circular y radial; no es un mero cambio de metadatos Currier. La diferencia de población también incluye folios laterales y `fRos`.
+
+**Interpretación:** conservar los informes y sus resultados, pero citarlos por ruta y fecha como análisis exploratorios distintos. No tratarlos como reproducción directa de los experimentos históricos ni comparar sus totales como si usaran la misma población. Esta reconciliación es descriptiva y de selección de corpus; no valida la hipótesis sobre la función de `daiin`, no es un test inferencial y no asigna IDs EXP nuevos. Próximo paso: documentar explícitamente la población antes de diseñar una comparación confirmatoria, respetando el congelamiento de numeración y las reglas del proyecto.
