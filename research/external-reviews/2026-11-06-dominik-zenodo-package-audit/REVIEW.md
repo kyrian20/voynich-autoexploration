@@ -54,3 +54,14 @@ El texto delimita la cifra correctamente: es naturalizabilidad de papeles funcio
 ## Siguiente paso concreto
 
 Localizar un depósito suplementario que contenga las cinco entradas del auditor R1 y el ledger/exportaciones de 196 posiciones del trabajo estructural. Si no existen públicamente, registrar esas ausencias como bloqueos de reproducibilidad y no reconstruir las tablas desde los valores publicados.
+
+## Seguimiento de búsqueda de suplementos — 2026-11-07
+
+Se comprobó el inventario público de archivos de los tres registros relacionados y se buscaron por nombre los cinco CSV ausentes y el ledger de 196 posiciones en los índices web y en el código del repositorio:
+
+- El registro base [10.5281/zenodo.22049207](https://zenodo.org/records/22049207) enumera la edición, los preprints y el ZIP de 2,9 MB; el catálogo no enumera los cinco CSV como archivos independientes.
+- La versión 2 del suplemento [10.5281/zenodo.23444474](https://zenodo.org/records/23444474) contiene un único archivo, el PDF de 163,5 kB.
+- La versión 1 relacionada [10.5281/zenodo.23113674](https://zenodo.org/records/23113674) enumera el artículo, un documento de metadatos y otro PDF no relacionado con los datos tabulares; tampoco lista los cinco CSV ni el ledger.
+- Las búsquedas exactas de nombres no encontraron una copia pública indexada de esas tablas ni del ledger.
+
+**Adjudicación del seguimiento:** no se localizó un suplemento público que resuelva las entradas ausentes. Esto no demuestra que no existan copias privadas o no indexadas. La reproducción de R1 y el endpoint de 196 posiciones siguen **BLOCKED** por falta de entradas/ledger; el alcance reproducido de R2 no cambia. No se reconstruyen tablas a partir de cifras publicadas ni se afirma que el endpoint nuevo esté validado.
