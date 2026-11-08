@@ -153,9 +153,11 @@ def main() -> None:
         if isinstance(expected, dict):
             if not isinstance(actual, dict):
                 raise AssertionError(f"{path}: expected object")
+            if set(expected) != set(actual):
+                missing = sorted(set(expected) - set(actual))
+                extra = sorted(set(actual) - set(expected))
+                raise AssertionError(f"{path}: object keys mismatch; missing={missing}, extra={extra}")
             for key, value in expected.items():
-                if key not in actual:
-                    raise AssertionError(f"{path}.{key}: missing in reproduction")
                 compare(value, actual[key], f"{path}.{key}")
         elif isinstance(expected, list):
             if not isinstance(actual, list) or len(expected) != len(actual):
