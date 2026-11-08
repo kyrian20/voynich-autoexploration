@@ -61,10 +61,12 @@ def validate_archive_metadata(archived: dict) -> None:
         raise AssertionError("archive metadata mismatch: unexpected null_model")
 
 def self_test_archive_metadata() -> None:
+    """Exercise the actual archived file, not only a synthetic expected dict."""
     import copy
-    validate_archive_metadata(copy.deepcopy(ARCHIVE_METADATA))
+    archived = json.loads(OUT.read_text(encoding="utf-8"))
+    validate_archive_metadata(archived)
     for key in ARCHIVE_METADATA:
-        altered = copy.deepcopy(ARCHIVE_METADATA)
+        altered = copy.deepcopy(archived)
         altered[key] = [] if key == "limitations" else "TAMPERED"
         try:
             validate_archive_metadata(altered)
@@ -72,7 +74,16 @@ def self_test_archive_metadata() -> None:
             pass
         else:
             raise AssertionError(f"negative regression failed for {key}")
-    altered = copy.deepcopy(ARCHIVE_METADATA)
+    for key in ARCHIVE_METADATA:
+        altered = copy.deepcopy(archived)
+        del altered[key]
+        try:
+            validate_archive_metadata(altered)
+        except AssertionError:
+            pass
+        else:
+            raise AssertionError(f"missing-field regression failed for {key}")
+    altered = copy.deepcopy(archived)
     altered["null_model"] = "unverified historical assertion"
     try:
         validate_archive_metadata(altered)
