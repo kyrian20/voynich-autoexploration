@@ -60,6 +60,29 @@ def validate_archive_metadata(archived: dict) -> None:
     if "null_model" in archived:
         raise AssertionError("archive metadata mismatch: unexpected null_model")
 
+import math
+
+def compare(expected, actual, path="root"):
+    if isinstance(expected, dict):
+        if not isinstance(actual, dict):
+            raise AssertionError(f"{path}: expected object")
+        if set(expected) != set(actual):
+            missing = sorted(set(expected) - set(actual))
+            extra = sorted(set(actual) - set(expected))
+            raise AssertionError(f"{path}: object keys mismatch; missing={missing}, extra={extra}")
+        for key, value in expected.items():
+            compare(value, actual[key], f"{path}.{key}")
+    elif isinstance(expected, list):
+        if not isinstance(actual, list) or len(expected) != len(actual):
+            raise AssertionError(f"{path}: list mismatch")
+        for i, value in enumerate(expected):
+            compare(value, actual[i], f"{path}[{i}]")
+    elif isinstance(expected, (float, int)) and not isinstance(expected, bool):
+        if not isinstance(actual, (float, int)) or not math.isclose(expected, actual, rel_tol=1e-12, abs_tol=1e-12):
+            raise AssertionError(f"{path}: archived={expected!r} reproduced={actual!r}")
+    elif expected != actual:
+        raise AssertionError(f"{path}: archived={expected!r} reproduced={actual!r}")
+
 def self_test_archive_metadata() -> None:
     """Exercise the actual archived file, not only a synthetic expected dict."""
     import copy
@@ -91,6 +114,17 @@ def self_test_archive_metadata() -> None:
         pass
     else:
         raise AssertionError("negative regression failed for null_model")
+    # Reject unexpected or missing nested fields, not merely altered values.
+    for original, changed, label in (
+        ({"tests": {"daiin": {"empirical_p": 0.1}}}, {"tests": {"daiin": {"empirical_p": 0.1, "unexpected": 1}}}, "extra nested key"),
+        ({"tests": {"daiin": {"empirical_p": 0.1}}}, {"tests": {"daiin": {}}}, "missing nested key"),
+    ):
+        try:
+            compare(original, changed, "negative_regression")
+        except AssertionError:
+            pass
+        else:
+            raise AssertionError(f"strict-key regression failed: {label}")
     print("ARCHIVE_METADATA_NEGATIVE_REGRESSIONS_PASS")
 
 def main() -> None:
@@ -148,27 +182,6 @@ def main() -> None:
     # Historical archive is immutable: verify against it, never overwrite it.
     archived = json.loads(OUT.read_text(encoding="utf-8"))
     validate_archive_metadata(archived)
-    import math
-    def compare(expected, actual, path="root"):
-        if isinstance(expected, dict):
-            if not isinstance(actual, dict):
-                raise AssertionError(f"{path}: expected object")
-            if set(expected) != set(actual):
-                missing = sorted(set(expected) - set(actual))
-                extra = sorted(set(actual) - set(expected))
-                raise AssertionError(f"{path}: object keys mismatch; missing={missing}, extra={extra}")
-            for key, value in expected.items():
-                compare(value, actual[key], f"{path}.{key}")
-        elif isinstance(expected, list):
-            if not isinstance(actual, list) or len(expected) != len(actual):
-                raise AssertionError(f"{path}: list mismatch")
-            for i, value in enumerate(expected):
-                compare(value, actual[i], f"{path}[{i}]")
-        elif isinstance(expected, (float, int)) and not isinstance(expected, bool):
-            if not isinstance(actual, (float, int)) or not math.isclose(expected, actual, rel_tol=1e-12, abs_tol=1e-12):
-                raise AssertionError(f"{path}: archived={expected!r} reproduced={actual!r}")
-        elif expected != actual:
-            raise AssertionError(f"{path}: archived={expected!r} reproduced={actual!r}")
     for key in ("source_sha256", "lines", "tokens", "variants", "observed", "permutations", "seed", "prng", "tests"):
         compare(archived[key], result[key], key)
     print(json.dumps({"status": "MATCH_ARCHIVED_NUMERICS", "archive": str(OUT), "source_sha256": result["source_sha256"]}, indent=2))
