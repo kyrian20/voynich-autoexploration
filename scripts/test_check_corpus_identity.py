@@ -34,5 +34,23 @@ class CorpusIdentityTests(unittest.TestCase):
             self.assertTrue(any("unsafe" in x for x in audit(root, m)))
 
 
+    def test_rejects_symlink_escape_even_when_bytes_match(self):
+        with tempfile.TemporaryDirectory() as td:
+            base = Path(td)
+            root = base / "repo"
+            root.mkdir()
+            outside = base / "external.txt"
+            raw = b"Title: Drum-Taps\\nLanguage: English\\n"
+            outside.write_bytes(raw)
+            link = root / "data" / "external.txt"
+            link.parent.mkdir()
+            link.symlink_to(outside)
+            manifest = root / "inventory.json"
+            manifest.write_text(json.dumps({"excluded_from_new_language_baselines": [{
+                "path": "data/external.txt", "sha256": hashlib.sha256(raw).hexdigest(),
+                "bytes": len(raw), "header_title": ["Title: Drum-Taps"],
+                "header_language": ["Language: English"]}]}))
+            self.assertTrue(any("unsafe" in x for x in audit(root, manifest)))
+
 if __name__ == "__main__":
     unittest.main()
