@@ -36,6 +36,52 @@ def parse(raw: bytes) -> list[list[str]]:
             lines.append(tokens)
     return lines
 
+# Archived descriptive fields are immutable too. The historical JSON predates
+# the later null_model narrative; do not manufacture that field in the archive.
+ARCHIVE_METADATA = {
+    "status": "EXPLORATORY",
+    "parent_analysis": "EXP-593",
+    "scope": "EXP-590 broad page-ID pattern, including numbered pages and fRos",
+    "source": "data/transcriptions/eva_zl3b.txt",
+    "limitations": [
+        "Sensitivity analysis only; does not replace or alter archived EXP-593.",
+        "Exploratory variant set and previously selected target words.",
+        "Alternative PRNG stream is not an exact replay of EXP-593's Python random.shuffle stream.",
+        "Uniform draw per line has the same null distribution for line-initial counts as shuffling tokens within each line.",
+    ],
+}
+
+def validate_archive_metadata(archived: dict) -> None:
+    for key, expected in ARCHIVE_METADATA.items():
+        if key not in archived or archived[key] != expected:
+            raise AssertionError(f"archive metadata mismatch: {key}")
+    # The archive has no null_model field: reject undocumented additions rather
+    # than silently treating an unreviewed narrative as reproduced history.
+    if "null_model" in archived:
+        raise AssertionError("archive metadata mismatch: unexpected null_model")
+
+def self_test_archive_metadata() -> None:
+    import copy
+    validate_archive_metadata(copy.deepcopy(ARCHIVE_METADATA))
+    for key in ARCHIVE_METADATA:
+        altered = copy.deepcopy(ARCHIVE_METADATA)
+        altered[key] = [] if key == "limitations" else "TAMPERED"
+        try:
+            validate_archive_metadata(altered)
+        except AssertionError:
+            pass
+        else:
+            raise AssertionError(f"negative regression failed for {key}")
+    altered = copy.deepcopy(ARCHIVE_METADATA)
+    altered["null_model"] = "unverified historical assertion"
+    try:
+        validate_archive_metadata(altered)
+    except AssertionError:
+        pass
+    else:
+        raise AssertionError("negative regression failed for null_model")
+    print("ARCHIVE_METADATA_NEGATIVE_REGRESSIONS_PASS")
+
 def main() -> None:
     raw = SOURCE.read_bytes()
     lines = parse(raw)
@@ -90,6 +136,7 @@ def main() -> None:
     }
     # Historical archive is immutable: verify against it, never overwrite it.
     archived = json.loads(OUT.read_text(encoding="utf-8"))
+    validate_archive_metadata(archived)
     import math
     def compare(expected, actual, path="root"):
         if isinstance(expected, dict):
@@ -114,4 +161,10 @@ def main() -> None:
     print(json.dumps({"status": "MATCH_ARCHIVED_NUMERICS", "archive": str(OUT), "source_sha256": result["source_sha256"]}, indent=2))
 
 if __name__ == "__main__":
-    main()
+    import sys
+    if sys.argv[1:] == ["--self-test-contract"]:
+        self_test_archive_metadata()
+    elif len(sys.argv) == 1:
+        main()
+    else:
+        raise SystemExit("usage: audit_exp593_expanded_population.py [--self-test-contract]")
