@@ -22,6 +22,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+      - name: Reject tampered archived metadata (negative regressions)
+        run: python scripts/audit_exp593_expanded_population.py --self-test-contract
       - name: Reproduce and compare immutable archived numerical fields
         run: |
           mkdir -p replay-evidence
