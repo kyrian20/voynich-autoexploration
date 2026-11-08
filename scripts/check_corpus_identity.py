@@ -9,12 +9,16 @@ from pathlib import Path
 def audit(root: Path, manifest: Path) -> list[str]:
     data = json.loads(manifest.read_text(encoding="utf-8"))
     errors = []
+    resolved_root = root.resolve()
     for entry in data["excluded_from_new_language_baselines"]:
         rel = Path(entry["path"])
         if rel.is_absolute() or ".." in rel.parts:
             errors.append(f"{rel}: unsafe path")
             continue
         path = root / rel
+        if not path.resolve().is_relative_to(resolved_root):
+            errors.append(f"{rel}: unsafe path (symlink escapes repository)")
+            continue
         if not path.is_file():
             errors.append(f"{rel}: missing; cannot verify historical identity")
             continue
