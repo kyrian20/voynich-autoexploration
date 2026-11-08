@@ -80,6 +80,13 @@ def compare(expected, actual, path="root"):
     elif isinstance(expected, (float, int)) and not isinstance(expected, bool):
         if isinstance(actual, bool) or not isinstance(actual, (float, int)) or not math.isfinite(actual) or not math.isclose(expected, actual, rel_tol=1e-12, abs_tol=1e-12):
             raise AssertionError(f"{path}: archived={expected!r} reproduced={actual!r}")
+    elif isinstance(expected, bool):
+        # bool is an int subclass in Python: True == 1 must not pass integrity checks.
+        if not isinstance(actual, bool) or expected != actual:
+            raise AssertionError(f"{path}: archived={expected!r} reproduced={actual!r}")
+    elif expected is None:
+        if actual is not None:
+            raise AssertionError(f"{path}: archived=None reproduced={actual!r}")
     elif expected != actual:
         raise AssertionError(f"{path}: archived={expected!r} reproduced={actual!r}")
 
@@ -119,6 +126,9 @@ def self_test_archive_metadata() -> None:
         ({"tests": {"daiin": {"empirical_p": 0.1}}}, {"tests": {"daiin": {"empirical_p": 0.1, "unexpected": 1}}}, "extra nested key"),
         ({"tests": {"daiin": {"empirical_p": 0.1}}}, {"tests": {"daiin": {}}}, "missing nested key"),
         ({"tests": {"daiin": {"null_exceedances": 1}}}, {"tests": {"daiin": {"null_exceedances": True}}}, "boolean substituted for numeric"),
+        ({"tests": {"daiin": {"flag": True}}}, {"tests": {"daiin": {"flag": 1}}}, "numeric substituted for boolean"),
+        ({"tests": {"daiin": {"null_exceedances": 1}}}, {"tests": {"daiin": {"null_exceedances": float("nan")}}}, "non-finite NaN"),
+        ({"tests": {"daiin": {"null_exceedances": 1}}}, {"tests": {"daiin": {"null_exceedances": float("inf")}}}, "non-finite infinity"),
     ):
         try:
             compare(original, changed, "negative_regression")
