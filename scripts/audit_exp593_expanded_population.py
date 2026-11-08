@@ -78,7 +78,7 @@ def compare(expected, actual, path="root"):
         for i, value in enumerate(expected):
             compare(value, actual[i], f"{path}[{i}]")
     elif isinstance(expected, (float, int)) and not isinstance(expected, bool):
-        if not isinstance(actual, (float, int)) or not math.isclose(expected, actual, rel_tol=1e-12, abs_tol=1e-12):
+        if isinstance(actual, bool) or not isinstance(actual, (float, int)) or not math.isfinite(actual) or not math.isclose(expected, actual, rel_tol=1e-12, abs_tol=1e-12):
             raise AssertionError(f"{path}: archived={expected!r} reproduced={actual!r}")
     elif expected != actual:
         raise AssertionError(f"{path}: archived={expected!r} reproduced={actual!r}")
@@ -118,6 +118,7 @@ def self_test_archive_metadata() -> None:
     for original, changed, label in (
         ({"tests": {"daiin": {"empirical_p": 0.1}}}, {"tests": {"daiin": {"empirical_p": 0.1, "unexpected": 1}}}, "extra nested key"),
         ({"tests": {"daiin": {"empirical_p": 0.1}}}, {"tests": {"daiin": {}}}, "missing nested key"),
+        ({"tests": {"daiin": {"null_exceedances": 1}}}, {"tests": {"daiin": {"null_exceedances": True}}}, "boolean substituted for numeric"),
     ):
         try:
             compare(original, changed, "negative_regression")
