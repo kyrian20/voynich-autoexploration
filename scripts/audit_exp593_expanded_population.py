@@ -77,8 +77,12 @@ def compare(expected, actual, path="root"):
             raise AssertionError(f"{path}: list mismatch")
         for i, value in enumerate(expected):
             compare(value, actual[i], f"{path}[{i}]")
-    elif isinstance(expected, (float, int)) and not isinstance(expected, bool):
-        if isinstance(actual, bool) or not isinstance(actual, (float, int)) or not math.isfinite(actual) or not math.isclose(expected, actual, rel_tol=1e-12, abs_tol=1e-12):
+    elif isinstance(expected, int) and not isinstance(expected, bool):
+        # Counts, seeds and permutation totals are discrete: never apply float tolerance.
+        if type(actual) is not int or expected != actual:
+            raise AssertionError(f"{path}: archived={expected!r} reproduced={actual!r}")
+    elif isinstance(expected, float):
+        if isinstance(actual, bool) or not isinstance(actual, (int, float)) or not math.isfinite(expected) or not math.isfinite(actual) or not math.isclose(expected, actual, rel_tol=1e-12, abs_tol=1e-12):
             raise AssertionError(f"{path}: archived={expected!r} reproduced={actual!r}")
     elif isinstance(expected, bool):
         # bool is an int subclass in Python: True == 1 must not pass integrity checks.
@@ -127,6 +131,8 @@ def self_test_archive_metadata() -> None:
         ({"tests": {"daiin": {"empirical_p": 0.1}}}, {"tests": {"daiin": {}}}, "missing nested key"),
         ({"tests": {"daiin": {"null_exceedances": 1}}}, {"tests": {"daiin": {"null_exceedances": True}}}, "boolean substituted for numeric"),
         ({"tests": {"daiin": {"flag": True}}}, {"tests": {"daiin": {"flag": 1}}}, "numeric substituted for boolean"),
+        ({"tests": {"daiin": {"null_exceedances": 1000000000000}}}, {"tests": {"daiin": {"null_exceedances": 1000000000001}}}, "integer difference previously hidden by relative tolerance"),
+        ({"tests": {"daiin": {"null_exceedances": 1}}}, {"tests": {"daiin": {"null_exceedances": 1.0}}}, "float substituted for integer"),
         ({"tests": {"daiin": {"null_exceedances": 1}}}, {"tests": {"daiin": {"null_exceedances": float("nan")}}}, "non-finite NaN"),
         ({"tests": {"daiin": {"null_exceedances": 1}}}, {"tests": {"daiin": {"null_exceedances": float("inf")}}}, "non-finite infinity"),
     ):
