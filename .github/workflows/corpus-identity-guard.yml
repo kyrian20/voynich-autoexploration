@@ -1,0 +1,30 @@
+name: Corpus identity guard
+
+on:
+  pull_request:
+    paths:
+      - 'scripts/check_corpus_identity.py'
+      - 'scripts/test_check_corpus_identity.py'
+      - 'research/CORPUS_IDENTITY_REVIEW.json'
+      - 'data/reference_corpora/**'
+      - '.github/workflows/corpus-identity-guard.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  frozen-corpus-identity:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout full corpus bytes
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Run negative regressions
+        run: python -m unittest discover -s scripts -p 'test_check_corpus_identity.py' -v
+      - name: Verify all six frozen corpus identities
+        run: python scripts/check_corpus_identity.py --root . --manifest research/CORPUS_IDENTITY_REVIEW.json
