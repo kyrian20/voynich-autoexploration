@@ -6,9 +6,26 @@ import json
 from pathlib import Path
 
 
+# Independently pinned membership: the manifest must not silently drop exclusions.
+FROZEN_EXCLUDED_PATHS = frozenset({
+    "data/reference_corpora/arabic/quran_arabic.txt",
+    "data/reference_corpora/english/kjv_bible.txt",
+    "data/reference_corpora/latin/caesar_gallic_wars.txt",
+    "data/reference_corpora/latin/cicero_caesar_latin.txt",
+    "data/reference_corpora/latin/cicero_de_officiis_latin.txt",
+    "data/reference_corpora/latin/vulgate.txt",
+})
+
+
 def audit(root: Path, manifest: Path) -> list[str]:
     data = json.loads(manifest.read_text(encoding="utf-8"))
     errors = []
+    entries = data["excluded_from_new_language_baselines"]
+    paths = [entry["path"] for entry in entries]
+    if len(paths) != len(set(paths)):
+        errors.append("manifest: duplicate excluded corpus path")
+    if set(paths) != FROZEN_EXCLUDED_PATHS:
+        errors.append("manifest: excluded corpus membership mismatch")
     resolved_root = root.resolve()
     for entry in data["excluded_from_new_language_baselines"]:
         rel = Path(entry["path"])
