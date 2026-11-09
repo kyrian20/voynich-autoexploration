@@ -3,6 +3,7 @@ import json
 import tempfile
 import unittest
 from pathlib import Path
+from unittest.mock import patch
 from check_corpus_identity import audit
 
 
@@ -19,11 +20,27 @@ class CorpusIdentityTests(unittest.TestCase):
                      "bytes": len(raw), "header_title": ["Title: Drum-Taps"],
                      "header_language": ["Language: English"]}
             m.write_text(json.dumps({"excluded_from_new_language_baselines": [entry]}))
-            self.assertEqual(audit(root, m), [])
+            with patch('check_corpus_identity.FROZEN_EXCLUDED_PATHS', frozenset({entry['path']})):
+                self.assertEqual(audit(root, m), [])
             f.write_bytes(raw + b"changed")
-            self.assertTrue(any("mismatch" in x for x in audit(root, m)))
+            with patch('check_corpus_identity.FROZEN_EXCLUDED_PATHS', frozenset({entry['path']})):
+                self.assertTrue(any("mismatch" in x for x in audit(root, m)))
             f.unlink()
-            self.assertTrue(any("missing" in x for x in audit(root, m)))
+            with patch('check_corpus_identity.FROZEN_EXCLUDED_PATHS', frozenset({entry['path']})):
+                self.assertTrue(any("missing" in x for x in audit(root, m)))
+
+    def test_rejects_dropped_or_duplicated_exclusions(self):
+        with tempfile.TemporaryDirectory() as td:
+            root = Path(td)
+            manifest = root / "inventory.json"
+            manifest.write_text(json.dumps({"excluded_from_new_language_baselines": []}))
+            self.assertTrue(any("membership mismatch" in e for e in audit(root, manifest)))
+            entry = {"path": "data/reference_corpora/arabic/quran_arabic.txt",
+                     "sha256": "x", "bytes": 0}
+            manifest.write_text(json.dumps({"excluded_from_new_language_baselines": [entry, entry]}))
+            errors = audit(root, manifest)
+            self.assertTrue(any("duplicate" in e for e in errors))
+            self.assertTrue(any("membership mismatch" in e for e in errors))
 
     def test_rejects_path_traversal(self):
         with tempfile.TemporaryDirectory() as td:
