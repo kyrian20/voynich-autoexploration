@@ -99,6 +99,46 @@ class IvtffMinimumFormatTests(unittest.TestCase):
             self.assertEqual(failure["status"], "FAIL")
             self.assertEqual(failure["files"][0]["errors"][0]["code"], "read_error")
 
+    def test_cli_mixed_inputs_fail_closed_without_losing_valid_receipts(self):
+        # A valid corpus must not mask an invalid second corpus. Both source
+        # hashes and the failing line/column remain available in the receipt.
+        import hashlib
+        import json
+        import subprocess
+        import tempfile
+
+        script = ROOT / "scripts" / "audit_ivtff_minimum_format.py"
+        with tempfile.TemporaryDirectory() as directory:
+            folder = Path(directory)
+            valid = folder / "valid.ivtff"
+            invalid = folder / "invalid.ivtff"
+            valid_bytes = VALID_HEADER + b"\n<f1r>\n"
+            invalid_bytes = VALID_HEADER + b"\nA\xff\tB\n"
+            valid.write_bytes(valid_bytes)
+            invalid.write_bytes(invalid_bytes)
+            receipt = folder / "mixed-receipt.json"
+            completed = subprocess.run(
+                [sys.executable, str(script), "--out", str(receipt),
+                 str(valid), str(invalid)],
+                capture_output=True, text=True, check=False,
+            )
+            self.assertEqual(completed.returncode, 1, completed.stderr)
+            self.assertEqual(completed.stdout, receipt.read_text(encoding="utf-8"))
+            payload = json.loads(completed.stdout)
+            self.assertEqual(payload["status"], "FAIL")
+            self.assertEqual([item["status"] for item in payload["files"]],
+                             ["PASS", "FAIL"])
+            self.assertEqual(
+                [item["sha256"] for item in payload["files"]],
+                [hashlib.sha256(raw).hexdigest()
+                 for raw in (valid_bytes, invalid_bytes)],
+            )
+            errors = payload["files"][1]["errors"]
+            self.assertEqual(
+                [(item["code"], item["line"], item["column"]) for item in errors],
+                [("non_ascii_byte", 2, 2), ("control_byte_in_line", 2, 3)],
+            )
+
     def test_rejects_short_or_malformed_header(self):
         for raw in (b"#=IVTFF Eva- 2.0", b"#=IVTFF Eva- 2.X M", b" #=IVTFF Eva- 2.0 M"):
             with self.subTest(raw=raw):
