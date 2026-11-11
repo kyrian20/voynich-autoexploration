@@ -53,6 +53,19 @@ class IvtffMinimumFormatTests(unittest.TestCase):
         self.assertEqual([e["code"] for e in report["errors"]],
                          ["non_ascii_byte", "control_byte_in_line"])
 
+    def test_reports_control_before_non_ascii_and_resets_per_line(self):
+        # Reverse ordering is a separate scanner path: a control byte must
+        # not hide a later non-ASCII byte, and state must reset at CRLF.
+        report = audit_bytes(VALID_HEADER + b"\r\n" + b"a\tb\xff" + b"\r\n" + b"\x7fc\xc3")
+        self.assertEqual(report["status"], "FAIL")
+        errors = [(e["line"], e["code"], e["column"]) for e in report["errors"]]
+        self.assertEqual(errors, [
+            (2, "control_byte_in_line", 2),
+            (2, "non_ascii_byte", 4),
+            (3, "control_byte_in_line", 1),
+            (3, "non_ascii_byte", 3),
+        ])
+
     def test_rejects_short_or_malformed_header(self):
         for raw in (b"#=IVTFF Eva- 2.0", b"#=IVTFF Eva- 2.X M", b" #=IVTFF Eva- 2.0 M"):
             with self.subTest(raw=raw):
