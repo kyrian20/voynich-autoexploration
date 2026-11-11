@@ -66,7 +66,7 @@ def audit_bytes(raw: bytes, *, source: str = "<bytes>") -> dict:
                 errors.append({"code": "non_ascii_byte", "line": line_no,
                                "column": offset + 1, "value": byte})
                 break
-            if byte < 32:
+            if byte < 32 or byte == 127:
                 errors.append({"code": "control_byte_in_line", "line": line_no,
                                "column": offset + 1, "value": byte})
                 break
@@ -104,7 +104,10 @@ def main() -> int:
     parser.add_argument("--out", type=Path, help="Write the JSON receipt to this path")
     parser.add_argument("paths", nargs="*", help="Files to audit (defaults to the three canonical corpora)")
     args = parser.parse_args()
-    paths = [Path(p) for p in args.paths] if args.paths else [ROOT / p for p in CORPORA]
+    paths = [
+        Path(p) if Path(p).is_absolute() else ROOT / Path(p)
+        for p in args.paths
+    ] if args.paths else [ROOT / p for p in CORPORA]
     reports = []
     for path in paths:
         try:
