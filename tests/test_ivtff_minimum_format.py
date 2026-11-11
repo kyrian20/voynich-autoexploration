@@ -189,6 +189,35 @@ class IvtffMinimumFormatTests(unittest.TestCase):
             self.assertEqual(source.read_bytes(), original)
             self.assertEqual(receipt.read_bytes(), original)
 
+    def test_cli_receipt_replaces_unrelated_hardlink_without_mutating_peer(self):
+        # Previously write_text() truncated the inode shared with an unrelated
+        # file. Replacing the directory entry must leave the peer untouched.
+        import json
+        import os
+        import subprocess
+        import tempfile
+
+        script = ROOT / "scripts" / "audit_ivtff_minimum_format.py"
+        with tempfile.TemporaryDirectory() as directory:
+            folder = Path(directory)
+            source = folder / "source.ivtff"
+            source.write_bytes(VALID_HEADER + b"\\n<f1r>\\n")
+            peer = folder / "unrelated.txt"
+            original = b"UNRELATED DATA MUST NOT CHANGE\\n"
+            peer.write_bytes(original)
+            receipt = folder / "receipt.json"
+            os.link(peer, receipt)
+            self.assertTrue(peer.samefile(receipt))
+            result = subprocess.run(
+                [sys.executable, str(script), "--out", str(receipt), str(source)],
+                capture_output=True, text=True, check=False,
+            )
+            self.assertEqual(result.returncode, 0, result.stderr)
+            self.assertEqual(peer.read_bytes(), original)
+            self.assertFalse(peer.samefile(receipt))
+            self.assertEqual(receipt.read_text(encoding="utf-8"), result.stdout)
+            self.assertEqual(json.loads(result.stdout)["status"], "PASS")
+
     def test_rejects_short_or_malformed_header(self):
         for raw in (b"#=IVTFF Eva- 2.0", b"#=IVTFF Eva- 2.X M", b" #=IVTFF Eva- 2.0 M"):
             with self.subTest(raw=raw):
