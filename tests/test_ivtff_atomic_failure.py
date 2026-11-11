@@ -43,16 +43,16 @@ class IvtffAtomicFailureTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as directory:
             folder = Path(directory)
             source = folder / "source.ivtff"
-            original = b"#=IVTFF Eva- 2.0 M optional header extension\\n<f1r>\\n"
+            original = b"#=IVTFF Eva- 2.0 M optional header extension\n<f1r>\n"
             source.write_bytes(original)
             receipt = folder / "receipt.json"
-            previous = b"PREVIOUS RECEIPT MUST SURVIVE\\n"
+            previous = b"PREVIOUS RECEIPT MUST SURVIVE\n"
             receipt.write_bytes(previous)
             stderr, stdout = io.StringIO(), io.StringIO()
             argv = ["audit_ivtff_minimum_format.py", "--out", str(receipt), str(source)]
-            with patch.object(sys, "argv", argv), \\
-                 patch.object(auditor.os, "fsync", side_effect=OSError("injected fsync failure")) as fsync, \\
-                 patch.object(auditor.os, "replace") as replace, \\
+            with patch.object(sys, "argv", argv), \
+                 patch.object(auditor.os, "fsync", side_effect=OSError("injected fsync failure")) as fsync, \
+                 patch.object(auditor.os, "replace") as replace, \
                  contextlib.redirect_stderr(stderr), contextlib.redirect_stdout(stdout):
                 status = auditor.main()
             self.assertEqual(status, 2)
