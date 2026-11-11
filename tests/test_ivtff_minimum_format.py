@@ -232,9 +232,9 @@ class IvtffMinimumFormatTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as directory:
             folder = Path(directory)
             source = folder / "source.ivtff"
-            source.write_bytes(VALID_HEADER + b"\\n<f1r>\\n")
+            source.write_bytes(VALID_HEADER + b"\n<f1r>\n")
             target = folder / "unrelated.txt"
-            original = b"UNRELATED SYMLINK TARGET MUST NOT CHANGE\\n"
+            original = b"UNRELATED SYMLINK TARGET MUST NOT CHANGE\n"
             target.write_bytes(original)
             receipt = folder / "receipt.json"
             receipt.symlink_to(target)
