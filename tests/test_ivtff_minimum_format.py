@@ -34,9 +34,11 @@ class IvtffMinimumFormatTests(unittest.TestCase):
         non_ascii = audit_bytes(VALID_HEADER + b"\n" + "é".encode("utf-8"))
         vertical_tab = audit_bytes(VALID_HEADER + b"\n" + b"a\vb")
         tab = audit_bytes(VALID_HEADER + b"\n" + b"a\tb")
+        delete = audit_bytes(VALID_HEADER + b"\n" + b"a\x7fb")
         self.assertIn("non_ascii_byte", {e["code"] for e in non_ascii["errors"]})
         self.assertIn("control_byte_in_line", {e["code"] for e in vertical_tab["errors"]})
         self.assertIn("control_byte_in_line", {e["code"] for e in tab["errors"]})
+        self.assertIn("control_byte_in_line", {e["code"] for e in delete["errors"]})
 
     def test_rejects_short_or_malformed_header(self):
         for raw in (b"#=IVTFF Eva- 2.0", b"#=IVTFF Eva- 2.X M", b" #=IVTFF Eva- 2.0 M"):
