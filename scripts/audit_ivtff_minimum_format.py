@@ -61,14 +61,21 @@ def audit_bytes(raw: bytes, *, source: str = "<bytes>") -> dict:
         if len(line) > MAX_LINE_CHARS:
             errors.append({"code": "line_too_long", "line": line_no,
                            "length": len(line), "maximum": MAX_LINE_CHARS})
+        # Record the first occurrence of each independent byte-error class.
+        # Stopping after the first malformed byte concealed a second class on
+        # the same physical line (e.g. a UTF-8 byte followed by a TAB).
+        seen_non_ascii = False
+        seen_control = False
         for offset, byte in enumerate(line):
-            if byte > 127:
+            if byte > 127 and not seen_non_ascii:
                 errors.append({"code": "non_ascii_byte", "line": line_no,
                                "column": offset + 1, "value": byte})
-                break
-            if byte < 32 or byte == 127:
+                seen_non_ascii = True
+            elif (byte < 32 or byte == 127) and not seen_control:
                 errors.append({"code": "control_byte_in_line", "line": line_no,
                                "column": offset + 1, "value": byte})
+                seen_control = True
+            if seen_non_ascii and seen_control:
                 break
     header = lines[0] if lines else b""
     if len(header) < 18:
