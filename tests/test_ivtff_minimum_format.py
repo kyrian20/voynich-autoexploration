@@ -147,7 +147,7 @@ class IvtffMinimumFormatTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as directory:
             folder = Path(directory)
             source = folder / "source.ivtff"
-            original = VALID_HEADER + b"\\n<f1r>\\n"
+            original = VALID_HEADER + b"\n<f1r>\n"
             source.write_bytes(original)
             alias = folder / "alias.ivtff"
             alias.symlink_to(source)
