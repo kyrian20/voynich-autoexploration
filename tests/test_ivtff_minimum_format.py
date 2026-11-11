@@ -163,6 +163,32 @@ class IvtffMinimumFormatTests(unittest.TestCase):
                     self.assertEqual(result.stdout, "")
                     self.assertEqual(source.read_bytes(), original)
 
+    def test_cli_refuses_receipt_hardlink_to_source(self):
+        # resolve() does not detect distinct paths with the same inode.
+        import os
+        import subprocess
+        import tempfile
+
+        script = ROOT / "scripts" / "audit_ivtff_minimum_format.py"
+        with tempfile.TemporaryDirectory() as directory:
+            folder = Path(directory)
+            source = folder / "source.ivtff"
+            original = VALID_HEADER + b"\n<f1r>\n"
+            source.write_bytes(original)
+            receipt = folder / "receipt.json"
+            os.link(source, receipt)
+            self.assertNotEqual(source.resolve(), receipt.resolve())
+            self.assertTrue(source.samefile(receipt))
+            result = subprocess.run(
+                [sys.executable, str(script), "--out", str(receipt), str(source)],
+                capture_output=True, text=True, check=False,
+            )
+            self.assertEqual(result.returncode, 2, result.stderr)
+            self.assertIn("Refusing --out", result.stderr)
+            self.assertEqual(result.stdout, "")
+            self.assertEqual(source.read_bytes(), original)
+            self.assertEqual(receipt.read_bytes(), original)
+
     def test_rejects_short_or_malformed_header(self):
         for raw in (b"#=IVTFF Eva- 2.0", b"#=IVTFF Eva- 2.X M", b" #=IVTFF Eva- 2.0 M"):
             with self.subTest(raw=raw):
