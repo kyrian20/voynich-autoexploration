@@ -66,6 +66,39 @@ class IvtffMinimumFormatTests(unittest.TestCase):
             (3, "non_ascii_byte", 3),
         ])
 
+    def test_cli_receipt_exit_status_and_missing_input(self):
+        # Exercise the actual CI-facing command, not just audit_bytes().
+        import hashlib
+        import json
+        import subprocess
+        import tempfile
+
+        script = ROOT / "scripts" / "audit_ivtff_minimum_format.py"
+        with tempfile.TemporaryDirectory() as directory:
+            folder = Path(directory)
+            valid = folder / "valid.ivtff"
+            valid.write_bytes(VALID_HEADER + b"\n<f1r>\n")
+            receipt = folder / "receipt.json"
+            command = [sys.executable, str(script), "--out", str(receipt), str(valid)]
+            passed = subprocess.run(command, capture_output=True, text=True, check=False)
+            self.assertEqual(passed.returncode, 0, passed.stderr)
+            self.assertEqual(receipt.read_text(encoding="utf-8"), passed.stdout)
+            payload = json.loads(receipt.read_text(encoding="utf-8"))
+            self.assertEqual(payload["status"], "PASS")
+            self.assertEqual(payload["files"][0]["sha256"],
+                             hashlib.sha256(valid.read_bytes()).hexdigest())
+
+            missing = folder / "absent.ivtff"
+            failed = subprocess.run(
+                [sys.executable, str(script), "--out", str(receipt), str(missing)],
+                capture_output=True, text=True, check=False,
+            )
+            self.assertNotEqual(failed.returncode, 0, failed.stdout)
+            self.assertEqual(receipt.read_text(encoding="utf-8"), failed.stdout)
+            failure = json.loads(failed.stdout)
+            self.assertEqual(failure["status"], "FAIL")
+            self.assertEqual(failure["files"][0]["errors"][0]["code"], "read_error")
+
     def test_rejects_short_or_malformed_header(self):
         for raw in (b"#=IVTFF Eva- 2.0", b"#=IVTFF Eva- 2.X M", b" #=IVTFF Eva- 2.0 M"):
             with self.subTest(raw=raw):
