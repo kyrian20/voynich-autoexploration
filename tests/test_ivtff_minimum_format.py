@@ -201,9 +201,9 @@ class IvtffMinimumFormatTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as directory:
             folder = Path(directory)
             source = folder / "source.ivtff"
-            source.write_bytes(VALID_HEADER + b"\\n<f1r>\\n")
+            source.write_bytes(VALID_HEADER + b"\n<f1r>\n")
             peer = folder / "unrelated.txt"
-            original = b"UNRELATED DATA MUST NOT CHANGE\\n"
+            original = b"UNRELATED DATA MUST NOT CHANGE\n"
             peer.write_bytes(original)
             receipt = folder / "receipt.json"
             os.link(peer, receipt)
@@ -216,7 +216,10 @@ class IvtffMinimumFormatTests(unittest.TestCase):
             self.assertEqual(peer.read_bytes(), original)
             self.assertFalse(peer.samefile(receipt))
             self.assertEqual(receipt.read_text(encoding="utf-8"), result.stdout)
-            self.assertEqual(json.loads(result.stdout)["status"], "PASS")
+            payload = json.loads(result.stdout)
+            self.assertEqual(payload["status"], "PASS")
+            self.assertEqual(payload["files"][0]["physical_line_count"], 2)
+            self.assertEqual(payload["files"][0]["line_ending_counts"]["lf_or_cr"], 2)
 
     def test_rejects_short_or_malformed_header(self):
         for raw in (b"#=IVTFF Eva- 2.0", b"#=IVTFF Eva- 2.X M", b" #=IVTFF Eva- 2.0 M"):
