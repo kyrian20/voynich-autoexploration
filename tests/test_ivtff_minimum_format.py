@@ -40,6 +40,19 @@ class IvtffMinimumFormatTests(unittest.TestCase):
         self.assertIn("control_byte_in_line", {e["code"] for e in tab["errors"]})
         self.assertIn("control_byte_in_line", {e["code"] for e in delete["errors"]})
 
+    def test_reports_both_independent_byte_error_classes_on_same_line(self):
+        # Previous scanner stopped at the first bad byte and hid the TAB.
+        report = audit_bytes(VALID_HEADER + b"\n" + b"a\xc3\xa9b\tc")
+        self.assertEqual(report["status"], "FAIL")
+        errors = [e for e in report["errors"] if e.get("line") == 2]
+        self.assertEqual([(e["code"], e["column"]) for e in errors],
+                         [("non_ascii_byte", 2), ("control_byte_in_line", 5)])
+
+    def test_reports_one_error_per_class_per_line_not_per_byte(self):
+        report = audit_bytes(VALID_HEADER + b"\n" + b"\xc3\xa9\xff\t\x7f")
+        self.assertEqual([e["code"] for e in report["errors"]],
+                         ["non_ascii_byte", "control_byte_in_line"])
+
     def test_rejects_short_or_malformed_header(self):
         for raw in (b"#=IVTFF Eva- 2.0", b"#=IVTFF Eva- 2.X M", b" #=IVTFF Eva- 2.0 M"):
             with self.subTest(raw=raw):
