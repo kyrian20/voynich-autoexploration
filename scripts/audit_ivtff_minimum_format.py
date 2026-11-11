@@ -115,6 +115,17 @@ def main() -> int:
         Path(p) if Path(p).is_absolute() else ROOT / Path(p)
         for p in args.paths
     ] if args.paths else [ROOT / p for p in CORPORA]
+    # Never allow a JSON receipt to overwrite a source transcription. Resolve
+    # aliases and symlinks before reading or writing any file.
+    if args.out is not None:
+        output = args.out.resolve()
+        # Path.resolve catches symlinks, but not hard links to the same inode.
+        # An existing hard-linked output would truncate the input on write.
+        if any(path.resolve() == output or
+               (args.out.exists() and path.exists() and
+                args.out.samefile(path)) for path in paths):
+            print("Refusing --out: receipt path aliases an input corpus", file=sys.stderr)
+            return 2
     reports = []
     for path in paths:
         try:
