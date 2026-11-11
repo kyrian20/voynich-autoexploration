@@ -119,7 +119,11 @@ def main() -> int:
     # aliases and symlinks before reading or writing any file.
     if args.out is not None:
         output = args.out.resolve()
-        if any(path.resolve() == output for path in paths):
+        # Path.resolve catches symlinks, but not hard links to the same inode.
+        # An existing hard-linked output would truncate the input on write.
+        if any(path.resolve() == output or
+               (args.out.exists() and path.exists() and
+                args.out.samefile(path)) for path in paths):
             print("Refusing --out: receipt path aliases an input corpus", file=sys.stderr)
             return 2
     reports = []
