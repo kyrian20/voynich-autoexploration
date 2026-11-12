@@ -65,6 +65,43 @@ class IvtffAtomicFailureTests(unittest.TestCase):
             self.assertEqual(list(folder.glob(".ivtff-receipt-*.tmp")), [])
 
 
+    def test_cleanup_failure_does_not_mask_primary_replace_error(self):
+        # If unlink also fails, the CLI must still report the write failure.
+        with tempfile.TemporaryDirectory() as directory:
+            folder = Path(directory)
+            source = folder / "source.ivtff"
+            original = b"#=IVTFF Eva- 2.0 M optional header extension\\n<f1r>\\n"
+            source.write_bytes(original)
+            receipt = folder / "receipt.json"
+            previous = b"PREVIOUS RECEIPT MUST SURVIVE\\n"
+            receipt.write_bytes(previous)
+            stderr, stdout = io.StringIO(), io.StringIO()
+            argv = ["audit_ivtff_minimum_format.py", "--out", str(receipt), str(source)]
+            real_unlink = Path.unlink
+            leaked = []
+
+            def fail_temp_cleanup(path, *args, **kwargs):
+                if path.name.startswith(".ivtff-receipt-"):
+                    leaked.append(path)
+                    raise PermissionError("injected cleanup failure")
+                return real_unlink(path, *args, **kwargs)
+
+            with patch.object(sys, "argv", argv), \\
+                 patch.object(auditor.os, "replace", side_effect=OSError("injected replace failure")), \\
+                 patch.object(Path, "unlink", autospec=True, side_effect=fail_temp_cleanup), \\
+                 contextlib.redirect_stderr(stderr), contextlib.redirect_stdout(stdout):
+                status = auditor.main()
+            self.assertEqual(status, 2)
+            self.assertEqual(stdout.getvalue(), "")
+            self.assertIn("injected replace failure", stderr.getvalue())
+            self.assertIn("Cannot remove temporary IVTFF receipt", stderr.getvalue())
+            self.assertEqual(receipt.read_bytes(), previous)
+            self.assertEqual(source.read_bytes(), original)
+            self.assertEqual(len(leaked), 1)
+            # Simulated unlink denial leaves a named file; caller is informed.
+            self.assertTrue(leaked[0].exists())
+
+
     def test_directory_destination_fails_without_leaking_temporary_receipt(self):
         # os.replace cannot replace a nonempty directory with a file.
         with tempfile.TemporaryDirectory() as directory:
