@@ -161,7 +161,13 @@ def main() -> int:
             return 2
         finally:
             if temporary is not None:
-                temporary.unlink(missing_ok=True)
+                try:
+                    temporary.unlink(missing_ok=True)
+                except OSError as exc:
+                    # Cleanup failure must not mask the primary write error.
+                    # Surface the leaked temporary path for manual recovery.
+                    print(f"Cannot remove temporary IVTFF receipt {temporary}: {exc}",
+                          file=sys.stderr)
     print(rendered, end="")
     return 0 if result["status"] == "PASS" else 1
 
