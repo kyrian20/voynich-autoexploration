@@ -107,7 +107,7 @@ class IvtffAtomicFailureTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as directory:
             folder = Path(directory)
             source = folder / "source.ivtff"
-            original = b"#=IVTFF Eva- 2.0 M optional header extension\\n<f1r>\\n"
+            original = b"#=IVTFF Eva- 2.0 M optional header extension\n<f1r>\n"
             source.write_bytes(original)
             receipt = folder / "receipt.json"
             stderr, stdout = io.StringIO(), io.StringIO()
@@ -119,8 +119,8 @@ class IvtffAtomicFailureTests(unittest.TestCase):
                     raise PermissionError("injected post-replace cleanup error")
                 return real_unlink(path, *args, **kwargs)
 
-            with patch.object(sys, "argv", argv), \\
-                 patch.object(Path, "unlink", autospec=True, side_effect=fail_cleanup), \\
+            with patch.object(sys, "argv", argv), \
+                 patch.object(Path, "unlink", autospec=True, side_effect=fail_cleanup), \
                  contextlib.redirect_stderr(stderr), contextlib.redirect_stdout(stdout):
                 status = auditor.main()
             self.assertEqual(status, 2)
