@@ -102,8 +102,9 @@ class IvtffAtomicFailureTests(unittest.TestCase):
             self.assertTrue(leaked[0].exists())
 
 
-    def test_cleanup_error_after_replace_is_not_reported_as_success(self):
-        # A cleanup exception after a successful replace must not return 0.
+    def test_successful_replace_does_not_attempt_stale_temp_cleanup(self):
+        # os.replace consumes the temporary pathname. A subsequent unlink is
+        # unnecessary and may falsely report a failed operation.
         with tempfile.TemporaryDirectory() as directory:
             folder = Path(directory)
             source = folder / "source.ivtff"
@@ -114,21 +115,21 @@ class IvtffAtomicFailureTests(unittest.TestCase):
             argv = ["audit_ivtff_minimum_format.py", "--out", str(receipt), str(source)]
             real_unlink = Path.unlink
 
-            def fail_cleanup(path, *args, **kwargs):
+            def reject_temp_unlink(path, *args, **kwargs):
                 if path.name.startswith(".ivtff-receipt-"):
-                    raise PermissionError("injected post-replace cleanup error")
+                    raise AssertionError("stale temporary cleanup after successful replace")
                 return real_unlink(path, *args, **kwargs)
 
             with patch.object(sys, "argv", argv), \
-                 patch.object(Path, "unlink", autospec=True, side_effect=fail_cleanup), \
+                 patch.object(Path, "unlink", autospec=True, side_effect=reject_temp_unlink), \
                  contextlib.redirect_stderr(stderr), contextlib.redirect_stdout(stdout):
                 status = auditor.main()
-            self.assertEqual(status, 2)
-            self.assertEqual(stdout.getvalue(), "")
-            self.assertIn("injected post-replace cleanup error", stderr.getvalue())
+            self.assertEqual(status, 0)
+            self.assertEqual(stderr.getvalue(), "")
+            self.assertIn('"status": "PASS"', stdout.getvalue())
             self.assertEqual(source.read_bytes(), original)
-            self.assertTrue(receipt.exists())
             self.assertEqual(list(folder.glob(".ivtff-receipt-*.tmp")), [])
+            self.assertEqual(receipt.read_text(encoding="utf-8"), stdout.getvalue())
 
 
     def test_directory_destination_fails_without_leaking_temporary_receipt(self):

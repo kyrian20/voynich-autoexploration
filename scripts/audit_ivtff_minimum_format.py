@@ -157,6 +157,9 @@ def main() -> int:
                 stream.flush()
                 os.fsync(stream.fileno())
             os.replace(temporary, args.out)
+            # The temporary pathname no longer exists after a successful
+            # replacement. Do not attempt cleanup of a consumed name.
+            temporary = None
         except OSError as exc:
             print(f"Cannot write IVTFF receipt: {exc}", file=sys.stderr)
             return 2
