@@ -120,8 +120,8 @@ class IvtffAtomicFailureTests(unittest.TestCase):
                     raise AssertionError("stale temporary cleanup after successful replace")
                 return real_unlink(path, *args, **kwargs)
 
-            with patch.object(sys, "argv", argv), \\
-                 patch.object(Path, "unlink", autospec=True, side_effect=reject_temp_unlink), \\
+            with patch.object(sys, "argv", argv), \
+                 patch.object(Path, "unlink", autospec=True, side_effect=reject_temp_unlink), \
                  contextlib.redirect_stderr(stderr), contextlib.redirect_stdout(stdout):
                 status = auditor.main()
             self.assertEqual(status, 0)
