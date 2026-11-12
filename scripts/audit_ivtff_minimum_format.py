@@ -117,8 +117,10 @@ def main() -> int:
         Path(p) if Path(p).is_absolute() else ROOT / Path(p)
         for p in args.paths
     ] if args.paths else [ROOT / p for p in CORPORA]
-    # Never allow a JSON receipt to overwrite a source transcription. Resolve
-    # aliases and symlinks before reading or writing any file.
+    # Protect every canonical corpus, even when the caller audits only a
+    # different input. Otherwise --out can silently replace an unselected
+    # original transcription with JSON. Keep explicit inputs protected too.
+    protected_paths = paths + [ROOT / name for name in CORPORA]
     if args.out is not None:
         try:
             output = args.out.resolve()
@@ -127,7 +129,7 @@ def main() -> int:
             aliases_input = any(
                 path.resolve() == output or
                 (args.out.exists() and path.exists() and args.out.samefile(path))
-                for path in paths
+                for path in protected_paths
             )
         except (OSError, RuntimeError) as exc:
             # A symlink loop raises RuntimeError on some Python versions.
