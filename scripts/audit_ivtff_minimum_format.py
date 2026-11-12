@@ -120,12 +120,21 @@ def main() -> int:
     # Never allow a JSON receipt to overwrite a source transcription. Resolve
     # aliases and symlinks before reading or writing any file.
     if args.out is not None:
-        output = args.out.resolve()
-        # Path.resolve catches symlinks, but not hard links to the same inode.
-        # An existing hard-linked output would truncate the input on write.
-        if any(path.resolve() == output or
-               (args.out.exists() and path.exists() and
-                args.out.samefile(path)) for path in paths):
+        try:
+            output = args.out.resolve()
+            # Path.resolve catches symlinks, but not hard links to the same inode.
+            # An existing hard-linked output would truncate the input on write.
+            aliases_input = any(
+                path.resolve() == output or
+                (args.out.exists() and path.exists() and args.out.samefile(path))
+                for path in paths
+            )
+        except (OSError, RuntimeError) as exc:
+            # A symlink loop raises RuntimeError on some Python versions.
+            # Fail closed instead of leaking a traceback or writing a receipt.
+            print(f"Cannot verify IVTFF receipt path safety: {exc}", file=sys.stderr)
+            return 2
+        if aliases_input:
             print("Refusing --out: receipt path aliases an input corpus", file=sys.stderr)
             return 2
     reports = []
