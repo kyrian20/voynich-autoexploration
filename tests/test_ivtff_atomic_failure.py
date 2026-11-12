@@ -65,5 +65,29 @@ class IvtffAtomicFailureTests(unittest.TestCase):
             self.assertEqual(list(folder.glob(".ivtff-receipt-*.tmp")), [])
 
 
+    def test_directory_destination_fails_without_leaking_temporary_receipt(self):
+        # os.replace cannot replace a nonempty directory with a file.
+        with tempfile.TemporaryDirectory() as directory:
+            folder = Path(directory)
+            source = folder / "source.ivtff"
+            original = b"#=IVTFF Eva- 2.0 M optional header extension\n<f1r>\n"
+            source.write_bytes(original)
+            destination = folder / "receipt.json"
+            destination.mkdir()
+            sentinel = destination / "keep.txt"
+            sentinel.write_bytes(b"DO NOT MODIFY")
+            stderr, stdout = io.StringIO(), io.StringIO()
+            argv = ["audit_ivtff_minimum_format.py", "--out", str(destination), str(source)]
+            with patch.object(sys, "argv", argv), \
+                 contextlib.redirect_stderr(stderr), contextlib.redirect_stdout(stdout):
+                status = auditor.main()
+            self.assertEqual(status, 2)
+            self.assertIn("Cannot write IVTFF receipt", stderr.getvalue())
+            self.assertEqual(stdout.getvalue(), "")
+            self.assertEqual(source.read_bytes(), original)
+            self.assertEqual(sentinel.read_bytes(), b"DO NOT MODIFY")
+            self.assertEqual(list(folder.glob(".ivtff-receipt-*.tmp")), [])
+
+
 if __name__ == "__main__":
     unittest.main()
