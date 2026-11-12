@@ -49,5 +49,35 @@ class UnselectedCanonicalProtectionTests(unittest.TestCase):
                     self.assertEqual(list(folder.glob(".ivtff-receipt-*.tmp")), [])
 
 
+    def test_output_via_symlinked_parent_directory_is_rejected(self):
+        # A directory alias must not bypass canonical-corpus protection.
+        for corpus_name in auditor.CORPORA:
+            with self.subTest(corpus=corpus_name), tempfile.TemporaryDirectory() as directory:
+                folder = Path(directory)
+                canonical = folder / corpus_name
+                canonical.parent.mkdir(parents=True)
+                original = b"#=IVTFF Eva- 2.0 M optional header extension\n<f1r>\n"
+                canonical.write_bytes(original)
+                other = folder / "other.ivtff"
+                other.write_bytes(original)
+                alias_parent = folder / "directory-alias"
+                alias_parent.symlink_to(canonical.parent, target_is_directory=True)
+                destination = alias_parent / canonical.name
+                stderr, stdout = io.StringIO(), io.StringIO()
+                argv = ["audit_ivtff_minimum_format.py", "--out",
+                        str(destination), str(other)]
+                with patch.object(auditor, "ROOT", folder), \
+                     patch.object(sys, "argv", argv), \
+                     contextlib.redirect_stderr(stderr), \
+                     contextlib.redirect_stdout(stdout):
+                    status = auditor.main()
+                self.assertEqual(status, 2)
+                self.assertIn("Refusing --out", stderr.getvalue())
+                self.assertEqual(stdout.getvalue(), "")
+                self.assertEqual(canonical.read_bytes(), original)
+                self.assertEqual(other.read_bytes(), original)
+                self.assertEqual(list(folder.rglob(".ivtff-receipt-*.tmp")), [])
+
+
 if __name__ == "__main__":
     unittest.main()
