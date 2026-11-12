@@ -13,6 +13,8 @@ import json
 from pathlib import Path
 import re
 import sys
+import os
+import tempfile
 
 ROOT = Path(__file__).resolve().parents[1]
 CORPORA = (
@@ -139,8 +141,39 @@ def main() -> int:
               "status": "PASS" if reports and all(r["status"] == "PASS" for r in reports) else "FAIL"}
     rendered = json.dumps(result, ensure_ascii=True, indent=2, sort_keys=True) + "\n"
     if args.out:
-        args.out.parent.mkdir(parents=True, exist_ok=True)
-        args.out.write_text(rendered, encoding="utf-8")
+        # Atomic replacement avoids mutating an unrelated file that happens
+        # to share the receipt destination's inode through a hard link.
+        temporary = None
+        cleanup_failed = False
+        try:
+            args.out.parent.mkdir(parents=True, exist_ok=True)
+            with tempfile.NamedTemporaryFile(
+                mode="w", encoding="utf-8", newline="\n",
+                dir=args.out.parent, prefix=".ivtff-receipt-",
+                suffix=".tmp", delete=False,
+            ) as stream:
+                temporary = Path(stream.name)
+                stream.write(rendered)
+                stream.flush()
+                os.fsync(stream.fileno())
+            os.replace(temporary, args.out)
+        except OSError as exc:
+            print(f"Cannot write IVTFF receipt: {exc}", file=sys.stderr)
+            return 2
+        finally:
+            if temporary is not None:
+                try:
+                    temporary.unlink(missing_ok=True)
+                except OSError as exc:
+                    # Cleanup failure must not mask the primary write error.
+                    # Surface the leaked temporary path for manual recovery.
+                    print(f"Cannot remove temporary IVTFF receipt {temporary}: {exc}",
+                          file=sys.stderr)
+                    cleanup_failed = True
+        if cleanup_failed:
+            # A leaked receipt can expose content and requires manual recovery.
+            # Do not report successful completion when cleanup has failed.
+            return 2
     print(rendered, end="")
     return 0 if result["status"] == "PASS" else 1
 
