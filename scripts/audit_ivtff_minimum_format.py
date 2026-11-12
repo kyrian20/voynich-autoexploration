@@ -144,6 +144,7 @@ def main() -> int:
         # Atomic replacement avoids mutating an unrelated file that happens
         # to share the receipt destination's inode through a hard link.
         temporary = None
+        cleanup_failed = False
         try:
             args.out.parent.mkdir(parents=True, exist_ok=True)
             with tempfile.NamedTemporaryFile(
@@ -168,6 +169,11 @@ def main() -> int:
                     # Surface the leaked temporary path for manual recovery.
                     print(f"Cannot remove temporary IVTFF receipt {temporary}: {exc}",
                           file=sys.stderr)
+                    cleanup_failed = True
+        if cleanup_failed:
+            # A leaked receipt can expose content and requires manual recovery.
+            # Do not report successful completion when cleanup has failed.
+            return 2
     print(rendered, end="")
     return 0 if result["status"] == "PASS" else 1
 
