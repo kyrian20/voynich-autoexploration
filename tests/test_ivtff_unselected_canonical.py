@@ -16,9 +16,10 @@ from scripts import audit_ivtff_minimum_format as auditor
 
 class UnselectedCanonicalProtectionTests(unittest.TestCase):
     def test_output_aliases_unselected_canonical_corpus_are_rejected(self):
-        with tempfile.TemporaryDirectory() as directory:
+        for corpus_name in auditor.CORPORA:
+          with self.subTest(corpus=corpus_name), tempfile.TemporaryDirectory() as directory:
             folder = Path(directory)
-            canonical = folder / auditor.CORPORA[0]
+            canonical = folder / corpus_name
             canonical.parent.mkdir(parents=True)
             original = b"#=IVTFF Eva- 2.0 M optional header extension\n<f1r>\n"
             canonical.write_bytes(original)
