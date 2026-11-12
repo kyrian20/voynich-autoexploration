@@ -514,6 +514,8 @@ jobs:
         run: |
           python -m unittest discover -s tests -p 'test_ivtff_minimum_format.py' -v
           python -O -m unittest discover -s tests -p 'test_ivtff_minimum_format.py' -v
+          python -m unittest discover -s tests -p 'test_ivtff_unselected_canonical.py' -v
+          python -O -m unittest discover -s tests -p 'test_ivtff_unselected_canonical.py' -v
           python scripts/audit_ivtff_minimum_format.py --out "$RUNNER_TEMP/ivtff-minimum-format.json"
           sha256sum "$RUNNER_TEMP/ivtff-minimum-format.json" > "$RUNNER_TEMP/ivtff-minimum-format.sha256"
 
