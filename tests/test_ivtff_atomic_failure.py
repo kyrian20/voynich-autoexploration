@@ -102,6 +102,35 @@ class IvtffAtomicFailureTests(unittest.TestCase):
             self.assertTrue(leaked[0].exists())
 
 
+    def test_cleanup_error_after_replace_is_not_reported_as_success(self):
+        # A cleanup exception after a successful replace must not return 0.
+        with tempfile.TemporaryDirectory() as directory:
+            folder = Path(directory)
+            source = folder / "source.ivtff"
+            original = b"#=IVTFF Eva- 2.0 M optional header extension\\n<f1r>\\n"
+            source.write_bytes(original)
+            receipt = folder / "receipt.json"
+            stderr, stdout = io.StringIO(), io.StringIO()
+            argv = ["audit_ivtff_minimum_format.py", "--out", str(receipt), str(source)]
+            real_unlink = Path.unlink
+
+            def fail_cleanup(path, *args, **kwargs):
+                if path.name.startswith(".ivtff-receipt-"):
+                    raise PermissionError("injected post-replace cleanup error")
+                return real_unlink(path, *args, **kwargs)
+
+            with patch.object(sys, "argv", argv), \\
+                 patch.object(Path, "unlink", autospec=True, side_effect=fail_cleanup), \\
+                 contextlib.redirect_stderr(stderr), contextlib.redirect_stdout(stdout):
+                status = auditor.main()
+            self.assertEqual(status, 2)
+            self.assertEqual(stdout.getvalue(), "")
+            self.assertIn("injected post-replace cleanup error", stderr.getvalue())
+            self.assertEqual(source.read_bytes(), original)
+            self.assertTrue(receipt.exists())
+            self.assertEqual(list(folder.glob(".ivtff-receipt-*.tmp")), [])
+
+
     def test_directory_destination_fails_without_leaking_temporary_receipt(self):
         # os.replace cannot replace a nonempty directory with a file.
         with tempfile.TemporaryDirectory() as directory:
