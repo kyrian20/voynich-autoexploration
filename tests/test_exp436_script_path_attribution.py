@@ -29,13 +29,22 @@ def latin_corpus_literal(source):
     ]
     if len(assignments) != 1:
         raise ValueError("expected exactly one top-level LATIN_CORPUS assignment")
-    literals = [
-        node.value for node in ast.walk(assignments[0])
-        if isinstance(node, ast.Constant) and isinstance(node.value, str)
-    ]
-    if len(literals) != 1:
-        raise ValueError("expected exactly one string path literal")
-    return literals[0]
+    value = assignments[0]
+    if isinstance(value, ast.Constant) and isinstance(value.value, str):
+        return value.value
+    # Recognize only the actual static repository-relative construction.
+    # A single string buried inside an arbitrary call is not sufficient.
+    if (isinstance(value, ast.Call) and isinstance(value.func, ast.Name)
+            and value.func.id == "str" and len(value.args) == 1
+            and not value.keywords):
+        path = value.args[0]
+        if (isinstance(path, ast.BinOp) and isinstance(path.op, ast.Div)
+                and ast.unparse(path.left) ==
+                "_RepositoryPath(__file__).resolve().parents[2]"
+                and isinstance(path.right, ast.Constant)
+                and isinstance(path.right.value, str)):
+            return path.right.value
+    raise ValueError("LATIN_CORPUS must be a static repository-relative path")
 
 
 class Exp436PathAttributionTests(unittest.TestCase):
@@ -65,6 +74,12 @@ class Exp436PathAttributionTests(unittest.TestCase):
             latin_corpus_literal('LATIN_CORPUS = "a"\nLATIN_CORPUS = "b"')
         with self.assertRaises(ValueError):
             latin_corpus_literal('LATIN_CORPUS = choose("a", "b")')
+        with self.assertRaises(ValueError):
+            latin_corpus_literal('LATIN_CORPUS = choose("data/reference_corpora/latin/' +
+                                 CURRENT_SCRIPT_NAME + '")')
+        with self.assertRaises(ValueError):
+            latin_corpus_literal('LATIN_CORPUS = str(other_root / "data/reference_corpora/latin/' +
+                                 CURRENT_SCRIPT_NAME + '")')
 
     def test_errata_preserves_both_distinct_source_names_and_claim_scope(self):
         correction = (EXP / "CORRECTION.md").read_text(encoding="utf-8")
