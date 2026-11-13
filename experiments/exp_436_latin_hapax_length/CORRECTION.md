@@ -13,3 +13,9 @@
 Los cocientes VMS A/B copiados de F435 no quedan automáticamente refutados por estas dos incidencias, pero esta auditoría no los reproduce ni valida. Tampoco se puede concluir lo contrario sobre latín o italiano: sus comparaciones quedan sin resolver hasta fijar y documentar entradas apropiadas y trazables. No se sustituyen corpus, no se modifican resultados históricos ni `state/committed_claims.md`.
 
 La pregunta abierta Q022 registra el siguiente paso de procedencia. La eventual comparación con latín auténtico y una entrada italiana identificada debe tratarse en una revisión separada, con salidas nuevas y sin reutilizar las cifras históricas como si fueran reproducidas.
+
+## Divergencia adicional del script consultado — 13-11-2026
+
+La revisión de `script.py` en `master` muestra ahora `LATIN_CORPUS` apuntando a `data/reference_corpora/latin/caesar_de_bello_gallico_latin.txt`, **no** a `caesar_gallic_wars.txt` como describe la instantánea histórica anterior. La primera incidencia de esta errata documenta la identidad del control inglés del archivo histórico, pero **no** demuestra que el script actualmente consultado haya generado la fila archivada de 23.274 tokens ni que la ruta nueva contenga el mismo texto. Son afirmaciones diferentes: identidad de la entrada inglesa archivada y linaje de ejecución del script presente.
+
+**Regla de integridad:** conservar ambos nombres de archivo, los números originales y esta discrepancia; no ejecutar el script actual y denominarlo «reproducción» de EXP-436 sin recuperar la versión exacta del código, entradas, parámetros y logs de aquella ejecución. El estado de las filas latina e italiana permanece `INVALID_FOR_CLAIM`. Una ejecución nueva con fuentes adjudicadas deberá publicarse por separado, con hashes y resultados propios. Esta nota no modifica `script.py`, `result.md`, los corpus ni los compromisos científicos.
