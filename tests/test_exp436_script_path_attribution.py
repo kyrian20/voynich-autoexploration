@@ -14,44 +14,57 @@ ARCHIVED_ENGLISH_NAME = "caesar_gallic_wars.txt"
 CURRENT_SCRIPT_NAME = "caesar_de_bello_gallico_latin.txt"
 
 
+def latin_corpus_literal(source):
+    """Extract only the unique top-level LATIN_CORPUS path expression.
+
+    This is a static attribution guard, not a historical execution replay.
+    Fail closed if the declaration becomes ambiguous or dynamic.
+    """
+    tree = ast.parse(source)
+    assignments = [
+        node.value for node in tree.body
+        if isinstance(node, ast.Assign)
+        and any(isinstance(target, ast.Name) and target.id == "LATIN_CORPUS"
+                for target in node.targets)
+    ]
+    if len(assignments) != 1:
+        raise ValueError("expected exactly one top-level LATIN_CORPUS assignment")
+    literals = [
+        node.value for node in ast.walk(assignments[0])
+        if isinstance(node, ast.Constant) and isinstance(node.value, str)
+    ]
+    if len(literals) != 1:
+        raise ValueError("expected exactly one string path literal")
+    return literals[0]
+
+
 class Exp436PathAttributionTests(unittest.TestCase):
     def test_current_script_is_not_archived_english_input_path(self):
         source = (EXP / "script.py").read_text(encoding="utf-8")
-        tree = ast.parse(source)
-        # Inspect the LATIN_CORPUS assignment itself, not arbitrary literals:
-        # a comment, docstring or unrelated string must never satisfy this gate.
-        # Do not import or execute the frozen experiment.
-        assignments = [
-            node.value for node in tree.body
-            if isinstance(node, ast.Assign)
-            and any(isinstance(target, ast.Name) and target.id == "LATIN_CORPUS"
-                    for target in node.targets)
-        ]
-        self.assertEqual(len(assignments), 1, "expected one top-level LATIN_CORPUS assignment")
-        literals = [
-            node.value for node in ast.walk(assignments[0])
-            if isinstance(node, ast.Constant) and isinstance(node.value, str)
-        ]
-        self.assertEqual(literals, [
-            "data/reference_corpora/latin/" + CURRENT_SCRIPT_NAME
-        ])
-        self.assertNotIn("data/reference_corpora/latin/" + ARCHIVED_ENGLISH_NAME, literals)
+        literal = latin_corpus_literal(source)
+        self.assertEqual(literal, "data/reference_corpora/latin/" + CURRENT_SCRIPT_NAME)
+        self.assertNotEqual(literal, "data/reference_corpora/latin/" + ARCHIVED_ENGLISH_NAME)
 
     def test_unrelated_literal_cannot_mask_wrong_assignment(self):
-        # A regression against the old whole-module literal search.
         source = (
             'LATIN_CORPUS = "data/reference_corpora/latin/wrong.txt"\\n'
             'NOTE = "data/reference_corpora/latin/' + CURRENT_SCRIPT_NAME + '"\\n'
         ).replace("\\n", "\n")
-        tree = ast.parse(source)
-        assignments = [
-            node.value for node in tree.body if isinstance(node, ast.Assign)
-            and any(isinstance(t, ast.Name) and t.id == "LATIN_CORPUS"
-                    for t in node.targets)
-        ]
-        literals = [n.value for n in ast.walk(assignments[0])
-                    if isinstance(n, ast.Constant) and isinstance(n.value, str)]
-        self.assertNotIn("data/reference_corpora/latin/" + CURRENT_SCRIPT_NAME, literals)
+        # Exercise the SAME extractor as the production regression, rather
+        # than repeating a separate AST walk that could pass tautologically.
+        self.assertEqual(latin_corpus_literal(source),
+                         "data/reference_corpora/latin/wrong.txt")
+        self.assertNotEqual(latin_corpus_literal(source),
+                            "data/reference_corpora/latin/" + CURRENT_SCRIPT_NAME)
+
+    def test_missing_or_ambiguous_assignment_fails_closed(self):
+        with self.assertRaises(ValueError):
+            latin_corpus_literal('NOTE = "data/reference_corpora/latin/' +
+                                 CURRENT_SCRIPT_NAME + '"')
+        with self.assertRaises(ValueError):
+            latin_corpus_literal('LATIN_CORPUS = "a"\nLATIN_CORPUS = "b"')
+        with self.assertRaises(ValueError):
+            latin_corpus_literal('LATIN_CORPUS = choose("a", "b")')
 
     def test_errata_preserves_both_distinct_source_names_and_claim_scope(self):
         correction = (EXP / "CORRECTION.md").read_text(encoding="utf-8")
