@@ -53,7 +53,7 @@ class ProvenanceGateTests(unittest.TestCase):
     def test_whitespace_only_source_fails_closed(self):
         with tempfile.TemporaryDirectory() as d:
             a, b = Path(d) / "latin", Path(d) / "italian"
-            a.write_bytes(b" \\t\\r\\n" * 500000)
+            a.write_bytes(bytes((32, 9, 13, 10)) * 500000)
             b.write_bytes(b"synthetic italian fixture")
             approved = {"latin": hashlib.sha256(a.read_bytes()).hexdigest(),
                         "italian": hashlib.sha256(b.read_bytes()).hexdigest()}
