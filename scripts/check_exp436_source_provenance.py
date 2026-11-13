@@ -33,7 +33,7 @@ def inspect(path):
             for chunk in iter(lambda: source.read(1024 * 1024), b""):
                 hasher.update(chunk)
                 total_bytes += len(chunk)
-                if not has_non_whitespace and chunk.strip(b" \\t\\r\\n\\v\\f"):
+                if not has_non_whitespace and chunk.strip(bytes((32, 9, 13, 10, 11, 12))):
                     has_non_whitespace = True
         digest = hasher.hexdigest()
     except (OSError, RuntimeError) as exc:
