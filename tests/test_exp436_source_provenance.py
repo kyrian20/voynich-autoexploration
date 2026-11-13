@@ -26,6 +26,18 @@ class ProvenanceGateTests(unittest.TestCase):
             b.write_bytes(b"changed")
             self.assertFalse(evaluate(a, b, hashes)["ok"])
 
+    def test_same_bytes_cannot_fill_both_language_roles(self):
+        with tempfile.TemporaryDirectory() as d:
+            a, b = Path(d) / "latin", Path(d) / "italian"
+            a.write_bytes(b"same synthetic source")
+            b.write_bytes(a.read_bytes())
+            digest = hashlib.sha256(a.read_bytes()).hexdigest()
+            report = evaluate(a, b, {"latin": digest, "italian": digest})
+            self.assertFalse(report["ok"])
+            self.assertEqual(report["sources"]["latin"]["status"], "DUPLICATE_SOURCE")
+            self.assertEqual(report["sources"]["italian"]["status"], "DUPLICATE_SOURCE")
+            self.assertEqual(a.read_bytes(), b.read_bytes())
+
     def test_unreadable_existing_input_fails_closed(self):
         with tempfile.TemporaryDirectory() as d:
             a, b = Path(d) / "latin", Path(d) / "italian"
