@@ -1,0 +1,33 @@
+"""Regression tests for the separate EXP-436 source gate (no historical replay)."""
+import hashlib
+import tempfile
+import unittest
+from pathlib import Path
+from scripts.check_exp436_source_provenance import evaluate
+
+class ProvenanceGateTests(unittest.TestCase):
+    def test_missing_input_fails_closed(self):
+        with tempfile.TemporaryDirectory() as d:
+            p = Path(d) / "missing"
+            self.assertFalse(evaluate(p, p, {})["ok"])
+
+    def test_matching_both_hashes_is_required(self):
+        with tempfile.TemporaryDirectory() as d:
+            a, b = Path(d) / "latin", Path(d) / "italian"
+            a.write_bytes(b"synthetic latin fixture")
+            b.write_bytes(b"synthetic italian fixture")
+            hashes = {"latin": hashlib.sha256(a.read_bytes()).hexdigest(),
+                      "italian": hashlib.sha256(b.read_bytes()).hexdigest()}
+            self.assertFalse(evaluate(a, b, {"latin": hashes["latin"]})["ok"])
+            result = evaluate(a, b, hashes)
+            self.assertTrue(result["ok"])
+            self.assertEqual(result["sources"]["latin"]["status"], "HASH_MATCH")
+            b.write_bytes(b"changed")
+            self.assertFalse(evaluate(a, b, hashes)["ok"])
+
+    def test_known_english_caesar_hash_never_approved(self):
+        from scripts.check_exp436_source_provenance import KNOWN_INVALID
+        self.assertIn("eaa456256c46507f872efd965335b370605e6d323ca89ef2012cb71b516183d7", KNOWN_INVALID)
+
+if __name__ == "__main__":
+    unittest.main()
