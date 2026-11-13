@@ -28,10 +28,13 @@ def inspect(path):
     try:
         hasher = hashlib.sha256()
         total_bytes = 0
+        has_non_whitespace = False
         with path.open("rb") as source:
             for chunk in iter(lambda: source.read(1024 * 1024), b""):
                 hasher.update(chunk)
                 total_bytes += len(chunk)
+                if not has_non_whitespace and chunk.strip(b" \\t\\r\\n\\v\\f"):
+                    has_non_whitespace = True
         digest = hasher.hexdigest()
     except (OSError, RuntimeError) as exc:
         return {"path": str(path), "status": "UNREADABLE",
@@ -39,6 +42,9 @@ def inspect(path):
     if total_bytes == 0:
         return {"path": str(path), "sha256": digest, "status": "EMPTY_SOURCE",
                 "reason": "An empty file cannot serve as a comparison corpus"}
+    if not has_non_whitespace:
+        return {"path": str(path), "sha256": digest, "status": "BLANK_SOURCE",
+                "reason": "Whitespace-only input cannot serve as a comparison corpus"}
     return {"path": str(path), "sha256": digest,
             "status": "REJECTED" if digest in KNOWN_INVALID else "UNVERIFIED",
             "reason": KNOWN_INVALID.get(digest)}
