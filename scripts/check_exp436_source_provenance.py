@@ -29,9 +29,12 @@ def inspect(path):
         hasher = hashlib.sha256()
         total_bytes = 0
         has_non_whitespace = False
+        has_nul = False
         with path.open("rb") as source:
             for chunk in iter(lambda: source.read(1024 * 1024), b""):
                 hasher.update(chunk)
+                if b"\x00" in chunk:
+                    has_nul = True
                 total_bytes += len(chunk)
                 if not has_non_whitespace and chunk.strip(bytes((32, 9, 13, 10, 11, 12))):
                     has_non_whitespace = True
@@ -39,6 +42,9 @@ def inspect(path):
     except (OSError, RuntimeError) as exc:
         return {"path": str(path), "status": "UNREADABLE",
                 "reason": type(exc).__name__}
+    if has_nul:
+        return {"path": str(path), "sha256": digest, "status": "BINARY_SOURCE",
+                "reason": "NUL bytes are not valid in a plain-text comparison corpus"}
     if total_bytes == 0:
         return {"path": str(path), "sha256": digest, "status": "EMPTY_SOURCE",
                 "reason": "An empty file cannot serve as a comparison corpus"}
