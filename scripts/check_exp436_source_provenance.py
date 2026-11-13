@@ -39,6 +39,13 @@ def evaluate(latin, italian, approved):
     for label, entry in sources.items():
         if entry["status"] == "UNVERIFIED" and approved.get(label) == entry["sha256"]:
             entry["status"] = "HASH_MATCH"
+    # Two language roles must not silently reuse identical bytes, even when
+    # the caller supplies the same digest as both approvals.
+    if (all(x["status"] == "HASH_MATCH" for x in sources.values())
+            and sources["latin"]["sha256"] == sources["italian"]["sha256"]):
+        for entry in sources.values():
+            entry["status"] = "DUPLICATE_SOURCE"
+            entry["reason"] = "Latin and Italian controls have identical bytes"
     ok = all(x["status"] == "HASH_MATCH" for x in sources.values())
     return {"ok": ok, "sources": sources,
             "limitation": "Hash match is not language, edition, historical-input or tokenizer certification."}
