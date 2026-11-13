@@ -127,6 +127,20 @@ class ProvenanceGateTests(unittest.TestCase):
             self.assertEqual(report["sources"]["latin"]["reason"], "PermissionError")
             self.assertEqual(report["sources"]["italian"]["status"], "HASH_MATCH")
 
+    def test_nul_containing_control_is_rejected_even_with_approved_hash(self):
+        with tempfile.TemporaryDirectory() as d:
+            a, b = Path(d) / "latin", Path(d) / "italian"
+            a.write_bytes(b"Latin\\x00synthetic".replace(b"\\x00", bytes([0])))
+            b.write_bytes(b"synthetic italian fixture")
+            before = (a.read_bytes(), b.read_bytes())
+            approved = {"latin": hashlib.sha256(before[0]).hexdigest(),
+                        "italian": hashlib.sha256(before[1]).hexdigest()}
+            report = evaluate(a, b, approved)
+            self.assertFalse(report["ok"])
+            self.assertEqual(report["sources"]["latin"]["status"], "BINARY_SOURCE")
+            self.assertEqual(report["sources"]["italian"]["status"], "HASH_MATCH")
+            self.assertEqual((a.read_bytes(), b.read_bytes()), before)
+
     def test_known_english_caesar_hash_never_approved(self):
         from scripts.check_exp436_source_provenance import KNOWN_INVALID
         self.assertIn("eaa456256c46507f872efd965335b370605e6d323ca89ef2012cb71b516183d7", KNOWN_INVALID)
