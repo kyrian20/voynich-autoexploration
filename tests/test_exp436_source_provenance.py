@@ -47,6 +47,27 @@ class ProvenanceGateTests(unittest.TestCase):
             self.assertEqual(report["sources"]["latin"]["reason"], "PermissionError")
             self.assertEqual(report["sources"]["italian"]["status"], "HASH_MATCH")
 
+    def test_metadata_inspection_error_fails_closed(self):
+        with tempfile.TemporaryDirectory() as d:
+            a, b = Path(d) / "latin", Path(d) / "italian"
+            a.write_bytes(b"synthetic latin fixture")
+            b.write_bytes(b"synthetic italian fixture")
+            approved = {"latin": hashlib.sha256(a.read_bytes()).hexdigest(),
+                        "italian": hashlib.sha256(b.read_bytes()).hexdigest()}
+            original_is_file = Path.is_file
+
+            def guarded_is_file(path):
+                if path == a:
+                    raise PermissionError("synthetic metadata denied")
+                return original_is_file(path)
+
+            with patch.object(Path, "is_file", guarded_is_file):
+                report = evaluate(a, b, approved)
+            self.assertFalse(report["ok"])
+            self.assertEqual(report["sources"]["latin"]["status"], "UNREADABLE")
+            self.assertEqual(report["sources"]["latin"]["reason"], "PermissionError")
+            self.assertEqual(report["sources"]["italian"]["status"], "HASH_MATCH")
+
     def test_known_english_caesar_hash_never_approved(self):
         from scripts.check_exp436_source_provenance import KNOWN_INVALID
         self.assertIn("eaa456256c46507f872efd965335b370605e6d323ca89ef2012cb71b516183d7", KNOWN_INVALID)
