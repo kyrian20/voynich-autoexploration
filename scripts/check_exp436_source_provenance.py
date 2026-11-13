@@ -18,7 +18,12 @@ KNOWN_INVALID = {
 }
 def inspect(path):
     path = Path(path)
-    if not path.is_file():
+    try:
+        is_file = path.is_file()
+    except (OSError, RuntimeError) as exc:
+        return {"path": str(path), "status": "UNREADABLE",
+                "reason": type(exc).__name__}
+    if not is_file:
         return {"path": str(path), "status": "MISSING"}
     try:
         digest = hashlib.sha256(path.read_bytes()).hexdigest()
