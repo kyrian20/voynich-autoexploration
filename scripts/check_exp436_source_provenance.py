@@ -26,7 +26,11 @@ def inspect(path):
     if not is_file:
         return {"path": str(path), "status": "MISSING"}
     try:
-        digest = hashlib.sha256(path.read_bytes()).hexdigest()
+        hasher = hashlib.sha256()
+        with path.open("rb") as source:
+            for chunk in iter(lambda: source.read(1024 * 1024), b""):
+                hasher.update(chunk)
+        digest = hasher.hexdigest()
     except OSError as exc:
         return {"path": str(path), "status": "UNREADABLE",
                 "reason": type(exc).__name__}
