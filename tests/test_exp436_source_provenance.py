@@ -71,6 +71,28 @@ class ProvenanceGateTests(unittest.TestCase):
             self.assertEqual(report["sources"]["latin"]["reason"], "PermissionError")
             self.assertEqual(report["sources"]["italian"]["status"], "HASH_MATCH")
 
+    def test_runtime_error_during_streaming_read_fails_closed(self):
+        with tempfile.TemporaryDirectory() as d:
+            a, b = Path(d) / "latin", Path(d) / "italian"
+            a.write_bytes(b"synthetic latin fixture")
+            b.write_bytes(b"synthetic italian fixture")
+            approved = {"latin": hashlib.sha256(a.read_bytes()).hexdigest(),
+                        "italian": hashlib.sha256(b.read_bytes()).hexdigest()}
+            original_open = Path.open
+
+            def guarded_open(path, *args, **kwargs):
+                if path == a:
+                    raise RuntimeError("synthetic runtime failure")
+                return original_open(path, *args, **kwargs)
+
+            with patch.object(Path, "open", guarded_open):
+                report = evaluate(a, b, approved)
+            self.assertFalse(report["ok"])
+            self.assertEqual(report["sources"]["latin"]["status"], "UNREADABLE")
+            self.assertEqual(report["sources"]["latin"]["reason"], "RuntimeError")
+            self.assertEqual(report["sources"]["italian"]["status"], "HASH_MATCH")
+            self.assertEqual(a.read_bytes(), b"synthetic latin fixture")
+
     def test_metadata_inspection_error_fails_closed(self):
         with tempfile.TemporaryDirectory() as d:
             a, b = Path(d) / "latin", Path(d) / "italian"
