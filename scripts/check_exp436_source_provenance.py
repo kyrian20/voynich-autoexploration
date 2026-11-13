@@ -27,13 +27,18 @@ def inspect(path):
         return {"path": str(path), "status": "MISSING"}
     try:
         hasher = hashlib.sha256()
+        total_bytes = 0
         with path.open("rb") as source:
             for chunk in iter(lambda: source.read(1024 * 1024), b""):
                 hasher.update(chunk)
+                total_bytes += len(chunk)
         digest = hasher.hexdigest()
     except (OSError, RuntimeError) as exc:
         return {"path": str(path), "status": "UNREADABLE",
                 "reason": type(exc).__name__}
+    if total_bytes == 0:
+        return {"path": str(path), "sha256": digest, "status": "EMPTY_SOURCE",
+                "reason": "An empty file cannot serve as a comparison corpus"}
     return {"path": str(path), "sha256": digest,
             "status": "REJECTED" if digest in KNOWN_INVALID else "UNVERIFIED",
             "reason": KNOWN_INVALID.get(digest)}
