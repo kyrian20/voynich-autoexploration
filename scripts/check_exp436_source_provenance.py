@@ -31,7 +31,7 @@ def inspect(path):
             for chunk in iter(lambda: source.read(1024 * 1024), b""):
                 hasher.update(chunk)
         digest = hasher.hexdigest()
-    except OSError as exc:
+    except (OSError, RuntimeError) as exc:
         return {"path": str(path), "status": "UNREADABLE",
                 "reason": type(exc).__name__}
     return {"path": str(path), "sha256": digest,
