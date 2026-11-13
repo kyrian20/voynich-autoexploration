@@ -50,6 +50,19 @@ class ProvenanceGateTests(unittest.TestCase):
             self.assertEqual(report["sources"]["latin"]["sha256"], approved["latin"])
             self.assertEqual(report["sources"]["italian"]["sha256"], approved["italian"])
 
+    def test_whitespace_only_source_fails_closed(self):
+        with tempfile.TemporaryDirectory() as d:
+            a, b = Path(d) / "latin", Path(d) / "italian"
+            a.write_bytes(b" \\t\\r\\n" * 500000)
+            b.write_bytes(b"synthetic italian fixture")
+            approved = {"latin": hashlib.sha256(a.read_bytes()).hexdigest(),
+                        "italian": hashlib.sha256(b.read_bytes()).hexdigest()}
+            report = evaluate(a, b, approved)
+            self.assertFalse(report["ok"])
+            self.assertEqual(report["sources"]["latin"]["status"], "BLANK_SOURCE")
+            self.assertEqual(report["sources"]["italian"]["status"], "HASH_MATCH")
+            self.assertEqual(hashlib.sha256(a.read_bytes()).hexdigest(), approved["latin"])
+
     def test_unreadable_existing_input_fails_closed(self):
         with tempfile.TemporaryDirectory() as d:
             a, b = Path(d) / "latin", Path(d) / "italian"
