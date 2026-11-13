@@ -30,6 +30,8 @@ jobs:
         run: |
           python -m unittest discover -s tests -p 'test_exp436_source_provenance.py' -v
           python -O -m unittest discover -s tests -p 'test_exp436_source_provenance.py' -v
+          python -m unittest discover -s tests -p 'test_exp436_empty_source.py' -v
+          python -O -m unittest discover -s tests -p 'test_exp436_empty_source.py' -v
 
       - name: Probar diagnóstico Gemini con transporte simulado (sin red)
         run: python -m unittest discover -s tests -p 'test_gemini_smoke.py' -v
