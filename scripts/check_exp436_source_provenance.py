@@ -1,0 +1,54 @@
+#!/usr/bin/env python3
+"""Fail-closed source gate for *new* EXP-436 comparisons, not historical replay.
+
+Usage: python scripts/check_exp436_source_provenance.py --latin PATH --italian PATH
+No historical results or input files are changed. This only validates identity
+against an explicitly supplied SHA-256 allowlist; it does not certify language.
+"""
+import argparse
+import hashlib
+import json
+from pathlib import Path
+
+# Frozen identities from EXP-436/CORRECTION.md; neither may be presented
+# as a verified Latin/Italian historical replay.
+KNOWN_INVALID = {
+    "eaa456256c46507f872efd965335b370605e6d323ca89ef2012cb71b516183d7":
+        "historical Caesar control is an English translation",
+}
+def inspect(path):
+    path = Path(path)
+    if not path.is_file():
+        return {"path": str(path), "status": "MISSING"}
+    digest = hashlib.sha256(path.read_bytes()).hexdigest()
+    return {"path": str(path), "sha256": digest,
+            "status": "REJECTED" if digest in KNOWN_INVALID else "UNVERIFIED",
+            "reason": KNOWN_INVALID.get(digest)}
+
+def evaluate(latin, italian, approved):
+    sources = {"latin": inspect(latin), "italian": inspect(italian)}
+    for label, entry in sources.items():
+        if entry["status"] == "UNVERIFIED" and approved.get(label) == entry["sha256"]:
+            entry["status"] = "HASH_MATCH"
+    ok = all(x["status"] == "HASH_MATCH" for x in sources.values())
+    return {"ok": ok, "sources": sources,
+            "limitation": "Hash match is not language, edition, historical-input or tokenizer certification."}
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--latin", required=True)
+    parser.add_argument("--italian", required=True)
+    parser.add_argument("--approved-latin-sha256", required=True)
+    parser.add_argument("--approved-italian-sha256", required=True)
+    args = parser.parse_args()
+    approved = {"latin": args.approved_latin_sha256.lower(),
+                "italian": args.approved_italian_sha256.lower()}
+    if any(len(v) != 64 or any(c not in "0123456789abcdef" for c in v)
+           for v in approved.values()):
+        parser.error("approved hashes must be 64 hex characters")
+    report = evaluate(args.latin, args.italian, approved)
+    print(json.dumps(report, indent=2, sort_keys=True))
+    return 0 if report["ok"] else 2
+
+if __name__ == "__main__":
+    raise SystemExit(main())
