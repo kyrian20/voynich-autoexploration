@@ -58,7 +58,9 @@ class Exp436PathAttributionTests(unittest.TestCase):
         self.assertIn(ARCHIVED_ENGLISH_NAME, correction)
         self.assertIn(CURRENT_SCRIPT_NAME, correction)
         self.assertIn("INVALID_FOR_CLAIM", correction)
-        self.assertIn("no demuestra que el script actualmente consultado", correction.casefold())
+        # Markdown emphasis must not change the semantic scope of the errata.
+        self.assertIn("no demuestra que el script actualmente consultado",
+                      correction.casefold().replace("**", ""))
 
 
 if __name__ == "__main__":
