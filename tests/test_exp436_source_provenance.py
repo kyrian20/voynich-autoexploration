@@ -3,6 +3,7 @@ import hashlib
 import tempfile
 import unittest
 from pathlib import Path
+from unittest.mock import patch
 from scripts.check_exp436_source_provenance import evaluate
 
 class ProvenanceGateTests(unittest.TestCase):
@@ -24,6 +25,27 @@ class ProvenanceGateTests(unittest.TestCase):
             self.assertEqual(result["sources"]["latin"]["status"], "HASH_MATCH")
             b.write_bytes(b"changed")
             self.assertFalse(evaluate(a, b, hashes)["ok"])
+
+    def test_unreadable_existing_input_fails_closed(self):
+        with tempfile.TemporaryDirectory() as d:
+            a, b = Path(d) / "latin", Path(d) / "italian"
+            a.write_bytes(b"synthetic latin fixture")
+            b.write_bytes(b"synthetic italian fixture")
+            approved = {"latin": hashlib.sha256(a.read_bytes()).hexdigest(),
+                        "italian": hashlib.sha256(b.read_bytes()).hexdigest()}
+            original_read = Path.read_bytes
+
+            def guarded_read(path):
+                if path == a:
+                    raise PermissionError("synthetic denied read")
+                return original_read(path)
+
+            with patch.object(Path, "read_bytes", guarded_read):
+                report = evaluate(a, b, approved)
+            self.assertFalse(report["ok"])
+            self.assertEqual(report["sources"]["latin"]["status"], "UNREADABLE")
+            self.assertEqual(report["sources"]["latin"]["reason"], "PermissionError")
+            self.assertEqual(report["sources"]["italian"]["status"], "HASH_MATCH")
 
     def test_known_english_caesar_hash_never_approved(self):
         from scripts.check_exp436_source_provenance import KNOWN_INVALID
