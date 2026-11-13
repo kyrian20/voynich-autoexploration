@@ -38,6 +38,18 @@ class ProvenanceGateTests(unittest.TestCase):
             self.assertEqual(report["sources"]["italian"]["status"], "DUPLICATE_SOURCE")
             self.assertEqual(a.read_bytes(), b.read_bytes())
 
+    def test_streaming_hash_matches_across_multiple_chunks(self):
+        with tempfile.TemporaryDirectory() as d:
+            a, b = Path(d) / "latin", Path(d) / "italian"
+            a.write_bytes(b"A" * (1024 * 1024 + 7))
+            b.write_bytes(b"B" * (2 * 1024 * 1024 + 3))
+            approved = {"latin": hashlib.sha256(a.read_bytes()).hexdigest(),
+                        "italian": hashlib.sha256(b.read_bytes()).hexdigest()}
+            report = evaluate(a, b, approved)
+            self.assertTrue(report["ok"])
+            self.assertEqual(report["sources"]["latin"]["sha256"], approved["latin"])
+            self.assertEqual(report["sources"]["italian"]["sha256"], approved["italian"])
+
     def test_unreadable_existing_input_fails_closed(self):
         with tempfile.TemporaryDirectory() as d:
             a, b = Path(d) / "latin", Path(d) / "italian"
@@ -45,14 +57,14 @@ class ProvenanceGateTests(unittest.TestCase):
             b.write_bytes(b"synthetic italian fixture")
             approved = {"latin": hashlib.sha256(a.read_bytes()).hexdigest(),
                         "italian": hashlib.sha256(b.read_bytes()).hexdigest()}
-            original_read = Path.read_bytes
+            original_open = Path.open
 
-            def guarded_read(path):
+            def guarded_open(path, *args, **kwargs):
                 if path == a:
                     raise PermissionError("synthetic denied read")
-                return original_read(path)
+                return original_open(path, *args, **kwargs)
 
-            with patch.object(Path, "read_bytes", guarded_read):
+            with patch.object(Path, "open", guarded_open):
                 report = evaluate(a, b, approved)
             self.assertFalse(report["ok"])
             self.assertEqual(report["sources"]["latin"]["status"], "UNREADABLE")
