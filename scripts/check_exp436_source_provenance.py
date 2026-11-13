@@ -20,7 +20,11 @@ def inspect(path):
     path = Path(path)
     if not path.is_file():
         return {"path": str(path), "status": "MISSING"}
-    digest = hashlib.sha256(path.read_bytes()).hexdigest()
+    try:
+        digest = hashlib.sha256(path.read_bytes()).hexdigest()
+    except OSError as exc:
+        return {"path": str(path), "status": "UNREADABLE",
+                "reason": type(exc).__name__}
     return {"path": str(path), "sha256": digest,
             "status": "REJECTED" if digest in KNOWN_INVALID else "UNVERIFIED",
             "reason": KNOWN_INVALID.get(digest)}
