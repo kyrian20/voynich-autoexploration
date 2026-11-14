@@ -856,3 +856,21 @@ jobs:
             exp620-legacy-ligature.sha256
           if-no-files-found: error
           retention-days: 90
+
+      - name: EXP-620 census de folios en corpus originales (solo lectura)
+        run: |
+          set -euo pipefail
+          python -m py_compile research/maintenance/exp620_real_corpus_folio_census.py
+          python research/maintenance/exp620_real_corpus_folio_census.py | tee exp620-folio-census.json
+          python -m json.tool exp620-folio-census.json > /dev/null
+          sha256sum exp620-folio-census.json > exp620-folio-census.sha256
+
+      - name: Conservar censo EXP-620 y hash
+        uses: actions/upload-artifact@v4
+        with:
+          name: exp620-folio-census-${{ github.run_id }}
+          path: |
+            exp620-folio-census.json
+            exp620-folio-census.sha256
+          if-no-files-found: error
+          retention-days: 90
