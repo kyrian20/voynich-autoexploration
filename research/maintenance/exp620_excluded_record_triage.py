@@ -11,11 +11,11 @@ import re
 from pathlib import Path
 
 INPUTS = ("data/transcriptions/eva_zl3b.txt", "data/transcriptions/eva_it2a.txt")
-HEADER = re.compile(r"^<(f\\d+[rv])>\\s+<!([^>]*)>")
-LINE = re.compile(r"^<(f\\d+[rv])\\.\\d+,[^>]*>\\s*(.*)$")
+HEADER = re.compile(r"^<(f\d+[rv])>\s+<!([^>]*)>")
+LINE = re.compile(r"^<(f\d+[rv])\.\d+,[^>]*>\s*(.*)$")
 LINE_PREFIX = re.compile(r"^<([^>]+)>")
-FOLIO_PREFIX = re.compile(r"^<f\\d+[rv](?:\\.|>)")
-COMMENT = re.compile(r"^\\s*#")
+FOLIO_PREFIX = re.compile(r"^<f\d+[rv](?:\.|>)")
+COMMENT = re.compile(r"^\s*#")
 
 def classify(line):
     if not line.strip():
@@ -28,10 +28,10 @@ def classify(line):
         return "comment"
     if line.lstrip().startswith("#"):
         return "comment"
-    if LINE_PREFIX.match(line):
-        return "other_angle_record"
     if FOLIO_PREFIX.match(line):
         return "malformed_folio_prefix"
+    if LINE_PREFIX.match(line):
+        return "other_angle_record"
     if line.lstrip().startswith("<"):
         return "unclosed_angle_record"
     return "other_text"
@@ -57,8 +57,8 @@ def analyze(data):
             "first_8_physical_lines_per_excluded_category": examples}
 
 def self_test():
-    sample = ("# comment\\n<f1r> <! $Q=T>\\n<f1r.1,P0> chay\\n"
-              "<f1r.2,P0>\\n<bad> x\\n<f1r.3,P0\\nother\\n\\n").encode()
+    sample = ("# comment\n<f1r> <! $Q=T>\n<f1r.1,P0> chay\n"
+              "<f1r.2,P0>\n<bad> x\n<f1r.3,P0\nother\n\n").encode()
     r = analyze(sample)
     assert r["physical_lines"] == 8
     assert r["categories"]["comment"] == 1
@@ -68,6 +68,11 @@ def self_test():
     assert r["categories"]["malformed_folio_prefix"] == 1
     assert r["categories"]["other_text"] == 1
     assert r["excluded_nonblank"] == 4
+    assert classify("<f2v> <! $Q=T>") == "recognized_header"
+    assert classify("<f2v.17,P0> ch.sh") == "recognized_line"
+    assert classify("<f2v.17,P0") == "malformed_folio_prefix"
+    assert classify("<other> x") == "other_angle_record"
+    assert classify("random text") == "other_text"
 
 def main():
     self_test()
