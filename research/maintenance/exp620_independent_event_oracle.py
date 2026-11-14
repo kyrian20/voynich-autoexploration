@@ -18,7 +18,8 @@ CONSONANTS = frozenset("bcdfghjklmnpqrstvwxz")
 def events(token: str) -> list[tuple[str, int, str, bool | None]]:
     """Return (digraph, zero-based offset, next char, vowel/unknown) for valid followers.
 
-    Unknown/non-letter followers are not silently counted as consonants.\n    Independent reference implementation: scan each character offset directly,
+    Unknown/non-letter followers are not silently counted as consonants.
+    Independent reference implementation: scan each character offset directly,
     rather than splitting on a regex or padding a terminal follower.
     """
     if not isinstance(token, str):
@@ -32,6 +33,25 @@ def events(token: str) -> list[tuple[str, int, str, bool | None]]:
                               False if follower in CONSONANTS else None)
             out.append((pair, offset, follower, classification))
     return out
+
+
+
+def eligible_counts(tokens: list[str]) -> dict[str, dict[str, int]]:
+    """Count only known-letter followers in the vowel/consonant denominator.
+
+    Unknown followers are reported separately; terminal digraphs are excluded.
+    Each token is processed independently, never joined across boundaries.
+    """
+    counts = {pair: {"vowel": 0, "consonant": 0, "unknown": 0,
+                     "eligible": 0} for pair in DIGRAPHS}
+    for token in tokens:
+        for pair, _offset, _follower, is_vowel in events(token):
+            key = ("unknown" if is_vowel is None else
+                   "vowel" if is_vowel else "consonant")
+            counts[pair][key] += 1
+            if is_vowel is not None:
+                counts[pair]["eligible"] += 1
+    return counts
 
 
 class IndependentEventFixtures(unittest.TestCase):
@@ -60,6 +80,26 @@ class IndependentEventFixtures(unittest.TestCase):
     def test_no_implicit_cross_token_join(self):
         self.assertEqual(events("c") + events("ha"), [])
         self.assertEqual(events("sh") + events("e"), [])
+
+
+    def test_eligible_denominator_excludes_unknown_and_terminal(self):
+        observed = eligible_counts(["che", "shk", "ch?", "sh@", "ach",
+                                    "sh", "chshy", "c", "ha"])
+        self.assertEqual(observed["ch"], {
+            "vowel": 1, "consonant": 1, "unknown": 1, "eligible": 2
+        })
+        self.assertEqual(observed["sh"], {
+            "vowel": 1, "consonant": 1, "unknown": 1, "eligible": 2
+        })
+        for pair in DIGRAPHS:
+            self.assertEqual(observed[pair]["eligible"],
+                             observed[pair]["vowel"] + observed[pair]["consonant"])
+
+    def test_unknown_only_has_zero_eligible_not_false_consonants(self):
+        self.assertEqual(eligible_counts(["ch?", "sh1", "ch", "sh"])["ch"],
+                         {"vowel": 0, "consonant": 0, "unknown": 1, "eligible": 0})
+        self.assertEqual(eligible_counts(["ch?", "sh1", "ch", "sh"])["sh"],
+                         {"vowel": 0, "consonant": 0, "unknown": 1, "eligible": 0})
 
     def test_non_string_rejected(self):
         with self.assertRaises(TypeError):
