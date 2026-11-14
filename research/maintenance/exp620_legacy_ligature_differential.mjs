@@ -57,9 +57,9 @@ for (const path of paths) {
   assertFolioAgreement(fixtures.terminal);
   const terminal = parseChecked(fixtures.terminal);
   assert.throws(() => parseChecked(fixtures.mismatched_folio), /IVTFF_FOLIO_PREFLIGHT_REJECTED/);
-  assert.throws(() => parseChecked('<f1r.1,P0> chay\\n'), /IVTFF_FOLIO_PREFLIGHT_REJECTED/);
-  assert.throws(() => parseChecked('<f1r> <! $Q=T>\\nUNRECOGNIZED\\n'), /IVTFF_FOLIO_PREFLIGHT_REJECTED/);
-  const validTransition = '<f1r> <! $Q=T>\\n<f1r.1,P0> chay\\n<f2r> <! $Q=T>\\n<f2r.1,P0> shay\\n';
+  assert.throws(() => parseChecked('<f1r.1,P0> chay\n'), /IVTFF_FOLIO_PREFLIGHT_REJECTED/);
+  assert.throws(() => parseChecked('<f1r> <! $Q=T>\nUNRECOGNIZED\n'), /IVTFF_FOLIO_PREFLIGHT_REJECTED/);
+  const validTransition = '<f1r> <! $Q=T>\n<f1r.1,P0> chay\n<f2r> <! $Q=T>\n<f2r.1,P0> shay\n';
   assert.equal(parseChecked(validTransition).length, 2, `${path}: valid folio transition should retain two events`);
   const mismatched = parse(fixtures.mismatched_folio);
   assert.equal(ligature.length, 0, `${path}: unexpected historical ligature policy`);
