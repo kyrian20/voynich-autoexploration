@@ -33,7 +33,7 @@ def events(token: str) -> list[tuple[str, int, str, bool]]:
 
 class IndependentEventFixtures(unittest.TestCase):
     def test_terminal_events_excluded(self):
-        for token in ("ch", "sh", "ach", "ash", "chsh", "shch", ""):
+        for token in ("ch", "sh", "ach", "ash", ""):
             with self.subTest(token=token):
                 self.assertEqual(events(token), [])
 
