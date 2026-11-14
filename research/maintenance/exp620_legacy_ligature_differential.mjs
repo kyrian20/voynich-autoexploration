@@ -14,6 +14,8 @@ const fixtures = {
   ligature: '<f1r> <! $Q=T>\n<f1r.1,P0> ch{a}y.sh{a}y\n',
   expanded: '<f1r> <! $Q=T>\n<f1r.1,P0> chay.shay\n',
   terminal: '<f1r> <! $Q=T>\n<f1r.1,P0> ch.sh\n',
+  // Deliberately inconsistent header/line folio to expose metadata bleed.
+  mismatched_folio: '<f1r> <! $Q=T>\n<f2r.1,P0> chay\n',
 };
 const output = [];
 for (const path of paths) {
@@ -26,13 +28,20 @@ for (const path of paths) {
   const ligature = parse(fixtures.ligature);
   const expanded = parse(fixtures.expanded);
   const terminal = parse(fixtures.terminal);
+  const mismatched = parse(fixtures.mismatched_folio);
   assert.equal(ligature.length, 0, `${path}: unexpected historical ligature policy`);
   assert.equal(expanded.length, 2, `${path}: expanded fixture should expose two events`);
   assert.equal(terminal.length, 0, `${path}: terminal digraph must not be counted`);
   assert.equal(expanded.filter(x => x.vowel).length, 2);
+  // The frozen parser incorrectly assigns a f2r line to the preceding f1r header.
+  // This is a characterization test, NOT acceptance of that attribution as valid.
+  assert.equal(mismatched.length, 1, `${path}: historical folio-mismatch behavior changed`);
+  assert.equal(mismatched[0].folio, 'f1r', `${path}: expected historical misattribution`);
+  assert.equal(mismatched[0].dg, 'ch');
   output.push({path, sha256:crypto.createHash('sha256').update(source).digest('hex'),
-    counts:{historical_ligature:ligature.length, explicit_expansion:expanded.length,terminal:terminal.length},
-    status:'KNOWN_LOSS_CONFIRMED'});
+    counts:{historical_ligature:ligature.length, explicit_expansion:expanded.length,terminal:terminal.length, mismatched_line_events:mismatched.length,
+      mismatched_line_attributed_to:mismatched[0].folio},
+    status:'KNOWN_LOSS_AND_FOLIO_MISATTRIBUTION_CHARACTERIZED'});
 }
 console.log(JSON.stringify({status:'PASS_DIAGNOSTIC_ONLY', fixtures, scripts:output,
-  limitation:'Synthetic fixtures only; no IVTFF normative adjudication, corpus reproduction, or linguistic inference.'},null,2));
+  limitation:'Synthetic fixtures only; mismatched folio line deliberately invalid and demonstrates fail-open historical attribution. Do not treat this as a corpus-level defect frequency, IVTFF normative adjudication, corpus reproduction, or linguistic inference.'},null,2));
