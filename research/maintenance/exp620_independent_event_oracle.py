@@ -42,6 +42,8 @@ def eligible_counts(tokens: list[str]) -> dict[str, dict[str, int]]:
     Unknown followers are reported separately; terminal digraphs are excluded.
     Each token is processed independently, never joined across boundaries.
     """
+    if not isinstance(tokens, list) or any(not isinstance(t, str) for t in tokens):
+        raise TypeError("tokens must be a list of strings")
     counts = {pair: {"vowel": 0, "consonant": 0, "unknown": 0,
                      "eligible": 0} for pair in DIGRAPHS}
     for token in tokens:
@@ -104,6 +106,15 @@ class IndependentEventFixtures(unittest.TestCase):
     def test_non_string_rejected(self):
         with self.assertRaises(TypeError):
             events(None)
+
+    def test_token_collection_contract_rejects_ambiguous_inputs(self):
+        # A bare string otherwise silently iterates by character and reports
+        # zero eligible events, a misleading negative result.
+        for invalid in ("che", ("che",), ["che", None], None):
+            with self.subTest(invalid=invalid):
+                with self.assertRaises(TypeError):
+                    eligible_counts(invalid)
+        self.assertEqual(eligible_counts(["che"])["ch"]["eligible"], 1)
 
 
 if __name__ == "__main__":
