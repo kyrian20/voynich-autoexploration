@@ -17,6 +17,27 @@ const fixtures = {
   // Deliberately inconsistent header/line folio to expose metadata bleed.
   mismatched_folio: '<f1r> <! $Q=T>\n<f2r.1,P0> chay\n',
 };
+// Independent fail-closed preflight for the fixtures consumed by this runner.
+// It is deliberately narrower than a complete IVTFF validator: unknown record
+// shapes are rejected rather than silently admitted to folio-stratified analysis.
+function assertFolioAgreement(text) {
+  let active = null;
+  for (const raw of text.split(/\r?\n/)) {
+    if (!raw.trim()) continue;
+    const header = raw.match(/^<([A-Za-z0-9]+[rv])>\s+<!.*>\s*$/);
+    if (header) { active = header[1]; continue; }
+    const line = raw.match(/^<([A-Za-z0-9]+[rv])\.[^>]+>\s+.+$/);
+    if (!line || !active || line[1] !== active) {
+      throw new Error('IVTFF_FOLIO_PREFLIGHT_REJECTED: ' + raw);
+    }
+  }
+  if (!active) throw new Error('IVTFF_FOLIO_PREFLIGHT_REJECTED: no header');
+}
+for (const key of ['ligature', 'expanded', 'terminal']) assert.doesNotThrow(() => assertFolioAgreement(fixtures[key]));
+assert.throws(() => assertFolioAgreement(fixtures.mismatched_folio), /IVTFF_FOLIO_PREFLIGHT_REJECTED/);
+assert.throws(() => assertFolioAgreement('<f1r.1,P0> chay\\n'), /IVTFF_FOLIO_PREFLIGHT_REJECTED/);
+assert.throws(() => assertFolioAgreement('<f1r> <! $Q=T>\\nUNRECOGNIZED\\n'), /IVTFF_FOLIO_PREFLIGHT_REJECTED/);
+assert.doesNotThrow(() => assertFolioAgreement('<f1r> <! $Q=T>\\n<f1r.1,P0> chay\\n<f2r> <! $Q=T>\\n<f2r.1,P0> shay\\n'));
 const output = [];
 for (const path of paths) {
   const source = fs.readFileSync(path, 'utf8');
@@ -25,8 +46,11 @@ for (const path of paths) {
   assert.ok(start >= 0 && end > start, `Cannot isolate parse() in ${path}`);
   const context = vm.createContext(Object.create(null));
   const parse = vm.runInContext(source.slice(start, end) + '\nparse', context, {timeout:1000});
+  assertFolioAgreement(fixtures.ligature);
   const ligature = parse(fixtures.ligature);
+  assertFolioAgreement(fixtures.expanded);
   const expanded = parse(fixtures.expanded);
+  assertFolioAgreement(fixtures.terminal);
   const terminal = parse(fixtures.terminal);
   const mismatched = parse(fixtures.mismatched_folio);
   assert.equal(ligature.length, 0, `${path}: unexpected historical ligature policy`);
@@ -44,4 +68,5 @@ for (const path of paths) {
     status:'KNOWN_LOSS_AND_FOLIO_MISATTRIBUTION_CHARACTERIZED'});
 }
 console.log(JSON.stringify({status:'PASS_DIAGNOSTIC_ONLY', fixtures, scripts:output,
+  preflight:'FAIL_CLOSED_FOR_TESTED_FOLIO_MISMATCH_AND_UNKNOWN_RECORDS; not integrated into frozen historical scripts',
   limitation:'Synthetic fixtures only; mismatched folio line deliberately invalid and demonstrates fail-open historical attribution. Do not treat this as a corpus-level defect frequency, IVTFF normative adjudication, corpus reproduction, or linguistic inference.'},null,2));
