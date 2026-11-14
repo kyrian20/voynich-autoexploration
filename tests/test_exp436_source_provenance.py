@@ -141,6 +141,27 @@ class ProvenanceGateTests(unittest.TestCase):
             self.assertEqual(report["sources"]["italian"]["status"], "HASH_MATCH")
             self.assertEqual((a.read_bytes(), b.read_bytes()), before)
 
+    def test_binary_controls_other_than_nul_are_rejected(self):
+        # A binary payload need not contain NUL; an approved digest alone
+        # must never make a control-byte stream a valid text corpus.
+        with tempfile.TemporaryDirectory() as d:
+            a, b = Path(d) / "latin", Path(d) / "italian"
+            b.write_bytes(b"synthetic Italian text")
+            italian_digest = hashlib.sha256(b.read_bytes()).hexdigest()
+            for byte in (1, 2, 8, 14, 31, 127):
+                with self.subTest(byte=byte):
+                    a.write_bytes(b"synthetic Latin" + bytes([byte]) + b"text")
+                    original = a.read_bytes()
+                    approved = {
+                        "latin": hashlib.sha256(original).hexdigest(),
+                        "italian": italian_digest,
+                    }
+                    report = evaluate(a, b, approved)
+                    self.assertFalse(report["ok"])
+                    self.assertEqual(report["sources"]["latin"]["status"], "BINARY_SOURCE")
+                    self.assertEqual(report["sources"]["italian"]["status"], "HASH_MATCH")
+                    self.assertEqual(a.read_bytes(), original)
+
     def test_known_english_caesar_hash_never_approved(self):
         from scripts.check_exp436_source_provenance import KNOWN_INVALID
         self.assertIn("eaa456256c46507f872efd965335b370605e6d323ca89ef2012cb71b516183d7", KNOWN_INVALID)
