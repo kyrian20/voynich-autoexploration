@@ -839,3 +839,20 @@ jobs:
         run: |
           python -m unittest discover -s research/maintenance/2026-11-01-zs-wordpair-audit -p 'test_near_copy_v2.py' -v
           python -O -m unittest discover -s research/maintenance/2026-11-01-zs-wordpair-audit -p 'test_near_copy_v2.py' -v
+
+      - name: Ejecutar parsers históricos EXP-620 con ligaduras sintéticas
+        run: |
+          set -euo pipefail
+          node --check research/maintenance/exp620_legacy_ligature_differential.mjs
+          node research/maintenance/exp620_legacy_ligature_differential.mjs 2>&1 | tee exp620-legacy-ligature.log
+          sha256sum exp620-legacy-ligature.log > exp620-legacy-ligature.sha256
+
+      - name: Conservar evidencia y hash de regresión histórica EXP-620
+        uses: actions/upload-artifact@v4
+        with:
+          name: exp620-legacy-ligature-${{ github.run_id }}
+          path: |
+            exp620-legacy-ligature.log
+            exp620-legacy-ligature.sha256
+          if-no-files-found: error
+          retention-days: 90
