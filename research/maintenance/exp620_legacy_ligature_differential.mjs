@@ -35,9 +35,9 @@ function assertFolioAgreement(text) {
 }
 for (const key of ['ligature', 'expanded', 'terminal']) assert.doesNotThrow(() => assertFolioAgreement(fixtures[key]));
 assert.throws(() => assertFolioAgreement(fixtures.mismatched_folio), /IVTFF_FOLIO_PREFLIGHT_REJECTED/);
-assert.throws(() => assertFolioAgreement('<f1r.1,P0> chay\\n'), /IVTFF_FOLIO_PREFLIGHT_REJECTED/);
-assert.throws(() => assertFolioAgreement('<f1r> <! $Q=T>\\nUNRECOGNIZED\\n'), /IVTFF_FOLIO_PREFLIGHT_REJECTED/);
-assert.doesNotThrow(() => assertFolioAgreement('<f1r> <! $Q=T>\\n<f1r.1,P0> chay\\n<f2r> <! $Q=T>\\n<f2r.1,P0> shay\\n'));
+assert.throws(() => assertFolioAgreement('<f1r.1,P0> chay\n'), /IVTFF_FOLIO_PREFLIGHT_REJECTED/);
+assert.throws(() => assertFolioAgreement('<f1r> <! $Q=T>\nUNRECOGNIZED\n'), /IVTFF_FOLIO_PREFLIGHT_REJECTED/);
+assert.doesNotThrow(() => assertFolioAgreement('<f1r> <! $Q=T>\n<f1r.1,P0> chay\n<f2r> <! $Q=T>\n<f2r.1,P0> shay\n'));
 const output = [];
 for (const path of paths) {
   const source = fs.readFileSync(path, 'utf8');
