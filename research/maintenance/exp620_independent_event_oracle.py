@@ -12,12 +12,13 @@ import unittest
 
 DIGRAPHS = ("ch", "sh")
 VOWELS = frozenset("aeiouy")
+CONSONANTS = frozenset("bcdfghjklmnpqrstvwxz")
 
 
-def events(token: str) -> list[tuple[str, int, str, bool]]:
-    """Return (digraph, zero-based offset, next char, vowel) for valid followers.
+def events(token: str) -> list[tuple[str, int, str, bool | None]]:
+    """Return (digraph, zero-based offset, next char, vowel/unknown) for valid followers.
 
-    Independent reference implementation: scan each character offset directly,
+    Unknown/non-letter followers are not silently counted as consonants.\n    Independent reference implementation: scan each character offset directly,
     rather than splitting on a regex or padding a terminal follower.
     """
     if not isinstance(token, str):
@@ -27,7 +28,9 @@ def events(token: str) -> list[tuple[str, int, str, bool]]:
         pair = token[offset:offset + 2]
         if pair in DIGRAPHS:
             follower = token[offset + 2]
-            out.append((pair, offset, follower, follower in VOWELS))
+            classification = (True if follower in VOWELS else
+                              False if follower in CONSONANTS else None)
+            out.append((pair, offset, follower, classification))
     return out
 
 
@@ -48,8 +51,10 @@ class IndependentEventFixtures(unittest.TestCase):
 
     def test_case_and_ambiguity_are_not_silently_normalized(self):
         self.assertEqual(events("CHa"), [])
-        self.assertEqual(events("ch?"), [("ch", 0, "?", False)])
-        self.assertEqual(events("sh@"), [("sh", 0, "@", False)])
+        self.assertEqual(events("ch?"), [("ch", 0, "?", None)])
+        self.assertEqual(events("sh@"), [("sh", 0, "@", None)])
+        self.assertEqual(events("ch1"), [("ch", 0, "1", None)])
+        self.assertEqual(events("chY"), [("ch", 0, "Y", None)])
         # These are synthetic lexical strings, not IVTFF-validity judgments.
 
     def test_no_implicit_cross_token_join(self):
