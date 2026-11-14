@@ -874,3 +874,21 @@ jobs:
             exp620-folio-census.sha256
           if-no-files-found: error
           retention-days: 90
+
+      - name: Clasificar registros excluidos EXP-620 con pruebas de regresión
+        run: |
+          set -euo pipefail
+          python -m py_compile research/maintenance/exp620_excluded_record_triage.py
+          python research/maintenance/exp620_excluded_record_triage.py | tee exp620-excluded-triage.json
+          python -m json.tool exp620-excluded-triage.json > /dev/null
+          sha256sum exp620-excluded-triage.json > exp620-excluded-triage.sha256
+
+      - name: Conservar clasificación EXP-620 y hash
+        uses: actions/upload-artifact@v4
+        with:
+          name: exp620-excluded-triage-${{ github.run_id }}
+          path: |
+            exp620-excluded-triage.json
+            exp620-excluded-triage.sha256
+          if-no-files-found: error
+          retention-days: 90
