@@ -892,3 +892,21 @@ jobs:
             exp620-excluded-triage.sha256
           if-no-files-found: error
           retention-days: 90
+
+      - name: Clasificar subtipos angulares EXP-620 con corpus bloqueados
+        run: |
+          set -euo pipefail
+          python -m py_compile research/maintenance/exp620_angle_record_subtypes.py
+          python research/maintenance/exp620_angle_record_subtypes.py | tee exp620-angle-subtypes.json
+          python -m json.tool exp620-angle-subtypes.json > /dev/null
+          sha256sum exp620-angle-subtypes.json > exp620-angle-subtypes.sha256
+
+      - name: Conservar subtipos angulares EXP-620 y SHA-256
+        uses: actions/upload-artifact@v4
+        with:
+          name: exp620-angle-subtypes-${{ github.run_id }}
+          path: |
+            exp620-angle-subtypes.json
+            exp620-angle-subtypes.sha256
+          if-no-files-found: error
+          retention-days: 90
