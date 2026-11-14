@@ -30,11 +30,15 @@ def inspect(path):
         total_bytes = 0
         has_non_whitespace = False
         has_nul = False
+        has_forbidden_control = False
         with path.open("rb") as source:
             for chunk in iter(lambda: source.read(1024 * 1024), b""):
                 hasher.update(chunk)
                 if b"\x00" in chunk:
                     has_nul = True
+                if any(byte < 32 and byte not in (9, 10, 11, 12, 13)
+                       or byte == 127 for byte in chunk):
+                    has_forbidden_control = True
                 total_bytes += len(chunk)
                 if not has_non_whitespace and chunk.strip(bytes((32, 9, 13, 10, 11, 12))):
                     has_non_whitespace = True
@@ -45,6 +49,9 @@ def inspect(path):
     if has_nul:
         return {"path": str(path), "sha256": digest, "status": "BINARY_SOURCE",
                 "reason": "NUL bytes are not valid in a plain-text comparison corpus"}
+    if has_forbidden_control:
+        return {"path": str(path), "sha256": digest, "status": "BINARY_SOURCE",
+                "reason": "Disallowed ASCII control byte in plain-text comparison corpus"}
     if total_bytes == 0:
         return {"path": str(path), "sha256": digest, "status": "EMPTY_SOURCE",
                 "reason": "An empty file cannot serve as a comparison corpus"}
