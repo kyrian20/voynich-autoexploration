@@ -46,12 +46,21 @@ for (const path of paths) {
   assert.ok(start >= 0 && end > start, `Cannot isolate parse() in ${path}`);
   const context = vm.createContext(Object.create(null));
   const parse = vm.runInContext(source.slice(start, end) + '\nparse', context, {timeout:1000});
+  // All accepted fixtures must pass the independent folio gate before entering
+  // the frozen parser. The deliberately invalid fixture is called raw ONLY to
+  // characterize historical behavior; never use that path for accepted data.
+  const parseChecked = text => { assertFolioAgreement(text); return parse(text); };
   assertFolioAgreement(fixtures.ligature);
-  const ligature = parse(fixtures.ligature);
+  const ligature = parseChecked(fixtures.ligature);
   assertFolioAgreement(fixtures.expanded);
-  const expanded = parse(fixtures.expanded);
+  const expanded = parseChecked(fixtures.expanded);
   assertFolioAgreement(fixtures.terminal);
-  const terminal = parse(fixtures.terminal);
+  const terminal = parseChecked(fixtures.terminal);
+  assert.throws(() => parseChecked(fixtures.mismatched_folio), /IVTFF_FOLIO_PREFLIGHT_REJECTED/);
+  assert.throws(() => parseChecked('<f1r.1,P0> chay\\n'), /IVTFF_FOLIO_PREFLIGHT_REJECTED/);
+  assert.throws(() => parseChecked('<f1r> <! $Q=T>\\nUNRECOGNIZED\\n'), /IVTFF_FOLIO_PREFLIGHT_REJECTED/);
+  const validTransition = '<f1r> <! $Q=T>\\n<f1r.1,P0> chay\\n<f2r> <! $Q=T>\\n<f2r.1,P0> shay\\n';
+  assert.equal(parseChecked(validTransition).length, 2, `${path}: valid folio transition should retain two events`);
   const mismatched = parse(fixtures.mismatched_folio);
   assert.equal(ligature.length, 0, `${path}: unexpected historical ligature policy`);
   assert.equal(expanded.length, 2, `${path}: expanded fixture should expose two events`);
