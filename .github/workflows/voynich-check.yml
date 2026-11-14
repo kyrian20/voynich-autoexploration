@@ -26,6 +26,24 @@ jobs:
       - name: Instalar lector YAML para auditoría operativa
         run: python -m pip install PyYAML==6.0.3 Pillow==12.3.0 numpy==2.2.6
 
+      - name: Verificar oráculo independiente EXP-620 (casos sintéticos)
+        run: |
+          set -euo pipefail
+          python research/maintenance/exp620_independent_event_oracle.py 2>&1 | tee exp620-oracle-test.log
+          python -O research/maintenance/exp620_independent_event_oracle.py 2>&1 | tee -a exp620-oracle-test.log
+          python research/maintenance/exp620_independent_event_oracle.py --token chshy | tee -a exp620-oracle-test.log
+          sha256sum exp620-oracle-test.log > exp620-oracle-test.sha256
+
+      - name: Conservar evidencia sintética EXP-620
+        uses: actions/upload-artifact@v4
+        with:
+          name: exp620-oracle-${{ github.run_id }}
+          path: |
+            exp620-oracle-test.log
+            exp620-oracle-test.sha256
+          if-no-files-found: error
+          retention-days: 90
+
       - name: Probar diagnóstico Gemini con transporte simulado (sin red)
         run: python -m unittest discover -s tests -p 'test_gemini_smoke.py' -v
 
