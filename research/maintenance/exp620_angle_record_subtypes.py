@@ -20,7 +20,7 @@ LINE = re.compile(r"^<(f\d+[rv])\.\d+,[^>]*>\s*(.*)$")
 ANGLE = re.compile(r"^<([^>]+)>")
 FOLIO = re.compile(r"^f\d+[rv]$")
 LOCUS = re.compile(r"^f\d+[rv]\.")
-FOLIO_LINE = re.compile(r"^f\d+[rv]\.\d+")
+FOLIO_LINE = re.compile(r"^f\d+[rv]\.\d+(?:,.*)?$")
 # Panel identifiers include a digit after the recto/verso marker (e.g. f67r1).
 # These are lexical candidates only, not a decision on IVTFF eligibility.
 PANEL = re.compile(r"^f\d+[rv]\d+$")
@@ -40,7 +40,7 @@ def subtype(s):
         return "bang_tag"
     if FOLIO.fullmatch(tag):
         return "bare_folio_tag"
-    if FOLIO_LINE.match(tag):
+    if FOLIO_LINE.fullmatch(tag):
         return "numbered_folio_locus_other_shape"
     if LOCUS.match(tag):
         return "folio_locus_non_numeric"
@@ -74,6 +74,9 @@ def self_test():
     assert subtype("<f1r> <! $Q=T>") is None
     assert subtype("<f1r.1,P0> chay") is None
     assert subtype("<f1r.1> chay") == "numbered_folio_locus_other_shape"
+    assert subtype("<f1r.1,P0> chay") is None
+    assert subtype("<f1r.1junk> chay") == "folio_locus_non_numeric"
+    assert subtype("<f1r.1,P0junk> chay") == "numbered_folio_locus_other_shape"
     assert subtype("<f1r.a,P0> chay") == "folio_locus_non_numeric"
     assert subtype("<f1r>") == "bare_folio_tag"
     # Literal examples from the frozen ZL3b/IT2a f67r1 panel (physical lines
