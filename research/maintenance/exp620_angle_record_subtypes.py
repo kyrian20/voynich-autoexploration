@@ -36,6 +36,10 @@ def subtype(s):
         return "numbered_folio_locus_other_shape"
     if LOCUS.match(tag):
         return "folio_locus_non_numeric"
+    if PANEL.fullmatch(tag):
+        return "panel_header_candidate"
+    if PANEL_LOCUS.match(tag):
+        return "panel_locus_candidate"
     if tag.startswith("f"):
         return "other_f_prefixed_tag"
     return "other_tag"
@@ -60,6 +64,12 @@ def self_test():
     assert subtype("<f1r.1> chay") == "numbered_folio_locus_other_shape"
     assert subtype("<f1r.a,P0> chay") == "folio_locus_non_numeric"
     assert subtype("<f1r>") == "bare_folio_tag"
+    # Literal examples from the frozen ZL3b/IT2a f67r1 panel (physical lines
+    # 2815/2823 and 1767/1768 respectively); lexical classification only.
+    assert subtype("<f67r1>    <! $Q=I $P=B $F=a $B=1 $I=A $H=4>") == "panel_header_candidate"
+    assert subtype("<f67r1.1,@P0>     <%>teeodaiin.shey") == "panel_locus_candidate"
+    assert subtype("<f67r1.2,+P0>     daiir.okeody") == "panel_locus_candidate"
+    assert subtype("<f67r1.1>") == "panel_locus_candidate"
     assert subtype("<!meta>") == "bang_tag"
     assert subtype("<x>") == "other_tag"
     assert subtype("# comment") is None
