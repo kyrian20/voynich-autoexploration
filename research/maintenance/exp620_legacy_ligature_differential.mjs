@@ -27,7 +27,7 @@ function assertFolioAgreement(text) {
     if (!raw.trim()) continue;
     const header = raw.match(/^<([A-Za-z0-9]+[rv])>\s+<!.*>\s*$/);
     if (header) { active = header[1]; continue; }
-    const line = raw.match(/^<([A-Za-z0-9]+[rv])\.[^>]+>\s+.+$/);
+    const line = raw.match(/^<([A-Za-z0-9]+[rv])\.[0-9]+,[A-Za-z0-9@+%-]+>\s+.+$/);
     if (!line || !active || line[1] !== active) {
       throw new Error('IVTFF_FOLIO_PREFLIGHT_REJECTED: ' + raw);
     }
@@ -50,6 +50,11 @@ assert.doesNotThrow(() => assertFolioAgreement('<f1r> <! $Q=T>\n<f1r.1,P0> chay\
 // Distinct line numbers and different folios remain admissible.
 assert.throws(() => assertFolioAgreement('<f1r> <! $Q=T>\n<f1r.1,P0> chay\n<f1r.1,P0> shay\n'), /IVTFF_DUPLICATE_LOCUS_PREFLIGHT_REJECTED/);
 assert.doesNotThrow(() => assertFolioAgreement('<f1r> <! $Q=T>\n<f1r.1,P0> chay\n<f1r.2,P0> shay\n'));
+// Malformed locus numbers and suffixes must not pass the synthetic preflight.
+for (const bad of ['<f1r.x,P0> chay', '<f1r.1junk> chay', '<f1r.1,P0junk!> chay']) {
+  assert.throws(() => assertFolioAgreement('<f1r> <! $Q=T>\n' + bad + '\n'), /IVTFF_FOLIO_PREFLIGHT_REJECTED/);
+}
+
 
 const output = [];
 for (const path of paths) {
