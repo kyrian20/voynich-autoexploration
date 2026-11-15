@@ -33,7 +33,9 @@ function assertFolioAgreement(text) {
     }
     // Within this deliberately strict synthetic fixture format, duplicate
     // complete locus tags would double-count the same event-bearing line.
-    const locus = raw.slice(1, raw.indexOf('>'));
+    // Metadata variants must not make the same physical folio.line count twice.
+    // This is a conservative synthetic safety gate, not an IVTFF grammar ruling.
+    const locus = line[1] + '.' + raw.match(/^<[A-Za-z0-9]+[rv]\.([0-9]+),/)[1];
     if (seenLoci.has(locus)) {
       throw new Error('IVTFF_DUPLICATE_LOCUS_PREFLIGHT_REJECTED: ' + locus);
     }
@@ -50,6 +52,10 @@ assert.doesNotThrow(() => assertFolioAgreement('<f1r> <! $Q=T>\n<f1r.1,P0> chay\
 // Distinct line numbers and different folios remain admissible.
 assert.throws(() => assertFolioAgreement('<f1r> <! $Q=T>\n<f1r.1,P0> chay\n<f1r.1,P0> shay\n'), /IVTFF_DUPLICATE_LOCUS_PREFLIGHT_REJECTED/);
 assert.doesNotThrow(() => assertFolioAgreement('<f1r> <! $Q=T>\n<f1r.1,P0> chay\n<f1r.2,P0> shay\n'));
+// Same physical line with different P metadata must not double-count events.
+assert.throws(() => assertFolioAgreement('<f1r> <! $Q=T>\n<f1r.1,P0> chay\n<f1r.1,P1> shay\n'), /IVTFF_DUPLICATE_LOCUS_PREFLIGHT_REJECTED/);
+// Different physical line numbers remain admissible even with differing metadata.
+assert.doesNotThrow(() => assertFolioAgreement('<f1r> <! $Q=T>\n<f1r.1,P0> chay\n<f1r.2,P1> shay\n'));
 // Malformed locus numbers and suffixes must not pass the synthetic preflight.
 for (const bad of ['<f1r.x,P0> chay', '<f1r.1junk> chay', '<f1r.1,P0junk!> chay']) {
   assert.throws(() => assertFolioAgreement('<f1r> <! $Q=T>\n' + bad + '\n'), /IVTFF_FOLIO_PREFLIGHT_REJECTED/);
