@@ -1,0 +1,46 @@
+name: Corpus identity guard
+
+on:
+  pull_request:
+    paths:
+      - 'scripts/check_corpus_identity.py'
+      - 'scripts/test_check_corpus_identity.py'
+      - 'research/CORPUS_IDENTITY_REVIEW.json'
+      - 'data/reference_corpora/**'
+      - '.github/workflows/corpus-identity-guard.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  frozen-corpus-identity:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout full corpus bytes
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Run negative regressions
+        run: |
+          set -euo pipefail
+          python -m unittest discover -s scripts -p 'test_check_corpus_identity.py' -v 2>&1 | tee corpus-identity-regressions.log
+      - name: Verify all six frozen corpus identities
+        run: |
+          set -euo pipefail
+          python scripts/check_corpus_identity.py --root . --manifest research/CORPUS_IDENTITY_REVIEW.json 2>&1 | tee corpus-identity-real.log
+          sha256sum corpus-identity-regressions.log corpus-identity-real.log > corpus-identity-logs.sha256
+      - name: Preserve corpus identity verification logs and hashes
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: corpus-identity-guard-${{ github.run_id }}
+          path: |
+            corpus-identity-regressions.log
+            corpus-identity-real.log
+            corpus-identity-logs.sha256
+          if-no-files-found: warn
+          retention-days: 90
