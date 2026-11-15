@@ -21,6 +21,10 @@ ANGLE = re.compile(r"^<([^>]+)>")
 FOLIO = re.compile(r"^f\d+[rv]$")
 LOCUS = re.compile(r"^f\d+[rv]\.")
 FOLIO_LINE = re.compile(r"^f\d+[rv]\.\d+")
+# Panel identifiers include a digit after the recto/verso marker (e.g. f67r1).
+# These are lexical candidates only, not a decision on IVTFF eligibility.
+PANEL = re.compile(r"^f\d+[rv]\d+$")
+PANEL_LOCUS = re.compile(r"^f\d+[rv]\d+\.\d+(?:,.*)?$")
 def subtype(s):
     m = ANGLE.match(s)
     if not m:
