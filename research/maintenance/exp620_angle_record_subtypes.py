@@ -25,6 +25,10 @@ FOLIO_LINE = re.compile(r"^f\d+[rv]\.\d+")
 # These are lexical candidates only, not a decision on IVTFF eligibility.
 PANEL = re.compile(r"^f\d+[rv]\d+$")
 PANEL_LOCUS = re.compile(r"^f\d+[rv]\d+\.\d+(?:,.*)?$")
+# Named composite page identifiers, observed literally as fRos in ZL3b.
+# Syntax-only candidates: IVTFF validity and eligibility remain unadjudicated.
+NAMED_FOLIO = re.compile(r"^f[A-Z][A-Za-z0-9]*$")
+NAMED_LOCUS = re.compile(r"^f[A-Z][A-Za-z0-9]*\.\d+(?:,.*)?$")
 def subtype(s):
     m = ANGLE.match(s)
     if not m:
@@ -44,6 +48,10 @@ def subtype(s):
         return "panel_header_candidate"
     if PANEL_LOCUS.match(tag):
         return "panel_locus_candidate"
+    if NAMED_FOLIO.fullmatch(tag):
+        return "named_folio_header_candidate"
+    if NAMED_LOCUS.fullmatch(tag):
+        return "named_folio_locus_candidate"
     if tag.startswith("f"):
         return "other_f_prefixed_tag"
     return "other_tag"
@@ -74,6 +82,11 @@ def self_test():
     assert subtype("<f67r1.1,@P0>     <%>teeodaiin.shey") == "panel_locus_candidate"
     assert subtype("<f67r1.2,+P0>     daiir.okeody") == "panel_locus_candidate"
     assert subtype("<f67r1.1>") == "panel_locus_candidate"
+    # Literal ZL3b composite page examples near physical line 5253.
+    assert subtype("<fRos>     <! $Q=N $P=D $B=1>") == "named_folio_header_candidate"
+    assert subtype("<fRos.1,@L0>      <!1:11>saeeasa?") == "named_folio_locus_candidate"
+    assert subtype("<fRos.2,@Cc>      <!10:30>oto.tosaes") == "named_folio_locus_candidate"
+    assert subtype("<fRos.bad,@L0> text") == "other_f_prefixed_tag"
     assert subtype("<!meta>") == "bang_tag"
     assert subtype("<x>") == "other_tag"
     assert subtype("# comment") is None
