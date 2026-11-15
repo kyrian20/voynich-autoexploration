@@ -22,6 +22,7 @@ const fixtures = {
 // shapes are rejected rather than silently admitted to folio-stratified analysis.
 function assertFolioAgreement(text) {
   let active = null;
+  const seenLoci = new Set();
   for (const raw of text.split(/\r?\n/)) {
     if (!raw.trim()) continue;
     const header = raw.match(/^<([A-Za-z0-9]+[rv])>\s+<!.*>\s*$/);
@@ -30,6 +31,13 @@ function assertFolioAgreement(text) {
     if (!line || !active || line[1] !== active) {
       throw new Error('IVTFF_FOLIO_PREFLIGHT_REJECTED: ' + raw);
     }
+    // Within this deliberately strict synthetic fixture format, duplicate
+    // complete locus tags would double-count the same event-bearing line.
+    const locus = raw.slice(1, raw.indexOf('>'));
+    if (seenLoci.has(locus)) {
+      throw new Error('IVTFF_DUPLICATE_LOCUS_PREFLIGHT_REJECTED: ' + locus);
+    }
+    seenLoci.add(locus);
   }
   if (!active) throw new Error('IVTFF_FOLIO_PREFLIGHT_REJECTED: no header');
 }
@@ -38,6 +46,11 @@ assert.throws(() => assertFolioAgreement(fixtures.mismatched_folio), /IVTFF_FOLI
 assert.throws(() => assertFolioAgreement('<f1r.1,P0> chay\n'), /IVTFF_FOLIO_PREFLIGHT_REJECTED/);
 assert.throws(() => assertFolioAgreement('<f1r> <! $Q=T>\nUNRECOGNIZED\n'), /IVTFF_FOLIO_PREFLIGHT_REJECTED/);
 assert.doesNotThrow(() => assertFolioAgreement('<f1r> <! $Q=T>\n<f1r.1,P0> chay\n<f2r> <! $Q=T>\n<f2r.1,P0> shay\n'));
+// Reject duplicate full locus tags in the strict synthetic fixture subset.
+// Distinct line numbers and different folios remain admissible.
+assert.throws(() => assertFolioAgreement('<f1r> <! $Q=T>\n<f1r.1,P0> chay\n<f1r.1,P0> shay\n'), /IVTFF_DUPLICATE_LOCUS_PREFLIGHT_REJECTED/);
+assert.doesNotThrow(() => assertFolioAgreement('<f1r> <! $Q=T>\n<f1r.1,P0> chay\n<f1r.2,P0> shay\n'));
+
 const output = [];
 for (const path of paths) {
   const source = fs.readFileSync(path, 'utf8');
