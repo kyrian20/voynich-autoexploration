@@ -56,7 +56,9 @@ assert.doesNotThrow(() => assertFolioAgreement('<f1r> <! $Q=T>\n<f1r.1,P0> chay\
 assert.throws(() => assertFolioAgreement('<f1r> <! $Q=T>\n<f1r.1,P0> chay\n<f1r.1,P1> shay\n'), /IVTFF_DUPLICATE_LOCUS_PREFLIGHT_REJECTED/);
 // Different physical line numbers remain admissible even with differing metadata.
 assert.doesNotThrow(() => assertFolioAgreement('<f1r> <! $Q=T>\n<f1r.1,P0> chay\n<f1r.2,P1> shay\n'));
-// Whitespace-only payloads have no event-bearing token and must not be accepted.\nassert.throws(() => assertFolioAgreement('<f1r> <! $Q=T>\\n<f1r.1,P0>    \\n'), /IVTFF_FOLIO_PREFLIGHT_REJECTED/);\n// Malformed locus numbers and suffixes must not pass the synthetic preflight.
+// Whitespace-only payloads have no event-bearing token and must not be accepted.
+assert.throws(() => assertFolioAgreement('<f1r> <! $Q=T>\n<f1r.1,P0>    \n'), /IVTFF_FOLIO_PREFLIGHT_REJECTED/);
+// Malformed locus numbers and suffixes must not pass the synthetic preflight.
 for (const bad of ['<f1r.x,P0> chay', '<f1r.1junk> chay', '<f1r.1,P0junk!> chay']) {
   assert.throws(() => assertFolioAgreement('<f1r> <! $Q=T>\n' + bad + '\n'), /IVTFF_FOLIO_PREFLIGHT_REJECTED/);
 }
