@@ -76,7 +76,8 @@ def self_test():
     assert subtype("<f1r.1> chay") == "numbered_folio_locus_other_shape"
     assert subtype("<f1r.1,P0> chay") is None
     assert subtype("<f1r.1junk> chay") == "folio_locus_non_numeric"
-    # Historical LINE parser accepts arbitrary comma metadata: do not mislabel it as excluded.\n    assert subtype("<f1r.1,P0junk> chay") is None
+    # Historical LINE parser accepts arbitrary comma metadata: do not mislabel it as excluded.
+    assert subtype("<f1r.1,P0junk> chay") is None
     assert subtype("<f1r.a,P0> chay") == "folio_locus_non_numeric"
     assert subtype("<f1r>") == "bare_folio_tag"
     # Literal examples from the frozen ZL3b/IT2a f67r1 panel (physical lines
