@@ -157,6 +157,27 @@ class ReceiptRegression(unittest.TestCase):
             self.assertIn("REJECTED:", error.getvalue())
             self.assertIn("maximum recursion depth", error.getvalue())
 
+    def test_rejects_oversized_receipt_before_decompression(self):
+        # Synthetic valid-looking JSON with an oversized irrelevant field.
+        payload = json.dumps({
+            "audit": "IVTFF file-level minimums", "status": "PASS",
+            "files": [{"source": source, "sha256": digest,
+                       "status": "PASS", "errors": []}
+                      for source, digest in verifier.SOURCES.items()],
+            "padding": "x" * verifier.MAX_MEMBER_BYTES,
+        }).encode("utf-8")
+        with self.assertRaisesRegex(ValueError, "oversized ZIP member"):
+            self.check(fixture(raw_payload=payload))
+
+    def test_rejects_oversized_manifest(self):
+        # Correct ZIP checksum must not permit unbounded manifest reads.
+        stream = io.BytesIO()
+        with zipfile.ZipFile(stream, "w", compression=zipfile.ZIP_DEFLATED) as z:
+            z.writestr("ivtff-minimum-format.json", b"{}")
+            z.writestr("ivtff-minimum-format.sha256", b"x" * 4097)
+        with self.assertRaisesRegex(ValueError, "oversized ZIP member"):
+            self.check(stream.getvalue())
+
     def test_report_failure(self):
         with self.assertRaisesRegex(ValueError, "unexpected audit/status"):
             self.check(fixture(status="FAIL"))
