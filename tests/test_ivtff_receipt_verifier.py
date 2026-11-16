@@ -73,6 +73,22 @@ class ReceiptRegression(unittest.TestCase):
         self.assertEqual(result["status"], "VERIFIED_RECEIPT_ONLY")
         self.assertEqual(seen, [(True, 0)])
 
+    def test_rejects_inplace_growth_during_zip_parsing(self):
+        # Simulate a concurrent append after the first hash and ZipFile open.
+        # ZIP parsing may still succeed; the second digest must catch the edit.
+        from unittest.mock import patch
+        original = verifier.zipfile.ZipFile
+
+        def append_after_open(source, *args, **kwargs):
+            archive = original(source, *args, **kwargs)
+            with open(source.name, "ab") as writer:
+                writer.write(b"concurrent-change")
+            return archive
+
+        with patch.object(verifier.zipfile, "ZipFile", side_effect=append_after_open):
+            with self.assertRaisesRegex(ValueError, "ZIP changed during verification"):
+                self.check(fixture())
+
     def test_outer_zip_digest_mismatch(self):
         with self.assertRaisesRegex(ValueError, "ZIP SHA-256 mismatch"):
             self.check(fixture(), expected_sha="0" * 64)
