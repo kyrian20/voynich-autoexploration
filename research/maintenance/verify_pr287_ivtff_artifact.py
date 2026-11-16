@@ -90,7 +90,7 @@ def main() -> int:
     try:
         print(json.dumps(verify(args.artifact_zip), indent=2, sort_keys=True))
         return 0
-    except (OSError, ValueError, zipfile.BadZipFile, UnicodeError, KeyError, TypeError) as exc:
+    except (OSError, ValueError, RecursionError, zipfile.BadZipFile, UnicodeError, KeyError, TypeError) as exc:
         print(f"REJECTED: {exc}", file=sys.stderr)
         return 1
 
