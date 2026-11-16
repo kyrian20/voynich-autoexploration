@@ -31,6 +31,11 @@ def reject_duplicate_fields(pairs: list[tuple[str, object]]) -> dict:
     return result
 
 
+def reject_nonfinite_constant(value: str) -> None:
+    """Reject non-standard NaN/Infinity accepted by Python's default JSON parser."""
+    raise ValueError(f"non-finite JSON constant: {value}")
+
+
 def verify(path: Path, expected_zip_sha: str = ZIP_SHA) -> dict:
     actual = hashlib.sha256(path.read_bytes()).hexdigest()
     if actual != expected_zip_sha:
@@ -53,7 +58,8 @@ def verify(path: Path, expected_zip_sha: str = ZIP_SHA) -> dict:
     inner_sha = hashlib.sha256(payload).hexdigest()
     if inner_sha != match.group(1):
         raise ValueError("inner JSON SHA-256 mismatch")
-    report = json.loads(payload, object_pairs_hook=reject_duplicate_fields)
+    report = json.loads(payload, object_pairs_hook=reject_duplicate_fields,
+                        parse_constant=reject_nonfinite_constant)
     if not isinstance(report, dict):
         raise ValueError("invalid report object")
     if report.get("audit") != "IVTFF file-level minimums" or report.get("status") != "PASS":
