@@ -16,15 +16,15 @@
           "occurrences": 853,
           "line_initial": 161,
           "line_final": 134,
-          "exact_one_sided_p": 9.871308723978375e-8,
-          "holm_adjusted_p": 2.961392617193513e-7
+          "exact_one_sided_p": 9.871308723978374e-8,
+          "holm_adjusted_p": 2.961392617193512e-7
         },
         "dain": {
           "occurrences": 212,
           "line_initial": 49,
           "line_final": 27,
-          "exact_one_sided_p": 0.000004565407103735993,
-          "holm_adjusted_p": 0.000009130814207471987
+          "exact_one_sided_p": 0.000004565407103735997,
+          "holm_adjusted_p": 0.000009130814207471993
         },
         "daiiin": {
           "occurrences": 21,
@@ -50,15 +50,15 @@
           "occurrences": 198,
           "line_initial": 45,
           "line_final": 26,
-          "exact_one_sided_p": 0.000025069258570107003,
+          "exact_one_sided_p": 0.000025069258570107007,
           "holm_adjusted_p": 0.0000555358011049914
         },
         "daiiin": {
           "occurrences": 19,
           "line_initial": 2,
           "line_final": 5,
-          "exact_one_sided_p": 0.8237877409745936,
-          "holm_adjusted_p": 0.8237877409745936
+          "exact_one_sided_p": 0.8237877409745938,
+          "holm_adjusted_p": 0.8237877409745938
         }
       }
     },
