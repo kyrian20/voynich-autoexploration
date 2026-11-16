@@ -6,6 +6,7 @@ This checks archived bytes, inner checksum and fixed corpus identities; it
 does not validate IVTFF grammar, corpus bytes, or linguistic hypotheses.
 """
 import argparse
+from contextlib import ExitStack
 import hashlib
 import json
 from pathlib import Path
@@ -45,16 +46,20 @@ def verify(path: Path, expected_zip_sha: str = ZIP_SHA) -> dict:
         raise ValueError("oversized ZIP archive")
     digest = hashlib.sha256()
     total = 0
-    with path.open("rb") as stream:
+    with ExitStack() as stack:
+        stream = stack.enter_context(path.open("rb"))
         for chunk in iter(lambda: stream.read(64 * 1024), b""):
             total += len(chunk)
             if total > MAX_ZIP_BYTES:
                 raise ValueError("oversized ZIP archive")
             digest.update(chunk)
-    actual = digest.hexdigest()
-    if actual != expected_zip_sha:
-        raise ValueError("ZIP SHA-256 mismatch")
-    with zipfile.ZipFile(path) as archive:
+        actual = digest.hexdigest()
+        if actual != expected_zip_sha:
+            raise ValueError("ZIP SHA-256 mismatch")
+        stream.seek(0)
+        archive = stack.enter_context(zipfile.ZipFile(stream))
+        # Same open descriptor: pathname replacement cannot redirect parsing.
+        # Concurrent in-place modification remains outside this guarantee.
         if sorted(archive.namelist()) != ["ivtff-minimum-format.json", "ivtff-minimum-format.sha256"]:
             raise ValueError("unexpected ZIP members")
         # Check declared sizes and cap actual streaming reads: a forged ZIP can
