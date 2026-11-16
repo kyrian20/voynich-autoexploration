@@ -112,6 +112,22 @@ class ReceiptRegression(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "duplicate JSON field"):
             self.check(fixture(raw_payload=payload))
 
+    def test_rejects_nonfinite_json_constant(self):
+        # Python json.loads normally accepts NaN/Infinity despite JSON RFC 8259.
+        # An unrelated metadata field must not make a receipt non-portable.
+        valid = json.loads(json.dumps({
+            "audit": "IVTFF file-level minimums", "status": "PASS",
+            "files": [{"source": source, "sha256": digest,
+                       "status": "PASS", "errors": []}
+                      for source, digest in verifier.SOURCES.items()],
+        }))
+        for constant in (b"NaN", b"Infinity", b"-Infinity"):
+            with self.subTest(constant=constant):
+                payload = json.dumps(valid).encode("utf-8")
+                payload = payload[:-1] + b',"untrusted_metric":' + constant + b'}'
+                with self.assertRaisesRegex(ValueError, "non-finite JSON constant"):
+                    self.check(fixture(raw_payload=payload))
+
     def test_rejects_manifest_path_alias(self):
         with self.assertRaisesRegex(ValueError, "invalid inner manifest"):
             self.check(fixture(manifest_target="../ivtff-minimum-format.json"))
