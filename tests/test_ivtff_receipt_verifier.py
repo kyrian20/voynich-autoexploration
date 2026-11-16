@@ -169,6 +169,19 @@ class ReceiptRegression(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "oversized ZIP member"):
             self.check(fixture(raw_payload=payload))
 
+    def test_rejects_oversized_outer_zip(self):
+        # A valid small receipt followed by padding has no oversized members,
+        # but must be rejected before ZIP parsing or full-file buffering.
+        archive = fixture() + b"X" * (verifier.MAX_ZIP_BYTES + 1)
+        with self.assertRaisesRegex(ValueError, "oversized ZIP archive"):
+            self.check(archive)
+
+    def test_outer_zip_limit_accepts_normal_receipt(self):
+        # The input bound must not reject an ordinary checksum-consistent ZIP.
+        archive = fixture()
+        self.assertLess(len(archive), verifier.MAX_ZIP_BYTES)
+        self.assertEqual(self.check(archive)["status"], "VERIFIED_RECEIPT_ONLY")
+
     def test_rejects_oversized_manifest(self):
         # Correct ZIP checksum must not permit unbounded manifest reads.
         stream = io.BytesIO()
