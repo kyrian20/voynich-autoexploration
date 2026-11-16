@@ -57,6 +57,21 @@ class ReceiptRegression(unittest.TestCase):
         self.assertEqual(result["status"], "VERIFIED_RECEIPT_ONLY")
         self.assertEqual(result["corpus_sha256"], verifier.SOURCES)
 
+    def test_zip_parser_uses_verified_open_stream(self):
+        # Regression: do not reopen a pathname after checking its digest.
+        from unittest.mock import patch
+        original = verifier.zipfile.ZipFile
+        seen = []
+
+        def inspect_stream(source, *args, **kwargs):
+            seen.append((hasattr(source, "read"), source.tell()))
+            return original(source, *args, **kwargs)
+
+        with patch.object(verifier.zipfile, "ZipFile", side_effect=inspect_stream):
+            result = self.check(fixture())
+        self.assertEqual(result["status"], "VERIFIED_RECEIPT_ONLY")
+        self.assertEqual(seen, [(True, 0)])
+
     def test_outer_zip_digest_mismatch(self):
         with self.assertRaisesRegex(ValueError, "ZIP SHA-256 mismatch"):
             self.check(fixture(), expected_sha="0" * 64)
