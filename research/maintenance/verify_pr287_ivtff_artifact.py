@@ -15,6 +15,7 @@ import zipfile
 
 ZIP_SHA = "9f316ae1993389803d7b0af7b66db0bf6e2dbd45279e7a4547d8326786c31fd6"
 MAX_MEMBER_BYTES = 4 * 1024 * 1024  # generous bound for a three-source audit receipt
+MAX_ZIP_BYTES = 8 * 1024 * 1024  # cap compressed archive input, not just expanded members
 SOURCES = {
     "data/transcriptions/eva_zl3b.txt": "bf5b6d4ac1e3a51b1847a9c388318d609020441ccd56984c901c32b09beccafc",
     "data/transcriptions/zl3a.txt": "56419297682d338ff1a0a17f5ae251e3ee3e2c5bf05a62db04c5385ef30b36a2",
@@ -38,7 +39,19 @@ def reject_nonfinite_constant(value: str) -> None:
 
 
 def verify(path: Path, expected_zip_sha: str = ZIP_SHA) -> dict:
-    actual = hashlib.sha256(path.read_bytes()).hexdigest()
+    # Hash incrementally: path.read_bytes() formerly loaded an arbitrarily large
+    # attacker-controlled ZIP into RAM before the member-size checks ran.
+    if path.stat().st_size > MAX_ZIP_BYTES:
+        raise ValueError("oversized ZIP archive")
+    digest = hashlib.sha256()
+    total = 0
+    with path.open("rb") as stream:
+        for chunk in iter(lambda: stream.read(64 * 1024), b""):
+            total += len(chunk)
+            if total > MAX_ZIP_BYTES:
+                raise ValueError("oversized ZIP archive")
+            digest.update(chunk)
+    actual = digest.hexdigest()
     if actual != expected_zip_sha:
         raise ValueError("ZIP SHA-256 mismatch")
     with zipfile.ZipFile(path) as archive:
