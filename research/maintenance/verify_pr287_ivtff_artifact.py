@@ -14,6 +14,7 @@ import sys
 import zipfile
 
 ZIP_SHA = "9f316ae1993389803d7b0af7b66db0bf6e2dbd45279e7a4547d8326786c31fd6"
+MAX_MEMBER_BYTES = 4 * 1024 * 1024  # generous bound for a three-source audit receipt
 SOURCES = {
     "data/transcriptions/eva_zl3b.txt": "bf5b6d4ac1e3a51b1847a9c388318d609020441ccd56984c901c32b09beccafc",
     "data/transcriptions/zl3a.txt": "56419297682d338ff1a0a17f5ae251e3ee3e2c5bf05a62db04c5385ef30b36a2",
@@ -43,8 +44,20 @@ def verify(path: Path, expected_zip_sha: str = ZIP_SHA) -> dict:
     with zipfile.ZipFile(path) as archive:
         if sorted(archive.namelist()) != ["ivtff-minimum-format.json", "ivtff-minimum-format.sha256"]:
             raise ValueError("unexpected ZIP members")
-        payload = archive.read("ivtff-minimum-format.json")
-        manifest = archive.read("ivtff-minimum-format.sha256").decode("ascii").strip()
+        # Check declared sizes and cap actual streaming reads: a forged ZIP can
+        # advertise a small size yet expand to a much larger payload.
+        for member in archive.infolist():
+            limit = 4096 if member.filename.endswith(".sha256") else MAX_MEMBER_BYTES
+            if member.file_size > limit:
+                raise ValueError("oversized ZIP member")
+        def bounded_read(name: str, limit: int) -> bytes:
+            with archive.open(name) as stream:
+                data = stream.read(limit + 1)
+            if len(data) > limit:
+                raise ValueError("oversized ZIP member")
+            return data
+        payload = bounded_read("ivtff-minimum-format.json", MAX_MEMBER_BYTES)
+        manifest = bounded_read("ivtff-minimum-format.sha256", 4096).decode("ascii").strip()
     match = re.fullmatch(r"([0-9a-f]{64})  (.+)", manifest)
     # The archived PR #287 runner used an absolute temporary pathname in
     # sha256sum output; synthetic receipts use the bare member name. Reject
