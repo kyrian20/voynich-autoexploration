@@ -88,9 +88,9 @@ def main() -> int:
     parser.add_argument("artifact_zip", type=Path)
     args = parser.parse_args()
     try:
-        print(json.dumps(verify(args.artifact_zip), indent=2, sort_keys=True))
+        print(json.dumps(verify(args.artifact_zip, expected_zip_sha=ZIP_SHA), indent=2, sort_keys=True))
         return 0
-    except (OSError, ValueError, zipfile.BadZipFile, UnicodeError, KeyError, TypeError) as exc:
+    except (OSError, ValueError, RecursionError, zipfile.BadZipFile, UnicodeError, KeyError, TypeError) as exc:
         print(f"REJECTED: {exc}", file=sys.stderr)
         return 1
 
