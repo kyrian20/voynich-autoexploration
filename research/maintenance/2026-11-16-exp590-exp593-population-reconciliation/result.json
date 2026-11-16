@@ -1,0 +1,84 @@
+{
+  "audit": "EXP-590/EXP-593 exact population reconciliation",
+  "status": "REPRODUCED",
+  "source": "data/transcriptions/eva_zl3b.txt",
+  "source_sha256": "bf5b6d4ac1e3a51b1847a9c388318d609020441ccd56984c901c32b09beccafc",
+  "parser_scope": {
+    "EXP-590": "fNNr/v with optional numbered subfolio suffix, plus fRos",
+    "EXP-593": "fNNr/v only"
+  },
+  "locus_reconciliation": {
+    "broad": {
+      "nonempty_lines": 5376,
+      "tokens": 39594,
+      "variants": {
+        "daiin": {
+          "occurrences": 853,
+          "line_initial": 161,
+          "line_final": 134,
+          "exact_one_sided_p": 9.871308723978375e-8,
+          "holm_adjusted_p": 2.961392617193513e-7
+        },
+        "dain": {
+          "occurrences": 212,
+          "line_initial": 49,
+          "line_final": 27,
+          "exact_one_sided_p": 0.000004565407103735993,
+          "holm_adjusted_p": 0.000009130814207471987
+        },
+        "daiiin": {
+          "occurrences": 21,
+          "line_initial": 2,
+          "line_final": 6,
+          "exact_one_sided_p": 0.8588639248480424,
+          "holm_adjusted_p": 0.8588639248480424
+        }
+      }
+    },
+    "restricted": {
+      "nonempty_lines": 4188,
+      "tokens": 32732,
+      "variants": {
+        "daiin": {
+          "occurrences": 726,
+          "line_initial": 133,
+          "line_final": 118,
+          "exact_one_sided_p": 0.0000185119337016638,
+          "holm_adjusted_p": 0.00005553580111449914
+        },
+        "dain": {
+          "occurrences": 198,
+          "line_initial": 45,
+          "line_final": 26,
+          "exact_one_sided_p": 0.000025069258570107003,
+          "holm_adjusted_p": 0.00005553580111449914
+        },
+        "daiiin": {
+          "occurrences": 19,
+          "line_initial": 2,
+          "line_final": 5,
+          "exact_one_sided_p": 0.8237877409745936,
+          "holm_adjusted_p": 0.8237877409745936
+        }
+      }
+    },
+    "shared_loci": 4188,
+    "shared_raw_rows_and_tokens_identical": true,
+    "only_broad_loci": 1188,
+    "only_broad_tokens": 6862,
+    "only_broad_by_folio_type": {
+      "fRos": 160,
+      "numbered_subfolio": 1028
+    },
+    "only_restricted_loci": 0,
+    "duplicate_nonempty_loci": 0
+  },
+  "null_model": "Independent within-line exchangeability: each line's first token is drawn uniformly from its observed token multiset. Exact Poisson-binomial upper tails with Holm correction over the three historically selected variants.",
+  "limitations": [
+    "The three-word family was selected in earlier exploratory work; Holm correction covers these variants only, not historical target selection or all prior analyses.",
+    "The null preserves each line's token multiset but discards order; it is not a language or random-text control.",
+    "ZL3b is one transcription of one manuscript; this audit establishes no semantics or decipherment.",
+    "The parser reproduces the two archived line patterns and tokenization; it is not a full independent IVTFF conformance audit.",
+    "These exact-tail calculations are a new sensitivity analysis and do not overwrite either frozen experiment archive."
+  ]
+}
