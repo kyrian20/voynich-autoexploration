@@ -21,6 +21,16 @@ SOURCES = {
 }
 
 
+def reject_duplicate_fields(pairs: list[tuple[str, object]]) -> dict:
+    """Reject ambiguous JSON mappings instead of accepting the last value."""
+    result = {}
+    for key, value in pairs:
+        if key in result:
+            raise ValueError(f"duplicate JSON field: {key}")
+        result[key] = value
+    return result
+
+
 def verify(path: Path, expected_zip_sha: str = ZIP_SHA) -> dict:
     actual = hashlib.sha256(path.read_bytes()).hexdigest()
     if actual != expected_zip_sha:
@@ -31,12 +41,21 @@ def verify(path: Path, expected_zip_sha: str = ZIP_SHA) -> dict:
         payload = archive.read("ivtff-minimum-format.json")
         manifest = archive.read("ivtff-minimum-format.sha256").decode("ascii").strip()
     match = re.fullmatch(r"([0-9a-f]{64})  (.+)", manifest)
-    if not match or Path(match.group(2)).name != "ivtff-minimum-format.json":
+    # The archived PR #287 runner used an absolute temporary pathname in
+    # sha256sum output; synthetic receipts use the bare member name. Reject
+    # traversal or any other alias without rejecting those historical bytes.
+    permitted_targets = {
+        "ivtff-minimum-format.json",
+        "/home/runner/work/_temp/ivtff-minimum-format.json",
+    }
+    if not match or match.group(2) not in permitted_targets:
         raise ValueError("invalid inner manifest")
     inner_sha = hashlib.sha256(payload).hexdigest()
     if inner_sha != match.group(1):
         raise ValueError("inner JSON SHA-256 mismatch")
-    report = json.loads(payload)
+    report = json.loads(payload, object_pairs_hook=reject_duplicate_fields)
+    if not isinstance(report, dict):
+        raise ValueError("invalid report object")
     if report.get("audit") != "IVTFF file-level minimums" or report.get("status") != "PASS":
         raise ValueError("unexpected audit/status")
     records = report.get("files")
@@ -44,6 +63,8 @@ def verify(path: Path, expected_zip_sha: str = ZIP_SHA) -> dict:
         raise ValueError("unexpected record count")
     seen = set()
     for record in records:
+        if not isinstance(record, dict):
+            raise ValueError("invalid file record")
         source = record.get("source")
         if source not in SOURCES or source in seen:
             raise ValueError("unknown or duplicate source")
