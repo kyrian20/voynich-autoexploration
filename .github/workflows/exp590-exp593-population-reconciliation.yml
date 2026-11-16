@@ -25,6 +25,29 @@ jobs:
           python scripts/reconcile_exp590_exp593_population.py --source data/transcriptions/eva_zl3b.txt > reconciliation.json
           python - <<'PY'
           import json, math
+          actual = json.load(open("reconciliation.json", encoding="utf-8"))
+          archived = json.load(open("research/maintenance/2026-11-16-exp590-exp593-population-reconciliation/result.json", encoding="utf-8"))
+          def same(a, b):
+              if isinstance(a, dict):
+                  assert isinstance(b, dict) and set(a) == set(b)
+                  for key in a: same(a[key], b[key])
+              elif isinstance(a, list):
+                  assert isinstance(b, list) and len(a) == len(b)
+                  for x, y in zip(a, b): same(x, y)
+              elif isinstance(a, bool):
+                  assert isinstance(b, bool) and a == b
+              elif isinstance(a, int):
+                  assert type(b) is int and a == b
+              elif isinstance(a, float):
+                  assert isinstance(b, (int, float)) and not isinstance(b, bool)
+                  assert math.isclose(a, b, rel_tol=1e-12, abs_tol=1e-15), (a, b)
+              else:
+                  assert a == b
+          same(archived, actual)
+          print("generated result matches archived JSON: PASS")
+          PY
+          python - <<'PY'
+          import json, math
           x = json.load(open("reconciliation.json", encoding="utf-8"))
           r = x["locus_reconciliation"]
           assert r["broad"]["nonempty_lines"] == 5376
