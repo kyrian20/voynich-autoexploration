@@ -67,8 +67,9 @@ class ReceiptRegression(unittest.TestCase):
             seen.append((hasattr(source, "read"), source.tell()))
             return original(source, *args, **kwargs)
 
+        archive = fixture()
         with patch.object(verifier.zipfile, "ZipFile", side_effect=inspect_stream):
-            result = self.check(fixture())
+            result = self.check(archive)
         self.assertEqual(result["status"], "VERIFIED_RECEIPT_ONLY")
         self.assertEqual(seen, [(True, 0)])
 
