@@ -1,0 +1,29 @@
+{
+  "status": "EXPLORATORY",
+  "parent_analysis": "EXP-593",
+  "scope": "EXP-590 broad page-ID pattern, including numbered pages and fRos",
+  "source": "data/transcriptions/eva_zl3b.txt",
+  "source_sha256": "bf5b6d4ac1e3a51b1847a9c388318d609020441ccd56984c901c32b09beccafc",
+  "lines": 5376,
+  "tokens": 39594,
+  "variants": ["daiin", "dain", "daiiin"],
+  "observed": {
+    "daiin": {"occurrences": 853, "line_initial": 161, "line_final": 134},
+    "dain": {"occurrences": 212, "line_initial": 49, "line_final": 27},
+    "daiiin": {"occurrences": 21, "line_initial": 2, "line_final": 6}
+  },
+  "permutations": 5000,
+  "seed": "0x59320261104",
+  "prng": "xorshift32",
+  "tests": {
+    "daiin": {"null_mean_initial": 109.0798, "null_sd_initial": 9.288672238807866, "observed_standardized_statistic": 5.5896255853531525, "empirical_p": 0.0001999600079984003, "maxT_adjusted_p": 0.0001999600079984003, "null_exceedances": 0, "maxT_exceedances": 0},
+    "dain": {"null_mean_initial": 25.9338, "null_sd_initial": 4.660967448931593, "observed_standardized_statistic": 4.948800920136727, "empirical_p": 0.0001999600079984003, "maxT_adjusted_p": 0.0001999600079984003, "null_exceedances": 0, "maxT_exceedances": 0},
+    "daiiin": {"null_mean_initial": 3.189, "null_sd_initial": 1.586467459483503, "observed_standardized_statistic": -0.7494638436435979, "empirical_p": 0.8622275544891022, "maxT_adjusted_p": 0.9934013197360528, "null_exceedances": 4311, "maxT_exceedances": 4967}
+  },
+  "limitations": [
+    "Sensitivity analysis only; does not replace or alter archived EXP-593.",
+    "Exploratory variant set and previously selected target words.",
+    "Alternative PRNG stream is not an exact replay of EXP-593's Python random.shuffle stream.",
+    "Uniform draw per line has the same null distribution for line-initial counts as shuffling tokens within each line."
+  ]
+}
