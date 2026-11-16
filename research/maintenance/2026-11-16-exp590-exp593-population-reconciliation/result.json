@@ -44,14 +44,14 @@
           "line_initial": 133,
           "line_final": 118,
           "exact_one_sided_p": 0.0000185119337016638,
-          "holm_adjusted_p": 0.00005553580111449914
+          "holm_adjusted_p": 0.0000555358011049914
         },
         "dain": {
           "occurrences": 198,
           "line_initial": 45,
           "line_final": 26,
           "exact_one_sided_p": 0.000025069258570107003,
-          "holm_adjusted_p": 0.00005553580111449914
+          "holm_adjusted_p": 0.0000555358011049914
         },
         "daiiin": {
           "occurrences": 19,
