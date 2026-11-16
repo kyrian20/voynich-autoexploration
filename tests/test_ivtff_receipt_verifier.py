@@ -137,6 +137,23 @@ class ReceiptRegression(unittest.TestCase):
             manifest_target="/home/runner/work/_temp/ivtff-minimum-format.json"))
         self.assertEqual(result["status"], "VERIFIED_RECEIPT_ONLY")
 
+    def test_deeply_nested_json_cli_rejects_cleanly(self):
+        # A checksum-consistent JSON payload can exceed Python's parser depth.
+        # Verify the actual CLI error boundary, not merely json.loads itself.
+        from contextlib import redirect_stderr
+        from unittest.mock import patch
+        archive = fixture(raw_payload=b'[' * 2000 + b'0' + b']' * 2000)
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "deep.zip"
+            path.write_bytes(archive)
+            error = io.StringIO()
+            with patch.object(verifier, "ZIP_SHA", hashlib.sha256(archive).hexdigest()), \
+                 patch("sys.argv", ["verify_pr287_ivtff_artifact.py", str(path)]), \
+                 redirect_stderr(error):
+                self.assertEqual(verifier.main(), 1)
+            self.assertIn("REJECTED:", error.getvalue())
+            self.assertIn("maximum recursion depth", error.getvalue())
+
     def test_report_failure(self):
         with self.assertRaisesRegex(ValueError, "unexpected audit/status"):
             self.check(fixture(status="FAIL"))
