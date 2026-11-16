@@ -20,7 +20,8 @@ spec.loader.exec_module(verifier)
 
 
 def fixture(records=None, *, audit="IVTFF file-level minimums", status="PASS",
-            corrupt_manifest=False, extra_member=False):
+            corrupt_manifest=False, extra_member=False, raw_payload=None,
+            manifest_target="ivtff-minimum-format.json"):
     if records is None:
         records = [
             {"source": source, "sha256": digest, "status": "PASS", "errors": []}
@@ -28,10 +29,12 @@ def fixture(records=None, *, audit="IVTFF file-level minimums", status="PASS",
         ]
     payload = json.dumps({"audit": audit, "status": status, "files": records},
                          sort_keys=True).encode("utf-8")
+    if raw_payload is not None:
+        payload = raw_payload
     digest = hashlib.sha256(payload).hexdigest()
     if corrupt_manifest:
         digest = "0" * 64
-    manifest = (digest + "  ivtff-minimum-format.json\n").encode("ascii")
+    manifest = (digest + "  " + manifest_target + "\n").encode("ascii")
     stream = io.BytesIO()
     with zipfile.ZipFile(stream, "w", compression=zipfile.ZIP_DEFLATED) as z:
         z.writestr("ivtff-minimum-format.json", payload)
@@ -80,6 +83,43 @@ class ReceiptRegression(unittest.TestCase):
         ]
         with self.assertRaisesRegex(ValueError, "corpus digest/status mismatch"):
             self.check(fixture(records))
+
+    def test_rejects_top_level_json_list(self):
+        with self.assertRaisesRegex(ValueError, "invalid report object"):
+            self.check(fixture(raw_payload=b"[]"))
+
+    def test_rejects_non_object_file_record(self):
+        records = [
+            {"source": source, "sha256": digest, "status": "PASS", "errors": []}
+            for source, digest in verifier.SOURCES.items()
+        ]
+        records[1] = "malformed-record"
+        with self.assertRaisesRegex(ValueError, "invalid file record"):
+            self.check(fixture(records))
+
+    def test_rejects_duplicate_json_key(self):
+        # The former json.loads last-value-wins parser incorrectly accepted
+        # this conflicting FAIL then PASS report with otherwise valid records.
+        valid_report = json.dumps({
+            "audit": "IVTFF file-level minimums", "status": "PASS",
+            "files": [
+                {"source": source, "sha256": digest,
+                 "status": "PASS", "errors": []}
+                for source, digest in verifier.SOURCES.items()
+            ],
+        }).encode("utf-8")
+        payload = b'{"status":"FAIL",' + valid_report[1:]
+        with self.assertRaisesRegex(ValueError, "duplicate JSON field"):
+            self.check(fixture(raw_payload=payload))
+
+    def test_rejects_manifest_path_alias(self):
+        with self.assertRaisesRegex(ValueError, "invalid inner manifest"):
+            self.check(fixture(manifest_target="../ivtff-minimum-format.json"))
+
+    def test_accepts_historical_runner_manifest_target(self):
+        result = self.check(fixture(
+            manifest_target="/home/runner/work/_temp/ivtff-minimum-format.json"))
+        self.assertEqual(result["status"], "VERIFIED_RECEIPT_ONLY")
 
     def test_report_failure(self):
         with self.assertRaisesRegex(ValueError, "unexpected audit/status"):

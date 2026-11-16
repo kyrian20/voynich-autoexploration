@@ -21,6 +21,16 @@ jobs:
         with:
           python-version: '3.12'
       - name: Offline receipt and tamper regression
+        shell: bash
         run: |
-          python -m unittest discover -s tests -p 'test_ivtff_receipt_verifier.py' -v
-          python -O -m unittest discover -s tests -p 'test_ivtff_receipt_verifier.py' -v
+          set -o pipefail
+          python -m unittest discover -s tests -p 'test_ivtff_receipt_verifier.py' -v 2>&1 | tee receipt-regression-normal.log
+          python -O -m unittest discover -s tests -p 'test_ivtff_receipt_verifier.py' -v 2>&1 | tee receipt-regression-optimized.log
+      - name: Preserve offline regression results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ivtff-receipt-regression-results
+          path: receipt-regression-*.log
+          if-no-files-found: error
+          retention-days: 30
