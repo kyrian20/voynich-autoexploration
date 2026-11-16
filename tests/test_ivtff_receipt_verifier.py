@@ -142,12 +142,15 @@ class ReceiptRegression(unittest.TestCase):
         # Verify the actual CLI error boundary, not merely json.loads itself.
         from contextlib import redirect_stderr
         from unittest.mock import patch
-        archive = fixture(raw_payload=b'[' * 2000 + b'0' + b']' * 2000)
+        # Parser nesting limits vary by Python build/version. Inject the exact
+        # parser exception to test the CLI boundary deterministically.
+        archive = fixture()
         with tempfile.TemporaryDirectory() as directory:
             path = Path(directory) / "deep.zip"
             path.write_bytes(archive)
             error = io.StringIO()
             with patch.object(verifier, "ZIP_SHA", hashlib.sha256(archive).hexdigest()), \
+                 patch.object(verifier.json, "loads", side_effect=RecursionError("maximum recursion depth exceeded")), \
                  patch("sys.argv", ["verify_pr287_ivtff_artifact.py", str(path)]), \
                  redirect_stderr(error):
                 self.assertEqual(verifier.main(), 1)
