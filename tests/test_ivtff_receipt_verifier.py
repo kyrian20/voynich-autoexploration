@@ -261,6 +261,30 @@ class ReceiptRegression(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "oversized ZIP member"):
             self.check(stream.getvalue())
 
+    def test_cli_rejects_unsupported_zip_compression_cleanly(self):
+        # zipfile raises NotImplementedError for unsupported compression.
+        # The CLI must return REJECTED rather than leak a traceback.
+        from contextlib import redirect_stderr
+        from unittest.mock import patch
+        # Alter the first central-directory compression-method field to 99.
+        # This is a real, checksum-consistent ZIP input, not an injected exception.
+        archive = bytearray(fixture())
+        header = archive.find(b"PK\x01\x02")
+        self.assertGreaterEqual(header, 0)
+        archive[header + 10:header + 12] = (99).to_bytes(2, "little")
+        archive = bytes(archive)
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "unsupported.zip"
+            path.write_bytes(archive)
+            error = io.StringIO()
+            with patch.object(verifier, "ZIP_SHA", hashlib.sha256(archive).hexdigest()), \
+                 patch("sys.argv", ["verify_pr287_ivtff_artifact.py", str(path)]), \
+                 redirect_stderr(error):
+                self.assertEqual(verifier.main(), 1)
+            self.assertIn("REJECTED:", error.getvalue())
+            self.assertIn("compression", error.getvalue().lower())
+            self.assertNotIn("Traceback", error.getvalue())
+
     def test_report_failure(self):
         with self.assertRaisesRegex(ValueError, "unexpected audit/status"):
             self.check(fixture(status="FAIL"))
