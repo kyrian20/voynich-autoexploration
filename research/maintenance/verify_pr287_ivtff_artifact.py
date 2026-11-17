@@ -69,7 +69,7 @@ def verify(path: Path, expected_zip_sha: str = ZIP_SHA) -> dict:
         for member in archive.infolist():
             stream.seek(member.header_offset)
             local = stream.read(10)
-            if len(local) != 10 or local[:4] != b"PK\\x03\\x04":
+            if len(local) != 10 or local[:4] != b"PK\x03\x04":
                 raise ValueError("invalid local ZIP header")
             local_flags = int.from_bytes(local[6:8], "little")
             local_method = int.from_bytes(local[8:10], "little")
