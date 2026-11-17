@@ -269,7 +269,7 @@ class ReceiptRegression(unittest.TestCase):
         # Alter the first central-directory compression-method field to 99.
         # This is a real, checksum-consistent ZIP input, not an injected exception.
         archive = bytearray(fixture())
-        header = archive.find(b"PK\\x01\\x02")
+        header = archive.find(b"PK\x01\x02")
         self.assertGreaterEqual(header, 0)
         archive[header + 10:header + 12] = (99).to_bytes(2, "little")
         archive = bytes(archive)
