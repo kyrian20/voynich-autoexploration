@@ -76,6 +76,18 @@ def verify(path: Path, expected_zip_sha: str = ZIP_SHA) -> dict:
             return data
         payload = bounded_read("ivtff-minimum-format.json", MAX_MEMBER_BYTES)
         manifest = bounded_read("ivtff-minimum-format.sha256", 4096).decode("ascii").strip()
+        # Detect persistent in-place edits after the first digest. This is not
+        # an atomic snapshot and cannot exclude adversarial transient rewrites.
+        stream.seek(0)
+        second_digest = hashlib.sha256()
+        second_total = 0
+        for chunk in iter(lambda: stream.read(64 * 1024), b""):
+            second_total += len(chunk)
+            if second_total > MAX_ZIP_BYTES:
+                raise ValueError("oversized ZIP archive")
+            second_digest.update(chunk)
+        if second_total != total or second_digest.hexdigest() != actual:
+            raise ValueError("ZIP changed during verification")
     match = re.fullmatch(r"([0-9a-f]{64})  (.+)", manifest)
     # The archived PR #287 runner used an absolute temporary pathname in
     # sha256sum output; synthetic receipts use the bare member name. Reject
@@ -103,7 +115,7 @@ def verify(path: Path, expected_zip_sha: str = ZIP_SHA) -> dict:
         if not isinstance(record, dict):
             raise ValueError("invalid file record")
         source = record.get("source")
-        if source not in SOURCES or source in seen:
+        if not isinstance(source, str) or source not in SOURCES or source in seen:
             raise ValueError("unknown or duplicate source")
         if record.get("sha256") != SOURCES[source] or record.get("status") != "PASS" or record.get("errors") != []:
             raise ValueError("corpus digest/status mismatch")

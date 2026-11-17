@@ -73,6 +73,47 @@ class ReceiptRegression(unittest.TestCase):
         self.assertEqual(result["status"], "VERIFIED_RECEIPT_ONLY")
         self.assertEqual(seen, [(True, 0)])
 
+    def test_rejects_inplace_growth_during_zip_parsing(self):
+        # Simulate a concurrent append after the first hash and ZipFile open.
+        # ZIP parsing may still succeed; the second digest must catch the edit.
+        from unittest.mock import patch
+        original = verifier.zipfile.ZipFile
+
+        def append_after_open(source, *args, **kwargs):
+            archive = original(source, *args, **kwargs)
+            with open(source.name, "ab") as writer:
+                writer.write(b"concurrent-change")
+            return archive
+
+        # Build the fixture before patching: verifier.zipfile is the shared
+        # stdlib zipfile module, also used by fixture() to write its ZIP.
+        archive_bytes = fixture()
+        with patch.object(verifier.zipfile, "ZipFile", side_effect=append_after_open):
+            with self.assertRaisesRegex(ValueError, "ZIP changed during verification"):
+                self.check(archive_bytes)
+
+    def test_rejects_inplace_same_size_rewrite_during_zip_parsing(self):
+        # A size-only guard cannot detect an in-place rewrite of equal length.
+        # The post-read SHA-256 must reject a persistent byte change.
+        from unittest.mock import patch
+        original = verifier.zipfile.ZipFile
+
+        def rewrite_after_open(source, *args, **kwargs):
+            archive = original(source, *args, **kwargs)
+            with open(source.name, "r+b") as writer:
+                # Change local header version-needed byte, not PK signature.
+                # Corrupting the signature prevents reaching the second hash.
+                writer.seek(4)
+                first = writer.read(1)
+                writer.seek(4)
+                writer.write(bytes([first[0] ^ 1]))
+            return archive
+
+        archive_bytes = fixture()
+        with patch.object(verifier.zipfile, "ZipFile", side_effect=rewrite_after_open):
+            with self.assertRaisesRegex(ValueError, "ZIP changed during verification"):
+                self.check(archive_bytes)
+
     def test_outer_zip_digest_mismatch(self):
         with self.assertRaisesRegex(ValueError, "ZIP SHA-256 mismatch"):
             self.check(fixture(), expected_sha="0" * 64)
@@ -90,6 +131,19 @@ class ReceiptRegression(unittest.TestCase):
         records = [{"source": source, "sha256": digest, "status": "PASS", "errors": []}] * 3
         with self.assertRaisesRegex(ValueError, "unknown or duplicate source"):
             self.check(fixture(records))
+
+    def test_rejects_non_string_source_identifiers(self):
+        # JSON allows array/object keys as values; membership in a dict or
+        # set previously raised TypeError instead of a controlled ValueError.
+        for malformed in ([], {}, 123, None):
+            with self.subTest(source=malformed):
+                records = [
+                    {"source": source, "sha256": digest, "status": "PASS", "errors": []}
+                    for source, digest in verifier.SOURCES.items()
+                ]
+                records[0]["source"] = malformed
+                with self.assertRaisesRegex(ValueError, "unknown or duplicate source"):
+                    self.check(fixture(records))
 
     def test_bad_corpus_digest(self):
         records = [
