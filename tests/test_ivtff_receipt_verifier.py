@@ -101,9 +101,11 @@ class ReceiptRegression(unittest.TestCase):
         def rewrite_after_open(source, *args, **kwargs):
             archive = original(source, *args, **kwargs)
             with open(source.name, "r+b") as writer:
-                writer.seek(0)
+                # Change local header version-needed byte, not PK signature.
+                # Corrupting the signature prevents reaching the second hash.
+                writer.seek(4)
                 first = writer.read(1)
-                writer.seek(0)
+                writer.seek(4)
                 writer.write(bytes([first[0] ^ 1]))
             return archive
 
