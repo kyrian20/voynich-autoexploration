@@ -115,7 +115,7 @@ def verify(path: Path, expected_zip_sha: str = ZIP_SHA) -> dict:
         if not isinstance(record, dict):
             raise ValueError("invalid file record")
         source = record.get("source")
-        if source not in SOURCES or source in seen:
+        if not isinstance(source, str) or source not in SOURCES or source in seen:
             raise ValueError("unknown or duplicate source")
         if record.get("sha256") != SOURCES[source] or record.get("status") != "PASS" or record.get("errors") != []:
             raise ValueError("corpus digest/status mismatch")
