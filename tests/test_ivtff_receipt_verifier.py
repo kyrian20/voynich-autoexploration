@@ -268,19 +268,19 @@ class ReceiptRegression(unittest.TestCase):
         from contextlib import redirect_stderr
         from unittest.mock import patch
         archive = bytearray(fixture())
-        header = archive.find(b"PK\\x03\\x04")
+        header = archive.find(b"PK\x03\x04")
         self.assertGreaterEqual(header, 0)
         name_len = int.from_bytes(archive[header + 26:header + 28], "little")
         extra_len = int.from_bytes(archive[header + 28:header + 30], "little")
         start = header + 30 + name_len + extra_len
-        archive[start:start + 3] = b"\\xff\\xff\\xff"
+        archive[start:start + 3] = b"\xff\xff\xff"
         archive = bytes(archive)
         with tempfile.TemporaryDirectory() as directory:
             path = Path(directory) / "corrupt-deflate.zip"
             path.write_bytes(archive)
             error = io.StringIO()
-            with patch.object(verifier, "ZIP_SHA", hashlib.sha256(archive).hexdigest()), \\
-                 patch("sys.argv", ["verify_pr287_ivtff_artifact.py", str(path)]), \\
+            with patch.object(verifier, "ZIP_SHA", hashlib.sha256(archive).hexdigest()), \
+                 patch("sys.argv", ["verify_pr287_ivtff_artifact.py", str(path)]), \
                  redirect_stderr(error):
                 self.assertEqual(verifier.main(), 1)
             self.assertIn("REJECTED:", error.getvalue())
