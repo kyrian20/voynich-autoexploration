@@ -67,7 +67,9 @@ def verify(path: Path, expected_zip_sha: str = ZIP_SHA) -> dict:
         for member in archive.infolist():
             # Reject encrypted entries explicitly instead of broadly catching
             # RuntimeError, which could mask unrelated programming defects.
-            if member.flag_bits & 0x1:
+            if member.flag_bits & (0x1 | 0x40):
+                # Bit 6 denotes strong encryption. Reject it independently of
+                # bit 0: malformed headers must not bypass the receipt policy.
                 raise ValueError("encrypted ZIP member")
             limit = 4096 if member.filename.endswith(".sha256") else MAX_MEMBER_BYTES
             if member.file_size > limit:
