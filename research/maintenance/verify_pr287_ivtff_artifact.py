@@ -73,6 +73,10 @@ def verify(path: Path, expected_zip_sha: str = ZIP_SHA) -> dict:
                 raise ValueError("invalid local ZIP header")
             local_flags = int.from_bytes(local[6:8], "little")
             local_method = int.from_bytes(local[8:10], "little")
+            # Preserve the explicit encrypted-member diagnostic for central
+            # flags, while rejecting local-only flags as header mismatches.
+            if member.flag_bits & (0x1 | 0x40):
+                raise ValueError("encrypted ZIP member")
             if local_flags != member.flag_bits or local_method != member.compress_type:
                 raise ValueError("ZIP local/central header mismatch")
         # Check declared sizes and cap actual streaming reads: a forged ZIP can
