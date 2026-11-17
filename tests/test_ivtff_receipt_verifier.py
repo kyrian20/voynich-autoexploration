@@ -328,7 +328,7 @@ class ReceiptRegression(unittest.TestCase):
         # A malformed archive may set it without the conventional bit 0.
         # The receipt verifier must reject either encryption indicator.
         archive = bytearray(fixture())
-        central = archive.find(b"PK\\x01\\x02")
+        central = archive.find(b"PK\x01\x02")
         self.assertGreaterEqual(central, 0)
         offset = central + 8
         flags = int.from_bytes(archive[offset:offset + 2], "little")
