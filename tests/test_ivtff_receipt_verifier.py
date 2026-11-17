@@ -285,6 +285,33 @@ class ReceiptRegression(unittest.TestCase):
             self.assertIn("compression", error.getvalue().lower())
             self.assertNotIn("Traceback", error.getvalue())
 
+    def test_cli_rejects_encrypted_zip_without_traceback(self):
+        # A real ZIP header with the encrypted flag must fail closed.
+        # Build the fixture before mutating flags; no historical bytes used.
+        from contextlib import redirect_stderr
+        from unittest.mock import patch
+        archive = bytearray(fixture())
+        local = archive.find(b"PK\x03\x04")
+        central = archive.find(b"PK\x01\x02")
+        self.assertGreaterEqual(local, 0)
+        self.assertGreaterEqual(central, 0)
+        # General-purpose bit 0 denotes encryption in both ZIP headers.
+        for offset in (local + 6, central + 8):
+            flags = int.from_bytes(archive[offset:offset + 2], "little")
+            archive[offset:offset + 2] = (flags | 1).to_bytes(2, "little")
+        archive = bytes(archive)
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "encrypted.zip"
+            path.write_bytes(archive)
+            error = io.StringIO()
+            with patch.object(verifier, "ZIP_SHA", hashlib.sha256(archive).hexdigest()), \
+                 patch("sys.argv", ["verify_pr287_ivtff_artifact.py", str(path)]), \
+                 redirect_stderr(error):
+                self.assertEqual(verifier.main(), 1)
+            self.assertIn("REJECTED:", error.getvalue())
+            self.assertIn("encrypted", error.getvalue().lower())
+            self.assertNotIn("Traceback", error.getvalue())
+
     def test_report_failure(self):
         with self.assertRaisesRegex(ValueError, "unexpected audit/status"):
             self.check(fixture(status="FAIL"))
