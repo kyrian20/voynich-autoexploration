@@ -315,7 +315,7 @@ class ReceiptRegression(unittest.TestCase):
     def test_encrypted_zip_is_rejected_by_verify_directly(self):
         # Direct callers must get a documented ValueError, not zipfile RuntimeError.
         archive = bytearray(fixture())
-        central = archive.find(b"PK\\x01\\x02")
+        central = archive.find(b"PK\x01\x02")
         self.assertGreaterEqual(central, 0)
         offset = central + 8
         flags = int.from_bytes(archive[offset:offset + 2], "little")
@@ -330,8 +330,8 @@ class ReceiptRegression(unittest.TestCase):
         with tempfile.TemporaryDirectory() as directory:
             path = Path(directory) / "receipt.zip"
             path.write_bytes(archive)
-            with patch.object(verifier, "ZIP_SHA", hashlib.sha256(archive).hexdigest()), \\
-                 patch.object(verifier, "verify", side_effect=RuntimeError("internal defect")), \\
+            with patch.object(verifier, "ZIP_SHA", hashlib.sha256(archive).hexdigest()), \
+                 patch.object(verifier, "verify", side_effect=RuntimeError("internal defect")), \
                  patch("sys.argv", ["verify_pr287_ivtff_artifact.py", str(path)]):
                 with self.assertRaisesRegex(RuntimeError, "internal defect"):
                     verifier.main()
