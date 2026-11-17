@@ -65,6 +65,10 @@ def verify(path: Path, expected_zip_sha: str = ZIP_SHA) -> dict:
         # Check declared sizes and cap actual streaming reads: a forged ZIP can
         # advertise a small size yet expand to a much larger payload.
         for member in archive.infolist():
+            # Reject encrypted entries explicitly instead of broadly catching
+            # RuntimeError, which could mask unrelated programming defects.
+            if member.flag_bits & 0x1:
+                raise ValueError("encrypted ZIP member")
             limit = 4096 if member.filename.endswith(".sha256") else MAX_MEMBER_BYTES
             if member.file_size > limit:
                 raise ValueError("oversized ZIP member")
@@ -133,7 +137,7 @@ def main() -> int:
     try:
         print(json.dumps(verify(args.artifact_zip, expected_zip_sha=ZIP_SHA), indent=2, sort_keys=True))
         return 0
-    except (OSError, ValueError, RecursionError, zipfile.BadZipFile, UnicodeError, KeyError, TypeError, NotImplementedError, RuntimeError) as exc:
+    except (OSError, ValueError, RecursionError, zipfile.BadZipFile, UnicodeError, KeyError, TypeError, NotImplementedError) as exc:
         print(f"REJECTED: {exc}", file=sys.stderr)
         return 1
 
