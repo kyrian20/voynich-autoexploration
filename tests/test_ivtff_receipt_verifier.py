@@ -261,6 +261,24 @@ class ReceiptRegression(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "oversized ZIP member"):
             self.check(stream.getvalue())
 
+    def test_cli_rejects_unsupported_zip_compression_cleanly(self):
+        # zipfile raises NotImplementedError for unsupported compression.
+        # The CLI must return REJECTED rather than leak a traceback.
+        from contextlib import redirect_stderr
+        from unittest.mock import patch
+        archive = fixture()
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "unsupported.zip"
+            path.write_bytes(archive)
+            error = io.StringIO()
+            with patch.object(verifier, "ZIP_SHA", hashlib.sha256(archive).hexdigest()), \
+                 patch.object(verifier.zipfile, "ZipFile",
+                              side_effect=NotImplementedError("unsupported compression")), \
+                 patch("sys.argv", ["verify_pr287_ivtff_artifact.py", str(path)]), \
+                 redirect_stderr(error):
+                self.assertEqual(verifier.main(), 1)
+            self.assertIn("REJECTED: unsupported compression", error.getvalue())
+
     def test_report_failure(self):
         with self.assertRaisesRegex(ValueError, "unexpected audit/status"):
             self.check(fixture(status="FAIL"))
