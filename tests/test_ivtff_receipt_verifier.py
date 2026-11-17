@@ -132,6 +132,19 @@ class ReceiptRegression(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "unknown or duplicate source"):
             self.check(fixture(records))
 
+    def test_rejects_non_string_source_identifiers(self):
+        # JSON allows array/object keys as values; membership in a dict or
+        # set previously raised TypeError instead of a controlled ValueError.
+        for malformed in ([], {}, 123, None):
+            with self.subTest(source=malformed):
+                records = [
+                    {"source": source, "sha256": digest, "status": "PASS", "errors": []}
+                    for source, digest in verifier.SOURCES.items()
+                ]
+                records[0]["source"] = malformed
+                with self.assertRaisesRegex(ValueError, "unknown or duplicate source"):
+                    self.check(fixture(records))
+
     def test_bad_corpus_digest(self):
         records = [
             {"source": source, "sha256": "0" * 64 if i == 0 else digest,
