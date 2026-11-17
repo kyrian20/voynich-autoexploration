@@ -307,7 +307,9 @@ class ReceiptRegression(unittest.TestCase):
                  redirect_stderr(error):
                 self.assertEqual(verifier.main(), 1)
             self.assertIn("REJECTED:", error.getvalue())
-            self.assertIn("compression", error.getvalue().lower())
+            # The earlier header-consistency gate now rejects the forged
+            # central-only method before zipfile attempts decompression.
+            self.assertIn("ZIP local/central header mismatch", error.getvalue())
             self.assertNotIn("Traceback", error.getvalue())
 
     def test_cli_rejects_encrypted_zip_without_traceback(self):
