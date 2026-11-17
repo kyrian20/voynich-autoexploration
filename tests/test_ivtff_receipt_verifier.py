@@ -337,6 +337,25 @@ class ReceiptRegression(unittest.TestCase):
             self.assertIn("encrypted", error.getvalue().lower())
             self.assertNotIn("Traceback", error.getvalue())
 
+    def test_rejects_local_only_encryption_flag(self):
+        # Python zipfile accepts a local-header-only encryption bit because it
+        # trusts central-directory flags. This contradictory metadata must fail.
+        archive = bytearray(fixture())
+        local = archive.find(b"PK\x03\x04")
+        self.assertGreaterEqual(local, 0)
+        flags = int.from_bytes(archive[local + 6:local + 8], "little")
+        archive[local + 6:local + 8] = (flags | 1).to_bytes(2, "little")
+        with self.assertRaisesRegex(ValueError, "ZIP local/central header mismatch"):
+            self.check(bytes(archive))
+
+    def test_rejects_local_only_compression_method_mismatch(self):
+        archive = bytearray(fixture())
+        local = archive.find(b"PK\x03\x04")
+        self.assertGreaterEqual(local, 0)
+        archive[local + 8:local + 10] = (99).to_bytes(2, "little")
+        with self.assertRaisesRegex(ValueError, "ZIP local/central header mismatch"):
+            self.check(bytes(archive))
+
     def test_encrypted_zip_is_rejected_by_verify_directly(self):
         # Direct callers must get a documented ValueError, not zipfile RuntimeError.
         archive = bytearray(fixture())

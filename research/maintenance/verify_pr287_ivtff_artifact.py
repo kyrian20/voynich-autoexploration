@@ -63,6 +63,18 @@ def verify(path: Path, expected_zip_sha: str = ZIP_SHA) -> dict:
         # Concurrent in-place modification remains outside this guarantee.
         if sorted(archive.namelist()) != ["ivtff-minimum-format.json", "ivtff-minimum-format.sha256"]:
             raise ValueError("unexpected ZIP members")
+        # zipfile trusts central-directory flags/methods when opening a member.
+        # Reject disagreement with local headers: otherwise an archive with
+        # local-only encryption (or a conflicting compression method) passes.
+        for member in archive.infolist():
+            stream.seek(member.header_offset)
+            local = stream.read(10)
+            if len(local) != 10 or local[:4] != b"PK\x03\x04":
+                raise ValueError("invalid local ZIP header")
+            local_flags = int.from_bytes(local[6:8], "little")
+            local_method = int.from_bytes(local[8:10], "little")
+            if local_flags != member.flag_bits or local_method != member.compress_type:
+                raise ValueError("ZIP local/central header mismatch")
         # Check declared sizes and cap actual streaming reads: a forged ZIP can
         # advertise a small size yet expand to a much larger payload.
         for member in archive.infolist():
