@@ -291,8 +291,8 @@ class ReceiptRegression(unittest.TestCase):
         from contextlib import redirect_stderr
         from unittest.mock import patch
         archive = bytearray(fixture())
-        local = archive.find(b"PK\\x03\\x04")
-        central = archive.find(b"PK\\x01\\x02")
+        local = archive.find(b"PK\x03\x04")
+        central = archive.find(b"PK\x01\x02")
         self.assertGreaterEqual(local, 0)
         self.assertGreaterEqual(central, 0)
         # General-purpose bit 0 denotes encryption in both ZIP headers.
@@ -304,8 +304,8 @@ class ReceiptRegression(unittest.TestCase):
             path = Path(directory) / "encrypted.zip"
             path.write_bytes(archive)
             error = io.StringIO()
-            with patch.object(verifier, "ZIP_SHA", hashlib.sha256(archive).hexdigest()), \\
-                 patch("sys.argv", ["verify_pr287_ivtff_artifact.py", str(path)]), \\
+            with patch.object(verifier, "ZIP_SHA", hashlib.sha256(archive).hexdigest()), \
+                 patch("sys.argv", ["verify_pr287_ivtff_artifact.py", str(path)]), \
                  redirect_stderr(error):
                 self.assertEqual(verifier.main(), 1)
             self.assertIn("REJECTED:", error.getvalue())
