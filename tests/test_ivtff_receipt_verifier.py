@@ -85,9 +85,12 @@ class ReceiptRegression(unittest.TestCase):
                 writer.write(b"concurrent-change")
             return archive
 
+        # Build the fixture before patching: verifier.zipfile is the shared
+        # stdlib zipfile module, also used by fixture() to write its ZIP.
+        archive_bytes = fixture()
         with patch.object(verifier.zipfile, "ZipFile", side_effect=append_after_open):
             with self.assertRaisesRegex(ValueError, "ZIP changed during verification"):
-                self.check(fixture())
+                self.check(archive_bytes)
 
     def test_outer_zip_digest_mismatch(self):
         with self.assertRaisesRegex(ValueError, "ZIP SHA-256 mismatch"):
