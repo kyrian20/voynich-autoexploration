@@ -323,6 +323,19 @@ class ReceiptRegression(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "encrypted ZIP member"):
             self.check(bytes(archive))
 
+    def test_strong_encryption_flag_without_bit_zero_is_rejected(self):
+        # ZIP general-purpose flag bit 6 indicates strong encryption.
+        # A malformed archive may set it without the conventional bit 0.
+        # The receipt verifier must reject either encryption indicator.
+        archive = bytearray(fixture())
+        central = archive.find(b"PK\\x01\\x02")
+        self.assertGreaterEqual(central, 0)
+        offset = central + 8
+        flags = int.from_bytes(archive[offset:offset + 2], "little")
+        archive[offset:offset + 2] = ((flags & ~1) | 0x40).to_bytes(2, "little")
+        with self.assertRaisesRegex(ValueError, "encrypted ZIP member"):
+            self.check(bytes(archive))
+
     def test_unrelated_runtime_error_is_not_silenced_by_cli(self):
         # Broad RuntimeError handling could hide defects unrelated to ZIP input.
         from unittest.mock import patch
