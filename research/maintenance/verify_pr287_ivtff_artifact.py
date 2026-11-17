@@ -13,6 +13,7 @@ from pathlib import Path
 import re
 import sys
 import zipfile
+import zlib
 
 ZIP_SHA = "9f316ae1993389803d7b0af7b66db0bf6e2dbd45279e7a4547d8326786c31fd6"
 MAX_MEMBER_BYTES = 4 * 1024 * 1024  # generous bound for a three-source audit receipt
@@ -139,7 +140,7 @@ def main() -> int:
     try:
         print(json.dumps(verify(args.artifact_zip, expected_zip_sha=ZIP_SHA), indent=2, sort_keys=True))
         return 0
-    except (OSError, ValueError, RecursionError, zipfile.BadZipFile, UnicodeError, KeyError, TypeError, NotImplementedError) as exc:
+    except (OSError, ValueError, RecursionError, zipfile.BadZipFile, UnicodeError, KeyError, TypeError, NotImplementedError, zlib.error) as exc:
         print(f"REJECTED: {exc}", file=sys.stderr)
         return 1
 
