@@ -92,6 +92,26 @@ class ReceiptRegression(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, "ZIP changed during verification"):
                 self.check(archive_bytes)
 
+    def test_rejects_inplace_same_size_rewrite_during_zip_parsing(self):
+        # A size-only guard cannot detect an in-place rewrite of equal length.
+        # The post-read SHA-256 must reject a persistent byte change.
+        from unittest.mock import patch
+        original = verifier.zipfile.ZipFile
+
+        def rewrite_after_open(source, *args, **kwargs):
+            archive = original(source, *args, **kwargs)
+            with open(source.name, "r+b") as writer:
+                writer.seek(0)
+                first = writer.read(1)
+                writer.seek(0)
+                writer.write(bytes([first[0] ^ 1]))
+            return archive
+
+        archive_bytes = fixture()
+        with patch.object(verifier.zipfile, "ZipFile", side_effect=rewrite_after_open):
+            with self.assertRaisesRegex(ValueError, "ZIP changed during verification"):
+                self.check(archive_bytes)
+
     def test_outer_zip_digest_mismatch(self):
         with self.assertRaisesRegex(ValueError, "ZIP SHA-256 mismatch"):
             self.check(fixture(), expected_sha="0" * 64)
