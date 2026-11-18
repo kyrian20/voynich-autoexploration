@@ -16,6 +16,8 @@ class TestReplication(unittest.TestCase):
         self.assertEqual(m.body(text).strip(), "AA BBBB")
         with self.assertRaises(ValueError):
             m.body("missing boundaries")
+    def test_unicode_letters(self):
+        self.assertEqual(m.TOKEN.findall("für Größe città 123 abc_123"), ["für", "Größe", "città", "abc"])
     def test_integration(self):
         with tempfile.TemporaryDirectory() as tmp:
             for rel in m.SOURCES.values():
