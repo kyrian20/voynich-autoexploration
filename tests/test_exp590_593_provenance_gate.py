@@ -49,6 +49,37 @@ class ProvenanceGateTests(unittest.TestCase):
             issues = inspect(root)
             self.assertEqual(sum("source path or SHA-256 absent" in issue for issue in issues), 2)
 
+    def test_forged_attestation_paths_and_generator_digest_fail_closed(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            source = root / "source.txt"
+            source.write_bytes(b"original")
+            generator = root / "generator.py"
+            generator.write_bytes(b"print('old')")
+            record = {
+                "source": "source.txt",
+                "source_sha256": hashlib.sha256(source.read_bytes()).hexdigest(),
+                "generator_path": "generator.py",
+                "generator_sha256": hashlib.sha256(b"print('different')").hexdigest(),
+                "reproduction_command": "python generator.py",
+                "reproduction_log_path": "missing.log",
+                "reproduced_output_sha256": "a" * 64,
+                "reproduction_status": "REPRODUCED",
+            }
+            for name in FILES:
+                path = root / name
+                path.parent.mkdir(parents=True, exist_ok=True)
+                path.write_text(json.dumps(record), encoding="utf-8")
+            issues = inspect(root)
+            self.assertEqual(sum("generator SHA-256 mismatch" in x for x in issues), 2)
+            self.assertEqual(sum("reproduction_log_path file unavailable" in x for x in issues), 2)
+            record["generator_path"] = "../outside.py"
+            record["reproduction_log_path"] = "../outside.log"
+            for name in FILES:
+                (root / name).write_text(json.dumps(record), encoding="utf-8")
+            issues = inspect(root)
+            self.assertEqual(sum("file unavailable or outside root" in x for x in issues), 4)
+
     def test_missing_json_fails_closed(self):
         with tempfile.TemporaryDirectory() as directory:
             self.assertEqual(len(inspect(Path(directory))), 2)
