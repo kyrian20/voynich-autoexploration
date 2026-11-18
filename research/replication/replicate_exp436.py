@@ -11,8 +11,9 @@ ROOT = Path(__file__).resolve().parents[2]
 SOURCES = {
     "latin": "data/reference_corpora/latin/caesar_de_bello_gallico_latin.txt",
     "italian": "data/reference_corpora/italian/dante_divina_commedia.txt",
+    "german": "data/reference_corpora/german/goethe_faust.txt",
 }
-TOKEN = re.compile(r"[a-zA-Z]+")
+TOKEN = re.compile(r"[^\\W\\d_]+", re.UNICODE)
 START = re.compile(r"\*\*\*\s*START OF (?:THE|THIS) PROJECT GUTENBERG EBOOK[^\n]*\*\*\*", re.I)
 END = re.compile(r"\*\*\*\s*END OF (?:THE|THIS) PROJECT GUTENBERG EBOOK[^\n]*\*\*\*", re.I)
 
@@ -40,7 +41,7 @@ def analyze(words):
 
 def run(root):
     results = {
-        "method": "Gutenberg body only; ASCII [A-Za-z]+, lowercase, minimum 2 letters; token-weighted mean lengths",
+        "method": "Gutenberg body only; Unicode alphabetic tokens, lowercase, minimum 2 letters; token-weighted mean lengths",
         "limitations": "External controls only. Does not validate VMS measurements or identify its language.",
         "corpora": {},
     }
