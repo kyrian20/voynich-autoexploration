@@ -38,6 +38,17 @@ class ProvenanceGateTests(unittest.TestCase):
             self.assertTrue(any("must be an object" in issue for issue in issues))
             self.assertTrue(any("source path or SHA-256 absent" in issue for issue in issues))
 
+    def test_two_unhashable_digests_fail_closed(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            (root / "source.txt").write_bytes(b"original")
+            for name in FILES:
+                path = root / name
+                path.parent.mkdir(parents=True, exist_ok=True)
+                path.write_text(json.dumps({"source": "source.txt", "source_sha256": []}), encoding="utf-8")
+            issues = inspect(root)
+            self.assertEqual(sum("source path or SHA-256 absent" in issue for issue in issues), 2)
+
     def test_missing_json_fails_closed(self):
         with tempfile.TemporaryDirectory() as directory:
             self.assertEqual(len(inspect(Path(directory))), 2)
