@@ -97,6 +97,14 @@ def inspect(root, paths=FILES):
         r.get("source_sha256") != records[0].get("source_sha256") for r in records[1:]
     ):
         issues.append("EXP-590/593: declared source digests differ")
+    # A single archived output cannot independently attest two different
+    # experiment results. Require distinct outputs for the two claims.
+    if len(records) == len(paths) and all(
+        r.get("reproduction_status") in ("REPRODUCED", "VALIDATED") for r in records
+    ):
+        outputs = [r.get("reproduced_output_path") for r in records]
+        if all(isinstance(p, str) and p.strip() for p in outputs) and len(set(outputs)) != len(outputs):
+            issues.append("EXP-590/593: reused reproduced output path across distinct results")
     return issues
 
 def main(argv=None):
