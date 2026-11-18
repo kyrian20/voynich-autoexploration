@@ -174,6 +174,32 @@ class ProvenanceGateTests(unittest.TestCase):
                                 encoding="utf-8")
             self.assertEqual(sum("reused reproduced output path" in x for x in inspect(root)), 1)
 
+    def test_reproduced_output_cannot_alias_input_or_frozen_result(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            for name, data in (("source.txt", b"source"), ("generator.py", b"generator"),
+                               ("run.log", b"log"), ("output2.json", b"separate")):
+                (root / name).write_bytes(data)
+            base = {
+                "source": "source.txt", "source_sha256": hashlib.sha256(b"source").hexdigest(),
+                "generator_path": "generator.py", "generator_sha256": hashlib.sha256(b"generator").hexdigest(),
+                "reproduction_command": "python generator.py",
+                "reproduction_log_path": "run.log", "reproduction_log_sha256": hashlib.sha256(b"log").hexdigest(),
+                "reproduction_status": "REPRODUCED",
+            }
+            for name in FILES:
+                path = root / name
+                path.parent.mkdir(parents=True, exist_ok=True)
+                path.write_text(json.dumps({**base, "reproduced_output_path": "output2.json",
+                    "reproduced_output_sha256": hashlib.sha256(b"separate").hexdigest()}), encoding="utf-8")
+            first = root / FILES[0]
+            for alias, payload in (("source.txt", b"source"), ("generator.py", b"generator"),
+                                   ("run.log", b"log"), (FILES[1], (root / FILES[1]).read_bytes())):
+                first.write_text(json.dumps({**base, "reproduced_output_path": alias,
+                    "reproduced_output_sha256": hashlib.sha256(payload).hexdigest()}), encoding="utf-8")
+                self.assertTrue(any("aliases a frozen result or an input/log artefact" in x
+                                    for x in inspect(root)), alias)
+
     def test_missing_json_fails_closed(self):
         with tempfile.TemporaryDirectory() as directory:
             self.assertEqual(len(inspect(Path(directory))), 2)
