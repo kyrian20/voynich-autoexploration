@@ -46,6 +46,30 @@ def inspect(root, paths=FILES):
                     "reproduction_log_path", "reproduced_output_sha256"):
             if not record.get(key):
                 issues.append(f"{relative}: no attested {key}")
+        # Nonempty metadata alone is not evidence: verify referenced local bytes.
+        for field in ("generator_path", "reproduction_log_path"):
+            value = record.get(field)
+            if value is None or value == "":
+                continue  # already reported by the required-field check above
+            if not isinstance(value, str):
+                issues.append(f"{relative}: invalid {field} type")
+                continue
+            candidate = (root / value).resolve()
+            if not candidate.is_relative_to(root.resolve()) or not candidate.is_file():
+                issues.append(f"{relative}: {field} file unavailable or outside root")
+            elif field == "generator_path":
+                expected = record.get("generator_sha256")
+                if not isinstance(expected, str) or len(expected) != 64 or any(c not in "0123456789abcdef" for c in expected):
+                    issues.append(f"{relative}: invalid generator SHA-256")
+                elif hashlib.sha256(candidate.read_bytes()).hexdigest() != expected:
+                    issues.append(f"{relative}: generator SHA-256 mismatch")
+        for field in ("reproduced_output_sha256",):
+            value = record.get(field)
+            if value and (not isinstance(value, str) or len(value) != 64 or any(c not in "0123456789abcdef" for c in value)):
+                issues.append(f"{relative}: invalid {field}")
+        command = record.get("reproduction_command")
+        if command and (not isinstance(command, str) or not command.strip()):
+            issues.append(f"{relative}: invalid reproduction_command")
         if record.get("reproduction_status") not in ("REPRODUCED", "VALIDATED"):
             issues.append(f"{relative}: no attested reproduction status")
     if len(records) == len(paths) and any(
