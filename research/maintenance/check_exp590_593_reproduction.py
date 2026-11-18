@@ -28,10 +28,13 @@ def inspect(root, paths=FILES):
         except (ValueError, UnicodeError) as exc:
             issues.append(f"{relative}: unreadable JSON: {exc}")
             continue
+        if not isinstance(record, dict):
+            issues.append(f"{relative}: result JSON must be an object")
+            continue
         records.append(record)
         source = record.get("source")
         digest = record.get("source_sha256")
-        if not isinstance(source, str) or not isinstance(digest, str):
+        if not isinstance(source, str) or not isinstance(digest, str) or len(digest) != 64 or any(c not in "0123456789abcdef" for c in digest):
             issues.append(f"{relative}: source path or SHA-256 absent")
         else:
             source_path = (root / source).resolve()
