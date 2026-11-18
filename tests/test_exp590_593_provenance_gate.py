@@ -150,6 +150,30 @@ class ProvenanceGateTests(unittest.TestCase):
                 "reproduced_output_sha256": hashlib.sha256(b"two").hexdigest()}), encoding="utf-8")
             self.assertEqual(inspect(root), [])
 
+    def test_output_alias_paths_cannot_attest_two_results(self):
+        # Different strings can point to the same file; compare canonical paths.
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            for name, data in (("source.txt", b"source"), ("generator.py", b"generator"),
+                               ("run.log", b"log"), ("output.json", b"result")):
+                (root / name).write_bytes(data)
+            base = {
+                "source": "source.txt", "source_sha256": hashlib.sha256(b"source").hexdigest(),
+                "generator_path": "generator.py",
+                "generator_sha256": hashlib.sha256(b"generator").hexdigest(),
+                "reproduction_command": "python generator.py",
+                "reproduction_log_path": "run.log",
+                "reproduction_log_sha256": hashlib.sha256(b"log").hexdigest(),
+                "reproduced_output_sha256": hashlib.sha256(b"result").hexdigest(),
+                "reproduction_status": "REPRODUCED",
+            }
+            for name, output in zip(FILES, ("output.json", "./output.json")):
+                path = root / name
+                path.parent.mkdir(parents=True, exist_ok=True)
+                path.write_text(json.dumps({**base, "reproduced_output_path": output}),
+                                encoding="utf-8")
+            self.assertEqual(sum("reused reproduced output path" in x for x in inspect(root)), 1)
+
     def test_missing_json_fails_closed(self):
         with tempfile.TemporaryDirectory() as directory:
             self.assertEqual(len(inspect(Path(directory))), 2)
