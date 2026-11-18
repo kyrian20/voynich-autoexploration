@@ -57,6 +57,12 @@ def inspect(root, paths=FILES):
             candidate = (root / value).resolve()
             if not candidate.is_relative_to(root.resolve()) or not candidate.is_file():
                 issues.append(f"{relative}: {field} file unavailable or outside root")
+            elif field == "reproduction_log_path":
+                expected = record.get("reproduction_log_sha256")
+                if not isinstance(expected, str) or len(expected) != 64 or any(ch not in "0123456789abcdef" for ch in expected):
+                    issues.append(f"{relative}: invalid or missing reproduction log SHA-256")
+                elif hashlib.sha256(candidate.read_bytes()).hexdigest() != expected:
+                    issues.append(f"{relative}: reproduction log SHA-256 mismatch")
             elif field == "generator_path":
                 expected = record.get("generator_sha256")
                 if not isinstance(expected, str) or len(expected) != 64 or any(c not in "0123456789abcdef" for c in expected):
