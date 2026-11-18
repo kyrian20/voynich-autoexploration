@@ -12,6 +12,7 @@ SOURCES = {
     "latin": "data/reference_corpora/latin/caesar_de_bello_gallico_latin.txt",
     "italian": "data/reference_corpora/italian/dante_divina_commedia.txt",
     "german": "data/reference_corpora/german/goethe_faust.txt",
+    "french": "data/reference_corpora/french/voltaire_candide_4650.txt",
 }
 TOKEN = re.compile(r"[^\\W\\d_]+", re.UNICODE)
 START = re.compile(r"\*\*\*\s*START OF (?:THE|THIS) PROJECT GUTENBERG EBOOK[^\n]*\*\*\*", re.I)
