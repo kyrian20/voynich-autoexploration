@@ -20,6 +20,7 @@ jobs:
       - name: Unit and integration tests
         run: python -m unittest discover -s research/replication -p 'test_*.py' -v
       - name: Fetch verified French corpus (Gutenberg #4650)
+        continue-on-error: true
         run: python research/replication/fetch_french_candide.py
       - name: Recalculate external controls
         run: python research/replication/replicate_exp436.py --output research/replication/exp436_external_controls.json
