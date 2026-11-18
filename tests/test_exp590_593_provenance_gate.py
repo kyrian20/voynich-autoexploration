@@ -94,6 +94,7 @@ class ProvenanceGateTests(unittest.TestCase):
                 "generator_sha256": hashlib.sha256(b"generator").hexdigest(),
                 "reproduction_command": "python generator.py",
                 "reproduction_log_path": "run.log",
+                "reproduction_log_sha256": hashlib.sha256(b"log").hexdigest(),
                 "reproduced_output_sha256": hashlib.sha256(b"output").hexdigest(),
                 "reproduction_status": "REPRODUCED",
             }
@@ -103,6 +104,17 @@ class ProvenanceGateTests(unittest.TestCase):
                 path.write_text(json.dumps(record), encoding="utf-8")
             self.assertEqual(sum("no attested reproduced_output_path" in x for x in inspect(root)), 2)
             record["reproduced_output_path"] = "output.json"
+            for name in FILES:
+                (root / name).write_text(json.dumps(record), encoding="utf-8")
+            self.assertEqual(inspect(root), [])
+            (root / "run.log").write_bytes(b"altered log")
+            self.assertEqual(sum("reproduction log SHA-256 mismatch" in x for x in inspect(root)), 2)
+            (root / "run.log").write_bytes(b"log")
+            record["reproduction_log_sha256"] = "not-a-digest"
+            for name in FILES:
+                (root / name).write_text(json.dumps(record), encoding="utf-8")
+            self.assertEqual(sum("invalid or missing reproduction log SHA-256" in x for x in inspect(root)), 2)
+            record["reproduction_log_sha256"] = hashlib.sha256(b"log").hexdigest()
             for name in FILES:
                 (root / name).write_text(json.dumps(record), encoding="utf-8")
             self.assertEqual(inspect(root), [])
