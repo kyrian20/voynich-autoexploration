@@ -80,6 +80,39 @@ class ProvenanceGateTests(unittest.TestCase):
             issues = inspect(root)
             self.assertEqual(sum("file unavailable or outside root" in x for x in issues), 4)
 
+    def test_reproduced_output_requires_archived_matching_bytes(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            (root / "source.txt").write_bytes(b"source")
+            (root / "generator.py").write_bytes(b"generator")
+            (root / "run.log").write_bytes(b"log")
+            (root / "output.json").write_bytes(b"output")
+            record = {
+                "source": "source.txt",
+                "source_sha256": hashlib.sha256(b"source").hexdigest(),
+                "generator_path": "generator.py",
+                "generator_sha256": hashlib.sha256(b"generator").hexdigest(),
+                "reproduction_command": "python generator.py",
+                "reproduction_log_path": "run.log",
+                "reproduced_output_sha256": hashlib.sha256(b"output").hexdigest(),
+                "reproduction_status": "REPRODUCED",
+            }
+            for name in FILES:
+                path = root / name
+                path.parent.mkdir(parents=True, exist_ok=True)
+                path.write_text(json.dumps(record), encoding="utf-8")
+            self.assertEqual(sum("no attested reproduced_output_path" in x for x in inspect(root)), 2)
+            record["reproduced_output_path"] = "output.json"
+            for name in FILES:
+                (root / name).write_text(json.dumps(record), encoding="utf-8")
+            self.assertEqual(inspect(root), [])
+            (root / "output.json").write_bytes(b"tampered")
+            self.assertEqual(sum("reproduced output SHA-256 mismatch" in x for x in inspect(root)), 2)
+            record["reproduced_output_path"] = "../outside.json"
+            for name in FILES:
+                (root / name).write_text(json.dumps(record), encoding="utf-8")
+            self.assertEqual(sum("reproduced output unavailable or outside root" in x for x in inspect(root)), 2)
+
     def test_missing_json_fails_closed(self):
         with tempfile.TemporaryDirectory() as directory:
             self.assertEqual(len(inspect(Path(directory))), 2)
