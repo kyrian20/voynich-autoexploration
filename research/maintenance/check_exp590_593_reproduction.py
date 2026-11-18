@@ -48,7 +48,9 @@ def inspect(root, paths=FILES):
                 issues.append(f"{relative}: no attested {key}")
         if record.get("reproduction_status") not in ("REPRODUCED", "VALIDATED"):
             issues.append(f"{relative}: no attested reproduction status")
-    if len(records) == len(paths) and len({r.get("source_sha256") for r in records}) != 1:
+    if len(records) == len(paths) and any(
+        r.get("source_sha256") != records[0].get("source_sha256") for r in records[1:]
+    ):
         issues.append("EXP-590/593: declared source digests differ")
     return issues
 
