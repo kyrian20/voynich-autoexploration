@@ -25,7 +25,7 @@ class TestReplication(unittest.TestCase):
                     continue
                 p = Path(tmp) / rel
                 p.parent.mkdir(parents=True, exist_ok=True)
-                p.write_text("*** START OF THE PROJECT GUTENBERG EBOOK X ***\\naa aa aa aa aa bbbb\\n*** END OF THE PROJECT GUTENBERG EBOOK X ***", encoding="utf-8")
+                p.write_text("*** START OF THE PROJECT GUTENBERG EBOOK X ***\naa aa aa aa aa bbbb\n*** END OF THE PROJECT GUTENBERG EBOOK X ***", encoding="utf-8")
             r = m.run(Path(tmp))
             self.assertEqual(r["corpora"]["french"]["status"], "unavailable")
             self.assertEqual(r["corpora"]["german"]["tokens"], 6)
@@ -36,7 +36,7 @@ class TestReplication(unittest.TestCase):
                     continue
                 p = Path(tmp) / rel
                 p.parent.mkdir(parents=True, exist_ok=True)
-                sample = "*** START OF THE PROJECT GUTENBERG EBOOK X ***\\nélève élève élève élève élève naïve\\n*** END OF THE PROJECT GUTENBERG EBOOK X ***"
+                sample = "*** START OF THE PROJECT GUTENBERG EBOOK X ***\nélève élève élève élève élève naïve\n*** END OF THE PROJECT GUTENBERG EBOOK X ***"
                 p.write_bytes(sample.encode("cp1252" if lang == "latin" else "utf-8"))
             r = m.run(Path(tmp))
             self.assertEqual(r["corpora"]["latin"]["decoded_as"], "cp1252")
