@@ -52,11 +52,17 @@ def run(root):
             results["corpora"][lang] = {"status": "unavailable", "path": relative, "reason": "French source not fetched; no statistics fabricated"}
             continue
         data = corpus_path.read_bytes()
-        content = body(data.decode("utf-8-sig"))
+        try:
+            decoded = data.decode("utf-8-sig")
+            encoding = "utf-8-sig"
+        except UnicodeDecodeError:
+            decoded = data.decode("cp1252")
+            encoding = "cp1252"
+        content = body(decoded)
         words = [w.lower() for w in TOKEN.findall(content) if len(w) >= 2]
         results["corpora"][lang] = {
             "path": relative, "sha256": hashlib.sha256(data).hexdigest(),
-            "bytes": len(data), **analyze(words),
+            "bytes": len(data), "decoded_as": encoding, **analyze(words),
         }
     return results
 
