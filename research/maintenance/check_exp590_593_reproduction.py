@@ -67,6 +67,21 @@ def inspect(root, paths=FILES):
             value = record.get(field)
             if value and (not isinstance(value, str) or len(value) != 64 or any(c not in "0123456789abcdef" for c in value)):
                 issues.append(f"{relative}: invalid {field}")
+        # A declared output digest alone cannot attest to any output bytes.
+        # Require an archived output and verify its exact digest before review.
+        if record.get("reproduction_status") in ("REPRODUCED", "VALIDATED"):
+            output = record.get("reproduced_output_path")
+            expected_output = record.get("reproduced_output_sha256")
+            if not isinstance(output, str) or not output.strip():
+                issues.append(f"{relative}: no attested reproduced_output_path")
+            else:
+                output_path = (root / output).resolve()
+                if not output_path.is_relative_to(root.resolve()) or not output_path.is_file():
+                    issues.append(f"{relative}: reproduced output unavailable or outside root")
+                elif not isinstance(expected_output, str) or len(expected_output) != 64 or any(c not in "0123456789abcdef" for c in expected_output):
+                    issues.append(f"{relative}: invalid reproduced output digest")
+                elif hashlib.sha256(output_path.read_bytes()).hexdigest() != expected_output:
+                    issues.append(f"{relative}: reproduced output SHA-256 mismatch")
         command = record.get("reproduction_command")
         if command and (not isinstance(command, str) or not command.strip()):
             issues.append(f"{relative}: invalid reproduction_command")
