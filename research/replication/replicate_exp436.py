@@ -14,7 +14,7 @@ SOURCES = {
     "german": "data/reference_corpora/german/goethe_faust.txt",
     "french": "data/reference_corpora/french/voltaire_candide_4650.txt",
 }
-TOKEN = re.compile(r"[^\\W\\d_]+", re.UNICODE)
+TOKEN = re.compile(r"[^\W\d_]+", re.UNICODE)
 START = re.compile(r"\*\*\*\s*START OF (?:THE|THIS) PROJECT GUTENBERG EBOOK[^\n]*\*\*\*", re.I)
 END = re.compile(r"\*\*\*\s*END OF (?:THE|THIS) PROJECT GUTENBERG EBOOK[^\n]*\*\*\*", re.I)
 
