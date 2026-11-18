@@ -1,0 +1,29 @@
+name: EXP-436 reproducibility audit
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'research/replication/**'
+      - 'data/reference_corpora/latin/caesar_de_bello_gallico_latin.txt'
+      - 'data/reference_corpora/italian/dante_divina_commedia.txt'
+      - '.github/workflows/exp436-replication.yml'
+jobs:
+  replicate:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Unit and integration tests
+        run: python -m unittest discover -s research/replication -p 'test_*.py' -v
+      - name: Recalculate external controls
+        run: python research/replication/replicate_exp436.py --output research/replication/exp436_external_controls.json
+      - name: Preserve exact output and hashes
+        uses: actions/upload-artifact@v4
+        with:
+          name: exp436-external-controls
+          path: research/replication/exp436_external_controls.json
+          retention-days: 90
