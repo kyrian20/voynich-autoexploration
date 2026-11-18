@@ -9,6 +9,8 @@ on:
       - 'data/reference_corpora/german/goethe_faust.txt'
       - 'data/reference_corpora/french/**'
       - '.github/workflows/exp436-replication.yml'
+permissions:
+  contents: read
 jobs:
   replicate:
     runs-on: ubuntu-latest
