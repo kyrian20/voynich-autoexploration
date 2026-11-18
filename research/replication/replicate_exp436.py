@@ -47,7 +47,11 @@ def run(root):
         "corpora": {},
     }
     for lang, relative in SOURCES.items():
-        data = (root / relative).read_bytes()
+        corpus_path = root / relative
+        if not corpus_path.is_file() and lang == "french":
+            results["corpora"][lang] = {"status": "unavailable", "path": relative, "reason": "French source not fetched; no statistics fabricated"}
+            continue
+        data = corpus_path.read_bytes()
         content = body(data.decode("utf-8-sig"))
         words = [w.lower() for w in TOKEN.findall(content) if len(w) >= 2]
         results["corpora"][lang] = {
