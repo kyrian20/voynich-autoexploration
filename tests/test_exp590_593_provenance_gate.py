@@ -234,6 +234,40 @@ class ProvenanceGateTests(unittest.TestCase):
             first.write_text(json.dumps(record), encoding="utf-8")
             self.assertEqual(inspect(root), [])
 
+    def test_hardlinked_outputs_do_not_attest_distinct_results(self):
+        # Different canonical paths can still refer to one inode.
+        import os
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            files = {"source.txt": b"source", "generator.py": b"generator",
+                     "run.log": b"log", "output1.json": b"result"}
+            for name, payload in files.items():
+                (root / name).write_bytes(payload)
+            os.link(root / "output1.json", root / "output2.json")
+            base = {
+                "source": "source.txt", "source_sha256": hashlib.sha256(b"source").hexdigest(),
+                "generator_path": "generator.py",
+                "generator_sha256": hashlib.sha256(b"generator").hexdigest(),
+                "reproduction_command": "python generator.py",
+                "reproduction_log_path": "run.log",
+                "reproduction_log_sha256": hashlib.sha256(b"log").hexdigest(),
+                "reproduced_output_sha256": hashlib.sha256(b"result").hexdigest(),
+                "reproduction_status": "REPRODUCED",
+            }
+            for name, output in zip(FILES, ("output1.json", "output2.json")):
+                path = root / name
+                path.parent.mkdir(parents=True, exist_ok=True)
+                path.write_text(json.dumps({**base, "reproduced_output_path": output}),
+                                encoding="utf-8")
+            self.assertEqual(sum("reused reproduced output path" in x for x in inspect(root)), 1)
+            (root / "output2.json").unlink()
+            (root / "output2.json").write_bytes(b"independent")
+            second = root / FILES[1]
+            record = json.loads(second.read_text(encoding="utf-8"))
+            record["reproduced_output_sha256"] = hashlib.sha256(b"independent").hexdigest()
+            second.write_text(json.dumps(record), encoding="utf-8")
+            self.assertEqual(inspect(root), [])
+
     def test_missing_json_fails_closed(self):
         with tempfile.TemporaryDirectory() as directory:
             self.assertEqual(len(inspect(Path(directory))), 2)
