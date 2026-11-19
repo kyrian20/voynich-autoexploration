@@ -124,7 +124,12 @@ def inspect(root, paths=FILES):
         r.get("reproduction_status") in ("REPRODUCED", "VALIDATED") for r in records
     ):
         outputs = [r.get("reproduced_output_path") for r in records]
-        if all(isinstance(p, str) and p.strip() for p in outputs) and len({(root / p).resolve() for p in outputs}) != len(outputs):
+        if all(isinstance(p, str) and p.strip() for p in outputs) and any(
+            (root / left).resolve() == (root / right).resolve()
+            or ((root / left).is_file() and (root / right).is_file()
+                and (root / left).samefile(root / right))
+            for i, left in enumerate(outputs) for right in outputs[i + 1:]
+        ):
             issues.append("EXP-590/593: reused reproduced output path across distinct results")
     return issues
 
