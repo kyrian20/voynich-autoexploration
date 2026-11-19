@@ -6,6 +6,7 @@ No historical results or input files are changed. This only validates identity
 against an explicitly supplied SHA-256 allowlist; it does not certify language.
 """
 import argparse
+import codecs
 import hashlib
 import json
 from pathlib import Path
@@ -31,9 +32,16 @@ def inspect(path):
         has_non_whitespace = False
         has_nul = False
         has_forbidden_control = False
+        invalid_utf8 = False
+        decoder = codecs.getincrementaldecoder('utf-8')('strict')
         with path.open("rb") as source:
             for chunk in iter(lambda: source.read(1024 * 1024), b""):
                 hasher.update(chunk)
+                if not invalid_utf8:
+                    try:
+                        decoder.decode(chunk)
+                    except UnicodeDecodeError:
+                        invalid_utf8 = True
                 if b"\x00" in chunk:
                     has_nul = True
                 if any(byte < 32 and byte not in (9, 10, 11, 12, 13)
@@ -42,6 +50,11 @@ def inspect(path):
                 total_bytes += len(chunk)
                 if not has_non_whitespace and chunk.strip(bytes((32, 9, 13, 10, 11, 12))):
                     has_non_whitespace = True
+        if not invalid_utf8:
+            try:
+                decoder.decode(b'', final=True)
+            except UnicodeDecodeError:
+                invalid_utf8 = True
         digest = hasher.hexdigest()
     except (OSError, RuntimeError) as exc:
         return {"path": str(path), "status": "UNREADABLE",
@@ -52,6 +65,9 @@ def inspect(path):
     if has_forbidden_control:
         return {"path": str(path), "sha256": digest, "status": "BINARY_SOURCE",
                 "reason": "Disallowed ASCII control byte in plain-text comparison corpus"}
+    if invalid_utf8:
+        return {"path": str(path), "sha256": digest, "status": "INVALID_ENCODING",
+                "reason": "Corpus must be valid UTF-8; silent decoding replacement or ignore is not accepted"}
     if total_bytes == 0:
         return {"path": str(path), "sha256": digest, "status": "EMPTY_SOURCE",
                 "reason": "An empty file cannot serve as a comparison corpus"}
