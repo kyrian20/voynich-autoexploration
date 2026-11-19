@@ -234,6 +234,34 @@ class ProvenanceGateTests(unittest.TestCase):
             first.write_text(json.dumps(record), encoding="utf-8")
             self.assertEqual(inspect(root), [])
 
+    def test_frozen_result_cannot_be_reused_as_generator_even_via_hardlink(self):
+        # Metadata must not serve as independent execution evidence.
+        import os
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            (root / "source.txt").write_bytes(b"source")
+            (root / "run.log").write_bytes(b"log")
+            for name in FILES:
+                path = root / name
+                path.parent.mkdir(parents=True, exist_ok=True)
+                path.write_text("{}", encoding="utf-8")
+            os.link(root / FILES[1], root / "generator-alias.py")
+            record = {
+                "source": "source.txt",
+                "source_sha256": hashlib.sha256(b"source").hexdigest(),
+                "generator_path": "generator-alias.py",
+                "generator_sha256": hashlib.sha256(b"{}").hexdigest(),
+                "reproduction_command": "python generator-alias.py",
+                "reproduction_log_path": "run.log",
+                "reproduction_log_sha256": hashlib.sha256(b"log").hexdigest(),
+                "reproduced_output_sha256": "a" * 64,
+                "reproduction_status": "BLOCKED",
+            }
+            (root / FILES[0]).write_text(json.dumps(record), encoding="utf-8")
+            issues = inspect(root)
+            self.assertTrue(any("generator_path aliases frozen result metadata" in x
+                                for x in issues), issues)
+
     def test_hardlinked_outputs_do_not_attest_distinct_results(self):
         # Different canonical paths can still refer to one inode.
         import os
