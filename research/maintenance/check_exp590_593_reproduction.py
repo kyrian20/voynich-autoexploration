@@ -86,10 +86,14 @@ def inspect(root, paths=FILES):
                     issues.append(f"{relative}: reproduced output unavailable or outside root")
                 elif not isinstance(expected_output, str) or len(expected_output) != 64 or any(c not in "0123456789abcdef" for c in expected_output):
                     issues.append(f"{relative}: invalid reproduced output digest")
-                elif output_path in (
-                    {(root / p).resolve() for p in paths}
-                    | {(root / record[k]).resolve() for k in ("source", "generator_path", "reproduction_log_path")
-                       if isinstance(record.get(k), str)}
+                elif any(
+                    output_path == evidence_path
+                    or (evidence_path.is_file() and output_path.samefile(evidence_path))
+                    for evidence_path in (
+                        {(root / p).resolve() for p in paths}
+                        | {(root / record[k]).resolve() for k in ("source", "generator_path", "reproduction_log_path")
+                           if isinstance(record.get(k), str) and record[k].strip()}
+                    )
                 ):
                     issues.append(f"{relative}: reproduced output aliases a frozen result or an input/log artefact")
                 elif hashlib.sha256(output_path.read_bytes()).hexdigest() != expected_output:
