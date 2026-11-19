@@ -88,5 +88,32 @@ class UTF8SourceGateTests(unittest.TestCase):
             path.write_text("\ufeff\u200bparola\u200d", encoding="utf-8")
             self.assertEqual(inspect(path)["status"], "UNVERIFIED")
 
+
+    def test_combining_marks_only_rejected_even_with_matching_digest(self):
+        with tempfile.TemporaryDirectory() as d:
+            latin, italian = Path(d) / "latin.txt", Path(d) / "italian.txt"
+            latin.write_text("\u0301\u0327\u20dd", encoding="utf-8")
+            italian.write_text("testo italiano", encoding="utf-8")
+            approved = {
+                "latin": hashlib.sha256(latin.read_bytes()).hexdigest(),
+                "italian": hashlib.sha256(italian.read_bytes()).hexdigest(),
+            }
+            result = evaluate(latin, italian, approved)
+            self.assertFalse(result["ok"])
+            self.assertEqual(result["sources"]["latin"]["status"], "BLANK_SOURCE")
+            self.assertEqual(result["sources"]["italian"]["status"], "HASH_MATCH")
+
+    def test_combining_mark_only_crosses_read_boundary(self):
+        with tempfile.TemporaryDirectory() as d:
+            path = Path(d) / "boundary_mark.txt"
+            path.write_bytes(b" " * (1024 * 1024 - 1) + "\u0301".encode("utf-8"))
+            self.assertEqual(inspect(path)["status"], "BLANK_SOURCE")
+
+    def test_base_letter_with_combining_mark_remains_eligible(self):
+        with tempfile.TemporaryDirectory() as d:
+            path = Path(d) / "decomposed.txt"
+            path.write_text("cafe\u0301", encoding="utf-8")
+            self.assertEqual(inspect(path)["status"], "UNVERIFIED")
+
 if __name__ == "__main__":
     unittest.main()
