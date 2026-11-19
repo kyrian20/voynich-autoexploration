@@ -116,7 +116,12 @@ def inspect(root, paths=FILES):
             output = record.get("reproduced_output_path")
             if (record.get("reproduction_status") in ("REPRODUCED", "VALIDATED")
                     and isinstance(output, str) and output.strip()
-                    and (root / output).resolve() in evidence):
+                    and any(
+                        (root / output).resolve() == evidence_path
+                        or ((root / output).is_file() and evidence_path.is_file()
+                            and (root / output).samefile(evidence_path))
+                        for evidence_path in evidence
+                    )):
                 issues.append(f"{relative}: reproduced output aliases cross-record input/log evidence")
     if len(records) == len(paths) and any(
         r.get("source_sha256") != records[0].get("source_sha256") for r in records[1:]
