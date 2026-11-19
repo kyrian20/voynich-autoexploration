@@ -86,10 +86,14 @@ def inspect(root, paths=FILES):
                     issues.append(f"{relative}: reproduced output unavailable or outside root")
                 elif not isinstance(expected_output, str) or len(expected_output) != 64 or any(c not in "0123456789abcdef" for c in expected_output):
                     issues.append(f"{relative}: invalid reproduced output digest")
-                elif output_path in (
-                    {(root / p).resolve() for p in paths}
-                    | {(root / record[k]).resolve() for k in ("source", "generator_path", "reproduction_log_path")
-                       if isinstance(record.get(k), str)}
+                elif any(
+                    output_path == evidence_path
+                    or (evidence_path.is_file() and output_path.samefile(evidence_path))
+                    for evidence_path in (
+                        {(root / p).resolve() for p in paths}
+                        | {(root / record[k]).resolve() for k in ("source", "generator_path", "reproduction_log_path")
+                           if isinstance(record.get(k), str) and record[k].strip()}
+                    )
                 ):
                     issues.append(f"{relative}: reproduced output aliases a frozen result or an input/log artefact")
                 elif hashlib.sha256(output_path.read_bytes()).hexdigest() != expected_output:
@@ -112,7 +116,12 @@ def inspect(root, paths=FILES):
             output = record.get("reproduced_output_path")
             if (record.get("reproduction_status") in ("REPRODUCED", "VALIDATED")
                     and isinstance(output, str) and output.strip()
-                    and (root / output).resolve() in evidence):
+                    and any(
+                        (root / output).resolve() == evidence_path
+                        or ((root / output).is_file() and evidence_path.is_file()
+                            and (root / output).samefile(evidence_path))
+                        for evidence_path in evidence
+                    )):
                 issues.append(f"{relative}: reproduced output aliases cross-record input/log evidence")
     if len(records) == len(paths) and any(
         r.get("source_sha256") != records[0].get("source_sha256") for r in records[1:]

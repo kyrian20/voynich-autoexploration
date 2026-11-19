@@ -268,6 +268,47 @@ class ProvenanceGateTests(unittest.TestCase):
             second.write_text(json.dumps(record), encoding="utf-8")
             self.assertEqual(inspect(root), [])
 
+    def test_hardlinked_output_cannot_alias_own_or_other_log(self):
+        import os
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            data = {"source.txt": b"source", "generator.py": b"generator",
+                    "first.log": b"first", "second.log": b"second",
+                    "independent.json": b"independent"}
+            for name, payload in data.items():
+                (root / name).write_bytes(payload)
+            os.link(root / "second.log", root / "log-alias.json")
+            base = {"source": "source.txt",
+                    "source_sha256": hashlib.sha256(data["source.txt"]).hexdigest(),
+                    "generator_path": "generator.py",
+                    "generator_sha256": hashlib.sha256(data["generator.py"]).hexdigest(),
+                    "reproduction_command": "python generator.py",
+                    "reproduction_status": "REPRODUCED"}
+            for name, log, output in zip(
+                    FILES, ("first.log", "second.log"),
+                    ("log-alias.json", "independent.json")):
+                path = root / name
+                path.parent.mkdir(parents=True, exist_ok=True)
+                path.write_text(json.dumps({
+                    **base, "reproduction_log_path": log,
+                    "reproduction_log_sha256": hashlib.sha256(data[log]).hexdigest(),
+                    "reproduced_output_path": output,
+                    "reproduced_output_sha256": hashlib.sha256(
+                        (root / output).read_bytes()).hexdigest()}), encoding="utf-8")
+            self.assertTrue(any("cross-record input/log evidence" in x for x in inspect(root)))
+            first = root / FILES[0]
+            record = json.loads(first.read_text(encoding="utf-8"))
+            record["reproduction_log_path"] = "second.log"
+            record["reproduction_log_sha256"] = hashlib.sha256(b"second").hexdigest()
+            first.write_text(json.dumps(record), encoding="utf-8")
+            self.assertTrue(any("aliases a frozen result or an input/log artefact" in x
+                                for x in inspect(root)))
+            (root / "log-alias.json").unlink()
+            (root / "log-alias.json").write_bytes(b"new independent output")
+            record["reproduced_output_sha256"] = hashlib.sha256(b"new independent output").hexdigest()
+            first.write_text(json.dumps(record), encoding="utf-8")
+            self.assertEqual(inspect(root), [])
+
     def test_missing_json_fails_closed(self):
         with tempfile.TemporaryDirectory() as directory:
             self.assertEqual(len(inspect(Path(directory))), 2)
