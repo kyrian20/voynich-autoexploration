@@ -15,8 +15,9 @@ from pathlib import Path
 # Frozen identities from EXP-436/CORRECTION.md; neither may be presented
 # as a verified Latin/Italian historical replay.
 def has_textual_content(text):
-    """Format-only Unicode (BOM/ZWSP/ZWJ) is not corpus text."""
-    return any(not ch.isspace() and unicodedata.category(ch) != 'Cf' for ch in text)
+    """Require a base character: marks and invisible format chars alone are not text."""
+    return any(not ch.isspace() and not unicodedata.category(ch).startswith('M')
+               and unicodedata.category(ch) != 'Cf' for ch in text)
 
 
 KNOWN_INVALID = {
@@ -81,7 +82,7 @@ def inspect(path):
                 "reason": "An empty file cannot serve as a comparison corpus"}
     if not has_non_whitespace:
         return {"path": str(path), "sha256": digest, "status": "BLANK_SOURCE",
-                "reason": "Whitespace/Unicode-format-only input cannot serve as a comparison corpus"}
+                "reason": "Whitespace/Unicode-format/combining-mark-only input cannot serve as a comparison corpus"}
     return {"path": str(path), "sha256": digest,
             "status": "REJECTED" if digest in KNOWN_INVALID else "UNVERIFIED",
             "reason": KNOWN_INVALID.get(digest)}
