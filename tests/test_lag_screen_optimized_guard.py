@@ -20,7 +20,8 @@ tree = ast.parse(source)
 selected = [node for node in tree.body
             if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef))
             and node.name in {"chains", "verify"}]
-assert len(selected) == 2
+if len(selected) != 2 or {node.name for node in selected} != {"chains", "verify"}:
+    raise RuntimeError("Expected exactly one chains and one verify helper")
 namespace = {"Counter": Counter}
 exec(compile(ast.Module(body=selected, type_ignores=[]), "<lag-helpers>", "exec"), namespace)
 namespace["verify"]()  # positive control
