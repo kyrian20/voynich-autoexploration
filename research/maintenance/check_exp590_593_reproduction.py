@@ -69,6 +69,20 @@ def inspect(root, paths=FILES):
                     issues.append(f"{relative}: invalid generator SHA-256")
                 elif hashlib.sha256(candidate.read_bytes()).hexdigest() != expected:
                     issues.append(f"{relative}: generator SHA-256 mismatch")
+        # A log is not an execution witness if it is merely a second name
+        # for the input corpus or the generator (including hardlinks).
+        evidence_names = ("source", "generator_path", "reproduction_log_path")
+        evidence_paths = []
+        for name in evidence_names:
+            value = record.get(name)
+            if isinstance(value, str) and value.strip():
+                candidate = (root / value).resolve()
+                if candidate.is_relative_to(root.resolve()) and candidate.is_file():
+                    evidence_paths.append((name, candidate))
+        for i, (left_name, left_path) in enumerate(evidence_paths):
+            for right_name, right_path in evidence_paths[i + 1:]:
+                if left_path.samefile(right_path):
+                    issues.append(f"{relative}: {left_name} aliases {right_name} evidence")
         for field in ("reproduced_output_sha256",):
             value = record.get(field)
             if value and (not isinstance(value, str) or len(value) != 64 or any(c not in "0123456789abcdef" for c in value)):
