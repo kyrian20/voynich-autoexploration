@@ -79,6 +79,13 @@ def inspect(root, paths=FILES):
                 candidate = (root / value).resolve()
                 if candidate.is_relative_to(root.resolve()) and candidate.is_file():
                     evidence_paths.append((name, candidate))
+        # Frozen result JSON cannot independently attest source, generator, or log.
+        # Check physical identity to reject hardlinks as well as path aliases.
+        frozen_paths = [(root / p).resolve() for p in paths]
+        for name, candidate in evidence_paths:
+            if any(frozen.is_file() and candidate.samefile(frozen)
+                   for frozen in frozen_paths):
+                issues.append(f"{relative}: {name} aliases frozen result metadata")
         for i, (left_name, left_path) in enumerate(evidence_paths):
             for right_name, right_path in evidence_paths[i + 1:]:
                 if left_path.samefile(right_path):
