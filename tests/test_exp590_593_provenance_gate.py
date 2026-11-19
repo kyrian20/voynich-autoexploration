@@ -309,6 +309,60 @@ class ProvenanceGateTests(unittest.TestCase):
             first.write_text(json.dumps(record), encoding="utf-8")
             self.assertEqual(inspect(root), [])
 
+    def test_input_generator_and_log_cannot_share_same_file(self):
+        import os
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            for name, payload in (("source.txt", b"source"),
+                                  ("generator.py", b"generator"),
+                                  ("run.log", b"log"),
+                                  ("output1.json", b"one"),
+                                  ("output2.json", b"two")):
+                (root / name).write_bytes(payload)
+            base = {
+                "source": "source.txt",
+                "source_sha256": hashlib.sha256(b"source").hexdigest(),
+                "generator_path": "generator.py",
+                "generator_sha256": hashlib.sha256(b"generator").hexdigest(),
+                "reproduction_command": "python generator.py",
+                "reproduction_log_path": "run.log",
+                "reproduction_log_sha256": hashlib.sha256(b"log").hexdigest(),
+                "reproduction_status": "REPRODUCED",
+            }
+            for name, output, payload in zip(FILES, ("output1.json", "output2.json"),
+                                              (b"one", b"two")):
+                path = root / name
+                path.parent.mkdir(parents=True, exist_ok=True)
+                path.write_text(json.dumps({
+                    **base, "reproduced_output_path": output,
+                    "reproduced_output_sha256": hashlib.sha256(payload).hexdigest()
+                }), encoding="utf-8")
+            self.assertEqual(inspect(root), [])
+            for alias_field, original in (("generator_path", "source.txt"),
+                                          ("reproduction_log_path", "generator.py"),
+                                          ("reproduction_log_path", "source.txt")):
+                record_path = root / FILES[0]
+                record = json.loads(record_path.read_text(encoding="utf-8"))
+                record[alias_field] = original
+                record[{"generator_path": "generator_sha256",
+                        "reproduction_log_path": "reproduction_log_sha256"}[alias_field]] = hashlib.sha256(
+                            (root / original).read_bytes()).hexdigest()
+                record_path.write_text(json.dumps(record), encoding="utf-8")
+                self.assertTrue(any("aliases" in issue and "evidence" in issue
+                                    for issue in inspect(root)))
+                record_path.write_text(json.dumps({
+                    **base, "reproduced_output_path": "output1.json",
+                    "reproduced_output_sha256": hashlib.sha256(b"one").hexdigest()
+                }), encoding="utf-8")
+            os.link(root / "source.txt", root / "source-hardlink.txt")
+            record_path = root / FILES[0]
+            record = json.loads(record_path.read_text(encoding="utf-8"))
+            record["generator_path"] = "source-hardlink.txt"
+            record["generator_sha256"] = hashlib.sha256(b"source").hexdigest()
+            record_path.write_text(json.dumps(record), encoding="utf-8")
+            self.assertTrue(any("source aliases generator_path evidence" in issue
+                                for issue in inspect(root)))
+
     def test_missing_json_fails_closed(self):
         with tempfile.TemporaryDirectory() as directory:
             self.assertEqual(len(inspect(Path(directory))), 2)
