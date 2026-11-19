@@ -9,10 +9,16 @@ import argparse
 import codecs
 import hashlib
 import json
+import unicodedata
 from pathlib import Path
 
 # Frozen identities from EXP-436/CORRECTION.md; neither may be presented
 # as a verified Latin/Italian historical replay.
+def has_textual_content(text):
+    """Format-only Unicode (BOM/ZWSP/ZWJ) is not corpus text."""
+    return any(not ch.isspace() and unicodedata.category(ch) != 'Cf' for ch in text)
+
+
 KNOWN_INVALID = {
     "eaa456256c46507f872efd965335b370605e6d323ca89ef2012cb71b516183d7":
         "historical Caesar control is an English translation",
@@ -40,7 +46,7 @@ def inspect(path):
                 if not invalid_utf8:
                     try:
                         decoded = decoder.decode(chunk)
-                        if not has_non_whitespace and any(not c.isspace() for c in decoded):
+                        if not has_non_whitespace and has_textual_content(decoded):
                             has_non_whitespace = True
                     except UnicodeDecodeError:
                         invalid_utf8 = True
@@ -53,7 +59,7 @@ def inspect(path):
         if not invalid_utf8:
             try:
                 tail = decoder.decode(b'', final=True)
-                if not has_non_whitespace and any(not c.isspace() for c in tail):
+                if not has_non_whitespace and has_textual_content(tail):
                     has_non_whitespace = True
             except UnicodeDecodeError:
                 invalid_utf8 = True
@@ -75,7 +81,7 @@ def inspect(path):
                 "reason": "An empty file cannot serve as a comparison corpus"}
     if not has_non_whitespace:
         return {"path": str(path), "sha256": digest, "status": "BLANK_SOURCE",
-                "reason": "Whitespace-only input cannot serve as a comparison corpus"}
+                "reason": "Whitespace/Unicode-format-only input cannot serve as a comparison corpus"}
     return {"path": str(path), "sha256": digest,
             "status": "REJECTED" if digest in KNOWN_INVALID else "UNVERIFIED",
             "reason": KNOWN_INVALID.get(digest)}
