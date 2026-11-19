@@ -677,6 +677,9 @@ jobs:
           BC_REPLAY_DIR: ${{ runner.temp }}/bc-replay-${{ github.run_id }}-${{ github.run_attempt }}
         run: python tests/test_common_battery.py
 
+      - name: Verificar guardia de pares lag en Python normal y optimizado
+        run: python -m unittest discover -s tests -p 'test_lag_screen_optimized_guard.py' -v
+
       - name: Reproducir sensibilidad sintética y comprobar contextos redundantes
         run: python research/analysis/2026-10-23-synthetic-sensitivity/replay.py
 
