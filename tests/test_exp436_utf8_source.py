@@ -35,5 +35,31 @@ class UTF8SourceGateTests(unittest.TestCase):
             self.assertEqual(inspect(path)["status"], "UNVERIFIED")
 
 
+    def test_unicode_whitespace_only_rejected_with_matching_digest(self):
+        with tempfile.TemporaryDirectory() as d:
+            latin, italian = Path(d) / "latin.txt", Path(d) / "italian.txt"
+            latin.write_text("\u00a0\u2003\u3000", encoding="utf-8")
+            italian.write_text("testo italiano", encoding="utf-8")
+            approved = {
+                "latin": hashlib.sha256(latin.read_bytes()).hexdigest(),
+                "italian": hashlib.sha256(italian.read_bytes()).hexdigest(),
+            }
+            result = evaluate(latin, italian, approved)
+            self.assertFalse(result["ok"])
+            self.assertEqual(result["sources"]["latin"]["status"], "BLANK_SOURCE")
+            self.assertEqual(result["sources"]["italian"]["status"], "HASH_MATCH")
+
+    def test_unicode_whitespace_split_across_chunks(self):
+        with tempfile.TemporaryDirectory() as d:
+            path = Path(d) / "boundary_blank.txt"
+            path.write_bytes(b" " * (1024 * 1024 - 1) + "\u3000".encode("utf-8"))
+            self.assertEqual(inspect(path)["status"], "BLANK_SOURCE")
+
+    def test_unicode_whitespace_then_real_text_accepted(self):
+        with tempfile.TemporaryDirectory() as d:
+            path = Path(d) / "nonblank.txt"
+            path.write_text("\u00a0\u2003parola", encoding="utf-8")
+            self.assertEqual(inspect(path)["status"], "UNVERIFIED")
+
 if __name__ == "__main__":
     unittest.main()

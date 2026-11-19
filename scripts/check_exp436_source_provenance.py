@@ -39,7 +39,9 @@ def inspect(path):
                 hasher.update(chunk)
                 if not invalid_utf8:
                     try:
-                        decoder.decode(chunk)
+                        decoded = decoder.decode(chunk)
+                        if not has_non_whitespace and any(not c.isspace() for c in decoded):
+                            has_non_whitespace = True
                     except UnicodeDecodeError:
                         invalid_utf8 = True
                 if b"\x00" in chunk:
@@ -48,11 +50,11 @@ def inspect(path):
                        or byte == 127 for byte in chunk):
                     has_forbidden_control = True
                 total_bytes += len(chunk)
-                if not has_non_whitespace and chunk.strip(bytes((32, 9, 13, 10, 11, 12))):
-                    has_non_whitespace = True
         if not invalid_utf8:
             try:
-                decoder.decode(b'', final=True)
+                tail = decoder.decode(b'', final=True)
+                if not has_non_whitespace and any(not c.isspace() for c in tail):
+                    has_non_whitespace = True
             except UnicodeDecodeError:
                 invalid_utf8 = True
         digest = hasher.hexdigest()
