@@ -99,6 +99,21 @@ def inspect(root, paths=FILES):
             issues.append(f"{relative}: invalid reproduction_command")
         if record.get("reproduction_status") not in ("REPRODUCED", "VALIDATED"):
             issues.append(f"{relative}: no attested reproduction status")
+    # An output must not alias evidence belonging to the *other* record.
+    # The per-record guard above cannot see records processed later.
+    if len(records) == len(paths):
+        evidence = {
+            (root / value).resolve()
+            for record in records
+            for key in ("source", "generator_path", "reproduction_log_path")
+            if isinstance((value := record.get(key)), str) and value.strip()
+        }
+        for relative, record in zip(paths, records):
+            output = record.get("reproduced_output_path")
+            if (record.get("reproduction_status") in ("REPRODUCED", "VALIDATED")
+                    and isinstance(output, str) and output.strip()
+                    and (root / output).resolve() in evidence):
+                issues.append(f"{relative}: reproduced output aliases cross-record input/log evidence")
     if len(records) == len(paths) and any(
         r.get("source_sha256") != records[0].get("source_sha256") for r in records[1:]
     ):
@@ -109,7 +124,12 @@ def inspect(root, paths=FILES):
         r.get("reproduction_status") in ("REPRODUCED", "VALIDATED") for r in records
     ):
         outputs = [r.get("reproduced_output_path") for r in records]
-        if all(isinstance(p, str) and p.strip() for p in outputs) and len({(root / p).resolve() for p in outputs}) != len(outputs):
+        if all(isinstance(p, str) and p.strip() for p in outputs) and any(
+            (root / left).resolve() == (root / right).resolve()
+            or ((root / left).is_file() and (root / right).is_file()
+                and (root / left).samefile(root / right))
+            for i, left in enumerate(outputs) for right in outputs[i + 1:]
+        ):
             issues.append("EXP-590/593: reused reproduced output path across distinct results")
     return issues
 
