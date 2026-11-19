@@ -16,7 +16,9 @@ def verify():
   for d in range(1,6):
    rows=chains([{'tokens':t,'group':'g'}],d)
    actual=Counter((a,b) for r in rows for a,b in zip(r['tokens'],r['tokens'][1:]))
-   assert actual==Counter(zip(t,t[d:]))
+   expected=Counter(zip(t,t[d:]))
+   if actual != expected:
+    raise ValueError(f'Lag pair construction mismatch for n={n}, d={d}: actual={actual}, expected={expected}')
 verify()
 original_shuffle=v2.shuffled
 original_score=v2.score
