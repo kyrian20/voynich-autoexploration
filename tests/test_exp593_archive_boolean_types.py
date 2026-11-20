@@ -40,6 +40,33 @@ class ArchiveNumericTypeTests(unittest.TestCase):
         saved, report = fixture()
         self.assertTrue(archive_result_complete(saved, report))
 
+    def test_joint_occurrences_exceed_tokens_is_rejected(self):
+        saved, report = fixture()
+        # Each spelling individually fits two tokens; their total of three does not.
+        saved["tokens"] = 2
+        report = report.replace("- Tokens: 3", "- Tokens: 2")
+        self.assertFalse(archive_result_complete(saved, report))
+
+    def test_joint_initials_exceed_lines_is_rejected(self):
+        saved, report = fixture()
+        # All three spellings claim the first position of only two lines.
+        saved["lines"] = 2
+        report = report.replace("- Líneas: 3", "- Líneas: 2")
+        self.assertFalse(archive_result_complete(saved, report))
+
+    def test_joint_finals_exceed_lines_is_rejected(self):
+        saved, report = fixture()
+        saved["lines"] = 2
+        report = report.replace("- Líneas: 3", "- Líneas: 2")
+        for word in VARIANTS:
+            saved["observed"][word]["line_final"] = 1
+            saved["observed"][word]["by_currier"]["A"]["line_final"] = 1
+            report = report.replace(
+                f"| {word} | 1 | 1 | 0 |", f"| {word} | 1 | 1 | 1 |"
+            )
+        report = report.replace("| A | 1 | 1 | 0 |", "| A | 1 | 1 | 1 |")
+        self.assertFalse(archive_result_complete(saved, report))
+
     def test_boolean_initial_fraction_is_rejected(self):
         saved, report = fixture()
         saved["observed"]["daiin"]["initial_fraction"] = True
