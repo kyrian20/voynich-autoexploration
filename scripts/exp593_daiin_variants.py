@@ -96,7 +96,7 @@ def archive_result_complete(saved, report):
         if expected_fraction is None:
             if fraction is not None:
                 return False
-        elif not isinstance(fraction, (int, float)) or not math.isfinite(fraction) or not math.isclose(fraction, expected_fraction, abs_tol=1e-12):
+        elif type(fraction) not in (int, float) or not math.isfinite(fraction) or not math.isclose(fraction, expected_fraction, abs_tol=1e-12):
             return False
         classes = row.get("by_currier")
         if not isinstance(classes, dict) or not classes:
