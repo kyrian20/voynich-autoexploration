@@ -45,6 +45,25 @@ class ArchiveNumericTypeTests(unittest.TestCase):
         saved["observed"]["daiin"]["initial_fraction"] = True
         self.assertFalse(archive_result_complete(saved, report))
 
+    def test_negative_null_mean_is_rejected(self):
+        saved, report = fixture()
+        saved["tests"]["daiin"]["null_mean_initial"] = -1.0
+        saved["tests"]["daiin"]["observed_standardized_statistic"] = 2.0
+        self.assertFalse(archive_result_complete(saved, report))
+
+    def test_null_mean_above_line_count_is_rejected(self):
+        saved, report = fixture()
+        saved["tests"]["daiin"]["null_mean_initial"] = 4.0
+        saved["tests"]["daiin"]["observed_standardized_statistic"] = -3.0
+        self.assertFalse(archive_result_complete(saved, report))
+
+    def test_zero_variance_inconsistent_observation_is_rejected(self):
+        saved, report = fixture()
+        saved["tests"]["daiin"]["null_mean_initial"] = 0.0
+        saved["tests"]["daiin"]["null_sd_initial"] = 0.0
+        saved["tests"]["daiin"]["observed_standardized_statistic"] = 0.0
+        self.assertFalse(archive_result_complete(saved, report))
+
     def test_boolean_test_statistic_is_rejected(self):
         saved, report = fixture()
         saved["tests"]["dain"]["empirical_p"] = True
