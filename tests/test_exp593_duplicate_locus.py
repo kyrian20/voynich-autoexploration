@@ -16,7 +16,7 @@ class DuplicateLocusTests(unittest.TestCase):
     def test_duplicate_locus_rejected_before_statistics(self):
         raw = b"<f1r> $L=A\n<f1r.1,foo> daiin.dain\n<f1r.1,bar> daiin\n"
         with patch.object(exp, "SOURCE", Source(raw)):
-            with self.assertRaisesRegex(ValueError, "duplicate folio/line locus: 1r.1"):
+            with self.assertRaisesRegex(ValueError, "duplicate folio/line locus: f1r.1"):
                 exp.parse()
 
     def test_distinct_loci_retained(self):
@@ -25,7 +25,7 @@ class DuplicateLocusTests(unittest.TestCase):
             result_raw, lines = exp.parse()
         self.assertEqual(result_raw, raw)
         self.assertEqual([(row["folio"], row["line"]) for row in lines],
-                         [("1r", 1), ("1r", 2)])
+                         [("f1r", 1), ("f1r", 2)])
 
 
 if __name__ == "__main__":
