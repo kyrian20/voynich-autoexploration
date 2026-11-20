@@ -84,6 +84,14 @@ class ArchiveNumericTypeTests(unittest.TestCase):
         saved["tests"]["daiin"]["observed_standardized_statistic"] = -3.0
         self.assertFalse(archive_result_complete(saved, report))
 
+    def test_null_mean_exceeding_variant_occurrences_is_rejected(self):
+        saved, report = fixture()
+        # One occurrence cannot start more than one line in any shuffle.
+        # The total line count is three, so the old lines-only bound missed this.
+        saved["tests"]["daiin"]["null_mean_initial"] = 2.0
+        saved["tests"]["daiin"]["observed_standardized_statistic"] = -1.0
+        self.assertFalse(archive_result_complete(saved, report))
+
     def test_zero_variance_inconsistent_observation_is_rejected(self):
         saved, report = fixture()
         saved["tests"]["daiin"]["null_mean_initial"] = 0.0
