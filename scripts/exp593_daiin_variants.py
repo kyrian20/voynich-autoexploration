@@ -26,7 +26,11 @@ def parse():
         m = HEADER.match(row)
         if m:
             lang = parse_currier_language(m.group(2))
-            if lang: classes[m.group(1)] = lang
+            if lang:
+                folio = m.group(1)
+                if folio in classes and classes[folio] != lang:
+                    raise ValueError(f"EXP-593 conflicting Currier headers for {folio}: {classes[folio]} vs {lang}")
+                classes[folio] = lang
     lines = []
     seen_loci = set()
     for row in text.splitlines():
