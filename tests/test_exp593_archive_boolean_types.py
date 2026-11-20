@@ -101,5 +101,32 @@ class ArchiveNumericTypeTests(unittest.TestCase):
         self.assertFalse(archive_result_complete(saved, report))
 
 
+
+class GeneratorZeroVarianceTests(unittest.TestCase):
+    def test_generator_rejects_undefined_z_before_archive_write(self):
+        """One deterministic null draw contradicts observed initials: no archive."""
+        from unittest.mock import patch
+        from scripts import exp593_daiin_variants as exp
+
+        class ReverseShuffle:
+            def shuffle(self, tokens):
+                tokens.reverse()
+
+        lines = [
+            {"folio": "1r", "line": i + 1, "currier": "A",
+             "tokens": ["daiin", "other"]}
+            for i in range(1000)
+        ]
+        with (patch.object(exp.SOURCE.__class__, "exists", return_value=True),
+              patch.object(exp, "parse", return_value=(b"synthetic", lines)),
+              patch.object(exp, "archive_status", return_value="new"),
+              patch.object(exp, "archive_paths", return_value=("unused.json", "unused.md")),
+              patch.object(exp, "N_PERM", 1),
+              patch.object(exp.random, "Random", return_value=ReverseShuffle()),
+              patch.object(exp, "write_archive_pair") as writer):
+            with self.assertRaisesRegex(RuntimeError, "undefined z-score for daiin"):
+                exp.main()
+            writer.assert_not_called()
+
 if __name__ == "__main__":
     unittest.main()
