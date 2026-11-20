@@ -108,6 +108,23 @@ def main() -> int:
         Path(p) if Path(p).is_absolute() else ROOT / Path(p)
         for p in args.paths
     ] if args.paths else [ROOT / p for p in CORPORA]
+    # A receipt must never replace the evidence it describes.  Resolve symlinks
+    # and hardlinks before writing, including a not-yet-existing --out path.
+    if args.out is not None:
+        output = args.out.resolve()
+        for source in paths:
+            try:
+                same_file = output == source.resolve() or (
+                    args.out.exists() and source.exists()
+                    and args.out.samefile(source)
+                )
+            except OSError as exc:
+                print(f"Cannot verify receipt/source identity: {exc}", file=sys.stderr)
+                return 2
+            if same_file:
+                print(f"Refusing to overwrite audited input with receipt: {source}",
+                      file=sys.stderr)
+                return 2
     reports = []
     for path in paths:
         try:
