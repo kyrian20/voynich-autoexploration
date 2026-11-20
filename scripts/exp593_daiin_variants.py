@@ -139,7 +139,7 @@ def archive_result_complete(saved, report):
             if type(value) not in (int, float) or not math.isfinite(value):
                 return False
         # A shuffled line contributes at most one initial token.
-        if not 0 <= test["null_mean_initial"] <= saved["lines"]:
+        if not 0 <= test["null_mean_initial"] <= min(saved["lines"], occurrences):
             return False
         if test["null_sd_initial"] < 0:
             return False
