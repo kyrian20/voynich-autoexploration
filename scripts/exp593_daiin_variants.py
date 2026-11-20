@@ -81,6 +81,16 @@ def archive_result_complete(saved, report):
         return False
     if f"- Líneas: {saved['lines']:,}" not in report or f"- Tokens: {saved['tokens']:,}" not in report:
         return False
+    # The three spellings are mutually exclusive token identities. Across the
+    # family, no line can have two different first or last tokens.
+    if any(sum(observed[word][field] for word in VARIANTS) > limit
+           for field, limit in (("occurrences", saved["tokens"]),
+                                ("line_initial", saved["lines"]),
+                                ("line_final", saved["lines"]))
+           if all(isinstance(observed[word], dict) and
+                  type(observed[word].get(field)) is int and
+                  observed[word][field] >= 0 for word in VARIANTS)):
+        return False
     report_lines = report.splitlines()
     for word in VARIANTS:
         row, test = observed[word], tests[word]
