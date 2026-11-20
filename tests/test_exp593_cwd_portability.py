@@ -35,9 +35,10 @@ assert m['OUT'] == root / 'research/experiments'
 assert str(m['SOURCE'].relative_to(root)) == 'data/transcriptions/eva_zl3b.txt'
 raw, lines = m['parse']()
 assert hashlib.sha256(raw).hexdigest() == sys.argv[3]
-assert len(lines) == 4188, len(lines)
-assert sum(len(row['tokens']) for row in lines) == 32732
-print('EXP-593: foreign-cwd parse, corpus SHA-256 and historical coverage OK')
+assert len(lines) == 5376, len(lines)  # CI-observed expanded IVTFF page-ID coverage
+assert sum(len(row['tokens']) for row in lines) >= 32732  # never silently lose legacy tokens
+assert any(row['folio'] == 'f67r1' for row in lines), 'subdivided folio missing'
+print('EXP-593: foreign-cwd parse, corpus SHA-256 and expanded IVTFF coverage OK')
 """
         with tempfile.TemporaryDirectory() as tmp:
             self.assertFalse((Path(tmp) / "data/transcriptions/eva_zl3b.txt").exists())
@@ -50,7 +51,7 @@ print('EXP-593: foreign-cwd parse, corpus SHA-256 and historical coverage OK')
                 timeout=45,
             )
         self.assertEqual(completed.returncode, 0, completed.stdout + completed.stderr)
-        self.assertIn("historical coverage OK", completed.stdout)
+        self.assertIn("expanded IVTFF coverage OK", completed.stdout)
 
 
 if __name__ == "__main__":

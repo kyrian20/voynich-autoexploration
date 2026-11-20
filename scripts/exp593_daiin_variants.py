@@ -14,8 +14,10 @@ SOURCE = ROOT / "data/transcriptions/eva_zl3b.txt"
 OUT = ROOT / "research/experiments"
 N_PERM, SEED = 5000, 20261021
 VARIANTS = ("daiin", "dain", "daiiin")
-HEADER = re.compile(r"^<f(\d+[rv])>\s*(.*)$")
-LINE = re.compile(r"^<f(\d+[rv])\.(\d+),[^>]*>\s*(.*)$")
+# Use the same IVTFF page-ID coverage as EXP-590; archives remain frozen.
+PAGE_ID = r"f(?:\d+[rv][1-6]?|Ros)"
+HEADER = re.compile(rf"^<({PAGE_ID})>\s*(.*)$")
+LINE = re.compile(rf"^<({PAGE_ID})\.(\d+),[^>]*>\s*(.*)$")
 TOKEN = re.compile(r"[a-z]+")
 
 def parse():
@@ -26,12 +28,21 @@ def parse():
         m = HEADER.match(row)
         if m:
             lang = parse_currier_language(m.group(2))
-            if lang: classes[m.group(1)] = lang
+            if lang:
+                folio = m.group(1)
+                if folio in classes and classes[folio] != lang:
+                    raise ValueError(f"EXP-593 conflicting Currier headers for {folio}: {classes[folio]} vs {lang}")
+                classes[folio] = lang
     lines = []
+    seen_loci = set()
     for row in text.splitlines():
         m = LINE.match(row)
         if not m: continue
         folio, number, body = m.groups()
+        locus = (folio, int(number))
+        if locus in seen_loci:
+            raise ValueError(f"EXP-593 duplicate folio/line locus: {folio}.{number}")
+        seen_loci.add(locus)
         body = re.sub(r"<[^>]*>|\{[^}]*\}|\[[^\]]*\]", " ", body)
         toks = TOKEN.findall(body.lower())
         if toks:
@@ -81,6 +92,16 @@ def archive_result_complete(saved, report):
         return False
     if f"- Líneas: {saved['lines']:,}" not in report or f"- Tokens: {saved['tokens']:,}" not in report:
         return False
+    # The three spellings are mutually exclusive token identities. Across the
+    # family, no line can have two different first or last tokens.
+    if any(sum(observed[word][field] for word in VARIANTS) > limit
+           for field, limit in (("occurrences", saved["tokens"]),
+                                ("line_initial", saved["lines"]),
+                                ("line_final", saved["lines"]))
+           if all(isinstance(observed[word], dict) and
+                  type(observed[word].get(field)) is int and
+                  observed[word][field] >= 0 for word in VARIANTS)):
+        return False
     report_lines = report.splitlines()
     for word in VARIANTS:
         row, test = observed[word], tests[word]
@@ -89,6 +110,8 @@ def archive_result_complete(saved, report):
         if not all(count(row.get(k)) for k in ("occurrences", "line_initial", "line_final")):
             return False
         occurrences, initial, final = (row[k] for k in ("occurrences", "line_initial", "line_final"))
+        if occurrences > saved["tokens"] or initial > saved["lines"] or final > saved["lines"]:
+            return False
         if initial > occurrences or final > occurrences:
             return False
         fraction = row.get("initial_fraction")
@@ -96,7 +119,7 @@ def archive_result_complete(saved, report):
         if expected_fraction is None:
             if fraction is not None:
                 return False
-        elif not isinstance(fraction, (int, float)) or not math.isfinite(fraction) or not math.isclose(fraction, expected_fraction, abs_tol=1e-12):
+        elif type(fraction) not in (int, float) or not math.isfinite(fraction) or not math.isclose(fraction, expected_fraction, abs_tol=1e-12):
             return False
         classes = row.get("by_currier")
         if not isinstance(classes, dict) or not classes:
@@ -115,7 +138,14 @@ def archive_result_complete(saved, report):
             value = test.get(key)
             if type(value) not in (int, float) or not math.isfinite(value):
                 return False
+        # A shuffled line contributes at most one initial token.
+        if not 0 <= test["null_mean_initial"] <= min(saved["lines"], occurrences):
+            return False
         if test["null_sd_initial"] < 0:
+            return False
+        # Zero variance with a different observation has undefined z-score.
+        # Reject rather than treating the generator's zero fallback as evidence.
+        if test["null_sd_initial"] == 0 and not math.isclose(initial, test["null_mean_initial"], abs_tol=1e-12):
             return False
         # The archived standardized statistic is derived, not independent.
         # A corrupted z-score can otherwise survive JSON/Markdown agreement
@@ -240,7 +270,18 @@ def main():
     null_mean={w:sum(null[w])/N_PERM for w in VARIANTS}
     null_sd={w:(sum((x-null_mean[w])**2 for x in null[w])/N_PERM)**0.5 for w in VARIANTS}
     def zscore(w, value):
-        return (value-null_mean[w])/null_sd[w] if null_sd[w] else 0.0
+        """Fail closed if a zero-variance null cannot explain an observed count.
+
+        The historical fallback of 0.0 for every zero-SD case would silently
+        convert a contradictory observation into a non-significant statistic.
+        This guard runs before writing any archive and does not change a
+        well-defined nonzero-SD statistic.
+        """
+        if null_sd[w] == 0:
+            if not math.isclose(value, null_mean[w], rel_tol=0, abs_tol=1e-12):
+                raise RuntimeError(f"EXP-593 undefined z-score for {w}: zero null SD with distinct observed count")
+            return 0.0
+        return (value-null_mean[w])/null_sd[w]
     max_null_z=[
         max(zscore(w, null[w][i]) for w in VARIANTS)
         for i in range(N_PERM)
