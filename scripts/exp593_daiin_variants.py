@@ -89,6 +89,8 @@ def archive_result_complete(saved, report):
         if not all(count(row.get(k)) for k in ("occurrences", "line_initial", "line_final")):
             return False
         occurrences, initial, final = (row[k] for k in ("occurrences", "line_initial", "line_final"))
+        if occurrences > saved["tokens"] or initial > saved["lines"] or final > saved["lines"]:
+            return False
         if initial > occurrences or final > occurrences:
             return False
         fraction = row.get("initial_fraction")
