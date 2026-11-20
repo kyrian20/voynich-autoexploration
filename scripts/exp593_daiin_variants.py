@@ -28,10 +28,15 @@ def parse():
             lang = parse_currier_language(m.group(2))
             if lang: classes[m.group(1)] = lang
     lines = []
+    seen_loci = set()
     for row in text.splitlines():
         m = LINE.match(row)
         if not m: continue
         folio, number, body = m.groups()
+        locus = (folio, int(number))
+        if locus in seen_loci:
+            raise ValueError(f"EXP-593 duplicate folio/line locus: {folio}.{number}")
+        seen_loci.add(locus)
         body = re.sub(r"<[^>]*>|\{[^}]*\}|\[[^\]]*\]", " ", body)
         toks = TOKEN.findall(body.lower())
         if toks:
