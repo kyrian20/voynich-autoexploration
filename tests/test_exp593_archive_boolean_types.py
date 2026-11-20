@@ -64,6 +64,29 @@ class ArchiveNumericTypeTests(unittest.TestCase):
         saved["tests"]["daiin"]["observed_standardized_statistic"] = 0.0
         self.assertFalse(archive_result_complete(saved, report))
 
+    def test_occurrences_exceed_total_tokens_is_rejected(self):
+        saved, report = fixture()
+        saved["tokens"] = 2
+        report = report.replace("- Tokens: 3", "- Tokens: 2")
+        self.assertFalse(archive_result_complete(saved, report))
+
+    def test_line_initial_exceeds_total_lines_is_rejected(self):
+        saved, report = fixture()
+        saved["lines"] = 1
+        report = report.replace("- Líneas: 3", "- Líneas: 1")
+        self.assertFalse(archive_result_complete(saved, report))
+
+    def test_line_final_exceeds_total_lines_is_rejected(self):
+        saved, report = fixture()
+        saved["lines"] = 1
+        report = report.replace("- Líneas: 3", "- Líneas: 1")
+        saved["observed"]["daiin"]["line_final"] = 2
+        saved["observed"]["daiin"]["occurrences"] = 2
+        saved["observed"]["daiin"]["initial_fraction"] = 0.5
+        saved["observed"]["daiin"]["by_currier"]["A"].update({"line_final": 2, "occurrences": 2})
+        report = report.replace("| daiin | 1 | 1 | 0 |", "| daiin | 2 | 1 | 2 |").replace("| A | 1 | 1 | 0 |", "| A | 2 | 1 | 2 |", 1)
+        self.assertFalse(archive_result_complete(saved, report))
+
     def test_boolean_test_statistic_is_rejected(self):
         saved, report = fixture()
         saved["tests"]["dain"]["empirical_p"] = True
