@@ -14,8 +14,10 @@ SOURCE = ROOT / "data/transcriptions/eva_zl3b.txt"
 OUT = ROOT / "research/experiments"
 N_PERM, SEED = 5000, 20261021
 VARIANTS = ("daiin", "dain", "daiiin")
-HEADER = re.compile(r"^<f(\d+[rv])>\s*(.*)$")
-LINE = re.compile(r"^<f(\d+[rv])\.(\d+),[^>]*>\s*(.*)$")
+# Use the same IVTFF page-ID coverage as EXP-590; archives remain frozen.
+PAGE_ID = r"f(?:\d+[rv][1-6]?|Ros)"
+HEADER = re.compile(rf"^<({PAGE_ID})>\s*(.*)$")
+LINE = re.compile(rf"^<({PAGE_ID})\.(\d+),[^>]*>\s*(.*)$")
 TOKEN = re.compile(r"[a-z]+")
 
 def parse():
