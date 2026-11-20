@@ -115,7 +115,14 @@ def archive_result_complete(saved, report):
             value = test.get(key)
             if type(value) not in (int, float) or not math.isfinite(value):
                 return False
+        # A shuffled line contributes at most one initial token.
+        if not 0 <= test["null_mean_initial"] <= saved["lines"]:
+            return False
         if test["null_sd_initial"] < 0:
+            return False
+        # Zero variance with a different observation has undefined z-score.
+        # Reject rather than treating the generator's zero fallback as evidence.
+        if test["null_sd_initial"] == 0 and not math.isclose(initial, test["null_mean_initial"], abs_tol=1e-12):
             return False
         # The archived standardized statistic is derived, not independent.
         # A corrupted z-score can otherwise survive JSON/Markdown agreement
