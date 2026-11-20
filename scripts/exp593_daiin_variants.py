@@ -249,7 +249,18 @@ def main():
     null_mean={w:sum(null[w])/N_PERM for w in VARIANTS}
     null_sd={w:(sum((x-null_mean[w])**2 for x in null[w])/N_PERM)**0.5 for w in VARIANTS}
     def zscore(w, value):
-        return (value-null_mean[w])/null_sd[w] if null_sd[w] else 0.0
+        """Fail closed if a zero-variance null cannot explain an observed count.
+
+        The historical fallback of 0.0 for every zero-SD case would silently
+        convert a contradictory observation into a non-significant statistic.
+        This guard runs before writing any archive and does not change a
+        well-defined nonzero-SD statistic.
+        """
+        if null_sd[w] == 0:
+            if not math.isclose(value, null_mean[w], rel_tol=0, abs_tol=1e-12):
+                raise RuntimeError(f"EXP-593 undefined z-score for {w}: zero null SD with distinct observed count")
+            return 0.0
+        return (value-null_mean[w])/null_sd[w]
     max_null_z=[
         max(zscore(w, null[w][i]) for w in VARIANTS)
         for i in range(N_PERM)
