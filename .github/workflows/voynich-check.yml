@@ -433,6 +433,8 @@ jobs:
           python tests/test_exp173_line_null.py
           python scripts/audit_exp173_line_null.py --check research/maintenance/2026-10-23-exp173-line-null/results.json
           python tests/test_exp173_reader_bridge.py
+          python -m unittest discover -s tests -p 'test_exp173_reader_bridge_provenance_transition.py' -v
+          python -O -m unittest discover -s tests -p 'test_exp173_reader_bridge_provenance_transition.py' -v
           python scripts/audit_exp173_reader_bridge.py --check research/maintenance/2026-10-23-exp173-reader-bridge
           python tests/test_exp173_paragraph_strata.py
           python scripts/audit_exp173_paragraph_strata.py --check research/maintenance/2026-10-23-paragraph-strata/results.json
@@ -635,6 +637,8 @@ jobs:
 
       - name: Validar metadatos Currier desde IVTFF
         run: |
+          python -m unittest discover -s tests -p 'test_ivtff_cross_header_currier.py' -v
+          python -O -m unittest discover -s tests -p 'test_ivtff_cross_header_currier.py' -v
           python scripts/audit_ivtff_metadata.py
           python tests/test_ivtff_metadata_strict.py
           python -O tests/test_ivtff_metadata_strict.py
