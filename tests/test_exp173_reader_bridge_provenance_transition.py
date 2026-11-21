@@ -16,6 +16,8 @@ from unittest.mock import patch
 
 ROOT = Path(__file__).resolve().parents[1]
 SCRIPT = ROOT / "scripts/audit_exp173_reader_bridge.py"
+# Legacy sibling imports in audit_exp173_line_null require scripts on sys.path.
+sys.path.insert(0, str(ROOT / "scripts"))
 spec = importlib.util.spec_from_file_location("exp173_reader_bridge_provenance", SCRIPT)
 module = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(module)
