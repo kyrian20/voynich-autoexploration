@@ -117,7 +117,7 @@ if __name__ == '__main__':
         key = 'scripts/audit_exp173_reader_bridge.py'
         historical = 'cab48f865203d049f7c5a579146ca340c0cf61100d058792d11dcb29490363f8'
         reader_bytes = (ROOT / key).read_bytes()
-        blob = hashlib.sha1(b'blob ' + str(len(reader_bytes)).encode() + b'\\0' + reader_bytes).hexdigest()
+        blob = hashlib.sha1(b'blob ' + str(len(reader_bytes)).encode() + bytes([0]) + reader_bytes).hexdigest()
         if (archived['dependencies_sha256'].get(key) == historical
                 and blob == '7f3dad697a06ef9493a856d2efc0ccb8a135e050'
                 and result['dependencies_sha256'].get(key) == hashlib.sha256(reader_bytes).hexdigest()):
