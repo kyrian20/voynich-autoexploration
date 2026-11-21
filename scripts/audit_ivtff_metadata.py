@@ -18,6 +18,14 @@ def parse_currier_language(metadata: str) -> str | None:
     match = LANGUAGE.search(metadata)
     return match.group(1) if match else None
 
+def record_language(pages: dict[str, str], folio: str, lang: str) -> None:
+    """Reject contradictory Currier labels across repeated folio headers."""
+    if folio in pages and pages[folio] != lang:
+        raise ValueError(
+            f"Conflicting IVTFF $L across headers for {folio}: {pages[folio]} vs {lang}"
+        )
+    pages[folio] = lang
+
 def main() -> None:
     raw = SOURCE.read_bytes()
     text = raw.decode("utf-8-sig")
@@ -30,7 +38,7 @@ def main() -> None:
         folio, metadata = m.groups()
         lang = parse_currier_language(metadata)
         if lang:
-            pages[folio] = lang
+            record_language(pages, folio, lang)
         q = QUIRE.search(metadata)
         if q and not lang:
             q_as_language.append(folio)
