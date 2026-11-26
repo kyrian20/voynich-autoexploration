@@ -3,7 +3,7 @@ import importlib.util
 from pathlib import Path
 import unittest
 
-SCRIPT = Path(__file__).resolve().parents[1] / "scripts" / "audit_ivtff_metadata.py"
+SCRIPT = Path(__file__).resolve().parents[1] / "scripts" / "audit_ivtff_metadata_cross_header.py"
 spec = importlib.util.spec_from_file_location("audit_ivtff_metadata", SCRIPT)
 module = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(module)
