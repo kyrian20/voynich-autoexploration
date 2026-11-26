@@ -6,7 +6,7 @@ import sys
 import unittest
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'scripts'))
-from audit_predecessor_opportunities import CONTROLS, key, opportunity, summarize
+from audit_predecessor_opportunities import CONTROLS, key, opportunity, summarize, verify_snapshot
 
 
 class OpportunityTests(unittest.TestCase):
