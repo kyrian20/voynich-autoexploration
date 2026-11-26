@@ -839,3 +839,8 @@ jobs:
         run: |
           python -m unittest discover -s research/maintenance/2026-11-01-zs-wordpair-audit -p 'test_near_copy_v2.py' -v
           python -O -m unittest discover -s research/maintenance/2026-11-01-zs-wordpair-audit -p 'test_near_copy_v2.py' -v
+
+      - name: Verificar atribución de rutas EXP-436 sin ejecutar corpus congelados
+        run: |
+          python -m unittest discover -s tests -p 'test_exp436_script_path_attribution.py' -v
+          python -O -m unittest discover -s tests -p 'test_exp436_script_path_attribution.py' -v
