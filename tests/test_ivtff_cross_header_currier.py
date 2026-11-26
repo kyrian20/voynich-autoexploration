@@ -53,7 +53,7 @@ class TestCrossHeaderCurrier(unittest.TestCase):
             for number in range(1, 102)
         ]
         headers.append("<f1r> $L=A")
-        with tempfile.TemporaryDirectory() as directory:
+        with tempfile.TemporaryDirectory(dir=module.ROOT) as directory:
             source = Path(directory) / "synthetic.ivtff"
             source.write_text("\n".join(headers) + "\n", encoding="utf-8")
             output = io.StringIO()
