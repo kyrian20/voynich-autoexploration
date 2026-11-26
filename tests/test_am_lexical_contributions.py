@@ -1,3 +1,4 @@
+import hashlib
 import itertools
 from fractions import Fraction
 from pathlib import Path
@@ -5,7 +6,7 @@ import sys
 import unittest
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'scripts'))
-from audit_am_lexical_contributions import decompose
+from audit_am_lexical_contributions import decompose, verify_snapshot
 
 
 class LexicalTests(unittest.TestCase):
@@ -51,6 +52,56 @@ class LexicalTests(unittest.TestCase):
             with self.assertRaises(ValueError):
                 decompose(lines)
 
+
+
+class LexicalSnapshotTransitionTests(unittest.TestCase):
+    ROOT = Path(__file__).resolve().parents[1]
+    PARAGRAPH = 'scripts/audit_exp173_paragraph_strata.py'
+    BRIDGE = 'scripts/audit_exp173_reader_bridge.py'
+    OLD_PARAGRAPH = 'ce646d9bfb33fa3519e8d1d55aa3e093364910c292da9e8bb8016cd745df581c'
+    NEW_PARAGRAPH = '19c7754050439705310c43f52ef21c0dab11bcf1928e9a6c52ff285a7e168594'
+    OLD_BRIDGE = 'cab48f865203d049f7c5a579146ca340c0cf61100d058792d11dcb29490363f8'
+    NEW_BRIDGE = '5609e672a461f03c25e1462e5b3615e785741e9c5a15b366da880f71029bc223'
+
+    def snapshots(self):
+        archived = {'dependencies_sha256': {
+            self.PARAGRAPH: self.OLD_PARAGRAPH,
+            self.BRIDGE: self.OLD_BRIDGE,
+            'scripts/unchanged.py': 'a' * 64},
+            'files': [{'observed': 7, 'expected_exact': '11/3'}]}
+        actual = {'dependencies_sha256': {
+            self.PARAGRAPH: self.NEW_PARAGRAPH,
+            self.BRIDGE: self.NEW_BRIDGE,
+            'scripts/unchanged.py': 'a' * 64},
+            'files': [{'observed': 7, 'expected_exact': '11/3'}]}
+        return actual, archived
+
+    def test_exact_reader_source_transitions_are_accepted(self):
+        actual, archived = self.snapshots()
+        self.assertEqual(set(verify_snapshot(actual, archived)), {self.PARAGRAPH, self.BRIDGE})
+
+    def test_scientific_snapshot_value_drift_is_rejected(self):
+        actual, archived = self.snapshots()
+        actual['files'][0]['observed'] = 8
+        with self.assertRaisesRegex(SystemExit, 'Lexical snapshot mismatch'):
+            verify_snapshot(actual, archived)
+
+    def test_unapproved_current_dependency_digest_is_rejected(self):
+        actual, archived = self.snapshots()
+        actual['dependencies_sha256'][self.BRIDGE] = '0' * 64
+        with self.assertRaisesRegex(SystemExit, 'Lexical snapshot mismatch'):
+            verify_snapshot(actual, archived)
+
+    def test_unapproved_historical_dependency_digest_is_rejected(self):
+        actual, archived = self.snapshots()
+        archived['dependencies_sha256'][self.PARAGRAPH] = 'f' * 64
+        with self.assertRaisesRegex(SystemExit, 'Lexical snapshot mismatch'):
+            verify_snapshot(actual, archived)
+
+    def test_transition_pins_match_checked_in_sources(self):
+        for path, digest in ((self.PARAGRAPH, self.NEW_PARAGRAPH),
+                             (self.BRIDGE, self.NEW_BRIDGE)):
+            self.assertEqual(hashlib.sha256((self.ROOT / path).read_bytes()).hexdigest(), digest)
 
 if __name__ == '__main__':
     unittest.main()
