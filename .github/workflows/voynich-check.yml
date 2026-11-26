@@ -642,7 +642,7 @@ jobs:
         run: |
           python -m unittest discover -s tests -p 'test_ivtff_cross_header_currier.py' -v
           python -O -m unittest discover -s tests -p 'test_ivtff_cross_header_currier.py' -v
-          python scripts/audit_ivtff_metadata.py
+          python scripts/audit_ivtff_metadata_cross_header.py
           python tests/test_ivtff_metadata_strict.py
           python -O tests/test_ivtff_metadata_strict.py
           python scripts/audit_ivtff_metadata_strict.py
