@@ -445,6 +445,7 @@ jobs:
           python -O tests/test_predecessor_opportunities.py
           python scripts/audit_predecessor_opportunities.py --check research/maintenance/2026-10-23-predecessor-opportunities/results.json.gz
           python tests/test_folio_context_control.py
+          python -O tests/test_folio_context_control.py
           python scripts/audit_folio_context_control.py --check research/maintenance/2026-10-23-folio-context-control/results.json.gz
 
       - name: Reproducir soporte efectivo de identidad
