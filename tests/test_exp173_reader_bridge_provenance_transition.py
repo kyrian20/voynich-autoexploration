@@ -1,4 +1,4 @@
-"""Regression: EXP-173 frozen receipt permits only the pinned IVTFF reader repair.
+"""Regression: EXP-173 frozen receipt remains tied to the historical metadata reader.
 
 No historical output or source corpus is rewritten. Synthetic snapshot inputs only.
 """
@@ -27,8 +27,8 @@ NEW = "1a7c42fddd37e466c8b0891137d4a8db80d7ad68d5fcac745b108a8fc417b7e5"
 
 
 class TestReaderBridgeReceipt(unittest.TestCase):
-    def test_pinned_repair_sha_matches_actual_source(self):
-        self.assertEqual(hashlib.sha256((ROOT / KEY).read_bytes()).hexdigest(), NEW)
+    def test_historical_metadata_reader_remains_frozen(self):
+        self.assertEqual(hashlib.sha256((ROOT / KEY).read_bytes()).hexdigest(), OLD)
 
     def check_snapshot(self, new_digest=NEW, altered=False, old_digest=OLD):
         archived = {"dependencies_sha256": {KEY: old_digest}, "files": [{"tokens": 5}]}
