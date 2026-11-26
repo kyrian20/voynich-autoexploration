@@ -56,6 +56,7 @@ class LexicalTests(unittest.TestCase):
 
 class LexicalSnapshotTransitionTests(unittest.TestCase):
     ROOT = Path(__file__).resolve().parents[1]
+    SELF = 'scripts/audit_am_lexical_contributions.py'
     PARAGRAPH = 'scripts/audit_exp173_paragraph_strata.py'
     BRIDGE = 'scripts/audit_exp173_reader_bridge.py'
     OLD_PARAGRAPH = 'ce646d9bfb33fa3519e8d1d55aa3e093364910c292da9e8bb8016cd745df581c'
@@ -67,18 +68,20 @@ class LexicalSnapshotTransitionTests(unittest.TestCase):
         archived = {'dependencies_sha256': {
             self.PARAGRAPH: self.OLD_PARAGRAPH,
             self.BRIDGE: self.OLD_BRIDGE,
+            self.SELF: 'e270a0da9d99b82147a837458559cbfae8c9227dcb302d6d3a639f28fd3f57a9',
             'scripts/unchanged.py': 'a' * 64},
             'files': [{'observed': 7, 'expected_exact': '11/3'}]}
         actual = {'dependencies_sha256': {
             self.PARAGRAPH: self.NEW_PARAGRAPH,
             self.BRIDGE: self.NEW_BRIDGE,
+            self.SELF: 'b' * 64,
             'scripts/unchanged.py': 'a' * 64},
             'files': [{'observed': 7, 'expected_exact': '11/3'}]}
         return actual, archived
 
     def test_exact_reader_source_transitions_are_accepted(self):
         actual, archived = self.snapshots()
-        self.assertEqual(set(verify_snapshot(actual, archived)), {self.PARAGRAPH, self.BRIDGE})
+        self.assertEqual(set(verify_snapshot(actual, archived)), {self.SELF, self.PARAGRAPH, self.BRIDGE})
 
     def test_scientific_snapshot_value_drift_is_rejected(self):
         actual, archived = self.snapshots()
