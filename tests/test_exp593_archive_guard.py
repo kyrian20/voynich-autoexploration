@@ -38,8 +38,11 @@ class Exp593ArchiveGuardTest(unittest.TestCase):
                 "by_currier": {"A": {"occurrences": n,
                                     "line_initial": initial, "line_final": final}},
             }
-            tests[word] = {"null_mean_initial": 0.5, "null_sd_initial": 0.5,
-                           "observed_standardized_statistic": (initial - 0.5) / 0.5,
+            # A token with zero occurrences cannot start a shuffled line.
+            # Keep the valid synthetic fixture within the occurrence bound.
+            null_mean = 0.5 if n else 0.0
+            tests[word] = {"null_mean_initial": null_mean, "null_sd_initial": 0.5,
+                           "observed_standardized_statistic": (initial - null_mean) / 0.5,
                            "empirical_p": 0.2, "max_stat_adjusted_p": 0.3}
         return {"experiment": "EXP-593", "date_utc": DATE,
                 "source": "data/transcriptions/eva_zl3b.txt",
