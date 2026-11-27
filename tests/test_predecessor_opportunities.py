@@ -6,7 +6,7 @@ import sys
 import unittest
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'scripts'))
-from audit_predecessor_opportunities import CONTROLS, key, opportunity, summarize
+from audit_predecessor_opportunities import CONTROLS, key, opportunity, summarize, verify_snapshot
 
 
 class OpportunityTests(unittest.TestCase):
@@ -50,6 +50,51 @@ class OpportunityTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             opportunity(['x'], 'unknown')
 
+
+
+class OpportunitySnapshotTransitionTests(unittest.TestCase):
+    SELF = 'scripts/audit_predecessor_opportunities.py'
+    BRIDGE = 'scripts/audit_exp173_reader_bridge.py'
+    PARAGRAPH = 'scripts/audit_exp173_paragraph_strata.py'
+    OLD_SELF = 'd4c6a7fc43adce9c485eb6089e9dc8692a34ba3d9bc667b47706459fdeaefbc0'
+    OLD_BRIDGE = 'cab48f865203d049f7c5a579146ca340c0cf61100d058792d11dcb29490363f8'
+    NEW_BRIDGE = '5609e672a461f03c25e1462e5b3615e785741e9c5a15b366da880f71029bc223'
+    OLD_PARAGRAPH = 'ce646d9bfb33fa3519e8d1d55aa3e093364910c292da9e8bb8016cd745df581c'
+    NEW_PARAGRAPH = '19c7754050439705310c43f52ef21c0dab11bcf1928e9a6c52ff285a7e168594'
+
+    def snapshots(self):
+        archived = {'dependencies_sha256': {
+            self.SELF: self.OLD_SELF, self.BRIDGE: self.OLD_BRIDGE,
+            self.PARAGRAPH: self.OLD_PARAGRAPH, 'scripts/unchanged.py': 'a' * 64},
+            'files': [{'lines': 12, 'expected_changed_predecessors_exact': '7/3'}]}
+        actual = {'dependencies_sha256': {
+            self.SELF: 'b' * 64, self.BRIDGE: self.NEW_BRIDGE,
+            self.PARAGRAPH: self.NEW_PARAGRAPH, 'scripts/unchanged.py': 'a' * 64},
+            'files': [{'lines': 12, 'expected_changed_predecessors_exact': '7/3'}]}
+        return actual, archived
+
+    def test_pinned_source_changes_and_self_digest_preserve_snapshot(self):
+        actual, archived = self.snapshots()
+        self.assertEqual(set(verify_snapshot(actual, archived)),
+                         {self.SELF, self.BRIDGE, self.PARAGRAPH})
+
+    def test_metric_drift_is_rejected(self):
+        actual, archived = self.snapshots()
+        actual['files'][0]['lines'] = 13
+        with self.assertRaisesRegex(SystemExit, 'Opportunity snapshot mismatch'):
+            verify_snapshot(actual, archived)
+
+    def test_unapproved_source_hash_is_rejected(self):
+        actual, archived = self.snapshots()
+        actual['dependencies_sha256'][self.BRIDGE] = '0' * 64
+        with self.assertRaisesRegex(SystemExit, 'Opportunity snapshot mismatch'):
+            verify_snapshot(actual, archived)
+
+    def test_unapproved_historical_hash_is_rejected(self):
+        actual, archived = self.snapshots()
+        archived['dependencies_sha256'][self.PARAGRAPH] = 'f' * 64
+        with self.assertRaisesRegex(SystemExit, 'Opportunity snapshot mismatch'):
+            verify_snapshot(actual, archived)
 
 if __name__ == '__main__':
     unittest.main()
