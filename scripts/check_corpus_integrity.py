@@ -56,7 +56,7 @@ def verify_frozen_manifest(manifest):
     if not isinstance(manifest, dict):
         return ['Invalid frozen manifest object']
     errors = []
-    if manifest.get('schema_version') != 1 or manifest.get('source_commit') != FROZEN_SOURCE_COMMIT:
+    if type(manifest.get('schema_version')) is not int or manifest['schema_version'] != 1 or manifest.get('source_commit') != FROZEN_SOURCE_COMMIT:
         errors.append('Frozen manifest version/source changed without review')
     rows = manifest.get('files')
     if not isinstance(rows, list):
