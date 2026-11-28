@@ -105,6 +105,22 @@ class CorpusIntegrity(unittest.TestCase):
                 with self.subTest(field=key,value=value):
                     changed=dict(entry);changed[key]=value
                     self.assertTrue(verify(Path(d),{'files':[changed]}))
+    def test_frozen_manifest_version_requires_integer_not_bool_or_float(self):
+        # Python considers True == 1 and 1.0 == 1: the archive lock must not.
+        root = Path(__file__).resolve().parents[1]
+        manifest = json.loads(
+            (root/'research/CORPUS_INPUT_MANIFEST.json').read_text(encoding='utf-8'),
+            object_pairs_hook=unique_keys,
+        )
+        self.assertEqual(verify_frozen_manifest(manifest), [])
+        for bad_version in (True, 1.0, False, '1'):
+            with self.subTest(schema_version=bad_version):
+                altered = dict(manifest, schema_version=bad_version)
+                self.assertIn(
+                    'Frozen manifest version/source changed without review',
+                    verify_frozen_manifest(altered),
+                )
+
     def test_independent_frozen_lock_accepts_original_manifest(self):
         root = Path(__file__).resolve().parents[1]
         manifest = json.loads((root/'research/CORPUS_INPUT_MANIFEST.json').read_text(encoding='utf-8'), object_pairs_hook=unique_keys)
